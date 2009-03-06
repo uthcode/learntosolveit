@@ -1,0 +1,5 @@
+num = int(raw_input("Input Integer:"))
+binary = bin(num)
+print 'Binary:',binary.lstrip('0b')
+octal = oct(num)
+print 'Octal:', octal.lstrip('0')

@@ -1,0 +1,18 @@
+The most important thing in pygame is the surface. One surface is special - the
+one you create with pygame.display.set_mode() This is the 'display surface'
+which represents the screen. Whatever you do will appear on the user's screen.
+You can have only one of these, thats an SDL limitation and not the python one.
+
+Other ways to create surfaces are image.load(), font.reader(), Surface().
+Most important surface functions are blit, fill, set_at, and get_at.
+
+If I have to create NxN matrix, should I create NxN rects in pygame is the
+question.
+
+A rect is simply a rectangle - defined only by the position of its top left
+corner, its width and its height.
+rect = pygame.Rect(10,10, 20,20)
+
+Tue Sep  9 17:33:39 IST 2008
+* pygame.surface.Surface() What does it return or do?
+* get_rect() what does it return? Co-ordinates?
