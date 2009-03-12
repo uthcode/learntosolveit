@@ -37,3 +37,33 @@ quickly accomplished by effective usage of the Python Standard Library modules.
 Question: Where do I get the built-in module names in Python?
 >>> import sys
 >>> print sys.builtin_module_names
+
+Python Standard library defines the builtin functions and exceptions.
+
+>>>import __builtin__
+>>>dir(__builtin__)
+
+>>> all([True,True,True,True])
+True
+>>> all([False,True,True,True])
+False
+>>> any([False,False,False,True])
+True
+>>> any([False,False,False,False])
+False
+
+callable(object)
+    Return True if the object argument appears callable, False if not. If this
+    returns true, it is still possible that a call fails, but if it is false,
+    calling object will never succeed. Note that classes are callable (calling
+    a class returns a new instance); class instances are callable if they have
+    a __call__() method.
+
+What are staticmethod and classmethods?
+
+
+TODO:
+1) collections module
+2) What are the mapping object other than the dictionary?
+3) Discuss super() properly.
+
