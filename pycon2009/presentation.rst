@@ -34,23 +34,27 @@ Many large projects, both student level projects and industrial projects can be
 quickly accomplished by effective usage of the Python Standard Library modules.
 
 
-Question: Where do I get the built-in module names in Python?
->>> import sys
->>> print sys.builtin_module_names
+::
+
+        Question: Where do I get the built-in module names in Python?
+        >>> import sys
+        >>> print sys.builtin_module_names
 
 Python Standard library defines the builtin functions and exceptions.
 
->>>import __builtin__
->>>dir(__builtin__)
+::
 
->>> all([True,True,True,True])
-True
->>> all([False,True,True,True])
-False
->>> any([False,False,False,True])
-True
->>> any([False,False,False,False])
-False
+        >>>import __builtin__
+        >>>dir(__builtin__)
+
+        >>> all([True,True,True,True])
+        True
+        >>> all([False,True,True,True])
+        False
+        >>> any([False,False,False,True])
+        True
+        >>> any([False,False,False,False])
+        False
 
 callable(object)
     Return True if the object argument appears callable, False if not. If this
@@ -60,6 +64,11 @@ callable(object)
     a __call__() method.
 
 What are staticmethod and classmethods?
+
+Example of Code Inline
+======================
+
+.. literalinclude:: ex1_asyncore.py
 
 
 TODO:
