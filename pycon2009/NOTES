@@ -1,0 +1,27 @@
+March 3 - Looking at Multithreading Library.
+March 12 - Starting with rst files. 
+Create a questionaire.
+
+Experience with Python: 0-1 year.
+		        1-3 years.
+			>3 years.
+
+Profession: Student, Teacher, Python Programmer. Hobbyist.
+Language Experience. Python, Perl, C++, C, Java or any other.
+Any specific modules would you like to cover:
+
+Like Java, Python has a large standard library so that students can be assigned
+programming projects very early in the course that do something. Assignments
+aren't restricted to the standard four-function calculator and check balancing
+programs. By using the standard library, students can gain the satisfaction of
+working on realistic applications as they learn the fundamentals of
+programming. Using the standard library also teaches students about code reuse.
+
+
+Decimal numbers cannot be represented exactly in binary and that results in small round off errors.
+
+Cover:eval, repr.
+
+How do you get the builtin module names?
+>>>import sys
+>>>print sys.builtin_module_names

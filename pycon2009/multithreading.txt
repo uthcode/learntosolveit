@@ -1,0 +1,396 @@
+threading is a technique for decoupling tasks that are not sequentially dependant.
+threads can be used to improve the responsiveness of applications that accept
+user input while other tasks run in the background.
+
+A related use case is running I/O in parallel with computations in another thread.
+
+
+PYTHON 	
+
+Basic Threading in Python
+By: Peyton McCullough 	
+ 
+
+If you want your application to perform several tasks at once, you can use
+threads. Python can handle threads, but many developers find thread programming
+to be very tricky. Among other points, Peyton McCullough covers how to spawn
+and kill threads in this popular language.
+
+Introduction
+
+Threads allow applications to perform multiple tasks at once. Multi-threading
+is important in many applications, from primitive servers to today's complex
+and hardware-demanding games, so, naturally, many programming languages sport
+the ability to deal with threads. This includes Python.
+
+However, Python's support for multi-threading is not without limitations and
+consequences, as Guido van Rossum writes:
+
+"Unfortunately, for most mortals, thread programming is just Too Hard to get
+right.... Even in Python -- every time someone gets into serious thread
+programming, they send me tons of bug reports, and half of them are subtle bugs
+in the Python interpreter, half of them are subtle problems in their own
+understanding of the consequences of multiple threads...."
+
+Before we begin to look at the code that makes threading work, the most
+important feature we must look at is Python's global interpreter lock. If two
+or more threads were to attempt to manipulate the same object at the same time,
+problems would inevitably pop up. The global interpreter lock fixes this. Only
+one thread can perform an action at any given time. Python automatically
+switches between threads when it is needed.
+
+The threading module provides an easy way to work with threads. Its Thread
+class may be subclassed to create a thread or threads. The run method should
+contain the code you wish to be executed when the thread is executed. This
+sound simple, right? Well, it is:
+
+    import threading
+
+    class MyThread ( threading.Thread ):
+
+       def run ( self ):
+
+          print 'Insert some thread stuff here.'
+          print 'It'll be executed...yeah....'
+          print 'There's not much to it.'
+
+Executing the thread is also simple. All we have to do is create an instance of
+our thread class and then call its start method:
+
+    import threading
+
+    class MyThread ( threading.thread ):
+
+       def run ( self ):
+
+          print 'You called my start method, yeah.'
+          print 'Were you expecting something amazing?'
+
+    MyThread().start()
+
+Of course, it's no fun having just one thread. Just like us humans, threads get
+lonely after a while. Let's create a group of threads:
+
+    import threading
+
+    theVar = 1
+
+    class MyThread ( threading.Thread ):
+
+       def run ( self ):
+
+          global theVar
+          print 'This is thread ' + str ( theVar ) + ' speaking.'
+          print 'Hello and good bye.'
+          theVar = theVar + 1
+
+    for x in xrange ( 20 ):
+       MyThread().start()
+
+Now let's actually do something semi-useful with the threading module. Servers
+often use threads to handle multiple clients at once. Let's build a simple but
+extendable server. When a client opens a connection with the server, the server
+will create a new thread to handle the client. To send the client's data to the
+thread, we will need to override the Thread class's __init__ method to accept
+parameters. The server will now send the thread on its way and then wait for
+new clients. Each thread will send a pickled object to the appropriate client
+and then print no more than ten strings received from the client. (A pickled
+object is basically an object that has been reduced to a few characters. This
+is useful for storing objects for later use and for sending objects over a
+network).
+
+    import pickle
+    import socket
+    import threading
+
+    # We'll pickle a list of numbers:
+    someList = [ 1, 2, 7, 9, 0 ]
+    pickledList = pickle.dumps ( someList )
+
+    # Our thread class:
+    class ClientThread ( threading.Thread ):
+
+       # Override Thread's __init__ method to accept the parameters needed:
+       def __init__ ( self, channel, details ):
+
+          self.channel = channel
+          self.details = details
+          threading.Thread.__init__ ( self )
+
+       def run ( self ):
+
+          print 'Received connection:', self.details [ 0 ]
+          self.channel.send ( pickledList )
+          for x in xrange ( 10 ):
+             print self.channel.recv ( 1024 )
+          self.channel.close()
+          print 'Closed connection:', self.details [ 0 ]
+
+    # Set up the server:
+    server = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
+    server.bind ( ( '', 2727 ) )
+    server.listen ( 5 )
+
+    # Have the server serve "forever":
+    while True:
+       channel, details = server.accept()
+       ClientThread ( channel, details ).start()
+
+Now we need to build a client that connects to the server, retrieves the
+pickled object, reconstructs the pickled object and finally sends ten messages,
+closing the connection:
+
+    import pickle
+    import socket
+
+    # Connect to the server:
+    client = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
+    client.connect ( ( 'localhost', 2727 ) )
+
+    # Retrieve and unpickle the list object:
+    print pickle.loads ( client.recv ( 1024 ) )
+
+    # Send some messages:
+    for x in xrange ( 10 ):
+       client.send ( 'Hey. ' + str ( x ) + '\n' )
+
+    # Close the connection
+    client.close()
+
+Of course, the above client doesn't take advantage of our server's
+multi-threading capabilities. Only one thread is spawned, which really defeats
+the purpose of multi-threading. Let's thread the client to make things a bit
+more interesting. Each thread will connect to the server and execute the code
+above:
+
+    import pickle
+    import socket
+    import threading
+
+    # Here's our thread:
+    class ConnectionThread ( threading.Thread ):
+
+       def run ( self ):
+
+          # Connect to the server:
+          client = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
+          client.connect ( ( 'localhost', 2727 ) )
+
+          # Retrieve and unpickle the list object:
+          print pickle.loads ( client.recv ( 1024 ) )
+
+          # Send some messages:
+          for x in xrange ( 10 ):
+             client.send ( 'Hey. ' + str ( x ) + '\n' )
+
+          # Close the connection
+          client.close()
+
+    # Let's spawn a few threads:
+    for x in xrange ( 5 ):
+       ConnectionThread().start()
+
+It's important to remember that threads don't start up instantly. Creating too
+many of them can slow down your application. It takes time to spawn and later
+kill threads. Threads can also eat up valuable system resources in large
+applications. This problem is easily solved by creating a set number of threads
+(a thread pool) and assigning them new tasks, basically recycling them.
+Connections would be accepted and then pushed to a thread as soon as it
+finished with the previous client.
+
+If you still don't understand, compare it to a doctor's office. Let's say that
+there are five doctors. These are our threads. Patients (clients)  walk into
+the office, and if the doctors are busy, they are seated in the waiting room.
+
+Obviously, we'll need something that can transfer client data to our threads
+without running into problems (it will need to be “thread safe”). Python's
+Queue module does this for us. Client information is stored in a Queue object,
+where threads can pull them out when needed.
+
+Let's recreate our server to take advantage of a pool of threads:
+
+    import pickle
+    import Queue
+    import socket
+    import threading
+
+    # We'll pickle a list of numbers, yet again:
+    someList = [ 1, 2, 7, 9, 0 ]
+    pickledList = pickle.dumps ( someList )
+
+    # A revised version of our thread class:
+    class ClientThread ( threading.Thread ):
+
+       # Note that we do not override Thread's __init__ method.
+       # The Queue module makes this not necessary.
+
+       def run ( self ):
+
+          # Have our thread serve "forever":
+          while True:
+
+             # Get a client out of the queue
+             client = clientPool.get()
+
+             # Check if we actually have an actual client in the client variable:
+             if client != None:
+
+                print 'Received connection:', client [ 1 ] [ 0 ]
+                client [ 0 ].send ( pickledList )
+                for x in xrange ( 10 ):
+                   print client [ 0 ].recv ( 1024 )
+                client [ 0 ].close()
+                print 'Closed connection:', client [ 1 ] [ 0 ]
+
+    # Create our Queue:
+    clientPool = Queue.Queue ( 0 )
+
+    # Start two threads:
+    for x in xrange ( 2 ):
+       ClientThread().start()
+
+    # Set up the server:
+    server = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
+    server.bind ( ( '', 2727 ) )
+    server.listen ( 5 )
+
+    # Have the server serve "forever":
+    while True:
+       clientPool.put ( server.accept() )
+
+As you can see, it's a little more complex than our previous server, but it's
+not amazingly complicated. The client we created in the previous section can be
+used to test this server, just like the previous server.
+
+There is more to threads than just spawning them and sending them on their way.
+The threading module's Thread module contains a few more methods that you
+should be aware of. The first two deal with naming threads. The method setName
+sets a thread's name, and the method getName retrieves a thread's name:
+
+    import threading
+
+    class TestThread ( threading.Thread ):
+
+       def run ( self ):
+
+          print 'Hello, my name is', self.getName()
+
+    cazaril = TestThread()
+    cazaril.setName ( 'Cazaril' )
+    cazaril.start()
+
+    ista = TestThread()
+    ista.setName ( 'Ista' )
+    ista.start()
+
+    TestThread().start()
+
+No suprises there. Also, as you can see, threads have names even if you don't
+specify them.
+
+We can also check whether a thread is “alive” using the isAlive method. If the
+thread hasn't finished executing whatever is in its run method, then it's
+classified as being alive:
+
+    import threading
+    import time
+
+    class TestThread ( threading.Thread ):
+
+       def run ( self ):
+
+          print 'Patient: Doctor, am I going to die?'
+
+    class AnotherThread ( TestThread ):
+
+       def run ( self ):
+
+          TestThread.run( self )
+          time.sleep ( 10 )
+
+    dying = TestThread()
+    dying.start()
+    if dying.isAlive():
+       print 'Doctor: No.'
+    else:
+       print 'Doctor: Next!'
+
+    living = AnotherThread()
+    living.start()
+    if living.isAlive():
+       print 'Doctor: No.'
+    else:
+       print 'Doctor: Next!'
+
+The second thread remains alive because we force it to wait using the time
+module's sleep method.
+
+If we want to make a thread wait for another thread to terminate itself, we can
+use the join method:
+
+    import threading
+    import time
+
+    class ThreadOne ( threading.Thread ):
+
+       def run ( self ):
+
+          print 'Thread', self.getName(), 'started.'
+          time.sleep ( 5 )
+          print 'Thread', self.getName(), 'ended.'
+
+    class ThreadTwo ( threading.Thread ):
+
+       def run ( self ):
+
+          print 'Thread', self.getName(), 'started.'
+          thingOne.join()
+          print 'Thread', self.getName(), 'ended.'
+
+    thingOne = ThreadOne()
+    thingOne.start()
+    thingTwo = ThreadTwo()
+    thingTwo.start()
+
+We can use the setDaemon method, too. If a True value is passed with this
+method and all other threads have finished executing, the Python program will
+exit, leaving the thread by itself:
+
+    import threading
+    import time
+
+    class DaemonThread ( threading.Thread ):
+
+       def run ( self ):
+
+          self.setDaemon ( True )
+          time.sleep ( 10 )
+
+    DaemonThread().start()
+    print 'Leaving.'
+
+Python also contains a thread module that deals with lower level threading. The
+only feature I would like to point out is the start_new_thread function it
+contains. Using this, we can turn an ordinary function into a thread:
+
+    import thread
+
+    def thread( stuff ):
+       print "I'm a real boy!"
+       print stuff
+
+    thread.start_new_thread ( thread, ( 'Argument' ) )
+
+Conclusion
+
+There's much more to multi-threading than I explained in this article, but I
+will not bore you by extending the scope of this article to include everything.
+Moreover, as Guido van Rossum mentioned, the advantage gained by complex
+multi-threading in Python may be outweighed by the consequences. A small dose
+of common sense can eliminate much of the problems in simple multi-threading,
+however.
+
+Threading is very important when dealing with computer applications, and, as I
+mentioned earlier, Python isn't excluded. When used properly, threads can be
+very beneficial and often even crucial, as I've outlined in this article.
+
