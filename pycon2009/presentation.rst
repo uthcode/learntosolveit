@@ -76,3 +76,29 @@ TODO:
 2) What are the mapping object other than the dictionary?
 3) Discuss super() properly.
 
+Notes
+=====
+
+A new style class is one that is derived, either directly or indirectly, from a built-in type. (Something that was not possible at all before python 2.2) Built-in types include types such as:
+
+* int
+* list
+* tuple
+* dict
+* str
+* and others
+
+The base class for new style class is called object.
+Here is what the new style classes have to offer:
+* Properties: Attributes that are defined by get/set methods.
+* staticmethods and classmethods
+* The __getattribute__ hook, which unlike __getattr__, is called for every attribute access, not just when the attribute can't be found in the instance.
+* Descriptors: A protocol to define the behavior of attribute access through objects.
+* Overriding the constructor __new__
+* Metaclasses.
+
+
+What exactly is a descriptor?
+
+In general, a descriptor is an object attribute with "binding behavior", one whose attribute access has been overridden by methods in the descriptor protocol. Those methods are __get__, __set__, and __delete__. If any of those methods are defined for an object, it is said to be a descriptor.
+
