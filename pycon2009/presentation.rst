@@ -75,6 +75,9 @@ TODO:
 1) collections module
 2) What are the mapping object other than the dictionary?
 3) Discuss super() properly.
+4) regex module examples - Howto/
+
+
 
 Notes
 =====
