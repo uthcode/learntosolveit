@@ -37,3 +37,5 @@ March 17:
 - smptlib the gmail example works good. Just make sure that you getpass instead of hardcoding it.
 - Study Sockets and terminology.
 - Revise threading and terminilogy.
+
+Why is it producing only 1 test result.
