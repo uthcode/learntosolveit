@@ -34,4 +34,4 @@ Question: What is the natural way to represent permissions using stat module.
 
 March 17:
 - XMLRPCSever - Not going into Introspection APIs an other modules. - I understood them, it would involve going very deep. Let me write it and then decide if going it use it or not.
-
+- smptlib the gmail example works good. Just make sure that you getpass instead of hardcoding it.
