@@ -31,3 +31,7 @@ March 16:
 I am unable to show the urllib, GET and POST examples using encoded arguments.
 Question: What is the natural way to represent permissions using stat module.
 
+
+March 17:
+- XMLRPCSever - Not going into Introspection APIs an other modules. - I understood them, it would involve going very deep. Let me write it and then decide if going it use it or not.
+
