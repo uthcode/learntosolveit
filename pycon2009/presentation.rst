@@ -9,8 +9,12 @@ A Tour of Python Standard Library
 .. _`PyCon 2009`: http://us.pycon.org/2009/
 
 
+======================
 Something about Python
 ======================
+
+Have you watched Ratatouille?
+=============================
 
 * Anyone can cook. ~ Gusteau
 
@@ -27,14 +31,9 @@ What is Python?
 * Designed by Implementation, but still a very much designed languaged.
 * Feature releases happen every 18 months and bug fix releases once in 3 months.
 * Active Developer and User community.
-* Design philosophy
-
-::
-
-        >>>import this
 
 
-
+=======================
 Python Standard Library
 =======================
 
@@ -56,6 +55,8 @@ You can find the builtin modules in the following way::
 
         >>> import sys
         >>> print sys.builtin_module_names
+
+
 
 __builtin__ 
 ===========
@@ -224,6 +225,12 @@ The following are the references in order to understand further:
 1) Alex-Martelli explaining it with code: http://code.activestate.com/recipes/52304/
 2)  Decorators: http://personalpages.tds.net/~kent37/kk/00001.html
 
+ellipsis
+^^^^^^^^
+
+* ellipsis is another builtin. It is only used in slicing.
+
+.. literalinclude::        ellipsis_usage.py
 
 ..        BaseHTTPServer
 ..        ==============
@@ -233,64 +240,7 @@ The following are the references in order to understand further:
 ..        .. literalinclude::        BaseHTTPServer_errors.py
 ..        .. literalinclude::        BaseHTTPServer_threads.py
 
-anydbm
-======
-
-.. literalinclude::        anydbm_usage.py
-
-asyncore
-========
-
-.. literalinclude::        asyncore_1.py
-
-basehttpsever
-=============
-
-.. literalinclude::        basehttpserver-example-1.py
-
-compile
-=======
-
-.. literalinclude::        compile_1.py
-
-configparser
-============
-
-.. literalinclude::        configparser_example.py
-
-doctest
-=======
-
-.. literalinclude::        doctest_demo.py
-.. literalinclude::        doctest_fromtxt.py
-
-snippet
-=======
-
-.. literalinclude::        download_url_1.py
-
-ellipsis
-========
-
-.. literalinclude::        ellipsis_usage.py
-
-glob
-====
-
-.. literalinclude::        glob_all.py
-.. literalinclude::        glob_charrange.py
-.. literalinclude::        glob_maketestdata.py
-.. literalinclude::        glob_singlewildchar.py
-.. literalinclude::        glob_subdir.py
-
-logging
-=======
-
-.. literalinclude::        logging_default.py
-.. literalinclude::        logging_levels.py
-.. literalinclude::        logging_modules_example.py
-.. literalinclude::        logging_rotatinglogfile.py
-
+=========
 os module
 =========
 
@@ -308,17 +258,83 @@ os module
 .. literalinclude::        os_stat_10.py
 .. literalinclude::        os_symlink_13.py
 
+======
+anydbm
+======
+
+.. literalinclude::        anydbm_usage.py
+
+..        asyncore
+..        ========
+
+..        .. literalinclude::        asyncore_1.py
+
+=============
+basehttpsever
+=============
+
+.. literalinclude::        basehttpserver-example-1.py
+
+=======
+compile
+=======
+
+.. literalinclude::        compile_1.py
+
+============
+configparser
+============
+
+.. literalinclude::        configparser_example.py
+
+=======
+doctest
+=======
+
+.. literalinclude::        doctest_demo.py
+.. literalinclude::        doctest_fromtxt.py
+
+====================
+Download URL Snippet
+====================
+
+.. literalinclude::        download_url_1.py
+
+
+====
+glob
+====
+
+.. literalinclude::        glob_all.py
+.. literalinclude::        glob_charrange.py
+.. literalinclude::        glob_maketestdata.py
+.. literalinclude::        glob_singlewildchar.py
+.. literalinclude::        glob_subdir.py
+
+=======
+logging
+=======
+
+.. literalinclude::        logging_default.py
+.. literalinclude::        logging_levels.py
+.. literalinclude::        logging_modules_example.py
+.. literalinclude::        logging_rotatinglogfile.py
+
+
+========
 property
 ========
 
 .. literalinclude::        property_1.py
 
-shortcuts
-=========
+================
+Python Shortcuts
+================
 
 .. literalinclude::        shortcut_copy.py
 .. literalinclude::        shortcut_shorten.py
 
+======
 shutil
 ======
 
@@ -333,6 +349,7 @@ shutil
 .. literalinclude::        shutil_move.py
 .. literalinclude::        shutil_rmtree.py
 
+==================
 simplexmlprcserver
 ==================
 
@@ -340,27 +357,32 @@ simplexmlprcserver
 .. literalinclude::        simplexmlrpcserver_dottednames.py
 .. literalinclude::        simplexmlrpcserver_introspection.py
 
+=================
 smtpd and smtplib
 =================
 .. literalinclude::        smtpd_custom.py
 .. literalinclude::        smtplib_senddata.py
 
+======
 socket
 ======
 .. literalinclude::        socket_echo_client.py
 .. literalinclude::        socket_echo_server.py
 .. literalinclude::        socket_irclogger.py
 
+======
 string
 ======
 .. literalinclude::        string_1.py
 
+==========
 subprocess
 ==========
 .. literalinclude::        subprocess_1.py
 .. literalinclude::        subprocess_2.py
 .. literalinclude::        subprocess_3.py
 
+=====
 super
 =====
 .. literalinclude::        super_mro_3.py
@@ -368,6 +390,7 @@ super
 .. literalinclude::        super_type_1.py
 .. literalinclude::        super_type_2.py
 
+=========
 threading
 =========
 .. literalinclude::        threadin_1.py
@@ -387,6 +410,7 @@ threading
 .. literalinclude::        threading_setdaemon_10.py
 .. literalinclude::        threading_simplest_thread_13.py
 
+====
 time
 ====
 .. literalinclude::        time_1.py
@@ -396,10 +420,12 @@ time
 .. literalinclude::        time_struct_time.py
 .. literalinclude::        time_timezone.py
 
+========
 unittest
 ========
 .. literalinclude::        unittest_howto.py
 
+======
 urllib
 ======
 .. literalinclude::        urllib_encoded_args.py
@@ -410,6 +436,7 @@ urllib
 .. literalinclude::        urllib_quote_unquote.py
 .. literalinclude::        urllib_urlretrieve.py
 
+=========
 xmlrpclib
 =========
 .. literalinclude::        xmlrpclib_client.py
