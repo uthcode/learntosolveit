@@ -43,7 +43,6 @@ try:
         if msg[1] == 'PRIVMSG':
             nick_name = msg[0][:msg[0].find("!")]
             message = ' '.join(msg[3:])
-            #print(nick_name.lstrip(':'), '->', message.lstrip(':'))
             filetxt.write((nick_name.lstrip(':') + '->' + message.lstrip(':') +
                           '\n').encode('utf-8'))
         filetxt.flush()

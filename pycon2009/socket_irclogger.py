@@ -29,7 +29,6 @@ def part():
 irc_conn()
 login(NICKNAME)
 join(CHANNEL)
-#filetxt = open('irc_messages.log','a+')
 try:
     while True:
         buffer = IRC.recv(1024)
@@ -41,8 +40,5 @@ try:
             nick_name = msg[0][:msg[0].find("!")]
             message = ' '.join(msg[3:])
             print nick_name.lstrip(':'), '->', message.lstrip(':')
-            #filetxt.write(nick_name.lstrip(':') + '->' + message.lstrip(':') + '\n')
-        #filetxt.flush()
 finally:
     part()
-    #filetxt.close()
