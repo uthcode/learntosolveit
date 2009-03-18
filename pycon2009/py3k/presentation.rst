@@ -9,30 +9,12 @@ A Tour of Python Standard Library
 .. _`PyCon 2009`: http://us.pycon.org/2009/
 
 
-Something about Python
-======================
+Have you watched Ratatouille?
+=============================
 
 * Anyone can cook. ~ Gusteau
 
 * Computer Programming for Everybody. ~ Guido.
-
-
-What is Python?
-===============
-
-* Middle-layer between shell and system
-* Easy to use for end programmers.
-* Also convenient for library programmers.
-* Multiple implementations: CPython, Jython, IronPython, PyPy
-* Designed by Implementation, but still a very much designed languaged.
-* Feature releases happen every 18 months and bug fix releases once in 3 months.
-* Active Developer and User community.
-* Design philosophy
-
-::
-
-        >>>import this
-
 
 
 Python Standard Library
@@ -225,13 +207,13 @@ The following are the references in order to understand further:
 2)  Decorators: http://personalpages.tds.net/~kent37/kk/00001.html
 
 
-..        BaseHTTPServer
-..        ==============
+BaseHTTPServer
+==============
 
-..        .. literalinclude::        BaseHTTPServer_GET.py
-..        .. literalinclude::        BaseHTTPServer_POST.py
-..        .. literalinclude::        BaseHTTPServer_errors.py
-..        .. literalinclude::        BaseHTTPServer_threads.py
+.. literalinclude::        BaseHTTPServer_GET.py
+.. literalinclude::        BaseHTTPServer_POST.py
+.. literalinclude::        BaseHTTPServer_errors.py
+.. literalinclude::        BaseHTTPServer_threads.py
 
 anydbm
 ======
