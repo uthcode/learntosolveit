@@ -207,13 +207,200 @@ The following are the references in order to understand further:
 2)  Decorators: http://personalpages.tds.net/~kent37/kk/00001.html
 
 
-Example of Code Inline
-======================
+BaseHTTPServer
+==============
 
-.. literalinclude:: ex1_asyncore.py
+.. literalinclude::        BaseHTTPServer_GET.py
+.. literalinclude::        BaseHTTPServer_POST.py
+.. literalinclude::        BaseHTTPServer_errors.py
+.. literalinclude::        BaseHTTPServer_threads.py
 
+anydbm
+======
 
+.. literalinclude::        anydbm_usage.py
+
+asyncore
+========
+
+.. literalinclude::        asyncore_1.py
+
+basehttpsever
+=============
+
+.. literalinclude::        basehttpserver-example-1.py
+
+compile
+=======
+
+.. literalinclude::        compile_1.py
+
+configparser
+============
+
+.. literalinclude::        configparser_example.py
+
+doctest
+=======
+
+.. literalinclude::        doctest_demo.py
+.. literalinclude::        doctest_fromtxt.py
+
+snippet
+=======
+
+.. literalinclude::        download_url_1.py
+
+ellipsis
+========
+
+.. literalinclude::        ellipsis_usage.py
+
+glob
+====
+
+.. literalinclude::        glob_all.py
+.. literalinclude::        glob_charrange.py
+.. literalinclude::        glob_maketestdata.py
+.. literalinclude::        glob_singlewildchar.py
+.. literalinclude::        glob_subdir.py
+
+logging
+=======
+
+.. literalinclude::        logging_default.py
+.. literalinclude::        logging_levels.py
+.. literalinclude::        logging_modules_example.py
+.. literalinclude::        logging_rotatinglogfile.py
+
+os module
+=========
+
+.. literalinclude::        os_chmod_11.py
+.. literalinclude::        os_directories_12.py
+.. literalinclude::        os_module_1.py
+.. literalinclude::        os_module_2.py
+.. literalinclude::        os_module_3.py
+.. literalinclude::        os_module_4.py
+.. literalinclude::        os_module_ex5.py
+.. literalinclude::        os_module_popen2_8.py
+.. literalinclude::        os_module_popen3_6.py
+.. literalinclude::        os_module_popen4_7.py
+.. literalinclude::        os_permissions_9.py
+.. literalinclude::        os_stat_10.py
+.. literalinclude::        os_symlink_13.py
+
+property
+========
+
+.. literalinclude::        property_1.py
+
+shortcuts
+=========
+
+.. literalinclude::        shortcut_copy.py
+.. literalinclude::        shortcut_shorten.py
+
+shutil
+======
+
+.. literalinclude::        list_of_files.py
+.. literalinclude::        shutil_copy.py
+.. literalinclude::        shutil_copy2.py
+.. literalinclude::        shutil_copyfile.py
+.. literalinclude::        shutil_copyfileobj.py
+.. literalinclude::        shutil_copymode.py
+.. literalinclude::        shutil_copystat.py
+.. literalinclude::        shutil_copytree.py
+.. literalinclude::        shutil_move.py
+.. literalinclude::        shutil_rmtree.py
+
+simplexmlprcserver
+==================
+
+.. literalinclude::        simplexmlrpcserver.py
+.. literalinclude::        simplexmlrpcserver_dottednames.py
+.. literalinclude::        simplexmlrpcserver_introspection.py
+
+smtpd and smtplib
+=================
+.. literalinclude::        smtpd_custom.py
+.. literalinclude::        smtplib_senddata.py
+
+socket
+======
+.. literalinclude::        socket_echo_client.py
+.. literalinclude::        socket_echo_server.py
+.. literalinclude::        socket_irclogger.py
+
+string
+======
+.. literalinclude::        string_1.py
+
+subprocess
+==========
+.. literalinclude::        subprocess_1.py
+.. literalinclude::        subprocess_2.py
+.. literalinclude::        subprocess_3.py
+
+super
+=====
+.. literalinclude::        super_mro_3.py
+.. literalinclude::        super_mro_4.py
+.. literalinclude::        super_type_1.py
+.. literalinclude::        super_type_2.py
+
+threading
+=========
+.. literalinclude::        threadin_1.py
+.. literalinclude::        threadin_2.py
+.. literalinclude::        threadin_2_14.py
+.. literalinclude::        threading_1_12.py
+.. literalinclude::        threading_3.py
+.. literalinclude::        threading_4.py
+.. literalinclude::        threading_4_client.py
+.. literalinclude::        threading_alive_8.py
+.. literalinclude::        threading_bankexample_15.py
+.. literalinclude::        threading_client_5.py
+.. literalinclude::        threading_function_as_thread_11.py
+.. literalinclude::        threading_join_9.py
+.. literalinclude::        threading_names_7.py
+.. literalinclude::        threading_server_6.py
+.. literalinclude::        threading_setdaemon_10.py
+.. literalinclude::        threading_simplest_thread_13.py
+
+time
+====
+.. literalinclude::        time_1.py
+.. literalinclude::        time_2.py
+.. literalinclude::        time_ex2.py
+.. literalinclude::        time_parsing_time.py
+.. literalinclude::        time_struct_time.py
+.. literalinclude::        time_timezone.py
+
+unittest
+========
+.. literalinclude::        unittest_howto.py
+
+urllib
+======
+.. literalinclude::        urllib_encoded_args.py
+.. literalinclude::        urllib_filelike.py
+.. literalinclude::        urllib_get.py
+.. literalinclude::        urllib_pathname.py
+.. literalinclude::        urllib_post.py
+.. literalinclude::        urllib_quote_unquote.py
+.. literalinclude::        urllib_urlretrieve.py
+
+xmlrpclib
+=========
+.. literalinclude::        xmlrpclib_client.py
+.. literalinclude::        xmlrpclib_dottednames_client.py
+.. literalinclude::        xmlrpclib_introspection.py
+
+=====
 TODO:
+=====
 1) collections module
 2) What are the mapping object other than the dictionary?
 3) Discuss super() properly.
