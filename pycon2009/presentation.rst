@@ -683,15 +683,3 @@ NotImplementedError
 User-defined base classes can raise NotImplementedError to indicate that a
 method or behavior needs to be defined by a subclass, simulating an interface.
 
-
-== os module ==
-
-File Descriptors
-
-The os module includes the standard set of functions for working with low-level
-file descriptors (integers representing open files owned by the current
-process). This is a lower-level API than is provided by file() objects. I am
-going to skip over describing them here, since it is generally easier to work
-directly with file() objects. Refer to the library documentation for details if
-you do need to use file descriptors.
-
