@@ -519,7 +519,9 @@ TODO:
 Notes
 =====
 
-A new style class is one that is derived, either directly or indirectly, from a built-in type. (Something that was not possible at all before python 2.2) Built-in types include types such as:
+A new style class is one that is derived, either directly or indirectly, from a
+built-in type. (Something that was not possible at all before python 2.2)
+Built-in types include types such as:
 
 * int
 * list
@@ -530,11 +532,17 @@ A new style class is one that is derived, either directly or indirectly, from a 
 
 The base class for new style class is called object.
 Here is what the new style classes have to offer:
+
 * Properties: Attributes that are defined by get/set methods.
+
 * staticmethods and classmethods
+
 * The __getattribute__ hook, which unlike __getattr__, is called for every attribute access, not just when the attribute can't be found in the instance.
+
 * Descriptors: A protocol to define the behavior of attribute access through objects.
+
 * Overriding the constructor __new__
+
 * Metaclasses.
 
 

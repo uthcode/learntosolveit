@@ -172,3 +172,184 @@ ellipsis
 
 * ellipsis is another builtin. It is only used in slicing.
 
+property
+========
+
+.. literalinclude::        property_1.py
+
+super
+=====
+.. literalinclude::        super_mro_3.py
+.. literalinclude::        super_mro_4.py
+.. literalinclude::        super_type_1.py
+.. literalinclude::        super_type_2.py
+
+
+compile
+=======
+
+.. literalinclude::        compile_1.py
+
+Exceptions
+==========
+
+* Exceptions are Classes and are __builtin__ to the interpreter.
+* Until 1.5, simple string messages were exceptions.
+* The exception classes are defined in a hierarchy, related exceptions can be caught by catching their base classes.
+
+BaseException
+^^^^^^^^^^^^^
+
+Baseclass for all exceptions. Implements logic for creating the string
+representation of the exception using the str() from the arguments passed to
+the constructor.
+
+Exception
+^^^^^^^^^
+
+Baseclass for the exception that do not result in quitting the running
+application. All user-defined exceptions should use Exception as a base class.
+
+StandardError
+^^^^^^^^^^^^^
+Baseclass for builtin exceptions used in Standard Library.
+
+ArthimeticError
+^^^^^^^^^^^^^^^
+
+Baseclass for math related errors.
+
+LookupError
+^^^^^^^^^^^
+
+When something cannot be found.
+
+EnvironmentError
+^^^^^^^^^^^^^^^^
+
+Base class for errors that come from outside of Python (the operating system,
+filesystem, etc.).
+
+AssertionError
+^^^^^^^^^^^^^^
+
+An AssertionError is raised by a failed assert statement.
+
+::
+        >>>assert False, 'The assertion failed'
+        >>># This should throw a simple AssertionError
+
+AttributeError
+^^^^^^^^^^^^^^
+
+When an attribute reference or assignment fails, AttributeError is raised.
+
+::
+        >>> x = "PyCon 2009"
+        >>> x.imag
+        >>> # This would throw AttributeError
+
+
+AttributeError will also be raised when trying to modify a read-only attribute.
+
+::
+
+        class MyClass(object):
+            
+            @property
+                def attribute(self):
+                        return 'This is the attribute value'
+
+                        o = MyClass()
+                        print o.attribute
+                        o.attribute = 'New value'
+
+EOFError
+^^^^^^^^
+
+An EOFError is raised when a builtin function like input() or raw_input() do
+not read any data before encountering the end of their input stream. 
+
+IOError
+^^^^^^^
+
+Raised when input or output fails, for example if a disk fills up or an input file does not exist.
+
+::
+        f = open('/does/not/exist', 'r')
+
+importError
+^^^^^^^^^^^
+
+Raised when a module, or member of a module, cannot be imported.
+
+IndexError
+^^^^^^^^^^
+
+An IndexError is raised when a sequence reference is out of range.
+
+::
+
+        my_seq = [ 0, 1, 2 ]
+        print my_seq[3]
+
+KeyError
+^^^^^^^^
+A KeyError is raised when a value is not found as a key of a dictionary.
+
+::
+        d = { 'a':1, 'b':2 }
+        print d['c']
+
+KeyboardInterrupt
+^^^^^^^^^^^^^^^^^
+
+A KeyboardInterrupt occurs whenever the user presses Ctrl-C (or Delete) to stop
+a running program. Unlike most of the other exceptions, KeyboardInterrupt
+inherits directly from BaseException to avoid being caught by global exception
+handlers that catch Exception.
+
+::
+
+        try:
+            print 'Press Return or Ctrl-C:',
+            ignored = raw_input()
+        except Exception, err:
+            print 'Caught exception:', err
+        except KeyboardInterrupt, err:
+            print 'Caught KeyboardInterrupt'
+        else:
+            print 'No exception'
+
+MemoryError
+^^^^^^^^^^^
+
+If your program runs out of memory and it is possible to recover (by deleting
+some objects, for example), a MemoryError is raised.
+
+::
+
+        import itertools
+
+        # Try to create a MemoryError by allocating a lot of memory
+        l = []
+        for i in range(3):
+            try:
+                for j in itertools.count(1):
+                    print i, j
+                    l.append('*' * (2**30))
+            except MemoryError:
+                print '(error, discarding existing list)'
+                l = []
+
+NameError
+^^^^^^^^^
+
+NameErrors are raised when your code refers to a name that does not exist in
+the current scope. For example, an unqualified variable name.
+
+NotImplementedError
+^^^^^^^^^^^^^^^^^^^
+
+User-defined base classes can raise NotImplementedError to indicate that a
+method or behavior needs to be defined by a subclass, simulating an interface.

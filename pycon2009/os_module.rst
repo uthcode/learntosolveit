@@ -15,4 +15,3 @@ os module
 .. literalinclude::        os_permissions_9.py
 .. literalinclude::        os_stat_10.py
 .. literalinclude::        os_symlink_13.py
-
