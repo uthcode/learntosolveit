@@ -1,3 +1,7 @@
+#!/usr/bin/env python2.6
+
+# Copyright 2009: PyMOTW, Doug Hellman. All Rights Reserved.
+
 from shutil import *
 import os
 import time
