@@ -1,3 +1,6 @@
+#!/usr/bin/env python2.5
+# PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.
+
 import os
 
 TEST_UID = 1000  # set your user id

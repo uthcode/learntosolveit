@@ -1,14 +1,17 @@
-# There are several functions for working with directories on filesystem,
-# including creating, listing contents and removing them.
+#!/usr/bin/env python2.6
 
 import os
 dir_name = 'os_directories_example'
 
-print 'Creating', dir_name
+
+print 'Starting at:', os.getcwd()
+print os.listdir(os.curdir)
+
+print 'Creating Directory:', dir_name
 os.makedirs(dir_name)
 
 file_name = os.path.join(dir_name, 'example.txt')
-print 'Creating', file_name
+print 'Creating File:', file_name
 
 f = open(file_name,'wt')
 
@@ -23,3 +26,10 @@ print os.listdir(dir_name)
 print 'Cleaning up'
 os.unlink(file_name)
 os.rmdir(dir_name)
+
+
+print 'Moving up one directory:', os.pardir
+os.chdir(os.pardir)
+
+print 'After move:', os.getcwd()
+print os.listdir(os.curdir)
