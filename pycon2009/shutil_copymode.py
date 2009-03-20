@@ -3,7 +3,7 @@
 # to another use copymode
 
 import shutil
-from commands import getstatus
+import subprocess
 
 import os
 
@@ -18,14 +18,14 @@ os.chmod('example.txt',0444)
 
 shutil.copyfile('example.txt','newfile.txt')
 
-print getstatus('example.txt')
+subprocess.call(['ls', '-ld', 'example.txt'])
 
 print 'With shutil.copyfile:'
-print getstatus('newfile.txt')
+subprocess.call(['ls', '-ld', 'newfile.txt'])
 
 print 'After shutil.copymode:'
 shutil.copymode('example.txt','newfile.txt')
-print getstatus('newfile.txt')
+subprocess.call(['ls', '-ld', 'newfile.txt'])
 
 os.unlink('example.txt')
 os.unlink('newfile.txt')

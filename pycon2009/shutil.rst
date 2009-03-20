@@ -44,7 +44,7 @@ a file or directory to another location. This is similar to the unix `mv` comman
 directory tree using copy2() function and ``rmtree(path, ignore_errors=False,
 onerror=None)`` recursively deletes a directory tree.
 
-.. literalinclude::        shutil_move_copy_rmtree.py
+.. literalinclude::        py3k/shutil_move_copy_rmtree.py
 
 * commands.getoutput, returns the output(stdout,stderr) as if executed from a shell.
 
