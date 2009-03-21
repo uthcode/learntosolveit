@@ -1,0 +1,1 @@
+# PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.
