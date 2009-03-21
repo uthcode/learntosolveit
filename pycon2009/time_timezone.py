@@ -1,3 +1,7 @@
+#!/usr/bin/env python2.6
+
+# PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.
+
 import time
 import os
 
