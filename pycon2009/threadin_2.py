@@ -11,4 +11,3 @@ class MyThread(threading.Thread):
 # That is it.
 
 MyThread().start()
-
