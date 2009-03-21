@@ -4,13 +4,13 @@
 
 # Doing it os.system way
 import os
+import subprocess
+
 os.system('date')
 
 # Doing it subprocess way
-from subprocess import call
-call('date')
+subprocess.call('date')
 
 # Accessing shell variables
 # Since we set shell=True, the shell variables are expanded in the command line
-call('echo $PATH',shell=True)
-
+subprocess.call('echo $PATH',shell=True)
