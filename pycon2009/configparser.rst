@@ -52,7 +52,7 @@ Reading the configfile with value types and interpolation
 
 An example of reading the configuration file again.
 
-.. literalinclude::        configparser_2.py
+.. literalinclude::        configparser_3.py
 
 * Note that getint and getfloat return respective value types.
 
@@ -67,4 +67,4 @@ An example of reading the configuration file again.
 
 The following example demonstrates these concepts well.
 
-.. literalinclude::        configparser_3.py
+.. literalinclude::        configparser_4.py
