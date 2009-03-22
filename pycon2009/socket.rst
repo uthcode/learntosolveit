@@ -29,7 +29,7 @@ To create a client, you need to:
 
 
 Additional Notes of Socket Programming.
-======================================
+=======================================
 
 Addresses
 ^^^^^^^^^
@@ -51,18 +51,17 @@ families. These include:
   specify either a standard Internet name, such as 'www.cnn.com' or an IP
   address in dotted decimal notation, such as '64.236.24.20'.
 
-* AF_INET6: 
-  An IPv6 socket is similar to an IPv4 socket, except that it uses IPv6. The
-  main change in IPv6 is that it uses 128 bit addresses, whereas IPv4 uses only
-  32 bits; this allows IPv6 to better meet the current high demand for IP
-     addresses. In addition, IPv6 uses flow identifiers to provide different
-     Quality of Service to applications (i.e. low delay or guaranteed
-     bandwidth) and scope identifiers to limit packet delivery to various
-     administrative boundaries. In Python, IPv6 socket addresses are
-     represented using a tuple of (host, port, flowinfo, scopeid), where
-     flowinfo is the flow identifier and scopeid is the scope identifier. Since
-     support of IPv6 in many host operating systems is still incomplete, we
-     will not discuss IPv6 further in this tutorial.
+* AF_INET6: An IPv6 socket is similar to an IPv4 socket, except that it uses
+  IPv6. The main change in IPv6 is that it uses 128 bit addresses, whereas IPv4
+  uses only 32 bits; this allows IPv6 to better meet the current high demand
+  for IP addresses. In addition, IPv6 uses flow identifiers to provide
+  different Quality of Service to applications (i.e. low delay or guaranteed
+  bandwidth) and scope identifiers to limit packet delivery to various
+  administrative boundaries. In Python, IPv6 socket addresses are represented
+  using a tuple of (host, port, flowinfo, scopeid), where flowinfo is the flow
+  identifier and scopeid is the scope identifier. Since support of IPv6 in many
+  host operating systems is still incomplete, we will not discuss IPv6 further
+  in this tutorial.
 
 
 Sockets

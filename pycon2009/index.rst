@@ -12,13 +12,14 @@ Contents:
    :maxdepth: 2
 
    intro
+   credits
    divein
+   builtins
    os_module
    shutil
    subprocess
    glob
    time
-   builtins
    urllib
    basehttpserver
    simplexmlrpcserver
@@ -30,11 +31,3 @@ Contents:
    unittest
    configparser
    shortcuts
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
