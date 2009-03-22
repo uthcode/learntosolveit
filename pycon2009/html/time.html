@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>time &mdash; PyCon 2009 - A Tour of Python Standard Library v2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyCon 2009 - A Tour of Python Standard Library v2 documentation" href="index.html" />
+    <link rel="next" title="urllib" href="urllib.html" />
+    <link rel="prev" title="glob" href="glob.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="urllib.html" title="urllib"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="glob.html" title="glob"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="time">
+<h1>time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h1>
+<p>This module provides a number of functions to deal with dates and the time
+within a day. It is a thin layer on top of the C runtime library.</p>
+<p>A given date and time can either be represented as a floating point value (the
+number of seconds since a reference date, usually January 1st, 1970), or as a
+time tuple.</p>
+<div class="section" id="time-ctime-clock-and-sleep">
+<h2>time, ctime, clock and sleep<a class="headerlink" href="#time-ctime-clock-and-sleep" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">time.time()</span></tt> returns the unix time, that is the simple since the epoch.
+To know what is the epoch, look at <tt class="docutils literal"><span class="pre">time.gmtime(0)</span></tt>, which is start of unix
+time since 1 Jan 1970.</p>
+<p><tt class="docutils literal"><span class="pre">time.ctime()</span></tt> returns the wallclock time and <tt class="docutils literal"><span class="pre">time.clock()</span></tt> provides the
+processor clock time, which is often used for benchmarking.</p>
+<p><tt class="docutils literal"><span class="pre">time.sleep(seconds)</span></tt> would sleep ( do nothing) for the given seconds.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="k">print</span> <span class="s">&#39;unix time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;wallclock time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;processsor clock time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">6</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> </span><span class="si">%0.2f</span><span class="s"> </span><span class="si">%0.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="benchmarking-using-time-clock">
+<h2>Benchmarking using time.clock<a class="headerlink" href="#benchmarking-using-time-clock" title="Permalink to this headline">¶</a></h2>
+<p>The values returned from clock() can be used for performance testing,
+benchmarking etc, since they reflect the actual time used by programs and can
+be more precise than the values from time()</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+<span class="c"># PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.</span>
+
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c"># Data to use to calculate md5 checksums</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span><span class="s">&#39;rt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">5</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="s">&#39;: </span><span class="si">%0.3f</span><span class="s"> </span><span class="si">%0.3f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">100000</span><span class="p">):</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">cksum</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>hashlib - interface to many hash functions</li>
+</ul>
+</div>
+<div class="section" id="parsing-time">
+<h2>Parsing time<a class="headerlink" href="#parsing-time" title="Permalink to this headline">¶</a></h2>
+<p>In this snippet let us look into:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">time.strptime(string[,format])</span></tt>, which parse a string representing a time
+according to a format. The return value is a struct_time as returned by
+gmtime() or localtime().</li>
+<li><tt class="docutils literal"><span class="pre">time.strftime(format[,</span> <span class="pre">t])</span></tt> converts a tuple or struct_time representing a
+time as returned by gmtime() or localtime() to a string as specified by the
+format argument</li>
+<li><tt class="docutils literal"><span class="pre">time.gmtime()</span></tt>, <tt class="docutils literal"><span class="pre">time.localtime</span></tt>  return a tuple or struct_time which
+can be parsed into various time components, like month, day, hour etc.
+Difference between gmtime and localtime is gmtime returns UTC while localtime
+returns the localtime.</li>
+<li><tt class="docutils literal"><span class="pre">time.mktime()</span></tt> is the inverse of <tt class="docutils literal"><span class="pre">time.localtime</span></tt> which takes the
+<tt class="docutils literal"><span class="pre">time.localtime</span></tt> tuple and expresses it in localtime, which is in unix time
+format.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;time.ctime:&#39;</span><span class="p">,</span> <span class="n">now</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;time.strptime(now):&#39;</span><span class="p">,</span> <span class="n">parsed</span>
+
+<span class="k">print</span> <span class="s">&#39;time.strftime(format,strptime):&#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a %b </span><span class="si">%d</span><span class="s"> %H:%M:%S %Y&quot;</span><span class="p">,</span> <span class="n">parsed</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;time.strftime(format,gmtime):&#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a %b </span><span class="si">%d</span><span class="s"> %H:%M:%S %Y&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">())</span>
+<span class="k">print</span> <span class="s">&#39;time.strftime(format,localtime):&#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a %b </span><span class="si">%d</span><span class="s"> %H:%M:%S %Y&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&#39;Day of the month:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_mday</span>
+<span class="k">print</span> <span class="s">&#39;Day of the week:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_wday</span>
+<span class="k">print</span> <span class="s">&#39;Day of the year:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_yday</span>
+
+<span class="k">print</span> <span class="s">&#39;mktime   :&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="time-zone-calculations">
+<h2>Time Zone Calculations<a class="headerlink" href="#time-zone-calculations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">time.timezone</span></tt> is the offset of the local (non-DST) timezone, in seconds
+west of UTC (negative in most of Western Europe, positive in the US, zero in
+the UK).</li>
+<li><tt class="docutils literal"><span class="pre">time.tzname</span></tt> is a tuple of two strings: the first is the name of the local
+non-DST timezone, the second is the name of the local DST timezone.</li>
+<li><tt class="docutils literal"><span class="pre">time.daylight</span></tt> defines the daylight savings time.</li>
+<li><tt class="docutils literal"><span class="pre">time.tzset()</span></tt>, resets the time conversion rules used by the library
+routines. The environment variable TZ specifies how this is done.  On many
+Unix systems, it is more convenient to use the system&#8217;s zoneinfo (tzfile(5))
+database to specify the timezone rules. To do this, set the TZ environment
+variable to the path of the required timezone datafile, relative to the root
+of the systems <cite>zoneinfo</cite> timezone database, usually located at
+/usr/share/zoneinfo.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+
+<span class="c"># PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">show_zone_info</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">TZ     :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;TZ&#39;</span><span class="p">,</span><span class="s">&#39;(not set)&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">tzname :&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">tzname</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Zone   : </span><span class="si">%d</span><span class="s"> (</span><span class="si">%d</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">timezone</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">timezone</span> <span class="o">/</span> <span class="mf">3600</span><span class="p">))</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">DST    :&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">daylight</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Time   :&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+    <span class="k">print</span>
+
+<span class="k">print</span> <span class="s">&#39;Default:&#39;</span>
+<span class="n">show_zone_info</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">zone</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;US/Eastern&#39;</span><span class="p">,</span><span class="s">&#39;US/Pacific&#39;</span><span class="p">,</span> <span class="s">&#39;GMT&#39;</span><span class="p">,</span>
+             <span class="s">&#39;Europe/Amsterdam&#39;</span><span class="p">,</span><span class="s">&#39;Asia/Culcutta&#39;</span><span class="p">]:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TZ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zone</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">tzset</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">zone</span><span class="p">,</span> <span class="s">&#39;:&#39;</span>
+    <span class="n">show_zone_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference" href="">time</a><ul>
+<li><a class="reference" href="#time-ctime-clock-and-sleep">time, ctime, clock and sleep</a></li>
+<li><a class="reference" href="#benchmarking-using-time-clock">Benchmarking using time.clock</a></li>
+<li><a class="reference" href="#parsing-time">Parsing time</a></li>
+<li><a class="reference" href="#time-zone-calculations">Time Zone Calculations</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="glob.html"
+                                  title="previous chapter">glob</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="urllib.html"
+                                  title="next chapter">urllib</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/time.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="urllib.html" title="urllib"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="glob.html" title="glob"
+             >previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6b1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>smtpd and smtplib &mdash; PyCon 2009 - A Tour of Python Standard Library v2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyCon 2009 - A Tour of Python Standard Library v2 documentation" href="index.html" />
+    <link rel="next" title="socket module" href="socket.html" />
+    <link rel="prev" title="simplexmlprcserver" href="simplexmlrpcserver.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="socket.html" title="socket module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="simplexmlrpcserver.html" title="simplexmlprcserver"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="smtpd-and-smtplib">
+<h1>smtpd and smtplib<a class="headerlink" href="#smtpd-and-smtplib" title="Permalink to this headline">¶</a></h1>
+<p>This module provides a Simple Mail Transfer Protocol (SMTP) client
+implementation. This protocol is used to send mail through Unix mailservers.</p>
+<div class="section" id="smtp-server">
+<h2>SMTP Server<a class="headerlink" href="#smtp-server" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">smtpd</span>
+<span class="kn">import</span> <span class="nn">asyncore</span>
+
+<span class="k">class</span> <span class="nc">CustomSMTPServer</span><span class="p">(</span><span class="n">smtpd</span><span class="o">.</span><span class="n">SMTPServer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">process_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer</span><span class="p">,</span> <span class="n">mailfrom</span><span class="p">,</span> <span class="n">rcpttos</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Receiving message from:&#39;</span><span class="p">,</span> <span class="n">peer</span>
+        <span class="k">print</span> <span class="s">&#39;Message addressed from:&#39;</span><span class="p">,</span> <span class="n">mailfrom</span>
+        <span class="k">print</span> <span class="s">&#39;Message addressed to  :&#39;</span><span class="p">,</span> <span class="n">rcpttos</span>
+        <span class="k">print</span> <span class="s">&#39;Message length        :&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&#39;Message is            :&#39;</span><span class="p">,</span> <span class="n">data</span>
+        <span class="k">return</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">CustomSMTPServer</span><span class="p">((</span><span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="mf">1025</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">asyncore</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="smtp-client">
+<h2>SMTP Client<a class="headerlink" href="#smtp-client" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">import</span> <span class="nn">email.utils</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+
+<span class="c"># Create the message</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="s">&#39;Well, it just seemed wrong to cheat on an ethics test.  --</span><span class="se">\</span>
+<span class="s">               Calvin&#39;</span><span class="p">)</span>
+<span class="n">msg</span><span class="p">[</span><span class="s">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">formataddr</span><span class="p">((</span><span class="s">&#39;Recipient&#39;</span><span class="p">,</span><span class="s">&#39;recipient@example.com&#39;</span><span class="p">))</span>
+<span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">formataddr</span><span class="p">((</span><span class="s">&#39;Author&#39;</span><span class="p">,</span><span class="s">&#39;author@example.com&#39;</span><span class="p">))</span>
+<span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;I am home, Hobbes.&#39;</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mf">1025</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">set_debuglevel</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="c"># Logs the communication with the server</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="s">&#39;author@example.com&#39;</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s">&#39;recipient@example.com&#39;</span><span class="p">],</span><span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference" href="">smtpd and smtplib</a><ul>
+<li><a class="reference" href="#smtp-server">SMTP Server</a></li>
+<li><a class="reference" href="#smtp-client">SMTP Client</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="simplexmlrpcserver.html"
+                                  title="previous chapter">simplexmlprcserver</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="socket.html"
+                                  title="next chapter">socket module</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/smtp.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="socket.html" title="socket module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="simplexmlrpcserver.html" title="simplexmlprcserver"
+             >previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6b1.
+    </div>
+  </body>
+</html>

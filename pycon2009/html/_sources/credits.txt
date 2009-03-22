@@ -1,0 +1,17 @@
+=======
+Credits
+=======
+
+The tutorial material consists of examples from the following other sources.
+
+* Doug Hellmann for PyMOTW.
+
+* (the eff-bot guide to) The Python Standard Library.
+
+* Python Library Reference.
+
+* Basic Multi-threading in Python by Peyton McCullough
+
+* Python Cookbook published by O'Reilly.
+
+Thanks to all of them for sharing invaluable knowledge.

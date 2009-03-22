@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PyCon 2009 - A Tour of Python Standard Library &mdash; PyCon 2009 - A Tour of Python Standard Library v2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyCon 2009 - A Tour of Python Standard Library v2 documentation" href="" />
+    <link rel="next" title="A Tour of Python Standard Library" href="intro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="A Tour of Python Standard Library"
+             accesskey="N">next</a> |</li>
+        <li><a href="">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pycon-2009-a-tour-of-python-standard-library">
+<h1>PyCon 2009 - A Tour of Python Standard Library<a class="headerlink" href="#pycon-2009-a-tour-of-python-standard-library" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<ul>
+<li class="toctree-l1"><a class="reference" href="intro.html">A Tour of Python Standard Library</a></li>
+<li class="toctree-l1"><a class="reference" href="intro.html#something-about-python">Something about Python</a><ul>
+<li class="toctree-l2"><a class="reference" href="intro.html#have-you-watched-ratatouille">Have you watched Ratatouille?</a></li>
+<li class="toctree-l2"><a class="reference" href="intro.html#what-is-python">What is Python?</a></li>
+<li class="toctree-l2"><a class="reference" href="intro.html#python-standard-library">Python Standard Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference" href="divein.html">Diving In</a></li>
+<li class="toctree-l1"><a class="reference" href="divein.html#py3k-what-to-look-for-in-brief">Py3K, what to look for in brief</a></li>
+<li class="toctree-l1"><a class="reference" href="divein.html#diving-into-py3k">Diving Into Py3K</a></li>
+<li class="toctree-l1"><a class="reference" href="builtins.html">builtin modules</a><ul>
+<li class="toctree-l2"><a class="reference" href="builtins.html#all">all</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#any">any</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#callable-object">callable(object)</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#staticmethod">staticmethod</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#classmethod">classmethod</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#ellipsis">ellipsis</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#property">property</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#super">super</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#compile">compile</a></li>
+<li class="toctree-l2"><a class="reference" href="builtins.html#exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="os_module.html">os module</a><ul>
+<li class="toctree-l2"><a class="reference" href="os_module.html#differences-from-earlier-python-releases">Differences from earlier python releases</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#working-with-directories-and-files">Working with directories and files</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#checking-file-permissions">Checking file permissions.</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#change-file-permissions-using-chmod">Change file permissions using chmod</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#file-and-file-system-status-through-stat-system-call">file and file system status through stat system call</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#creating-a-symbolic-link-to-a-file">Creating a symbolic link to a file.</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#getting-the-user-information">Getting the user information.</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#environment-values-and-execution">Environment values and execution</a></li>
+<li class="toctree-l2"><a class="reference" href="os_module.html#popen-open-a-pipe">popen - Open a pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="shutil.html">shutil module</a><ul>
+<li class="toctree-l2"><a class="reference" href="shutil.html#what-s-new-shutil-module-in-py2-6-and-py3k">What&#8217;s new shutil module in Py2.6 and Py3k.</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#simplest-shutil-copy-example">Simplest shutil.copy example</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#shutil-copy2-example">shutil.copy2 example</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#move-copytree-rmtree">move, copytree, rmtree</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#copyfileobj-function">copyfileobj function</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#copyfile-and-copymode">copyfile and copymode</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#copystat">copystat</a></li>
+<li class="toctree-l2"><a class="reference" href="shutil.html#assignment">Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="subprocess.html">subprocess</a><ul>
+<li class="toctree-l2"><a class="reference" href="subprocess.html#subprocess-call-popenargs-kwargs"><tt class="docutils literal"><span class="pre">subprocess.call(*popenargs,</span> <span class="pre">**kwargs)</span></tt></a></li>
+<li class="toctree-l2"><a class="reference" href="subprocess.html#popen-method">Popen method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="glob.html">glob</a><ul>
+<li class="toctree-l2"><a class="reference" href="glob.html#get-all-files-and-directories">Get all files and directories</a></li>
+<li class="toctree-l2"><a class="reference" href="glob.html#specify-with-a-range">Specify with a range</a></li>
+<li class="toctree-l2"><a class="reference" href="glob.html#using-a-single-wild-character">Using a single wild character</a></li>
+<li class="toctree-l2"><a class="reference" href="glob.html#finding-within-a-subdirectory">Finding within a subdirectory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="time.html">time</a><ul>
+<li class="toctree-l2"><a class="reference" href="time.html#time-ctime-clock-and-sleep">time, ctime, clock and sleep</a></li>
+<li class="toctree-l2"><a class="reference" href="time.html#benchmarking-using-time-clock">Benchmarking using time.clock</a></li>
+<li class="toctree-l2"><a class="reference" href="time.html#parsing-time">Parsing time</a></li>
+<li class="toctree-l2"><a class="reference" href="time.html#time-zone-calculations">Time Zone Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="urllib.html">urllib</a><ul>
+<li class="toctree-l2"><a class="reference" href="urllib.html#changes-in-py3k">Changes in Py3k</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-1">Example 1</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-2">Example 2</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-3">Example 3</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-4">Example 4</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-5">Example 5</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-6">Example 6</a></li>
+<li class="toctree-l2"><a class="reference" href="urllib.html#example-7">Example 7</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="basehttpserver.html">basehttpsever</a></li>
+<li class="toctree-l1"><a class="reference" href="simplexmlrpcserver.html">simplexmlprcserver</a><ul>
+<li class="toctree-l2"><a class="reference" href="simplexmlrpcserver.html#example-1">Example 1</a></li>
+<li class="toctree-l2"><a class="reference" href="simplexmlrpcserver.html#example-2">Example 2</a></li>
+<li class="toctree-l2"><a class="reference" href="simplexmlrpcserver.html#example-3">Example 3</a></li>
+<li class="toctree-l2"><a class="reference" href="simplexmlrpcserver.html#id1">Example 1</a></li>
+<li class="toctree-l2"><a class="reference" href="simplexmlrpcserver.html#id2">Example 2</a></li>
+<li class="toctree-l2"><a class="reference" href="simplexmlrpcserver.html#id3">Example 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="smtp.html">smtpd and smtplib</a><ul>
+<li class="toctree-l2"><a class="reference" href="smtp.html#smtp-server">SMTP Server</a></li>
+<li class="toctree-l2"><a class="reference" href="smtp.html#smtp-client">SMTP Client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="socket.html">socket module</a><ul>
+<li class="toctree-l2"><a class="reference" href="socket.html#additional-notes-of-socket-programming">Additional Notes of Socket Programming.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="threading.html">threading</a><ul>
+<li class="toctree-l2"><a class="reference" href="threading.html#simplest-thread">Simplest Thread</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#group-of-threads">Group of Threads</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#server-which-services-clients-in-threads">Server which services clients in threads</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#threaded-pool-server">Threaded Pool Server</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#naming-the-threads">Naming the Threads</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#check-status-of-threads">Check status of Threads</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#join-and-setdaemon-methods">join and setdaemon methods</a></li>
+<li class="toctree-l2"><a class="reference" href="threading.html#banking-scenario-with-threading">Banking Scenario with threading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="logging.html">logging</a><ul>
+<li class="toctree-l2"><a class="reference" href="logging.html#example-1">Example 1:</a></li>
+<li class="toctree-l2"><a class="reference" href="logging.html#example-2">Example 2:</a></li>
+<li class="toctree-l2"><a class="reference" href="logging.html#example-3">Example 3:</a></li>
+<li class="toctree-l2"><a class="reference" href="logging.html#example-4">Example 4:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="doctest.html">doctest</a><ul>
+<li class="toctree-l2"><a class="reference" href="doctest.html#example-1">Example 1</a></li>
+<li class="toctree-l2"><a class="reference" href="doctest.html#example-2">Example 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="unittest.html">unittest</a></li>
+<li class="toctree-l1"><a class="reference" href="configparser.html">configparser</a><ul>
+<li class="toctree-l2"><a class="reference" href="configparser.html#changes-in-python-3k">Changes in Python 3k</a></li>
+<li class="toctree-l2"><a class="reference" href="configparser.html#reading-a-configfile">Reading a configfile</a></li>
+<li class="toctree-l2"><a class="reference" href="configparser.html#writing-to-a-configfile">Writing to a configfile</a></li>
+<li class="toctree-l2"><a class="reference" href="configparser.html#reading-the-configfile-with-value-types-and-interpolation">Reading the configfile with value types and interpolation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="shortcuts.html">Python Shortcuts</a><ul>
+<li class="toctree-l2"><a class="reference" href="shortcuts.html#example-1">Example 1:</a></li>
+<li class="toctree-l2"><a class="reference" href="shortcuts.html#example-2">Example 2:</a></li>
+<li class="toctree-l2"><a class="reference" href="shortcuts.html#example-3">Example 3:</a></li>
+<li class="toctree-l2"><a class="reference" href="shortcuts.html#example-4">Example 4:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Next topic</h4>
+            <p class="topless"><a href="intro.html"
+                                  title="next chapter">A Tour of Python Standard Library</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/index.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="A Tour of Python Standard Library"
+             >next</a> |</li>
+        <li><a href="">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6b1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>socket module &mdash; PyCon 2009 - A Tour of Python Standard Library v2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyCon 2009 - A Tour of Python Standard Library v2 documentation" href="index.html" />
+    <link rel="next" title="threading" href="threading.html" />
+    <link rel="prev" title="smtpd and smtplib" href="smtp.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="threading.html" title="threading"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="smtp.html" title="smtpd and smtplib"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="socket-module">
+<h1>socket module<a class="headerlink" href="#socket-module" title="Permalink to this headline">¶</a></h1>
+<p>The Python socket module provides direct access to the standard BSD socket
+interface, which is available on most modern computer systems. The advantage of
+using Python for socket programming is that socket addressing is simpler and
+much of the buffer allocation is done automatically. In addition, it is easy to
+create secure sockets and several higher-level socket abstractions are
+available.</p>
+<p>To create a server, you need to:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>create a socket</li>
+<li>bind the socket to an address and port</li>
+<li>listen for incoming connections</li>
+<li>wait for clients</li>
+<li>accept a client</li>
+<li>send and receive data</li>
+</ol>
+</blockquote>
+<p>To create a client, you need to:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>create a socket</li>
+<li>connect to the server</li>
+<li>send and receive data</li>
+</ol>
+</blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mf">50000</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mf">1024</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;Hello,World&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;Received:&#39;</span><span class="p">,</span> <span class="n">data</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mf">50000</span>
+<span class="n">backlog</span> <span class="o">=</span> <span class="mf">5</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mf">1024</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">backlog</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">client</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="additional-notes-of-socket-programming">
+<h2>Additional Notes of Socket Programming.<a class="headerlink" href="#additional-notes-of-socket-programming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addresses">
+<h3>Addresses<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h3>
+<p>The BSD socket interface defines several different types of addresses called
+families. These include:</p>
+<ul class="simple">
+<li>AF_UNIX:
+A Unix socket allows two processes running on the same machine to communicate
+with each other through the socket interface. In Python, UNIX socket
+addresses are represented as a string.</li>
+<li>AF_INET:
+An IPv4 socket is a socket between two processes, potentially running on
+different machines, using the current version of IP (IP version 4). This is
+the type of socket most programs use today. In Python, IPv4 socket addresses
+are represented using a tuple of (host, port), where host is a string host
+name and port is an integer called the port number. For the host name you can
+specify either a standard Internet name, such as &#8216;www.cnn.com&#8217; or an IP
+address in dotted decimal notation, such as &#8216;64.236.24.20&#8217;.</li>
+<li>AF_INET6: An IPv6 socket is similar to an IPv4 socket, except that it uses
+IPv6. The main change in IPv6 is that it uses 128 bit addresses, whereas IPv4
+uses only 32 bits; this allows IPv6 to better meet the current high demand
+for IP addresses. In addition, IPv6 uses flow identifiers to provide
+different Quality of Service to applications (i.e. low delay or guaranteed
+bandwidth) and scope identifiers to limit packet delivery to various
+administrative boundaries. In Python, IPv6 socket addresses are represented
+using a tuple of (host, port, flowinfo, scopeid), where flowinfo is the flow
+identifier and scopeid is the scope identifier. Since support of IPv6 in many
+host operating systems is still incomplete, we will not discuss IPv6 further
+in this tutorial.</li>
+</ul>
+</div>
+<div class="section" id="sockets">
+<h3>Sockets<a class="headerlink" href="#sockets" title="Permalink to this headline">¶</a></h3>
+<p>To create a socket in Python, use the socket() method</p>
+<div class="highlight-python"><pre>socket(family,type[,protocol])</pre>
+</div>
+<p>The family is either AF_UNIX, AF_INET, or AF_INET6. There are several different
+types of sockets; the main ones are SOCK_STREAM for TCP sockets and SOCK_DGRAM
+for UDP sockets. You can skip the protocol number in most cases.</p>
+<p>Please note that the constants listed above for socket family and socket type
+are defined inside the socket module. This means that you must import the
+socket module and then reference them as &#8216;socket.AF_INET&#8217;.</p>
+<p>The important thing about the socket() method is it returns a socket object.
+You can then use the socket object to call each of its methods, such as bind,
+listen, accept, and connect.</p>
+</div>
+<div class="section" id="s-listen-backlog">
+<h3>s.listen(backlog)<a class="headerlink" href="#s-listen-backlog" title="Permalink to this headline">¶</a></h3>
+<p>This tells the operating system to keep a backlog of five connections. This
+means that you can have at most five clients waiting while the server is
+handling the current client. You can set this higher, but the operating system
+will typically allow a maximum of 5 waiting connections. To cope with this,
+busy servers need to generate a new thread to handle each incoming connection
+so that it can quickly serve the queue of waiting clients.</p>
+<p><a class="reference" href="http://ilab.cs.byu.edu/python/socketmodule.html">http://ilab.cs.byu.edu/python/socketmodule.html</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference" href="">socket module</a><ul>
+<li><a class="reference" href="#additional-notes-of-socket-programming">Additional Notes of Socket Programming.</a><ul>
+<li><a class="reference" href="#addresses">Addresses</a></li>
+<li><a class="reference" href="#sockets">Sockets</a></li>
+<li><a class="reference" href="#s-listen-backlog">s.listen(backlog)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="smtp.html"
+                                  title="previous chapter">smtpd and smtplib</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="threading.html"
+                                  title="next chapter">threading</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/socket.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="threading.html" title="threading"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="smtp.html" title="smtpd and smtplib"
+             >previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6b1.
+    </div>
+  </body>
+</html>

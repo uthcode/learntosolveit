@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>basehttpsever &mdash; PyCon 2009 - A Tour of Python Standard Library v2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyCon 2009 - A Tour of Python Standard Library v2 documentation" href="index.html" />
+    <link rel="next" title="simplexmlprcserver" href="simplexmlrpcserver.html" />
+    <link rel="prev" title="urllib" href="urllib.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="simplexmlrpcserver.html" title="simplexmlprcserver"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="urllib.html" title="urllib"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="basehttpsever">
+<h1>basehttpsever<a class="headerlink" href="#basehttpsever" title="Permalink to this headline">¶</a></h1>
+<p>This is a basic framework for HTTP servers, built on top of the SocketServer
+framework.</p>
+<p>The following example generates a random message each time you reload the page.
+The path variable contains the current URL, which you can use to generate
+different contents for different URLs (as it stands, the script returns an
+error page for anything but the root path).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">BaseHTTPServer</span>
+<span class="kn">import</span> <span class="nn">cgi</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">sys</span>
+
+<span class="n">MESSAGES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&quot;I like maxims that don&#39;t encourage behavior modification.&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Reality continues to ruin my life.&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Weekends don&#39;t count unless you spend them doing something completely </span><span class="se">\</span>
+<span class="s">    pointless.&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Life&#39;s disappointments are harder to take when you don&#39;t know any swear </span><span class="se">\</span>
+<span class="s">    words.&quot;</span>
+<span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">Handler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">!=</span> <span class="s">&quot;/&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_error</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span><span class="s">&quot;File not Found!&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mf">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s">&quot;Content-type:&quot;</span><span class="p">,</span> <span class="s">&quot;text/html&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c"># redirect stdout to client</span>
+            <span class="n">stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">makepage</span><span class="p">()</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span> <span class="c"># restore</span>
+
+    <span class="k">def</span> <span class="nf">makepage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># generate a random message</span>
+        <span class="n">tagline</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">MESSAGES</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;&lt;html&gt;&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;&lt;body&gt;&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;&lt;p&gt;Today&#39;s Quote:&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;&lt;i&gt;</span><span class="si">%s</span><span class="s">&lt;/i&gt;&quot;</span> <span class="o">%</span> <span class="n">cgi</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">tagline</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;&lt;/body&gt;&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;&lt;/html&gt;&quot;</span>
+
+<span class="n">PORT</span> <span class="o">=</span> <span class="mf">8000</span>
+
+<span class="n">httpd</span> <span class="o">=</span> <span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">((</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">PORT</span><span class="p">),</span> <span class="n">Handler</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;serving at port&quot;</span><span class="p">,</span> <span class="n">PORT</span>
+<span class="n">httpd</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="urllib.html"
+                                  title="previous chapter">urllib</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="simplexmlrpcserver.html"
+                                  title="next chapter">simplexmlprcserver</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/basehttpserver.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="simplexmlrpcserver.html" title="simplexmlprcserver"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="urllib.html" title="urllib"
+             >previous</a> |</li>
+        <li><a href="index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6b1.
+    </div>
+  </body>
+</html>
