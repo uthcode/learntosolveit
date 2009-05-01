@@ -1,0 +1,18 @@
+Google Appengine supports any framework written in pure python that speaks CGI (and any WSGI-compliant framework using CGI Adapter).
+
+What does speaking CGI mean?
+Or what does WSGI compliant framework using CGI adapter mean?
+
+webapp framework has
+- requesthandler
+- WSGIApplication that routes the requests to handlers based on the incoming URL.
+- the main routine which runs the WSGIApplication using a CGI Adaptor.
+
+The run_wsgi_app() is similar to the WSGI-to-CGI adaptor provided by the
+wsgiref module in the Python Standard Library.
+
+You might have to study HTML. Especially the form handling part.
+
+If for some reason you need a single handler to handle both GET and POST actions to the same URL, you can define a method for each action in the same class.
+
+

@@ -1,0 +1,12 @@
+Mailing list way.
+
+What a patch needs
+- PEP 7/8 conformance
+- unit tests
+- Doc changes.
+- Misc/NEWS
+- Misc/ACKS
+
+python-ideas
+comp.lang.python
+

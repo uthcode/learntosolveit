@@ -1,0 +1,7 @@
+senthil@ubuntu:~/Python-3.0.1$ dpkg -l|grep zlib
+ii  libcompress-raw-zlib-perl                  2.011-2build1                           low-level interface to zlib compression libr
+ii  libcompress-zlib-perl                      2.011-1                                 Perl module for creation and manipulation of
+ii  libio-compress-zlib-perl                   2.011-1                                 Perl interface to zlib
+ii  zlib1g                                     1:1.2.3.3.dfsg-12ubuntu1                compression library - runtime
+senthil@ubuntu:~/Python-3.0.1$ apt-cache search zlib dev
+

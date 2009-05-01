@@ -1,0 +1,47 @@
+Public Speaking is skill.
+Lightning Talks - Title, Code, Screenshot, URL.
+LESSIG Style presentation. Preparation is the key.
+
+Selecting a topic:
+- Introduce a project you have written.
+- Introduction to Libraries that you use most often.
+
+
+2005 Talks.
+- Alex Martelli talks.
+- Object Oriented Design with Python - Bruce Eckel.
+
+2006 Talks.
+- IronPython implementation.
+
+2007 Talks.
+
+2008 Talks:
+- Code Python Containers -- Under the Hood. Raymond Hetinger.
+
+Think about your audience.
+
+
+It is better to go fast than to go slow.
+Minimum Introduction and jump into code.
+XML show the code.
+
+Slide Design:
+- Keep it Simple.
+- Slides are for audience.
+- Use software you are comfy with.
+- A talks is a performance.
+
+
+Reherse! your talks.  
+
+Practice several times.
+- Polish the outline
+- time how long it takes.
+- fix phrasing in memory.
+- delivery presentation to someone else.
+
+
+Secrets of Power Presentation.
+
+
