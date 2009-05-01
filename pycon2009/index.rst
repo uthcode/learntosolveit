@@ -9,7 +9,7 @@ PyCon 2009 - A Tour of Python Standard Library
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    intro
    credits

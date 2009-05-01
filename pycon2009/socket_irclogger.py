@@ -33,6 +33,7 @@ try:
     while True:
         buffer = IRC.recv(1024)
         msg = buffer.split()
+        print msg
         if msg[0] == "PING":
             # answer PING with PONG, as RFC 1459 specifies
             send_data("PONG %s" % msg[1])
