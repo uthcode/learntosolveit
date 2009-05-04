@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2>Welcome to the Gallery!</h3>
+<p>Here you'll find pictures of various items. Below are some highlighted
+items; use the link at the bottom to see the full listing.</p>
+
+<h3>Showcase</h3>
+<table>
+    <tr>
+    {% for item in item_list|slice:":3" %}
+        <td>
+            <a href="{{ item.get_absolute_url }}"><b>{{ item.name }}</b><br />
+            {% if item.photo_set.count %}
+                <img src="{{ item.photo_set.all.0.image.thumb_url }}" />
+            {% else %}
+                <span>No photos (yet)</span>
+            {% endif %}
+            </a>
+        </td>
+    {% endfor %}
+    </tr>
+</table>
+<p><a href="{% url item_list %}">View the full list &raquo;</a></p>
+
+{% endblock %}

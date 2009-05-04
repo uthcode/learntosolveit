@@ -1,0 +1,427 @@
+RFC 3986 Notes:
+Mon Aug 25 10:17:01 IST 2008
+
+- A URI is a sequence of characters that is not always represented as a
+  sequence of octets. ( What are octets? OCTETS means 8 Bits. Nothing else!)
+- Percent-encoded octets may be used within a URI to represent characters
+  outside the range of the US-ASCII coded character set.
+- Specification uses Augmented Backus-Naur Form (ABNF) notation of [RFC2234],
+  including the followig core ABNF syntax rules defined by that specification:
+  ALPHA (letters), CR ( carriage return), DIGIT (decimal digits), DQUOTE
+  (double quote), HEXDIG (hexadecimal digits), LF (line feed) and SP (space).
+
+Section 1 of RFC3986 is very generic. Undestand that URI should be transferable
+and single generic syntax should denote the whole range of URI schemes.
+
+- URI Characters are, in turn, frequently encoded as octets for transport or
+  presentation.
+- This specification does not mandate any character encoding for mapping
+  between URI characters and the octets used to store or transmit those
+  characters.
+	pct-encoded = "%" HEXDIG HEXDIG
+
+- For consistency, uri producers and normalizers should use uppercase
+  hexadecimal digits, for all percent - encodings.
+      reserved    = gen-delims / sub-delims
+
+      gen-delims  = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+
+      sub-delims  = "!" / "$" / "&" / "'" / "(" / ")"
+                  / "*" / "+" / "," / ";" / "="
+
+
+      unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
+
+   When a new URI scheme defines a component that represents textual
+   data consisting of characters from the Universal Character Set [UCS],
+   the data should first be encoded as octets according to the UTF-8
+   character encoding [STD63]; then only those octets that do not
+   correspond to characters in the unreserved set should be percent-
+   encoded.  For example, the character A would be represented as "A",
+   the character LATIN CAPITAL LETTER A WITH GRAVE would be represented
+   as "%C3%80", and the character KATAKANA LETTER A would be represented
+   as "%E3%82%A2".
+
+Section 2, was on encoding and decoding the characters in the url scheme. How
+that is being used encoding reservered characters within data. Transmission of
+url from local to public when using a different encoding - translate at the
+interface level.
+
+      URI         = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+
+      hier-part   = "//" authority path-abempty
+                  / path-absolute
+                  / path-rootless
+                  / path-empty
+
+Many URI schemes include a hierarchical element for a naming
+authority so that governance of the name space defined by the
+remainder of the URI is delegated to that authority (which may, in
+turn, delegate it further).
+
+      userinfo    = *( unreserved / pct-encoded / sub-delims / ":" )
+      host        = IP-literal / IPv4address / reg-name
+
+In order to disambiguate the syntax host between IPv4address and reg-name, we
+apply the "first-match-wins" algorithm:
+
+A host identified by an Internet Protocol literal address, version 6
+[RFC3513] or later, is distinguished by enclosing the IP literal
+within square brackets ("[" and "]").  This is the only place where
+ square bracket characters are allowed in the URI syntax.
+
+      IP-literal = "[" ( IPv6address / IPvFuture  ) "]"
+
+      IPvFuture  = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
+
+   IPv6address =                            6( h16 ":" ) ls32
+                  /                       "::" 5( h16 ":" ) ls32
+                  / [               h16 ] "::" 4( h16 ":" ) ls32
+                  / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
+                  / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
+                  / [ *3( h16 ":" ) h16 ] "::"    h16 ":"   ls32
+                  / [ *4( h16 ":" ) h16 ] "::"              ls32
+                  / [ *5( h16 ":" ) h16 ] "::"              h16
+                  / [ *6( h16 ":" ) h16 ] "::"
+
+      ls32        = ( h16 ":" h16 ) / IPv4address
+                  ; least-significant 32 bits of address
+
+      h16         = 1*4HEXDIG
+                  ; 16 bits of address represented in hexadecimal
+
+   IPv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
+
+      dec-octet   = DIGIT                 ; 0-9
+                  / %x31-39 DIGIT         ; 10-99
+                  / "1" 2DIGIT            ; 100-199
+                  / "2" %x30-34 DIGIT     ; 200-249
+                  / "25" %x30-35          ; 250-255
+
+      reg-name    = *( unreserved / pct-encoded / sub-delims )
+
+Non-ASCII characters must first be encoded according to UTF-8 [STD63], and then
+each octet of the corresponding UTF-8 sequence must be percent- encoded to be
+represented as URI characters. 
+
+When a non-ASCII registered name represents an internationalized domain name
+intended for resolution via the DNS, the name must be transformed to the IDNA
+encoding [RFC3490] prior to name lookup. 
+
+Section 3 was about sub-components and their structure and if they are
+represented in NON ASCII how to go about with encoding/decoding that.
+
+      path          = path-abempty    ; begins with "/" or is empty
+                    / path-absolute   ; begins with "/" but not "//"
+                    / path-noscheme   ; begins with a non-colon segment
+                    / path-rootless   ; begins with a segment
+                    / path-empty      ; zero characters
+
+      path-abempty  = *( "/" segment )
+      path-absolute = "/" [ segment-nz *( "/" segment ) ]
+      path-noscheme = segment-nz-nc *( "/" segment )
+      path-rootless = segment-nz *( "/" segment )
+      path-empty    = 0<pchar>
+      segment       = *pchar
+      segment-nz    = 1*pchar
+      segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+                    ; non-zero-length segment without any colon ":"
+
+      pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+
+      relative-ref  = relative-part [ "?" query ] [ "#" fragment ]
+
+      relative-part = "//" authority path-abempty
+                    / path-absolute
+                    / path-noscheme
+                    / path-empty
+
+Section 4 was on the usage aspects and heuristics used in determining in the
+scheme in the normal usages where scheme is not given. 
+
+- Base uri must be stripped of any fragment components prior to it being used
+  as a Base URI.
+
+Section 5 was on relative reference implementation algorithm. I had covered
+them practically in the Python urlparse module.
+
+Section 6 was on Normalization of URIs for comparision and various
+normalization practices that are used.
+
+
+========================================================================
+Python playground:
+
+>>> if -1:
+...     print True
+...
+True
+>>> if 0:
+...     print True
+...
+>>>
+
+Use of namedtuple in py3k branch for urlparse.
+
+========================================================================
+
+Dissecting urlparse:
+
+1) __all__ methods provides the public interfaces to all the methods like
+urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
+
+2) then there is classification of schemes like uses_relative, uses_netloc,
+non_hierarchical, uses_params, uses_query, uses_fragment
+	- there should be defined in an rfc most probably 1808.
+	- there is a special '' blank string, in certain classifications, which
+	  means that apply by default.
+
+3)valid characters in scheme name should be defined in 1808.
+
+4) class ResultMixin is defined to provide username, password, hostname and
+port.
+
+5) from collections import namedtuple. This should be from python2.6.
+namedtuple is pretty interesting feature. 
+
+6) SplitResult and ParseResult. Very good use of namedtuple and ResultMixin
+
+7) The behaviour of the public methods urlparse, urlunparse, urlsplit and
+urlunsplit and urldefrag matter most.
+
+urlparse - scheme, netloc, path, params, query and fragment.
+urlunparse will take those parameters and construct the url back.
+
+urlsplit - scheme, netloc, path, query and fragment.
+urlunsplit - takes these parameters (scheme, netloc, path, query and fragment)
+and returns a url.
+
+urlparse x urlunparse
+urlsplit x urlunsplit
+urldefrag
+urljoin
+
+
+
+
+Date: Tue Aug 19 20:40:46 IST 2008
+
+	Changes to urlsplit functionality in urllib.
+	As per the RFC3986, the url is split into:
+		scheme, authority, path, query, frag = url
+
+	The authority part in turn can be split into the sections:
+		user, passwd, host, port = authority
+
+	The following line is the regular expression for breaking-down a
+	well-formed URI reference into its components.	
+
+	^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?
+     12            3  4          5       6  7        8 9
+
+      scheme    = $2
+      authority = $4
+      path      = $5
+      query     = $7
+      fragment  = $9
+
+	The urlsplit functionality in the urllib can be moved to new regular
+	expression based parsing mechanism.
+
+
+
+From man uri, which confirms to rfc2396 and HTML 4.0 specs.
+
+- An absolute identifier refers to a resource independent of context, while a
+  relative identifier refers to a resource by describing the difference from
+  the current context.
+
+- A path segment while contains a colon character ':' can't be used as the
+  first segment of a relative URI path. Use it like this './file:path'
+
+- A query can be given in the archaic "isindex" format, consisting of a word or
+  a phrase and not including an equal sign (=). If = is there, then it must be
+  after & like &key=value format.
+
+Character Encodings:
+
+- Reserved characters: ;/?:@&=+$,
+- Unreserved characters: ALPHA, DIGITS, -_.!~*'()
+
+An escaped octet is encoded as a character triplet consisting of the percent
+character '%' followed by the two  hexadecimal digits representing the octet
+code.
+
+HTML 4.0 specification section B.2 recommends the following, which should be
+considered best available current guidance:
+
+1) Represent each non-ASCII character as UTF-8
+2) Escape those bytes with the URI escaping mechanism, converting each byte to
+%HH where HH is the hexadecimal notation of the byte value.
+
+One of the important changes when adhering to RFC3986 is parsing of IPv6
+addresses.
+
+===============================================================================
+1) Bug issue1285086: urllib2.quote is too slow
+
+For the short-circuit path, the regexp can make quote 10x as fast in
+exceptional cases, even comparing to the faster version in trunk. The
+average win for short-circuit seems to be twice as fast as the map in my
+timings. This sounds good.
+
+For the normal path, the overhead can make quote 50% slower. This IMHO
+makes it unfit for quote replacement. Perhaps good for a cookbook recipe?
+
+Regarding the OP's use case, I believe either adding a string cache to
+quote or flagging stored strings as "safe" or "must quote" would result
+in a much greater impact on performance.
+
+Attaching patch against trunk. Web framework developers should be
+interested in testing this and could provide the use cases/data needed
+for settling this issue.
+
+Index: urllib.py
+===================================================================
+--- urllib.py	(revision 62222)
++++ urllib.py	(working copy)
+@@ -27,6 +27,7 @@
+ import os
+ import time
+ import sys
++import re
+ from urlparse import urljoin as basejoin
+ 
+ __all__ = ["urlopen", "URLopener", "FancyURLopener", "urlretrieve",
+@@ -1175,6 +1176,7 @@
+                'abcdefghijklmnopqrstuvwxyz'
+                '0123456789' '_.-')
+ _safemaps = {}
++_must_quote = {}
+ 
+ def quote(s, safe = '/'):
+     """quote('abc def') -> 'abc%20def'
+@@ -1200,8 +1202,11 @@
+     cachekey = (safe, always_safe)
+     try:
+         safe_map = _safemaps[cachekey]
++        if not _must_quote[cachekey].search(s):
++            return s
+     except KeyError:
+         safe += always_safe
++        _must_quote[cachekey] = re.compile(r'[^%s]' % safe)
+         safe_map = {}
+         for i in range(256):
+             c = chr(i)
+
+
+----------------------------------------------------------------------
+What does this construct imply?
+
+x = lambda: None
+
+----------------------------------------------------------------------
+How can we differentiate if an expression used is a general expression or a boolean expression.
+
+----------------------------------------------------------------------
+Having a construct like:
+def __init__(self, *args, **kwargs):
+	BaseClass.__init__(self, *args, **kwargs)
+
+But in the base class, I find that it is not taking the tuple and dict as
+arguments.
+
+I dont understand the 
+assert(proxies, 'has_key'), "proxies must be mapping"
+
+----------------------------------------------------------------------
+
+* What is an addrinfo struct.
+
+The getaddrinfo() function returns a list of 5-tuples with the following structure:
+(family, socktype, proto, canonname, sockaddr)
+
+family, socktype, proto are all integer and are meant to be passed to the socket() function. canonname is a string representing the canonical name of the host. It can be a numeric IPv4/v6 address when AI_CANONNAME is specified for a numeric host. 
+
+socket.gethostbyname(hostname)
+    Translate a host name to IPv4 address format. The IPv4 address is returned as a string, such as '100.50.200.5'. If the host name is an IPv4 address itself it is returned unchanged. See gethostbyname_ex() for a more complete interface. gethostbyname() does not support IPv6 name resolution, and getaddrinfo() should be used instead for IPv4/v6 dual stack support.
+
+
+We need to replace the gethostbyname socket call. Because it is only IPv4 specific. using the getaddrinfo() function can include the IPv4/v6 dual stack support.
+
+import socket
+print socket.gethostbyname(hostname)
+
+def gethostbyname(hostname)
+	family, socktype, proto, canonname, sockaddr = socket.getaddrinfo(hostname)
+	return canonname
+
+----------------------------------------------------------------------
+
+Compare dates for cache control
+
+RFC 1123 date format:
+Thu, 01 Dec 1994 16:00:00 GMT
+
+<pre>
+>>> datereturned = "Thu, 01 Dec 1994 16:00:00 GMT"
+>>> dateexpired = "Sun, 05 Aug 2007 03:25:42 GMT"
+>>> obj1 = datetime.datetime(*time.strptime(datereturned, "%a, %d %b %Y %H:%M:%S %Z")[0:6])
+>>> obj2 = datetime.datetime(*time.strptime(dateexpired, "%a, %d %b %Y %H:%M:%S %Z")[0:6])
+>>> if obj1 == obj2:
+	print "Equal"
+elif obj1 > obj2:
+	print datereturned
+elif obj1 < obj2:
+	print dateexpired
+</pre>
+
+
+* Now you can compare the headers for expiry in cache control.
+
+Header field definition:
+http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+
+Adding Header information to Apache:
+http://webmaster.info.aol.com/apache.html
+
+To add header:
+Go to the /etc/httpd/conf/httpd.conf
+For e.g:
+Add the information on headers
+Header set Author "Senthil"
+
+
+Q) Question is can I add a test for cache.
+A) Its not a functionality, but its merely an internal optimization.
+
+Q) If test for cache needs to be written, how will you write it?
+A) request an url and redirect and request it again and verify that it is
+coming frm a dictionary or the dictionary value is stored.
+
+
+from_url = "http://example.com/a.html"
+to_url = "http://example.com/b.html"
+
+h = urllib2.HTTPRedirectHandler()
+o = h.parent = MockOpener()
+
+req = Request(from_url)
+def cached301redirect(h, req, url=to_url):
+	h.http_error_301(req, MockFile(), 301, "Blah", MockHeaders({"location":url}))
+
+# Why is Request object taking two parameters?
+
+req = Request(from_url, origin_req_host="example.com")
+count = 0
+try:
+	while 1:
+		redirect(h, req, "http://example.com")
+		count = count + 1
+		if count > 2:
+			self.assertEqual("http://example.com",
+			urllib2.HTTPRedirectHandler().cache[req].geturl())
+except urllib2.HTTPError:
+	self.assertEqual(count, urllib2.HTTPRedirectHandler.max_repeats)	
+
+CacheFTPHandler testcasesare hard to write.

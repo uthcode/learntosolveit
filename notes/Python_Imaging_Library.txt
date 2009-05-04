@@ -1,0 +1,1 @@
+PIL - Write support is intentionally restricted to the most commonly used interchange and presentation formats.
