@@ -32,7 +32,10 @@ int main()
 {
 	FallingPoints fps;
 	vector<int> xcords;
-	xcords.push_back(0);
+	vector<double> answer;
 	xcords.push_back(10);
-	cout << fps.getHeights(xcords,10) <<endl;
+	xcords.push_back(100);
+	answer = fps.getHeights(xcords,10);
+	for (int i=0; i < (int) answer.size(); ++i)
+		cout<<answer[i];
 }
