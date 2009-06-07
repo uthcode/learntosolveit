@@ -1,0 +1,152 @@
+1.1 Write formal descriptions of the following sets.
+====================================================
+
+a. The set containing the numbers 1, 10 and 100.
+A = {1,10,100}
+
+b. The set containing all integers that are greater than 5.
+SET = { n | n ∈ Z and n > 5 }
+
+c. The set containing all natural numbers that are less than 5.
+SET = { n | n ∈ N and n < 5 }
+
+d. The set containing the string aba.
+
+SET = {aba}
+
+e. The set containing an empty string.
+
+SET = { ∊ }
+
+f. The set containing nothing at all
+
+SET = ∅
+
+1.2 Let A be the set {x, y, z} and B be the set {x, y}
+======================================================
+
+a. Is A a subset of B? FALSE.
+b. Is B a subset of A? TRUE.
+c. What is A ∪ B?  Answer: A
+d. What is A ∩ B?  Answer: B
+e. What is A x B?  Answer: {(x,x), (x,y), (y,x), (y, y), (z, x), (z, y)}
+f. What is the power set of B?
+Answer: { ∅, {x},{y},{x,y}}
+
+1.3 If A has a elements and B has b elements, how many elements are in AxB? 
+===========================================================================
+
+AxB has a*b elements. AxB stands for catersian product which is formed as set
+of tuples taking each element from each set.
+
+So for 2 x 2 set.
+{a,b} x {c, d} = { (a,c), (a,d), (b,c), (b,d)} Thus there are 4 elements.
+
+
+1.4 Examine the following formal descriptions of sets so that you understand
+which members they contain . Write a short informal English description for
+each set.
+============================================================================
+
+a. { 1, 3, 5, 7 ...}
+
+It is the set of all odd natural numbers.
+
+b. { ..., -4, -2, 0, 2, 4 ...}
+It is the set of all even real numbers.
+
+c. {n | n = 2m for m in N}
+It is set of even natural numbers.
+
+d. { n | n = 2m for m in N, and n = 3k for some k in N}
+
+It is set of natural numbers which are divisible by both 2 and 3.
+
+e. { w | w is a string of 0s and 1s and w is equals the reverse of w}
+
+It is set of binary numbers which are bi-directional (that is read the same from left to right and also from right to left).
+
+f. { n | n is an integer and n = n + 1}
+
+It is set of all integers.
+
+
+1.5 If C is set with c elements, how many elements are in the power set of C? Explain your answer.
+==================================================================================================
+
+{x, y}  = { ∅, {x}, {y}, {x,y}}
+{x, y, z} =  { ∅, {x} , {y}, {z}, {x, y} , {y, z}, {x, z}, {x, y, z} }
+{a, b, c, d} = { ∅, {a}, {b}, {c}, {d}, {a,b}, {a,c}, {a,d}, {b, c}, {b, d}, {c, d}, {a,b,c}, {a,b,d}, {c,a,d}, {d,a,b}, {a,b,c,d}}
+
+Answer: cC0 + cC1 + cC2 + cC3 + ... + cCc
+
+
+Take c = 4
+Answer = 4C0 + 4C1 + 4C2 + 4C3 + 4C4 = 16
+
+
+1.6 Let X be the set{1,2,3,4,5} and Y be the set {6,7,8,9,10}. The unary
+function f: X -> Y  and the binary function g: X x Y -> Y are described in the
+following tables.
+==============================================================================
+
+n f(n)
+1  6
+2  7
+3  6
+4  7
+5  6
+
+g  6  7  8  9  10
+-----------------
+1  10 10 10 10 10
+2  7  8  9  10  6
+3  7  7  8   8  9
+4  9  8  7  6  10
+5  6  6  6  6   6
+
+a. What is the value of f(2) 
+Ans: 7
+
+b. What is the range and domain of f
+range = {1,2,3,4,5}
+domain = {6,7}
+
+c. What is the value of g(2, 10)?
+Ans: 6
+
+d. What are the domain and range of g?
+domain: {(1,6),(1,7),(1,8),(1,9),(1,10) .... (5,10)}
+range: {6,7,8,9,10}
+
+e. What is the value of g(4,f(4))?
+Ans: 8
+
+1.7 For each part, give a relation that satisfies the condition.
+================================================================
+
+a. Reflexive and Symmetric but not transitive.
+
+Ans:  (a+b) ^ 2
+
+b. Reflexive and transitive but not symmetric.
+
+Ans:  / operator?
+
+c. Symmetric and Transitive but not relexive.
+
+Ans: multiplication by -1.
+
+1.8. Graph
+==========
+Ans: Drawing in the Notebook
+
+Degree of 1 is 3.
+Degree of 3 is 2.
+Path from 3 to 4 is 3-2-4.
+
+1.9  Formal Description of the Graph
+====================================
+Ans: {[1,2,3,4,5,6},{(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)}}
+
+

@@ -25,3 +25,8 @@ an answer with the help of a computer. Stephen Cook and Leonid Levin formulated
 the P (i.e., easy to find) versus NP (i.e., easy to check) problem
 independently in 1971. 
 
+
+A problem is of type P, if it can be solved using an algorithm whose running
+time grows no faster than some fixed power of number of symbols required to
+specify the initial data.
+
