@@ -2,7 +2,6 @@
 
 Problem Statement
     	
-
 Let's say you have a binary string such as the following:
 
 011100011
@@ -277,8 +276,9 @@ int main()
 	BinaryCode bcode;
 	string s1;
 	vector <string> res;
+	s1 = "123";
 	//s1 = "11";
-	s1 = "123210122";
+	//s1 = "123210122";
 	//s1 = "22111";
 	//s1 = "3";
 	//s1 = "123210120";
