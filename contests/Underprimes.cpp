@@ -38,6 +38,7 @@ Constraints
 Examples
 
 0)
+
 2
 10
 Returns: 5
@@ -45,19 +46,23 @@ Returns: 5
 The underprimes in this interval are: 4, 6, 8, 9, 10.
 
 1)
+
 100
 105
 Returns: 2
 The underprimes in this interval are 102 = 2 * 3 * 17 and 105 = 3 * 5 * 7.
 
 2)
+
 17
 17
 Returns: 0
+
 17 is a prime number, so its prime factorization contains one element. 1 is not
 a prime, so 17 is not an underprime.
 
 3)
+
 123
 456
 Returns: 217
