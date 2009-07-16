@@ -1,0 +1,103 @@
+********************PROGRAM TO FIND THE NO OF UNDERPRIMES*******************
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+class underprime
+{
+ public:
+  int howmany(int A,int B);
+};
+int underprime::howmany(int A,int B)
+{
+ int l,n,a,w=0,s,flag,k=0,i,j,m;
+ for(l=A;l<=B;l++)
+ {
+  n=l;
+  scheck:
+  while(n>1)
+  {
+   if(n%2==0)
+    {
+     for(j=2;j<=9;j+=2)
+      {
+  	a=n/j;
+	n=a;
+	k++;
+	goto check;
+      }
+     }
+    else
+    {
+     for(m=3;m<=9999;m+=2)
+ 	{
+	 if(n%m==0)
+	{
+	 a=n/m;
+	 n=a;
+	 k++;
+       	 goto check;
+	}
+        }
+	}
+	s=k;
+	if(s==1)
+	{
+	s=0;
+	k=0;
+	}
+	if(s!=1&&s!=0)
+	{
+	k=0;
+	for(i=2;i<s;i++)
+	{
+	if(s%i==0)
+	{
+	flag=0;
+	}
+	}
+	if(flag!=0)
+	{
+	w++;
+	}
+	}
+	}
+	return w;
+	}
+
+void main()
+{
+ int A,B,t;
+ int r=10000;
+ underprime prime;
+ clrscr();
+ cout<<"Enter the first no \n";
+ cin>>A;
+ check:
+ if((A<2)||(A>r))
+ {
+  cout<<"the entered no is invalid.......pls enter the no between 2 to 100000\n";
+  cin>>A;
+  goto check;
+ }
+ cout<<"Enter the second no \n";
+ cin>>B;
+ check:
+ if((B<2)||(B>r))
+ {
+  cout<<"the entered no is invalid.......pls enter the no between\t"<<A<<"\t to 100000\n";
+  cin>>B;
+  goto check;
+ }
+ t=prime.howmany(A,B);
+cout<<"The no of underprimes between\t"<<A<<"\t and "<<B<<"\t is "<<t;
+getch();
+}
+
+
+
+
+
+
+	
+
+	

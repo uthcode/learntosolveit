@@ -1,0 +1,86 @@
+
+		  /***TO FIND THE NO OF UNDERPRIMES IN THE GIVEN RANGE***/
+#include<iostream.h>
+#include<conio.h>
+class underprimes                   /*Declare the class in the name of underprimes*/
+{
+long int y,q,count;
+long int no,c[30];                  /*Declare the data members*/
+long int flag,ans,mul;
+long int j,i,t,x,s,d,b;
+public:                                   /*Specify the access specifier*/
+long int howmany(long int y,long int q);  /*Declare the member functions*/
+};
+long int underprimes::howmany(long int y,long int q)
+{
+count=0;j=0;mul=1;
+for(no=y;no<=q;no++)
+{
+x=no;
+for(i=2;i<=x;i++)                   /*Prime factorisation of the number*/
+  {
+   if(x%i==0)
+   {
+   t=x/i;
+   c[j]=i;
+   i=i-1;
+   x=t;
+   mul=mul*c[j];
+   j++;
+   }
+  }
+s=j;
+ if(s!=1)                           /*Check no of factors are prime or not*/
+ {
+  for(d=2;d<s;d++)
+   {
+   b=s%d;
+   if(b==0)
+    {
+    flag=0;
+    }
+   }
+  if(flag!=0)                       /*The given number is underprime*/
+   {
+   cout<<mul<<"\n";                 /*Print the list of underprimes*/
+   ans= 1;
+   }
+  else if(flag==0)
+   {
+   flag=-1;
+   ans= -1;
+   }
+ }
+ else
+  {
+   ans= -1;
+  }
+if(ans==1)
+{
+ count++;                           /*Count the no of underprimes*/
+}
+mul=1;
+j=0;
+}
+return count;
+}
+void main()
+{                                   /*Create the object for the class&access
+				      the member functions*/
+underprimes upr;
+long int y,q,how;
+clrscr();
+cout<<"Enter the ranges y&q:";
+cin>>y>>q;
+if(q>=y)
+{
+how=upr.howmany(y,q);
+cout<<"NO Of Underprimes are:";
+cout<<how<<"\n";
+}
+else
+{
+cout<<"Q should be greater or equal to y";
+}
+getch();
+}
