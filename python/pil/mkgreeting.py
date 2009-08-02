@@ -37,8 +37,8 @@ if photo.size >= PHOTOSIZE:
 f = ImageFont.truetype('FreeSans.ttf', 30)
 txt = Image.new('RGB', TEXTSIZE, color=WHITE)
 draw = ImageDraw.Draw(txt)
-draw.text(TEXT_UP_LEFT, "Dear Kiruba,", font=f, fill=BLACK)
-draw.text(TEXT_MID_CENTER, "From Flickr with Love!", font=f, fill=(250,0,0))
+draw.text(TEXT_UP_LEFT, "Dear Loga,", font=f, fill=BLACK)
+draw.text(TEXT_MID_CENTER, "Happy Birthday!", font=f, fill=(250,0,0))
 draw.text(TEXT_LOW_RIGHT, "Cheers!", font=f, fill=BLACK)
 draw.text(TEXT_LOW_SIGNATURE, "Senthil", font=f, fill=BLACK)
 

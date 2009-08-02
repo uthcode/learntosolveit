@@ -14,4 +14,3 @@ void *calloc(unsigned n,unsigned size)
 	return q;
 
 }
-

@@ -11,5 +11,6 @@ headers = {'User-Agent':user_agent}
 
 data = urllib.urlencode(values)
 req = urllib2.Request(url, data, headers)
-reponse = urllib2.urlopen(req)
+response = urllib2.urlopen(req)
 the_page = response.read()
+print the_page
