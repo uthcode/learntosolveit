@@ -1,0 +1,230 @@
+﻿== NEC Coding Contest II. ==
+
+=== Tri Fibonacii Series  ===
+
+=== General Comments ===
+
+ # All of you have done a very good job,
+ # If you have enjoyed solving the problem, that is enough education in itself.
+ # I enjoyed going through your solutions, reading and providing my comments.  I am sorry for the delay, it look me about 4 hours and I could not plan for it earlier. Anyways, I plan to provide you a feedback and make you all write code in way that you would be able to participate in contests like www.topcoder.com and submit solutions online (to get quick feedback).
+ # C++ Solution was one (Ranjani Jeya) and others were Java Solution and each of you had solved it differently too.
+
+ # Many of you struct with the Interface definition, but still I could not submit your solutions for machine corrections. I have shown two sample solutions for the problems. That is how topcoder accepts the input. You might want to model your solution according to those sample solutions in the future contests.
+
+ * Srinivasan - Well done in submitting early. But the interface definition and logic could be improved too.
+ * Prameena - Correct Logic and proper interface definition, early submission too.
+ * Ranjani Jeya - Early Submission and use of templates in C++.
+ * Vidya - Good use of Switch case statement.,
+
+=== Example Codes ===
+
+These problems are from Topcoder programming contests. As you have able to solve it, I would encourage you to try the online competition soon. 
+But you will have to model your Java and C++ Solutions a bit. I suggest you to look at the Two Solutions
+
+ # TriFibonacciSolution.java
+ # TriFibonacci.cpp
+
+You can see how the method signature fits in and spot the differences in your code.
+
+Now, go to www.topcoder.com Download Arena (It is a Java Web Start Application) and go to Practise Rooms, SRM 610 and Div II Member Round.
+Select the 250 Problem and Select C++ Source. Copy paste the above C++ Solutions Class and Method definition. Save, Compile and Test the solution. You can see how to write code for this contest and participate in this.
+
+If you are successful, please help your friends get familiar with this environment.
+
+If you face any difficulty, let me know. I shall help you immediately. 
+
+
+== Here are my Comments on your code ==
+
+
+=== Ranjani Jeya ===
+
+I removed these and:
+
+#include<iostream.h>
+#include<conio.h>
+
+Because conio.h is non-standard function, It is not available on Linux.
+I use Linux to correct your solution and it will obviously fail.
+
+Even the way to reference standard headers with .h extension are C style. In
+C++ you using include them as below and you use namespace std;
+
+And Added:
+
+#include<iostream>
+using namespace std;
+
+---
+
+Please Do Remember that main returns Int. It does not return void. 
+Good Compilers will give a warning if you return void.
+
+So the proper way is:
+
+{{{
+int main()
+}}}
+
+
+And not:
+
+{{{
+void main()
+}}}
+
+These were not required:
+
+{{{
+clrscr();
+getch();
+}}}
+
+
+
+{{{
+$ g++ Ranjani_Jaya_Trifibonacci.cpp 
+Ranjani_Jaya_Trifibonacci.cpp:80: error: ‘::main’ must return ‘int’
+}}}
+
+*main must return int.*
+
+Comments:
+ * 1. Very good Solution.
+ * 2. You have used a template <class T> which is surprising and different.
+ * 3. If you had googled for Vector C++. you might have found #include <vector>
+ * class which was the exact thing required.
+ * 4. There was a memory error while executing the program. I gave the input (4
+ * elements, 1000000, 1000000, 1000000, -1) . After returning the correct
+ * answer. it threw out of exceptions. 
+ * Best idea is the learn about vector class and use that. ( See the example
+ * program in C++)
+ * 5. Also, class and method signature is correct.
+
+
+{{{
+$ g++ Ranjani_Jaya_Trifibonacci.cpp 
+
+04:34 PM:senthil@:~/uthcode/contests/nec-coding/TriFibonacci
+$ ./a.out 
+Enter the size of vector between 4 and 20:4
+Enter the elements: 
+1000000
+1000000
+1000000
+-1
+Returns:  3000000
+*** glibc detected *** ./a.out: double free or corruption (fasttop):
+0x0000000001955010 ***
+======= Backtrace: =========
+/lib/libc.so.6[0x7f2ca610acb8]
+/lib/libc.so.6(cfree+0x76)[0x7f2ca610d276]
+./a.out[0x401075]
+./a.out[0x400c1c]
+/lib/libc.so.6(__libc_start_main+0xe6)[0x7f2ca60b15a6]
+./a.out[0x400a29]
+======= Memory map: ========
+00400000-00402000 r-xp 00000000 07:01 753197
+/home/senthil/uthcode/contests/nec-coding/TriFibonacci/a.out
+00601000-00602000 r--p 00001000 07:01 753197
+/home/senthil/uthcode/contests/nec-coding/TriFibonacci/a.out
+00602000-00603000 rw-p 00002000 07:01 753197
+/home/senthil/uthcode/contests/nec-coding/TriFibonacci/a.out
+01955000-01976000 rw-p 01955000 00:00 0                                  [heap]
+7f2ca0000000-7f2ca0021000 rw-p 7f2ca0000000 00:00 0 
+7f2ca0021000-7f2ca4000000 ---p 7f2ca0021000 00:00 0 
+7f2ca6093000-7f2ca61fb000 r-xp 00000000 07:00 179623
+/lib/libc-2.9.so
+7f2ca61fb000-7f2ca63fb000 ---p 00168000 07:00 179623
+/lib/libc-2.9.so
+7f2ca63fb000-7f2ca63ff000 r--p 00168000 07:00 179623
+/lib/libc-2.9.so
+7f2ca63ff000-7f2ca6400000 rw-p 0016c000 07:00 179623
+/lib/libc-2.9.so
+7f2ca6400000-7f2ca6405000 rw-p 7f2ca6400000 00:00 0 
+7f2ca6405000-7f2ca641b000 r-xp 00000000 07:00 179652
+/lib/libgcc_s.so.1
+7f2ca641b000-7f2ca661b000 ---p 00016000 07:00 179652
+/lib/libgcc_s.so.1
+7f2ca661b000-7f2ca661c000 r--p 00016000 07:00 179652
+/lib/libgcc_s.so.1
+7f2ca661c000-7f2ca661d000 rw-p 00017000 07:00 179652
+/lib/libgcc_s.so.1
+7f2ca661d000-7f2ca66a1000 r-xp 00000000 07:00 179768
+/lib/libm-2.9.so
+7f2ca66a1000-7f2ca68a0000 ---p 00084000 07:00 179768
+/lib/libm-2.9.so
+7f2ca68a0000-7f2ca68a1000 r--p 00083000 07:00 179768
+/lib/libm-2.9.so
+7f2ca68a1000-7f2ca68a2000 rw-p 00084000 07:00 179768
+/lib/libm-2.9.so
+7f2ca68a2000-7f2ca6993000 r-xp 00000000 07:00 644746
+/usr/lib/libstdc++.so.6.0.10
+7f2ca6993000-7f2ca6b93000 ---p 000f1000 07:00 644746
+/usr/lib/libstdc++.so.6.0.10
+7f2ca6b93000-7f2ca6b9a000 r--p 000f1000 07:00 644746
+/usr/lib/libstdc++.so.6.0.10
+7f2ca6b9a000-7f2ca6b9c000 rw-p 000f8000 07:00 644746
+/usr/lib/libstdc++.so.6.0.10
+7f2ca6b9c000-7f2ca6baf000 rw-p 7f2ca6b9c000 00:00 0 
+7f2ca6baf000-7f2ca6bcf000 r-xp 00000000 07:00 179594
+/lib/ld-2.9.so
+7f2ca6dad000-7f2ca6db0000 rw-p 7f2ca6dad000 00:00 0 
+7f2ca6dc9000-7f2ca6dce000 rw-p 7f2ca6dc9000 00:00 0 
+7f2ca6dce000-7f2ca6dcf000 r--p 0001f000 07:00 179594
+/lib/ld-2.9.so
+7f2ca6dcf000-7f2ca6dd0000 rw-p 00020000 07:00 179594
+/lib/ld-2.9.so
+7fffaedba000-7fffaedcf000 rw-p 7ffffffea000 00:00 0
+[stack]
+7fffaedfe000-7fffaedff000 r-xp 7fffaedfe000 00:00 0                      [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0
+[vsyscall]
+Aborted
+
+}}}
+
+
+=== Srinivasan ===
+
+ * The Solution is correct
+ * The Logic is very round-about. Some times it happens.
+ * To improve your coding further, you might want to choose a good editor and look at the spacing between tokens etc.
+ * Like a=b is one way. but a = b ( with space between two variables is different and more legible).
+ * Also, when we put comma ',' we separate the varible names like A.setElementAt(x, i-3).
+ * Also, have a look at problem statement's required Class and Method Signature. Your Solution has a different Method Signature.
+
+
+{{{
+$ javac -Xlint:deprecation Srini2.java 
+Srini2.java:11: warning: [deprecation] readLine() in java.io.DataInputStream
+has been deprecated
+		int n = Integer.parseInt(z.readLine());
+		                          ^
+Srini2.java:20: warning: [deprecation] readLine() in java.io.DataInputStream
+has been deprecated
+				y = Integer.parseInt(z.readLine());
+				                      ^
+2 warnings
+}}}
+
+=== Prameena ===
+
+ *  1. Good Solution. 
+ *  2. It works properly. I tested it for couple of inputs.
+ *  3. You have used the correct logic and the method signature is also
+ *  correct.
+ *  4. Proper use Vector class too.
+
+=== Vidya ===
+
+ * Good use of Vector and BufferedReader class.
+ * Good use of try, catch exception handling too.
+ * Switch Case Statement properly suited for the purpose.
+ *
+ * Some Improvements which could be made are:
+ * Proper spacing betweeen varaible names and variable and commas and
+ * between operators etc. For e.g. (get>=1)&&(get<=1000000) could be written as
+ * (get >= 1) && (get <= 1000000) 
+ * This greatly improves the readability of the code.
+
