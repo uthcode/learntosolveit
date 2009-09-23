@@ -10,6 +10,8 @@ from shellsort import shellsort
 from quicksort import quicksort
 from mergesort import mergesort
 
+from bisectionsort import bisectionsort
+
 list_to_sort = random_list(1000)
 
 
@@ -50,6 +52,23 @@ def time_test():
                        )
     print mergesort.timeit(number=10)
   
+    print 'bisection sort:',
+    bisectsort = Timer("gosort = list_to_sort[:];bisectionsort(gosort)", 
+                       "from __main__ import list_to_sort, bisectionsort;"
+                       )
+    print bisectsort.timeit(number=10)
+
+    print 'sorted function on list:',
+    sortedfn = Timer("gosort = list_to_sort[:];sorted(gosort)",
+                     "from __main__ import list_to_sort"
+                    )
+    print sortedfn.timeit(number=10)
+
+    print 'sort method on list object:',
+    sortmethod = Timer("gosort = list_to_sort[:];gosort.sort()", 
+                       "from __main__ import list_to_sort"
+                      )
+    print sortmethod.timeit(number=10)
 
 if __name__ == '__main__':
     parser = optparse.OptionParser()
