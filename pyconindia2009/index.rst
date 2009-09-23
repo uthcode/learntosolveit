@@ -10,3 +10,4 @@ PyCon India 2009 - Algorithms in Python
 
    suitable
    analysis
+   prime
