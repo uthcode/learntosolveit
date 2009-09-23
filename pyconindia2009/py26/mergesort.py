@@ -16,7 +16,7 @@ def merge(left, right):
 
     return result
 
-def merge_sort(m):
+def mergesort(m):
     left = list()
     right = list()
     result = list()
@@ -29,8 +29,8 @@ def merge_sort(m):
     for x in range(middle,len(m)):
         right.append(m[x])
 
-    left = merge_sort(left)
-    right = merge_sort(right)
+    left = mergesort(left)
+    right = mergesort(right)
 
     left_last_item = left[len(left)-1]
     right_first_item = right[0]

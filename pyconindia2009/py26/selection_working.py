@@ -12,7 +12,7 @@ def selectionsort(A):
             A[i], A[min] = A[min], A[i]
 
 if __name__ == '__main__':
-    list_to_sort = random_list(10)
+    list_to_sort = random_list(1000)
     print list_to_sort
     selectionsort(list_to_sort)
     print list_to_sort

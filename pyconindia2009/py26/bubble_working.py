@@ -1,4 +1,5 @@
 from getlist import random_list
+import time
 
 def generate_list(n):
     return random.sample(xrange(1000000), n)
@@ -14,8 +15,11 @@ def bubblesort(A):
 
 
 if __name__ == '__main__':
-    list_to_sort = random_list(10)
-    print list_to_sort
+    list_to_sort = random_list(1000000)
+    #print list_to_sort
+    x1 = time.time()
     bubblesort(list_to_sort)
-    print list_to_sort
+    x2 = time.time()
+    #print list_to_sort
+    print 'taken:', x2-x1, 'ms'
 
