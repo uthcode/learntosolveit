@@ -10,5 +10,3 @@ class Graph:
 
     def W(self, v, u):
         return self.g[v][u]
-
-
