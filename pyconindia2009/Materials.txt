@@ -14,3 +14,5 @@ class/courses.
 
 http://www.ece.uci.edu/~chou/py02/python.html
 https://eee.uci.edu/01f/15545/heap-hint.html
+
+http://code.activestate.com/recipes/117119/
