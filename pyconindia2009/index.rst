@@ -6,10 +6,7 @@
 PyCon India 2009 - Algorithms in Python
 =======================================
 
-Contents:
-
 .. toctree::
 
-   intro
    suitable
    analysis
