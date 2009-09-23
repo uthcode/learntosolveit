@@ -1,4 +1,9 @@
 import math
+import random
+
+
+def generate_list(n):
+    return random.sample(xrange(1000000), n)
 
 def merge(left, right):
     result = list()
@@ -42,3 +47,11 @@ def merge_sort(m):
         result = left
 
     return result
+
+
+
+if __name__ == '__main__':
+    list_to_sort = generate_list(10)
+    print list_to_sort
+    out = merge_sort(list_to_sort)
+    print out
