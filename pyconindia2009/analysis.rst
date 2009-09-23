@@ -2,8 +2,8 @@
 Algorithm Analysis
 ==================
 
-Asymptote \As"ymp*tote\ (?; 215), n.
-====================================
+Asymptote 
+=========
   
      A line which approaches nearer to some curve than assignable
      distance, but, though infinitely extended, would never meet
