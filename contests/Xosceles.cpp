@@ -25,6 +25,8 @@ class Xosceles{
 				lastval = 2*n -1;
 			else if ((n * (n+1)) == xCount)
 					lastval = 2*n;
+			else
+				return ans;
 			for (i=0;i<n;i++)
 			{
 				st.assign(lastval, 'X');
