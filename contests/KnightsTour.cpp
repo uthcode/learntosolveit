@@ -25,14 +25,14 @@ class KnightsTour
 		vector <pair <int, int> > coords;
 		vector <pair <int, int> > validcoords;
 		int row, col;
-		coords.push_back(make_pair(-2,1));
-		coords.push_back(make_pair(-2,-1));
-		coords.push_back(make_pair(-1,2));
-		coords.push_back(make_pair(-1,-2));
-		coords.push_back(make_pair(1,2));
-		coords.push_back(make_pair(1,-2));
 		coords.push_back(make_pair(2,1));
 		coords.push_back(make_pair(2,-1));
+		coords.push_back(make_pair(1,2));
+		coords.push_back(make_pair(1,-2));
+		coords.push_back(make_pair(-1,2));
+		coords.push_back(make_pair(-1,-2));
+		coords.push_back(make_pair(-2,1));
+		coords.push_back(make_pair(-2,-1));
 
 		for(int i=0; i < coords.size(); i++)
 		{
