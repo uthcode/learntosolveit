@@ -24,5 +24,5 @@ def eratosthenes():
 
 if __name__ == '__main__':
     for num in eratosthenes():
-        if num > 10: break
+        if num > 30: break
         print num
