@@ -1,0 +1,74 @@
+1. Event Driven Network Programming Framework written in Python Programming Language.
+2. Twisted project largely supports TCP, UDP, SSL/TLS, IP Multicast, Unix Domain Sockets and a large number of protocols including HTTP, XMPP, NNTP, IMAP, SSH, IRC, FTP and much more.
+3. Event Driven Programming Paradigm, the users of twisted write short callbacks which will then get called by the frameowrk.
+4. Separation between logical protocols (HTTP and POP3)  and physical connection layer (files and sockets and SSL Libraries).
+5. Connection between the logical protocol and the transport layer happens at the last possible moment. Just before the information transfered from the physicl layer to the logical protocol instance.
+6. Logical Protocol is informed of the transport layer instance and is used to send message back to check the peers identity.
+7. It is possible in the Logical Protocol Code to deeply query the Transport Layer on The Transport Layer issues.
+
+Deferred
+
+1. Central to the twisted application model is the concept called differeds.
+2. A deffered is a value that has not been computed yet, for e.g. because it needs data from a remote peer.
+3. Deffereds can be passed around, just like regular objects but cannot be asked for their value.
+4. Each deffered supports a callback chain. 
+5. When the differed gets a value, it is passed through the callback chain with each one being the input for the next one.
+6. This allows operating on the values of the deffered without knowing what they are.
+7. If a deffered returns a string from a remote peer containing an IP Address in quad format, a callback can be attached to translate it into a 32 bit number.
+8. The users of the deferred can just use it as if it is returning a 32 bit number.
+9. This and with the related ability to define "errbacks" (callbacks which are called as error handlers), allows code which looks like as though it is serial, while still maintaining the event driven abstraction. 
+10. Twisted supports abstraction over raw threads. Using threads as a deffered source. Thus a deferred will return immediately, which will receive a value when the thread finishes. Callbacks can be attached which will run in the main thread, thus alleviating the need for complex locking solutions. 
+11. Database call itself happens on a foreign thread, but the analysis of the result happens in the main thread.
+12. 
+
+Alt:
+1. Foreign loop support. Integrate with foreign event loops like GTK+, QT, Cocoa. Twisted to be a networking support layer for GUI programs. Using all its libraries without adding a thread-per-socket overhead as using Python's native library would. (UNDERSTAND).
+2. Twisted depends on the Zope Interface. Twisted uses Zope Interface to design and Document APIs.
+
+How can I access Protoco's Factory from my Protocol's __init__? 
+A protocol does not have a factory when it is created. It should be done in the ConnectionMade method. 
+Should not be doing real work in the Factory's __init__ it should be done in the startFactory. Writing Servers and Writing Clients is a good guide.
+
+TCP is a stream oriented Protocol, This means that when you call transport.write, the data may be broken up into arbitrarily sized chunks for transmission over the network. There is no way for Twisted to determine how large the data originally written to transport was.
+
+LineReceiver.
+NetStringReceiver.
+int16StringReceiver.
+
+Asynchronous Messaging Protocol or Prospective Broker.
+
+How do I use Deferreds to make my Blocking code Non-Blocking?
+
+You can't. Deferreds dont' magically turn a blocking function call into a non-blocking one. A deferred is just a simple object that represents a deferred result, with methods for adding callbacks and errbacks. 
+
+If you have a blocking code that you want to use in non-blockingly in Twisted, either rewrite it to be non-blocking, or run it in a thread.
+
+Twisted network methods to support Unicode Strings.
+
+Twisted process
+---------------
+Open Source Software Developement Process used by Twisted Matrix Framework project.
+
+Asynchronous Network Programming using Twisted.
+
+
+
+Twisted evolved from the need to write high-performance interoperable servers in python and making them say to use and difficult to use incorrectly.
+
+Python - Dynamic typing. How does it mean that code needs to assume less?
+Handle each connection in a separate process.
+Handle each connection in a separate thread.
+Handle multiple connections within a thread.
+
+Twisted was built with the assumption that with the right library, even driven programming is easier than multi-threaded programming.
+
+Twisted seperates protocols from the underlying transport layer. This
+seperation has the advantages of resuability (for example, using the same
+clients and servers over SSL) and testability (because it is easy to test the
+protocol with a much lighter test harness) among others. Twisted also has a
+very flexible main-loop which can interoperate with third-party main-loops,
+making it usable in GUI programs too.
+
+High Level Interfaces to Reflection.
+
+
