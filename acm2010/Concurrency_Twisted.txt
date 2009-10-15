@@ -1,8 +1,11 @@
-Tutorial:
+Tutorial Proposal.
 
-Asynchoronus Network Programming using Twisted, a Python Framework.
+Asynchoronus Network Programming using Twisted, a Python Framework. 
+
+3 Hour tutorial.
 
 Abstract
+========
 
 This tutorial explains the details of designing an asynchronous network
 application server using Twisted Matrix Framework, which can handle requests
@@ -17,7 +20,8 @@ unique method of deferreds and also explain the various design patterns used in
 the twisted framework as well as the various design decisions a developer might
 consider when trying to develop application using twisted.
 
-Twisted Matrix Framework
+Python Programming Language  (30 minutes)
+===========================
 
 Before we start understanding Twisted, we need to understand certain features
 of the programming language that are used to design Twisted.
@@ -45,205 +49,40 @@ threaded process.
 All these possess a enough challenge to develop applications using Python for
 for design a networking server.
 
-Concepts:
-=========
+Network programming Essentials (15 Minutes)
+-------------------------------------------
 
-Handle each connection in a separate process.
-Handle each connection in a separate thread.
-Handle multiple connections within a thread.
+In Computing, Network Programming is essentially identified as socket
+programming or client-server programming, involves writing computer programs
+that communicate with other programs across the Computer Network.  The program
+initiating the communication is called the client and the program waiting for
+the communication to get initiated is called the server.
 
-   1. Introduction to concurrent programming
-          * Waiting for answers
-          * Not waiting on data
-          * Non-blocking calls
-          * Callbacks
+The client and the server process together form the distributed system. The
+connection between the client and the server process may be connection oriented
+(TCP/IP or session) or connectionless (UDP)
 
-Introduction:
-=============
+The program that can act both as server and client is based on peer-to-peer
+communication. Sockets are usually implemented by an API library such a
+Berkeley sockets, first introduced in 1983. The example functions provided by
+the API library include:
 
-Twisted Matrix Framework.
+1. socket() - creates a new socket of certain type, identified by the integer
+number and allocates system resources to it.
+2. bind() is used at the server side; associates a socket with a socket
+adddress structure, typically a IP Address and a Port number.
+3. listen() is used again on the server side, causes a bound TCP socket to
+listen to enter a listening state.
+4. connect() is used on the client side; used to assign a free local port
+number to the socket. It causes an attempt to establish a new TCP Connection.
+5. accept() is used on the server side; It accepts a received incoming
+connect() request and creates a new socket associated with the socket address
+pair for this connection.
+6. send(), recv(), write(), read() or recvfrom() and sendto() are used for sending and receiving data.
+7. close() is used to terminate the connection and release the resources allocated to the socket. 
 
-It is an Event Driven Network Programming Framework. It borrows the Model of
-Event Driven from the GUI Applications and uses it as a way to provide
-asynchronous message handling.
-
-Twisted was built with the assumption that with the right library, even driven
-programming is easier than multi-threaded programming.
-
-Twisted seperates protocols from the underlying transport layer. This
-seperation has the advantages of resuability (for example, using the same
-clients and servers over SSL) and testability (because it is easy to test the
-protocol with a much lighter test harness) among others. Twisted also has a
-very flexible main-loop which can interoperate with third-party main-loops,
-making it usable in GUI programs too.
-
-In the Event Driven Programming Paradigm, the users of the twisted write short
-callbacks which gets called by the Framework. The Framework provide a distinct
-separation between the logical protocols (HTTP and POP3) and physical
-connection layer such as files, sockets and SSL Libraries. Connection between
-the logical protocol and the transport layer happens at the last possible
-moment, just before the information is transferred from the physical layer to
-the logical protocol instance.
-
-Twisted project has support for various different protocols like TCP, UDP,
-SSL/TLS, IP, Multicast, Unix Domain Sockets and Large number of high level
-protocols like HTTP, XMPP, NNTP, IMAP, SSH, IRC, FTP and many more.
-
-
-Deferred:
-=========
-
-The Central concept to the Twisted application model is the concept called
-differeds. A deffered is a value that has not been computed yet. for e.g.
-because it needs data from the remote peer.  
-
-Deffereds can be passed around, just like regular objects but cannot be asked
-for their value. Each Deffered supports a callback chain. When the deffered
-gets  value, it is passed through the callback chain with each one being the
-input for the next one. This allows operating on the values of the deffered
-without knowing what they are. 
-
-Deffereds also support ability to define 'errbacks', which are the callback
-methods but are called as error handlers. 
-
-The above model, allows code, which looks as though it is serial, while still
-maintaining the event driven abstraction.
-
-Twisted supports abstraction over raw threads. Using threads as a deffered
-source, the deferred will return immediately.
-
-Twisted evolved from the need to write high-performance interoperable servers
-in python and making them say to use and difficult to use incorrectly.
-
-One of the possible ways to handle concurrency
-
-   2. Deferreds
-   3. The Problem that Deferreds Solve
-   4. Deferreds - a signal that data is yet to come
-          * Callbacks
-          * Error handling: errbacks
-
-
-Outline:
-========
-
-Code:
-=====
-
-Asynchronous Programming with Twisted
-
-# Tutorials
-
-    * Writing a TCP server
-    * Writing a TCP client
-    * Setting up the TwistedQuotes application
-    * Designing a Twisted application
-    * Tutorial: Twisted From Scratch
-         1. The Evolution of Finger: building a simple finger service
-         2. The Evolution of Finger: adding features to the finger service
-         3. The Evolution of Finger: cleaning up the finger code
-         4. The Evolution of Finger: moving to a component based architecture
-         5. The Evolution of Finger: pluggable backends
-         6. The Evolution of Finger: a clean web frontend
-         7. The Evolution of Finger: Twisted client support using Perspective
-Broker
-         8. The Evolution of Finger: using a single factory for multiple
-protocols
-         9. The Evolution of Finger: a Twisted finger client
-        10. The Evolution of Finger: making a finger library
-        11. The Evolution of Finger: configuration and packaging of the finger
-service
-
-# Low-Level Networking and Event Loop
-
-    * Reactor basics
-    * UDP Networking
-    * Using processes
-    * Using Deferreds
-    * Generating deferreds
-    * Deferreds in depth
-    * Scheduling
-    * Using threads
-    * Efficient High-Volume Streaming
-    * Choosing a reactor and GUI toolkit integration
-
-# High-Level Twisted
-
-    * Helper programs and scripts (twistd, ..)
-    * Twisted's plugin architecture
-    * Writing Twisted Application Plugins for twistd
-    * Interfaces and Adapters (Component Architecture)
-    * Cred: Pluggable Authentication
-    * Using application
-
-Overview of Twisted.
---------------------
-
-Foreign Loop Support
-
-Twisted also provides a Foreign loop support, that is integration with foreign
-event loop like GTK+, QT, Cocoa. Twisted can be a networking support layer for
-GUI programs.  Using all its libraries without adding a thread-per-socket
-overhead as using Python's native library would.
-
-Twisted depends on the Zope Interface. Twisted uses Zope Interface to design
-and Document APIs.
-
-TCP is a stream oriented Protocol, This means that when you call
-transport.write, the data may be broken up into arbitrarily sized chunks for
-transmission over the network. There is no way for Twisted to determine how
-large the data originally written to transport was.
-
-
-Asynchronous Messaging Protocol or Prospective Broker.
-
-Make the Blocking Code Non-Blocking
-
-Deferreds cannot automatically make a Blocking code, Non-Blocking. A deferred
-is just a simple object that represents a deferred result, with methods for
-adding callbacks and errbacks.
-
-If there is a blocking code that needs to be used in a non-blocking manner,
-either rewrite it to be non-blocking one or run it in  a thread.
-
-= Factory Method Pattern = 
-
-It is an Object Oriented, Creational Design Pattern, dealing with creation of
-objects (products) without specifying the exact class. The creational patterns
-abstract the concept of instantiating objects. It handles this case by defining
-a separate method for creation of objects. The subclass of that method or
-object can override to specify the derived type of the product that will be
-created. Factory method is used to refer to any method whoose main purpose is
-to create objects. The Factory pattern in C++ wraps the usual object creation
-syntax with new class in a function or a method which can control the creation.
-Advantages is that, code using class no longer needs to know all the details of
-creation. It may not even know that exact type of object created. 
-Abstract Factory provides additional indirection to let the type of object
-created to vary. Factory pattern is a fundamental pattern in python, while
-languages like C++ use a ClassName class syntax to create classes, python uses
-a function class syntax to create objecs. Even builtin types like str, int
-provides factory design pattern.
- 
-
-Twisted Framework
-
-Twisted is an Asynchronous, Event-Driven Applications for Distributed Network Environment. 
-At the core of the Twisted Framework is its Network Layer, which can be used to
-integrated with any existing protocol as well as model new ones.
-
-Twisted is a pure python framework, as a platform twsited should is focussed on
-integration and it supports asynchrnous programming and deferred abstrations,
-with symbolizes a promised result and which can pass eventual result to handler
-functions.
-
-High Level overview of concurrent programming
-
-Twisted's concurrency model
-
-The need for Conconcurrent Programming. It is either computationally intensive
-or it has to wait for the data to be available as a result.
-
-Non Blocking Code and Asynchoronous Code.
+Programming Concepts and ways to handle concurrency
+===================================================
 
 A fundamental feature for Network Programming is waiting for data. Not waiting
 on data, handle each connection in a separate OS process, so that the OS will
@@ -273,26 +112,138 @@ cannot get CPU but also wait until the first one finishes. The typical
 asynchronous model is to notify the applicatin that some data is ready is
 called as callback.
 
-Twisted uses Deferred Objects to manage callback sequence. Libraries know that
-they make their results available by using Deferred.callback and errors by
-Deferred.errback.
 
-How does the parent function or its controlling program know that connection
-does not exist and when it will know, when the connection becomes alive?
-Twisted has an object that signals this situation, it is called
-twisted.internet.defer.Deferred.
+Introduction to concurrent programming
+--------------------------------------
+          * Waiting for answers
+          * Not waiting on data
+          * Non-blocking calls
+          * Callbacks
 
-Deferred has two purpose, first is saying that "I am a signal, of whatever you
-wanted me to do is still pending; second you can ask deffered to run things
-when the data arrives".
+Certain Programming Paradigms that help in designing Network programming based
+concurrency.
 
-The way to tell the deffered what to do when the data arrives is by defining a
-callback - asking the deferred to call a function once the data arrives.
+ * Reactor Design Pattern.
+ * Reactor basics
+ * Using Threads.
+ * Using processes
+ * Scheduling
+ * Event Loop
+ * Message Dispatcher.
 
-An example of the Twisted Library function that returns a deferred is
-twisted.web.client.getPage.
+Event Driven Programming
 
-Differed Objects are signals that the function that you have called does not have the data, you want available.
+Event Driven programming or Event Based Programming is where program flow
+happens based on events like mouse movement or key press or signal from another
+thread.  It works by polling an internal or external event provider which
+generally *blocks* until an event has arrived and then calls the relevant event
+handler in order to handle the event.  The event loop may be used in conjuction
+with a reactor, if the event provider follows a file interface, which can be
+select(ed) or poll(ed).  The event loop almost always operates asynchronously
+with the message originator.  The event loop forms the central constuct flow of
+the program, is the highest level of control within the program. It is often
+termed as the main-loop or the main-event loop.  The event loop is the specific
+implementation techniques of system which does message passing.  Under Unix,
+everything is a file-paradigm naturally leads to a file based event-loop.
+select and poll system calls monitor a set of file-descriptors for events.
+
+Reactor Design Pattern.
+-----------------------
+
+The reactor design pattern is a concurrent programming pattern, for handling
+service requests delivered concurrently to a service handler by one or more
+inputs.
+
+The service handler then demultiplexes the incoming requests and dispatches
+them synchronously to associated request handlers.
+
+One of few things in Unix that do not confirm to file descriptors are
+asynchronous events (signals); signals are received in signal handlers, small,
+limited piece of code that run while rest of the task is suspended. 
+
+
+Factory Method Pattern 
+----------------------
+
+It is an Object Oriented, Creational Design Pattern, dealing with creation of
+objects (products) without specifying the exact class. The creational patterns
+abstract the concept of instantiating objects. 
+
+Factory pattern is a fundamental pattern in python, while
+languages like C++ use a ClassName class syntax to create classes, python uses
+a function class syntax to create objecs. Even builtin types like str, int
+provides factory design pattern.
+
+Interfaces in Python
+--------------------
+Interface classes are a way of specifying what methods and attributes an
+Object.
+
+Callbacks in Python
+-------------------
+
+Introduction to Twisted
+=======================
+
+Twisted is a platform for developing Internet applications.
+
+Twisted is an Asynchronous, Event-Driven Applications for Distributed Network
+Environment.  At the core of the Twisted Framework is its Network Layer, which
+can be used to integrated with any existing protocol as well as model new ones.
+It is an Event Driven Network Programming Framework. It borrows the Model of
+Event Driven from the GUI Applications and uses it as a way to provide
+asynchronous message handling.
+
+Twisted is built with the assumption that with the right library, even driven
+programming is easier than multi-threaded programming.  Twisted is a pure
+python framework, as a platform twisted should is focussed on integration and
+it supports asynchrnous programming and deferred abstrations, with symbolizes a
+promised result and which can pass eventual result to handler functions.
+
+Twisted project supports TCP, UDP, SSL/TLS and IP Multicast, Unix Domain
+Sockets, a large number of protocols such  as HTTP, XMPP, NNTP, IMAP, SSH, IRC,
+FTP.
+
+Twisted seperates protocols from the underlying transport layer. This
+seperation has the advantages of resuability (for example, using the same
+clients and servers over SSL) and testability (because it is easy to test the
+protocol with a much lighter test harness) among others. Twisted also has a
+very flexible main-loop which can interoperate with third-party main-loops,
+making it usable in GUI programs too.
+
+In the Event Driven Programming Paradigm, the users of the twisted write short
+callbacks which gets called by the Framework. The Framework provide a distinct
+separation between the logical protocols (HTTP and POP3) and physical
+connection layer such as files, sockets and SSL Libraries. Connection between
+the logical protocol and the transport layer happens at the last possible
+moment, just before the information is transferred from the physical layer to
+the logical protocol instance.
+
+Make the Blocking Code Non-Blocking - Is it Possible?
+-----------------------------------------------------
+
+Deferreds cannot automatically make a Blocking code, Non-Blocking. A deferred
+is just a simple object that represents a deferred result, with methods for
+adding callbacks and errbacks.
+
+If there is a blocking code that needs to be used in a non-blocking manner,
+either rewrite it to be non-blocking one or run it in  a thread.
+
+Concept of Deffereds
+====================
+
+   2. Deferreds
+   3. The Problem that Deferreds Solve
+   4. Deferreds - a signal that data is yet to come
+          * Callbacks
+          * Error handling: errbacks
+
+    * Using Deferreds
+    * Generating deferreds
+    * Deferreds in depth
+
+The Deferred mechanism, standardizes the application programmers inferface with
+all sort of blocking and delayed operations.
 
 What Differeds dont do: Make your code asynchronous!.
 
@@ -300,151 +251,52 @@ Differeds are the signals for asynchronous functions to use to pass results
 onto the callbacks, but using them does not guarantee that you have
 asynchronous functions.
 
-Twisted provides a facility to run the blocking function in a separate thread
-instead of blocking them.
+The Central concept to the Twisted application model is the concept called
+differeds. A deffered is a value that has not been computed yet. for e.g.
+because it needs data from the remote peer.  
 
-Evolution of finger. By the end of this tutorial; the finger service will
-answer the TCP finger requests on port 1079 and will read data from the web.
+Deffereds can be passed around, just like regular objects but cannot be asked
+for their value. Each Deffered supports a callback chain. When the deffered
+gets  value, it is passed through the callback chain with each one being the
+input for the next one. This allows operating on the values of the deffered
+without knowing what they are. 
 
-Install http://www.zope.org/Products/ZopeInterface before installing twisted from source. 
+Deffereds also support ability to define 'errbacks', which are the callback
+methods but are called as error handlers. 
 
-What is a Factory design pattern? What is a Protocol when the term is used in
-Twisted?
+The above model, allows code, which looks as though it is serial, while still
+maintaining the event driven abstraction.
 
-A Twisted Protocol handles code in an asynchronous manner. What this means is
-that the Protocol does not wait for an event, but rather handles the event as
-they arrive from network.
+Twisted supports abstraction over raw threads. Using threads as a deffered
+source, the deferred will return immediately.
 
-In the Twisted client, an instance of the Protocol class will be instantiated
-with you connect to the Server and will go away when the connection is
-finished.
+One of the possible ways to handle concurrency
 
-Deferreds are an object which represent a promise of something; 
+High-Level Twisted
 
-Like getPage() returned a Deferred object, which means that when the getPage is
-called ( It may not be called sequentially, because it is  asynchronous); a
-callback may be attached to the defered object which will ask it do whatever
-with the data, in our case, the callback was to print the data.
+    * Helper programs and scripts (twistd, ..)
+    * Twisted's plugin architecture
+    * Writing Twisted Application Plugins for twistd
+    * Interfaces and Adapters (Component Architecture)
+
+A Simple example of writing a asynchornous function.
+====================================================
+
+ // Code
+
+Asynchronous Programming with Twisted (1.5 Hour)
+================================================
+
+# Tutorials
+
+    * Writing a TCP server
+    * Writing a TCP client
+    * Setting up the TwistedQuotes application
+    * Designing a Twisted application
+    * Tutorial: Twisted From Scratch - The Famous 'finger tutorial' from  Twisted Documentation.
+
+
+References:
+===========
 
 [http://pig.slug.org.au/talks/Twisted2/slides.html Good Tutorial]
-
-There is reactor.callLater(time,callback,value) and there is task.deferLater(reactor,time,func)
-
-twisted.internet.task.coiterate might be helpful to write a fibonacci series function in a asynchronous way.
-
-twisted multiprocessing using ampoule.
-
-Spawning externally processes asynchrnously using twisted.
-twisted.internet.utils.getProcessValue('/usr/bin/sftp',['remote_machine','local_machine'])
-
-Why is the twisted package which essentially deals with asynchronous I/O and
-events named internet. It is confusing with the general and difficult to
-remember for the newbie. Documentation update might be desirable. The internet
-in this documentation means internetworking.
-
-Twisted is a platform for developing Internet applications.
-
-Deferred abstraction symbolises a promised result and which can pass on an eventual result to a handler functions.
-
-
-There are many ways to write network programs. The main ones are:
-
-# handle each connection in a separate operating system process, in which case the operating system will take care of letting other processes run while one is waiting.
-
-# handle each connection in a separate thread1 in which the threading framework takes care of letting other threads run while one is waiting; or
-# use non-blocking system calls to handle all connections in one thread.
-
-* twisted.internet.defer.Deferred object.
-* asynchronous callback based programming. Instead of having a blocking code, or using threads to run a blocking code, you return back immediate and when data is available it is passed to the function that requires it.
-
-
-Callbacks
-=========
-* twisted.internet.defer.Deferred is a promise that the function at some point in time will have a result.
-* The Deferred mechanism, standardizes the application programmers inferface with all sort of blocking and delayed operations.
-* Understanding reactor.callLater(2, d.callback, x*3) // What is the purpose of the second argument in this case?
-* considered the deferred returned by twisted.enterprise.adbapi
-* failure is typically an instance of twisted.python.failure.Failure instance.
-* You can typically get away by not adding errbacks and still get the errors logged.
-* Be careful though; if you keep a reference to the Deferred around, preventing it from being garbage-collected. How do I?
-* It is possible to adapt, synchronous functions to return Deferred.
-* Sometimes you want to be notified after several different events have all happened, rather than waiting for each one individually.
-* You may want to wait for all connections in a list to close.
-* Generating Deferreds is a Document introducing writing of Asynchronous functions generating deferreds.
-* twisted.internet.defer.AlreadyCalledError 
-* deferreds are not a non-blocking talisman; they are a signal for asynchronous functions to use to pass results to callback once the results are available.
-* Returning Deferreds from synchronous functions; reasons :- API compatiblity with another function which returns deferred or making the function asynchronous in the future.
-* Integrating blocking code with Twisted.
-
-twisted.internet.threads.deferToThread will setup a thread to run your blocking function, return a deferred and do the callback when the thread completes.
-
-Firing Deferreds more than once is impossible. You can only call Deferred.callback() or Deferred.errback() once.
-
-Event Loop, Message Dispatcher, Message Loop or Message Pump is an event
-construct that waits for and dispatches events in a program.
-
-* event: Event Driven programming or Event Based Programming is where program flow happens based on events like mouse movement or key press or signal from another thread.
-
-* Event Driven Programming is paradigm, in which there is a main-loop, which does event-detection and event-handling.
-Comment: In the question I asked, everyone thought that my main requirement was event detection of new file arrival. 
-
-Whereas my main event is request for logs from data-source; and based on the data-source, I want to pass it to the event-handler.
-
-It works by polling an internal or external event provider which generally *blocks* until an event has arrived and then calls the relevant event handler in order to handle the event.
-
-The event loop may be used in conjuction with a reactor, if the event provider follows a file interface, which can be select(ed) or poll(ed).
-
-# reactor:  The reactor design pattern is a concurrent programming pattern, for
-handling service requests delivered concurrently to a service handler by one
-or more inputs.
-
-# The service handler then demultiplexes the incoming requests and dispatches them synchronously to associated request handlers.
-
-The event loop almost always operates asynchronously with the message originator.
-The event loop forms the central constuct flow of the program, is the highest level of control within the program. It is often termed as the main-loop or the main-event loop.
-
-The event loop is the specific implementation techniques of system which does message passing.
-
-Under Unix, everything is a file-paradigm naturally leads to a file based event-loop. select and poll system calls monitor a set of file-descriptors for events.
-
-Handling Signals:
-
-One of few things in Unix that do not confirm to file descriptors are asynchronous events (signals); signals are received in signal handlers, small, limited piece of code that run while rest of the task is suspended. 
-
-		* In Computing, Network Programming is essentially identified as socket programming or client-server programming, involves writing computer programs that communicate with other programs across the Computer Network.  The program initiating the communication is called the client and the program waiting for the communication to get initiated is called the server.
-		The client and the server process together form the distributed system. The connection between the client and the server process may be connection oriented (TCP/IP or session) or connectionless (UDP)
-
-		The program that can act both as server and client is based on peer-to-peer communication. Sockets are usually implemented by an API library such a Berkeley sockets, first introduced in 1983. The example functions provided by the API library include:
-
-		* socket() - creates a new socket of certain type, identified by the integer number and allocates system resources to it.
-		* bind() is used at the server side; associates a socket with a socket adddress structure, typically a IP Address and a Port number.
-		* listen() is used again on the server side, causes a bound TCP socket to listen to enter a listening state.
-		* connect() is used on the client side; used to assign a free local port number to the socket. It causes an attempt to establish a new TCP Connection.
-		* accept() is used on the server side; It accepts a received incoming connect() request and creates a new socket associated with the socket address pair for this connection.
-		* send(), recv(), write(), read() or recvfrom() and sendto() are used for sending and receiving data.
-		* close() is used to terminate the connection and release the resources allocated to the socket. 
-
-Twisted project supports TCP, UDP, SSL/TLS and IP Multicast, Unix Domain Sockets, a large number of protocols such  as HTTP, XMPP, NNTP, IMAP, SSH, IRC, FTP.
-
-Deferred is a value which has not been computed yet; because it needs data from remote peer.
-
-Requesting method requests a data; and gets a Deferred object.
-Requesting method attaches callbacks to the Deferred object, 
-
-Interface classes are a way of specifying what methods and attributes an 
-
- # In the Twisted, internet term actually denotes internetworking.
-
-
-Twisted process
----------------
-
-Open Source Software Developement Process used by Twisted Matrix Framework project.
-
-As networking frameworks are becoming popular with many social media sites, 
-this will also analyze other networking frameworks currently in the market
-and interesting features and limitations of each of them.
-
-Lastly, I might present on certain applications which are used internally
-within Akamai, which uses Twisted matrix framework.
-
