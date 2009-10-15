@@ -1,6 +1,6 @@
 Tutorial:
 
-Asynchoronus Network Programming using Twisted, a Python framework.
+Asynchoronus Network Programming using Twisted, a Python Framework.
 
 Abstract
 
@@ -8,17 +8,14 @@ This tutorial explains the details of designing an asynchronous network
 application server using Twisted Matrix Framework, which can handle requests
 from multiple clients asynchornously.
 
-This server was not designed on top of any existing application server or
-webserver, but was rather designed using the capablities provided by the Event
-Driven Networking Framework written in Python called "Twisted Matrix
-Framework". 
+The goal of the this tutorial is to explain the need for concurrent processes
+in network applications, the programming strategies that are available for
+dealing with them.
 
-This will deal in the depth on the design on the Twisted Matrix Framework
-and the way it implements asynchronous event handling by a unique method of
-deffereds and also explain the various design patterns used in the Twisted
-framework as well as the design decisions a developer might consider using when
-developing applications using twisted.
-
+How Twisted solves the important problem of asynchoronous event handling by an
+unique method of deferreds and also explain the various design patterns used in
+the twisted framework as well as the various design decisions a developer might
+consider when trying to develop application using twisted.
 
 Twisted Matrix Framework
 
@@ -48,11 +45,37 @@ threaded process.
 All these possess a enough challenge to develop applications using Python for
 for design a networking server.
 
+Concepts:
+=========
+
+Handle each connection in a separate process.
+Handle each connection in a separate thread.
+Handle multiple connections within a thread.
+
+   1. Introduction to concurrent programming
+          * Waiting for answers
+          * Not waiting on data
+          * Non-blocking calls
+          * Callbacks
+
+Introduction:
+=============
+
 Twisted Matrix Framework.
 
 It is an Event Driven Network Programming Framework. It borrows the Model of
 Event Driven from the GUI Applications and uses it as a way to provide
 asynchronous message handling.
+
+Twisted was built with the assumption that with the right library, even driven
+programming is easier than multi-threaded programming.
+
+Twisted seperates protocols from the underlying transport layer. This
+seperation has the advantages of resuability (for example, using the same
+clients and servers over SSL) and testability (because it is easy to test the
+protocol with a much lighter test harness) among others. Twisted also has a
+very flexible main-loop which can interoperate with third-party main-loops,
+making it usable in GUI programs too.
 
 In the Event Driven Programming Paradigm, the users of the twisted write short
 callbacks which gets called by the Framework. The Framework provide a distinct
@@ -66,7 +89,9 @@ Twisted project has support for various different protocols like TCP, UDP,
 SSL/TLS, IP, Multicast, Unix Domain Sockets and Large number of high level
 protocols like HTTP, XMPP, NNTP, IMAP, SSH, IRC, FTP and many more.
 
-Deferred
+
+Deferred:
+=========
 
 The Central concept to the Twisted application model is the concept called
 differeds. A deffered is a value that has not been computed yet. for e.g.
@@ -90,20 +115,69 @@ source, the deferred will return immediately.
 Twisted evolved from the need to write high-performance interoperable servers
 in python and making them say to use and difficult to use incorrectly.
 
-Handle each connection in a separate process.
-Handle each connection in a separate thread.
-Handle multiple connections within a thread.
+One of the possible ways to handle concurrency
 
-Twisted was built with the assumption that with the right library, even driven
-programming is easier than multi-threaded programming.
+   2. Deferreds
+   3. The Problem that Deferreds Solve
+   4. Deferreds - a signal that data is yet to come
+          * Callbacks
+          * Error handling: errbacks
 
-Twisted seperates protocols from the underlying transport layer. This
-seperation has the advantages of resuability (for example, using the same
-clients and servers over SSL) and testability (because it is easy to test the
-protocol with a much lighter test harness) among others. Twisted also has a
-very flexible main-loop which can interoperate with third-party main-loops,
-making it usable in GUI programs too.
 
+Outline:
+========
+
+Code:
+=====
+
+Asynchronous Programming with Twisted
+
+# Tutorials
+
+    * Writing a TCP server
+    * Writing a TCP client
+    * Setting up the TwistedQuotes application
+    * Designing a Twisted application
+    * Tutorial: Twisted From Scratch
+         1. The Evolution of Finger: building a simple finger service
+         2. The Evolution of Finger: adding features to the finger service
+         3. The Evolution of Finger: cleaning up the finger code
+         4. The Evolution of Finger: moving to a component based architecture
+         5. The Evolution of Finger: pluggable backends
+         6. The Evolution of Finger: a clean web frontend
+         7. The Evolution of Finger: Twisted client support using Perspective
+Broker
+         8. The Evolution of Finger: using a single factory for multiple
+protocols
+         9. The Evolution of Finger: a Twisted finger client
+        10. The Evolution of Finger: making a finger library
+        11. The Evolution of Finger: configuration and packaging of the finger
+service
+
+# Low-Level Networking and Event Loop
+
+    * Reactor basics
+    * UDP Networking
+    * Using processes
+    * Using Deferreds
+    * Generating deferreds
+    * Deferreds in depth
+    * Scheduling
+    * Using threads
+    * Efficient High-Volume Streaming
+    * Choosing a reactor and GUI toolkit integration
+
+# High-Level Twisted
+
+    * Helper programs and scripts (twistd, ..)
+    * Twisted's plugin architecture
+    * Writing Twisted Application Plugins for twistd
+    * Interfaces and Adapters (Component Architecture)
+    * Cred: Pluggable Authentication
+    * Using application
+
+Overview of Twisted.
+--------------------
 
 Foreign Loop Support
 
