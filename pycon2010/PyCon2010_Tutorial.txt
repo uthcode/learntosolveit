@@ -54,6 +54,9 @@ Python Distribution.
 Notes for Reviewers
 -------------------
 
+This is a medium to advance level tutorial, that would analyze how to solve
+the commonly occuring programming problems using Python. 
+
 At PyCon 2009, I presented "A Tour of Python Standard Library", I realized that
 having a Problem-Solution styled tutorial will be very effective to present the
 capablities of Python Standard Library and will be efficient to keep the
@@ -74,6 +77,8 @@ for the reason that, the audience can see that there is not much difference in
 the syntax for recipes and how at times, the Python 3.x facilities are helpful
 to solve the problem better.
 
+The idea of the tutorial is give the correct intuition when approaching the problem.
+
 Some Links:
 ~~~~~~~~~~~
 
@@ -85,6 +90,15 @@ Some Links:
 
 Promotional Summary
 -------------------
+
+One good way to develop applications is to divide the problem into smaller
+managable chunks and the build those.  Once we identify and define those
+smaller pieces of tasks, our problem becomes incredibly easier.
+
+In this tutorial, we will identify the commonly occuring smaller tasks that
+would fit into to bigger problems.  It would be handy reference to keep all
+those recipes in hand so that when we need them most, we will have them at our
+disposal.
 
 Most often we come across the same programming problem regularly in our
 programming tasks, Sometimes we find that, due to various reasons we implment
@@ -102,85 +116,78 @@ some of my own knowledge in implementing those solutions.
 Outline for Review
 ------------------
 
-* A very brief Introduction to Python and Python Standard Library (20 minutes)
-	- Introduction to Python. 
-		- Recollecting topics from earlier tutorials.
-	- Brief tour of Standard Library. 
-		- Giving the audience an overall picture.
-		- Explaining the "Batteries Included" philosophy.
-	- Operating System Interface.
-	- Command Line Arguments.
-	- String Pattern Matching.
-	- Internet Access
-	- Multi-threading.
-	- Logging.
-	- Structure of the Python Standard Library in Python 2.6 and Changes to
-	  Standard Library in Python 3.0.
-	- How to get help about a particular library module.
+* Outline of the Tutorial and a Brief Overview of Standard Library.
+        - Recollecting certain common programing paradigms.
+                - Review of Regular Expressions.
+                - Constructing lists with list comprehension.
+                - Handling Exceptions.
+                - Generators.
+        - Interesting Modules that easy our task.
+                - Collections module.
+                - itertools module.
 
-* Built-In Modules and Exceptions. (30 minutes)
-	- Example Program 1 which explains the built-in functions
-		- abs
-		- dir
-		- enumerate
-		- file
-		- hasattr
-		- setattr
-		- getattr
-	- Example Program 2 which explains the built-in types
-		- and, or, not
-		- int, float, long, complex
-		- dict
-		- iterator types.
-		- File Objects.
-	- Built-In Exceptions.
-		- Example Program 3 explaining demonstrating Exceptions
+* Lets start with Strings.
+        - String Filters. Filtering a set of characters from a string.
+        - translate method on the string and maketrans function.
+        - Checking whether a string contains a set of characters.
+        - Expanding and Compression Tabs.
+        - Making Multiple Replacements in a String in a Single Pass.
+        - Reading a Text File by Paragraphs.
 
-* Operating Systems, Files and Directory Access. (30 minutes)
-	- Overview of various modules present in this category. ( Tabular form)
-	- Peek into certain modules in detail. My idea is to divide the 30 minute session into two snippets(15 minutes each), while effectively demonstrating certain modules usage and important methods in that module.  Other sections will follow the similar pattern.
-		- os
-		- time
-		- shutil
-		- glob
-		- ConfigParser
-		- logging
-	- Changes in Python 3.0 for modules under this category.
+* Files - We deal with them often.
+        - File Handling Basics.
+        - Reading a Single line from a file, given a line number (linecache module)
+        - Using Random Access Input/Output.
+        - Walking a Directory Tree
+        - Finding files given a search path and a pattern.
 
-* Internet Protocols and support -I . (10 minutes)
-	- Overview.
-	- Details of the Modules.
-	- urllib, urlparse.
-	- BaseHTTPServer
+* Date time Related
+        - Efficient Strategies for handling date and time related tasks.
+        - datetime module, time module.
+        - Calculating time periods in a date range.
 
-* Break timing.
+* Programming tasks.
+        - Implementing Tuples with named items.
+        - Borg Idiom - How it shapes itself for Singleton Design Pattern.
+        - Importing from a module whose name is determined at runtime.
+        - Performance Measurements using timeit module
 
-* Internet Protocols and support -II . (20 minutes)
-	- SimpleXMLRPCServer
-	- smtpd
-	- smtplib
-	- Changes in Python 3.0 for modules under this category.
+* Dealing with Database stuff.
+        - Serializing Data using pickle and cPickle Modules.
 
-* Operating System Services and IPC. (30 minutes)
-	- Overview.
-	- threading and thread
-	- signal
-	- subprocess
-	- Limitations - global lock in threading.
-	- Changes in Python 3.0 for modules under this category.
+* Process Handling.
+        - Subprocess module. 
+        - Capturing the Output and Error Streams from a Unix Shell Command.
+        - Forking a Daemon Process on Unix.
+        - Program Execution on Windows.
+        - Writing a Task Schedular.
+        - Monitoring a Directory in an asynchronous way using Twisted.
 
-* Development Tools (30 minutes)
-	- Overview
-	- pydoc.
-	- doctest
-	- unittest
-	- 2to3
-	- test and test_support.
+* Processing XMLs.
+        - Parsing XML using xml.etree module.
+        - Other XML parsing modules and their differences.
 
-* Extending the library module in your programs. (10 minutes)
-	- 'duck-typing' explained.
-	- Example Program explaining extending the ConfigParser module to read
-	  a particular format of a Config file.
+* Network Programming
+        - Detecting Inactive Computers in a Network using the Socket Module.
+        - Connecting to IRC and logging the messages.
+
+Break:
+
+* Difference between sort method on the list and a sorted function. Why the builtin sort is super-fast (because it is timsort!)
+
+
+* Web Programming
+        - urllib module.
+        - Parsing RSS Feeds
+
+
+* Unit Tests
+        - How to write Unittests for your Python programs using unittest module.
+
+* How to Convert Python 2 to Python 3.
+        - 2to3 tool.
+        - Problems with Strings and Unicode.
+        - How to handle the Strings vs bytes issue. Will *your* be affected? How to identify and how to resolve.
 
 Outline for Website
 -------------------
@@ -197,18 +204,18 @@ Outline for Website
 Presenter Bio
 -------------
 
-Senthil Kumaran is a freelance Python Programmer from India, working on
-developing web applications using Django.  He got involved with Python
-Community through Google Summer of Code as student participant to enhance the
-urllib and related modules for Python 2.6 and Py3k.  He worked along with
-Facundo Batista, Jeremy and various other Python developers to fix various
-urllib related bugs in Python standard library. He enjoys practicing Karate and
-volunteers for spasticssocietyofkarnataka.org teaching students using LEGO NXT
-kits.
+Senthil Kumaran is a Python Core Developer who contributes to the Internet
+related modules in the Python Standard Library. He is a Senior Software
+Engineer at Akamai Technologies, Bangalore working on some cool distributed
+systems related tasks that use Python and Twisted.
+
+He is associated with Spastics Society of Karnataka, Bangalore and teaches
+students programming using Alice, and building Robots using LEGO Mindstorms.
+He practises Karate and enjoys solving puzzles.
 
 
 Presenter's Previous Experience
 -------------------------------
-
-    * Presented a talk on Python Standard Library at Freed.in 2007.
-    * Was working as Python programmer in the Test Automation department at Dell India R&D.
+        - Presented a Tutorial "A Tour of Python Standard Library" at US Pycon 2009.
+        - Presented a Talk on "Algorithms using Python 3.0" at PyCon India 2009.
+        - Presented a Talk on "Python Standard Library" at Freed.in 2007.
