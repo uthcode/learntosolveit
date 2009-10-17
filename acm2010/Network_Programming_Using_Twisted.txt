@@ -264,8 +264,6 @@ High-Level Twisted
 A Simple example of writing a asynchornous function. 
 ==================================================== 
 
- // Code 
-
 Asynchronous Programming with Twisted (1.5 Hour) 
 ================================================ 
 
@@ -283,3 +281,4 @@ References:
 
 
 [http://pig.slug.org.au/talks/Twisted2/slides.html Good Tutorial]
+[http://www.python.org/workshops/2002-02/papers/09/index.htm The Twisted Network Framework by Moshe Zadka and Glyph Lefkowitz]
