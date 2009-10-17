@@ -13,8 +13,8 @@ Intended audience
 Beginning to intermediate Python Programmers. Familiarity
 with Python's syntax and usage is assumed.
 
-This tutorial will use Python 3.1 examples (with prominent changes from Python
-2.6 explained, whereever it is applicable).
+This tutorial will use Python 3.1 examples (with changes from Python 2.6
+explained, whereever it is applicable).
 
 The Source Code and the Handout will contain the snippets written in both
 Python 2.6 and Python 3.1.
@@ -62,56 +62,42 @@ audience engaged.
 The problems I have selected are based on the my own experience some of the
 frequently encounted ones, having a discussion on those problems in a class
 room like atmosphere will tend to make the attendees recollect the discussion
-whenever they encounter the situation again.
+whenever they encounter the situation again. 
+They are frequently asked at the Python lists and Community websites and looked
+out for in the ActiveState Recipes/ Python Cookbook.
+
+I have chosen those particular snippets which demonstrate certain features of
+the Python languge as well as introduce library modules capablities.
 
 Python 3.x is becoming popular, I choose to present the recipes in Python 3.x
 for the reason that, the audience can see that there is not much difference in
 the syntax for recipes and how at times, the Python 3.x facilities are helpful
 to solve the problem better.
 
-I have presented an Introduction to Python Standard Library at Freed.in, open
-source conference in India and found that student community were particularly
-interested in this topic. After the audience had attended a introductory python
-programming lecture, introducing them to various standard library modules using
-example snippets, gives them a lot of confidence to develop projects using
-Python. With a little initiation, it was found that, audience were able to
-explore other modules with ease.
-
-Certain programming aspects like how to extend the standard library for
-projects can be demonstrated. Also in all the modules covered, I have decided
-to devote a separate section on changes that module has undergone in Python
-3K. I assuming that programmers would like to know one style completely and
-will be able to realize that porting the same programs Py3k should not be hard.
-Certain modules towards the end can be presented in Py3K itself.
-
-I have chosen the standard library modules, which I am most comfortable with
-while working on bugs related to them and modules which feature frequent discussions in
-tutor-list and modules which will most frequently used by developers.
-
 Some Links:
 ~~~~~~~~~~~
 
-* `Presentation slides used at Freed.in 2007 (1 hour talk) <http://uthcode.sarovar.org/freed/slides.txt>`_
+* `Python Core Committer stats <http://www.ohloh.net/p/python/contributors/113816702277>`_
+* `Python Tracker stats <http://cia.vc/stats/author/orsenthil>`_
+* `Presentations made at Conferences * <http://code.google.com/p/uthcode/downloads/list>`_
 * `Google Summer of Code -2008 blog page <http://urllib-gsoc.blogspot.com>`_
-* `My Resume <http://orsenthil.googlepages.com/resume>`_
-
+* `Online Resume <http://orsenthil.emurse.com/>`_
 
 Promotional Summary
 -------------------
 
-Welcome to ``A Tour of Python Standard Library``. Together let us explore the
-various modules, which will help you to build robust working programs.
+Most often we come across the same programming problem regularly in our
+programming tasks, Sometimes we find that, due to various reasons we implment
+no so efficient solutions, which kind of gets the job done, and later forget
+it, till we come across the same problem again.
 
-Once you know about a particular library well, you will start replacing those 20
-odd lines of code you used to write with a 2-3 lines and feel safe that your code
-will now work on all the platforms that Python supports.
+Sometimes we come out of our laziness to look out for a 'good' solution to the
+problem.  This tutorial is nothing but a collection of 'good' solutions to
+frequently encountered problems.
 
-Just like the galaxy, the Python Standard Library is vast and when hitch-hiking
-I will take you through some important ones that happen to be used most
-often. You can explore, ask questions, experiment through out the ride.
-
-Welcome! And let the journey begin.
-
+I have studied thoroughly the recipes in the Cookbook for these problems, tried
+to distill the information presented in those recipes  and I will try to share
+some of my own knowledge in implementing those solutions.
 
 Outline for Review
 ------------------
