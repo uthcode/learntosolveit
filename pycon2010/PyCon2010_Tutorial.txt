@@ -65,6 +65,7 @@ The problems I have selected are based on the my own experience some of the
 frequently encounted ones, having a discussion on those problems in a class
 room like atmosphere will tend to make the attendees recollect the discussion
 whenever they encounter the situation again. 
+
 They are frequently asked at the Python lists and Community websites and looked
 out for in the ActiveState Recipes/ Python Cookbook.
 
@@ -76,7 +77,9 @@ for the reason that, the audience can see that there is not much difference in
 the syntax for recipes and how at times, the Python 3.x facilities are helpful
 to solve the problem better.
 
-The idea of the tutorial is give the correct intuition when approaching the problem.
+Some code snippets would be presented from Python Cookbook Recipes, and notes
+would be my own. Due credit would be attributed both in the Source code as well
+in the Handout, whereever neccessary.
 
 Some Links:
 ~~~~~~~~~~~
@@ -92,25 +95,17 @@ Promotional Summary
 
 One good way to develop applications is to divide the problem into smaller
 managable chunks and the build those.  Once we identify and define those
-smaller pieces of tasks, our problem becomes incredibly easier.
+smaller piece of tasks, our problem becomes incredibly easy. 
+
+But we are still faced with the question of what is the best way to do that
+task in Python? This tutorial will answer those questions.
 
 In this tutorial, we will identify the commonly occuring smaller tasks that
-would fit into to bigger problems.  It would be handy reference to keep all
-those recipes in hand so that when we need them most, we will have them at our
-disposal.
+would fit into to bigger problems.  
 
-Most often we come across the same programming problem regularly in our
-programming tasks, Sometimes we find that, due to various reasons we implment
-no so efficient solutions, which kind of gets the job done, and later forget
-it, till we come across the same problem again.
+The aim of the tutorial is help you develop the correct intuition when
+developing applications using Python.
 
-Sometimes we come out of our laziness to look out for a 'good' solution to the
-problem.  This tutorial is nothing but a collection of 'good' solutions to
-frequently encountered problems.
-
-I have studied thoroughly the recipes in the Cookbook for these problems, tried
-to distill the information presented in those recipes  and I will try to share
-some of my own knowledge in implementing those solutions.
 
 Outline for Review
 ------------------
