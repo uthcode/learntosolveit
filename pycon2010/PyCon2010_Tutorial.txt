@@ -14,7 +14,7 @@ Beginning to intermediate Python Programmers. Familiarity
 with Python's syntax and usage is assumed.
 
 This tutorial will use Python 3.1 examples (with changes from Python 2.6
-explained, whereever it is applicable).
+explained, whenever it is applicable).
 
 The Source Code and the Handout will contain the snippets written in both
 Python 2.6 and Python 3.1.
@@ -38,8 +38,7 @@ I will be taking questions throughout the tutorial.
 Recording
 ---------
 
-I give permission to record and publish my tutorial for free
-distribution.
+I give permission to record and publish my tutorial for free distribution.
 
 Requirements
 ------------
@@ -116,7 +115,8 @@ some of my own knowledge in implementing those solutions.
 Outline for Review
 ------------------
 
-* Outline of the Tutorial and a Brief Overview of Standard Library.
+* Outline of the Tutorial and a Brief Overview of Standard Library. (30 minutes)
+
         - Recollecting certain common programing paradigms.
                 - Review of Regular Expressions.
                 - Constructing lists with list comprehension.
@@ -126,7 +126,7 @@ Outline for Review
                 - Collections module.
                 - itertools module.
 
-* Lets start with Strings.
+* Lets start with Strings. (15 Minutes)
         - String Filters. Filtering a set of characters from a string.
         - translate method on the string and maketrans function.
         - Checking whether a string contains a set of characters.
@@ -134,28 +134,32 @@ Outline for Review
         - Making Multiple Replacements in a String in a Single Pass.
         - Reading a Text File by Paragraphs.
 
-* Files - We deal with them often.
+* Files - We deal with them often. (15 Minutes)
         - File Handling Basics.
         - Reading a Single line from a file, given a line number (linecache module)
         - Using Random Access Input/Output.
         - Walking a Directory Tree
         - Finding files given a search path and a pattern.
 
-* Date time Related
+* Date time Related (15 Minutes)
         - Efficient Strategies for handling date and time related tasks.
         - datetime module, time module.
         - Calculating time periods in a date range.
 
-* Programming tasks.
-        - Implementing Tuples with named items.
-        - Borg Idiom - How it shapes itself for Singleton Design Pattern.
-        - Importing from a module whose name is determined at runtime.
-        - Performance Measurements using timeit module
+* Processing XMLs. (15 Minutes for next two sections)
+        - Parsing XML using xml.etree module.
+        - Other XML parsing modules and their differences.
 
 * Dealing with Database stuff.
         - Serializing Data using pickle and cPickle Modules.
 
-* Process Handling.
+Break Timing
+
+* Interesting Topic (5 Minutes)
+
+	- Difference between sort method on the list and a sorted function. Why the builtin sort is super-fast (because it is timsort!)
+
+* Process Handling. (20 Minutes)
         - Subprocess module. 
         - Capturing the Output and Error Streams from a Unix Shell Command.
         - Forking a Daemon Process on Unix.
@@ -163,51 +167,48 @@ Outline for Review
         - Writing a Task Schedular.
         - Monitoring a Directory in an asynchronous way using Twisted.
 
-* Processing XMLs.
-        - Parsing XML using xml.etree module.
-        - Other XML parsing modules and their differences.
-
-* Network Programming
+* Network Programming (15 Minutes)
         - Detecting Inactive Computers in a Network using the Socket Module.
         - Connecting to IRC and logging the messages.
 
-Break:
-
-* Difference between sort method on the list and a sorted function. Why the builtin sort is super-fast (because it is timsort!)
-
-
-* Web Programming
+* Web Programming (10 Minutes)
         - urllib module.
         - Parsing RSS Feeds
 
-
-* Unit Tests
+* Unit Tests (10 Minutes)
         - How to write Unittests for your Python programs using unittest module.
 
-* How to Convert Python 2 to Python 3.
+* Programming tasks.(10 Minutes)
+        - Implementing Tuples with named items.
+        - Performance Measurements using timeit module
+
+* How to Convert Python 2 to Python 3. (20 Minutes)
         - 2to3 tool.
-        - Problems with Strings and Unicode.
-        - How to handle the Strings vs bytes issue. Will *your* be affected? How to identify and how to resolve.
+        - Unicode Strings and Bytes.
+        - How to handle the Strings vs bytes issue. Will *your* application be affected? How to identify and how to resolve.
 
 Outline for Website
 -------------------
 
-    * Overview of Python Standard Library.
-    * Built-in modules and exceptions.
-    * Operating Systems, Files and Directory Access.
-    * Internet Protocols and support.
-    * Operating System Services and IPC.
-    * Development Tools
-    * Extending the library module in your programs.
-    * Q&A
+* Outline of the Tutorial and a Brief Overview of Standard Library.
+* Lets start with Strings.
+* Files - We deal with them often.
+* Date time related tasks.
+* Dealing with Database stuff.
+* Process Handling.
+* Processing XMLs.
+* Web Programming
+* Programming tasks.
+* Unit Testing
+* How to Convert Python 2 to Python 3.
 
 Presenter Bio
 -------------
 
-Senthil Kumaran is a Python Core Developer who contributes to the Internet
-related modules in the Python Standard Library. He is a Senior Software
-Engineer at Akamai Technologies, Bangalore working on some cool distributed
-systems related tasks that use Python and Twisted.
+Senthil Kumaran is a Python Core Developer contributing to the Internet related
+modules in the Python Standard Library. He is a Senior Software Engineer at
+Akamai Technologies, Bangalore working on some cool distributed systems related
+tasks that use Python and Twisted.
 
 He is associated with Spastics Society of Karnataka, Bangalore and teaches
 students programming using Alice, and building Robots using LEGO Mindstorms.
