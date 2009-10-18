@@ -14,22 +14,23 @@ Beginning to intermediate Python Programmers. Familiarity
 with Python's syntax and usage is assumed.
 
 This tutorial will use Python 3.1 examples (with changes from Python 2.6
-explained, whenever it is applicable).
+explained, when it is required).
 
-The Source Code and the Handout will contain the snippets written in both
+The source code and the handout will contain the snippets written in both
 Python 2.6 and Python 3.1.
 
 
 Tutorial format
 ---------------
 
-Interactive lecture, I will be explain the common programming problem and how
-we can solve using Python. Will share to give some background about the problem
-and before introducing the solution.
-Whenever there is a Python Standard Library module used to solve a particular
-problem, the capablities of that module will be elucidated.
+Interactive lecture, I will explain some common programming tasks and how to
+accomplish it using Python. Will share to give some background about the
+problem and before introducing the solution.
 
-The aim would be the provide the provide an insight into "How to solve it using
+Whenever there is a Python Standard Library module used to solve a particular
+problem, other capabilities of that module will be elucidated.
+
+The aim would be to provide an insight into "How to solve it using
 Python Standard Library and best practises", so that they would follow the
 similar methodologies in future.
 
@@ -54,23 +55,20 @@ Notes for Reviewers
 -------------------
 
 This is a medium to advance level tutorial, that would analyze how to solve
-the commonly occuring programming problems using Python. 
+the commonly occurring programming problems using Python. 
 
 At PyCon 2009, I presented "A Tour of Python Standard Library", I realized that
-having a Problem-Solution styled tutorial will be very effective to present the
-capablities of Python Standard Library and will be efficient to keep the
+having a problem-solution style tutorial will be very effective to present the
+capabilities of Python Standard Library and will be efficient to keep the
 audience engaged.
 
 The problems I have selected are based on the my own experience some of the
-frequently encounted ones, having a discussion on those problems in a class
-room like atmosphere will tend to make the attendees recollect the discussion
-whenever they encounter the situation again. 
-
-They are frequently asked at the Python lists and Community websites and looked
-out for in the ActiveState Recipes/ Python Cookbook.
+frequently encountered ones. They are also frequently asked at the Python lists
+and Community websites and sought out in the ActiveState Recipes/ Python
+Cookbook.
 
 I have chosen those particular snippets which demonstrate certain features of
-the Python languge as well as introduce library modules capablities.
+the Python language as well as introduce library modules capabilities.
 
 Python 3.x is becoming popular, I choose to present the recipes in Python 3.x
 for the reason that, the audience can see that there is not much difference in
@@ -78,13 +76,15 @@ the syntax for recipes and how at times, the Python 3.x facilities are helpful
 to solve the problem better.
 
 Some code snippets would be presented from Python Cookbook Recipes, and notes
-would be my own. Due credit would be attributed both in the Source code as well
-in the Handout, whereever neccessary.
+would be my own. 
+
+Due credit would be attributed both in the Source code as well in the Handout,
+wherever necessary.
 
 Some Links:
 ~~~~~~~~~~~
 
-* `Python Core Committer stats <http://www.ohloh.net/p/python/contributors/113816702277>`_
+* `Python Core Commit stats <http://www.ohloh.net/p/python/contributors/113816702277>`_
 * `Python Tracker stats <http://cia.vc/stats/author/orsenthil>`_
 * `Presentations made at Conferences * <http://code.google.com/p/uthcode/downloads/list>`_
 * `Google Summer of Code -2008 blog page <http://urllib-gsoc.blogspot.com>`_
@@ -94,14 +94,14 @@ Promotional Summary
 -------------------
 
 One good way to develop applications is to divide the problem into smaller
-managable chunks and the build those.  Once we identify and define those
+manageable chunks and the build those.  Once we identify and define those
 smaller piece of tasks, our problem becomes incredibly easy. 
 
 But we are still faced with the question of what is the best way to do that
-task in Python? This tutorial will answer those questions.
+smaller task in Python? This tutorial will answer those questions.
 
-In this tutorial, we will identify the commonly occuring smaller tasks that
-would fit into to bigger problems.  
+In this tutorial, we will identify the commonly occurring tasks that would fit
+into to bigger problems and learn how do we solve it using Python. 
 
 The aim of the tutorial is help you develop the correct intuition when
 developing applications using Python.
