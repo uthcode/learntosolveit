@@ -1,0 +1,7 @@
+﻿I take up a particular problem and pursue it till I find a satisfying logical solution to the problem.
+
+== Others ==
+As an engineer, I was trained to solve problems. As a software developer, I designed tools to help others solve their problems.
+
+My research interests lie in the design and implementation of advanced programming systems, incorporating expressive programming languages, efficient implementations, and supportive programming environments.
+http://www.cs.washington.edu/homes/chambers/
