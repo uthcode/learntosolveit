@@ -38,6 +38,8 @@ C Programming Language
 Links
 =====
 
-http://www.eskimo.com/~scs/cclass/notes/sx5.html
+* http://www.eskimo.com/~scs/cclass/notes/sx5.html
+* http://dsrg.mff.cuni.cz/~holub/c%5Ffeatures.html
+
 
 

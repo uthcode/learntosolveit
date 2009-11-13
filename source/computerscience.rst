@@ -15,6 +15,7 @@ Studies related
 * John Resig, a Javascript pioneer and inventor of JQuery is from http://www.rit.edu/  Rochester Institute of Technology.
 * Greg Wilson, mentor of many GSOC projects and author of beautiful code is a professor at University of Toronto.
 * http://www.ics.uci.edu/~eppstein/research.html David Eppstein is a professor at University of California, Irvine.
+* A good computer scientist will combine both theory and practise to explore the truth.
 
 GRE Scores and Academia 
 =======================
@@ -614,9 +615,6 @@ Big-O is not a mathematical function. It has no inverse.
 The Art of Sorting 
 ==================
 
-* It is a concept that saturates computer science.
-* Sorting - Makes life easier if the things are in order. Not the least important is finding things.
-* Sorting also gives one a certain measure of confidence in designing and analysing algorithms, because most of the techniques used appear in the context of sorting as well.
 * C's qsport and C++ std::sort and std::partial_sort.
 * Its beneficial to understand what algorithms are available, what their advantages and disadvantages are, and how to implement your own algorithm that's custom tailored to your data if the need arises.
 * To sort or not to sort. That's the question, Is'nt it?

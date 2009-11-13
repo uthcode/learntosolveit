@@ -30,6 +30,12 @@ Universe
   easily write an advertising jingle, but his motivation for learning music was
   to create something beautiful.
 
+* For indeed, there is nothing in the intellect which was not in the senses,
+  except the intellect itself. Music is the pleasure the human mind experiences
+  from counting without being aware that it is counting. Nothing exists and
+  nothing happens without a reason why it is so, and not otherwise. 
+  - Gottfried Leibniz
+
 Everything
 ==========
 
@@ -41,3 +47,13 @@ Everything
   of the longer form of the constant. This also simplifies modifying the
   program, should the value of PI change. - FORTRAN manual for Xerox Computers.  
 * All programmers are playwrights and all computers are lousy actors.
+ 
+* "I could have made money [by joining the proprietary software world],
+  and perhaps amused myself writing code. But I knew that at the end of my
+  career, I would look back on years of building walls to divide people,
+  and feel I had spent my life making the world a worse place." Richard
+  Stallman, GNU Project (http://www.gnu.org/gnu/thegnuproject.html).
+
+* Programming is the art of writing essays in crystal clear prose and making
+  them executable - Per Brinch Hansen
+

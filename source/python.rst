@@ -2,6 +2,94 @@
 Python Notes
 ============
 
+Global Interpretor Lock
+=======================
+
+1. It is used to protect the Python Objects from being modified by multiple
+   threads at once.
+2. To keep multiple threads running, the interpretor automatically releases and
+   reaquires the lock at regular intervals. It also does this around
+   potentially slow or blocking low level operations, such as file and network
+   I/O.
+3. This is used internally to ensure that only one thread runs in the Python VM
+   at a time.
+4. Python offers to switch amongst threads only between bytecode instructions.
+5. Each bytecode instruction and all C implemented function is atomic from
+   Python program's point of view.
+
+Definitions:
+
+A machine having multiple processors
+A machine having a single processor with multiple cores.
+A machine having multple processors with each one having multiple cores.
+
+concurrent programming:
+1. http://en.wikipedia.org/wiki/Concurrent_computing 
+   Java and C# use shared memory concurrency model, with locking provided by
+   monitors. Message passing concurrency model have been implemented on top of
+   the existing shared memory concurrency model.
+
+   Erlang is using message passing concurrency model.
+
+   Alice extension to Standard ML, supports concurrency via Futures.
+   Cilk is concurrent C. There are developers at Akamai.
+
+   The Actor Model.
+   Petri Nets.
+
+
+List of Important Publications in Concurrent, Parallel and Distributed
+Computing.
+
+http://en.wikipedia.org/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing
+
+Symposium on Principles of Distributed Computing.
+
+http://en.wikipedia.org/wiki/Symposium_on_Principles_of_Distributed_Computing
+
+
+Process (computing)
+
+What is the difference between multi-tasking and multi-processing?
+Inter-Process Communication.
+
+Some History
+
+By the early 60s computer control software had evolved from Monitor control
+software, e.g., IBSYS, to Executive control software. Computers got "faster"
+and computer time was still neither "cheap" nor fully used. It made
+multiprogramming possible and necessary.
+
+Multiprogramming means that several programs run "at the same time"
+(concurrently). At first they ran on a single processor (i.e., uniprocessor)
+and shared scarce resources. Multiprogramming is also basic form of
+multiprocessing, a much broader term.
+
+Programs consist of sequence of instruction for processor. Single processor can
+run only one instruction at a time. Therefore it is impossible to run more
+programs at the same time. Program might need some resource (input ...) which
+has "big" delay. Program might start some slow operation (output to printer
+...). This all leads to processor being "idle" (unused). To use processor at
+all time the execution of such program was halted. At that point, a second (or
+nth) program was started or restarted. User perceived that programs run "at the
+same time" (hence the term, concurrent).
+
+Shortly thereafter, the notion of a 'program' was expanded to the notion of an
+'executing program and its context'. The concept of a process was born.
+
+This became necessary with the invention of re-entrant code.
+
+Threads came somewhat later. However, with the advent of time-sharing; computer
+networks; multiple-CPU, shared memory computers; etc., the old
+"multiprogramming" gave way to true multitasking, multiprocessing and, later,
+multithreading.
+
+
+Python Threads and Global Interpretor Lock
+==========================================
+
+1. Why is the threading modules have start and join methods?
+
 no_proxy
 
 Some clients support the no_proxy environment variable that specifies a set of

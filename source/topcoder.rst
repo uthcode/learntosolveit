@@ -8,10 +8,12 @@ Resources for Solving Topcoder Problems
 * `TopCoder C++ for C Programmers`_
 * `Programming Bookmarks`_
 
-Worst Case Run-time is the more frequently used benchmark for a given algorithm.
-
 .. _TopCoder C++ for C Programmers: http://www.topcoder.com/pl/?&module=Static&d1=gicj05&d2=cpp 
 .. _Programming Bookmarks: http://delicious.com/orsenthil/Programming
+
+
+Rough Data on Execution Times
+-----------------------------
 
 * A Desktop PC can do a little over pow(10, 9) operations per second.
 
@@ -33,30 +35,53 @@ Worst Case Run-time is the more frequently used benchmark for a given algorithm.
       | O(N!)       |  pow(10, 142) years   |
       +-------------+-----------------------+
 
-Sorting
--------
+* Source: TopCoder Algorithms Tutorial.
 
-Insertion Sort O(N^2) And for 1000000000 items that would take 10^18
-operations; If 10^9 operations can be done in a second; then 10^9 seconds is
-required to do that; which would easily be in years.  Quick Sort, Heap Sort and
-Merge Sort is better; O(N Log N) operations.
 
-Shortest Path Algorithms
-------------------------
+This table is extending that run time to a Billion times.
 
-Finding the shortest path from A to B; would not be possible.
-O(C^N).
-O(E*V(logV)) = Dikstra's algorihm. Uses Priority Queues.
+    +--------------------+----------------------+
+    |  1000000000        | Time Taken           |
+    +====================+======================+
+    |  O(log\ *n* )      | 1 second             |
+    +--------------------+----------------------+
+    |  O(n)              | 10 seconds           |
+    +--------------------+----------------------+
+    |  O( *n* log\ *n* ) |  1.5 minutes         |
+    +--------------------+----------------------+
+    |  O(n\ :sup:`2` )   |  16 minutes          |
+    +--------------------+----------------------+
+    |  O(n\ :sup:`6` )   |  7 days              |
+    +--------------------+----------------------+
+    |  O(2\ :sup:`n` )   |  10\ :sup:`21` years |     
+    +--------------------+----------------------+
+    |  O(n *!* )         |  10:sup:149 years    |
+    +--------------------+----------------------+
 
-Stable Matching Algorithm for sending data.
-Maximum Flow Problem. Ford and Fulkerson problem. SRM 200.
+
+* Dikstra's algorithm for shortest path takes *O(E\*V(logV))*
+
+* Using an Randomized algorithm, the median could be found in O(n) times.
+
+* `Stable Matching Algorithm`_ for sending data.
+
+.. _Stable Matching Algorithm: http://en.wikipedia.org/wiki/Stable_marriage_problem
+
+* Maximum Flow Problem. Ford and Fulkerson algorithm. Graduation in SRM 200.
+* Good chances that Akamai might be using Ford Fulkerson algorithm for sureroute.
+
 Dynamic Programming.
+--------------------
 
 Minimum number of insertions, deletions required to transform sequence A into sequence B.
 Dynamic programming makes the algorithm run in O(N*M) only.
 
 MatchMaking problem, SRM 203 problem.
 BettingMoney problem.
+
+References for Dikstra's algorithm
+
+* http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html
 
 Notes
 -----
