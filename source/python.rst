@@ -48,6 +48,9 @@ Symposium on Principles of Distributed Computing.
 http://en.wikipedia.org/wiki/Symposium_on_Principles_of_Distributed_Computing
 
 
+Reworking the GIL
+http://mail.python.org/pipermail/python-dev/2009-October/093321.html
+
 Process (computing)
 
 What is the difference between multi-tasking and multi-processing?
@@ -89,6 +92,67 @@ Python Threads and Global Interpretor Lock
 ==========================================
 
 1. Why is the threading modules have start and join methods?
+
+urllib2
+=======
+
+functions
+---------
+* urlopen
+* install_opener
+* build_opener
+* request_host
+* _parse_proxy
+* randombytes
+* parse_keqv_list
+* parse_http_list
+
+
+class
+-----
+* Request
+* OpenerDirector
+* BaseHandler
+  * HTTPErrorProcessor
+  * HTTPCookieProcessor
+  * HTTPDefaultErrorHandler
+  * HTTPRedirectHandler
+  * ProxyHandler
+  * AbstractHTTPHandler
+  * UnknownHandler
+  * FileHandler
+  * FTPHandler
+  * CacheFTPHandler
+
+
+* AbstractHTTPHandler
+  * HTTPHandler
+  * HTTPSHandler
+
+
+* HTTPPasswordMgr
+  * HTTPPasswordMgrWithDefaultRealm
+
+* AbstractBasicAuthHandler
+
+* AbstractBasicAuthHandler, BaseHandler
+  * HTTPBasicAuthHandler
+  * ProxyBasicAuthHandler
+
+* AbstractDigestAuthHandler
+
+* BaseHandler, AbstractDigestAuthHandler
+  * HTTPDigestAuthHandler
+  * ProxyDigestAuthHandler
+
+
+urlopen -> build_opener -> OpenerDirector() -> OpenerDirector.add_handler for
+each class and handler -> OpenerDirector.open() method on the composite object.
+-> Request -> returns stateful url -> protocol_request is called -> _open -> and
+protocol_response is called and returned.
+
+the handlers must work in an specific order, the order is specified in a Handler attribute
+
 
 no_proxy
 

@@ -229,3 +229,31 @@ phoe6: hmm..
 mgedmin: I also recommend set softtabstop=4
 mgedmin: to convert existing tabs to spaces, use :retab
 
+
+set foldexpr=getline(v:lnum)=~'^class'?'>1':'='
+
+phoe6: yeah, I know. I was to try expr today
+phoe6: I have been unsuccessful with fold-expr.
+phoe6: :set fdm=expr and then setting that :set foldexpr 
+phoe6: is anythign else needed? 
+djanowski: hello all. i'm writing a function that behaves differently depending
+on the file type. how can i get the current file type into a variable?
+jnrowe: djanowski▶ &filetype already exists ;)
+graywh: phoe6, oh, i know why
+phoe6: what could be reason, graywh?
+graywh: the problem is that the lines that don't match the pattern return 0
+djanowski: jnrowe: awesome, let me check
+graywh: :set foldexpr=getline(v:lnum)=~'^class'?'>1':'='
+graywh: that will only match top-level classes, obviously
+djanowski: jnrowe: is there an equivalent to C's switch statement?
+phoe6: :) yeah..
+graywh: if you want better python folding, find a plugin that does everything
+phoe6: ^class would match and if that returns > 1 what does '=' do?
+phoe6: I mean, I am trying to understand your foldexpr. 
+graywh: keeps fold level from previous line
+graywh: :h fold-expr and keep reading
+graywh: it's in a table
+phoe6: I see. thanks graywh
+phoe6: :)
+graywh: i use this for python
+graywh: http://www.vim.org/scripts/script.php?script_id=515
