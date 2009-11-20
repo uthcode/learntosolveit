@@ -154,6 +154,8 @@ protocol_response is called and returned.
 the handlers must work in an specific order, the order is specified in a Handler attribute
 
 
+/var/www/.htaccess is the file I am going to create with senthil:senthil
+
 no_proxy
 
 Some clients support the no_proxy environment variable that specifies a set of

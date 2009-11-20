@@ -17,6 +17,10 @@ Studies related
 * http://www.ics.uci.edu/~eppstein/research.html David Eppstein is a professor at University of California, Irvine.
 * A good computer scientist will combine both theory and practise to explore the truth.
 
+* University of North Carolina at Chapel Hill
+* http://www.cra.org/reports/forsythe.html
+
+
 GRE Scores and Academia 
 =======================
 

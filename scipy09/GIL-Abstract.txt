@@ -1,0 +1,80 @@
+Understanding GIL and How it affects your processing speed.
+===========================================================
+
+O.R. Senthil Kumaran
+---------------------
+
+Abstract
+========
+
+The Global Interpretor Lock serializes access to most parts of the interpreter.
+The design of the Global Interpretor lock is such that it hands over the task
+of thread scheduling to the operating system, it is a perfect design when it
+comes to Operating Systems running on a single core processor but not with
+multicore processors.  With the inburst of the multi core processors, Python
+has been facing serious challenges in terms of utilizing the full power of
+multi-core systems.  The reason often cited is the well known, and perhaps not
+properly well-understood, acronym GIL. 
+
+The reason it is not really well understood is that the topic of GIL falls
+under Operating Systems and Scheduling than it is a Python Programming problem
+or a programming paradigm. 
+
+This talk will try to dive a little bit into Operating System process handling,
+threading and thread scheduling till we understand the the need of
+synchronization and its problems and attempts to solve the Synchornization
+issues. Next we will deal with the design of the GIL. This will explain in
+detail, with execution examples the properties and the oddities of GIL.  A
+measurement of the processing time of threaded different threaded programs and
+its behavior on single core processor and multi-core processors would help us
+understand the problem.
+
+Python core developer, Antoine Pitrou led to solve some of the GIL imposed
+deficiencies of Python Interpertor and came with a design that addresses the
+issues of switching by opcode counts and thread switching latency. Let us look
+at some of the changes made by him.
+
+He also provides a good test suite, which has simple programs like calculating
+pi, regex search, sorting and compress/decompress operations and provides a
+timed framework to execute those operations on a controlled way by specifying
+the number of threads and thread switching interval time. We shall look at the
+performance measurement of concurrency benchmark tool when executed on a newgil
+based Python interpretor.
+
+References:
+===========
+
+1. Inside the Python GIL
+http://www.dabeaz.com/python/GIL.pdf
+
+2. newgil
+http://svn.python.org/view/sandbox/trunk/newgil/
+
+3. newgil annoucement
+http://mail.python.org/pipermail/python-dev/2009-October/093321.html
+
+4. concurrency benchmark testsuite
+http://svn.python.org/view/sandbox/trunk/ccbench/
+
+
+About the Speaker
+=================
+
+I am a Python Core Developer and the maintainer of a urllib python standard
+library module. Most of my work is around the standard library and internet
+related modules. More recently, I got interested into Algorithms and Operating
+Systems related areas and this topic of GIL interested me a lot.
+
+I am Senior Software Engineer at Akamai Technologies, where we used Python and
+twisted for a conccurent request handling server. 
+
+I volunteer for Spastics Society of Karnataka and also interested in
+accessiblity technologies.
+
+Past Speaking Experiences
+=========================
+
+1. Tutorial on Python Standard Library - PyCon US 2009.
+2. Algorithms in Python - PyCon India 2009.
+3. Python Stadard Library (Freed.in 2007), Pygame (Freed.in 2009)
+4. Scheduled tutorial ( Solve it using Python - PyCon US 2010).
