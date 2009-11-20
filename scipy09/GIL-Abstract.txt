@@ -11,7 +11,7 @@ The Global Interpretor Lock serializes access to most parts of the interpreter.
 The design of the Global Interpretor lock is such that it hands over the task
 of thread scheduling to the operating system, it is a perfect design when it
 comes to Operating Systems running on a single core processor but not with
-multicore processors.  With the inburst of the multi core processors, Python
+multicore processors.  With the in burst of the multi core processors, Python
 has been facing serious challenges in terms of utilizing the full power of
 multi-core systems.  The reason often cited is the well known, and perhaps not
 properly well-understood, acronym GIL. 
@@ -21,8 +21,8 @@ under Operating Systems and Scheduling than it is a Python Programming problem
 or a programming paradigm. 
 
 This talk will try to dive a little bit into Operating System process handling,
-threading and thread scheduling till we understand the the need of
-synchronization and its problems and attempts to solve the Synchornization
+threading and thread scheduling till we understand the need of
+synchronization and its problems and attempts to solve the Synchronization
 issues. Next we will deal with the design of the GIL. This will explain in
 detail, with execution examples the properties and the oddities of GIL.  A
 measurement of the processing time of threaded different threaded programs and
@@ -30,7 +30,7 @@ its behavior on single core processor and multi-core processors would help us
 understand the problem.
 
 Python core developer, Antoine Pitrou led to solve some of the GIL imposed
-deficiencies of Python Interpertor and came with a design that addresses the
+deficiencies of Python Interpretor and came with a design that addresses the
 issues of switching by opcode counts and thread switching latency. Let us look
 at some of the changes made by him.
 
@@ -50,11 +50,19 @@ http://www.dabeaz.com/python/GIL.pdf
 2. newgil
 http://svn.python.org/view/sandbox/trunk/newgil/
 
-3. newgil annoucement
+3. newgil announcement
 http://mail.python.org/pipermail/python-dev/2009-October/093321.html
 
-4. concurrency benchmark testsuite
+4. Concurrency benchmark testsuite
 http://svn.python.org/view/sandbox/trunk/ccbench/
+
+
+Notes to Reviewers
+==================
+
+I have not used scientific python related software much, but this topic
+(newgil) I believe would be of interest to numpy package and ofcourse other
+scientific python tools.
 
 
 About the Speaker
@@ -65,11 +73,13 @@ library module. Most of my work is around the standard library and internet
 related modules. More recently, I got interested into Algorithms and Operating
 Systems related areas and this topic of GIL interested me a lot.
 
-I am Senior Software Engineer at Akamai Technologies, where we used Python and
-twisted for a conccurent request handling server. 
+I am Senior Software Engineer at Akamai Technologies, where we use Python and
+twisted for a concurrent request handling server, amongst various other
+tasks. 
 
 I volunteer for Spastics Society of Karnataka and also interested in
-accessiblity technologies.
+accessibility technologies.
+
 
 Past Speaking Experiences
 =========================
