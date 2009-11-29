@@ -2,6 +2,8 @@
 Ratpoison Window Manager
 ========================
 
+Website: http://ratpoison.nongnu.org/
+
 ::
 
         startup_message off
@@ -48,3 +50,28 @@ Ratpoison Window Manager
         bind o only
         bind v hsplit
         bind h vsplit
+
+
+phoe6: I use :tmpwm openbox at times, but once I exit it. I don't have control
+over ratpoison windows.. I seem to need to close all windows and start over
+again.. have you observed it? Is there any solution?
+twb: phoe6: I noticed that a while ago, it's a bug
+twb: I just have ratpoison configured to auto-restart, and so I "close" openbox
+by doing "killall -9 openbox ratpoison"
+twb: http://twb.ath.cx/Preferences/.bin/twb-loop and http://twb.ath.cx/
+Preferences/.xinitrc
+phoe6: thanks twb.. that's a good idea to auto-restart ratpoison and doing a
+kill.
+phoe6: do you know the status of the bug. is it already reported at ratpoison
+tracker?
+twb: I worked that out years ago when ratpoison would segfault hourly :-)
+twb: I don't know, I just ignored it. I use :tmpwm maybe once a year.
+phoe6: :) hahaa
+twb: I noticed the problem years ago, and I think I mentioned it to sabetts in
+passing.
+phoe6: you know what, if you do topcoder ( which is a javaws) or say play with
+(Alice programming) you seem to need :tmpwm. That's one thing which is helping
+me as not to get back to gnome-window manager. :)
+twb: You might prefer xmonad or something, to ratpoison. It supports "floating
+windows", so you don't have to :tmpwm just for one or two windows.
+phoe6: hmm.. should try that one.

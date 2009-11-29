@@ -1,4 +1,12 @@
-﻿I take up a particular problem and pursue it till I find a satisfying logical solution to the problem.
+﻿Statement of Purpose
+Prepare a concise one or two page essay that describes your primary areas of interest for research, your related experiences, and your objective in pursuing a graduate degree at Carnegie Mellon. Your essay should be specific in describing your interests and motivations. When describing your research interests, you should explain why you think they are important areas of study and why you are particularly well-suited to pursue them. You should describe any relevant education, research, commercial, government, or teaching experience. If you are applying to more than one program, you may (but are not required to) submit a separate Statement of Purpose for each program. If you are submitting different statements, please upload as one file. Include your name and User ID on the essay.
+
+Notes for specific programs.:
+
+    * Human-Computer Interaction applicants: Indicate your intended area of emphasis in the first paragraph of your Statement of Purpose. If appropriate to your background, you may include a link to your portfolio. If you are unable to provide a link, you may mail a CD of your portfolio to Martha Clarke, Admissions Coordinator, at the address given above. Please indicate your intent to submit a portfolio in the Supplemental Information section.
+    * Software Engineering applicants: Concisely summarize your background in software development, experience with particular phases of software development activity, and how your industrial experience prepares you for graduate-level academic work. Submit this information in the Supplemental Information section under Experience (Research, Industry). 
+
+I take up a particular problem and pursue it till I find a satisfying logical solution to the problem.
 
 == Others ==
 As an engineer, I was trained to solve problems. As a software developer, I designed tools to help others solve their problems.

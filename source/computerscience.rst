@@ -20,6 +20,40 @@ Studies related
 * University of North Carolina at Chapel Hill
 * http://www.cra.org/reports/forsythe.html
 
+* http://ram.umd.edu/
+
+Joseph Lisee - CMU Robotics Program.
+
+Juliana Freire (University of Utah and VisTrails Inc.) bio
+Juliana Freire is an Associate Professor at the School of Computing at the
+University of Utah and a member of the Scientific Computing and Imaging
+Institute. Before, she was member of technical staff at the Database Systems
+Research Department at Bell Laboratories (Lucent Technologies) and an Assistant
+Professor at OGI/OHSU. An important theme is Professor Freire's work is the
+development of data management technology to address new problems introduced by
+emerging applications, including the Web and scientific applications. Her
+recent research has focused on two main topics: scientific data management and
+Web mining.
+
+http://www.cs.washington.edu/homes/arvind/
+
+
+Universities to Apply
+---------------------
+
+Course to apply: Algorithms, Theory of Computation, Computer Networking and
+Distrubuted Systems.
+
+1. University of Washington (Seatle Project).
+2. University of California - David Eppstein.
+3. Carneige Mellon University - Just email Joseph Lisee or under Bruce Maggs.
+4. MIT - Algorithms Group or Media Labs.
+5. University of Toronto - Greg Stein.
+6. Rochestor Institute of Technology.
+7. Texas A & M.
+8. Stanford University.
+9. Univeristy of Delaware
+10. Umass Amherst.
 
 GRE Scores and Academia 
 =======================
@@ -27,6 +61,74 @@ GRE Scores and Academia
 + General Test Scores: *Verbal: 530. Quants: 780. AWA: 4.0*
 + TOEFL Scores: *Reading: 29, Listening: 28, Speaking: 28, Writing: 22, Total: 107*
 + Bachelor of Engineering, Computer Science. 1998-2002. *Final Percentage: 76.8%* 
+
+GRE General Test Scores:
+
+    * Date: 05-08 
+    * Registration # 6634-905
+
+Verbal : 530 - Below 68%
+
+Quantitative: 780 - Below 90%
+
+Analytical Writing: 4.0 - Below 33%
+
+
+Test Scores:
+
+TOEFL Internet Based Test:
+
+Registration: 0000 0000 0587 7817
+
+Test Date: 03 August 2008
+
+Inst Code Dept Code
+
+4833         99
+
+3514          99
+
+4704          99
+
+2074          99
+
+TOEFL Scaled Scores:
+
+Reading 29
+
+Listening 28
+
+Speaking 28
+
+Writing     22
+
+Total         107
+
+
+GRE Subject Test
+
+Test Date: 11/08.08  COMPUT SCI
+
+Score Recipients Requested
+
+Graduate Institution                    Department
+
+4833                                               0402
+
+5248                                                0402
+
+2074                                                1201
+
+4704                                                0402
+
+Score: 530. Percentile: 08%
+
+http://edulix.com/infobank/index.php  Edulix Info Banks
+
+29th November
+
+1- Applying to Stanford.  Make sure your application is complete. Even Offcial
+Scores arrive before deadline. ( Ask this one)
 
 Preparation Notes
 =================
