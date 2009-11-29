@@ -1,0 +1,97 @@
+A formal parsing algorithm should not always be used.
+		-- D. Gries
+%
+===  ALL USERS PLEASE NOTE  ========================
+
+The garbage collector now works.  In addition a new, experimental garbage
+collection algorithm has been installed.  With SI:%DSK-GC-QLX-BITS set to 17,
+(NOT the default) the old garbage collection algorithm remains in force; when
+virtual storage is filled, the machine cold boots itself.  With SI:%DSK-GC-
+QLX-BITS set to 23, the new garbage collector is enabled.  Unlike most garbage
+collectors, the new gc starts its mark phase from the mind of the user, rather
+than from the obarray.  This allows the garbage collection of significantly
+more Qs.  As the garbage collector runs, it may ask you something like "Do you
+remember what SI:RDTBL-TRANS does?", and if you can't give a reasonable answer
+in thirty seconds, the symbol becomes a candidate for GCing.  The variable
+SI:%GC-QLX-LUSER-TM governs how long the GC waits before timing out the user.
+%
+An algorithm must be seen to be believed.
+		-- D. E. Knuth
+%
+Heuristics are bug ridden by definition.  If they didn't have bugs,
+then they'd be algorithms.
+%
+	Long ago, in a finite state far away, there lived a JOVIAL
+character named Jack.  Jack and his relations were poor.  Often their
+hash table was bare.  One day Jack's parent said to him, "Our matrices
+are sparse.  You must go to the market to exchange our RAM for some
+BASICs."  She compiled a linked list of items to retrieve and passed it
+to him.
+	So Jack set out.  But as he was walking along a Hamilton path,
+he met the traveling salesman.
+	"Whither dost thy flow chart take thou?" prompted the salesman
+in high-level language.
+	"I'm going to the market to exchange this RAM for some chips
+and Apples," commented Jack.
+	"I have a much better algorithm.  You needn't join a queue
+there; I will swap your RAM for these magic kernels now."
+	Jack made the trade, then backtracked to his house.  But when
+he told his busy-waiting parent of the deal, she became so angry she
+started thrashing.
+	"Don't you even have any artificial intelligence?  All these
+kernels together hardly make up one byte," and she popped them out the
+window...
+		-- Mark Isaak, "Jack and the Beanstack"
+%
+"Now this is a totally brain damaged algorithm.  Gag me with a smurfette."
+		-- P. Buhr, Computer Science 354
+%
+	Risch's decision procedure for integration, not surprisingly,
+uses a recursion on the number and type of the extensions from the
+rational functions needed to represent the integrand.  Although the
+algorithm follows and critically depends upon the appropriate structure
+of the input, as in the case of multivariate factorization, we cannot
+claim that the algorithm is a natural one.  In fact, the creator of
+differential algebra, Ritt, committed suicide in the early 1950's,
+largely, it is claimed, because few paid attention to his work.  Probably
+he would have received more attention had he obtained the algorithm as well.
+		-- Joel Moses, "Algorithms and Complexity", ed. J. F. Traub
+%
+The algorithm for finding the longest path in a graph is NP-complete.
+For you systems people, that means it's *real slow*.
+		-- Bart Miller
+%
+"The algorithm to do that is extremely nasty.  You might want to mug
+someone with it."
+		-- M. Devine, Computer Science 340
+%
+algorithm, n.:
+	Trendy dance for hip programmers.
+%
+Computer science:
+	(1) A study akin to numerology and astrology, but lacking the
+	   precision of the former and the success of the latter.
+	(2) The protracted value analysis of algorithms.
+	(3) The costly enumeration of the obvious.
+	(4) The boring art of coping with a large number of trivialities.
+	(5) Tautology harnessed in the service of Man at the speed of light.
+	(6) The Post-Turing decline in formal systems theory.
+%
+flowchart, n. & v.:
+	[From flow "to ripple down in rich profusion, as hair" + chart
+"a cryptic hidden-treasure map designed to mislead the uninitiated."]
+1. n. The solution, if any, to a class of Mascheroni construction
+problems in which given algorithms require geometrical representation
+using only the 35 basic ideograms of the ANSI template.  2. n. Neronic
+doodling while the system burns.  3. n. A low-cost substitute for
+wallpaper.  4. n.  The innumerate misleading the illiterate.  "A
+thousand pictures is worth ten lines of code." -- The Programmer's
+Little Red Vade Mecum, Mao Tse T'umps.  5. v.intrans. To produce
+flowcharts with no particular object in mind.  6. v.trans. To obfuscate
+(a problem) with esoteric cartoons.
+		-- Stan Kelly-Bootle, "The Devil's DP Dictionary"
+%
+egrep patterns are full regular expressions; it uses a fast deterministic
+algorithm that sometimes needs exponential space.
+		-- unix manuals
+%

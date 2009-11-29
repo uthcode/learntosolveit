@@ -1,0 +1,240 @@
+A.M. Kuchling amk at amk.ca
+Tue Aug 19 17:11:52 EDT 2003
+
+I'm vaguely considering a document or book that uses Python to explain 
+algorithms.
+An outline is below.  I'm interested in hearing reactions to this 
+outline, especially
+from teachers using Python in courses.
+
+   * Are there any important topics that aren't included?
+   * Are there any included topics that are of marginal importance?
+     The outline is already quite long, and the shorter it is, the 
+better the odds of it
+     being written.
+     Comments on the relative importance of topics -- "don't spend too 
+much space
+     on numbers, but graphs are important, so spend a lot of time on 
+them"
+   * Are there any features the book needs?  (Project suggestions, 
+exercises,
+     a chapter on mathematical fundamentals, etc.)
+   * Any other suggested changes?
+
+Thanks for any ideas you might have; they'll all be taken into 
+consideration.
+
+--amk
+
+"Algorithms in Python" (alt. "Learning Algorithms with Python") is a
+book that uses Python as the vehicle to teach the basic ideas of
+algorithms -- what an algorithm is, how to notate them clearly, what
+O() notation means, etc. -- and to introduce a number of different
+algorithms.
+
+It is not a formal textbook; discussions will rarely or never be
+rigorous, and there won't be any exercises.  Requirements:
+
+* Minimal mathematical background should be required (basically
+   functions, I think).  Those bits of notation that are necessary will
+   be explained as they're needed.
+* Elementary Python programming knowledge is needed, so readers
+   should have a tutorial such as "Learning Python" alongside this book;
+   it will not attempt to teach Python, though it will introduce relevant
+   standard library modules.
+* Python 2.3 will be used.
+
+The overarching goal is to make the book understandable by a
+bright high-school student.
+
+This outline is very long, quite possibly too long.  I can't estimate
+a length yet, but it's somewhat frightening that the comparable Perl
+book, O'Reilly's "Mastering Algorithms with Perl", had three authors.
+If shortening the book is required, there are two sets of chapters
+that could be dropped.
+
+1. Drop "Game Trees", "Strings", "Real Implementations".  Shorten
+    the "Sorting" chapter by dropping bubble sort or other
+    algorithms that are illustrative but impractical.  The graph and
+    tree chapters could probably be trimmed by dropping some topics.
+
+2. If it's still too long, drop "Geometric Algorithms" and "Hard 
+Problems".
+
+
+Outline
+---------
+
+* Preface (the usual front matter)
+   * Introductory comments
+     * Intended audience; prerequisites; goals of book
+   * Outline of book
+   * Typographical conventions
+   * Acknowledgements
+
+I. Basic Algorithms
+
+* Algorithmic Analysis (alt. "What is an Algorithm"?
+   * Basic idea: an algorithm is a series of steps to perform a task
+   * Example: finding the largest number in a list
+     * Iterative formulation
+     * Recursive formulation
+   * Measuring time complexity: O, Theta, Phi notation
+     * Compare different time complexities: O(n) vs O(lg n)
+     * Applying O() to memory/space complexity
+   * Time complexity of various Python built-in operations (dicts, lists)
+
+* Hashing
+   Hashing is going to be the first serious algorithm used as an
+   example, so it's going to be worked out in the most detail.  Later
+   chapters will explain algorithms, give reasons why they work,
+   and discuss their O() complexity, but in less detail.
+   * Basic concept of hash tables
+   * Computing hash codes
+   * Handling collisions
+   * Resizing
+     * Amortized algorithm costs (I can't see how to fit this into
+       chapter 1, since you need a reasonably complicated algorithm to
+       use as an example,)
+   * Deleting hash table entries
+   * Determining time complexity of hashing
+     (this would be the most detailed explanation of determining time 
+complexity;
+      remaining chapters would be more hand-waving)
+
+II. Data Structures
+
+* Graphs
+   * Graph concepts
+   * Different graph representations (Node objects, sets of arcs)
+   * Traversal
+   * Topological sorts
+     * Example: working out file dependencies
+   * Connected-components
+   * Spanning trees
+   * Shortest paths
+
+* Trees
+   * Trees as a special case of graphs
+   * Binary trees
+     * Representations (Node objects, lists/tuples, tables)
+     * Searching
+     * Inserting
+     * Deleting
+     * Unbalanced trees
+   * Recursive operations on trees
+   * Balanced trees:
+     * red-black
+     * do AVL trees, or just mention them briefly?
+       (Briefly, I think; there's already more than enough material in 
+this outline!)
+     * B-trees
+
+Mathematical Algorithms
+
+* Numbers
+   * Representing numbers on computers
+     * Machine integers
+     * Floating point representation
+     * Large integers
+   * Random number generation
+   * Primality testing (kind of an odd duck)
+
+* Numeric Analysis
+   * Polynomial evaluation
+   * Finding zeros of functions
+   * Differentiating functions
+   * Integrating functions
+
+Geometric Algorithms:
+   * Point representations
+   * Convex hull
+   * Line intersections
+   * Range searching
+
+
+Applications
+
+* Sorting
+   * Basic concepts
+     * Comparing
+     * Stability
+   * Simple algorithms:
+     * Bubble sort
+     * Shell sort
+     * Insertion sort
+     * Merge sort
+   * Quicksort
+     * Implementation
+     * Issues
+     * Time-complexity
+   * Time complexity of sorting
+     * Proof of O(n lg n) bound.
+     * Breaking assumptions: parallellism, spaghetti sort
+
+* Game trees
+   * Introduction
+   * Game rules (tic-tac-toe; or maybe hnefatafl, a game I did for a 
+school project once)
+   * Simple tree search
+   * Alpha/beta cutoff
+
+* Strings
+   This will likely be a difficult chapter, both to write and to read,
+   because FSMs will be a pain to explain.  Maybe this chapter isn't 
+needed?
+   * Simple searching
+   * Boyer-Moore/KMP searches
+   * Data compression
+   * Regular expressions
+     * Simple regex patterns
+     * Finite automata
+     * Languages
+       * What finite automata can't do
+     * Brief theory-of-computation overview
+
+
+The Real World (alt. Where Things Get Difficult)
+
+Hard problems:
+   * P and NP
+   * NP-completeness
+     * Explanation
+     * Various examples of NP-complete problems
+     * Show that all NP-complete problems are equivalent
+   * Solving an NP-complete problem
+     * Exhaustive search
+     * Heuristics
+
+* Real Implementations:
+   Examines real-world implementation of various algorithms.
+   * Random number generation: Mersenne twister
+   * Karatsuba algorithm?  (maybe too complicated and boring?)
+   * Python's dictionary hashing
+   * Python's sort
+
+* Final thoughts
+   I like books that close with some sort of summation.
+   This brief final chapter will discuss a few general issues.
+   * Think about time complexity
+   * Do the simplest thing...
+   * Write tests
+   * Value clarity over optimization
+   * Where to go from here?
+     * More books to read; things to do
+     * Current state of research (parallel, distributed, various domains)
+
+
+Possible Topics
+--------------------
+
+* Heaps (can't figure out where to fit them in -- any suggestions?)
+
+Not Covered
+------------------
+
+* Linked lists (they aren't the source of many algorithms,
+   and their implementation in Python doesn't seem very interesting)
+
+
+

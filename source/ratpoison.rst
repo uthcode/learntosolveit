@@ -75,3 +75,111 @@ me as not to get back to gnome-window manager. :)
 twb: You might prefer xmonad or something, to ratpoison. It supports "floating
 windows", so you don't have to :tmpwm just for one or two windows.
 phoe6: hmm.. should try that one.
+#!/bin/bash
+xrdb ~/.Xresources &
+setxkbmap -option ctrl:nocaps
+xsetroot -solid white -cursor_name left_ptr &
+xset b off &                    # no beeping
+## To avoid stty causing a hang when running xinit directly in a tty,
+## source with input as /dev/null.
+. ~/.bash_profile </dev/null
+xdark &
+eval "$(twb-agents)"
+unset GPG_TTY                   # don't use pinentry-curses
+
+## Dance so screen subprocesses can talk to GDM-spawned X servers.
+if test -n "$XAUTHORITY"
+then
+    xauth extract - $DISPLAY |
+    xauth -f ~/.Xauthority merge -
+    unset XAUTHORITY
+fi
+
+## Finally start the actual apps.
+wait
+ssh-add &
+twb-xterm &
+xscreensaver &
+exec twb-loop ratpoison
+#!/bin/sh
+#### This code is written by Trent W. Buck <trentbuck@gmail.com> and
+#### placed in the Public Domain.  All warranties are disclaimed.
+####
+#### Some years ago, I started using ratpoison.  At the time, I used
+#### GUI applications, and ratpoison was quite buggy.  Ratpoison would
+#### crash, taking the X server and all my GUI apps with it.
+####
+#### What I needed was a little script that would start ratpoison and
+#### then just sit there.  When ratpoison terminated, it would start a
+#### new ratpoison process and wait again.  Here it is::
+####
+####    $@
+####    $0 $@
+####
+#### Sometimes I would exit ratpoison legitimately with the :quit
+#### command; I didn't want it to be restarted in that case.  So I
+#### modified the program to::
+####
+####    $@ ||
+####    $0 $@
+####
+#### I noticed that after a few crashes, I had a bunch of sh processes
+#### nested like a set of russian dolls.  So I changed it to ::
+####
+####    $@ ||
+####    exec $0 $@
+####
+#### One time, I managed to make ratpoison crash a few milliseconds
+#### after starting (the default font didn't exist).  The loop was too
+#### tight; it hogged all the RAM.  I put in a short delay between
+#### loops::
+####
+####    if ! $@
+####    then sleep 1
+####         exec $0 $@
+####    fi
+####
+#### Then I decided it would be best if it *asked* the user whether or
+#### not the program should be restarted.  And here it is:
+
+restartp () {                   # succeeds iff user chooses yes
+    t="Run \`$1' again?"
+    m="Shell command \`$1' failed with code $2.  Run it again?"
+    if test -n "$DISPLAY"
+    then
+       ## use a popup
+       if zenity --version
+       then zenity --title="$t" --question --text="$m"
+       elif gmessage --version
+       then gmessage -buttons Yes:0,No:1 -default Yes "$m"
+       elif Xdialog --version
+       then Xdialog --title "$t" --yesno "$m" 6 "$(expr length "$m")"
+       elif xmessage -help
+       then xmessage -buttons Yes:0,No:1 -default Yes "$m"
+       else return 0            # give up and assume yes
+       fi >/dev/null 2>&1
+    else
+       ## use stdio
+       printf "%s [Y/n] " "$m"
+       read response
+       case "$response" in
+           [nN]*) return 1;;
+       esac
+       return 0
+    fi
+}
+
+"$@"                            # run command
+case $? in
+    0)  exit 0;;                # command succeded
+    126)                        # command not executable
+        echo >&2 "$0: $1: Permission denied"
+        exit 126;;
+    127)                        # command not in $PATH
+        echo >&2 "$0: $1: command not found"
+        exit 127;;
+    *)  if restartp "$1" "$?"   # failed; try again?
+        then sleep 1
+            exec "$0" "$@"
+        fi;;
+esac
