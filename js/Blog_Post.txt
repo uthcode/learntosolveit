@@ -1,0 +1,15 @@
+Pycon India 2009
+
+Pycon India 2009 is a community conference by the Python India developer community.
+
+Pycon India 2009 would be held in Bangalore, India, between Saturday, 26th
+September 2009 and Sunday, 27th September 2009 consisting of tutorials, talks
+and short sprint sessions.
+
+Register for PyCon India 2009: http://in.pycon.org/
+
+Submit a Talk Proposal: http://in.pycon.org/2009/addtalk/
+
+
+Welcome to PyCon India 2009 at Bangalore.
+
