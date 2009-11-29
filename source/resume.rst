@@ -125,13 +125,8 @@ Teaching
 Community Activities
 --------------------
 
- * Associated with `Spastics Society of Karnataka`_.
- * Recognition as a Good Teacher at Spastics Society of Karnataka on Teacher's Day, 14 Sep 2008.
-
-
-.. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
-.. _PyCon 2009 Conference: http://us.pycon.org/2009/tutorials/schedule/2PM6/
-.. _PyCon 2010 Conference: http://us.pycon.org/2010/tutorials/kumaran_python201/
+ * Associated with `Spastics Society of Karnataka`_ as a teacher, volunteer and
+   a web-master.
 
 
 Patents
@@ -168,18 +163,11 @@ Fast Download mechanisms in Blu Ray disk.
   Patent Application:May 2008
 
 
-.. _Patent Application- July 2006: http://linkmenow.org/patent1
-.. _Patent Application- September 2006: http://linkmenow.org/orsenthilpatent2
-.. _Patent Application- August 2008: http://linkmenow.org/orsenthilpatent3
-
 Industry Publications
 ---------------------
 
-Power Solutions Magazine, Dell.
-
-* Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. 
-* Methods of Installing Open Manage Software on Linux Operating Systems.
-
+* Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. `Power Solutions - 2004`_
+* Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
 
 Other Open Source Contributions
 -------------------------------
@@ -189,6 +177,15 @@ Other Open Source Contributions
 * Feature Enhancements for `nanoblogger_ - A tiny blog engine for Unix.
 * Feature implmentations in `Rapple`_ - A Standards based Website generator.
 
+
+.. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
+.. _PyCon 2009 Conference: http://us.pycon.org/2009/tutorials/schedule/2PM6/
+.. _PyCon 2010 Conference: http://us.pycon.org/2010/tutorials/kumaran_python201/
+.. _Patent Application- July 2006: http://linkmenow.org/patent1
+.. _Patent Application- September 2006: http://linkmenow.org/orsenthilpatent2
+.. _Patent Application- August 2008: http://linkmenow.org/orsenthilpatent3
+.. _Power Solutions - 2004: www.dell.com/downloads/global/power/ps4q04-20040115-Kumaran.pdf
+.. _Power Solutions - 2007: http://www.dell.com/downloads/global/power/ps2q07-20070309-Senthil-OE.pdf
 .. _Libsmbios: http://linux.dell.com/libsmbios/main/index.html 
 .. _FOLDOC: http://www.foldoc.org
 .. _nanoblogger: http://www.nanoblogger.sf.net
