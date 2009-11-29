@@ -1,0 +1,126 @@
+#include"stdio.h"
+#include"conio.h"
+#include"ctype.h"
+#include"alloc.h"
+#define TRUE 1
+#define FALSE 0
+#define FOUND 1
+#define MAXSIZE 20
+typedef struct su_node
+{
+ int succ_no;
+ struct su_node *next;
+}node1;
+typedef struct s_node
+{
+ int pred_count;
+ int tag;
+ struct su_node *succ_node_ptr;
+}node2;
+node2 graph[MAXSIZE+1];
+int cycles=0,cr=0;
+void init_graph()
+{
+  int i;
+  for(i=1;i<=MAXSIZE;i++)
+  {
+   graph[i].succ_node_ptr=NULL;
+   graph[i].pred_count=0;
+   graph[i].tag=FALSE;
+  }
+}
+void install(int pd,int su)
+{
+ node1 **pp,*p=NULL;
+ graph[pd].pred_count+=1;
+ p=(node1 *)malloc(sizeof(node1));
+ p->succ_no=su;
+ p->next=NULL;
+ pp=&(graph[pd].succ_node_ptr);
+ while(*pp!=NULL)
+ pp=&((*pp)->next);
+ *pp=p;
+}
+void create()
+{
+ int edge,pred,succ,i;
+ printf("\n ENTER THE NUMBER OF EDGES");
+ scanf("%d",&edge);
+ for(i=1;i<=edge;i++)
+ {
+  printf("\n ENTER THE PREDECESSOR");
+  scanf("%d",&pred);
+  printf("\n ENTER THE SUCESSOR");
+  scanf("%d",&succ);
+  install(pred,succ);
+ }
+}
+
+ void print_graph(int n)
+ {
+ int i;
+ node1 *p;
+ for(i=1;i<=n;i++)
+ {
+ printf("\n %d NO. OF PREDECCESORS OF %d",graph[i].pred_count,i);
+  p=graph[i].succ_node_ptr;
+  printf("\n cycle from %d\n",i);
+  while(p!=NULL)
+  {
+   printf("\t\t%d-->%d\n",i,p->succ_no);
+   p=p->next;
+  }
+ }
+}
+void drs(int st,int ct)
+{
+ node1 *p;
+ int ct_node;
+ printf("\t%d-->",cr);
+ if(graph[ct].tag==TRUE)
+ {
+  if(st==ct)
+  {
+   cr=FOUND;
+   cycles++;
+   getch();
+   clrscr();
+   return;
+  }
+ }
+ graph[ct].tag=TRUE;
+ p=graph[ct].succ_node_ptr;
+while(p!=NULL)
+{
+ct_node=p->succ_no;
+drs(st,ct_node);
+p=p->next;
+}
+clrscr();
+graph[ct].tag=FALSE;
+}
+void cycle(int n)
+{
+ int i;
+ for(i=1;i<=n;i++)
+ {
+  drs(i,i);
+  }
+  if(cycles>0)
+  {
+   printf("CYCLES ARE FOUND");
+   printf("THE NUMBER OF CYCLES :%d\n",cycles);
+  }
+ }
+ void main()
+ {
+  int n;
+  clrscr();
+  printf("ENTER THE NUMBER OF NODES");
+  scanf("%d",&n);
+  init_graph();
+  create();
+  cycle(n);
+  print_graph(n);
+  getch();
+ }

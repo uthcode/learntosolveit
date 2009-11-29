@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+void main()
+{
+  int gd=0,gm;
+ long  int p,px,x,y,xc,yc,py;
+ long int rx2,ry2,trx2,try2,rx,ry;
+ clrscr();
+ initgraph(&gd,&gm,"S:\\TC\\BGI");
+ printf("enter the center points xc,yc");
+ printf("\n");
+ scanf("%ld %ld",&xc,&yc);
+// printf(" points %ld %ld ",xc,yc);
+ printf("enter the major and minor axis");
+ scanf("%ld %ld",&rx,&ry);
+ ry2=ry*ry;
+ rx2=rx*rx;
+ try2=2*ry2;
+ trx2=2*rx2;
+ x=0;
+ y=ry;
+ plotpoints(x,y,xc,yc);
+ p=(ry2-(rx2*ry)+(0.25*rx2));
+ px=0;
+ py=trx2*y;
+
+ while(px < py)
+ {
+  x=x+1;
+  px=px+try2;
+  if (p>=0)
+  {
+   y=y-1;
+   py=py-trx2;
+   }
+   if (p<0)
+   p=p+ry2+px;
+   else
+   p=p+ry2+px-py;
+   plotpoints(x,y,xc,yc);
+ }
+ //region two
+  p=(ry2*(x+0.5)*(x+0.5)+rx2*(y-1)*(y-1)-rx2*ry2);
+  while (y > 0)
+  {
+   y=y-1;
+   py=py-trx2;
+   if(p<=0)
+   {
+    x=x+1;
+    px=px+try2;
+   }
+   if (p>0)
+   p=p+rx2-py;
+   else
+   p=p+rx2-py+px;
+   plotpoints(x,y,xc,yc);
+   }
+   getch();
+   closegraph();
+}
+   plotpoints(long int x,long int y,long int xc,long int yc)
+   {
+     putpixel(xc+x,yc+y,10);
+     putpixel(xc+x,yc-y,15);
+     putpixel(xc-x,yc+y,15);
+     putpixel(xc-x,yc-y,10);
+   }
+
+

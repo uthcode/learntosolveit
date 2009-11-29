@@ -1,0 +1,435 @@
+ 
+undefined 
+ 
+ 
+undefined 
+More... 
+ 
+ 
+undefined 
+[Close] 
+ 
+ 
+undefined 
+[Close] 
+ 
+ 
+undefined 
+ 
+JAVA FAQS
+
+ 
+
+ 
+
+1. What is Java?
+
+ 
+
+Java is a new programming language invented by a small group of computer
+
+scientists at Sun Microsystems.  According to the language's creation
+
+myth, it was originally called Oak and intended as a way to program TV
+
+set-top boxes. All the exciting featur es and hype came later. A separate
+
+Java division at Sun, called JavaSoft, has since grown from Oak.
+
+ 
+
+2. Isn't JavaScript just another name for Java?
+
+ 
+
+No. JavaScript is an interpreted scripting language; Java is a compiled,
+
+full-blooded programming language.  Java and JavaScrip share a few minor
+
+syntactical details that concern programmers, but they're entirely
+
+different tools.
+
+ 
+
+3.: What is JavaBeans?
+
+ 
+
+A: JavaBeans is a portable, platform-independent component model.
+
+Developers use it to create software components other developers can use
+
+in their programs.
+
+ 
+
+4. If Java's just another programming language, why the hype?
+
+ 
+
+A: Technically, Java's just a programming language, but one with a
+
+far-reaching goal: to allow programmers to create one copy of a program
+
+users can run on almost any computer and operating system. This
+
+capability, commonly called "write once, run anywh ere,"  is a very big
+
+deal because it makes Java the linchpin technology in network computers
+
+and a vital component of programmability on the Web.
+
+ 
+
+5. I don't program, and I use only Microsoft Windows, so why should I
+
+care about write once, run anywhere?
+
+ 
+
+A: Because of Java's importance to the NC effort, it's also a driving
+
+force in the total cost of ownership (TCO) issue.  This debate has pushed
+
+Microsoft and other companies to pay more attention to the nasty problems
+
+of upgrading and maintaining a fleet
+
+ of Windows systems. Microsoft has already shipped a zero- administration
+
+tool kit and is expected to add more such features to new versions of
+
+Windows. The company is also reportedly working on its own NC competitor,
+
+the Windows-based terminal, which em ploys a server running a multi-user
+
+version of Windows.  Also, if you use a recent-vintage Web browser,
+
+chances are you've already run some Java applets; many of the scrolling
+
+banners and animated gizmos on Web pages are written in Java. By the end
+
+of this year, many companies will begin using Java to create more serious
+
+and interactive content, such as wizards that help consumers configure or
+
+try out products.
+
+ 
+
+6. What's the difference between a Java app and a Java applet?
+
+ 
+
+A: An application is a stand-alone program you run on your system.
+
+Non-Java apps include the dozens of programs you run now, such as
+
+Microsoft Word or Lotus Organizer. Very few Java apps exist today.  Java
+
+applets are typically much smaller programs that run only within your Web
+
+browser.
+
+ 
+
+7. If there are very few Java apps, and programmers are using Java to create only Web gizmos, what's the big deal?
+
+ 
+
+A: The gizmos are just the beginning. That new networked computer model
+
+exploits connectivity far more than just for sharing files. Two prominent
+
+projects to watch in this respect are Lotus' Kona and Corel's Alta. Both
+
+are collections of lightweight appli cations, including word processors,
+
+spreadsheets, presentation and graphics editors, and PIMs, and both will
+
+run on either an NC or any Windows (or non-Windows) system that supports
+
+Java. These programs aren't intended to be universal replacements for
+
+office suites, but leaner and simpler programs that will often meet your
+
+needs at the office.
+
+The benefit is you don't have to install and maintain an entire office
+
+suite on your system.
+
+The most intriguing aspect of Kona and Alta is their promised
+
+configurability. If you do have that office suite on your PC, you'll be
+
+able to customize it in new ways. For example, if you're running Lotus'
+
+SmartSuite 98, you'll be able to add and delete K ona and ActiveX
+
+components. Alta will even allow you to customize a program's interface
+
+with an HTML editor.
+
+This could be the beginning of a shift away from fixed, monolithic
+
+software configurations toward smaller, more configurable components. If
+
+you want a standardized, all-in-one solution, you'll still be able to buy
+
+it. But if you know exactly what you do a nd don't want, you can mix and
+
+match components and tailor the system to your needs. But this revolution
+
+won't happen unless Java fulfills its write once, run anywhere pledge.
+
+ 
+
+8. What's 100% Pure Java?
+
+ 
+
+A: Sun's 100% Pure Java certification indicates a Java-based program that
+
+doesn't rely on any OS-specific code, and will run on any properly implemented
+
+Java Virtual Machine (JVM).
+
+ 
+
+9. How can one program run anywhere?
+
+ 
+
+A: A traditional application, such as Lotus 1-2-3, is a native executable.
+
+It begins life written in some programming language, such as C. The
+
+developer then translates it into the binary format the microprocessor in
+
+your computer can directly execute.  B ecause Macs and PCs use different
+
+microprocessors, they can't use the same native executables, except by
+
+emulating the program's intended architecture. And emulation is typically
+
+slow and prone to compatibility problems. Java programs are translated
+
+into their own native architecture, in a format called bytecodes.  Tto run
+
+a Java program, you need another program that can interpret the Java
+
+program and provide it with the environment and services it needs.  This
+
+software layer, the JVM, makes just about a ny hardware and software
+
+platform look the same to the Java program.  In effect, a JVM is a device
+
+driver for Java programs.
+
+Running a Java program with a JVM is still quite a bit slower than running
+
+the equivalent native executable, but JVM technology is improving quickly
+
+in the performance area, and the gap should narrow considerably by the end
+
+of 1997. Symantec and Microsoft are already shipping just-in-time
+
+compilers and Sun's HotSpot VM, which is expected to make a Java program
+
+run nearly as fast as C code, should debut this quarter. Software
+
+companies find the JVM approach very attractive because they can enable
+
+Java prog rams to run on just about any OS and hardware platform simply by
+
+creating a JVM for it. So far, developers have created JVMs for numerous
+
+platforms, from mainframes to almost every desktop environment.
+
+ 
+
+10. Isn't this VM stuff just a fad?
+
+ 
+
+A: Probably not. First, desktop systems now have enough horsepower to
+
+support the overhead to run a program via a JVM, so the issue of whether a
+
+program is faster in Java or C++ is often moot. Odds are you won't notice
+
+the difference if you're running pro grams such as word processors. On the
+
+other hand, if you're using a large spreadsheet, which is
+
+processor-intensive, you'll notice enough of a performance difference that
+
+you wouldn't want to use a Java app. However, once the HotSpot VM is
+
+available, that performance difference should all but disappear.
+
+And the trend is toward even more use of VM technology. By the end of
+
+1997, IBM will ship a universal virtual machine that will provide support
+
+for three languages: Java, BASIC and Smalltalk. If this effort succeeds,
+
+expect to see even more support for VM technology.
+
+ 
+
+11. Is Java a mature technology?
+
+ 
+
+A: No, it isn't. Java is a technology in its terrible twos.  It has a huge
+
+following for such a young language, but it's still growing and changing
+
+at an astounding clip.
+
+ 
+
+12. Why should I care about Java?
+
+ 
+
+A: Software-development tools are extremely complex programs that often
+
+have bugs. When developers use these tools to create commercial software,
+
+these bugs can cause flaws in their products.  Programming tools often
+
+require one or more maintenance releas es after a major change to settle
+
+down and become reasonably bug-free. When the tools change rapidly, they
+
+don't get a chance to shake out many bugs and design flaws. You'll find
+
+many discussions on the Internet about Java programs that run differently,
+
+o r not at all, in various browsers or under different operating systems.
+
+Expect these problems to linger. Another problem is programmer education.
+
+Programmers never get to know their tools inside out, because every large
+
+change forces them to restart part of their trek up the learning curve. In
+
+the short run, using shrink-wrapped Java software will likely be even more
+
+of a quality adventure than usi ng non-Java software.  Some of Java's
+
+features should improve the reusability of software pieces, and this will
+
+make it easier for programmers to improve the quality and flexibility of
+
+their products. But that won't happen until the tools stop evolving so
+
+quickly.
+
+ 
+
+13. Will I see any other benefits from components?
+
+ 
+
+A: Possibly. For years, we've heard talk about products users can
+
+customize by changing parts such as spell checkers and graphics editors,
+
+but that technology never materialized, largely because software companies
+
+lacked sufficient incentive. Java and Act iveX are moving in that
+
+direction, and products such as Lotus' Kona and Corel's Alta will tell us
+
+if users really want this capability.
+
+ 
+
+14 Internet security is a scary issue. How does Java affect it?
+
+ 
+
+A: Java applets are inherently safer than ActiveX, and unlike ActiveX
+
+controls, they make no changes to your system configuration.  But security
+
+issues will continue to crop up for Java, ActiveX, and all operating
+
+systems and Web browsers. Still, Java wil l probably continue to be at
+
+least somewhat safer than average.  The most malicious Java applet can't
+
+touch your hard disk or Registry. The most common complaint about the Java
+
+"sandbox," as the security model is called, is it's so strict it doesn't
+
+let i nnocent, well-meaning developers do things they have a legitimate
+
+need to do. For instance, if you wanted to use a local document, the Java
+
+applet wouldn't be able to read it. This will change in the near future,
+
+when Sun supports a certificate that will allow applets from trusted
+
+sources a little more freedom.
+
+ 
+
+15. Where's Java headed?
+
+ 
+
+A: Two things are clear: First, Java will continue to evolve at its
+
+current breathtaking rate for at least the next six months, thanks to Sun
+
+and other companies' efforts to meet the needs of developers.  This is a
+
+good thing in the long run for consumers .  Second, Sun, Netscape, IBM and
+
+many other companies have already bet so heavily on Java, it's almost
+
+impossible to imagine them not doing whatever it takes to make the
+
+language a long-term success.
+
+So Java is here to stay, if only as a slick way to create Web applets.  It's
+
+already effectively one of the legacy languages of the Web, and it's just too
+
+good at that task to be displaced easily.
+
+Java's future as a tool for creating mainstream business apps is much
+
+murkier. That answer probably lies in how willing Sun is to make major
+
+changes over the next year or two, how widely NCs are adopted and how
+
+successful products such as Kona and Alta ar e.  Sun is already creating
+
+and supporting some impressive new capabilities: Lotus' InfoBus technology
+
+lets Java components share data easily, and a new Java framework called
+
+Java Foundation Classes (JFC) helps programmers speed development.
+
+The NC revolution is the hardest part of this puzzle to decipher, but it
+
+seems clear it will make inroads into educational and traditional
+
+mainframe terminal settings. Whether that gets NCs 0.1 percent of the
+
+desktop market or 25 percent remains to be see n.  Either way, Java will
+
+be a critical part of the NC landscape, which creates a larger market for
+
+100% Pure Java programs you'll be able to run on Windows.
+
+ 
+
+  

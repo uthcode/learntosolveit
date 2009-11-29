@@ -1,0 +1,94 @@
+Find the next in the sequence: 
+       1.BC CE EG GK ?    a)KN      b)KU  c)KM       d)None
+
+       2.AA AB BC CE?     a)EG      b)EH  c)EI       d)None
+
+       3.AB EF JK QR ?    a)YZ      b)ZA  c)AB       d)None
+
+       4.ACD EGL IKT MOB? a)QST     b)QSZ c)QSY      d)None
+
+       5.AC CG GO OE?     a)EJ      b)EI  c)EL       d)None
+
+       6.AE BH CM DU?     a)EH      b)EZ  c)EB       d)None
+
+       7.AD DP PL LV      a)VS      b)VK  c)VI       d)None
+
+       8.SE QU EN TI?     a)CN      b)BM  c)AI or AZ d)None
+
+
+Section - II:
+
+Find the values for the following Problem: 
+   f(X)= 2X-1 + f(X-1) if X is not equal to zero and if f(X=0)=0
+
+   9. Value of f(5)    a)15 b)24 c)22 d)None
+
+  10. Value of f(f(2))
+
+  11. Value of f(16)- f(15)
+
+  12. Value of f(16)+f(15)-480
+
+  13. If f(f(X))=81 then the value of X=?
+
+  14. If f(X)=4f(X-1) then the value of X=?
+
+  15. If f(X)= f(X-1)+f(X-2) for X>1 then X=?
+
+  16. If f(X)-f(X-1)=f(X-8) for X>5 then X=?  
+Section - III:
+
+
+In the following questions a 'word' is given which may not have any meaning. Find different possible words or palindromes for the word as per the question. 
+
+17. TYGHHTT  a).420  b)1540 c)840 d)None
+
+18. TYGHHTY
+
+19. TYGHHTT
+
+20. TYGHHTT
+
+21. TYGHASD
+
+22. TYGHHTY  
+
+Find the number of possible palindromes for the following:
+
+23. TYGHHTY
+
+24. TYHHHTYH
+
+Section - IV:
+
+
+Question Numbers from 25 to 32 are based on the figures. You have to analyse them and find the odd one out. Five figures will be given out of which one is NOT correct. 
+
+Refer R.S Agarwal's book on "Analytical Reasoning". 
+
+SECTION -V:
+
+
+For following first find out the anagram and then note the corresponding meaning: 
+
+33.TABLET		a)resentment b)fight c)help d)monster
+
+HINT: "Anagram" means first u arrange the letters in correct order 
+like TABLET = BATTLE. So the answer is: FIGHT 
+
+34.RUGGED   a)resentment b)fight    c)help           d)monster
+
+35.GORE     a)resentment b)fight    c)help           d)monster
+
+36.STASSI   a)resentment b)fight    c)help           d)monster
+
+37.ENFOLD   a)cuddle     b)sleeping c)proclamination d)ointment 
+
+38.LAMB     a)cuddle     b)sleeping c)proclamination d)ointment	
+
+39.RECEDE   a)cuddle     b)sleeping c)proclamination d)ointment
+
+40.PLEASE   a)cuddle     b)sleeping c)proclamination d)ointment
+
+
+

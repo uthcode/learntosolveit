@@ -1,0 +1,22 @@
+#include<conio.h>
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+ int i,x,n;
+ clrscr();
+ printf("Enter the number:");
+ scanf("%d",&n);
+ for(i=2;i<n;i++)
+   {
+     x=n%i;
+     if(x==0)
+     goto next;
+   }
+ printf("The number is prime");
+ goto end;
+ next:
+ printf("The number is not prime");
+ end:
+ getch();
+}

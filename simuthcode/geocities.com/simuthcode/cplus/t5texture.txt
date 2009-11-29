@@ -1,0 +1,237 @@
+                   ÕÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¸
+                   ³         W E L C O M E         ³
+                   ³  To the VGA Trainer Program   ³ ³
+                   ³              By               ³ ³
+                   ³      DENTHOR of ASPHYXIA      ³ ³ ³
+                   ³      (updated by Snowman)     ³ ³ ³
+                   ÔÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¾ ³ ³
+                     ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ ³
+                       ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+                           --==[ PART 5 ]==--
+
+
+[Note: things in brackets have been added by Snowman.  The original text
+has remained mostly unaltered except for the inclusion of C++ material]
+
+ş Introduction
+
+Hello! This is Denthor here with the 5 part of the ASPHYXIA VGA Trainer
+Series : The Scrolling Saga. I have had many requests for information on
+scrolling, so I decided to make it this weeks topic. Note that I do make
+reference to my recently released program TEXTER5, which should be available
+from wherever you get this message. (Note to Sysops : If you put the trainer
+series up on your boards, please add WORMIE.ZIP and TEXTER5.ZIP as they
+both suppliment this series)
+
+By the way, sorry for the delay in the appearance of this part. Tests,
+projects and a few wild days of sin at the Wild Coast all conspired
+against the prompt appearance of this part. Also note I need more input as
+to what I should do future parts on, so leave me mail.
+
+If you would like to contact me, or the team, there are many ways you
+can do it : 1) Write a message to Grant Smith in private mail here on
+                  the Mailbox BBS.
+            2) Write a message here in the Programming conference here
+                  on the Mailbox (Preferred if you have a general
+                  programming query or problem others would benefit from)
+            3) Write to ASPHYXIA on the ASPHYXIA BBS.
+            4) Write to Denthor, Eze or Livewire on Connectix.
+            5) Write to :  Grant Smith
+                           P.O.Box 270 Kloof
+                           3640
+                           Natal
+            6) Call me (Grant Smith) at 73 2129 (leave a message if you
+                  call during varsity)
+
+NB : If you are a representative of a company or BBS, and want ASPHYXIA
+       to do you a demo, leave mail to me; we can discuss it.
+NNB : If you have done/attempted a demo, SEND IT TO ME! We are feeling
+        quite lonely and want to meet/help out/exchange code with other demo
+        groups. What do you have to lose? Leave a message here and we can work
+        out how to transfer it. We really want to hear from you!
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  What is scrolling?
+
+If you have ever seen a demo, you have probably seen some form of scrolling.
+Our SILKYDEMO has quite a nice example of scrolling. What it is is a long
+row of text moving across your screen, usually from right to left, eg :
+
+                                       H     : Step 1
+                                      He     : Step 2
+                                     Hel     : Step 3
+                                    Hell     : Step 4
+                                   Hello     : Step 5
+                                  Hello      : Step 6
+
+etc. etc. See the program attatched for an example of scrolling.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  What do we scroll?
+
+Usually, letters. Most groups put greetings and information in their
+'scrollies', as they are termed. You can also scroll and entire screen
+using the scrolling technique. Scrolling your text is a hell of a lot
+less boring then just having it appear on your screen. Unfortunately,
+'scrollies' have been used so many times in demos they are wearing a
+bit thin, so usually they are accompanied by a cool picture or some nice
+routine happening at the same time (In our SILKYDEMO we had a moving
+checkerboard and colour bars going at the same time).
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  How do we scroll from side to side?
+
+The theory behind scrolling is quite easy. Let us imagine that we are
+scrolling a 16x16 font grabbed by TEXTER (;-)) across the top of the
+screen (ie. 320 pixels) As we know, the VGA screen starts at zero at the
+top left hand part of the screen, then counts up to the right to 319, then
+goes back to the left hand side one pixel down at 320. (See Tut 1) This means
+that a 16*320 scroller takes up the space 0 to 5119 on the screen. In ascii
+this looks like this :
+
+            (0)   .                                    .  (319)
+            (320) .                                    .  (639)
+                            "             "           "
+           (4800) .                                    .   (5119)
+
+Simple enough. Now what we do is we put down the first Y-line of the first
+character onto the very right hand side of the screen , like so :
+
+  [Pascal]
+
+              For loop1:=1 to 16 do
+                Putpixel (319,loop1-1,font['A',1,loop1],vga);
+
+  [C++]
+
+              for (loop1=0; loop1<16; loop1++)
+                Putpixel (319,loop1,Font['A'][0][loop1],vga);
+
+This will draw some stuff on the very right hand side. Your screen should now
+look like this :
+
+            (0)   .                                   X.  (319)
+            (320) .                                   X.  (639)
+                            "             "           "
+           (4800) .                                   X.   (5119)
+
+Next, we move each line one to the left, ie :
+
+  [Pascal]
+
+              For loop1:=0 to 15 do
+                Move   (mem[VGA:loop1*320+1], mem[VGA:loop1*320], 320);
+
+  [C++]
+
+              for (loop1=0; loop1<16; loop1++)
+                memcpy (vga+(loop1*320)     , vga+(1+(loop1*320)),320);
+
+
+This scrolls the screen from right to left, which is the easiest to read.
+To scroll the screen from left to right, swap the +1 onto the other side
+of the command. Also, to increase the size of the portion scrolled, increase
+the 15 to however many lines from the top you wish to scroll-1.
+
+After this move, your screen will look like this :
+
+            (0)   .                                  X .  (319)
+            (320) .                                  X .  (639)
+                            "             "           "
+           (4800) .                                  X .   (5119)
+                                                      ^
+                                                Note this space
+
+
+What you then do is draw in the next line on the right hand side, move it,
+draw the next line, move it etc. etc. Tah-Dah! You have a scrolly! Fairly
+simple, isn't it?
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  How do we scroll up or down?
+
+To scroll up or down is also fairly simple. This can be used for 'movie
+credit' endings (I once wrote a little game with a desert scrolling down
+with you being a little robot on the bottom of the screen). The theory is
+this : Draw the top line (or bottom line) then move the entire screen :
+
+  [Pascal]
+
+             Move  (mem[vga:0],mem[vga:320],63680);
+                       { 64000 - 320 = 63680 }
+
+  [C++]
+
+             memcpy (vga, vga+320, 63680);
+
+For scrolling down, or :
+
+  [Pascal]
+
+             Move (mem[vga:320],mem[vga:0],63680);
+
+  [C++]
+
+             memcpy (vga+320, vga, 63680);
+
+For scrolling up. You then draw the next line and repeat.
+
+Because of the simplicity of coding in a scrolly, most demos have one. It
+is usually best to have something extra happening on the screen so that
+the viewer doesn't get too bored, even, as I say, if it is only a really nice
+picture.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  In closing
+
+The University of Natal, Durban, Science Dept., now has 10 new 486's!
+This is a great boon, as now I can program nice routines during frees
+(even though I am a Commerce Student (Shhhhh) ;-) ). I can now use those
+previously wasted hours that I spent socialising and making friends
+coding instead ;-)
+
+I suggest you get a copy of TEXTER, for coding demos with fonts, or in fact
+almost any graphics application, it is an amazing help, and we have used it
+for *ALL* our demos. (P.S. We have written many demos, but many have been
+written for companies and have not been released for the general public)
+NOTE : For TEXTER's test program TEST.PAS, add {$X+} {$R-} if you have range
+checking on (I code with it off.)
+
+            [  "I'm from the Computer Inspection Agency, sir,
+                   I'm here to check your computer. Here is
+                   my identification."
+               "Certainly. Have a look, I'm clean. I don't have
+                   any pirated software."
+               The C-man pushes past him and sits in front of the
+                   computer. He notes the fact that the computer
+                   is currently off with a look of disdain. He
+                   makes a note on his clipboard. He boots up.
+               "What is this?" he asks, pointing at the screen.
+               "It's MasterMenu" stutters the man. "I wrote it
+                   myself!"
+               "Do you know what the penalty is for using junk
+                   like this on a private machine?" The C-man smiles.
+                   "This is a two-month sentance in itself!"
+               "I'm sorry sir! It won't happen again!"
+               "I know. I'll make sure of that." He smiles again.
+               The C-man runs through the hard drive, checking for
+                   illeagal software, bad programs and anti-government
+                   propaganda. He notes with satisfaction that he has
+                   enough to put this weenie away for ten years, not that
+                   it mattered. He usually could just make something up.
+               He comes to the last entry on the aphebetised menu tree.
+                   His hands jerk away from the keyboard. Then, tentatively,
+                   he types in the three letters of doom. He looks at the
+                   man, who is backing away with wide eyes and his hands
+                   outstretched in front of him, as if to ward off a blow.
+               The C-man smiles, his lips a thin, hard line.
+               "Windows!"
+                                                                     ]
+                                                           - Grant Smith
+                                                               1:55pm
+                                                                 16/9/93
+
+Cheers,
+  - Denthor

@@ -1,0 +1,18 @@
+set talk off
+set stat off
+STORE 0 TO P,N,R
+@ 2,3 SAY "ENTER THE VAULE FOR P"
+@ 2,51 GET P
+READ
+@ 3,3 SAY "ENTER  THE VAULE FOR N"
+@ 3,51 GET N
+READ
+@ 4,3 SAY "ENTER THE VAULE FOR R"
+@ 4,51 GET R
+READ
+I = P*N*R/100
+set talk on
+set stat on
+
+
+

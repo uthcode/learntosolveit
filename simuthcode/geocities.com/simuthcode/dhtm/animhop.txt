@@ -1,0 +1,12 @@
+<script src=animate.js>
+</script>
+<body onload=dynAnimation()>
+<p id=fpAnimhopWordsFP1>
+<img src="j:\dhtml\duke.gif" width=100 height=100>
+<img src=duke.gif width=100 height=100>
+<img src=duke.gif width=100 height=100>
+<img src=duke.gif width=100 height=100>
+</p>
+</body>
+
+

@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main()
+{
+ char rev[50],word[20];
+ int count=1,i,l,l1;
+ static char str[]="A    good Beginning Makes Good End";
+ clrscr();
+	l=strlen(str);
+	sscanf(&str[0],"%s",word);
+	strcpy(rev,word);
+//	printf("%s",word);
+
+	l1=strlen(word);
+	for(i=l1;i<l;i++)
+		{
+		while(str[i]==' ')
+			i++;
+		count++;
+//		printf(" ");
+		strcat(rev," ");
+		sscanf(&str[i],"%s",word);
+		if(count%2==0)
+  //			printf("%s",strrev(word));
+			strcat(rev,strrev(word));
+		else
+			//printf("%s",word);
+			strcat(rev,word);
+		i=strlen(word)+i;
+		}
+	printf("The String Is:\n");
+	printf(rev);
+ getch();
+ }
+
+
+

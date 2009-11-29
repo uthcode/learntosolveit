@@ -1,0 +1,1825 @@
+			DE SHAW, HYDERABAD
+			==================
+
+
+      APTITUDE TEST
+					20 QUESTIONS;2 MARKS EACH
+					TIME-20MINUTES
+1) ONE RECTANGULAR PLATE WITH LENGTH 8INCHES,BREADTH 11 INCHES AND
+   2 INCHES THICKNESS IS THERE.WHAT IS THE LENGTH OF THE CIRCULAR ROD
+   WITH DIAMETER 8 INCHES AND EQUAL TO VOLUME OF RECTANGULAR PLATE?
+ANS: 3.5INCHES
+2) WHAT IS THE NUMBER OF ZEROS AT THE END OF THE PRODUCT OF THE NUMBERS
+   FROM 1 TO 100
+3) in some game 139 members have participated every time one fellow will
+   get bye what is the number of matches to choose the champion to be
+   held?
+ans: 138
+4) one fast typist type some matter in 2hr and
+   another slow typist type the
+   same matter in 3hr. if both do combinely in how much time they
+   will finish.
+ans: 1hr 12min
+5) in 8*8 chess board what is the total number of squares
+   refer odel
+ans:204
+6) falling height is proportional to square of the time.
+   one object falls 64cm in 2sec than in 6sec from how much 
+   height the object will fall.
+7) gavaskar average in first 50 innings was 50 . after the 51st
+   innings his average was 51 how many runs he made in the 51st
+   innings
+8)2 oranges,3 bananas and  4 apples cost Rs.15 . 3 ornages 2 bananas
+ 1 apple costs Rs 10. what is the cost of 3 oranges, 3 bananas and 
+  3 apples ANs Rs 15.
+9)in 80 coins one coin is counterfiet what is minimum number of 
+  weighings to find out counterfiet coin 
+10)in a company 30% are supervisors and 40% employees are male
+   if 60% of supervisors are male. what is the probability
+   that a randomly choosen employee is a male or female?
+11)statement: all green are blue are blue, all blue are white
+   conclusion: 
+   I) some blue are green II) some white are green
+   III)some green are not white IV) all white are blue
+   a) he has given four choices like gre type
+12)all teachers are students. some students are girls.
+   this type of questions are there.
+   we cant able to reproduce them.
+
+                             
+		D.E.shaw  1997  
+      		===============
+
+		SECTION B (all multiple choices)
+		(each q carries 3 marks)
+1.while((*p++=*q++)!=0){}
+   is equal to
+   a) b) c) d)
+2.the function strcmp(str1,str2) returns
+3. int   *x[](); means
+4.#define  PRINT(int) printf("int=%d",int);
+main()
+{int x,y,z;
+x=03;y=-1;z=01;
+PRINT(x^x);
+z<<=3;PRINT(x);
+y>>=3;PRINT(y);
+}
+5. struct list{
+int x;
+struct list *next;
+}*head;
+the struct head.x =100
+ above is correct / wrong
+ 6. '-'=45  '/'=47
+ printfr(%d/n,'-','-','-','-','/','/','/');
+ o/p =?
+ 12.o/p=?
+ int i;
+ i=1;
+ i=i+2*i++;
+ printf(%d,i);
+8.{ ch='A';
+while(ch<='F'){
+switch(ch){
+case'A':case'B':case'C':case'D':ch++;continue;
+case'E':case'F':ch++;
+}
+putchar(ch);
+}
+}    a)ABCDEF  b.EFG c.FG d.error   ans:-c
+9. FILE *fp1,*fp2;
+fp1=fopen("one","w")
+fp2=fopen("one","w")
+fputc('A',fp1)
+fputc('B',fp2)
+fclose(fp1)
+fclose(fp2)}
+a.error b. c. d.
+10. int a=1; b=2; c=3; *pointer;
+pointer=&c;
+a=c/*pointer;
+b=c;
+printf("a=%d b=%d",a,b);
+a. a=1 b=3
+b a=3 b=3
+c 3     2
+d. error
+11.#include<malloc.h>
+char *f()
+{char *s=malloc(8);
+strcpy(s,"goodbye")}
+main()
+{
+char *f()_;
+printf("%c",*f()='A');
+o/p=?     ans:- A
+13.  int sum(n)
+int n;
+if(n<1)return n;
+else return(n+sum(n-1))
+a 10 b 16  c  14  d  15
+14.   when a function is recursively called all ,
+automatic variables are    a. stored in stack b . c. d
+15)   #define MAN(x,y) (x)>(y)?(x):(y)
+  {  int i=10;j=5;k=0;
+  k= MAN(i++,++j)
+  printf(%d %d %d %d,i,j,k)}
+16) a=10;b=5; c=3;d=3;
+if(a<b)&&(c=d++)
+printf(%d %d %d %d a,b,c,d)
+else printf("%d %d %d %d a,b,c,d);
+
+ : .............................................
+  19. what is o/p
+  #include<stdarg.h>
+  show(int t,va_list ptr1)
+  {
+  int a,x,i;
+  a=va_arg(ptr1,int)
+  printf("\n %d",a)
+  }
+  display(char)
+  {int x;
+  listptr;
+  va_star(otr,s);
+  n=va_arg(ptr,int);
+  show(x,ptr);
+  }
+  main()
+  {
+  display("hello",4,12,13,14,44);
+  }
+  a) 13 b) 12 c) 44 d) 14
+  .............................................
+
+  17. if the following program (my prog)
+  main(int size of ,char *arg[])
+  { while(size of arg) printf("%s",arg[--size of arg)
+  }
+  is run from the command line as myprog jan feb mar apr
+  what would be the o/p
+  a)myprog jan,feb,mar,apr
+  b)rev
+  c)jan,feb,mar,apr
+  d)error  
+  ans:- if there is no error then answer is mar
+  .............................................
+
+  18.what is o/p
+  main()
+  {int i=3;
+  while(i--)
+  {
+  int i=100
+  i--;
+  printf("%d..",i);
+  }
+  }
+  a) infinite loop
+  b) error
+  c) 99..99..99..99
+  d) 3..22..1..
+  .............................................ans:-c
+  20)what is the o/p of the program
+    main()
+    {
+      int rows=3,colums=4; 
+      int a[rows][colums]={1,2,3,4,5,6,7,8,9,10,11,12};
+	  i=j=k=99;
+	  for(i=0;i<rows;i++)
+	   for(j=0;j<colums;j++)
+	      if(a[k][j]<k) k=a[i][j];
+
+         printf("%d\n",k);
+........................................................
+                        DE SHAW, HYDERABAD
+                        PRACTICE QUESTIONS
+                        ===================
+
+
+main()
+{
+        char a= 'A';
+  
+
+        if( (a=='Z')||( (a='L')&&( a=='A')))
+                a=a;
+		printf("%c",a);                 
+        printf(" Nothing ");
+}
+
+main()
+{
+	static int a[5] = {2,4,6,8,10};
+	int i,b=5;
+	for(i=0; i< 5;i++){
+		f(a[i],&b);
+		printf("%d %d\n",a[i],b);
+	}
+}
+
+f(x,y)
+int x,*y;
+{
+	x=*(y)+=2;
+}
+main()
+{
+printf("hello");
+fork();
+}
+
+main()
+{
+
+    char    as[] = "\\0\0";
+
+    int     i = 0;
+    do{
+    switch( as[i++]){
+        case '\\' : printf("A");
+                    break;
+        case 0   : printf("B");
+                    break;
+        default : printf("C");
+                break;
+                }
+    }
+    while(i<3)
+}
+
+main()
+{	
+	int a;
+	
+	a = (1,45,012);
+
+	printf("%d", a);
+}
+
+main()
+{
+int i = 10;
+printf(" %d %d %d \n", ++i, i++, ++i);
+}
+#include<stdio.h>
+main()
+{
+int *p, *c, i;
+i = 5;
+p = (int*) (malloc(sizeof(i)));
+printf("\n%d",*p);
+*p = 10;
+printf("\n%d  %d",i,*p);
+c = (int*) calloc(2);
+printf("\n%d\n",*c);
+}
+
+#include<stdio.h>
+main()
+{
+int arr[3][3] = {1,2,3,
+		 4,5,6,
+		 7,8,9};
+int i,j;
+for (j=2;j>=0;j--){
+	for(i=2;i>=0;i--){
+	printf("\n%d",*(*(arr+i)+j));
+	printf("\n TATATATA");
+	}
+	}
+}
+
+main()
+	{
+		int i = 5, j=10;
+		abc(&i,&j);
+		printf("%d..%d",i,j);
+	}
+
+	abc(int *i, int *j)
+	{
+		*i = *i + *j;
+		*j = *i - *j;
+		*i = *i - *j;
+	}
+
+#define PRINT(int) printf( "int = %d ", int)
+main()
+{
+int x=03,y=02,z=01;
+PRINT (x | y & ~z);
+PRINT (x & y && z);
+PRINT (x ^ y & ~z);
+}
+
+main()
+{
+     int a,b,c;
+     for (b=c=10;a= "Love Your INDIA \
+ TFy!QJu ROo TNn(ROo)SLq SLq ULo+UHs UJq TNn*RPn/QPbEWS_JSWQAIJO^NBELP\
+ eHBFHT}TnALVlBLOFAKFCFQHFOQIAIREETMSQGCSQOUHATFAJKSbEALGSkMCSlOASn^r\
+ ^r\\tZvYxXyT|S~Pn SPm SOn TNn ULo0ULo#ULo-WHq!WFs XDt!"[b+++6];)
+     while(a-->64) putchar (++c=='Z'?c=c/9:33^b&1);
+}
+
+main()
+{
+unsigned int m[] = { 0x01,0x02, 0x04, 0x08,0x10, 0x20, 0x40, 0x80};
+	unsigned int n,i;
+		scanf("%d",&n);
+			for(i=0;i<=7;i++)
+				{  if (n& m[i])
+						printf("\nyes");
+						else 
+						printf("\nno");
+				}
+	}
+
+
+main()
+{
+int a,b=2,c;
+int *pointer;
+c = 3;
+pointer = &c;
+a = c/*pointer;  
+b = c /* assigning 3 to b*/;
+printf("a = %d; b = %d", a,b);
+}
+
+main()
+{
+int i ;
+i = 1;
+ i= i+2*i++;
+ printf("i is now %d",i);
+ }
+
+#define MAX(x,y) (x) >(y)?(x):(y)
+main()
+{
+	int i=10,j=5,k=0;
+		k=  MAX(i++,++j);
+			printf("%d..%d..%d",i,j,k);
+			}
+
+main()
+{
+        const int i = 100;
+        int *p = &i;
+        *p = 200;
+        printf("%d\n",i);
+
+}
+
+void f(int n)
+{
+	int i;
+	for(i =1;i<=n;i++)
+		f(n-i);
+	printf("done  ");
+}
+main()
+{
+f(5);
+}
+
+
+void test(int , int *);
+main()
+{
+int * iptr, j, k = 2;
+iptr = &j;
+j = k;
+printf( "%d %d ", k, j);
+test(j, iptr);
+printf("%d %d\n", k, j);
+}
+void test(int l, int *p)
+{
+l++;
+(*p)++;
+}
+
+#define INFINITELOOP while(1)
+main()
+{	
+	INFINITELOOP	
+printf("\nHello World");
+}
+
+#include <stdio.h>
+int myfunc(char *str)
+{
+	char *ptr =str;
+	while(*ptr++);
+	return ptr-str-1;
+}
+main()
+{
+	printf("%d", myfunc("DESIS"));
+}
+
+
+#include<stdio.h>
+main(int sizeofargv, char *argv[])
+{
+while(sizeofargv)
+printf("%s ",argv[--sizeofargv]);
+}
+
+#include<stdio.h>
+main()
+{
+int x,y=1,z;
+if(x=z=y); x = 3;
+printf("%d %d %d\n",x,y,z);
+while (y<4) x+=++y;
+printf("%d %d\n",x,y);
+}
+
+main()
+{
+union {
+long l_e;
+float f_e;
+} u;
+
+long l_v;
+float f_v;
+l_v = u.l_e = 10;
+printf("%f ", (float)l_v);
+printf("%f ", u.f_e);
+f_v = u.f_e = 3.555;
+printf("%d ", (long)f_v);
+printf("%d ", u.l_e);
+		}
+
+
+
+void main()
+{
+ char a[5] = "abcd";
+ int b = 3;
+
+ printf("%c\n",a[b]);
+ printf("%c\n",((char *) b)[(int) a]);
+}
+
+#define PRINTIFLESS(x,y) if((x) < (y)) printf("First is smaller");else
+main()
+{
+        int i = 2, k =1;
+        if(i>0 && k>0) PRINTIFLESS(i,k);
+        else  printf("Numbers not greater than 0\n");
+
+}
+
+main()
+{
+int *iptr,*dptr, i;
+dptr = (int *) malloc(sizeof(i));
+iptr =&i ;
+*iptr = 10;
+free(iptr);
+*dptr = 20;
+/*dptr = iptr;*/
+free(dptr);
+printf("%d,%d,%d",*dptr,*iptr,i);
+}
+
+
+main()
+{
+char line[80];
+gets(line);
+puts(line);
+ 
+}
+
+main()
+{
+char c1;
+int i=0;
+c1='a';
+while(c1>='a' && c1 <='z')
+{
+c1++;
+i++;
+}
+printf("%d",i);
+}
+
+main()
+{
+char ch = 'A';
+while(ch <='F'){
+	switch(ch){
+	case 'A':case 'B':case 'C': case 'D': ch++; continue;
+	case 'E': case 'F': ch++;
+	}
+putchar(ch);
+}
+}
+
+#include<stdio.h>
+main()
+{
+FILE *fp1,*fp2;
+fp1 = fopen("one","w");
+fp2 = fopen("one","w");
+fputc('A',fp1);
+fputc('B',fp2);
+fclose(fp1);
+fclose(fp2);
+}
+
+
+
+int a[50000];
+main(){
+}
+
+main()
+{
+	int a = 0xff;
+if(a<<4>>12)
+	printf("Right");
+else 
+	printf("Wrong");
+}
+
+
+#include <stdio.h>
+main()
+{
+        enum _tag{ left=10, right, front=100, back};
+        printf("left is %d, right is %d, front is %d, back is %d",left,right,front,back);
+}
+
+#include<stdio.h>
+main()
+{
+char *arr = "This is to test";
+printf("\n%c %c ",*(arr), *(arr++));
+
+}
+
+#include<stdio.h>
+main()
+{
+int I =-3, j=2, k = 0,m;
+m = ++I && ++j || ++k;
+printf("\n%d %d %d %d", I, j, k, m);
+}
+
+int a[50000];
+main(){}
+static int i = 6;
+
+extern i;
+main()
+{
+printf("%d",i);
+}
+
+#include<stdio.h>
+#define MAX 20
+
+main()
+{
+	FILE *fp1, *fp2;
+	char *this1, *this2;
+	fp1 = fopen("ip1.dat","r");
+	if(fp1==NULL)printf("file open error\n");
+
+	fp2 = fopen("ip2.dat","r");
+	if(fp2==NULL)printf("file open error\n");
+
+	if((getline(this1,fp1)!=0) && (getline(this2,fp2)!=0)){
+	if(strcmp(this1,this2))
+	continue;
+	else { printf("lines do not match\n"); break;}
+	}
+}
+int getline(char *line, FILE *fp)
+{
+if(fgets(line,MAX, fp) == NULL)
+	return 0;
+else 
+	return strlen(line);
+}
+
+
+#include<stdio.h>
+main()
+{
+	FILE *fp;
+fp = fopen("testbuf.txt", "wt");
+fwrite("1. This is fwrite\n",1, 18, fp);
+write(fileno(fp),  "2.This is write\n", 17);
+fclose(fp);
+}
+
+#define PR(a)   printf("a = %d\t",(int) (a));
+#define PRINT(a)  PR(a); putchar('\n');
+#define FUDGE(k) 	k + 3.14
+
+main()
+{
+	int x = 2;
+	PRINT( x * FUDGE(2));
+}
+
+#include<stdio.h>
+main()
+{
+int i = 3,j;
+j = add(++i);
+printf("i = %d j = %d\n", i, j);
+}
+
+add(ii)
+int ii;
+{
+ii++;
+printf("ii = %d\n", ii);
+}
+
+#define DEBUG(args) (printf("DEBUG: "), printf args)
+
+main()
+{
+        int n = 0,i = 0 ;
+	printf("%d\n", n);
+	if(n != 0) DEBUG(("n is %d\n", n));
+	DEBUG(("%d",i));
+
+}
+
+main()
+{
+	char *s2, *s1 ;
+	s1* = malloc(sizeof (char) * 20);
+	s1 = "Hello, ";
+        s2 = "world!";
+        strcat(s1, s2);
+	printf("%s ", s1);
+}
+char*s="char*s=%c%s%c;main(){printf(s,34,s,34);}";
+        main(){printf(s,34,s,34);}
+main()
+{
+	char *s1 = "alpha", *s2 = "alpha";
+	if(!strcmp(s1,s2)) printf("yes\n");
+}
+
+	
+#define DEBUG(args) (printf("DEBUG: "), printf args)
+
+main()
+{
+        int n = 10;
+        if(n != 0) DEBUG(("n is %d\n", n));
+
+}
+main()
+{
+int i;
+struct  
+	{
+	int left,y;
+	}a;
+printf("%5d\n",a[i].left);
+}
+
+#include<stdio.h>
+main()
+{
+char c1,c2,c3;
+c1 = getc(stdin);
+putc(c1,stdout);
+c2 = getche();
+putc(c2,stdout);
+c3 = getchar();
+putc(c3,stdout);
+}
+
+
+#include <stdio.h>
+
+struct test{
+int f;
+};
+
+struct test*
+f(struct test * (*fPtr)() )
+{
+struct  test *ptr = (struct test*) malloc(sizeof(struct test));
+return ptr;
+}
+
+main()
+{
+ f(f)->f;
+}
+
+main()
+{
+print_in_reverse( "char *str" );
+}
+
+void print_in_reverse( char *str )
+{
+    if( *str == '\0' )
+	return;
+
+    print_str_in_reverse(str+1);
+
+    printf( "%c" , *str );
+}
+
+
+
+#include<math.h>
+/* #define sqrt(x) (( x < 0) ? sqrt(-x) : sqrt(x))
+*/
+main()
+{
+int y;
+y = sqrt(-9);
+printf("%d",y);
+}
+
+
+#define MAXI 100
+main(){
+int done,i,x=6;
+done=i=0;
+for(i = 0; (i< MAXI) && (x/=2)>1; i++)
+done++;
+printf("%d %d\n",i,done);
+}
+#define MAXI 100
+main(){
+int done,i,x=6;
+done=i=0;
+while (i < MAXI && !done){
+if ((x/=2)>1){ i++; continue;}
+done++;
+}
+printf("%d %d\n",i,done);
+}
+main()
+{
+	struct emp
+	{ 	char name[20];
+		int age;
+		float sal;
+	};
+	struct emp e = {"Tiger"};
+	printf("\n%d %f",e.age,e.sal);
+}
+
+main()
+{
+char str[] = "Taj is 2 miles away";
+int i;
+for(i=0;i<19;++i)
+if(isalpha(str[i]))printf("%c",toupper(str[i]));
+}
+
+
+
+main()
+{
+int c;
+
+while((c=getchar()) != 0){
+printf(" %c",c);
+}
+}
+#include <stdio.h>
+f( )
+{
+        printf("I am f()");
+}
+extern f1( );
+main()
+{
+        int i=10;
+        f1(i);
+}
+
+f1(int i )
+{
+        printf("the i value is %d",i);
+        f();
+}
+
+#include<stdio.h>
+#define abs(x) x>0?x:-x
+#define mabs(x) (((x)>=0)?(x):-(x))
+int fabs(int);
+main()
+{
+printf("\n%d   %d",abs(10)+1,abs(-10)+1);
+printf("\n%d   %d",mabs(10)+1,mabs(-10)+1); 
+printf("\n%d   %d\n",fabs(10)+1,fabs(-10)+1);
+}
+
+
+int fabs(int n)
+{
+return(n>0? n: -n);
+ 
+}
+
+unsigned char
+f(unsigned n)
+{
+  static const unsigned char table[64] = {
+    0, 0, 0, 9, 0, 0, 10, 1, 0, 0, 0, 0, 0, 11, 2, 21, 7, 0, 0, 0, 0, 0, 0,
+    15, 0, 0, 12, 0, 17, 3, 22, 27, 32, 8, 0, 0, 0, 0, 0, 20, 6, 0, 0, 14,
+    0, 0, 16, 26, 31, 0, 0, 19, 5, 13, 0, 25, 30, 18, 4, 24, 29, 23, 28, 0
+  };
+  return table[((n & -n) * 0x1d0d73df) >> 26];
+}
+main()
+{
+printf("%c",f(8));
+}
+#include <stdio.h>
+int myfunc(char *str)
+{
+	char *ptr =str;
+	while(*ptr++);
+	return ptr-str-1;
+}
+main()
+{
+	printf("length is %d", myfunc("DESIS"));
+}
+
+
+#include <stdio.h>
+struct _tag
+{
+        int i;
+        union 
+        {
+                int a;
+                int b;
+        }c;
+} a;
+
+main()
+{
+        a.c.a=10;
+        printf("test %d\n",a.c.b);
+}
+
+main()
+{
+        int a=10,b;
+	b=a>=5?100:200;
+        printf("%d\n",b);
+}
+
+
+#define MAXI 100
+main(){
+int x=6,done,i;
+done=i=0;
+do 
+{
+	if((x/=2)>1) 
+		{i++; continue;}
+	else 
+		done++;
+}while ((i < MAXI) && !done);
+
+printf("%d %d\n",i,done);
+}
+#include<stdio.h>
+main()
+{
+extern int i;
+i=20;
+printf("%d\n",sizeof(i));
+}
+
+fun()
+{
+printf("Yes\n");
+}
+
+#define fun()  printf("No\n")
+
+main()
+{
+    fun();
+    (fun)();
+}
+
+main()
+{
+        int i = 1;
+        switch(i) {
+                printf("\nHello, ");
+                case 1: printf("One, ");
+			i++;
+                        break;
+                case 2: printf("Two");
+                        break;
+                }
+}
+
+
+#define	DESHAWCURRENTDEBUGLEVEL	1
+
+void main(void)
+{
+int i = 10 ;
+int j = 15 ;
+
+#ifdef DESHAWCURRENTDEBUGLEVEL
+printf("%d\n",i);
+#else
+printf("%d\n",j);
+#endif
+}
+
+#define scanf "%s DE Shaw"
+main()
+{
+ printf(scanf,scanf);
+ }
+
+main()
+{
+ char *p="abc";
+ char *q="abc123";
+
+   while(*p==*q)
+   {
+    printf("%c %c",*p,*q);
+    p++;q++;
+    }
+}
+#define INTPTR int *
+main()
+{
+        INTPTR pi, pj;
+        int i,j;
+        i=10;j=20;
+        pi = &j;
+        pj = &j;
+        j++;
+        i= *pi;
+        printf("%d,",i);
+        j++;
+        i= *pj;
+        printf("%d",i);
+}
+
+#include<string.h>
+main()
+{
+char strp[] = "Never ever say no";
+char *chp, c='e';
+int i,j;
+chp = strrchr(strp, c);
+i = chp-strp;
+for(j=0;j<=i;j++)printf("%c",strp[j]);
+}
+#include<stdio.h>
+main()
+{
+        char str[] ="abcdef";
+        printf("str is %s",str);
+        str = "DESIS";
+        printf("str is %s",str);
+}
+
+
+main()
+{
+        char *str ="India pvt. ltd.";
+        char *str1 = "DESIS";
+        printf("str is %s",str);
+        printf("str is %s",str1);
+        strcat(str1,str);
+        printf("str is %s",str1);
+}
+
+main()
+{
+        char str[] ="DESIS India pvt. ltd.";
+        const char *str1= str;
+        strcpy(str1,"DESHAW");
+        printf("str is %s",str);
+}
+
+main()
+{
+int i=4,j=2,k=0;
+char c1='a',c2='b';
+if(k==0)printf("k is zero\n");
+else if(j==2)printf("j is 2\n");
+else if(i==4)printf("i is 4\n");
+if(c1!='a')printf("c1 is not a\n");
+else if (c2=='a')printf("c2 is b");
+else printf("Hello\n");
+}
+
+#include<stdio.h>
+main()
+{
+int a[3] = {1,2,3};
+int i= 2;
+printf("\n %d %d\n", a[i], i[a]);
+}
+#include<stdio.h>
+void fun(int, int*);
+main()
+{
+int j,i;
+int * intptr;
+printf("enter an integer\n");
+scanf("%d",&i);
+intptr = &j;
+j = i;
+printf("i and j are %d %d \n",i,j);
+fun(j,intptr);
+printf("i is:%d",i);
+printf("\n j is:%d",j);
+}
+void fun(int k, int *iptr)
+{
+k++;
+(*iptr)++;
+return;
+}
+
+#include<stdio.h>
+main()
+{
+		int x;
+	x = printf("%d\n",x=printf("%d",890));
+	  printf("%d",x);
+	}
+
+#include<stdio.h>
+main()
+{
+int i;
+char c;
+for (i=0;i<5;i++){
+  scanf("%d",&c);
+  printf("%d",i);
+  }
+}
+
+main()
+{
+	int x = 10,y=2,z;
+	z=x/*y+y*/+y;
+	printf("%d\n",z);
+}
+main()
+{
+int a[] = {0,1,2,3,4};
+int *p[] = {a,a+1,a+2,a+3,a+4};
+int **pp = p;
+
+printf("%d, %d, %d ", *pp-a, pp-p, **pp);
+pp++; pp++;;++pp;*++pp;
+printf("%d, %d, %d ", pp-p, *pp-a, **pp);
+}
+
+main()
+{
+int a[] = {0,1,2,3,4};
+int *p[] = {a,a+1,a+2,a+3,a+4};
+int **pp = p;
+
+printf("%d, %d, %d ", *pp-a, pp-p, **pp);
+pp++; *pp++;++pp;*++pp;
+printf("%d, %d, %d ", pp-p, *pp-a, **pp);
+}
+
+main()
+{
+char input[] = "SSSWILTECH1\1\1";
+int i, c;
+for ( i=2; (c=input[i])!='\0'; i++){
+	switch(c){
+		case 'a': putchar ('i'); continue;
+		case '1': break;
+		case 1: while (( c = input[++i]) != '\1' && c!= '\0');
+		case 9: putchar('S');
+		case 'E': case 'L': continue;
+		default: putchar(c);continue;
+		}
+		putchar(' ');
+		}
+		putchar('\n');
+}
+
+
+main(){
+unsigned int k = 987 , i = 0;
+char trans[10];
+
+       do {
+              trans[i++]  = (k%16 > 9) ? (k%16 - 10 + 'a') : (k%16 - '0' );
+	
+          } while(k /= 16);
+
+       for(i=0;i<10;i++) printf("%c", trans[i]);
+}
+
+
+
+main()
+{
+unsigned int k = 987 , i = 0;
+char trans[10];
+
+  do {
+     trans[i++]  = (k%16 > 9 ? k%16 - 10 + 'a' : k%16 - '0' );
+    printf("%d %d\n",k,k%16);
+	
+	  } while(k /= 16);
+	  
+ printf("%s\n", trans);
+ }
+
+
+main()
+{
+char *pk;
+const char* p;
+const char c = 'a';
+char c1='b';
+p=&c1;
+pk = &c;
+printf("%c %c",*pk,*p);
+}
+
+main()
+{
+int i=4;
+if (i>5) printf("Hi");
+else f(i);
+}
+
+f(int j)
+{
+if (j>=4) f(j-1);
+else if(j==0)return;
+printf("Hi");
+}
+
+
+int *NEXT(register int  i)
+{
+int *ipt;
+ipt = &i;
+ipt++;
+return ipt;
+}
+
+main ()
+{
+int j;
+printf("%d",(NEXT(j)));
+}
+
+
+#define PRINT(int) printf("int = %d  ",int)
+main()
+{
+int x,y,z;
+x=03;y=02;z=01;
+PRINT(x^x);
+z<<=3;PRINT(x);
+y>>=3;PRINT(y);
+}
+
+
+#define PRINT(int) printf( "int = %d ", int)
+main()
+{
+int x=03,y=02,z=01;
+PRINT (x | y & ~z);
+PRINT (x & y && z);
+PRINT (x ^ y & ~z);
+}
+
+
+main()			
+{
+int p;
+for(p = 1; p<=10, --p ; p=p+2)
+        puts("Hello");
+}
+
+#include<stdio.h>
+int n, R;
+main()
+{
+R = 0;
+scanf("%d",&n);
+printf("\n %d, %d",fun(n),R);
+}
+
+int fun(int n)
+{
+if (n>3) return
+    R = 5;
+    R = 6;
+    return(1);
+
+    }
+main()
+{
+int a = 10, b = 5,c = 3,d = 3;
+
+if ((a<b) &&  (c = d++)) printf(" %d  %d  %d  %d ", a, b, c, d);:wq
+
+else  printf(" %d  %d  %d  %d ", a, b, c, d);
+
+}
+
+
+
+
+main()
+{
+struct test
+{
+char c;
+int i;
+char v;
+} t1;
+printf("%d %d\n",sizeof(t1), sizeof(t1.c));
+}
+
+#include<stdio.h>
+main()
+{
+int a,b;
+scanf("%d %d", &a, &b);
+printf("%d\n", a+++b);
+printf("%d %d\n",a,b);
+}
+
+float s=1944,x[5],y[5],z[5],r[5],j,h,a,b,d,e;int i=33,c,l,f=1;int g(){return f=
+(f*6478+1)%65346;}m(){x[i]=g()-l;y[i]=(g()-l)/4;r[i]=g()>>4;}main(){char t[1948
+]=" `MYmtw%FFlj%Jqig~%`jqig~Etsqnsj3stb",*p=t+3,*k="3tjlq9TX";l=s*20;while(i<s)
+p[i++]='\n'+5;for(i=0;i<5;i++)z[i]=(i?z[i-1]:0)+l/3+!m();while(1){for(c=33;c<s;
+c++){c+=!((c+1)%81);j=c/s-.5;h=c%81/40.0-1;p[c]=37;for(i=4;i+1;i--)if((b=(a=h*x
+[i]+j*y[i]+z[i])*a-(d=1+j*j+h*h)*(-r[i]*r[i]+x[i]*x[i]+y[i]*y[i]+z[i]*z[i]))>0)
+{for(e=b;e*e>b*1.01||e*e<b*.99;e-=.5*(e*e-b)/e);p[c]=k[(int)(8*e/d/r[i])];}}for
+(i=4;i+1;z[i]-=s/2,i--)z[i]=z[i]<0?l*2+!m():z[i];while(i<s)putchar(t[i++]-5);}}
+
+int     i;
+main()
+{
+    char    a[] = "Shiva";
+    printf("%c\n",i[a]);
+}
+
+
+
+myread(a,b)
+{
+    printf("%d  %d",a,b);
+}
+
+main()
+{
+    myread(2,4);
+}
+
+
+
+funct(char* str)
+{
+    printf("%s\n",str);
+}   
+
+main()
+{
+    static  int     ii = 1;
+    int jj = 5; 
+    ii+=++jj;
+    funct(ii+++"Campus Interview");
+}
+
+
+funct(str)
+{
+    printf("%s\n",str);
+}   
+
+main()
+{
+    funct('-'-'-'+"DEShaw");
+}
+
+main()
+{   
+    printf(" %d\n",'-'-'-'-'/'/'/');
+    }
+
+static 	int	a  = 6;
+extern	int	a;
+
+main()
+{
+	printf("%d",a);
+	}
+
+#include<stdio.h>
+main()
+{
+int i=6,j=4;
+printf("NO\n");
+switch(i)
+{
+do{
+case 1: printf("yes\n");
+
+case 2:
+
+case 3:
+
+case 4:
+
+case 5:
+
+case 6:
+	j--;
+	}while (j);
+	}
+	}
+
+#include<stdio.h>
+main()
+{
+auto int i = 0;
+printf("%d\n",i);
+	{
+	int i = 2;
+	printf("%d\n",i);
+		{
+		i+=1;
+		printf("%d\n",i);
+		}
+	printf("%d\n",i);
+	}
+printf("%d\n",i);
+printf("%d\n",reset());
+printf("%d\n",ret10());
+printf("%d\n",reset());
+printf("%d\n",ret10());
+}
+
+
+int reset()
+{
+int j = 0;
+return(j);
+}
+
+int ret10()
+{
+static int i = 10;
+i+=1;
+return(i);
+}
+
+#include<stdio.h>
+#include<string.h>
+main()
+{
+struct emp1
+{
+	char *name;
+	int age;
+};
+struct emp2
+{
+char *cp;
+struct emp1 e1;
+}e2 = {"ghi",{"jkl",123}};
+
+struct emp1 e3 = {"rwer",2341};
+printf("\n%s %d\n",e3.name,e3.age);
+printf("\n%s %s %d\n",e2.cp,e2.e1.name,e2.e1.age);
+}
+
+struct xyz{
+	int xyz ;
+	}
+	;
+
+main()
+{
+union xyz{
+	int xyz;
+	}
+	;
+	}
+
+#include<stdio.h>
+main()
+{
+char s[] = "Bouquets and Brickbats";
+printf("\n%c, ",*(&s[2]));
+printf("%s, ",s+5);
+printf("\n%s",s);
+printf("\n%c",*(s+2));
+}
+#include<stdio.h>
+struct s
+	{
+	char *st;
+	struct s *sptr;
+	};
+main()
+{
+int i;
+struct s *p[3];
+static struct s a[]={
+	{"abcd",a+1},
+	{"pqrs",a+2},
+	{"stuv",a}
+       };
+for( i=0;i<3;i++ )p[i] = a[i].sptr;
+swap(*p,a);
+printf("%s %s %s \n",p[0]->st,(*p)->st, (*p)->sptr->st);
+}
+
+swap(p1,p2)
+struct s *p1,*p2;
+{
+char *temp;
+temp = p1->st;
+p1->st = p2->st;
+p2->st = temp;
+}
+
+Swap( int *x , int *y)
+{
+int tmp = *x ;
+*y = *x ;
+*x = tmp;
+}
+main()
+{
+int a = 1, b = 2;
+Swap(&a, &b);
+printf("%d %d\n", a, b);
+}
+main()
+{
+        int i;
+        scanf("%d",&i);
+        switch(i) {
+                printf("\nHello");
+                case 1: printf("\none");
+                        break;
+                case 2: printf("\ntwo");
+                        break;
+                }
+}
+
+#include <stdio.h>
+main()
+{
+int x;
+x = 3;
+f(x);
+printf("MAIN");
+
+}
+
+f(int n)
+{
+printf("F");
+if (n != 0)
+f(n-1);
+}
+
+#include<stdio.h>
+#include <stdio.h>
+
+main()
+{
+
+	int ptr[] = {1,2,23,6,5,6};
+		char str[] = {'a','b','c','d','e','f','g','h'};
+
+			printf("pointer differences are %ld, %d",&ptr[3], &str[3]-&str[0]);
+			}
+
+#include<stdio.h>
+main()
+{
+char a,b,c;
+scanf("%c %c %c",&a,&b,&c);
+printf("%c %c %c ", a, b, c);
+}
+
+#include<stdio.h>
+main()
+{
+  int a = 10000;
+   char b='c';
+
+   int i,j;
+   /* i=printf("%d\n",a);
+
+    j=printf("%c\n",b);*/
+
+     printf("%d,%d",printf("%d\n",a),printf("%c\n",b));
+
+     }
+#include<stdio.h>
+#define PR(a)   printf("%d\t",(int) (a));
+#define PRINT(a,b,c) PR(a);PR(b);PR(c);
+#define MAX(a,b) (a<b?b:a)
+main(){
+	int x = 1,y = 2;
+		PRINT(MAX(x++,y),x,y);
+			PRINT(MAX(x++,y),x,y);
+			}
+
+#include<stdio.h>
+main()
+{
+ unsigned int i=100;
+for(;i>=0;i--)  printf("hello: %u\n",i);
+}
+
+main()
+{
+
+struct list{
+int x;
+struct ist next;
+}head;
+
+struct ist{
+int x;
+int y;
+};
+head.x = 100;
+head.next.x=10;
+printf("%d %d", head.x,head.next.x);
+}
+
+
+main()
+{
+typedef union
+{
+struct
+{
+char c1,c2;
+} s;
+long j;
+float x;
+} U;
+
+U example;
+example.s.c1 = 'a';
+example.s.c2 = 'b';
+example.j = 5;
+printf("%c %c %d", example.s.c1, example.s.c2, example.j);
+}
+
+
+main()
+	{
+		struct s1
+		{ 	char *str;
+			struct s1 *ptr;
+		};
+		static struct s1 arr[] = { 	{"Hyderabad",arr+1},
+						{"Bangalore",arr+2},
+						{"Delhi",arr}
+					};
+		struct s1 *p[3];
+		int i;
+	
+		for(i=0;i<=2;i++)
+			p[i] = arr[i].ptr;
+
+		printf("%s\n",(*p)->str);
+		printf("%s\n",(++*p)->str);
+		printf("%s\n",((*p)++)->str);
+	}
+
+main()
+	{struct s1
+		{ 	char *str;
+			struct s1 *ptr;
+		};
+		static struct s1 arr[] = { 	{"Hyderabad",arr+1},
+						{"Bangalore",arr+2},
+						{"Delhi",arr}
+					};
+		struct s1 *p[3];
+		int i;
+	
+		for(i=0;i<=2;i++)	p[i] = arr[i].ptr;
+
+printf("%s  ",(*p)->str);
+     			printf("%s ",(++*p)->str);
+printf("%s ",((*p)++)->str);
+	}
+		
+
+main()
+{
+char input[] = "SSSWILTECH1\1\1";
+int i, c;
+for ( i=2; (c=input[i])!='\0'; i++){
+	switch(c){
+		case 'a': putchar ('i'); continue;
+		case '1': break;
+		case 1: while (( c = input[++i]) != '\1' && c!= '\0');
+		case 9: putchar('S');
+		case 'E': case 'L': continue;
+		default: putchar(c);continue;
+		}
+		putchar(' ');
+	}
+	putchar('\n');
+}
+
+main()
+{
+int i, n, m, b, x[25];
+int f1(int, int, int j[25]);
+for(i=0;i<25;i++) x[i] = i;
+i=0; m = 24;
+b=f1(i, m, x);
+printf("res %d\n",b);
+}
+
+int f1( int p, int q, int a[25])
+{
+int m1,m2;
+if (q==0) 
+return(a[p]);
+else 
+{
+m1 = f1 (p, q/2, a);
+m2 = f1(p+q/2+1,q/2,a);
+if(m1<m2) 
+return (m2);
+else
+return(m1);
+}
+}
+main()
+{
+int a[3][4] ={1,2,3,4,5,6,7,8,9,10,11,12} ; 
+int i,j,k=99 ;
+for(i=0;i<3;i++)
+for(j=0;j<4;j++)
+if(a[i][j] < k) k = a[i][j];
+printf("%d", k);
+}
+main()
+{
+char *p = "hello world!";
+p[0] = 'H';
+printf("%s",p);
+}
+                          DESHAW 97
+                          =========
+> >  1. swapping two variables x,y without using a temporary variable.
+> >  2. a program has been given asking to find the output
+> >         ans. it is algorithm for finding G.C.D
+> >  3. write a program for reversing the given string.
+> >  4. the integers from 1 to n are stored in an array in a random
+> >     fashion. but one integer is missing. write a program to find the
+> >     missing integer.
+> >         ans. idea. the sum of n natural numbers is = n(n+1)/2.
+> >              if we subtract the above sum from the sum of all the
+> >              numbers in the array , the result is nothing but the
+> >              missing number.
+> >  5. some bit type of questions has been given on pointers asking to
+> >     to find whether it is correct from syntax point of view. and if
+> >     it is correct explain what it will do.(around 15 bits).
+> >  
+> >                           SECTION-B
+> >  
+> >    ANSWER AS MANY AS POSSIBLE.
+> >  
+> >  6.& 7. two programs on pre-processor directions has been given asking
+> >         to find the output.
+> >  8. simple question given on pointer
+> >     a) kernighan & richie page no. 122
+> >     b) schaum series  page no. 323
+> >     try to understand the pointer problems given here he asked to 
+> > explain
+> >     in the interview if answer it in exam.
+> >  9. write a c program to find whether a stack is progressing in forward
+> >    or reverse direction.
+> >  10. write a c program that reverses the linked list.
+> >  
+> >   GUIDELINES:
+> >      the interview is very tough he is asking to do the problems in
+> >    front of him. he is also giving some new problems to solve before 
+> > him.
+> >    you should have a very good funda of C language.
+> >   From iit-kgp only two 2 students have been selected.
+> >  
+>>                         INTERGRAPH
+>>>
+>>> Paper consists of two sections : 1. analytical (20 marks)
+>>>                                  2. C skills (20 marks)total time 45
+>min
+>>>
+>>> Analytical:
+>>> -------------
+>>>
+>>> 1. Given a cube, with different colors on its faces, and then is cut
+>>> into 64 pieces, and the questions relate to the colors of different
+>>> colored small cubes.
+>>>
+>>> 2. A few ladies and gents sit around table in some given order and 4
+>>> questions are about their seating arrangement with some
+restrictions.
+>>>
+>>> 3. Draw a venn diagram for 3 items : white, flowers, cloth
+>>>
+>>>  Ans : draw 3 circles each intersecting the other , with white kept
+>in the
+>>> middle.
+>>>
+>>> 4. A problem related to seating arrangement of 4 people ( 2 ladies
+>and
+>>> 2 gents) with some restrictions>
+>>> 5. problem related to milk with water added to it for three times
+>>>
+>>> Ans: 20.5 litres
+>>>
+>>> 6. Problem related to diagrams . Five diagrams were given and asked
+>to
+>>> find the sixth one.
+>>>
+>>> C-Skills:
+>>> --------
+>>>
+>>> 1. Max number of nodes in a binary tree with height 3 is 20 : Ans:
+>False
+>>>
+>>> 2. 10,20,30,40,50,60 : give the order when put in a queue and in a
+>stack
+>>>
+>>> Ans : Queue : 10,20,30,40,50,60
+>>>       stack : 60,50,40,30,20,10
+>>>
+>>> 3. Debugging is the process of finding
+>>>
+>>> Ans : logical and runtime errors
+>>>
+>>> 4. trace the error:
+>>>
+>>>    void main(){
+>>>             int &a;
+>>>              /* some other stuff here */
+>>>                }
+>>> Ans: syntax error
+>>>
+>>> 5. a problem with a function named 'myValue' will be given and asked
+>to
+>>> find the value of main() for an argument of 150,
+>>>
+>>> Ans : 150
+>>>
+>>> 6. Some problems related to 'for' loops.
+>>>
+>>> 7. problem on conditional inclusion.
+>>>
+>>> 8. problem related to depth first and breadth first search (DSA
+>subject)
+>>>
+>>> 9. study the syntax of malloc function
+>>>
+>>> 10. locate the error
+>>>
+>>>     int arr (20);
+>>>    Ans: syntax error.
+>>>

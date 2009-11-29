@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <math.h>
+void main()
+{
+ int gd=DETECT,gm,i;
+ clrscr();
+ initgraph(&gd,&gm,"s:\\tc\\bgi");
+ for(i=0;i<200;i++)
+ {
+ circle(100+i,275,20);
+ circle(100+i,275,15);
+ circle(220+i,275,20);
+ circle(220+i,275,15);
+ line(40+i,275,80+i,275);
+ line(120+i,275,200+i,275);
+ line(240+i,275,290+i,275);
+ arc(90+i,275,100,180,50);
+ line(80+i,225,115+i,225);
+ line(115+i,225,140+i,200);
+ line(140+i,200,180+i,200);
+ line(220+i,225,265+i,225);
+ line(200+i,200,170+i,200);
+ line(220+i,225,200+i,200);
+ arc(220+i,275,0,50,69);
+ delay(10);
+ cleardevice();
+ }
+ getch();
+ closegraph();
+
+ }
+

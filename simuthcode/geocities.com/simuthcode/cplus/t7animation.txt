@@ -1,0 +1,582 @@
+                   ีอออออออออออออออออออออออออออออออธ
+                   ณ         W E L C O M E         ณ
+                   ณ  To the VGA Trainer Program   ณ ณ
+                   ณ              By               ณ ณ
+                   ณ      DENTHOR of ASPHYXIA      ณ ณ ณ
+                   ณ      (updated by Snowman)     ณ ณ ณ
+                   ิอออออออออออออออออออออออออออออออพ ณ ณ
+                     ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู ณ
+                       ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+
+                           --==[ PART 7 ]==--
+
+
+[Note: things in brackets have been added by Snowman.  The original text
+has remained mostly unaltered except for the inclusion of C++ material]
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Introduction
+
+Hello! By popular request, this part is all about animation. I will be
+going over three methods of doing animation on a PC, and will
+concerntrate specifically on one, which will be demonstrated in the
+attached sample code.
+
+Although not often used in demo coding, animation is usually used in
+games coding, which can be almost as rewarding ;-)
+
+In this part I will also be much more stingy with assembler code :)
+Included will be a fairly fast pure assembler putpixel, an asm screen
+flip command, an asm icon placer, an asm partial-flip and one or two
+others. I will be explaining how these work in detail, so this may also
+be used as a bit of an asm-trainer too.
+
+By the way, I apologise for this part taking so long to be released, but
+I only finished my exams a few days ago, and they of course took
+preference ;-). I have also noticed that the MailBox BBS is no longer
+operational, so the trainer will be uploaded regularly to the BBS lists
+shown at the end of this tutorial.
+
+If you would like to contact me, or the team, there are many ways you
+can do it : 1) Write a message to Grant Smith/Denthor/Asphyxia in private mail
+                  on the ASPHYXIA BBS.
+            2) Write a message in the Programming conference on the
+                  For Your Eyes Only BBS (of which I am the Moderator )
+                  This is preferred if you have a general programming query
+                  or problem others would benefit from.
+            4) Write to Denthor, Eze or Livewire on Connectix.
+            5) Write to :  Grant Smith
+                           P.O.Box 270 Kloof
+                           3640
+                           Natal
+            6) Call me (Grant Smith) at (031) 73 2129 (leave a message if you
+                  call during varsity)
+            7) Write to mcphail@beastie.cs.und.ac.za on InterNet, and
+                  mention the word Denthor near the top of the letter.
+
+NB : If you are a representative of a company or BBS, and want ASPHYXIA
+       to do you a demo, leave mail to me; we can discuss it.
+NNB : If you have done/attempted a demo, SEND IT TO ME! We are feeling
+        quite lonely and want to meet/help out/exchange code with other demo
+        groups. What do you have to lose? Leave a message here and we can work
+        out how to transfer it. We really want to hear from you!
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  The Principals of Animation
+
+I am sure all of you have seen a computer game with animation at one or
+other time. There are a few things that an animation sequence must do in
+order to give an impression of realism. Firstly, it must move,
+preferably using different frames to add to the realism (for example,
+with a man walking you should have different frames with the arms an
+legs in different positions). Secondly, it must not destroy the
+background, but restore it after it has passed over it.
+
+This sounds obvious enough, but can be very difficult to code when you
+have no idea of how to go about achieving that.
+
+In this trainer I will discuss various methods of meeting these two
+objectives.
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  Frames and Object Control
+
+It is quite obvious that for most animation to succeed, you must have
+numerous frames of the object in various poses (such as a man with
+several frames of him walking). When shown one after the other, these
+give the impression of natural movement.
+
+So, how do we store these frames? I hear you cry. Well, the obvious
+method is to store them in arrays. After drawing a frame in Autodesk
+Animator and saving it as a .CEL, we usually use the following code to
+load it in :
+
+TYPE icon = Array [1..50,1..50] of byte;
+
+VAR tree : icon;
+
+Procedure LoadCEL (FileName :  string; ScrPtr : pointer);
+var
+  Fil : file;
+  Buf : array [1..1024] of byte;
+  BlocksRead, Count : word;
+begin
+  assign (Fil, FileName);
+  reset (Fil, 1);
+  BlockRead (Fil, Buf, 800);    { Read and ignore the 800 byte header }
+  Count := 0; BlocksRead := $FFFF;
+  while (not eof (Fil)) and (BlocksRead <> 0) do begin
+    BlockRead (Fil, mem [seg (ScrPtr^): ofs (ScrPtr^) + Count], 1024, BlocksRead);
+    Count := Count + 1024;
+  end;
+  close (Fil);
+end;
+
+BEGIN
+  Loadcel ('Tree.CEL',addr (tree));
+END.
+
+[Note: This could eaily be converted to C++, but I just finished converting
+that huge program and don't feel like doing so.  :)  If you don't know Pascal,
+you'll just have to struggle through this one.]
+
+We now have the 50x50 picture of TREE.CEL in our array tree. We may access
+this array in the usual manner (eg. col:=tree [25,30]). If the frame is
+large, or if you have many frames, try using pointers (see previous
+parts)
+
+Now that we have the picture, how do we control the object? What if we
+want multiple trees wandering around doing their own thing? The solution
+is to have a record of information for each tree. A typical data
+structure may look like the following :
+
+TYPE Treeinfo = Record
+                  x,y:word;       { Where the tree is }
+                  speed:byte;     { How fast the tree is moving }
+                  Direction:byte; { Where the tree is facing }
+                  frame:byte      { Which animation frame the tree is
+                                    currently involved in }
+                  active:boolean; { Is the tree actually supposed to be
+                                    shown/used? }
+                END;
+
+VAR Forest : Array [1..20] of Treeinfo;
+
+You now have 20 trees, each with their own information, location etc.
+These are accessed using the following means :
+                  Forest [15].x:=100;
+This would set the 15th tree's x coordinate to 100.
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  Restoring the Overwritten Background
+
+I will discuss three methods of doing this. These are NOT NECESSARILY
+THE ONLY OR BEST WAYS TO DO THIS! You must experiment and decide which
+is the best for your particular type of program.
+
+METHOD 1 :
+
+Step 1 : Create two virtual pages, Vaddr and Vaddr2.
+         [Note: the C++ version uses Vaddr1 and Vaddr2]
+Step 2 : Draw the background to Vaddr2.
+Step 3 : Flip Vaddr2 to Vaddr.
+Step 4 : Draw all the foreground objects onto Vaddr.
+Step 5 : Flip Vaddr to VGA.
+Step 6 : Repeat from 3 continuously.
+
+In ascii, it looks like follows ...
+
+    +---------+           +---------+           +---------+
+    |         |           |         |           |         |
+    |  VGA    | <=======  |  VADDR  |  <======  |  VADDR2 |
+    |         |           | (bckgnd)|           | (bckgnd)|
+    |         |           |+(icons) |           |         |
+    +---------+           +---------+           +---------+
+
+The advantages of this approach is that it is straightforward, continual
+reading of the background is not needed, there is no flicker and it is
+simple to implement.  The disadvantages are that two 64000 byte virtual
+screens are needed, and the procedure is not very fast because of the
+slow speed of flipping.
+
+
+METHOD 2 :
+
+Step 1 : Draw background to VGA.
+Step 2 : Grab portion of background that icon will be placed on.
+Step 3 : Place icon.
+Step 4 : Replace portion of background from Step 2 over icon.
+Step 5 : Repeat from step 2 continuously.
+
+In terms of ascii ...
+
+      +---------+
+      |      +--|------- + Background restored (3)
+      |      * -|------> * Background saved to memory (1)
+      |      ^  |
+      |      +--|------- # Icon placed (2)
+      +---------+
+
+The advantages of this method is that very little extra memory is
+needed. The disadvantages are that writing to VGA is slower then writing
+to memory, and there may be large amounts of flicker.
+
+
+METHOD 3 :
+
+Step 1 : Set up one virtual screen, VADDR.
+Step 2 : Draw background to VADDR.
+Step 3 : Flip VADDR to VGA.
+Step 4 : Draw icon to VGA.
+Step 5 : Transfer background portion from VADDR to VGA.
+Step 6 : Repeat from step 4 continuously.
+
+In ascii ...
+
+     +---------+           +---------+
+     |         |           |         |
+     |   VGA   |           |  VADDR  |
+     |         |           | (bckgnd)|
+     | Icon>* <|-----------|--+      |
+     +---------+           +---------+
+
+The advantages are that writing from the virtual screen is quicker then
+from VGA, and there is less flicker then in Method 2. Disadvantages are
+that you are using a 64000 byte virtual screen, and flickering occurs
+with large numbers of objects.
+
+In the attached sample program, a mixture of Method 3 and Method 1 is
+used. It is faster then Method 1, and has no flicker, unlike Method 3.
+What I do is I use VADDR2 for background, but only restore the
+background that has been changed to VADDR, before flipping to VGA.
+
+In the sample program, you will see that I restore the entire background
+of each of the icons, and then place all the icons. This is because if I
+replace the background then place the icon on each object individually,
+if two objects are overlapping, one is partially overwritten.
+
+The following sections are explanations of how the various assembler
+routines work. This will probably be fairly boring for you if you
+already know assembler, but should help beginners and dabblers alike.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  The ASM Putpixel
+
+To begin with, I will explain a few of the ASM variables and functions :
+
+<NOTE THAT THIS IS AN EXTREMELY SIMPLISTIC VIEW OF ASSEMBLY LANGUAGE!
+There are numerous books to advance your knowledge, and the Norton
+Guides assembler guide  may be invaluable for people beginning to code
+in assembler. I haven't given you the pretty pictures you are supposed
+to have to help you understand it easier, I have merely laid it out like
+a programming language with it's own special procedures. >
+
+There are 4 register variables : AX,BX,CX,DX. These are words (double
+bytes) with a range from 0 to 65535. You may access the high and low
+bytes of these by replacing the X with a "H" for high or "L" for low.
+For example, AL has a range from 0-255.
+
+You also have two pointers : ES:DI and DS:SI. The part on the left is
+the segment to which you are pointing (eg $a000), and the right hand
+part is the offset, which is how far into the segment you are pointing.
+Turbo Pascal places a variable over 16k into the base of a segment, ie.
+DI or SI will be zero at the start of the variable.
+
+If you wish to be pointing to pixel number 3000 on the VGA screen (see
+previous parts for the layout of the VGA screen), ES would be equal to
+$a000 and DI would be equal to 3000.  You can quite as easily make ES or
+DS be equal to the offset of a virtual screen.
+
+Here are a few functions that you will need to know :
+
+      mov   destination,source       This moves the value in source to
+                                     destination. eg  mov ax,50
+      add   destination,source       This adds source to destination,
+                                     the result being stored in destination
+      mul   source                   This multiplies AX by source. If
+                                     source is a byte, the source is
+                                     multiplied by AL, the result being
+                                     stored in AX. If source is a word,
+                                     the source is multiplied by AX, the
+                                     result being stored in DX:AX
+      movsb                          This moves the byte that DS:SI is
+                                     pointing to into ES:DI, and
+                                     increments SI and DI.
+      movsw                          Same as movsb except it moves a
+                                     word instead of a byte.
+      stosw                          This moves AX into ES:DI. stosb
+                                     moves AL into ES:DI. DI is then
+                                     incremented.
+      push register                  This saves the value of register by
+                                     pushing it onto the stack. The
+                                     register may then be altered, but
+                                     will be restored to it's original
+                                     value when popped.
+      pop  register                  This restores the value of a pushed
+                                     register. NOTE : Pushed values must
+                                     be popped in the SAME ORDER but
+                                     REVERSED.
+      rep  command                   This repeats Command by as many
+                                     times as the value in CX
+
+
+SHL Destination,count      ;
+and SHR Destination,count  ;
+need a bit more explaining. As you know, computers think in ones and
+zeroes. Each number may be represented in this base 2 operation. A byte
+consists of 8 ones and zeroes (bits), and have a range from 0 to 255. A 
+word consists of 16 ones and zeroes (bits), and has a range from 0 to 
+65535. A double word consists of 32 bits.
+
+The number 53 may be represented as follows :  00110101.  Ask someone who
+looks clever to explain to you how to convert from binary to decimal and
+vice-versa.
+
+What happens if you shift everything to the left? Drop the leftmost
+number and add a zero to the right? This is what happens :
+
+                00110101     =  53
+                 <-----
+                01101010     =  106
+
+As you can see, the value has doubled! In the same way, by shifting one
+to the right, you halve the value! This is a VERY quick way of
+multiplying or dividing by 2. (note that for dividing by shifting, we
+get the trunc of the result ... ie.  15 shr 1 = 7)
+
+In assembler the format is SHL destination,count    This shifts
+destination by as many bits in count (1=*2, 2=*4, 3=*8, 4=*16 etc)
+Note that a shift takes only 2 clock cycles, while a mul can take up to 133
+clock cycles. Quite a difference, no? Only 286es or above may have count
+being greater then one.
+
+This is why to do the following to calculate the screen coordinates for
+a putpixel is very slow :
+
+           mov    ax,[Y]
+           mov    bx,320
+           mul    bx
+           add    ax,[X]
+           mov    di,ax
+
+But alas! I hear you cry. 320 is not a value you may shift by, as you
+may only shift by 2,4,8,16,32,64,128,256,512 etc.etc. The solution is
+very cunning. Watch.
+
+    mov     bx, [X]      // set BX to X
+    mov     dx, [Y]      // set DX to Y
+    push    bx           // save BX (our X value)
+    mov     bx, dx       // now BX and DX are equal to Y
+    mov     dh, dl       // copy DL to DH (multiply Y by 256)
+    xor     dl, dl       // zero out DL
+    shl     bx, 6        // shift BX left 6 places (multiply Y by 64).
+    add     dx, bx       // add BX to DX (Y*64 + Y*256 = Y*320)
+    pop     bx           // restore BX (X coordinate)
+    add     bx, dx       // add BX to DX (Y*320 + X).  this gives you
+                         //   the offset in memory you want
+    mov     di, bx       // move the offset to DI
+
+Let us have a look at this a bit closer shall we?
+bx=dx=y        dx=dx*256  ;   bx=bx*64     ( Note, 256+64 = 320 )
+
+dx+bx=Correct y value, just add X!
+
+As you can see, in assembler, the shortest code is often not the
+fastest.
+
+The complete putpixel procedure is as follows :
+
+[Pascal]
+
+Procedure Putpixel (X,Y : Integer; Col : Byte; where:word);
+  { This puts a pixel on the screen by writing directly to memory. }
+BEGIN
+  Asm
+    push    ds                      {; Make sure these two go out the }
+    push    es                      {; same they went in }
+    mov     ax,[where]
+    mov     es,ax                   {; Point to segment of screen }
+    mov     bx,[X]
+    mov     dx,[Y]
+    push    bx                      {; and this again for later}
+    mov     bx, dx                  {; bx = dx}
+    mov     dh, dl                  {; dx = dx * 256}
+    xor     dl, dl
+    shl     bx, 1
+    shl     bx, 1
+    shl     bx, 1
+    shl     bx, 1
+    shl     bx, 1
+    shl     bx, 1                   {; bx = bx * 64}
+    add     dx, bx                  {; dx = dx + bx (ie y*320)}
+    pop     bx                      {; get back our x}
+    add     bx, dx                  {; finalise location}
+    mov     di, bx                  {; di = offset }
+    {; es:di = where to go}
+    xor     al,al
+    mov     ah, [Col]
+    mov     es:[di],ah              {; move the value in ah to screen
+                                       point es:[di] }
+    pop     es
+    pop     ds
+  End;
+END;
+
+[C++]
+
+/////////////////////////////////////////////////////////////////////////////
+//                                                                         //
+// Putpixel() - This puts a pixel on the screen by writing directly to     //
+//              memory.                                                    //
+//                                                                         //
+/////////////////////////////////////////////////////////////////////////////
+
+void Putpixel (word X, word Y, byte Col, word Where) {
+  asm {
+    push    ds           // save DS
+    push    es           // save ES
+    mov     ax, [Where]  // move segment of Where to AX
+    mov     es, ax       // set ES to segment of Where
+    mov     bx, [X]      // set BX to X
+    mov     dx, [Y]      // set DX to Y
+    push    bx           // save BX (our X value)
+    mov     bx, dx       // now BX and DX are equal to Y
+    mov     dh, dl       // copy DL to DH (multiply Y by 256)
+    xor     dl, dl       // zero out DL
+    shl     bx, 6        // shift BX left 6 places (multiply Y by 64).
+    add     dx, bx       // add BX to DX (Y*64 + Y*256 = Y*320)
+    pop     bx           // restore BX (X coordinate)
+    add     bx, dx       // add BX to DX (Y*320 + X).  this gives you
+                         //   the offset in memory you want
+    mov     di, bx       // move the offset to DI
+    xor     al, al       // zero out AL
+    mov     ah, [Col]    // move value of Col into AH
+    mov     es:[di], ah  // move Col to the offset in memory (DI)
+    pop     es           // restore ES
+    pop     ds           // restore DS
+  }
+}
+
+Note that with DI and SI, when you use them :
+      mov   di,50      Moves di to position 50
+      mov   [di],50    Moves 50 into the place di is pointing to
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  The Flip Procedure
+
+This is fairly straightforward. We get ES:DI to point to the start of
+the destination screen, and DS:SI to point to the start of the source
+screen, then do 32000 movsw (64000 bytes).
+
+[Pascal]
+
+procedure flip(source,dest:Word);
+  { This copies the entire screen at "source" to destination }
+begin
+  asm
+    push    ds
+    mov     ax, [Dest]
+    mov     es, ax                  { ES = Segment of source }
+    mov     ax, [Source]
+    mov     ds, ax                  { DS = Segment of source }
+    xor     si, si                  { SI = 0   Faster then mov si,0 }
+    xor     di, di                  { DI = 0 }
+    mov     cx, 32000
+    rep     movsw                   { Repeat movsw 32000 times }
+    pop     ds
+  end;
+end;
+
+[C++]
+
+/////////////////////////////////////////////////////////////////////////////
+//                                                                         //
+// Flip() - This copies the entire screen at "source" to destination.      //
+//                                                                         //
+/////////////////////////////////////////////////////////////////////////////
+
+void Flip(word source, word dest) {
+  asm {
+    push    ds           // save DS
+    mov     ax, [dest]   // copy segment of destination to AX
+    mov     es, ax       // set ES to point to destination
+    mov     ax, [source] // copy segment of source to AX
+    mov     ds, ax       // set DS to point to source
+    xor     si, si       // zero out SI
+    xor     di, di       // zero out DI
+    mov     cx, 32000    // set our counter to 32000
+    rep     movsw        // move source to destination by words.  decrement
+                         //   CX by 1 each time until CX is 0
+    pop     ds           // restore DS
+  }
+}
+
+The cls procedure works in much the same way, only it moves the color
+into AX then uses a rep stosw (see program for details)
+
+The PAL command is almost exactly the same as it's Pascal equivalent
+(see previous tutorials). Look in the sample code to see how it uses the
+out and in commands.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  In Closing
+
+The assembler procedures presented to you in here are not at their best.
+Most of these are procedures ASPHYXIA abandoned for better ones after
+months of use. But, as you will soon see, they are all MUCH faster then
+the original Pascal equivalents I originally gave you. In future, I
+hope to give you more and more assembler procedures for your ever
+growing collections. But, as you know, I am not always very prompt with
+this series (I don't know if even one has been released within one week
+of the previous one), so if you want to get any stuff done, try do it
+yourself. What do you have to lose, aside from your temper and a few
+rather inventive reboots ;-)
+
+What should I do for the next trainer? A simple 3-d tutorial? You may
+not like it, because I would go into minute detail of how it works :)
+Leave me suggestions for future trainers by any of the means discussed
+at the top of this trainer.
+
+After the customary quote, I will place a listing of the BBSes I
+currently know that regularly carry this Trainer Series. If your BBS
+receives it regularly, no matter where in the country you are, get a
+message to me and I'll add it to the list. Let's make it more convenient
+for locals to grab a copy without calling long distance ;-)
+
+            [  There they sit, the preschooler class encircling their
+                  mentor, the substitute teacher.
+               "Now class, today we will talk about what you want to be
+                  when you grow up. Isn't that fun?" The teacher looks
+                  around and spots the child, silent, apart from the others
+                  and deep in thought. "Jonny, why don't you start?" she
+                  encourages him.
+               Jonny looks around, confused, his train of thought
+                  disrupted. He collects himself, and stares at the teacher
+                  with a steady eye. "I want to code demos," he says,
+                  his words becoming stronger and more confidant as he
+                  speaks. "I want to write something that will change
+                  peoples perception of reality. I want them to walk
+                  away from the computer dazed, unsure of their footing
+                  and eyesight. I want to write something that will
+                  reach out of the screen and grab them, making
+                  heartbeats and breathing slow to almost a halt. I want
+                  to write something that, when it is finished, they
+                  are reluctant to leave, knowing that nothing they
+                  experience that day will be quite as real, as
+                  insightful, as good. I want to write demos."
+               Silence. The class and the teacher stare at Jonny, stunned. It
+                  is the teachers turn to be confused. Jonny blushes,
+                  feeling that something more is required.  "Either that
+                  or I want to be a fireman."
+                                                                     ]
+                                                       - Grant Smith
+                                                            14:32
+                                                               21/11/93
+
+See you next time,
+  - DENTHOR
+
+These fine BBS's carry the ASPHYXIA DEMO TRAINER SERIES : (alphabetical)
+
+ษออออออออออออออออออออออออออหออออออออออออออออหอออออหอออหออออหออออป
+บBBS Name                  บTelephone No.   บOpen บMsgบFileบPastบ
+ฬออออออออออออออออออออออออออฮออออออออออออออออฮอออออฮอออฮออออฮออออน
+บASPHYXIA BBS #1           บ(031) 765-5312  บALL  บ * บ *  บ *  บ
+บASPHYXIA BBS #2           บ(031) 765-6293  บALL  บ * บ *  บ *  บ
+บConnectix BBS             บ(031) 266-9992  บALL  บ * บ *  บ *  บ
+บFor Your Eyes Only BBS    บ(031) 285-318   บA/H  บ * บ *  บ *  บ
+ศออออออออออออออออออออออออออสออออออออออออออออสอออออสอออสออออสออออผ
+
+Open = Open at all times or only A/H
+Msg  = Available in message base
+File = Available in file base
+Past = Previous Parts available

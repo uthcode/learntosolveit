@@ -1,0 +1,43 @@
+<html>
+<script src=animate.js>
+</script>
+<body onload=dynAnimation()>
+
+<table border=5 >
+
+<tr><td> <p id=fpAnimflyCornerFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimelasticBottomFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimelasticRightFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimzoomInFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimzoomOutFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<tr>
+<td> <p id=fpAnimspiralFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimflyTopRightWordFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimflyBottomRightWordFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimflyBottomLeftFP1 style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+<td> <p id=fpAnimflyBottomFP1  style=position:relative>
+<img src=duke.gif height=100 width=100></p>
+
+
+
+</table>
+</body>
+</html>

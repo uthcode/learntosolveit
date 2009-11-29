@@ -1,0 +1,122 @@
+#include<stdio.h>
+#include<conio.h>
+#include<alloc.h>
+struct listnode
+ {
+   int data;
+   struct listnode *next;
+ };
+typedef struct listnode node;
+void main()
+{
+ node *list,*temp,*previ;
+  int i=0,choice,conti,position;
+  void display();
+  clrscr();
+  while(choice!=6)
+   {
+    printf("\t\t-------The Linked List program--------");
+    printf("\n\tMENU\n\t1->create\n\t2->insert\n\t3->delete\n\t4->display\n\t5->empty\n\t6->exit");
+    printf("\n\t\t\t\tEnter your choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+     case 1:
+     list=(node *)malloc(sizeof(node));
+     printf("enter data:");
+     scanf("%d",&list->data);
+     list->next=NULL;
+     display(list);
+     break;
+
+
+     case 2:
+     conti=1;
+     previ=list;
+     for(previ=list;previ->next!=NULL;previ=previ->next);
+     while(conti)
+     {
+      temp=(node *)malloc(sizeof(node));
+      printf("enter data:");
+      scanf("%d",&temp->data);
+      previ->next=temp;previ=temp;
+      printf("continue:");
+      scanf("%d",&conti);
+     }
+     temp->next=NULL;
+     display(list);
+     break;
+
+     case 3:
+     printf("enter position:");
+     scanf("%d",&position);
+     if (position)
+     {
+     if (position==1)
+     {
+     i=0;
+     temp=list;list=list->next;
+      free(temp);
+      }
+      else
+      {
+      i=0;previ=temp=list;
+      while(temp!=NULL)
+      {
+       if(++i==position)
+	{
+	previ->next=temp->next;
+	free(temp);
+	break;
+	}
+	temp=(previ=temp)->next;
+	}
+
+      if(position>i)
+      {
+      printf("no position");
+      break;
+      }
+      }
+      display(list);
+      }
+
+      case 4:
+      display(list);
+      break;
+
+      case 5:
+      if(list!=NULL)
+	printf("not empty\n");
+      else
+       printf("empty\n");
+      break;
+
+    case 6:
+      exit(0);
+      }
+     }
+
+     }
+      void display(node *t)
+      {
+	if(t!=NULL)
+	 {
+	  while(t!=NULL)
+	   {
+	     printf("%5d->",t->data);
+	      t=t->next;
+	   }
+	 printf("null\n");
+	 }
+	 else
+	 printf("empty\n");
+	 }
+
+
+
+
+
+
+
+

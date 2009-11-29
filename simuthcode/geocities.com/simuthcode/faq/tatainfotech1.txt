@@ -1,0 +1,85 @@
+
+4. Temperature and pressure problem
+
+     Some combination of products are made to set final product.
+
+
+     a) If the product (final ) is perfect then measure temperature 
+     pressure and do some calculation
+     b) If the combination is not good, then change the combination
+     and verify whether new one is perfect.
+     c)Eventhough the combination is good, pressure and temperature
+     may vary so monitor them constantly.  If any of this varies then
+     reset them and set the starting for new combination
+
+     1) Is pressure constant
+     2) Is temperature constant
+     3) Is the final product perfect
+
+5) Find largest of smallest in 50 numbers
+   Find position of largest and smallest
+
+   Largest stored in LARGEST
+   smallest stored in SMALLEST
+   Largest one position in LNUM
+   Smallest one position in SNUM
+Ans:
+
+1. X(count)<SMALLEST
+2. Store count in SNUM
+3. Store X(count) in LARGEST 
+4. Is count>50
+
+
+
+
+      FLOW CHARTS
+      -----------
+it is not possible to type but answers are corrct.
+1)nine balls are grouped into three groups with three balls each
+0ne ball is heavier than all other balls find the ball which is heaviest with the help of following flow chart fill the gapsin the flow chart.
+
+cell(1):1.is A heavier than B ? 2. is B heavier than A?
+3)do balls 1 &2 weigh the same ? 4)do A &B weigh the same ?
+5) is group C is the heaviest ?
+
+cell (2):1)do balls 1&2 weigh the same ? 2)do balls 1 &2 weigh less than ball 3? 3)do balls 1 &3 weigh the same? 4)is ball 1 heavier than ball 2?
+5)is ball 2 heavier than ball 1?
+
+cell (3): 1)is ball 1 heavier than ball 3 ? 2)is ball 3 the heaviest?
+3)is ball 1 is heavier than ball 2 ? 4)do balls 1 &2 weigh the same ?
+5)do balls 1&3 weigh the same?
+
+cell (4):1)continue testing with group A? 2)continue testing with group C? 3)continue testing with group B? 4)number the balls in the test as 1,2,3 ?
+5)A is heavier than B ?
+
+cell (5):1)continue testing with group A? 2)A is heavier than B?
+3)continue testing with group B ? 4)number the balls 1,2,3? 
+5)B is heavier than A?
+
+answers:
+cell(1)==4 ;; cell(2)==1 ;; cell(3)==3;;cell(4)==1;;cell(5)==3.
+
+
+flow chart problem 2:
+--------------------
+problem and conditions:
+
+A. Ajar contains red and black numbered balls
+B.to win you must advance by 7 times.
+C. you can advance by drawing: 1)an even numbered black ball
+2)an odd numbered red ball 3)an even numbered red ballif preceding ball was an oddnumbered red ball 4)an od numbered black ball if preceding ball was an even numbered black ball.
+
+cell(1):1)was the preceding ball was red? 2)was the preceding ball black? 3)is it an odd number ? 4)is it an even number ? 5)is it black?
+
+cell(2):1)was it an even number? 2)was it black? 3)do you win?4)do you advance?5)was it an odd number?
+cell(3):1)is the advance count 7? 2)is it black? 3)is it an even number?  4)is it an odd number?  5)was the preceding ball red?
+
+cell(4):1)what is advance count? 2)was the preceding ball red?3)was it an odd number?  4)do you lose? 5)was it an even number?
+
+cell(5):1)is the advance count 7? 2)is it an even number?  3)was it an odd number?  4)is it red?  5)is it black?
+
+answers:
+
+cell(1):==3;; cell(2)==1;; cell(3) ==3;; cell(4)==3;; cell(5)==1;;
+

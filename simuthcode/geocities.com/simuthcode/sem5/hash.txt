@@ -1,0 +1,74 @@
+#include"stdio.h"
+struct hash
+{
+ int num;
+ struct hash *l;
+ };
+int ch,key,key1,i,item,data,no;
+struct hash *head,*a[100],*p1,*p2,*p3;
+void main()
+{
+ printf("Enter the no of elements");
+ scanf("%d",&no);
+ for(i=0;i<no;i++)
+ a[i]=0;
+ for(i=0;i<no;i++)
+ {
+ printf("Enter the element");
+ scanf("%d",&data);
+ p1=(struct hash*)malloc(sizeof(struct hash));
+ p1->num=data;
+ p1->l=NULL;
+ key=data%no;
+ if(a[key]==0)
+ {
+ a[key]=p1;
+ }
+ else
+ {
+ p2=a[key];
+ while(p2->l!=NULL)
+ p2=p2->l;
+ p2->l=p1;
+ }
+ }
+ do
+ {
+  printf("\n 1.for searching \n 2.for display 3.for exit");
+  printf("Enter your choice");
+  scanf("%d",&ch);
+  switch(ch)
+  {
+   case 1:
+	  scanf("%d",&item);
+	   key1=item%no;
+	   if(a[key]==0)
+	   printf("not found");
+	   else if(a[key]!=0)
+	   {
+	   p3=a[key1];
+	   while((p3->num!=item)&&(p3!=NULL))
+	   p3=p3->l;
+	   }
+	   if(p3==NULL)
+	   printf("not found");
+	   else
+	   printf("data found");
+	   break;
+	   case 2:
+	       for(i=0;i<=no;i++)
+	       {
+	       if(a[i]!=0)
+	       {
+		p1=a[i];
+		while(p1!=NULL)
+		{
+		 printf("%d\n",p1->num);
+		 p1=p1->l;
+		}
+	       }
+	      }
+	      break;
+	     }
+	     }while(ch!=3);
+	  }

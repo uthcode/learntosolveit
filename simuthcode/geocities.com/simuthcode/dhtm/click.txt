@@ -1,0 +1,8 @@
+<html>
+<body>
+<h1 style=width:200 onclick=this.style.color='purple' onmouseover="this.style.backgroundColor='green';
+this.style.color='red'"
+onmouseout=this.style.backgroundColor='black'> uthcode </h1>
+<p onmouseover="this.style.color='green'; " onmouseout="this.style.color='blue';">welcomes u</p>
+</body>
+</html>

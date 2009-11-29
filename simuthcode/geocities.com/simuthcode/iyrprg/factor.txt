@@ -1,0 +1,52 @@
+SET TALK OFF
+CLEAR
+STORE 0 TO N,C
+INPUT "ENTER NUMBER OF NUMBERS" TO N
+P=1
+Q=1
+DO WHILE C<N
+P=P*Q
+Q=Q+1
+C=C+1
+ENDDO
+? "THE FACTORIAL OF N NUMBER IS",P
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SET TALK OFF
+STORE 0 TO A,B,C
+?"GIVE VALUE 1"
+INPUT TO A
+?"GIVE VALUE 2" 

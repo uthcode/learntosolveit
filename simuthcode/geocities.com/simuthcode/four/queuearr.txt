@@ -1,0 +1,89 @@
+//Queue Using Array Implementation.
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+void insert();
+void delete();
+void display();
+#define SIZE 20
+int que[SIZE+1],front=-1,rear=-1,data;
+main()
+{
+	int ch;
+	char choice='y';
+	clrscr();
+	while(choice=='y')
+	{
+//		clrscr();
+		printf("\n\n\n\t\t    Q U E U E   O P E R A T I O N\n");
+		printf("\t\t\t  1.I N S E R T I O N\n");
+		printf("\t\t\t  2.D E L E T I O N\n");
+		printf("\t\t\t  3.E X I T\n");
+		printf("Enter Your choice:");
+		scanf("%d",&ch);
+		switch(ch)
+			{
+			case 1:
+				insert();
+				break;
+			case 2:
+				delete();
+				break;
+			case 3:
+				exit(0);
+			default:
+				printf("Invalid Choice\n Retry:");
+				break;
+			}
+		display();
+		printf("\nDo you Want To Continue:");
+		scanf("%c",&choice);
+	choice=getchar();
+	}
+getch();
+}
+void insert()
+{
+	if(rear==SIZE)
+	{
+		printf("\nThe Queue Overflows.");
+		return;
+	}
+	printf("\nEnter The Data To Be Inserted.");
+	scanf("%d",&data);
+	que[++rear]=data;
+	if(front==-1)
+		front=0;
+	return;
+}
+void delete()
+{
+	if(front==-1)
+	{
+		printf("\nThe Queue Underflows");
+		return;
+	}
+	data=que[front];
+	if((front==rear)|| (front==SIZE))
+		front=-1;
+	else
+		front++;
+
+	printf("\n The Deleted Item Is :%d",data);
+	return;
+}
+void display()
+{
+	int i;
+	if(front==-1)
+	{
+		printf("\nThe Queue Is Empty.");
+		return;
+	}
+	printf("\n The Contents Of The Queue Is:\n");
+	for(i=front;i<=rear;i++)
+		printf("%d\t",que[i]);
+	return;
+}
+

@@ -1,0 +1,163 @@
+// Tree Implementation
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<alloc.h>
+typedef struct bintree{
+			int data;
+			struct bintree *llink;
+			struct bintree *rlink;
+			}tree;
+tree *head,*new,*record;
+int item;
+main()
+{
+	int ch;
+	char choice='y';
+	clrscr();
+	while(choice=='y')
+	{
+//		clrscr();
+		printf(" \n\n\n\t\t  B I N A R Y   T R E E   I M P L E N T A T I O N\n");
+		printf("\t\t\t  1.C R E A T I O N \n");
+		printf("\t\t\t  2.I N S E R T I O N \n");
+		printf("\t\t\t  3.D E L E T I O N\n");
+		printf("\t\t\t  4.S E A R C H I G \n");
+		printf("\t\t\t  5.P R E O R D E R     T R A V E R S A L \n");
+		printf("\t\t\t  6.I N O R D E R       T R A V E R S A L \n");
+		printf("\t\t\t  7.P O S T O R D E R   T R A V E R S A L \n");
+		printf("\t\t\t  8.E X I T\n");
+		printf("Enter Your choice:");
+		scanf("%d",&ch);
+		switch(ch)
+			{
+			case 1:
+				create();
+				break;
+			case 2:
+				new=(tree *)malloc(sizeof(tree));
+				printf("Enter the data to be inserted :");
+				scanf("%d",&new->data);
+				new->llink=NULL;
+				new->rlink=NULL;
+				insert(head,new);
+				break;
+			case 3:
+//				delete();
+				break;
+			case 4:
+				printf("Enter The Data To Be Searched :");
+				scanf("%d",&item);
+				search(head,item);
+				break;
+			case 5:
+				preorder(head);
+				break;
+			case 6:
+				inorder(head);
+				break;
+			case 7:
+				postorder(head);
+				break;
+			case 8:
+				exit(0);
+			default:
+				printf("Invalid Choice\n Retry:");
+				break;
+			}
+		printf("\nDo you Want To Continue:");
+		scanf("%c",&choice);
+		choice=getchar();
+	}
+getch();
+}
+create()
+{
+	int n,i;
+	printf("Enter The No. Of Data :");
+	scanf("%d",&n);
+	printf("Enter the data :");
+	scanf("%d",&item);
+	head=(tree *) malloc(sizeof(tree));
+	head->data=item;
+	head->llink=NULL;
+	head->rlink=NULL;
+	for(i=1;i<n;i++)
+	{
+		printf("Enter the data :");
+		scanf("%d",&item);
+		new=(tree *)malloc(sizeof(tree));
+		new->data=item;
+		new->llink=NULL;
+		new->rlink=NULL;
+		insert(head,new);
+	}
+}
+insert(tree *record,tree *new)
+{
+	if(new->data >record->data)
+		if(record->llink==NULL)
+			record->llink=new;
+		else
+			insert(record->llink,new);
+	else
+		if(record->rlink==NULL)
+			record->rlink=new;
+		else
+			insert(record->rlink,new);
+}
+
+preorder(tree *record)
+{
+	if(record)
+	{
+		preorder(record->llink);
+		preorder(record->rlink);
+		printf("%d\t",record->data);
+	}
+}
+inorder(tree *record)
+{
+	if(record)
+	{
+		inorder(record->llink);
+		printf("%d\t",record->data);
+		inorder(record->rlink);
+	}
+}
+
+postorder(tree *record)
+{
+	if(record)
+	{
+		printf("%d\t",record->data);
+		postorder(record->llink);
+		postorder(record->rlink);
+	}
+}
+
+search(tree *record,int data)
+{
+	if(data == record->data)
+	{
+		printf("The Data Is Found In The Tree .");
+		return;
+	}
+	 if(data < record->data)
+		if(record->llink!=NULL)
+			search(record->llink,data);
+		else
+		{
+			printf("The Data Is Not Found .");
+			return;
+		}
+	else
+		if(record->rlink!=NULL)
+			search(record->rlink,data);
+		else
+		{
+			printf("The Data Is Not Found .");
+			return;
+		}
+}

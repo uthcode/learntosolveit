@@ -1,0 +1,220 @@
+
+                   ÕÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¸
+                   ³         W E L C O M E         ³
+                   ³  To the VGA Trainer Program   ³ ³
+                   ³              By               ³ ³
+                   ³      DENTHOR of ASPHYXIA      ³ ³ ³
+                   ³      (updated by Snowman)     ³ ³ ³
+                   ÔÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¾ ³ ³
+                     ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ ³
+                       ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+                           --==[ PART 6 ]==--
+
+
+[Note: things in brackets have been added by Snowman.  The original text
+has remained mostly unaltered except for the inclusion of C++ material]
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş Introduction
+
+Hi there! I'm back, with the latest part in the series : Pregenerated
+arrays. This is a fairly simple concept that can treble the speed of
+your code, so have a look.
+
+I still suggest that if you haven't got a copy of TEXTER that you get it.
+This is shareware, written by me, that allows you to grab fonts and use
+them in your own programs.
+
+I downloaded the Friendly City BBS Demo, an intro for a PE BBS, written
+by a new group called DamnRite, with coder Brett Step. The music was
+excellent, written by Kon Wilms (If I'm not mistaken, he is an Amiga
+weenie ;-)). A very nice first production, and I can't wait to see more
+of their work. I will try con a local BBS to allow me to send Brett some
+fido-mail.
+
+If you would like to contact me, or the team, there are many ways you
+can do it : 1) Write a message to Grant Smith in private mail here on
+                  the Mailbox BBS.
+            2) Write a message here in the Programming conference here
+                  on the Mailbox (Preferred if you have a general
+                  programming query or problem others would benefit from)
+            3) Write to ASPHYXIA on the ASPHYXIA BBS.
+            4) Write to Denthor, Eze or Livewire on Connectix.
+            5) Write to :  Grant Smith
+                           P.O.Box 270 Kloof
+                           3640
+                           Natal
+            6) Call me (Grant Smith) at (031) 73 2129 (leave a message if you
+                  call during varsity)
+
+NB : If you are a representative of a company or BBS, and want ASPHYXIA
+       to do you a demo, leave mail to me; we can discuss it.
+NNB : If you have done/attempted a demo, SEND IT TO ME! We are feeling
+        quite lonely and want to meet/help out/exchange code with other demo
+        groups. What do you have to lose? Leave a message here and we can work
+        out how to transfer it. We really want to hear from you!
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  Why do I need a lookup table? What is it?
+
+A lookup table is an imaginary table in memory where you look up the
+answers to certain mathematical equations instead of recalculating them
+each time. This may speed things up considerably. Please note that a
+lookup table is sometimes referred to as a pregenerated array.
+
+One way of looking at a lookup table is as follows : Let us say that for
+some obscure reason you need to calculate a lot of multiplications (eg.
+5*5 , 7*4 , 9*2 etc.). Instead of actually doing a slow multiply each
+time, you can generate a kind of bonds table, as seen below :
+
+
+ÉÍÑÍËÍÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍÑÍÍÍÍÍÍ»
+ÇÄÅÄ¶   1   ³  2   ³  3   ³  4   ³  5   ³  6   ³  7   ³  8   ³  9   º
+ÇÄÁÄ×ÍÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍØÍÍÍÍÍÍµ
+º 1 º   1   ³  2   ³  3   ³  4   ³  5   ³  6   ³  7   ³  8   ³  9   ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 2 º   2   ³  4   ³  6   ³  8   ³  10  ³  12  ³  14  ³  16  ³  18  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 3 º   3   ³  6   ³  9   ³  12  ³  15  ³  18  ³  21  ³  24  ³  27  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 4 º   4   ³  8   ³  12  ³  16  ³  20  ³  24  ³  28  ³  32  ³  36  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 5 º   5   ³  10  ³  15  ³  20  ³  25  ³  30  ³  35  ³  40  ³  45  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 6 º   6   ³  12  ³  18  ³  24  ³  30  ³  36  ³  42  ³  48  ³  54  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 7 º   7   ³  14  ³  21  ³  28  ³  35  ³  42  ³  49  ³  56  ³  63  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 8 º   8   ³  16  ³  24  ³  32  ³  40  ³  48  ³  56  ³  64  ³  72  ³
+ÇÄÄÄ×ÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄ´
+º 9 º   9   ³  18  ³  27  ³  36  ³  45  ³  54  ³  63  ³  72  ³  81  ³
+ÈÍÍÍÊÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÙ
+
+This means that instead of calculating 9*4, you just find the 9 on the
+top and the 4 on the side, and the resulting number is the answer.  This
+type of table is very useful when the equations are very long to do.
+
+The example I am going to use for this part is that of circles. Cast
+your minds back to Part 3 on lines and circles. The circle section took
+quite a while to finish drawing, mainly because I had to calculate the
+SIN and COS for EVERY SINGLE POINT. Calculating SIN and COS is obviously
+very slow, and that was reflected in the speed of the section.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  How do I generate a lookup table?
+
+[Note: the following paragraph contains a significant error.  In the
+middle of the paragraph, Denthor says that 360 / 0.4 = 8000.  Last I
+checked, 360 / 0.4 = 900.  As a result, I have changed the C++ code to
+reflect this.  However, I have left this document fairly unaltered.
+So whenever you see a Denthor reference to 8000, you now know why I am
+using 900.]
+
+This is very simple. In my example, I am drawing a circle. A circle has
+360 degrees, but for greater accuracy, to draw my circle I will start
+with zero and increase my degrees by 0.4. This means that in each circle
+there need to be 8000 SINs and COSes (360/0.4=8000).  Putting these into 
+the base 64k that Pascal allocates for normal variables is obviously not
+a happening thing, so we define them as pointers in the following manner: 
+
+ [Pascal]
+
+        TYPE   table = Array [1..8000] of real;
+
+        VAR    sintbl : ^table;
+               costbl : ^table;
+
+ [C++]
+
+        const  TABLESIZE = 900;
+
+        float  *costbl=NULL;
+        float  *sintbl=NULL;
+
+Then in the program we get the memory for these two pointers. Asphyxia 
+was originally thinking of calling itself Creative Reboot Inc., mainly 
+because we always forgot to get the necessary memory for our pointers.
+(Though a bit of creative assembly coding also contributed to this. We
+wound up rating our reboots on a scale of 1 to 10 ;-)). The next obvious
+step is to place our necessary answers into our lookup tables.  This can
+take a bit of time, so in a demo, you would do it in the very beginning
+(people just think it's slow disk access or something), or after you
+have shown a picture (while the viewer is admiring it, you are
+calculating pi to its 37th degree in the background ;-)) Another way of
+doing it is, after calculating it once, you save it to a file which you
+then load into the variable at the beginning of the program. Anyway,
+this is how we will calculate the table for our circle :
+
+ [Pascal]
+
+    Procedure Setup;
+    VAR deg:real;
+    BEGIN
+      deg:=0;
+      for loop1:=1 to 8000 do BEGIN
+        deg:=deg+0.4;
+        costbl^[loop1]:=cos (rad(deg));
+        sintbl^[loop1]:=sin (rad(deg));
+      END;
+    END;
+
+ [C++]  [Note: I have included "Setup" within the LookupCirc() function]
+
+      deg = 0.0;
+      for (loop1=0;loop1<TABLESIZE;loop1++) {
+        costbl[loop1] = cos(rad(deg));
+        sintbl[loop1] = sin(rad(deg));
+        deg += 0.4;
+      }
+
+This will calculate the needed 16000 reals and place them into our two
+variables. The amount of time this takes is dependant on your computer.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  How do I use a lookup table?
+
+This is very easy. In your program, wherever you put
+
+ [Pascal]      cos (rad(deg))
+ [C++]         cos (rad(deg))
+
+you just replace it with :
+
+ [Pascal]      costbl^[deg]
+ [C++]         costbl[deg]
+
+Easy, no? Note that the new "deg" variable is now an integer, always
+between 1 and 8000.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş Where else do I use lookup tables?
+
+Lookup tables may be used in many different ways. For example, when
+working out 3-dimensional objects, sin and cos are needed often, and are
+best put in a lookup table. In a game, you may pregen the course an
+enemy may take when attacking. Even saving a picture (for example, a
+plasma screen) after generating it, then loading it up later is a form
+of pregeneration.
+
+When you feel that your program is going much too slow, your problems
+may be totally sorted out by using a table. Or, maybe not. ;-)
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ş  In closing
+
+As you have seen above, lookup tables aren't all that exciting, but they
+are useful and you need to know how to use them. The attached sample
+program will demonstrate just how big a difference they can make.
+
+Keep on coding, and if you finish anything, let me know about it! I
+never get any mail, so all mail is greatly appreciated ;-)
+
+Sorry, no quote today, it's hot and I'm tired. Maybe next time ;-)
+
+  - Denthor

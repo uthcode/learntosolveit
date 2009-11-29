@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+  {
+   int a[10][10],b[10][10],c[10][10],n,m,i,j,ch,p[10][10],k;
+   clrscr();
+   printf("The rows of matrixs    : ");
+   scanf("%d",&n);
+   printf("The colomns of matrixs : ");
+   scanf("%d",&m);
+   printf("The values for a :\n\t\t ");
+   for(i=1;i<=n;i++)
+   for(j=1;j<=m;j++)
+     scanf("%d",&a[i][j]);
+   printf("The values for b :\n\t\t ");
+   for(i=1;i<=n;i++)
+   for(j=1;j<=m;j++)
+     scanf("%d",&b[i][j]);
+
+   printf("\n1.addition\n2.subtraction\n3.multiplication\nenter your chioce:\t");
+   scanf("%d",&ch);
+   switch(ch)
+   {
+    case 1:
+     printf("\nThe addition of a & b is\n\t\t");
+     for(i=1;i<=n;i++)
+     {
+     for(j=1;j<=m;j++)
+     {
+      c[i][j]=a[i][j]+b[i][j];
+      printf(" %d\t ",c[i][j]);
+     }
+     putchar('\n');
+     }
+     break;
+     getch();
+    case 2:
+     printf("The subtraction of a & b is\n\t\t");
+     for(i=1;i<=n;i++)
+     {
+     for(j=1;j<=m;j++)
+     {
+      c[i][j]=a[i][j]-b[i][j];
+      printf(" %d \t",c[i][j]);
+     }
+     putchar('\n');
+     }
+     break;
+      getch();
+    case 3:
+    printf("The multiplication of a&b is:\n");
+     for(i=1;i<=n;i++)
+     {
+     for(j=1;j<=m;j++)
+     {
+     p[i][j]=0;
+     for(k=1;k<=n;k++)
+      {
+       p[i][j]=p[i][j]+(a[i][k]*b[k][j]);
+      }
+      printf(" %d \t",p[i][j]);
+     }
+     putchar('\n');
+    }
+    break;
+   getch();
+}
+}

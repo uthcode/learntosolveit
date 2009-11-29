@@ -1,0 +1,380 @@
+                   ีอออออออออออออออออออออออออออออออธ
+                   ณ         W E L C O M E         ณ
+                   ณ  To the VGA Trainer Program   ณ ณ
+                   ณ              By               ณ ณ
+                   ณ      DENTHOR of ASPHYXIA      ณ ณ ณ
+                   ณ      (updated by Snowman)     ณ ณ ณ
+                   ิอออออออออออออออออออออออออออออออพ ณ ณ
+                     ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู ณ
+                       ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+
+                           --==[ PART 8 ]==--
+
+
+[Note: things in brackets have been added by Snowman.  The original text
+has remained mostly unaltered except for the inclusion of C++ material]
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Introduction
+
+Hello everybody! Christmas is over, the last of the chocolates have been
+eaten, so it's time to get on with this, the eighth part of the ASPHYXIA
+Demo Trainer Series. This particular part is primarily about 3-D, but
+also includes a bit on optimisation.
+
+If you are already a 3-D guru, you may as well skip this text file, have
+a quick look at the sample program then go back to sleep, because I am
+going to explain in minute detail exactly how the routines work ;)
+
+If you would like to contact me, or the team, there are many ways you
+can do it : 1) Write a message to Grant Smith/Denthor/Asphyxia in private mail
+                  on the ASPHYXIA BBS.
+            2) Write a message in the Programming conference on the
+                  For Your Eyes Only BBS (of which I am the Moderator )
+                  This is preferred if you have a general programming query
+                  or problem others would benefit from.
+            4) Write to Denthor, EzE or Goth on Connectix.
+            5) Write to :  Grant Smith
+                           P.O.Box 270 Kloof
+                           3640
+                           Natal
+            6) Call me (Grant Smith) at (031) 73 2129 (leave a message if you
+                  call during varsity)
+            7) Write to mcphail@beastie.cs.und.ac.za on InterNet, and
+                  mention the word Denthor near the top of the letter.
+
+NB : If you are a representative of a company or BBS, and want ASPHYXIA
+       to do you a demo, leave mail to me; we can discuss it.
+NNB : If you have done/attempted a demo, SEND IT TO ME! We are feeling
+        quite lonely and want to meet/help out/exchange code with other demo
+        groups. What do you have to lose? Leave a message here and we can work
+        out how to transfer it. We really want to hear from you!
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Optimisation
+
+Before I begin with the note on 3-D, I would like to stress that many of
+these routines, and probably most of your own, could be sped up quite a
+bit with a little optimisation. One must realise, however, that you must
+take a look at WHAT to optimise ... converting a routine that is only
+called once at startup into a tightly coded assembler routine may show
+off your merits as a coder, but does absolutely nothing to speed up your
+program. Something that is called often per frame is something that
+needs to be as fast as possible. For some, a much used procedure is the
+PutPixel procedure. Here is the putpixel procedure I gave you last week:
+
+[Note: Snowman here!  I consulted the official Intel documentation and
+noticed that Denthor is basing the clock ticks on the 8088 processor and
+not the 286, 386, or 486 processors.  I have taken the time to include
+the information for these other processors.]
+
+Procedure Putpixel (X,Y : Integer; Col : Byte; where:word);
+
+BEGIN                                 -clock ticks-
+  Asm                               8088 286 386 486
+    push    ds                       14   3   2   3
+    push    es                       14   3   2   3
+    mov     ax,[where]                8   5   4   1
+    mov     es,ax                     2   2   2   3
+    mov     bx,[X]                    8   5   4   1
+    mov     dx,[Y]                    8   5   4   1
+    push    bx                       15   3   2   1
+    mov     bx, dx                    2   2   2   1
+    mov     dh, dl                    2   2   2   1
+    xor     dl, dl                    3   2   2   1
+    shl     bx, 1                     2   2   3   3
+    shl     bx, 1                     2   2   3   3
+    shl     bx, 1                     2   2   3   3
+    shl     bx, 1                     2   2   3   3
+    shl     bx, 1                     2   2   3   3
+    shl     bx, 1                     2   2   3   3
+    add     dx, bx                    3   2   2   1
+    pop     bx                       12   5   4   4
+    add     bx, dx                    3   2   2   1
+    mov     di, bx                    2   2   2   3
+    xor     al,al                     3   2   2   1
+    mov     ah, [Col]                 8   5   4   1
+    mov     es:[di],ah               10   3   2   1
+    pop     es                       12   5   7   3
+    pop     ds                       12   5   7   3
+  End;                              ---------------
+END;                                153  75  76  52 Total ticks
+
+NOTE : Don't take my clock ticks as gospel, I probably got one or two
+       wrong.
+
+Right, now for some optimising. Firstly, if you have 286 instructions
+turned on, you may replace the 6 shl,1 with shl,6. Secondly, the Pascal
+compiler automatically pushes and pops ES, so those two lines may be
+removed. DS:[SI] is not altered in this procedure, so we may remove
+those too. Also, instead of moving COL into ah, we move it into AL and
+call stosb (es:[di]:=al; inc di). Let's have a look at the routine now :
+
+
+Procedure Putpixel (X,Y : Integer; Col : Byte; where:word);
+BEGIN                                 -clock ticks-
+  Asm                               8088 286 386 486
+    mov     ax,[where]                8   5   4   1
+    mov     es,ax                     2   2   2   3
+    mov     bx,[X]                    8   5   4   1
+    mov     dx,[Y]                    8   5   4   1
+    push    bx                       15   3   2   1
+    mov     bx, dx                    2   2   2   1
+    mov     dh, dl                    2   2   2   1
+    xor     dl, dl                    3   2   2   1
+    shl     bx, 6                     8  11   3   2
+    add     dx, bx                    3   2   2   1
+    pop     bx                       12   5   4   4
+    add     bx, dx                    3   2   2   1
+    mov     di, bx                    2   2   2   3
+    mov     al, [Col]                 8   5   4   1
+    stosb                            11   3   4   5
+  End;                             ----------------
+END;                                 95  56  43  27 Total ticks
+
+Now, let us move the value of BX directly into DI, thereby removing a
+costly push and pop. The MOV and the XOR of DX can be replaced by it's
+equivalent, SHL DX,8
+
+[Note: If you are running on a 286, this last set of optimizations
+actually makes the routine slower!  On a 286, an "SHL" takes 5 ticks
+plus the number you are moving by.  For example: an "SHL AX,6" would
+take 11 clock ticks (5 ticks for SHL and 6 clock ticks for the "6"
+part of the expression.]
+
+Procedure Putpixel (X,Y : Integer; Col : Byte; where:word); assembler;
+
+BEGIN                                 -clock ticks-
+asm                                 8088 286 386 486
+    mov     ax,[where]                8   5   4   1
+    mov     es,ax                     2   2   2   3
+    mov     bx,[X]                    8   5   4   1
+    mov     dx,[Y]                    8   5   4   1
+    mov     di,bx                     2   2   2   3
+    mov     bx, dx                    2   2   2   1
+    shl     dx, 8                     8  13   3   2
+    shl     bx, 6                     8  11   3   2
+    add     dx, bx                    3   2   2   1
+    add     di, dx                    3   2   2   1
+    mov     al, [Col]                 8   5   4   1
+    stosb                            11   3   4   5
+end;                               ----------------
+                                     71  57  36  22 Total ticks
+
+As you can see, we have brought the clock ticks down from 153-52 (8088-486)
+ticks to 71-22 (8088-486) ticks ... quite an improvement. (The current
+ASPHYXIA putpixel takes 48 clock ticks) . As you can see, by going through
+your routines a few times, you can spot and remove unnecessary instructions,
+thereby greatly increasing the speed of your program.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Defining a 3-D object
+
+Drawing an object in 3-D is not that easy. Sitting down and plotting a
+list of X,Y and Z points can be a time consuming business. So, let us
+first look at the three axes you are drawing them on :
+
+                    Y    Z
+                   /|\  /
+                    | /
+             X<-----|----->
+                    |
+                   \|/
+
+X is the horisontal axis, from left to right. Y is the vertical axis,
+from top to bottom. Z is the depth, going straight into the screen.
+
+In this trainer, we are using lines, so we define 2 X,Y and Z
+coordinates, one for each end of the line. A line from far away, in the
+upper left of the X and Y axes, to close up in the bottom right of the
+X and Y axes, would look like this :
+
+{       x1 y1  z1   x2  y2 z2    }
+    ( (-10,10,-10),(10,-10,10) )
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Rotating a point with matrixes
+
+NOTE : I thought that more then one matix are matrisese (sp), but my 
+       spellchecker insists it is matrixes, so I let it have it's way 
+       ;-)
+
+Having a 3-D object is useless unless you can rotate it some way. For
+demonstration purposes, I will begin by working in two dimensions, X and
+Y.
+
+Let us say you have a point, A,B, on a graph.
+                      Y
+                      |  /O1 (Cos (a)*A-Sin (a)*B , Sin (a)*A+Cos (a)*B)
+                      |/      (A,B)
+               X<-----|------O-->
+                      |
+                      |
+
+Now, let us say we rotate this point by 45 degrees anti-clockwise. The
+new A,B can be easily be calculated using sin and cos, by an adaption of
+our circle algorithm, ie.
+           A2:=Cos (45)*A - Sin (45)*B
+           B2:=Sin (45)*A + Cos (45)*B
+I recall that in standard 8 and 9, we went rather heavily into this in
+maths. If you have troubles, fine a 8/9/10 maths book and have a look;
+it will go through the proofs etc.
+
+Anyway, we have now rotated an object in two dimensions, AROUND THE Z
+AXIS. In matrix form, the equation looks like this :
+
+   [  Cos (a)   -Sin (a)      0        0     ]    [  x ]
+   [  Sin (a)    Cos (a)      0        0     ]  . [  y ]
+   [     0         0          1        0     ]    [  z ]
+   [     0         0          0        1     ]    [  1 ]
+
+I will not go to deeply into matrixes math at this stage, as there are
+many books on the subject (it is not part of matric maths, however). To
+multiply a matrix, to add the products of the row of the left matrix and
+the column of the right matrix, and repeat this for all the columns of the
+left matrix. I don't explain it as well as my first year maths lecturer,
+but have a look at how I derived A2 and B2 above. Here are the other
+matrixes :
+
+Matrix for rotation around the Y axis :
+   [  Cos (a)      0       -Sin (a)    0     ]    [  x ]
+   [     0         1          0        0     ]  . [  y ]
+   [  Sin (a)      0        Cos (a)    0     ]    [  z ]
+   [     0         0          0        1     ]    [  1 ]
+
+Matrix for rotation around the X axis :
+   [     1         0                   0     ]    [  x ]
+   [     0       Cos (a)   -Sin (a)    0     ]  . [  y ]
+   [     0       Sin (a)    Cos (a)    0     ]    [  z ]
+   [     0         0          0        1     ]    [  1 ]
+
+By putting all these matrixes together, we can translate out 3D points
+around the origin of 0,0,0. See the sample program for how we put them
+together.
+
+In the sample program, we have a constant, never changing base object.
+This is rotated into a second variable, which is then drawn. I am sure
+many of you can thing of cool ways to change the base object, the
+effects of which will appear while the object is rotating. One idea is
+to "pulsate" a certain point of the object according to the beat of the
+music being played in the background. Be creative. If you feel up to it,
+you could make your own version of transformers ;)
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Drawing a 3D point to screen
+
+Having a rotated 3D object is useless unless we can draw it to screen.
+But how do we show a 3D point on a 2D screen? The answer needs a bit of
+explaining. Examine the following diagram :
+
+              |         ________-------------
+          ____|___------      o Object at X,Y,Z     o1 Object at X,Y,Z2
+ Eye -> O)____|___
+              |   ------________
+              |                 -------------- Field of vision
+            Screen
+
+Let us pretend that the centre of the screen is the horizon of our
+little 3D world. If we draw a three dimensional line from object "o" to
+the centre of the eye, and place a pixel on the X and Y coordinates
+where it passes through the screen, we will notice that when we do the
+same with object o1, the pixel is closer to the horizon, even though
+their 3D X and Y coords are identical, but "o1"'s Z is larger then
+"o"'s. This means that the further away a point is, the closer to the
+horizon it is, or the smaller the object will appear. That sounds
+right, doesent it? But, I hear you cry, how do we translate this into a
+formula? The answer is quite simple. Divide your X and your Y by your Z.
+Think about it. The larger the number you divide by, the closer to zero,
+or the horizon, is the result! This means, the bigger the Z, the
+further away is the object! Here it is in equation form :
+
+  [Pascal]
+
+       nx := 256*x div (z-Zoff)+Xoff
+       ny := 256*y div (z-Zoff)+Yoff
+
+  [C++]
+
+       nx =  ((256*x) / (z-Zoff)) + Xoff;
+       nx =  ((256*y) / (z-Zoff)) + Yoff;
+
+
+NOTE : Zoff is how far away the entire object is, Xoff is the objects X
+       value, and Yoff is the objects Y value. In the sample program,
+       Xoff start off at 160 and Yoff starts off at 100, so that the
+       object is in the middle of the screen.
+
+The 256 that you times by is the perspective with which you are viewing.
+Changing this value gives you a "fish eye" effect when viewing the
+object. Anyway, there you have it! Draw a pixel at nx,ny, and viola! you
+are now doing 3D! Easy, wasn't it?
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ Possible improvements
+
+This program is not the most optimised routine you will ever encounter
+(;-)) ... it uses 12 muls and 2 divs per point. (Asphyxia currently has
+9 muls and 2 divs per point) Real math is used for all the calculations
+in the sample program, which is slow, so fixed point math should be
+implemented (I will cover fixed point math in a future trainer). The
+line routine currently being used is very slow. Chain-4 could be used to
+cut down on screen flipping times.
+
+Color values per line should be added, base object morphing could be put
+in, polygons could be used instead of lines, handling of more then one
+object should be implemented, clipping should be added instead of not
+drawing something if any part of it is out of bounds.
+
+In other words, you have a lot of work ahead of you ;)
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  In closing
+
+There are a lot of books out there on 3D, and quite a few sample
+programs too. Have a look at them, and use the best bits to create your
+own, unique 3D engine, with which you can do anything you want. I am
+very interested in 3D (though EzE and Goth wrote most of ASPHYXIA'S 3D
+routines), and would like to see what you can do with it. Leave me a
+message through one of the means described above.
+
+I am delving into the murky world of texture mapping. If anyone out 
+there has some routines on the subject and are interested in swapping, 
+give me a buzz!
+
+What to do in future trainers? Help me out on this one! Are there any
+effects/areas you would like a bit of info on? Leave me a message!
+
+I unfortunately did not get any messages regarding BBS's that carry this
+series, so the list that follows is the same one from last time. Give
+me your names, sysops!
+
+Aaaaargh!!! Try as I might, I can't think of a new quote. Next time, I
+promise! ;-)
+
+Bye for now,
+  - Denthor
+
+
+These fine BBS's carry the ASPHYXIA DEMO TRAINER SERIES : (alphabetical)
+
+ษออออออออออออออออออออออออออหออออออออออออออออหอออออหอออหออออหออออป
+บBBS Name                  บTelephone No.   บOpen บMsgบFileบPastบ
+ฬออออออออออออออออออออออออออฮออออออออออออออออฮอออออฮอออฮออออฮออออน
+บASPHYXIA BBS #1           บ(031) 765-5312  บALL  บ * บ *  บ *  บ
+บASPHYXIA BBS #2           บ(031) 765-6293  บALL  บ * บ *  บ *  บ
+บConnectix BBS             บ(031) 266-9992  บALL  บ * บ    บ    บ
+บFor Your Eyes Only BBS    บ(031) 285-318   บA/H  บ * บ *  บ *  บ
+ศออออออออออออออออออออออออออสออออออออออออออออสอออออสอออสออออสออออผ
+
+Open = Open at all times or only A/H
+Msg  = Available in message base
+File = Available in file base
+Past = Previous Parts available

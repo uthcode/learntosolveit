@@ -1,0 +1,26 @@
+<html>
+<script src="animate.js">
+</script>
+<style>
+p{color:silver};
+</style>
+<body onLoad="dynAnimation()" bgcolor=black text=red>
+<h5>OMM MURUGHA TEXTILES-MADURAI.</h5>
+<p id="fpAnimspiralFP1" style="position:relative"><b> Whole Sale in Apoorva,KanchiSlik,
+Polycotton,ArtSilk,Belgaum & DelhiGrape,Sarees.</P>
+<h5>N.S.B.TRADERS-MADURAI.</h5>
+<p id="fpAnimspiralFP1" style="position:relative"> Whole Sale in Surat Sarees.</p>
+<H5>OMM MURUGHA AGENCIES-SURAT.</H5>
+<P id="fpAnimspiralFP1" style="position:relative"> Commision Agent in All Surat Sarees And Dress Materials.</p>
+<H5>OMM MURUGHA SAREES-MADURAI.</H5>
+<P id="fpAnimspiralFP1" style="position:relative"> Retail Sales in All of Variety of Sarees in Whole Sale Rate.</P>
+<h5>OMM MURUGHA FABRICS</H5>
+<p id="fpAnimspiralFP1" style="position:relative">Whole Sale in Shirting & Suitings Materials.</p>
+<H5>MARIE TEXTILES</H5>
+<P id="fpAnimspiralFP1" style="position:relative">Whole Salers in Blouse and Dress Materials</P>
+<h5>KARPAGAM TEXTILES</H5>
+<p id="fpAnimspiralFP1" style="position:relative">Whole Sellers in Dothies and Lungies</p>
+
+ 
+</BODY>
+</HTML>

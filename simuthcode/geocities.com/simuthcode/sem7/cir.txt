@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+void main()
+{
+  int gd=0,gm;
+  int r,x,y,p,xc,yc;
+  clrscr();
+// detectgraph(&gd,&gm);
+  initgraph(&gd,&gm,"\\TC\\BGI");
+  printf("enter the center points xc,yc,r");
+  scanf("\n \n \n %d %d %d",&xc,&yc,&r);
+  printf(" radius %d ",r);
+  x=0;
+  y=r;
+  plotpoints(x,y,xc,yc);
+  p=1-r;
+  while (x < y)
+   {
+     if (p < 0)
+     {
+     x=x+1;
+     p=p+(2*x)+1;
+     }
+     else
+      {
+     x=x+1;
+     y=y-1;
+       p=p+2*(x-y)+1;
+       }
+     plotpoints(x,y,xc,yc);
+  }
+	getch();
+	closegraph();
+  }
+      plotpoints(int x,int y,int xc,int yc)
+      {
+	putpixel(xc+x,yc+y,10);
+	putpixel(xc-x,yc+y,10);
+	putpixel(xc+x,yc-y,10);
+	putpixel(xc-x,yc-y,10);
+	putpixel(xc+y,yc+x,10);
+	putpixel(xc-y,yc+x,10);
+	putpixel(xc+y,yc-x,10);
+	putpixel(xc-y,yc-x,10);
+      return 0;
+      }
+
+
+
+
+
+
+

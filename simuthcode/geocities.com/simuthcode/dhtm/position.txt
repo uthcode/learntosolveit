@@ -1,0 +1,19 @@
+<html>
+
+<script src=animate.js>
+</script>
+
+<body onload=dynAnimation()>
+<p id=fpAnimdropWordFP1>
+<table border=10 bordercolor=blue >
+<tr><td>
+<img src=duke.gif width=100 height=100>
+<td><img src=duke.gif width=100 height=100><br>
+<tr><td><img src=duke.gif width=100 height=100>
+<td><img src=duke.gif width=100 height=100>
+</table>
+</p>
+
+
+</body>
+</html>

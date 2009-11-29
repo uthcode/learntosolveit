@@ -1,0 +1,102 @@
+
+HCL PAPER;
+
+Paper Model:
+  Section I:   computer awareness(i.e general things about computer)   Q.15
+
+                     -ve marks: 1/4
+  Section II:  Simple  C- language              Q. 15     &  -ve marks: -1/4
+  Section III: On pointers & structures
+                and C++,JAVA( only 1 on this)  Q.10    each quetion ->2 marks
+                                                                        
+                           -ve marks: -1
+  Section IV:   Analytical                   Q.20     each quetion -> 2 marks.
+                                                                        
+                           -ve marks: -1/4
+Murthy from each section I am giving one are to quetions also because for
+checking whether the same paper or not.
+    And for doubtful answers also I am writing quetions but not writing answers
+for these quetions.
+Section-I1). Piggy backing is a technique for
+a) Flow control b) sequence  c) Acknowledgement   d) retransmition
+ans:   c    piggy backing
+2). The layer in the OST model handles terminal emulation
+a) session  b) application  c) presentation  d) transportans: b  application
+3)  ans:  a             odd numbers of errors
+4)Q.    In signed magnitude notation what is the minimum value that can be
+represented with 8 bits
+a) -128  b) -255  c) -127  d) 05) c             206) a          1207) b
+synchronise the access
+8) a            system call9) b         the operating system10) a
+177333
+11) d           used as a network layer protocall in network and windows system
+12) b           has to be unique in the sub network
+13)Q. there is an employer table with key feilds as employer no. data in every
+ n'th row are needed for a simple following queries will get required results.
+  a) select A employe no. from employe A , where exists from employe B
+where A employe no. >= B employe having (count(*) mod n)=0
+  b) select employe no. from employe A, employe B where
+A employe no. >= B employ no.   grouply employe no. having (count(*) mod n=0 )
+  c) both a& b  d)none of the above
+14)Q. type duplicates of a row in a table customer with non uniform key feild
+customer no. you can seea) delete from costomer where customer no. exists
+( select distinct customer no. from customer having count )
+b) delete customer a  where customer no. in
+(select customer  b where custermer no. equal to b custemor no. ) and a rowid >
+b rowidc) delete customer a where custermor no. in
+( select customer no. from customer a, customer b )d) none of the above
+15)  c          Volatile modifier
+----------   Section I over with 15 quetions   -------------------
+                                                SECTION-II
+Section II is not covered completly But it is very very easy. You can do it
+ very easely.1)   ans: recursion 2) long int size
+   a) 4 bytes  b) 2 bytes  c) compiler dependent  d) 8 bytes
+ans: compiler dependentnote: order of a,b,c,d are doubt but answer is correct.
+3) x=2,y=6,z=6x=y==z;printf(%d",x)    ?4) if(x>2)?3:4  5)6)
+7)  ans: c  6  ( quetion on enum )8) ------------
+14)  c : class A,B and C can have member  functions with same name.
+15)  ans: d       none of the above                        SECTION-III
+1) ans: b               It  does not work when rp is the last element in the li
+nked list
+2) ans: a       always3) ans: b                 134) ans: b       165) ans: d
+     55,55
+6) ans: c           5,10,10,37)  ---8) ans:d            49) ans: c
+5
+10)ans: c       semicolon missing
+SECTION-IVfollowing are not in order:
+ 2. M > D > Y        ans: (a)  6. 10 in 4 seconds,
+     ? in 6 minutes         = 10x6x60/4  = 900    ans: (a) 7. a=2, b=4, c=5
+      (a+b)/c - c/(a+b) = 11/30 (ans).
+ 8. 100(100000000+100000000)/10000 = 2x1000000 (ans).
+ 9. what does the hexanumber E78 in radix 7.
+    (a) 12455  (b) 14153  (c) 14256  (d) 13541  (e) 131112   ans: (d)
+ 10. Q is not equal to zero   and  k = (Q x n - s)/2    find  n?
+    (a) (2 x k + s)/Q  (b) (2 x s x k)/Q   (c) (2 x k - s)/Q
+    (d) (2 x k + s x Q)/Q   (e) (k + s)/Q  (from GRE book page no:411)    data:
+     A causes B or C, but not both     F occurs only if B occurs
+     D occurs if B or C occurs     E occurs only if C occurs
+     J occurs only if E or F occurs     D causes G,H or both
+     H occurs if E occurs     G occurs if F occursNOTE: check following answers
+.
+ 11. If A occurs which of the following must occurs           I. F & G
+     II. E  and H    III. D
+    (a) I only   (b) II only  (c) III only  (d) I,II, & III
+    (e) I & II (or) II & III but not both             ans: (e)
+ 12. If B occurs which must occur
+    (a)  D   (b) D and G  (c) G and H  (d) F and G  (e) J   ans: (a)
+ 13. If J occurs which must have occured
+    (a) E  (b) either B or C  (c) both E & F  (d) B  (e) both B & C  ans: (b)
+ 14. which may occurs as a result of cause not mentioned
+    (1) D   (2) A   (3) F
+    (a) 1 only  (b) 2 only  (c) 1 & 2  (d) 2 & 3  (e) 1,2,3    ans: (c)
+ 15. E occurs which one cannot occurs
+    (a) A   (b) F   (c) D   (d) C   (e) J              ans: (b)
+ 11 to 15:-    -----------  e , a , b , c , b ---------------Below are in order
+:
+ 16.  to  20.  answers:    eacae
+            ---------------  over ----------------
+
+          BEST OF LUCK
+ In written test in each section you have to get minimum marks i.e
+you have to pass in each section.  There will be questions from C,
+C++, JAVA. about 10 questions in C++ in the written test.

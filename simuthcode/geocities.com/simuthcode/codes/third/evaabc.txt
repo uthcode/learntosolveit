@@ -1,0 +1,16 @@
+//evaluate the value of t1,t2 by using a,b,c
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+  int a,b,c;
+  float t1,t2,t;
+  printf("enter the values for a,b,c:");
+  scanf("%d%d%d",&a,&b,&c);
+  t1=(a*(b+c))+(b*(c+a))+(c*(b+a));
+  t2=sqrt(pow(a,2)*pow(b,2)+pow(c,2)+pow(b,2)*pow(c,2)+pow(a,2)+pow(c,2)*pow(a,2)+pow(b,2));
+  t=t1-t2;
+  printf("%f\n%f\n%f\n",t1,t2,t);
+  getch();
+}

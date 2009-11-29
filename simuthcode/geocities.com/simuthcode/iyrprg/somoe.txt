@@ -1,0 +1,20 @@
+set talk off
+clear
+store 0 to i,n,sumo,sume
+@ 2,12 say "enter the value of the number" get n
+read
+Wfor i= 1 to n
+if i%2 <>0
+sumo = sumo + i
+else
+sume = sumo + i
+endif
+end for
+@ 4,12 say "sumo = "+str(sumo)
+@ 8,12 say  "sume ="+str(sume)
+
+
+
+
+
+

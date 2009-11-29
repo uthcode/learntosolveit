@@ -1,0 +1,18 @@
+<html>
+<head>
+<link href="j:\dhtml\dhtml.htm" Rel="stylesheet" name="jk">
+<style>
+   h6{color:white}
+ </style>
+
+</head>
+<body>
+<p id=k>welcome</p>
+
+<h3 class=c>hi </h3>
+<b>dhtml</b>
+<h2>heading</h2>
+<h6>white</h6>
+<p><b>dhtml</b></p>
+</body>
+</html>

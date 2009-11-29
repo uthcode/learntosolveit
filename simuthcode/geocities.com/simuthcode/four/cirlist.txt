@@ -1,0 +1,188 @@
+//Circular Singly Linked List In An Ordered Manner.
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<alloc.h>
+void create();
+void insert();
+void delete();
+void display();
+void displays();
+typedef struct l_link{
+			int data;
+			struct l_link *link;
+			}node;
+node *head,*p,*q,*next,*r;
+int item,test;
+main()
+{
+	int ch;
+	char choice='y';
+	clrscr();
+	while(choice=='y')
+	{
+//		clrscr();
+		printf(" \n\n\n\t\t  C I R C U L A R   L I N K E D_L I S T   O P E R A T I O N\n");
+		printf("\t\t\t  1.C R E A T I O N \n");
+		printf("\t\t\t  2.I N S E R T I O N \n");
+		printf("\t\t\t  3.D E L E T I O N\n");
+		printf("\t\t\t  4.D I S P L A Y\n");
+		printf("\t\t\t  5.E X I T\n");
+		printf("Enter Your choice:");
+		scanf("%d",&ch);
+		switch(ch)
+			{
+			case 1:
+				create();
+				break;
+			case 2:
+				insert();
+				break;
+			case 3:
+				delete();
+				break;
+			case 4:
+				display();
+				break;
+			case 5:
+				exit(0);
+			default:
+				printf("Invalid Choice\n Retry:");
+				break;
+			}
+		displays();
+		printf("\nDo you Want To Continue:");
+		scanf("%c",&choice);
+		choice=getchar();
+	}
+}
+
+void create()
+{
+	int n,i;
+	printf("\nEnter the No. Of Data.");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	     insert();
+	return;
+}
+void insert()
+{
+
+	test=0;
+	printf("\n Enter The Data To Be Inserted:");
+	scanf("%d",&item);
+	q=(node*)malloc(sizeof(node));
+	q->data=item;
+	if(head==NULL)
+	 {
+		head=q;
+		head->link=head;
+	 }
+	 if(item < head->data)
+	   {
+		r=head;
+		q->link=head;
+		head=q;
+		for(p=head->link;p->link!=r;p=p->link);
+			p->link=head;
+	   }
+	else
+	{
+		for(p=head;p->link!=head;p=p->link)
+
+			if(item < p->link->data)
+				break;
+			q->link=p->link;
+			p->link=q;
+	}
+return;
+}
+
+void delete()
+{
+	test=0;
+	if(head==NULL)
+		return;
+       printf("\nEnter The Data To Be Deleted:");
+	scanf("%d",&item);
+	if(item == head->data)
+	{
+		if(head->link==head)
+			head=NULL;
+		else
+		{
+			head=head->link;
+			for(p=head;p->link!=head;p=p->link);
+				p->link=head;
+		}
+		test=1;
+
+	}
+	p=head;
+	while(p->link!=head)
+	{
+		if(item == p->link->data)
+		{
+			test=1;
+			break;
+		}
+		p=p->link;
+	}
+	p->link=p->link->link;
+	if(test==1)
+		printf("\n The Entered Item Is Deleted.");
+	else
+		printf("\n The Entered Item Is Not Found.");
+
+	return;
+}
+void display()
+{
+	char con1='y';
+
+	if(head==NULL)
+	{
+		printf("\n No Node Is Present.");
+		return;
+	}
+	printf("\nThe contents Of Linked List\n");
+
+		for(p=head;con1=='y';p=p->link)
+		{
+			item = p->data;
+			printf("%d\t",item);
+			printf("\n Do You Want To Display The Next Node?");
+			scanf("%c",&con1);
+			con1=getchar();
+
+		}
+
+	return;
+}
+
+void displays()
+{
+	int j,y;
+	if(head==NULL)
+	{
+		printf("\n No Node Is Present.");
+		return;
+	}
+	printf("\nThe contents Of Linked List\n");
+	for(p=head;p->link!=head;p=p->link)
+		printf("%2d--->",p->data);
+	printf("%d",p->data);
+	y=wherex();
+	printf("\n|<");
+	for(j=4;j<y-1;j++)
+		printf("-");
+	printf("<|");
+	return;
+}
+
+
+
+
+

@@ -1,0 +1,21 @@
+//to generate the fibonnoci series
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+
+ int n,i;
+ int a=-1,b=1,c=0;
+ clrscr();
+ printf("Enter the number of Terms:");
+ scanf("%d",&n);
+  for(i=0;i<=n;i++)
+  {
+    a=b;
+    b=c;
+    c=a+b;
+    printf("%d\t",c);
+  }
+ getch();
+}
+

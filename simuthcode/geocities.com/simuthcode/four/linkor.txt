@@ -1,0 +1,176 @@
+// Linked List In An Ordered Manner.
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<alloc.h>
+void create();
+void insert();
+void delete();
+void display();
+typedef struct l_link{
+			char *data;
+			struct l_link *link;
+			}*node;
+node head,p,q,next;
+char *item;
+main()
+{
+	int ch;
+	char choice='y';
+	clrscr();
+	while(choice=='y')
+	{
+//		clrscr();
+		printf(" \n\n\n\t\t  L I N K E D_L I S T   O P E R A T I O N\n");
+		printf("\t\t\t (O R D E R E D   M A N N E R )\n");
+		printf("\t\t\t  1.C R E A T I O N \n");
+		printf("\t\t\t  2.I N S E R T I O N \n");
+		printf("\t\t\t  3.D E L E T I O N\n");
+		printf("\t\t\t  4.E X I T\n");
+		printf("Enter Your choice:");
+		scanf("%d",&ch);
+		switch(ch)
+			{
+			case 1:
+				create();
+				break;
+			case 2:
+				insert();
+				break;
+			case 3:
+				delete();
+				break;
+			case 4:
+				exit(0);
+			default:
+				printf("Invalid Choice\n Retry:");
+				break;
+			}
+		display();
+		printf("\nDo you Want To Continue:");
+		scanf("%c",&choice);
+		choice=getchar();
+	}
+getch();
+}
+
+void create()
+{
+	int n,i;
+	item=1;
+	printf("\nEnter the No. Of Data.");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		printf("\nEnter The data :");
+		scanf("%s",item);
+		q=(node*)malloc(sizeof(node));
+		strcpy(q->data,item);
+		q->link=NULL;
+		if(head==NULL)
+			head=q;
+		else
+			if(item < head->data)
+			{
+				q->link=head;
+				head=q;
+			}
+			else
+			{
+				p=head;
+				while(p->link!=NULL)
+				{
+					if(item < p->link->data)
+						break;
+					p=p->link;
+				}
+				q->link=p->link;
+				p->link=q;
+			}
+		}
+			return;
+}
+void insert()
+{
+
+	printf("\n Enter The Data To Be Inserted:");
+	scanf("%s",item);
+	q=(node*)malloc(sizeof(node));
+	strcpy(q->data,item);
+	q->link=NULL;
+
+	if(head==NULL)
+	{
+		head=q;
+		return;
+	}
+	if(stricmp(item , head->data)<0)
+	{
+		q->link=head;
+		head=q;
+		return;
+	}
+	p=head;
+	while(p->link!=NULL)
+	{
+		if(stricmp(item , p->link->data)<0)
+			break;
+		p=p->link;
+	}
+	q->link=p->link;
+	p->link=q;
+	return;
+}
+
+void delete()
+{
+       int test=0;
+	if(head==NULL)
+		return;
+       printf("\nEnter The Data To Be Deleted:");
+	scanf("%s",item);
+	if(stricmp(item , head->data)==0)
+	{
+		head=head->link;
+		test=1;
+	}
+	p=head;
+	while(p!=NULL)
+	{
+		q=p->link;
+		if(stricmp(item ,q->data)==0)
+		{
+			test=1;
+			break;
+		}
+		p=p->link;
+	}
+	p->link=q->link;
+	if(test==1)
+		printf("\n The Entered Item Is Deleted.");
+	else
+		printf("\n The Entered Item Is Not Found.");
+	free(q);
+	return;
+}
+void display()
+{
+	p=head;
+	if(p==NULL)
+	{
+		printf("\n No Node Is Present.");
+		return;
+	}
+	printf("\nThe contents Of Linked List\n");
+	while(p!=NULL)
+	{
+		printf("%s\t",p->data);
+		p=p->link;
+	}
+	return;
+}
+
+
+
+

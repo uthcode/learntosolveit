@@ -1,0 +1,34 @@
+                                     -
+Psychometry test:
+
+25 Questions 
+Time:5min. 
+**Note: Answer(Y/N/D Y-yes,
+N-no,D-Don't know
+1.Do you like parties? 
+2.Do yoiu want to achieve your goal immediately?
+3.Do you like walking? 
+4.Do you enjoy programming?
+5.Do you respect elders?
+6.Do you enjoy with your friends?
+7.Do you work hard?
+8.Do you like to exercise? 
+9.Do you work mope than two hours per day on a
+computer?
+10.Do you like suggestions from others? 
+11.Do youlike casual wear?
+12.Are you complacent? 
+13.Are you over-ambituous?
+14.Do you like attending
+classes?
+15.Are you bored while listening lectures? 
+16.Do you like TCS training?
+17.Are you gregarious? 
+18.can you walk 2km. a day? 
+19.do you like formal wear?
+20.Are you conventional?
+21.Do you believe in god? 
+22.Are you orthodox?
+23.Do you working 10hours a day in a job? 
+24.Are you Atheiest?
+25.Do you believe in superstitions?

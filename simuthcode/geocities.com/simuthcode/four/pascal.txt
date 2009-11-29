@@ -1,0 +1,22 @@
+void main()
+{
+int n,i,a,j,k,l;
+clrscr();
+printf("Enter The Number:");
+scanf("%d",&n);
+for(i=n,l=3,k=3;i>=1;i--,l++)
+{
+ gotoxy(l,k++);
+  for(j=1,a=0;j<=2*i -1;j++)
+  {
+    if(j>i)
+       a--;
+    else
+       a++;
+    printf("%d",a);
+  }
+    printf("\n");
+}
+ getch();
+}
+

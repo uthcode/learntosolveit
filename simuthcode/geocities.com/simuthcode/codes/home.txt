@@ -1,0 +1,26 @@
+A script that jumps back "home" when the key "H" is pressed. In other words, a script that allows you to specify a target url to go to when a key from the keyboard is pressed.
+
+Insert the below into the <head> section of the page(s) you want to have the hotkey feature enabled: 
+
+
+<script language="JavaScript1.2">
+
+
+
+var hotkey=104
+var destination="http://www.dynamicdrive.com"
+if (document.layers)
+document.captureEvents(Event.KEYPRESS)
+function backhome(e){
+if (document.layers){
+if (e.which==hotkey)
+window.location=destination
+}
+else if (document.all){
+if (event.keyCode==hotkey)
+window.location=destination
+}
+}
+document.onkeypress=backhome
+
+</script>

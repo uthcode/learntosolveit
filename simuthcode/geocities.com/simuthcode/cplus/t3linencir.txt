@@ -1,0 +1,516 @@
+                   ÕÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¸
+                   ³         W E L C O M E         ³
+                   ³  To the VGA Trainer Program   ³ ³
+                   ³              By               ³ ³
+                   ³      DENTHOR of ASPHYXIA      ³ ³ ³
+                   ³      (updated by Snowman)     ³ ³ ³
+                   ÔÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¾ ³ ³
+                     ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ ³
+                       ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+                           --==[ PART 3 ]==--
+
+
+[Note: things in brackets have been added by Snowman.  The original text
+has remained mostly unaltered except for the inclusion of C++ material]
+
+þ Introduction
+
+Greetings! This is the third part of the VGA Trainer series! Sorry it 
+took so long to get out, but I had a running battle with the traffic
+department for three days to get my car registered, and then the MailBox
+went down. Ahh, well, life stinks. Anyway, today will do some things
+vital to most programs : Lines and circles.
+
+Watch out for next week's part : Virtual screens. The easy way to
+eliminate flicker, "doubled sprites", and subjecting the user to watch
+you building your screen. Almost every ASPHYXIA demo has used a virtual
+screen (with the exception of the SilkyDemo), so this is one to watch out
+for. I will also show you how to put all of these loose procedures into
+units.
+
+If you would like to contact me, or the team, there are many ways you 
+can do it : 1) Write a message to Grant Smith in private mail here on
+                  the Mailbox BBS.
+            2) Write a message here in the Programming conference here
+                  on the Mailbox (Preferred if you have a general
+                  programming query or problem others would benefit from)
+            3) Write to ASPHYXIA on the ASPHYXIA BBS.
+            4) Write to Denthor, Eze or Livewire on Connectix.
+            5) Write to :  Grant Smith
+                           P.O.Box 270 Kloof
+                           3640
+            6) Call me (Grant Smith) at 73 2129 (leave a message if you 
+                  call during varsity)
+                  
+NB : If you are a representative of a company or BBS, and want ASPHYXIA 
+       to do you a demo, leave mail to me; we can discuss it.
+NNB : If you have done/attempted a demo, SEND IT TO ME! We are feeling
+        quite lonely and want to meet/help out/exchange code with other demo
+        groups. What do you have to lose? Leave a message here and we can work
+        out how to transfer it. We really want to hear from you!
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  Circle Algorithim
+
+You all know what a circle looks like. But how do you draw one on the
+computer?
+
+You probably know circles drawn with the degrees at these points :
+
+                                0
+                              ÜÛ|ÛÜ
+                             ÛÛÛ|ÛÛÛ
+                        270 ----+---- 90
+                             ÛÛÛ|ÛÛÛ
+                              ßÛ|Ûß
+                               180
+
+Sorry about my ASCII ;-) ... anyway, Pascal and C++ don't work that way ...
+they work with radians instead of degrees. (You can convert radians to
+degrees, but I'm not going to go into that now. Note though that in Pascal
+and C++, the circle goes like this :
+
+                               270
+                              ÜÛ|ÛÜ
+                             ÛÛÛ|ÛÛÛ
+                        180 ----+---- 0
+                             ÛÛÛ|ÛÛÛ
+                              ßÛ|Ûß
+                                90
+
+
+Even so, we can still use the famous equations to draw our circle ...
+(You derive the following by using the theorem of our good friend
+Pythagoras)
+                     Sin (deg) = Y/R
+                     Cos (deg) = X/R
+(This is standard 8(?) maths ... if you haven't reached that level yet,
+take this to your dad, or if you get stuck leave me a message and I'll
+do a bit of basic Trig with you. I aim to please ;-))
+
+Where Y = your Y-coord
+      X = your X-coord
+      R = your radius (the size of your circle)
+      deg = the degree
+
+To simplify matters, we rewrite the equation to get our X and Y values :
+
+                     Y = R*Sin(deg)
+                     X = R*Cos(deg)
+
+This obviousy is perfect for us, because it gives us our X and Y co-ords to
+put into our Putpixel routine (see Part 1). Because the Sin and Cos
+functions return a Real [long] value, we use a round function to transform
+it into an Integer.
+
+[Pascal]
+
+     Procedure Circle (oX,oY,rad:integer;Col:Byte);
+     VAR deg:real;
+         X,Y:integer;
+     BEGIN
+       deg:=0;
+       repeat
+         X:=round(rad*COS (deg));
+         Y:=round(rad*sin (deg));
+         putpixel (x+ox,y+oy,Col);
+         deg:=deg+0.005;
+       until (deg>6.4);
+     END;
+
+[C++]
+
+     void Circle(int X, int Y, int rad, int col) {
+
+       float deg = 0;
+
+       do {
+         X = round(rad * cos(deg));
+         Y = round(rad * sin(deg));
+         Putpixel (X+160, Y+100, col);
+         deg += 0.005;
+       }
+       while (deg <= 6.4);
+
+     }
+
+In the above example, the smaller the amount that deg is increased by,
+the closer the pixels in the circle will be, but the slower the procedure.
+0.005 seem to be best for the 320x200 screen. NOTE : ASPHYXIA does not use
+this particular circle algorithm, ours is in assembly language, but this
+one should be fast enough for most. If it isn't, give us the stuff you are
+using it for and we'll give you ours.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  Line algorithms
+
+There are many ways to draw a line on the computer. I will describe one
+and give you two. (The second one you can figure out for yourselves; it
+is based on the first one but is faster)
+
+The first thing you need to do is pass what you want the line to look
+like to your line procedure. What I have done is said that x1,y1 is the
+first point on the screen, and x2,y2 is the second point. We also pass the
+color to the procedure. (Remember the screens top left hand corner is (0,0);
+see Part 1)
+
+Ie.            o  (X1,Y1)
+                ooooooooo
+                         ooooooooo
+                                  oooooooo  (X2,Y2)
+
+Again, sorry about my drawings ;-)
+
+To find the length of the line, we say the following :
+
+[Pascal]
+
+           XLength = ABS (x1-x2)
+           YLength = ABS (y1-y2)
+
+[C++]
+
+           xlength = abs(x1-x2);
+           ylength = abs(y1-y2);
+
+The ABS function means that whatever the result, it will give you an
+absolute, or posotive, answer. At this stage I set a variable stating
+wheter the difference between the two x's are negative, zero or posotive.
+(I do the same for the y's) If the difference is zero, I just use a loop
+keeping the two with the zero difference posotive, then exit.
+
+If neither the x's or y's have a zero difference, I calculate the X and Y
+slopes, using the following two equations :
+
+[Pascal]
+
+           Xslope = Xlength / Ylength
+           Yslope = Ylength / Xlength
+
+[C++]
+
+[Note: C++ is significantly different here.  I had to add special divide
+by zero checking.  C++ doesn't like x/0.  I also added in type-casting
+which might not have been necessary.  :)]
+
+           if ((xlength != 0) && (ylength != 0)) {
+             xslope = (float)xlength/(float)ylength;
+             yslope = (float)ylength/(float)xlength;
+           }
+           else {
+             xslope = 0.0;
+             yslope = 0.0;
+           }
+
+As you can see, the slopes are real numbers.
+NOTE : XSlope = 1 / YSlope
+
+Now, there are two ways of drawing the lines :
+
+           X = XSlope * Y
+           Y = YSlope * X
+
+The question is, which one to use? if you use the wrong one, your line
+will look like this :
+
+        o
+           o
+              o
+
+Instead of this :
+
+        ooo
+           ooo
+              ooo
+
+Well, the solution is as follows :
+
+                           *\``|``/*
+                           ***\|/***
+                           ----+----
+                           ***/|\***
+                           */``|``\*
+
+If the slope angle is in the area of the stars (*) then use the first
+equation, if it is in the other section (`) then use the second one.
+What you do is you calculate the variable on the left hand side by
+putting the variable on the right hand side in a loop and solving. Below
+is our finished line routine :
+
+[Pascal]
+
+Procedure Line (x1,y1,x2,y2:integer;col:byte);
+VAR x,y,xlength,ylength,dx,dy:integer;
+    xslope,yslope:real;
+BEGIN
+  xlength:=abs (x1-x2);
+  if (x1-x2)<0 then dx:=-1;
+  if (x1-x2)=0 then dx:=0;
+  if (x1-x2)>0 then dx:=+1;
+  ylength:=abs (y1-y2);
+  if (y1-y2)<0 then dy:=-1;
+  if (y1-y2)=0 then dy:=0;
+  if (y1-y2)>0 then dy:=+1;
+  if (dy=0) then BEGIN
+    if dx<0 then for x:=x1 to x2 do
+      putpixel (x,y1,col);
+    if dx>0 then for x:=x2 to x1 do
+      putpixel (x,y1,col);
+    exit;
+  END;
+  if (dx=0) then BEGIN
+    if dy<0 then for y:=y1 to y2 do
+      putpixel (x1,y,col);
+    if dy>0 then for y:=y2 to y1 do
+      putpixel (x1,y,col);
+    exit;
+  END;
+  xslope:=xlength/ylength;
+  yslope:=ylength/xlength;
+  if (yslope/xslope<1) and (yslope/xslope>-1) then BEGIN
+    if dx<0 then for x:=x1 to x2 do BEGIN
+                   y:= round (yslope*x);
+                   putpixel (x,y,col);
+                 END;
+    if dx>0 then for x:=x2 to x1 do BEGIN
+                   y:= round (yslope*x);
+                   putpixel (x,y,col);
+                 END;
+  END
+  ELSE
+  BEGIN
+    if dy<0 then for y:=y1 to y2 do BEGIN
+                   x:= round (xslope*y);
+                   putpixel (x,y,col);
+                 END;
+    if dy>0 then for y:=y2 to y1 do BEGIN
+                   x:= round (xslope*y);
+                   putpixel (x,y,col);
+                 END;
+  END;
+END;
+
+[C++]
+
+void Line2(int x1, int y1, int x2, int y2, int col) {
+
+  int   x, y, xlength, ylength, dx, dy;
+  float xslope, yslope;
+
+  xlength = abs(x1-x2);
+  if ((x1-x2)  < 0) dx = -1;
+  if ((x1-x2) == 0) dx =  0;
+  if ((x1-x2)  > 0) dx = +1;
+
+  ylength = abs(y1-y2);
+  if ((y1-y2)  < 0) dy = -1;
+  if ((y1-y2) == 0) dy =  0;
+  if ((y1-y2)  > 0) dy = +1;
+
+  if (dy == 0) {
+    if (dx < 0)
+      for (x=x1; x<x2+1; x++)
+	Putpixel (x,y1,col);
+    if (dx > 0)
+      for (x=x2; x<x1+1; x++)
+	Putpixel (x,y1,col);
+  }
+
+  if (dx == 0) {
+    if (dy < 0)
+      for (y=y1; y<y2+1; y++)
+	Putpixel (x1,y,col);
+    if (dy > 0)
+      for (y=y2; y<y1+1; y++)
+	Putpixel (x1,y,col);
+  }
+
+  if ((xlength != 0) && (ylength != 0)) {
+    xslope = (float)xlength/(float)ylength;
+    yslope = (float)ylength/(float)xlength;
+  }
+  else {
+    xslope = 0.0;
+    yslope = 0.0;
+  }
+
+  if ((xslope != 0) && (yslope != 0) &&
+      (yslope/xslope < 1) && (yslope/xslope > -1)) {
+    if (dx < 0)
+      for (x=x1; x<x2+1; x++) {
+	y = round (yslope*x);
+	Putpixel (x,y,col);
+      }
+    if (dx > 0)
+      for (x=x2; x<x1+1; x++) {
+	y = round (yslope*x);
+	Putpixel (x,y,col);
+      }
+  }
+  else {
+    if (dy < 0)
+      for (y=x1; y<x2+1; y++) {
+	x = round (xslope*y);
+	Putpixel (x,y,col);
+      }
+    if (dy > 0)
+      for (y=x2; y<x1+1; y++) {
+	x = round (xslope*y);
+	Putpixel (x,y,col);
+      }
+  }
+
+}
+
+Quite big, isn't it? Here is a much shorter way of doing much the same
+thing :
+
+[Pascal]
+
+function sgn(a:real):integer;
+begin
+     if a>0 then sgn:=+1;
+     if a<0 then sgn:=-1;
+     if a=0 then sgn:=0;
+end;
+
+procedure line(a,b,c,d,col:integer);
+var u,s,v,d1x,d1y,d2x,d2y,m,n:real;
+    i:integer;
+begin
+     u:= c - a;
+     v:= d - b;
+     d1x:= SGN(u);
+     d1y:= SGN(v);
+     d2x:= SGN(u);
+     d2y:= 0;
+     m:= ABS(u);
+     n := ABS(v);
+     IF NOT (M>N) then
+     BEGIN
+          d2x := 0 ;
+          d2y := SGN(v);
+          m := ABS(v);
+          n := ABS(u);
+     END;
+     s := INT(m / 2);
+     FOR i := 0 TO round(m) DO
+     BEGIN
+          putpixel(a,b,col);
+          s := s + n;
+          IF not (s<m) THEN
+          BEGIN
+               s := s - m;
+               a:= a +round(d1x);
+               b := b + round(d1y);
+          END
+          ELSE
+          BEGIN
+               a := a + round(d2x);
+               b := b + round(d2y);
+          END;
+     end;
+END;
+
+[C++]
+
+int sgn (long a) {
+  if (a > 0) return +1;
+  else if (a < 0) return -1;
+  else return 0;
+
+}
+
+void Line(int a, int b, int c, int d, int col) {
+
+  long u,s,v,d1x,d1y,d2x,d2y,m,n;
+  int  i;
+
+  u   = c-a;
+  v   = d-b;
+  d1x = sgn(u);
+  d1y = sgn(v);
+  d2x = sgn(u);
+  d2y = 0;
+  m   = abs(u);
+  n   = abs(v);
+
+  if (m<=n) {
+    d2x = 0;
+    d2y = sgn(v);
+    m   = abs(v);
+    n   = abs(u);
+  }
+
+  s = (int)(m / 2);
+
+  for (i=0;i<round(m);i++) {
+    Putpixel(a,b,col);
+    s += n;
+    if (s >= m) {
+      s -= m;
+      a += d1x;
+      b += d1y;
+    }
+    else {
+      a += d2x;
+      b += d2y;
+    }
+  }
+
+}
+
+This routine is very fast, and should meet almost all of your requirements
+(ASPHYXIA used it for quite a while before we made our new one.)
+In the end program, both the new line routine and the circle routine are
+tested. A few of the procedures of the first parts are also used.
+
+Line and circle routines may seem like fairly trivial things, but they are
+a vital component of many programs, and you may like to look up other
+methods of drawing them in books in the library (I know that here at the
+varsity they have books for doing this kind of stuff all over the place)
+A good line routine to look out for is the Bressenhams line routine ...
+there is a Bressenhams circle routine too ... I have documentaiton for them
+if anybody is interested, they are by far some of the fastest routines
+you will use.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+þ  In closing
+
+Varsity has started again, so I am (shock) going to bed before three in
+the morning, so my quote this week wasn't written in the same wasted way
+my last weeks one was (For last week's one, I had gotten 8 hours sleep in
+3 days, and thought up and wrote the quote at 2:23 am before I fell asleep.)
+
+        [  "What does it do?" she asks.
+           "It's a computer," he replies.
+           "Yes, dear, but what does it do?"
+           "It ..er.. computes! It's a computer."
+           "What does it compute?"
+           "What? Er? Um. Numbers! Yes, numbers!" He smiles
+              worriedly.
+           "Why?"
+           "Why? Well ..um.. why?" He starts to sweat.
+           "I mean, is it just something to dust around, or does
+              it actually do something useful?"
+           "Um...you can call other computers with it!" Hope lights
+              up his eyes. "So you can get programs from other computers!"
+           "I see. Tell me, what do these programs do?"
+           "Do? I don't think I fol..."
+           "I see. They compute. Numbers. For no particular reason." He
+              withers under her gaze.
+           "Yes, but..."
+           She smiles, and he trails off, defeated. She takes another look
+               at the thing. "Although," she says, with a strange look in
+               her eyes. He looks up, an insane look of hope on his
+               face. "Does it come in pink?" she asks.
+                                                                           ]
+                                                     - Grant Smith
+                                                        Tue 27 July, 1993
+                                                         9:35 pm.
+
+See you next time,
+    - Denthor

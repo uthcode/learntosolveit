@@ -1,0 +1,277 @@
+//MULTILEVEL INDEXING
+//MAINTAINANCE OF STUDENTS RECORD
+//THIS PROGRAM WAS DEVELOPED BY O.R.SENTHIL KUMARAN
+#include<stdio.h>
+void getdata();
+int add();
+int del();
+struct student
+{
+ char name[15];
+ int reg_no,mark;
+};
+struct year
+{
+ int y_no;
+ struct student *st[11];
+};
+struct branch
+{
+ char b_name[15];
+ struct year *yr[4];
+};
+struct college
+{
+ struct branch *br[4];
+}*c;
+int ch,i=0,j=0,k,a[4],a1[4][10],p,f=0,year,l;
+char branch[15],c_name[50];
+struct college *temp;
+
+void create()
+{
+ printf("\n\t ENTER THE COLLEGE NAME");
+ fflush(stdin);
+ scanf("%[^\n]",c_name);
+ printf("\n\tENTER THE NUMBER OF BRANCHES");
+ fflush(stdin);
+ scanf("%d",&p);
+ c=(struct college *)malloc(sizeof(struct college));
+ for(i=1;i<=p;i++)
+ {
+  c->br[i]=(struct branch *)malloc(sizeof(struct branch));
+  clrscr();
+  printf("\t\t\t BRANCH NO. %d",i);
+  printf("\n\t ENTER THE NAME OF THE BRANCH ");
+  fflush(stdin);
+  scanf("%[^\n]",c->br[i]->b_name);
+  printf("\n\tENTER THE NO. OF YEARS FOR THE  ABOVE BRANCH");
+  scanf("%d",&a[i]);
+  for(j=1;j<=a[i];j++)
+  {
+   c->br[i]->yr[j]=(struct year *)malloc(sizeof(struct year));
+   printf("\n\t ENTER THE YEAR NO.(int)");
+   scanf("%d",&c->br[i]->yr[j]->y_no);
+   printf("\n\tENTER THE NO.OF STUDENTS FOR YEAR NO. %d",j);
+   scanf("%d",&a1[i][j]);
+   for(k=1;k<=a1[i][j];k++)
+   getdata();
+  }
+ }
+ printf("\n\t\t FINISHED CREATING STUDENTS RECORD");
+ delay(1000);
+}
+void getdata()
+{
+ clrscr();
+ printf("\t\t\tBRANCH :%s    YEAR: %d",c->br[i]->b_name,c->br[i]->yr[j]->y_no);
+ printf("\n\tSTUDENT RECORD NO.%d",k);
+ c->br[i]->yr[j]->st[k]=(struct student *)malloc(sizeof(struct student));
+ printf("\n\tENTER STUDENT NAME");
+ fflush(stdin);
+ scanf("%[^\n]",c->br[i]->yr[j]->st[k]->name);
+ printf("\n\tENTER THE REGISTER NUMBER\t");
+ fflush(stdin);
+ scanf("%d",&c->br[i]->yr[j]->st[k]->reg_no);
+ printf("\n\tENTER THE AVERAGE MARKS\t");
+ scanf("%d",&c->br[i]->yr[j]->st[k]->mark);
+}
+void display()
+{
+ clrscr();
+ for(i=1;i<=p;i++)
+ {
+  printf("\n\t\t\t %s",c_name);
+  printf("\n\t\t\tBRANCH %s",c->br[i]);
+  for(j=1;j<=a[j];j++)
+  {
+   printf("\n\t\t %d YEAR\n",c->br[i]->yr[j]->y_no);
+   for(k=1;k<=a1[i][j];k++)
+   {
+    printf("\nREG NO:%8d\nNAME:%14s\nMARK:%8d\n",c->br[i]->yr[j]->st[k]->reg_no,c->br[i]->yr[j]->st[k]->name,c->br[i]->yr[j]->st[k]->mark);
+   }
+   getch();
+ }
+}
+}
+int add()
+{
+ printf("\n\t\tENTER THE DEPARTMENT NAME");
+ fflush(stdin);
+ scanf("%[^\n]",branch);
+ for(i=1;i<=p;i++)
+ {
+  if(strcmp(c->br[i]->b_name,branch)==0)
+  {
+   f=1;
+   break;
+  }
+ }
+if(f)
+{
+ printf("\n\t\tENTER THE YEAR NO.\t");
+ scanf("%d",&year);
+ for(j=1;j<=a[i];j++)
+ {
+  if(c->br[i]->yr[j]->y_no==year)
+  {
+   f=1;
+   break;
+  }
+ }
+
+ if(f)
+ {
+  if(ch==3||ch==6)
+  {
+  if(del())
+  return 0;
+  else
+  return 1;
+  }
+ else
+ {
+  k=a1[i][j];
+  k++;
+  a1[i][j]++;
+  getdata();
+  return 0;
+  }
+}
+return 1;
+}
+}
+int del()
+{
+ int reg,t;
+ printf("\n\t\t ENTER THE STUDENTS REG_NO\t");
+ fflush(stdin);
+ scanf("%d",&reg);
+ f=0;
+ t=a1[i][j];
+ for(k=1;k<=a1[i][j];k++)
+ {
+ if(c->br[i]->yr[j]->st[k]->reg_no==reg)
+ {
+  f=1;
+  break;
+ }
+}
+if(f)
+{
+ if(ch==6)
+ {
+  clrscr();
+  printf("\n\t\tSEARCH FOUND...");
+  printf("\n\t\tBRANCH %s YEAR %d",c->br[i]->b_name,c->br[i]->yr[j]->y_no);
+  printf("\n\t\tSTUDENT NAME:%s",c->br[i]->yr[j]->st[k]->name);
+  printf("\n\t\tSTUDENT REGISTER NUMBER %d",c->br[i]->yr[j]->st[k]->reg_no);
+  printf("\n\t\tSTUDENT MARK %d",c->br[i]->yr[j]->st[k]->mark);
+  getch();
+ return 1;
+ }
+ c->br[i]->yr[j]->st[k]=c->br[i]->yr[j]->st[t];
+ a1[i][j]--;
+ free(c->br[i]->yr[j]->st[t]);
+ return 1;
+}
+ return 0;
+}
+void indexing()
+{
+ int in;
+ printf("\n\t\tENTER THE TYPE OF INDEXING \n\t1.BY REG-NO\n\t2.BY NAME\n\t3.BY MARKS");
+ fflush(stdin);
+ scanf("%d",&in);
+ for(i=1;i<=p;i++)
+ {
+ for(j=1;j<=a[i];j++)
+ {
+ for(k=1;k<=a1[i][j];k++)
+ {
+ for(l=k+1;l<=a1[i][j];l++)
+ {
+ switch(in)
+ {
+  case 1:
+	 if((c->br[i]->yr[j]->st[k]->reg_no > c->br[i]->yr[j]->st[l]->reg_no)>0)
+	 exchange();
+	 break;
+  case 2:
+	 if((c->br[i]->yr[j]->st[k]->name > c->br[i]->yr[j]->st[l]->name)>0)
+	 exchange();
+	 break;
+ case 3:
+
+	 if((c->br[i]->yr[j]->st[k]->mark > c->br[i]->yr[j]->st[l]->mark)>0)
+	 exchange();
+	 break;
+  }
+  }
+ }
+}
+}
+}
+ exchange()
+ {
+  temp->br[1]->yr[1]->st[1]=c->br[i]->yr[j]->st[l];
+  c->br[i]->yr[j]->st[l]=c->br[i]->yr[j]->st[k];
+  c->br[i]->yr[j]->st[k]=temp->br[1]->yr[1]->st[1];
+  return;
+ }
+
+ void main()
+ {
+    do
+     {
+       clrscr();
+       printf("\n\t\t MULTILEVEL INDEXING");
+       printf("\n\t\t1.CREATE NEW RECORD");
+       printf("\n\t\t2.ADD NEW RECORD");
+       printf("\n\t\t3.DELETE A RECORD");
+       printf("\n\t\t4.MULTILEVEL INDEXING");
+       printf("\n\t\t5.DISPLAY ALL RECORDS");
+       printf("\n\t\t6.SEARCH A RECORD");
+       printf("\n\t\t7.EXIT");
+       printf("\n\t\t ENTER YOUR OPTION");
+       scanf("%d",&ch);
+
+	switch(ch)
+       {
+	 case 1: create();
+		  break;
+	 case 2:
+		 if(add())
+		   printf("\n\t\tERROR IN SPECIFICATION OF BR AND YR");
+		   getch();
+		 break;
+	 case 3:
+		 if(add())
+		    printf("\n\t\t SOME ERROR IN THE GIVEN DATA");
+		 else
+		    printf("\n RECORD DELETED \n");
+		  getch();
+		 break;
+	 case 4:
+		 indexing();
+		 break;
+	 case 5:
+		 display();
+		 break;
+	 case 6:
+		 if(add())
+		   printf("\n\t\t THE GIVEN REGNO IS NOT FOUND");
+		   getch();
+		 break;
+	 case 7:
+		 printf("\n END OF EXECUTION\n");
+		 getch();
+		 exit(0);
+	default:
+		 printf("\n INVALID CHOICE");
+		 getch();
+		 break;
+       }
+   }while(ch!=7);
+ }
+
