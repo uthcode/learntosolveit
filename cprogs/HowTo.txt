@@ -1,0 +1,5 @@
+1) Create a Directory: mkdir `date +%d%b`
+2) Write programs for that day.
+3) Revisit next day, re-read the programs, try to improve.
+4) Good programs move them out to the top level directory.
+5) Dont checkin the date folders.

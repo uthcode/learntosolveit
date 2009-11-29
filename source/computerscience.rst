@@ -21,6 +21,7 @@ Studies related
 * http://www.cra.org/reports/forsythe.html
 
 * http://ram.umd.edu/
+* http://cs.washington.edu/homes/arvind
 
 Joseph Lisee - CMU Robotics Program.
 
@@ -54,6 +55,7 @@ Distrubuted Systems.
 8. Stanford University.
 9. Univeristy of Delaware
 10. Umass Amherst.
+11. Portland State University.
 
 GRE Scores and Academia 
 =======================
@@ -73,7 +75,6 @@ Quantitative: 780 - Below 90%
 
 Analytical Writing: 4.0 - Below 33%
 
-
 Test Scores:
 
 TOEFL Internet Based Test:
@@ -82,15 +83,6 @@ Registration: 0000 0000 0587 7817
 
 Test Date: 03 August 2008
 
-Inst Code Dept Code
-
-4833         99
-
-3514          99
-
-4704          99
-
-2074          99
 
 TOEFL Scaled Scores:
 
@@ -102,7 +94,7 @@ Speaking 28
 
 Writing     22
 
-Total         107
+Total  107
 
 
 GRE Subject Test
@@ -124,11 +116,6 @@ Graduate Institution                    Department
 Score: 530. Percentile: 08%
 
 http://edulix.com/infobank/index.php  Edulix Info Banks
-
-29th November
-
-1- Applying to Stanford.  Make sure your application is complete. Even Offcial
-Scores arrive before deadline. ( Ask this one)
 
 Preparation Notes
 =================

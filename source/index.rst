@@ -11,26 +11,27 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   computerscience
-   beingagooddeveloper
-   projectideas
-   cprogramming
-   people
-   quotes
-   javascript
-   perl
-   finance
-   html
-   philosophy
-   pycon2009
-   pythonstart
-   python
-   indianscience
-   ratpoison
-   ubuntu
-   topcoder
-   vim
-   versioncontrol
+#   computerscience
+#   beingagooddeveloper
+#   projectideas
+#   cprogramming
+#   people
+#   quotes
+#   javascript
+#   perl
+#   finance
+#   html
+#   philosophy
+#   pycon2009
+#   pythonstart
+#   python
+#   indianscience
+#   ratpoison
+#   ubuntu
+#   topcoder
+#   vim
+#   versioncontrol
+    resume
 
 
 Indices and tables
