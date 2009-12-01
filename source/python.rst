@@ -2,6 +2,10 @@
 Python Notes
 ============
 
+.. warning:: 
+        Rough Notes.
+
+        
 Global Interpretor Lock
 =======================
 

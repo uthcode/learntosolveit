@@ -34,9 +34,9 @@ Articles
    :maxdepth: 1
 
    pythonstart
+   beingagooddeveloper
    python
    computerscience
-   beingagooddeveloper
    quotes
 
 Projects
@@ -59,8 +59,10 @@ Presentations
 * `PyCon US 2009`_ - Tutorial on Python Standard Library
 * `PyCon India 2009`_ - Algorithms in Python
 * `SETI`_ - Search for Extra-Terrestrial Intelligence
+* `Version Control with SVN`_ - High Level SVN Presentation
 
 .. _Freed.in 2009: http://uthcode.googlecode.com/files/freedin09_pygame.zip
 .. _PyCon US 2009: http://uthcode.googlecode.com/files/PyCon2009-ATourofPythonStandardLibrary.pdf
 .. _PyCon India 2009: http://uthcode.googlecode.com/files/pyconindia2009.zip
 .. _SETI: http://uthcode.googlecode.com/files/SETI-Presentation.pdf
+.. _Version Control with SVN: http://uthcode.googlecode.com/files/Version_Control_with_Subversion.pdf

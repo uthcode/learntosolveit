@@ -10,7 +10,9 @@ http://uthcode.googlecode.com/svn/trunk/python/
 You may checkout the programs using the command
 
 :: 
+
     svn checkout http://uthcode.googlecode.com/svn/trunk/python/ python-snippets
+
 
 Source code is most-often commented.
 My plan with uthcode is, it should eventually have a literal inclusion of

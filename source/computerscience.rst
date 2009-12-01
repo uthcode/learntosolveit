@@ -2,6 +2,9 @@
 Computer Science Notes
 ======================
 
+.. warning::
+        Rough Notes
+
 Studies related
 ===============
 
