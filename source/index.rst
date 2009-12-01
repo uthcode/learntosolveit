@@ -10,12 +10,16 @@ uthcode
 Project which contains solutions to programming problems from text books, like
 K&R , solutions to programming contest problems, snippets for common
 programming tasks, notes from Computer Science subjects and articles on
-programming and software engineering.
+programming and software engineering. The website is hosted at `Sarovar.org`_.
+
+
+.. _Sarovar.org: http://sarovar.org 
 
 Project Page
 ============
 
 * http://code.google.com/p/uthcode/
+
 
 Code
 ====
@@ -66,3 +70,4 @@ Presentations
 .. _PyCon India 2009: http://uthcode.googlecode.com/files/pyconindia2009.zip
 .. _SETI: http://uthcode.googlecode.com/files/SETI-Presentation.pdf
 .. _Version Control with SVN: http://uthcode.googlecode.com/files/Version_Control_with_Subversion.pdf
+

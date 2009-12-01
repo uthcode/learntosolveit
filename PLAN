@@ -22,5 +22,9 @@ Projects
 
 Presentations
 
-
 * Each page to contain well writen notes and snippets.
+
+
+rsync instruction:
+rsync -avze ssh .  UN@PN.sarovar.org:/var/lib/gforge/chroot/home/groups/PN/htdocs/
+
