@@ -1,10 +1,26 @@
 ﻿Statement of Purpose
-Prepare a concise one or two page essay that describes your primary areas of interest for research, your related experiences, and your objective in pursuing a graduate degree at Carnegie Mellon. Your essay should be specific in describing your interests and motivations. When describing your research interests, you should explain why you think they are important areas of study and why you are particularly well-suited to pursue them. You should describe any relevant education, research, commercial, government, or teaching experience. If you are applying to more than one program, you may (but are not required to) submit a separate Statement of Purpose for each program. If you are submitting different statements, please upload as one file. Include your name and User ID on the essay.
+
+Prepare a concise one or two page essay that describes your primary areas of
+interest for research, your related experiences, and your objective in pursuing
+a graduate degree at Carnegie Mellon. Your essay should be specific in
+describing your interests and motivations. When describing your research
+interests, you should explain why you think they are important areas of study
+and why you are particularly well-suited to pursue them. You should describe
+any relevant education, research, commercial, government, or teaching
+experience. If you are applying to more than one program, you may (but are not
+required to) submit a separate Statement of Purpose for each program. If you
+are submitting different statements, please upload as one file. Include your
+name and User ID on the essay.
+
+Tips:
+1. Revise your essay at least three times.
+2. http://www.phds.org/graduate-school/applications
 
 Notes for specific programs.:
 
-    * Human-Computer Interaction applicants: Indicate your intended area of emphasis in the first paragraph of your Statement of Purpose. If appropriate to your background, you may include a link to your portfolio. If you are unable to provide a link, you may mail a CD of your portfolio to Martha Clarke, Admissions Coordinator, at the address given above. Please indicate your intent to submit a portfolio in the Supplemental Information section.
-    * Software Engineering applicants: Concisely summarize your background in software development, experience with particular phases of software development activity, and how your industrial experience prepares you for graduate-level academic work. Submit this information in the Supplemental Information section under Experience (Research, Industry). 
+ Human-Computer Interaction applicants: Indicate your intended area of emphasis in the first paragraph of your Statement of Purpose. If appropriate to your background, you may include a link to your portfolio. If you are unable to provide a link, you may mail a CD of your portfolio to Martha Clarke, Admissions Coordinator, at the address given above. Please indicate your intent to submit a portfolio in the Supplemental Information section.
+
+* Software Engineering applicants: Concisely summarize your background in software development, experience with particular phases of software development activity, and how your industrial experience prepares you for graduate-level academic work. Submit this information in the Supplemental Information section under Experience (Research, Industry). 
 
 I take up a particular problem and pursue it till I find a satisfying logical solution to the problem.
 
@@ -13,3 +29,43 @@ As an engineer, I was trained to solve problems. As a software developer, I desi
 
 My research interests lie in the design and implementation of advanced programming systems, incorporating expressive programming languages, efficient implementations, and supportive programming environments.
 http://www.cs.washington.edu/homes/chambers/
+
+Question:
+
+It is your chance to demonstrate your unique qualifications for and commitment to your chosen field. How? By discussing those experiences, people, and events that inspire you to pursue it.It is your chance to demonstrate your unique qualifications for and commitment to your chosen field. How? By discussing those experiences, people, and events that inspire you to pursue it.
+
+
+Answer:
+
+Quotes:
+
+Mathematics is the music to mind and computers are its instruments. I find research in the field of computer science to be engaging.
+I am specifically interested in Programming Languages, Programming Language development.  I have gained expertise in certain programming languages like Python and C have studied a other many programming languages like C++, Alice and esoteric languages. 
+Uthcode was a single person project that I have undertaken to solve the programming problems presented in many different books and resources, I have solve all the problems in Kernighan and Ritchie and also a Topcoder and other programming contest problems.
+
+Independent thinking and experimentation and deriving results. The result of independent thinking are visible with the patents. While I am not very interested in patents as such, I like the unique ideas that I could come up with and I try make them to products. 
+
+Being a Python Core developer, I have the value of mutual respect and being honest in the code from the fellow python developers and Guido van Rossum who is a the lead of the project. I try to imbibe the same values in my work. 
+
+I have been a volunteer for Spastics Society of Karnataka for more than 4 years, I got engaged with students and got interested that I could  utitlize my technical expertise in developing solutions for them. That project took more than 4 years to complete, where I first tried the different solutions in Voice Recognition and Dasher. I was able to successfully design a solution students who could operate their computer independently using Voice. The technology of voice recognition has improved a lot over past 3 years, I know how certain technologies can be helpful as an assistive technology. I have also studied the kind of research work that is involved in developing those technologies, like Brown university is involved with Camera Mouse and the Dasher which is a product of Inference Group, UK uses Statistical Markov chain processes in word prediction.
+
+
+I have particiated in Programming Contests and have also conducted Programming Contests for Students as I realize the fun and excitement of problem solving can be gathered using Programming Contests.
+
+I re-studied Computer Science from 2008 to 2009, I used the online lecture materials of Dr.Shai Simonson and whose lectures made me appreciate the field of computer science better. I could realize the 'fun in computer science' and exciting areas of research that are ahead for the people who choose to pursue. I am disciplined person and deviced many methodologies as way of keeping up with my discipline and keep myself motivated in solving difficult problems.
+
+I am also interested in alternative learning environments like Mindstorms NXT and Alice. I have used those projects to teach computer science and engineering to a group of special students and have discoveredd how engaging enviroments help in developing interests. It has aided in developing my own interests in Computer science too. 
+
+I have taught Python classes as a consultant and also a presentor at International Conferences. I have believe in problem solution and I also try to put forth an engaging problem, discuss the problem in various dimensions. I realize the kind of effort which is required to prepare a good lecture and value a teacher can provide in motivating the students in the right direction.
+
+Practise the State of art in software engineering at leading university.
+
+I have worked on Asynchronous event handling programs. Practise the state of the art and innovate and practise my innovation.
+
+Teaching by Example.
+Professionalism in Computer Science.
+Energetic and Willing to Learn.
+
+Computer Science a new way to explain yourself.
+Increasing our abilities to express ourselves.
+New way of describing things is research.
