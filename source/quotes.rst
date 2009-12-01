@@ -2,7 +2,7 @@
 Life, Universe and Everything
 =============================
 
-http://uthcode.googlecode.com/svn/trunk/static/ch-full.jpg
+.. image:: _static/ch-full.jpg
 
 
 Life
