@@ -47,16 +47,15 @@ available from http://python.org website. It comes with an editor called IDLE
 vim, emacs, notepad++ and other editors in Windows too.
 
 On Windows, there is also special package available, which has integration with
-[http://starship.python.net/crew/mhammond/win32/Downloads.html Windows APIS]
-and has an editor called _Pythonwin_, coming bundled which is pretty good for
-beginners. The above mentioned way is the best way to get started on Windows.
+`Windows APIS`_ and has an editor called _Pythonwin_, coming bundled which is
+pretty good for beginners. The above mentioned way is the best way to get
+started on Windows.
 
 If you would like to take a shortcut route, then Active State is the Company
-which has bundled them all together and provides the Python Win editor too.
+which has bundled them all together and provides the PythonWin editor too.
+Download `ActiveState Python`_ here.
 
-[http://www.activestate.com/downloads/#tab_python_stack Download Activestate Python here]
-
-I am mentioning Active State Python after the Python from http://www.python.org
+I mention Active State Python after the Python from http://www.python.org
 because newcomers if they download Python from Activestate to start kind of
 think that Python interpretor is available from Activestate Company only and
 forget that they can download Python directly from the Source. 
@@ -65,9 +64,6 @@ Well, Activestate is a _good_ company working with Open Source technologies and
 they have contribute a lot back to Python trunk too.
 
 So, it is just your convenience as how you want to Download Python on Windows.
-
-* http://www.python.org
-* http://www.activestate.com 
 
 A Good Beginners Tutorial 
 =========================
@@ -79,12 +75,12 @@ For Programmers
 
 * The Tutorial at http://www.python.org 
 * The Library Reference manual at http://www.python.org 
-* Mark Pilgrim's [http://www.diveintopython.com Dive into Python]
-
+* Mark Pilgrim's `Dive into Python`_.
+  
 For Beginners
 =============
 
-* [http://www.ibiblio.org/swaroopch/byteofpython/files/120/byteofpython_120.pdf A Byte of Python] by Swaroop.
+* `A Byte of Python`_  by Swaroop
 
 A Good Beginners Mini Project
 =============================
@@ -92,8 +88,13 @@ A Good Beginners Mini Project
 After you have completed reading those tutorial, I would suggest you try this
 mini-project.
 
-* [http://www-inst.eecs.berkeley.edu/~selfpace/cs9honline/#Program1DLife One Dimentional Life]
-* [http://www-inst.eecs.berkeley.edu/~selfpace/cs9honline/P1/ One Dimentional Life]
+* `One Dimentional Life`_
 
 It is not difficult one. It is interesting project and output will be an image file.
 So, its kind of souvenir for you for completing your first Python mini project.
+
+.. _Windows APIS: http://starship.python.net/crew/mhammond/win32/Downloads.html
+.. _ActiveState Python: http://www.activestate.com/downloads/#tab_python_stack
+.. _Dive into Python: http://www.diveintopython.com
+.. _A Byte of Python: http://www.ibiblio.org/swaroopch/byteofpython/files/120/byteofpython_120.pdf
+.. _One Dimentional Life: http://www-inst.eecs.berkeley.edu/~selfpace/cs9honline/P1/
