@@ -47,6 +47,15 @@ urllib - Python Standard Library Module
    Current Maintainer of the urllib Python standard library module. I was
    involved with fix bugs in the urllib and other internet related modules and
    also worked on porting urllib to Python 3.
+   * `Commit Stats`_
+   * `Tracker Stats`_
+
+
+uthcode - programming project.
+
+   One person project which is aimed towards study of programming principles,
+   algorithms and other research. This contains good solutions for commonly
+   occuring programming tasks. Website: http://uthcode.sarovar.org
 
 
 Data Analyzer - A Distributed Log Analyzer project at Akamai
@@ -122,6 +131,9 @@ Teaching
  * Teaching "How to Solve it using Python" Programming methodologies  using
    Python at `PyCon 2010 Conference`_, Atlanta, USA.
 
+ * Teaching Robotics to High School Students using LEGO Mindstorms NXT and also
+   programming using Alice Programming Language.
+
 Community Activities
 --------------------
 
@@ -190,3 +202,5 @@ Other Open Source Contributions
 .. _FOLDOC: http://www.foldoc.org
 .. _nanoblogger: http://www.nanoblogger.sf.net
 .. _Rapple: http://rapple.sf.net
+.. _Commit Stats: http://bugs.python.org
+.. _Tracker Stats: http://bugs.python.org

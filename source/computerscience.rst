@@ -18,8 +18,6 @@ Studies related
 * John Resig, a Javascript pioneer and inventor of JQuery is from http://www.rit.edu/  Rochester Institute of Technology.
 * Greg Wilson, mentor of many GSOC projects and author of beautiful code is a professor at University of Toronto.
 * http://www.ics.uci.edu/~eppstein/research.html David Eppstein is a professor at University of California, Irvine.
-* A good computer scientist will combine both theory and practise to explore the truth.
-
 * University of North Carolina at Chapel Hill
 * http://www.cra.org/reports/forsythe.html
 
@@ -65,7 +63,380 @@ Deadlines
 1. Stanford -  December 8, 2009 Apply to
    http://cs.stanford.edu/degrees/mscs/degree.php
 
-2. 
+2. University of Washington - December 15
+   http://www.cs.washington.edu/education/grad/prospective.html
+
+3. University of California - Jan 15
+   http://www.ics.uci.edu/grad/admissions/index.php
+
+4. Carnegie Mellon University  - Software Engineering
+   All applications must be submitted by midnight on Dec. 15 EST.  No
+   exceptions will be made. 
+
+http://www.cmu.edu/prospective/graduate.shtml
+
+https://www.ece.cmu.edu/prospective/graduate/application/  - Dec 15
+
+5. MIT - Media Lab and Algorithms Group - Dec 15
+   http://web.mit.edu/admissions/graduate/how_to_apply/application_deadlines.html
+   http://www.pmg.lcs.mit.edu/
+   Media Lab - Dec 15
+   https://www.applyweb.com/apply/mitg/menu.html
+
+6. University of Toronto - 7 December 2009.
+
+   http://web.cs.toronto.edu/Page4.aspx
+   https://apply.sgs.utoronto.ca/home.aspx
+
+
+7. Texas A & M - (Tentative - 15 Dec 2009)
+
+8. Rochester Institute of Technology - July 1
+
+   http://www.rit.edu/emcs/ptgrad/grad_admission.html
+    http://www.nssa.rit.edu/?q=node/33
+
+9. University of Delware - Fall: February 1  & July 1 
+   http://www.udel.edu/gradoffice/apply/index.html
+
+10. University of Masachusetts Armhest
+    http://www.umass.edu/gradschool/prospective_students_deadlines_for_application.htm
+ 
+11. Universtiy of Portland - February 1.
+    http://www.up.edu/admissions/default.aspx?cid=8079&pid=2171
+
+* California Institute, Parsadena, CA
+* Univ of CA, Santa Barbara.
+* Univ of C, Davis.
+* OSU
+
+General Guidelines for SOP
+
+1. What are your goals?
+2. What courses do you wish to take?
+3. What labs are you looking at?
+4. What is your proposed career path as things stand right now?
+
+
+Statement of Purpose
+
+Prepare a concise one or two page essay that describes your primary areas of
+interest for research, your related experiences, and your objective in pursuing
+a graduate degree at Carnegie Mellon. Your essay should be specific in
+describing your interests and motivations. When describing your research
+interests, you should explain why you think they are important areas of study
+and why you are particularly well-suited to pursue them. You should describe
+any relevant education, research, commercial, government, or teaching
+experience. If you are applying to more than one program, you may (but are not
+required to) submit a separate Statement of Purpose for each program. If you
+are submitting different statements, please upload as one file. Include your
+name and User ID on the essay.
+
+Tips:
+1. Revise your essay at least three times.
+
+Software Engineering applicants: Concisely summarize your background in
+software development, experience with particular phases of software development
+activity, and how your industrial experience prepares you for graduate-level
+academic work. Submit this information in the Supplemental Information section
+under Experience (Research, Industry). 
+
+It is your chance to demonstrate your unique qualifications for and commitment
+to your chosen field. How? By discussing those experiences, people, and events
+that inspire you to pursue it.It is your chance to demonstrate your unique
+qualifications for and commitment to your chosen field. How? By discussing
+those experiences, people, and events that inspire you to pursue it.
+
+
+Statement of Purpose
+--------------------
+
+1. New way of expressing things is research.
+2. Teaching - I have conducted a number of programming contests and provided
+   rigourous feedback to students, who attended the programming contests. 
+3. Listened to Lectures of Shai Simonson and was inspired by his way of
+   teaching computer science which essentially focussed on getting an insight
+   and getting the right intuition of the problem and then spending time on the
+   problems and coming up with solutions.
+
+4. Self Study of number of subjects. For e.g, I had undertaken solving all
+   problem in K&R and published those code in a website and constantly improved
+   them.
+
+5. Self Study of Computer Science in aduni.org, especially Prof Shai Simonson's
+   lectures in Algorithms, Theory of Computation and Discrete Maths.
+
+6. Interest in mathematics and problem solving. I have been constantly
+   improving my topcoder ratings. I got to know about Univeristy of Toronto
+   from topcoder winner only.
+ 
+7. Gerry Sussman's lectures on Computer Science. The kind of thought process
+   which is required to be an outstanding educator like Dr. Sussman.
+
+8. Researched on concurrency concepts and selected a deferred based concurrency
+   system for implementing a multi-threaded server as part of my work at
+   Akamai.
+
+9. Understanding the nature of knowledge. This interest was due my close
+   association as a mentor for many students from Spastics Society of Karnataka
+   and I could help them identify areas they were good at.  I taught Lego Mind
+   Storms NXT kit and Alice Programming.
+
+10. Research on technologies that are helpful to people. I have studied and
+    used Dasher for an alternative text input system. Researched a lot in Voice
+    Recognition and have used it for providing a good computing interface for
+    people which disability and who could operate computers which voice.
+
+11. Interests in different programming languages. C, C++. The languages that I
+    have taught myself includem Python ( which I have gained sufficient
+    expertise to become a core-contributor), Java, Perl, lisp, vim-script, shell
+    script, brainfuck and Alice.  Common denominators within all the languages
+    and the subtle differences in the languages.
+
+12. Learnings from Python include - Be respectful of others and be honest.
+    There are many technical skills I have learnt from the developers of
+    Python, but following the Guido Van Rossum, lead in the project and his
+    direction for other developers, these soft-skills come to an utmost
+    important for working with a diverse group of developers.
+
+13. Invention of Languages from historical perspective and listening to
+    Dr.Gerry Sussman, I learn that development of language is the very essence
+    of  human advancement. 
+
+14. I have known some Industry researches who have decided to puruse PhD after
+    a brief stint at work. They have returned back to Industry to contribute a
+    lot to development of technologies. I am interested in research and like to
+    understand more on topics concerning multiple industries, try to understand
+    some of the problems and come up with satisfying solutions that could be
+    helpful to many people.
+
+15. Study of Certificate Courses at Indian Institute of Science, that gave me
+    time to do an sincere work with problems and solutions, have an idea on how
+    Cryptography is used in Industry and work out the mathematics behind the
+    Cryptography Problems as part of the course also utilize my programming
+    skills to implement two person games using AI algorithms.
+
+16. I have stood 8th in the class of 65 and what I remember most of my college
+    is, I stood first in many programming contests and all my programming
+    assignments were correct.
+
+17. I have earned four Patent assignments related to my work.  The technologies
+    were devised/Invented 3-4 years before any of the base technology ever
+    reached the mainstream media.
+
+18. Used accessibility software like sceen magnifier.
+
+19. Uthcode is project which is  part of my life and working on it for than 6
+    years. 
+
+20. Patent on Distributed Download mechanism in Blu Ray is a techology
+    adoptation in Blu-ray with a some of exsiting networking algorithms.
+
+   
+----------------------------------------------------------------------------------
+
+1. A Good Computer Scientist will combine both practise and theory to explore
+   the truth.
+2. Career devoted to the development of Computer Science.
+3. I find the distinct relationship between the various areas of computer
+   science and I specifically find interests in Algorithms, Theory of
+   Computation, Distributed Systems and Networking.
+
+4. My specific areas of interests are Theory of Computation, Discrete
+   Mathematics and Algorithms. I find that Theory of Computating and Discrete
+   Mathematics are very related and it is the underlying topics to understand
+   which thread across in many of the higher level subjects in Computer
+   Science.
+
+5. The various practical problems that we face in text processing, in
+   programming, writing text parsers are easily modelled in theory of
+   computation. The Regular expressions were common fields for person working
+   on text processsing problems, and understandin the regex engines helps model
+   the regular languages and Finite Statement automata.
+
+6. Even while writing prototypes for good concurrent systems, the theory of
+   computations comes handy where we tend to write distinct finite state
+   automata machines and try to follow the logic in the model and when
+   satisfied with the model, we go ahead with the implementation in the
+   program.
+
+7. I have seen the real world application of the Open Shortest Path first
+   algorithm in the packet routing.
+
+8. Very interesting to note the power of dynamic programming in effectively
+   solving the problem of diffs in version managemnt systems.
+
+9. Finite automata and their probablistic counter parts. Markov chains are used
+   in speech recognition systems.
+
+10. How exponential time complexity programs can be brought down to polynomial
+    time complexity using Dynamic programming strategies.  It is further
+    realzied while participating in the programming contests, where if you
+    could identify the problem strategy and the trick involved, then the
+    solution becomes incredibly simple.
+
+11. Graduation problem - Bipartite match problem using mincut max flow
+    strategy.
+
+12. Being firm on the theoritical concepts, and learning the latest
+    technologies and relate them both.
+
+13. Research and teaching on how to make better software.
+
+14. I like finding solutions to problems that are both practical and elegant. 
+
+15. As an undergraduate, I attended National Engineering College in India where
+    I majored in Computer Science, I secured 78% as the aggregate percentage
+    had won many programming contests.
+
+16. One benefit of working in the Industry is that it provided a good
+    environment to study software systems and software engineer. The training
+    to build a releasable working software with plan and good team
+    communication.
+
+17. Graph algorithms in computer networking and routing. They become all the
+    more important as distributed systems are growing and efficient
+    communications between the computer systems invariably have some good graph
+    theory associated with it.
+
+18. Debugging and Path profiling algorithms use Graph algorithms.
+
+19. Are two graphs equal, it is a graph iso-morphism problem.
+
+20. Presented a topic on "Algorithms in Python" where I demonstrated all the
+    common algorithm problems in Python, explaining the complexity of each
+    solution. I studied the kind of sorting algorithm, timsort,  that is going
+    inside the language interpretor for sorting the elements in the language
+    while providing higher level sort interface to the programmer.
+
+---------
+
+1. Multi threading programming, asynchronous networking programming, threading.
+
+2. Interest in Global Interpretor lock of the Python and presented a topic on
+   "understand gil" to the scientific python community.
+
+3. I have an inclination towards research and occupying myself with interesting
+fundamental problems, and I also have certain ability to translat the answers
+to the fundamental problems to more concrete ones in the products and come out
+with new innovations. This is supported by four inventions that have been filed
+with USPTO by my former employer Dell. They were important contributions even
+in the business, because only 4 out of 600 people in the group had a track
+recording of having 4 or more patents.
+
+4. I plan to contribute to python language further through out the period of my
+   graduate studies. One the areas which I have recognized I will be working on
+   is the networking library modules that would handle ipv6 protocols
+   effectively and url parsing modules for Non English URLS as the IRI
+   (Internationalized Resource Identifiers are becoming common), I would like
+   gain understanding of the Interpretor core and enhancements to it, making
+   improvements to it to make a Python a suitable language for distributed
+   computing tasks.
+
+5. Interests and teaching using Visual Programming Languages like Alice and
+   Mindstorms NXT. The concepts of programming are same, but it increases the
+   ease of programming systems. It affects the way we approach programming.
+
+6. Mentored and led developers in modern design patterns, implementation,
+   debugging, documentation, and testing practices.
+7. Developed various configuration management, simulation, and testing tools
+   utilizing a variety of technologies.
+8. I was awarded "Co-Inventor for the Year 2007" for my Invention disclosures
+   in the Blu-Ray media, which were filed with USPTO.
+9. I was honored with best teacher award by Spastics Society of Karnataka, for
+   teaching Robotics to the students, in the year 2008.
+10. Who Dares wins! An algorithm game where I studied the A* algorithms from
+    Peter Norvig's books, studied the lisp implementations for N puzzle game,
+    and converted them into a two player game using Python and Pygame, SDL
+    library in python. This visulaization of the algorithm helped the players
+    appreciate the computer moves.
+
+11. The Content Search in Blu-Ray is an efficient search algorithm using small
+    moemory because it is an embeded media, it uses the nature data for
+    implmenting the search. The results which of interest to the end user are
+    obtained in an indirect and an effecient by indexing subtitles rather than
+    then video frames.
+
+12. I, Senthil Kumaran, am applying to University of Toronto, for the admission
+    to Masters program, in Computer Science and Engineering with specialization
+    in the field of algorithms.
+
+13. Deep interests in specific fields in computer science and language design,
+    working with smart people and desire to work on hard problems in computer
+    science has motivated me to apply for PhD program.
+
+14. My academic record has been consistently good and secured top position in
+    my class through out the engineering education.
+
+15. At Akamai, I have seen a really good implementation of a standard computer
+    science algorithms and theories. As this company was formed by theoretical
+    computer science experts, I see the implementation of the algorithms like
+    Open Shortest Path first implemented for finding an effective route for
+    packets across the systems.
+
+16. Cryptography systems and Security architecture to prevent any attacks on
+    the Internet. It is standard model in the text books, but understood and
+    implemented very clearly within the company.
+
+17. Cache Oblivious Algorithms has developed a good load balancing algorithms
+    for distributed systems.
+
+18. I would be dependent on finantial aid for my graduate studies, and PhD
+    program with its research assistance stipend will help to meet financial
+    demands.
+
+19. Akamai, is not a content cache network or CDN, but interesting algorithms
+    in effective path finding (OSPF), and challenges in handling software
+    management and deployment on a distributed network (consisting of 50,000
+    computers) play a major role. I have studied the design behind software and
+    have found solid theoritical underpinnings for the design.
+
+20. For my own project of desinging an asynchronous requesting handling server
+    to for distributed log collection from the network, I used a very standard
+    programming model, a reactor pattern, and asynchornous programing using
+    deferreds. The twisted framework provided a neat implmentatin of these has
+    been very stable.
+
+-- 
+
+1. I have had several opportunities to do research.
+2. My career after graduate school is to pursue research in academedia or in
+   Industrial Labs. I would like to solve the persisting problems and also see
+   through the application of the solutions for larger benefit.
+3. I take up a particular problem and pursue it till I find a satisfying
+   logical solution to the problem.
+4. Research Interest in design and implmentation of advanced programming
+   systems, incorporating expressive programming languages, efficient
+   implementations and supportive programming environments.
+
+5. I am specifically interested in Programming Languages, Programming Language
+   development.  I have gained expertise in certain programming languages like
+   Python and C have studied a other many programming languages like C++, Alice
+   and esoteric languages. 
+
+6. Independent thinking experimentation and deriving results. 
+
+7. Being a Python Core developer, I have the value of mutual respect and being
+   honest in the code from the fellow python developers and Guido van Rossum
+   who is a the lead of the project.
+
+8. I have been a volunteer for Spastics Society of Karnataka for more than 4
+   years, I got engaged with students and got interested that I could  utitlize
+   my technical expertise in developing solutions for them. That project took
+   more than 4 years to complete, where I first tried the different solutions
+   in Voice Recognition and Dasher. I was able to successfully design a
+   solution students who could operate their computer independently using
+   Voice. The technology of voice recognition has improved a lot over past 3
+   years, I know how certain technologies can be helpful as an assistive
+   technology. I have also studied the kind of research work that is involved
+   in developing those technologies, like Brown university is involved with
+   Camera Mouse and the Dasher which is a product of Inference Group, UK uses
+   Statistical Markov chain processes in word prediction.
+
+9. Practise the State of art in Software engineering at a leading university
+   such as yours.
+
+10. 
 
 GRE Scores and Academia 
 =======================
@@ -80,9 +451,7 @@ GRE General Test Scores:
     * Registration # 6634-905
 
 Verbal : 530 - Below 68%
-
 Quantitative: 780 - Below 90%
-
 Analytical Writing: 4.0 - Below 33%
 
 Test Scores:
@@ -90,19 +459,15 @@ Test Scores:
 TOEFL Internet Based Test:
 
 Registration: 0000 0000 0587 7817
-
 Test Date: 03 August 2008
 
 
 TOEFL Scaled Scores:
 
 Reading 29
-
 Listening 28
-
 Speaking 28
-
-Writing     22
+Writing 22
 
 Total  107
 
@@ -116,21 +481,29 @@ Score Recipients Requested
 Graduate Institution                    Department
 
 4833                                               0402
-
 5248                                                0402
-
 2074                                                1201
-
 4704                                                0402
 
 Score: 530. Percentile: 08%
 
 http://edulix.com/infobank/index.php  Edulix Info Banks
 
+
+Nov 09
+------
+Registration Number 4614110
+Test Center Number 10044
+Test Date: 11/07/09
+
+Name: Senthil Kumaran
+
 Preparation Notes
 =================
  
 * If thoughts are properly handled, then you can study more and be tired less too - 8th Aug.
+* If you keep a problem prolonged without doing something about it, you might
+  keep missing it and it might 'tend' to become harder than it was initially.
 
 Physical Science Monologues 
 ===========================
@@ -174,8 +547,11 @@ A finite automata is a 5-tuple (Q, E, ∂, q, F), where:
 5) F belongs to Q is the set of accept states.
 
  * Regular Operations are union, concatenation and star.
- * Operator is a unary operator; it attaches any number of strings in A together to get a string in the new language.
- * Generally speaking a collection of objects is closed under some operation, if applying the operation to the members of the collection still returns an object in that collection.
+ * Operator is a unary operator; it attaches any number of strings in A
+   together to get a string in the new language.
+ * Generally speaking a collection of objects is closed under some operation,
+   if applying the operation to the members of the collection still returns an
+   object in that collection.
 
 P vs NP problem
 ===============
@@ -412,7 +788,8 @@ Answer: This is Ramsey's therom. Generalized for k=2. For which the minimum numb
 nodes required is 3.
 
 * Have two sets m and n.
-* Take each node in the graph and if the degree is greater than 1/2 number of remaining nodes add to set m else add to set n.
+* Take each node in the graph and if the degree is greater than 1/2 number of
+  remaining nodes add to set m else add to set n.
 * Take all the nodes that are connected to m and add it set m.
 * All the nodes that are not connected add to the set n.
 * In this way, we have a clique in m and anti-clique or an independent set in n.
@@ -443,12 +820,19 @@ Links
 1) Ramsey Theorem:
 http://www.math.uchicago.edu/~mileti/museum/ramsey.html
 
-In the book proof of Ramsey Theorem, it divides the nodes into connected (forming cliques) and disconnected (forming anti-cliques), but checking if the degree is greater than 1/2 of no. of remaining nodes, is not understood. (It is like is having a theorem and and following a procedure in order to prove the theorem, there is no counter intuitive example given).
+In the book proof of Ramsey Theorem, it divides the nodes into connected
+(forming cliques) and disconnected (forming anti-cliques), but checking if the
+degree is greater than 1/2 of no. of remaining nodes, is not understood. (It is
+like is having a theorem and and following a procedure in order to prove the
+theorem, there is no counter intuitive example given).
 
 Notes 
 =====
 
-* Floyd's contributions include Floyd's algorithms which efficiently finds the shortest paths in a graph and his work on parsing. Concept of error diffusion for rendering images, also called Floyd-Steinberg dithering. Program verification using logical assertions.
+* Floyd's contributions include Floyd's algorithms which efficiently finds the
+  shortest paths in a graph and his work on parsing. Concept of error diffusion
+  for rendering images, also called Floyd-Steinberg dithering. Program
+  verification using logical assertions.
 
 * Chomsky Normal Form. 
 * Grieback Normal Form.
@@ -498,16 +882,24 @@ Video Lecture 2: Closure and Non-Determinism
 * The above method of minimizing involves DFA to NFA and it is exponential time complex.
 * There are better methods using Polynomial Time Complexity using Dynamic Programming Strategy.
 * Union of two machines using NFA.
-* Intersection of two machines ( Using De Morgan's law. WOW!!!) But that is costly again, you can do it by working it out with pair or states as in cartesian product of the two machines. 
-   * Union means the set of accept states are either of the accept states in M1 and M2.
-   * Intersection means that set of accept states are BOTH the accept state in M1 and M2.
+* Intersection of two machines ( Using De Morgan's law. WOW!!!) But that is
+  costly again, you can do it by working it out with pair or states as in
+  cartesian product of the two machines. 
+   * Union means the set of accept states are either of the accept states in M1
+     and M2.
+   * Intersection means that set of accept states are BOTH the accept state in
+     M1 and M2.
 * Union, Intersection and Complement. Any two of the operations are enough and the third one is guaranteed.
 * Complement Operations means changing 1s to 0s.
-* Finding Intersection using Non Determinism is difficult, because Non Determinism does not mix well with OR operations, It mixes well with AND Operation.
-*   NFA ~ DFA ~ REGULAR EXPRESSIONS ~ NFA ( They form a nice group).
-*  Regular Grammars ~ DFA
+* Finding Intersection using Non Determinism is difficult, because Non
+  Determinism does not mix well with OR operations, It mixes well with AND
+  Operation.
+* NFA ~ DFA ~ REGULAR EXPRESSIONS ~ NFA ( They form a nice group).
+* Regular Grammars ~ DFA
 * Trying to represent 0^n^1^n^ can be represented by FSM??
-* Well, if I try it, equal number of 0s and 1s can be represented by FSM, but equal number of 0s followed by equal number of 1s ( this involves counting) cannot be represented by FSM.
+* Well, if I try it, equal number of 0s and 1s can be represented by FSM, but
+  equal number of 0s followed by equal number of 1s ( this involves counting)
+  cannot be represented by FSM.
 * Anything that involves counting cannot be represented by FSM.
 * The FSM can also be tested using Pumping Lemma, because they test a particular kind of regularity.
 * Regular sets can be pumped out at Regular Intervals and are identified by pumping lemma. 
@@ -546,18 +938,6 @@ ACM Meeting
 * When asked about the advice for pursing a PhD, he suggested the path of MS and PhD.
 * I could also sense or felt, that if I want something, I should know how to get it. 
 
-Statement of Purpose 
---------------------
-
-Some References:
-
-http://www.engineergirl.org/?id=3046
-
-Maths: 780/800
-12th: 198/200
- 
-
-
 Pumping Lemma
 -------------
 
@@ -581,12 +961,18 @@ Pumping Lemma
 * That is the idea of closure.
 * Diagnolization - Have you known it yet?
 * Can a FSM recognize one of its own kind? It is not regular.
-* Turing machines can recognize FSMs. Turing machines can recognize their own kind, but cannot identify properties of their own kind.
-*  ->RE->DFM->NDFM  ( Linear Grammer) - Grammer way of looking at set.
-* Productions of Grammer to generate some strings.  Using the productions is called derivations and get a string.
-* Linear Grammers. Single Capital Letter on the LHS, the RHS consists of a small letter(terminal) and a capital letter ( non terminal). The terminal comes in the left, it is a left Linear Grammar.
-* Context Free Grammer - A Single Non Terminal Symbol on the Left and Right side can be anything. Linear Grammer is a subset of Context Free Grammer. 
-* Left linear grammer and right linear grammer are the same. One can be converted to another.
+* Turing machines can recognize FSMs. Turing machines can recognize their own
+  kind, but cannot identify properties of their own kind.
+* ->RE->DFM->NDFM  ( Linear Grammer) - Grammer way of looking at set.
+* Productions of Grammer to generate some strings.  Using the productions is
+  called derivations and get a string.
+* Linear Grammers. Single Capital Letter on the LHS, the RHS consists of a
+  small letter(terminal) and a capital letter ( non terminal). The terminal
+  comes in the left, it is a left Linear Grammar.
+* Context Free Grammer - A Single Non Terminal Symbol on the Left and Right
+  side can be anything. Linear Grammer is a subset of Context Free Grammer. 
+* Left linear grammer and right linear grammer are the same. One can be
+  converted to another.
 * Grammers by their nature are non-deterministic.
 
 Big O Notation
@@ -673,20 +1059,31 @@ Minimizing Finite State Machines
 * That is the basis of equivalence relation.
 * In the matrix, seperate the distinguishable states into sets.  (AFDC) and (BE).
 * That is kind of Non Determinisitic Machine.
-* Minising FSM is commomly used, when you write the opcodes and then you want to minimize it implement it in the architecture.
+* Minising FSM is commomly used, when you write the opcodes and then you want
+  to minimize it implement it in the architecture.
 * Dependency Graph drawing it from the Matrix.
-* Any kind of search over the graph from the dependency graph will give depdency. the 2(nC2) = n(n-1)
-* Funny way, suttle way to represent and work with the graph and transmitting the operation with back arrows.
-* Backtracking it easy to put an X than say searching if the backtracked note already has an X.
-* That was a reduced one for "Every string that does not have 1 in the second position".
-* Graph Traversal vs Diagonalization method. Complexity analysis. The Diagonalization involves backtracking. But that the worst case of backtracking for going to every single state for every single value is never going to happen. Because in each loop we go about cancel symbols.
+* Any kind of search over the graph from the dependency graph will give
+  depdency. the 2(nC2) = n(n-1)
+* Funny way, suttle way to represent and work with the graph and transmitting
+  the operation with back arrows.
+* Backtracking it easy to put an X than say searching if the backtracked note
+  already has an X.
+* That was a reduced one for "Every string that does not have 1 in the second
+  position".
+* Graph Traversal vs Diagonalization method. Complexity analysis. The
+  Diagonalization involves backtracking. But that the worst case of
+  backtracking for going to every single state for every single value is never
+  going to happen. Because in each loop we go about cancel symbols.
 * Different way of doing it by a student. Do you stay in the same group (ABCD) and or different group (EF).
 * Hopcraft and Ullman for reducing the FSM in nlogn times.
 * Switch Gears:  What questions can we answer about FSM?
-* Lex: Describe the FSM and given the Input string and it says whether it accepts or not.
+* Lex: Describe the FSM and given the Input string and it says whether it
+  accepts or not.
 * We can answer almost everything about FSM.
 * Membership question.
-* Are two FSM equal? Graph Isomorphism problem - Given two graphs are they same. (You got to relabel the graph and see if there is a set of labels that match. But that takes N! times)
+* Are two FSM equal? Graph Isomorphism problem - Given two graphs are they
+  same. (You got to relabel the graph and see if there is a set of labels that
+  match. But that takes N! times)
 * Start with a graph and re-label the other nodes till you get a match.
 * If two FSMS are equal, if you calculate their difference A-B = 0. 
 * A-B = A ⋂ ~B
@@ -697,19 +1094,25 @@ Minimizing Finite State Machines
 * Remind of the Discrete Math. Intersection is AND, Union is OR, Complement is NOT.
 * A ⊆ B means A -> B (A implies B). 
 * Decidable means can be done or not?
-* Only thing that cna be done from next level is membership problem.
+* Only thing that can be done from next level is membership problem.
 * There are not any interesting undecidable questions in FSM.
 * Any non-trivial property of turing machine is undecidable.
 * A Trival property of Turing machine is How many states it has?
 
-Asymptote is a tangent to a curve at infinity. Something that is asymptotic relates to an asymptote, which is defined as "A Line whose distance to a given curve tends to zero."
+Asymptote is a tangent to a curve at infinity. Something that is asymptotic
+relates to an asymptote, which is defined as "A Line whose distance to a given
+curve tends to zero."
 
-Something asymptotic refers to a limiting behaviour based on a single variable and a desired measure.
-A common notation that removes constants is called Big O notation, where O means "order of".
-Big O denotes the upper bound, how much the time complexity will grow. If we say that a function is O(N) then if N doubles, the funtion's time complexity at most will double.
+Something asymptotic refers to a limiting behaviour based on a single variable
+and a desired measure.  A common notation that removes constants is called Big
+O notation, where O means "order of".  Big O denotes the upper bound, how much
+the time complexity will grow. If we say that a function is O(N) then if N
+doubles, the funtion's time complexity at most will double.
 
 I don't understand this aspect:
-But because the array is split in half each time, the number of steps is always going to be equal to the base-2 logarithm of N, which is considerably less than O(N).
+But because the array is split in half each time, the number of steps is always
+going to be equal to the base-2 logarithm of N, which is considerably less than
+O(N).
 
 http://www.eternallyconfuzzled.com/jsw_home.aspx
 
@@ -725,11 +1128,16 @@ The Art of Sorting
 * The Lowest possible bound for most sorting algorithms is Ω(N logN).
 * There must be as many leaves as the permutations of the algorithm to be correct.
 * It is possible to meet the safe lower bound of O(N) for sorting.
-* Selection Sort is not a viable option for things that come through input an stream or random number generator. The array has been completely filled in before it is sorted.
-* In the selection sort, if you swap the items (the largest vs n), then you displace the items of their original relative order.
-* But thats not the case when you kind of shift the items one after the other, so it remains stable in this case, albeit taking a lot of space and time.
+* Selection Sort is not a viable option for things that come through input an
+  stream or random number generator. The array has been completely filled in
+  before it is sorted.
+* In the selection sort, if you swap the items (the largest vs n), then you
+  displace the items of their original relative order.
+* But thats not the case when you kind of shift the items one after the other,
+  so it remains stable in this case, albeit taking a lot of space and time.
 * Stable Selection Sort. Understand it.
-* Priority Queue can be used to do a selection sort. The best known priority queue implmentation is done with a max_heap.
+* Priority Queue can be used to do a selection sort. The best known priority
+  queue implmentation is done with a max_heap.
 * Max Heap is a complete binary tree, wherein the children of a node cannot be larger than the parent.
 * In a valid max heap, the largest item is the root of the tree.
 * Heap Sort has the worst case as the same complexity as the average case.
@@ -854,13 +1262,21 @@ Video 6. Relationship with Compilers
 * Compiling a programming language.
 * Chomsky Normal Form.
 * Convert the Context Free Language to Chomsky normal form.
-* Motivation for Chomsky Normal Form. Every string of length n is derivable from (2n-1) steps.
-* Try every simple production to the depth of 2n-1, if it does not success it fails. If 3 nodes then 3^(2n-1)^ choices exists. It is decidable, but exponential time algorithm.
-* Chomsky Normal Form helps with Proof of Pumping Lemma for Context Free Languages.
-* Context Free Grammars are equivalent to Non Deterministic Push Down Machine. This equivalence becomes easy to prove of the grammar is in Chomsky Normal form.
+* Motivation for Chomsky Normal Form. Every string of length n is derivable
+  from (2n-1) steps.
+* Try every simple production to the depth of 2n-1, if it does not success it
+  fails. If 3 nodes then 3^(2n-1)^ choices exists. It is decidable, but
+  exponential time algorithm.
+* Chomsky Normal Form helps with Proof of Pumping Lemma for Context Free
+  Languages.
+* Context Free Grammars are equivalent to Non Deterministic Push Down Machine.
+  This equivalence becomes easy to prove of the grammar is in Chomsky Normal
+  form.
 * Every CFG has an "equivalent" NPDM.
 * Push Down Machine is a FSM which can push and pop symbols from a stack.
-* Good Algorithm for membership in Context Free Grammar. The CYK O(n^3^) algorithm for membership, this is easy if the Grammar is in Chomsky Normal Form. But there are linear grammars for this.
+* Good Algorithm for membership in Context Free Grammar. The CYK O(n^3^)
+  algorithm for membership, this is easy if the Grammar is in Chomsky Normal
+  Form. But there are linear grammars for this.
 *  *Connection between Compilers and Context Free Languages*
 
 :: 
@@ -899,7 +1315,7 @@ Recitation Video 3 - Theory of Computation
 Video 8 - Theory of Computation
 -------------------------------
 
-* NDPM is different from DPM>
+* NDPM is different from DPM
 * CFG => NPDM
 * LR(K) Grammars are equivalent to DPDM.
 
@@ -960,12 +1376,17 @@ Discrete Maths
 Graph Theory
 ------------
 
-* In graph theory, an independent set or stable set is a set of vertices in a graph no two of which are adjacent. Exciting!
+* In graph theory, an independent set or stable set is a set of vertices in a
+  graph no two of which are adjacent. Exciting!
 * Maximum independent set problem is a NP-Complete Problem.
-* Disjoint set, two sets A and B are disjoint if they have no element in common.
+* Disjoint set, two sets A and B are disjoint if they have no element in
+  common.
 * A Bipartite graph does not contain any odd length cycles.
  
-I discovered later that I wasn’t even a very good C programmer, hiding my ignorance of structures, _malloc( ) and free( ), setjmp( ) and longjmp( ),_ and other “sophisticated” concepts, scuttling away in shame when the subjects came up in conversation instead of reaching out for new knowledge.
+I discovered later that I wasn’t even a very good C programmer, hiding my
+ignorance of structures, _malloc( ) and free( ), setjmp( ) and longjmp( ),_ and
+other “sophisticated” concepts, scuttling away in shame when the subjects came
+up in conversation instead of reaching out for new knowledge.
 
 * The concept of implementation hiding cannot be overemphasized.
 
@@ -1093,20 +1514,12 @@ problems in Kernighan and Ritchie (sometimes honestly and some times not-so
 honestly) and started trying for moving to a Developers role. I got some
 breakthrough in a developer in test inside Automation team and then I joined
 the Python Core Developers through Google's Summer of Code Program. I started
-working on enhancing hte urllib module and now I am currently the maintainer of
+working on enhancing the urllib module and now I am currently the maintainer of
 the urllib module. I fix bugs on the module and entertain the feature requests
 that come in. I also participate in the discussions in the evolution of Python
 language and library. I plan to carry with this task (possibly increasing my
 contributions) through out my post-graduation studies as well.
 
-
-Schools
-=======
-
-* California Institute, Parsadena, CA
-* Univ of CA, Santa Barbara.
-* Univ of C, Davis.
-* OSU
 
 Programming
 ===========
@@ -1147,14 +1560,6 @@ Visual Programming Language Links
 ---------------------------------
 
 [http://en.wikipedia.org/wiki/Logo_(programming_language) Logo Programming Language]
-
-
-Russ Balest's Resume:
----------------------
-
-* Created fault-tolerant distributed component systems comprising core enterprise infrastructure. The system ran on a global network of over 12,000 servers. C++ and XML were the primary languages used.
-* Mentored and led developers in modern design patterns, implementation, debugging, documentation, and testing practices.
-* Developed various configuration management, simulation, and testing tools utilizing a variety of technologies.
 
 
 Visual Programming Enviroments
