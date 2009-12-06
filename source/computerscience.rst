@@ -436,7 +436,22 @@ recording of having 4 or more patents.
 9. Practise the State of art in Software engineering at a leading university
    such as yours.
 
-10. 
+10. I find the problems in the field of ____ as challenging areas for
+    research., 
+
+11. As a computer science student, I had a final percentage of 76% in my
+    University exams and stood 8th in my class of 60. 
+
+12. Python Standard Library work involved the research of Internet Standards,
+    understanding the RFC specifications for developing Internet libraries and
+    working with expertise to implement those specifications.
+
+13. I initiated the Robotics club and taught design of robotics and programming
+    to students.
+
+14. Pursing a PhD at ____ would enable me to study and contribute to the
+    research in the field of ____.
+
 
 GRE Scores and Academia 
 =======================
