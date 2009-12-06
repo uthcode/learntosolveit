@@ -1,6 +1,0 @@
-Influences
-----------
-1) University of Toronto - Canada: AleaActaEst in the Topcoder winner.
-2) University of Colorado, Boulder: Squid proxy developer is from there.
-3) SUNY Buffalo: some network tool developer ( most commonly used in Akamai) is from there.
-4) University of Glasgow - Mark Shannon presented at Europython.
