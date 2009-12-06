@@ -20,23 +20,23 @@ percentage in the University Examinations, and stood 8th in my class of 60.
 
 I undertook certificate courses in Artificial Intelligence and Cryptography at
 Indian Institute of Science, Bangalore in 2008, Those courses presented me with
-an oppurtunity to work on interesting theoretical problems in Crypography, and
+an opportunity to work on interesting theoretical problems in Cryptography, and
 study of mathematics involved in the various cryptographic algorithms. I
 secured very good grades in those courses too.
 
 Who Dares wins! An algorithm game where I studied the A* algorithms from Peter
 Norvig's books, studied the lisp implementations for N puzzle game, and
 converted them into a two player game using Python and Pygame, SDL library in
-python. This visulaization of the algorithm helped the players appreciate the
+python. This visualization of the algorithm helped the players appreciate the
 computer moves.
 
 As a software engineer in the Computer Industry for 7 years, I have worked on
 wide range of projects in a variety of role ranging from technical support to
-architecting a software products. I have also worked as a independent
+architect of software products. I have also worked as a independent
 consultant for companies assisting in development of Internal Software
-Infrastrcture.
+Infrastructure.
 
-I have developed various automation, simulation, configution management, and
+I have developed various automation, simulation, configuration management, and
 testing tools utilizing a variety of technologies. I have mentored and led
 developers in modern design patterns, implementation, debugging, documentation,
 and testing practices. These skills and experience would be helpful to me as a
@@ -49,9 +49,9 @@ This is supported by four invention disclosures that have been filed with USPTO
 during my employment with Dell India Research and Development Center.
 
 The Content Search in Blu-Ray is an efficient search algorithm using small
-moemory because it is an embeded media, it exploits the peculiar nature of data
-for implmenting the search in BluRay media. The results which of interest to
-the end user are obtained in an indirect and an effecient by indexing subtitles
+memory because it is an embedded media, it exploits the peculiar nature of data
+for implementing the search in Blu-Ray media. The results which of interest to
+the end user are obtained in an indirect and an efficient by indexing subtitles
 rather than then video frames.
 
 I was awarded "Co-Inventor for the Year 2007" for my Invention disclosures in
@@ -66,9 +66,9 @@ Oblivious Algorithms has developed a good load balancing algorithms for
 distributed systems. And current focus on algorithms geared towards distributed
 computing,i.e. cloud architecture.
 
-For my own project of desinging an asynchronous requesting handling server to
+For my own project of designing an asynchronous requesting handling server to
 for distributed log collection from the network, I used a very standard
-programming model, a reactor pattern, and asynchornous programing using
+programming model, a reactor pattern, and asynchronous programing using
 deferreds. The twisted framework provided a neat implementation of these has
 been very stable.
 
@@ -122,8 +122,8 @@ Interests and teaching using Visual Programming Languages like Alice and
 Mindstorms NXT. 
 
 I have come to know good programmers from University of Toronto from Topcoder
-competitions and have also know Prog Greg through his books like Beautiful Code
-and his writings and snippets in Python.
+competitions and have also know Prof. Greg Wilson, through his books likel
+"Beautiful Code" and his writings and snippets in Python.
 
-I would be dependent on finantial aid for my graduate studies, and PhD program
+I would be dependent on financial aid for my graduate studies, and PhD program
 with its research assistance stipend will help to meet financial demands.
