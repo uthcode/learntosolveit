@@ -4,8 +4,8 @@ Application for Ph.D in Computer Science, specializing in algorithms, theory of
 computation, programming languages and distributed systems.
 
 I am interested in pursuing research in Computer Science at University of
-Toronto, specializing in algorithms and study of fields such as theory of
-computation, programming language design and distributed systems.  I have a
+Toronto, specializing in algorithms and study of related fields such as theory
+of computation, programming language design and distributed systems.  I have a
 keen interest in developing algorithms for modeling and solving real world
 problems.
 
@@ -22,14 +22,13 @@ I undertook certificate courses in Artificial Intelligence and Cryptography at
 Indian Institute of Science, Bangalore in 2008. Those courses presented me with
 an opportunity to work on interesting theoretical problems in Cryptography, and
 study of mathematics involved in the various cryptographic algorithms. I
-secured very good grades in those courses too. I developed two players using
-the AI algorithms, I studied during the course.
+secured very good grades in those courses too. I developed two player games using
+the A* algorithm.
 
 As a software engineer in the Computer Industry for 7 years, I have worked on
-wide range of projects and in a variety of role ranging from technical support
-to architect of software products. I have also worked as a independent
-consultant for companies assisting in development of Internal Software
-Infrastructure.
+wide range of projects, in a variety of role ranging from technical support to
+an architect. I have also worked as a independent consultant for companies
+assisting in development of Internal Software Infrastructure.
 
 I have developed various automation, simulation, configuration management, and
 testing tools utilizing a variety of technologies. I have mentored and led
@@ -85,34 +84,35 @@ sorting the elements in the language while providing higher level sort
 interface to the programmer.
 
 I plan to contribute to python language further through out the period of my
-graduate studies. One the areas which I have recognized I will be working on is
-the networking library modules that would handle ipv6 protocols effectively and
-url parsing modules for Non English URLS as the IRI (Internationalized Resource
-Identifiers are becoming common), I would like gain understanding of the
-Interpretor core and enhancements to it, making improvements to it to make a
-Python a suitable language for distributed computing tasks.
+graduate studies and research. One the areas which I have recognized I will be
+working on is the networking library modules that would handle ipv6 protocols
+effectively and url parsing modules for Non English URLS as the IRI,
+Internationalized Resource Identifiers, are becoming common, I would like gain
+understanding of the Interpretor core and enhancements to it, making
+improvements to it to make a Python a suitable language for distributed
+computing tasks.
 
-As I was planning to get into academia, my self-study of computer science
+As I am planning to get into academia, my self-study of computer science
 subjects involved attending to online lectures of Dr. Shai Simonson at Ars
-Digita Uni web. I am inspired by his way of teaching computer science which
-essentially focussed on gaining an insight and a right intuition of the problem
-to come up with effective solutions.  I had undertaken solving all problem in
-K&R and other interesting problems in different programming languages.
+Digita Uni website. I am inspired by his way of teaching computer science which
+essentially focusses on gaining an insight and the right intuition for the
+problem to come up with effective solutions.  I had undertaken the task of
+solving all problem in K&R and other interesting problems in different
+programming languages.
 
-Research on technologies that are helpful to people. I have studied and used
-Dasher for an alternative text input system. Researched a lot in Voice
-Recognition and have used it for providing a good computing interface for
-people which disability and who could operate computers which voice.
+I have special interest in Research on technologies that are helpful to people
+with disabilities.  I have studied and used Dasher for an alternative text
+input system. Researched a lot in Voice Recognition and have used it for
+providing a good computing interface for people which disability and who could
+operate computers which voice.
 
 I was honored with best teacher award by Spastics Society of Karnataka, for my
 volunteer work and teaching Robotics to the students, in the year 2008.
 
-Interests and teaching using Visual Programming Languages like Alice and
-Mindstorms NXT. 
 
-I have come to know good programmers from University of Toronto from Topcoder
-competitions and have also know Prof. Greg Wilson, through his books likel
-"Beautiful Code" and his writings and snippets in Python.
+I have come to know good programmers from University of Toronto through
+Topcoder competitions and have also know Prof. Greg Wilson, through his books
+likel "Beautiful Code" and his writings and snippets in Python.
 
 I would be dependent on financial aid for my graduate studies, and PhD program
 with its research assistance stipend will help to meet financial demands.
