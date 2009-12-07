@@ -1,118 +1,80 @@
 University of Toronto
 
-Application for Ph.D in Computer Science, specializing in algorithms, theory of
-computation, programming languages and distributed systems.
+I would like to pursue research in Computer Science at the University of
+Toronto, specializing in algorithms and study of related fields such as the
+theory of computation, programming language design and distributed systems.  I
+have a keen interest in developing algorithms for modeling and solving real
+world problems.
 
-I am interested in pursuing research in Computer Science at University of
-Toronto, specializing in algorithms and study of related fields such as theory
-of computation, programming language design and distributed systems.  I have a
-keen interest in developing algorithms for modeling and solving real world
-problems.
+As a PhD student, I would like to embark on a career devoted to the development
+of computer science which will involve teaching and research on the development
+of better software. My Industry experience and my interests render me perfect
+for such a role.
 
-As a PhD student, I would embark on a career devoted to development of computer
-science. I would be engaged in research and teaching on how to develop better
-software. My Industry experience and my interests would make me suitable for
-such a role.
+My undergraduate studies were completed at the National Engineering College,
+India, in the year 2002. Here, I majored in Computer Science and Engineering
+and secured an aggregate of 78% in the University examinations, and was ranked
+8th in my class of 60. 
 
-I attended National Engineering College in India where I majored in Computer
-Science and Engineering in the year 2002. I secured 78% as the aggregate
-percentage in the University examinations, and stood 8th in my class of 60. 
+My certificate course in Artificial Intelligence and Cryptography at the Indian
+Institute of Science, Bangalore, 2008 provided me with the opportunity to work
+on interesting, theoretical problems in Cryptography, and in the study of
+mathematics involved in the various cryptographic algorithms. Not only did I
+secure excellent grades in the course, but I also developed two player games
+using the A* algorithm. 
 
-I undertook certificate courses in Artificial Intelligence and Cryptography at
-Indian Institute of Science, Bangalore in 2008. Those courses presented me with
-an opportunity to work on interesting theoretical problems in Cryptography, and
-study of mathematics involved in the various cryptographic algorithms. I
-secured very good grades in those courses too. I developed two player games using
-the A* algorithm.
+I also undertook the courses offered by Ars Digita Univ, especially the
+algorithms courses offered by Prof. Shai Simonson.  I am inspired by his way of
+teaching computer science, which essentially focusses on gaining an insight and
+the right intuition for the problem to come up with effective solutions.
 
 As a software engineer in the Computer Industry for 7 years, I have worked on
-wide range of projects, in a variety of role ranging from technical support to
-an architect. I have also worked as a independent consultant for companies
-assisting in development of Internal Software Infrastructure.
+wide range of projects, in a variety of roles ranging from technical support to
+an architect. I have also worked as an independent consultant for companies
+assisting in the development of Internal Software Infrastructure.
 
-I have developed various automation, simulation, configuration management, and
-testing tools utilizing a variety of technologies. I have mentored and led
-developers in modern design patterns, implementation, debugging, documentation,
-and testing practices. These skills and experience would be helpful to me as a
-teaching assistant and a research scholar.
+Over the years, I have developed various automation, simulation, configuration
+management, and testing tools utilizing a variety of technologies. I have
+mentored and led developers in modern design patterns, implementation,
+debugging, documentation, and testing practices. 
 
-I have shown inclination towards research work and occupied myself with
-interesting fundamental problems. I have also shown the ability to translate
-the solutions for the problems into innovative product implementations.
+Very early in my career, I have veered towards research work and occupied
+myself with interesting fundamental problems,  the solutions for which, I have
+been able to successfully translate into innovative product implementations.
 This is supported by four invention disclosures that have been filed with USPTO
-during my employment with Dell India Research and Development Center.
+during my employment with Dell India Research and Development Center. I was
+awarded "Co-Inventor of the Year 2007" for making significant contributions to
+Dell's Patent portfolio.
 
-The content search in Blu-Ray is an efficient search algorithm using small
-memory footprint in an embedded media. It exploits the peculiar nature of
-sample space data. The result, which of interest to the user, are obtained in
-an indirect and an efficient method of indexing subtitles rather than then
-video frames.
+At Akamai, I have seen good implementations of a standard Computer Science
+algorithms and theories in practise. As Akamai was founded by theoretical
+computer science experts, I find algorithms like Open Shortest Path First,
+cache oblivious algorithms playing an important function in the service
+offerings.
 
-I was awarded "Co-Inventor for the Year 2007" for my Invention disclosures in
-the Blu-Ray media, which were filed with USPTO.
-
-At Akamai, I have seen a certain good implementation of a standard computer
-science algorithms and theories in practise. As Akamai was founded by
-theoretical computer science experts, I see the implementation of the
-algorithms like Open Shortest Path First implemented for finding an effective
-route for packets across the systems as one of core technologies.  Cache
-Oblivious Algorithms has developed a good load balancing algorithms for
-distributed systems. And current focus on algorithms geared towards distributed
-computing and video streaming, i.e. cloud architecture.
-
-I have been involved with designing asynchronous request handling server which
-can fetch data on requests. I have studied concurrency and threading for
-implementing this solution.
+The rich repertoire of skills and experience that I have gained as a result of
+these experiences would be immensely helpful to me as  a teaching assistant and
+research scholar.
 
 I got involved with Python language development through Google Summer of Code
 program in 2007. I worked on enhancing the standard library modules. With my
 regular contributions, I have become the maintainer for urllib module in Python
-language 3. Working on a large scale open source project involved a constant
-research of Internet RFCs, and developing code adherent to strict standards. It
-also helped me to understand the distributed nature of Open Source Development.
+language 3. Apart from the technical skills, Python project has taught me the
+social skills which are required to work with a diverse group of developers.  I
+have been inspired by developers of Python like Guido van Rossum, Martin Von
+Lowis and other contributers. I plan to contribute further to the Python
+language, in the areas related to Internet modules and interpreter.
 
-Apart from the technical skills, that important social skills that Python
-language project has taught me is to be respectful and considerate of others
-views. I have been inspired by developers of Python like Guido van Rossum,
-Martin Von Lowis and other contributers who work compiler architecture,
-floating pointing operations and performance improvement.
+I have special interest technologies that are helpful to people with
+disabilities. I have helped my friends who are disabled, to use dasher and
+voice recognition systems to interact with computers.  I was honored with best
+teacher award by Spastics Society of Karnataka, for my volunteer work and
+teaching Robotics to the students, in the year 2008.
 
-"Algorithms in Python" where I demonstrated all the common algorithm problems
-in Python, explaining the complexity of each solution. I studied the kind of
-sorting algorithm, timsort,  that is going inside the language interpretor for
-sorting the elements in the language while providing higher level sort
-interface to the programmer.
-
-I plan to contribute to python language further through out the period of my
-graduate studies and research. One the areas which I have recognized I will be
-working on is the networking library modules that would handle ipv6 protocols
-effectively and url parsing modules for Non English URLS as the IRI,
-Internationalized Resource Identifiers, are becoming common, I would like gain
-understanding of the Interpretor core and enhancements to it, making
-improvements to it to make a Python a suitable language for distributed
-computing tasks.
-
-As I am planning to get into academia, my self-study of computer science
-subjects involved attending to online lectures of Dr. Shai Simonson at Ars
-Digita Uni website. I am inspired by his way of teaching computer science which
-essentially focusses on gaining an insight and the right intuition for the
-problem to come up with effective solutions.  I had undertaken the task of
-solving all problem in K&R and other interesting problems in different
-programming languages.
-
-I have special interest in Research on technologies that are helpful to people
-with disabilities.  I have studied and used Dasher for an alternative text
-input system. Researched a lot in Voice Recognition and have used it for
-providing a good computing interface for people which disability and who could
-operate computers which voice.
-
-I was honored with best teacher award by Spastics Society of Karnataka, for my
-volunteer work and teaching Robotics to the students, in the year 2008.
-
-
-I have come to know good programmers from University of Toronto through
-Topcoder competitions and have also know Prof. Greg Wilson, through his books
-likel "Beautiful Code" and his writings and snippets in Python.
+I known good programmers from University of Toronto through Topcoder
+competitions and have also known Prof. Greg Wilson, through his books like
+"Beautiful Code" and his writings and snippets in Python. This influenced me
+positively to apply to University of Toronto.
 
 I would be dependent on financial aid for my graduate studies, and PhD program
 with its research assistance stipend will help to meet financial demands.
