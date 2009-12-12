@@ -409,3 +409,10 @@ Antoine.
 
 
 
+This is meant to prohibit the latency-adverse behaviour on multi-core machines
+where one thread would speculatively release the GIL, but still run and end up
+being the first to re-acquire it, making the "timeslices" much longer than
+expected.
+
+     (Note: this mechanism is enabled with FORCE_SWITCHING above)
+
