@@ -15,30 +15,16 @@ Studies related
 * Bruce Maggs is from CMU, can take advice.
 * The lead developer of Sage is  William Stein from University of Washington.
 * Les Earnest the inventor of finger is from MIT and currently a staff at Stanford.
-* John Resig, a Javascript pioneer and inventor of JQuery is from http://www.rit.edu/  Rochester Institute of Technology.
+* John Resig, a Javascript pioneer and inventor of JQuery is from
+  http://www.rit.edu/  Rochester Institute of Technology.
 * Greg Wilson, mentor of many GSOC projects and author of beautiful code is a professor at University of Toronto.
 * http://www.ics.uci.edu/~eppstein/research.html David Eppstein is a professor at University of California, Irvine.
 * University of North Carolina at Chapel Hill
 * http://www.cra.org/reports/forsythe.html
-
 * http://ram.umd.edu/
 * http://cs.washington.edu/homes/arvind
 
-Joseph Lisee - CMU Robotics Program.
-
-Juliana Freire (University of Utah and VisTrails Inc.) bio
-Juliana Freire is an Associate Professor at the School of Computing at the
-University of Utah and a member of the Scientific Computing and Imaging
-Institute. Before, she was member of technical staff at the Database Systems
-Research Department at Bell Laboratories (Lucent Technologies) and an Assistant
-Professor at OGI/OHSU. An important theme is Professor Freire's work is the
-development of data management technology to address new problems introduced by
-emerging applications, including the Web and scientific applications. Her
-recent research has focused on two main topics: scientific data management and
-Web mining.
-
 http://www.cs.washington.edu/homes/arvind/
-
 
 Universities to Apply
 ---------------------
@@ -57,6 +43,9 @@ Distrubuted Systems.
 9. Univeristy of Delaware
 10. Umass Amherst.
 11. Portland State University.
+
+Done
+----
 
 Deadlines
 ---------
@@ -110,42 +99,6 @@ https://www.ece.cmu.edu/prospective/graduate/application/  - Dec 15
 * Univ of C, Davis.
 * OSU
 
-General Guidelines for SOP
-
-1. What are your goals?
-2. What courses do you wish to take?
-3. What labs are you looking at?
-4. What is your proposed career path as things stand right now?
-
-
-Statement of Purpose
-
-Prepare a concise one or two page essay that describes your primary areas of
-interest for research, your related experiences, and your objective in pursuing
-a graduate degree at Carnegie Mellon. Your essay should be specific in
-describing your interests and motivations. When describing your research
-interests, you should explain why you think they are important areas of study
-and why you are particularly well-suited to pursue them. You should describe
-any relevant education, research, commercial, government, or teaching
-experience. If you are applying to more than one program, you may (but are not
-required to) submit a separate Statement of Purpose for each program. If you
-are submitting different statements, please upload as one file. Include your
-name and User ID on the essay.
-
-Tips:
-1. Revise your essay at least three times.
-
-Software Engineering applicants: Concisely summarize your background in
-software development, experience with particular phases of software development
-activity, and how your industrial experience prepares you for graduate-level
-academic work. Submit this information in the Supplemental Information section
-under Experience (Research, Industry). 
-
-It is your chance to demonstrate your unique qualifications for and commitment
-to your chosen field. How? By discussing those experiences, people, and events
-that inspire you to pursue it.It is your chance to demonstrate your unique
-qualifications for and commitment to your chosen field. How? By discussing
-those experiences, people, and events that inspire you to pursue it.
 
 
 Statement of Purpose
@@ -458,7 +411,7 @@ GRE Scores and Academia
 
 + General Test Scores: *Verbal: 530. Quants: 780. AWA: 4.0*
 + TOEFL Scores: *Reading: 29, Listening: 28, Speaking: 28, Writing: 22, Total: 107*
-+ Bachelor of Engineering, Computer Science. 1998-2002. *Final Percentage: 76.8%* 
++ Bachelor of Engineering, Computer Science. 1998-2002. *Final Percentage: 77.3%* 
 
 GRE General Test Scores:
 
@@ -561,12 +514,14 @@ A finite automata is a 5-tuple (Q, E, ∂, q, F), where:
 4) q belongs to Q is the start state.
 5) F belongs to Q is the set of accept states.
 
- * Regular Operations are union, concatenation and star.
- * Operator is a unary operator; it attaches any number of strings in A
-   together to get a string in the new language.
- * Generally speaking a collection of objects is closed under some operation,
-   if applying the operation to the members of the collection still returns an
-   object in that collection.
+* Regular Operations are union, concatenation and star.
+
+* Operator is a unary operator; it attaches any number of strings in A together
+  to get a string in the new language.
+
+* Generally speaking a collection of objects is closed under some operation, if
+  applying the operation to the members of the collection still returns an
+  object in that collection.
 
 P vs NP problem
 ===============
