@@ -1,0 +1,82 @@
+University of Toronto
+
+I would like to pursue research in Computer Science at the University of
+Toronto, specializing in algorithms and study of related fields such as the
+theory of computation, programming language design and distributed systems.  I
+have a keen interest in developing algorithms for modeling and solving real
+world problems.
+
+As a PhD student, I would like to embark on a career devoted to the development
+of computer science which will involve teaching and research on the development
+of better software. My Industry experience and my interests render me perfect
+for such a role.
+
+My undergraduate studies were completed at the National Engineering College,
+India, in the year 2002. Here, I majored in Computer Science and Engineering
+and secured an aggregate of 78% in the University examinations, and was ranked
+8th in my class of 60. 
+
+My certificate course in Artificial Intelligence and Cryptography at the Indian
+Institute of Science, Bangalore, 2008 provided me with the opportunity to work
+on interesting, theoretical problems in Cryptography, and in the study of
+mathematics involved in the various cryptographic algorithms. Not only did I
+secure excellent grades in the course, but I also developed two player games
+using the A* algorithm. 
+
+I also undertook the courses offered by Ars Digita Univ, especially the
+algorithms courses offered by Prof. Shai Simonson.  I am inspired by his way of
+teaching computer science, which essentially focusses on gaining an insight and
+the right intuition for the problem to come up with effective solutions.
+
+As a software engineer in the Computer Industry for 7 years, I have worked on
+wide range of projects, in a variety of roles ranging from technical support to
+an architect. I have also worked as an independent consultant for companies
+assisting in the development of Internal Software Infrastructure.
+
+Over the years, I have developed various automation, simulation, configuration
+management, and testing tools utilizing a variety of technologies. I have
+mentored and led developers in modern design patterns, implementation,
+debugging, documentation, and testing practices. 
+
+Very early in my career, I have veered towards research work and occupied
+myself with interesting fundamental problems,  the solutions for which, I have
+been able to successfully translate into innovative product implementations.
+This is supported by four invention disclosures that have been filed with USPTO
+during my employment with Dell India Research and Development Center. I was
+awarded "Co-Inventor of the Year 2007" for making significant contributions to
+Dell's Patent portfolio.
+
+At Akamai, I have seen good implementations of a standard Computer Science
+algorithms and theories in practise. As Akamai was founded by theoretical
+computer science experts, I find algorithms like Open Shortest Path First,
+cache oblivious algorithms playing an important function in the service
+offerings.
+
+The rich repertoire of skills and experience that I have gained as a result of
+these experiences would be immensely helpful to me as  a teaching assistant and
+research scholar.
+
+I got involved with Python language development through Google Summer of Code
+program in 2007. I worked on enhancing the standard library modules. With my
+regular contributions, I have become the maintainer for urllib module in Python
+language 3. Apart from the technical skills, Python project has taught me the
+social skills which are required to work with a diverse group of developers.  I
+have been inspired by developers of Python like Guido van Rossum, Martin Von
+Lowis and other contributers. I plan to contribute further to the Python
+language, in the areas related to Internet modules and interpreter.
+
+I have special interest technologies that are helpful to people with
+disabilities. I have helped my friends who are disabled, to use dasher and
+voice recognition systems to interact with computers.  I was honored with best
+teacher award by Spastics Society of Karnataka, for my volunteer work and
+teaching Robotics to the students, in the year 2008.
+
+I know good programmers from University of Toronto through Topcoder
+competitions and have also known Prof. Greg Wilson, through his books like
+"Beautiful Code" and his writings and snippets in Python. This influenced me
+positively to apply to University of Toronto.
+
+I would be dependent on financial aid for my graduate studies, and PhD program
+with its research assistance stipend will help to meet financial demands. 
+
+I request you to consider my application for admission into a PhD program.

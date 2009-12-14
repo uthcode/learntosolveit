@@ -6,13 +6,26 @@ Research Interests
 
  * Algorithms, Theory of Computation, Programming Languages, Distributed Systems.
 
+
+Work Experience
+---------------
+
++--------------------+----------------------------+------------------+
+| Organization       | Role                       |   Period         |
++--------------------+----------------------------+------------------+
+| Akamai Technologies| Senior Software Engineer   |  2008 - Till Date|
+|                    |                            |                  |
+| Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
++--------------------+----------------------------+------------------+
+
+
 Education
 ---------
 
 +-----------------------------+-----------+------------------------+--------+
 | School                      | Period    | Major                  | Grade  |
 +-----------------------------+-----------+------------------------+--------+
-| National Engineering College| 1998-2002 | Bachelor of Enginering |  78%   |
+| National Engineering College| 1998-2002 | Bachelor of Enginering | 77.3%  |
 |  Tamil Nadu, India          |           | Computer Science       |        |
 +-----------------------------+-----------+------------------------+--------+
 
@@ -23,28 +36,17 @@ Certificate Courses
 +-----------------------------+------+----------------------------------+---------+
 |       School                | Year |  Topic                           | Grade   |
 +-----------------------------+------+----------------------------------+---------+
-| Indian Institute of Science | 2007 | Cryptography and Network Security|  C      |
+| Indian Institute of Science | 2007 | Cryptography and Network Security|  D      |
 |                             |      |                                  |         |
-| Indian Institute of Science | 2008 | Artificial Intelligence          |  B      |
+| Indian Institute of Science | 2007 | Artificial Intelligence          |  A      |
 +-----------------------------+------+----------------------------------+---------+
-
-Work Experience
----------------
-
-+---------------------+------------------+
-| Organization        |   Period         |
-+---------------------+------------------+
-| Akamai Technologies |  2008 - Till Date|
-|                     |                  |
-| Dell India R&D      |  2002 - 2008     |
-+---------------------+------------------+
 
 Software Projects
 -----------------
 
 urllib - Python Standard Library Module
 
-   Current Maintainer of the urllib Python standard library module. I was
+   Current Maintainer of the urllib *Python Standard Library* module. I was
    involved with fix bugs in the urllib and other internet related modules and
    also worked on porting urllib to Python 3.
    * `Commit Stats`_
@@ -55,17 +57,18 @@ uthcode - programming project.
 
    One person project which is aimed towards study of programming principles,
    algorithms and other research. This contains good solutions for commonly
-   occuring programming tasks. Website: http://uthcode.sarovar.org
+   occurring programming tasks. Website: uthcode_ 
+   
 
 
 Data Analyzer - A Distributed Log Analyzer project at Akamai
 
   Data Analyzer was a platform to collect and analyze HTTP Logs and other
-  information from different sources. It was designed using Asynchornous Event
+  information from different sources. It was designed using Asynchronous Event
   Handling Framework (twisted) and the processing analysis of the data was
   performed using a map-reduce framework.
 
-  Role: Built the core asynchornous engine and the underlying request and
+  Role: Built the core asynchronous engine and the underlying request and
   response mechanism.
 
 
@@ -100,31 +103,34 @@ ngwallpaper
 
   Yahoo hack day project. This is wallpaper creator, which will take up latest
   buzz, pick up photos and generates wallpapers and sets it up on your Desktop.
-  This won the best desktop hack for Yahoo hackday 2007.
+  This won the best desktop hack for Yahoo hackday 2007. Website: ngwallpaper_
+
 
 
 pylvim
  
   vim script hack to update the Livejournal blog directly from vim text editor.
+  Website: pyljvim_
 
 
-Who Dares Wins!
+Who Slides Wins!
 
   An Algorithmic game. It is a competition between user and the computer to
   solve the N-Puzzle. Computer uses A* best first search algorithm and uses
-  manhatten distances to calculate the target moves.
+  manhatten distances to calculate the target moves. Website: pygame07_
+
 
 
 Awards and Recognitions
 -----------------------
 
  * Co-Inventor of year 2007, Dell India R&D.
- * One Quaterly Achievement Award - 2005.
+ * One Quarterly Achievement Award - 2005.
  * Community Service Ambassador, Dell India R&D - 2006 - 2008.
 
 
-Teaching
---------
+Conference Talks and Teaching
+-----------------------------
  
  * Taught Python Standard Library Overview at `PyCon 2009 Conference`_, Chicago,
    USA.
@@ -144,11 +150,11 @@ Community Activities
 Patents
 -------
  
-Obtaining User Input for Inclusing in System Management Logs.
+Obtaining User Input for Including in System Management Logs.
    
    This is patent on a feature of Systems Management Software, which makes
    analysis of logs efficient. It enhances the system log analysis with an
-   ability for users to add their intrepretation directly into the log messages
+   ability for users to add their interpretation directly into the log messages
    that would be helpful to other users.  
    `Patent Application- July 2006`_
 
@@ -184,12 +190,13 @@ Industry Publications
 Other Open Source Contributions
 -------------------------------
 
-* `Libsmbios`_ and patch for skipping tests.
-* Guest Editor for entries in `FOLDOC`_.
-* Feature Enhancements for `nanoblogger_ - A tiny blog engine for Unix.
-* Feature implmentations in `Rapple`_ - A Standards based Website generator.
+* Libsmbios_ and patch for skipping tests.
+* Guest Editor for entries in FOLDOC_.
+* Feature Enhancements for nanoblogger_ - A tiny blog engine for Unix.
+* Feature implementations in Rapple_ - A Standards based Website generator.
 
-
+.. _Commit Stats: http://www.ohloh.net/p/python/contributors/111669178856
+.. _Tracker Stats: http://cia.vc/stats/author/orsenthil
 .. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
 .. _PyCon 2009 Conference: http://us.pycon.org/2009/tutorials/schedule/2PM6/
 .. _PyCon 2010 Conference: http://us.pycon.org/2010/tutorials/kumaran_python201/
@@ -202,5 +209,7 @@ Other Open Source Contributions
 .. _FOLDOC: http://www.foldoc.org
 .. _nanoblogger: http://www.nanoblogger.sf.net
 .. _Rapple: http://rapple.sf.net
-.. _Commit Stats: http://bugs.python.org
-.. _Tracker Stats: http://bugs.python.org
+.. _uthcode: http://uthcode.sarovar.org
+.. _ngwallpaper: http://ngwallpaper.googlecode.com 
+.. _pyljvim: http://www.vim.org/scripts/script.php?script_id=1724
+.. _pygame07: http://www.pyweek.org/e/v4victory/
