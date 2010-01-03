@@ -36,21 +36,103 @@ Distrubuted Systems.
 2. University of California - David Eppstein.
 3. Carneige Mellon University - Just email Joseph Lisee or under Bruce Maggs.
 4. MIT - Algorithms Group or Media Labs.
-5. University of Toronto - Greg Stein.
 6. Rochestor Institute of Technology.
 7. Texas A & M.
-8. Stanford University.
 9. Univeristy of Delaware
 10. Umass Amherst.
 11. Portland State University.
 
+
 Done
 ----
+1. University of Washington.
+2. 
+
+TODO
+----
+
+2. Send TOEFL, GENERAL GRE Scores to University of Toronto.
+
+3. Send Transcript to University of CMU.
+
+The MIT TOEFL reporting code is 3514, the department code for Computer Science
+is 78, and for Electrical Engineering 66
+
+
+GRE Score Report
+----------------
+1. Call 1-609-771-7290
+
+General Test Date: 05/08
+Registration Date: 6634905
+Birthday: MM/DD/YY = 01/06/81
+
+1. University of Washington Institution Code: 4854
+
+
+GRE Scores and Academia 
+=======================
+
++ General Test Scores: *Verbal: 530. Quants: 780. AWA: 4.0*
++ TOEFL Scores: *Reading: 29, Listening: 28, Speaking: 28, Writing: 22, Total: 107*
++ Bachelor of Engineering, Computer Science. 1998-2002. *Final Percentage: 77.3%* 
+
+GRE General Test Scores:
+
+    * Date: 05-08 
+    * Registration # 6634-905
+
+Verbal : 530 - Below 68%
+Quantitative: 780 - Below 90%
+Analytical Writing: 4.0 - Below 33%
+
+Test Scores:
+
+TOEFL Internet Based Test:
+
+Registration: 0000 0000 0587 7817
+Test Date: 03 August 2008
+
+
+TOEFL iBT Scaled Scores:
+
+Reading 29
+Listening 28
+Speaking 28
+Writing 22
+
+Total  107
+
+
+GRE Subject Test
+
+Test Date: 11/08.08  COMPUT SCI
+
+Score Recipients Requested
+
+Graduate Institution                    Department
+
+4833                                               0402
+5248                                                0402
+2074                                                1201
+4704                                                0402
+
+Score: 530. Percentile: 08%
+
+http://edulix.com/infobank/index.php  Edulix Info Banks
+
+
+Nov 09
+------
+Registration Number 4614110
+Test Center Number 10044
+Test Date: 11/07/09
+
+Name: Senthil Kumaran
+
 
 Deadlines
 ---------
-1. Stanford -  December 8, 2009 Apply to
-   http://cs.stanford.edu/degrees/mscs/degree.php
 
 2. University of Washington - December 15
    http://www.cs.washington.edu/education/grad/prospective.html
@@ -59,24 +141,23 @@ Deadlines
    http://www.ics.uci.edu/grad/admissions/index.php
 
 4. Carnegie Mellon University  - Software Engineering
-   All applications must be submitted by midnight on Dec. 15 EST.  No
-   exceptions will be made. 
+
+All applications must be submitted by midnight on Dec. 15 EST.  No exceptions
+will be made. 
 
 http://www.cmu.edu/prospective/graduate.shtml
-
 https://www.ece.cmu.edu/prospective/graduate/application/  - Dec 15
 
 5. MIT - Media Lab and Algorithms Group - Dec 15
+   https://apply.eecs.mit.edu/
    http://web.mit.edu/admissions/graduate/how_to_apply/application_deadlines.html
    http://www.pmg.lcs.mit.edu/
    Media Lab - Dec 15
    https://www.applyweb.com/apply/mitg/menu.html
 
 6. University of Toronto - 7 December 2009.
-
    http://web.cs.toronto.edu/Page4.aspx
    https://apply.sgs.utoronto.ca/home.aspx
-
 
 7. Texas A & M - (Tentative - 15 Dec 2009)
 
@@ -98,8 +179,6 @@ https://www.ece.cmu.edu/prospective/graduate/application/  - Dec 15
 * Univ of CA, Santa Barbara.
 * Univ of C, Davis.
 * OSU
-
-
 
 Statement of Purpose
 --------------------
@@ -430,7 +509,7 @@ Registration: 0000 0000 0587 7817
 Test Date: 03 August 2008
 
 
-TOEFL Scaled Scores:
+TOEFL iBT Scaled Scores:
 
 Reading 29
 Listening 28

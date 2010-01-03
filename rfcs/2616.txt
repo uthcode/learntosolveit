@@ -1,20 +1,3 @@
-Network Working Group                                      R. Fielding
-Request for Comments: 2616                                   UC Irvine
-Obsoletes: 2068                                              J. Gettys
-Category: Standards Track                                   Compaq/W3C
-                                                              J. Mogul
-                                                                Compaq
-                                                            H. Frystyk
-                                                               W3C/MIT
-                                                           L. Masinter
-                                                                 Xerox
-                                                              P. Leach
-                                                             Microsoft
-                                                        T. Berners-Lee
-                                                               W3C/MIT
-                                                             June 1999
-
-
                 Hypertext Transfer Protocol -- HTTP/1.1
 
 Status of this Memo
@@ -43,16 +26,6 @@ Abstract
    HTTP has been in use by the World-Wide Web global information
    initiative since 1990. This specification defines the protocol
    referred to as "HTTP/1.1", and is an update to RFC 2068 [33].
-
-
-
-
-
-
-Fielding, et al.            Standards Track                     [Page 1]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
 
 Table of Contents
 
@@ -102,14 +75,6 @@ Table of Contents
    6.1   Status-Line .................................................39
    6.1.1    Status Code and Reason Phrase ............................39
    6.2   Response Header Fields ......................................41
-
-
-
-Fielding, et al.            Standards Track                     [Page 2]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
    7   Entity ........................................................42
    7.1   Entity Header Fields ........................................42
    7.2   Entity Body .................................................43
@@ -158,14 +123,6 @@ RFC 2616                        HTTP/1.1                       June 1999
    10.3.5   304 Not Modified .........................................63
    10.3.6   305 Use Proxy ............................................64
    10.3.7   306 (Unused) .............................................64
-
-
-
-Fielding, et al.            Standards Track                     [Page 3]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
    10.3.8   307 Temporary Redirect ...................................65
    10.4  Client Error 4xx ............................................65
    10.4.1    400 Bad Request .........................................65
@@ -214,14 +171,6 @@ RFC 2616                        HTTP/1.1                       June 1999
    13.2.6   Disambiguating Multiple Responses ........................84
    13.3  Validation Model ............................................85
    13.3.1   Last-Modified Dates ......................................86
-
-
-
-Fielding, et al.            Standards Track                     [Page 4]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
    13.3.2   Entity Tag Cache Validators ..............................86
    13.3.3   Weak and Strong Validators ...............................86
    13.3.4   Rules for When to Use Entity Tags and Last-Modified Dates.89
@@ -270,14 +219,6 @@ RFC 2616                        HTTP/1.1                       June 1999
    14.20   Expect ...................................................126
    14.21   Expires ..................................................127
    14.22   From .....................................................128
-
-
-
-Fielding, et al.            Standards Track                     [Page 5]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
    14.23   Host .....................................................128
    14.24   If-Match .................................................129
    14.25   If-Modified-Since ........................................130
@@ -326,14 +267,6 @@ RFC 2616                        HTTP/1.1                       June 1999
    19.2  Internet Media Type multipart/byteranges ...................165
    19.3  Tolerant Applications ......................................166
    19.4  Differences Between HTTP Entities and RFC 2045 Entities ....167
-
-
-
-Fielding, et al.            Standards Track                     [Page 6]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
    19.4.1   MIME-Version ............................................167
    19.4.2   Conversion to Canonical Form ............................167
    19.4.3   Conversion of Date Formats ..............................168

@@ -46,14 +46,6 @@ Abstract
    defines the general structure of the MIME media typing system and
    defines an initial set of media types. The third document, RFC 2047,
    describes extensions to RFC 822 to allow non-US-ASCII text data in
-
-
-
-Freed & Borenstein          Standards Track                     [Page 1]
-
-RFC 2045                Internet Message Bodies            November 1996
-
-
    Internet mail header fields. The fourth document, RFC 2048, specifies
    various IANA registration procedures for MIME-related facilities. The
    fifth and final document, RFC 2049, describes MIME conformance

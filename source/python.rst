@@ -128,7 +128,6 @@ class
   * FTPHandler
   * CacheFTPHandler
 
-
 * AbstractHTTPHandler
   * HTTPHandler
   * HTTPSHandler

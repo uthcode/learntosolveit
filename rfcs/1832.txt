@@ -1,9 +1,3 @@
-
-
-
-
-
-
 Network Working Group                                      R. Srinivasan
 Request for Comments: 1832                              Sun Microsystems
 Category: Standards Track                                    August 1995

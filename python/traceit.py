@@ -13,13 +13,3 @@ def traceit(frame, event, arg):
         line = linecache.getline(filename, lineno)
         print "%s:%s: %s" % (name, lineno, line.rstrip())
     return traceit
-
-
-def main():
-    print "In main"
-    for i in range(5):
-        print i, random.randrange(0, 10)
-    print "Done."
-
-sys.settrace(traceit)
-main()

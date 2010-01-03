@@ -75,3 +75,5 @@ Everything
 * Programming is the art of writing essays in crystal clear prose and making
   them executable - Per Brinch Hansen
 
+* It's a magical world, Hobbes, ol' buddy... Let's go exploring! 
+  --:Calvin and Hobbes

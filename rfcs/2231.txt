@@ -1,16 +1,3 @@
-
-
-
-
-
-
-Network Working Group                                         N. Freed
-Request for Comments: 2231                                    Innosoft
-Updates: 2045, 2047, 2183                                     K. Moore
-Obsoletes: 2184                                University of Tennessee
-Category: Standards Track                                November 1997
-
-
            MIME Parameter Value and Encoded Word Extensions:
               Character Sets, Languages, and Continuations
 

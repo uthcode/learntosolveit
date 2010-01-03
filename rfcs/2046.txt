@@ -1,16 +1,3 @@
-
-
-
-
-
-
-Network Working Group                                          N. Freed
-Request for Comments: 2046                                     Innosoft
-Obsoletes: 1521, 1522, 1590                               N. Borenstein
-Category: Standards Track                                 First Virtual
-                                                          November 1996
-
-
                  Multipurpose Internet Mail Extensions
                             (MIME) Part Two:
                               Media Types
@@ -52,14 +39,6 @@ Abstract
    document defines the general structure of the MIME media typing
    system and defines an initial set of media types. The third document,
    RFC 2047, describes extensions to RFC 822 to allow non-US-ASCII text
-
-
-
-Freed & Borenstein          Standards Track                     [Page 1]
-
-RFC 2046                      Media Types                  November 1996
-
-
    data in Internet mail header fields. The fourth document, RFC 2048,
    specifies various IANA registration procedures for MIME-related
    facilities.  The fifth and final document, RFC 2049, describes MIME

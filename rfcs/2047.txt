@@ -1,15 +1,3 @@
-
-
-
-
-
-
-Network Working Group                                           K. Moore
-Request for Comments: 2047                       University of Tennessee
-Obsoletes: 1521, 1522, 1590                                November 1996
-Category: Standards Track
-
-
         MIME (Multipurpose Internet Mail Extensions) Part Three:
               Message Header Extensions for Non-ASCII Text
 
@@ -46,19 +34,6 @@ Abstract
    This particular document is the third document in the series.  It
    describes extensions to RFC 822 to allow non-US-ASCII text data in
    Internet mail header fields.
-
-
-
-
-
-
-
-
-
-Moore                       Standards Track                     [Page 1]
-
-RFC 2047               Message Header Extensions           November 1996
-
 
    Other documents in this series include:
 
