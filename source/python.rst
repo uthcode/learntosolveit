@@ -84,12 +84,10 @@ same time" (hence the term, concurrent).
 Shortly thereafter, the notion of a 'program' was expanded to the notion of an
 'executing program and its context'. The concept of a process was born.
 
-This became necessary with the invention of re-entrant code.
-
-Threads came somewhat later. However, with the advent of time-sharing; computer
-networks; multiple-CPU, shared memory computers; etc., the old
-"multiprogramming" gave way to true multitasking, multiprocessing and, later,
-multithreading.
+This became necessary with the invention of re-entrant code.  Threads came
+somewhat later. However, with the advent of time-sharing; computer networks;
+multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
+way to true multitasking, multiprocessing and, later, multithreading.
 
 
 Python Threads and Global Interpretor Lock
@@ -280,13 +278,6 @@ Unicode)
 Python 2.6 provides an alternative string type for non-ASCII  Unicode text, and
 supports both simple text and binary data in its normal string type.
 
-Python 3.0 provides an alternative string type for binary data, and supports
-Unicode text in its normal string type. (ASCII is treated as a simple type of
-the unicode)
-
-Python 2.6 supports an alternative string type for non-ASCII unicode text, and
-supports both simple text and binary data in its normal string type.
-
 In a nutshell:
 
 :: 
@@ -433,9 +424,6 @@ which, in Unicode, corresponds to these five code-points:
 U+0048 U+0065 U+006C U+006C U+006F 
 
   (Hello)
-
-        Questions: 
-        Why U+? 
 
 It was U- before 3.0 and then it became U+. If you look at the release notes of
 Unicode 3.0, you might find the reason for the change.
@@ -1072,42 +1060,6 @@ Go to the /etc/httpd/conf/httpd.conf
 For e.g:
 Add the information on headers
 Header set Author "Senthil"
-
-
-Q) Question is can I add a test for cache.
-A) Its not a functionality, but its merely an internal optimization.
-
-Q) If test for cache needs to be written, how will you write it?
-A) request an url and redirect and request it again and verify that it is
-coming frm a dictionary or the dictionary value is stored.
-
-
-from_url = "http://example.com/a.html"
-to_url = "http://example.com/b.html"
-
-h = urllib2.HTTPRedirectHandler()
-o = h.parent = MockOpener()
-
-req = Request(from_url)
-def cached301redirect(h, req, url=to_url):
-h.http_error_301(req, MockFile(), 301, "Blah", MockHeaders({"location":url}))
-
-* Why is Request object taking two parameters?
-
-::
-
-        req = Request(from_url, origin_req_host="example.com")
-        count = 0
-        try:
-        while 1:
-        redirect(h, req, "http://example.com")
-        count = count + 1
-        if count > 2:
-        self.assertEqual("http://example.com",
-        urllib2.HTTPRedirectHandler().cache[req].geturl())
-        except urllib2.HTTPError:
-        self.assertEqual(count, urllib2.HTTPRedirectHandler.max_repeats)
-
 
 CacheFTPHandler testcasesare hard to write.  played around with pdb module
 today to debug this issue. pdb is really helpful.
@@ -1959,15 +1911,6 @@ much to worry about threads.
 3. when speed does matter (ie: when C code is run) Python applications is not
 hampered by a brain dead VM that is so ’screwed’ up that it must pause
 to collect its garbage.
-
-Multiple Processors
--------------------
-
-Multiple Processor cores
-------------------------
-
-Multiprocessing 
----------------
 
 
 Links:

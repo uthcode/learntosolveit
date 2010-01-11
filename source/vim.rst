@@ -8,6 +8,7 @@ Links
 
 * [http://docs.freebsd.org/44doc/usd/12.vi/paper.html An Introduction to Display Editing with Vi] 
 
+* [http://dancingpenguinsoflight.com/2009/02/python-and-vim-make-your-own-ide/ Notes on scripts that might be useful]
 Notes to accompany the Tutorial "Introduction To Display Editing using vi" by William Joy and Mark Horton.
 
 Bill Joy's "Introduction to Display editing using vi" is a great tutorial to
