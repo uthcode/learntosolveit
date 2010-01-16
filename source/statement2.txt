@@ -1,86 +1,75 @@
-﻿Application for PhD in Computer Science.
+﻿University of California, Irvine
 
-I would like to pursue a Ph.D Program in Computer Science at __________ ,
-specializing in ________ and the study of related fields such as _________,
-________, __________ and distributed systems.  I have a keen interest in
-developing algorithms for modeling and solving real world problems.
+I am interested in pursuing a MS program in Computer Science specializing in
+the fields of Distributed Systems and Networking Programming.
 
-As a PhD student, I would like to embark on a career devoted to the development
-of computer science which will involve teaching and research on the development
-of better software. My Industry experience and my interests render me suitable
-for such a role. 
+I see MS course as a preparatory step towards a PhD and a research oriented
+career wherein, I would like to be devoted to the development of computer
+science and enjoy learning and teaching interesting computer science concepts,
+and research on the development of better software systems. I believe, my
+interests and my Industry experience render me suitable for such a role. 
 
-I have been working as Software Developer in the Computer Industry for 7 years,
-I have worked on wide range of projects, in a variety of roles ranging from
-technical support to an architect. I have also worked as an independent
-consultant for companies assisting in the development of Internal Software
-Infrastructure.  Over the years, I have developed various automation,
-simulation, configuration management, and testing tools utilizing a variety of
-technologies. I have mentored and led developers in modern design patterns,
-implementation, debugging, documentation, and testing practices. The rich
-repertoire of skills and experience that I have gained as a result of these
-experiences would be immensely helpful to me as a teaching assistant and
-research scholar.
+I have been working as Software Developer in the Computer Industry for 7 years
+and I have worked on wide range of projects, in a variety of roles ranging from
+technical support to an architect. Over the years, I have developed various
+system software tools and solutions using technologies like Python, C and C++.
+I have a deep understanding of Python language and in the domain of network
+programming.  I have also realized my ability to come out with innovative
+solutions to engineering problems. This is supported by the four patents filed
+with USTPO for my invention disclosures.
+
+Currently as a Senior Software Engineer at Akamai, I am involved with
+designing of a distributed requested handling server, which fetches log data
+from Akamai's distributed computing platform and provides it to Map-Reduce
+framework for Analysis. At Akamai, I also see the implementation of standard
+Computer Science Algorithms and theories in practice. I understand the value of
+specialization in computer science education that can help in building
+effective solutions.
+
+My interests for research in Computer Science was augmented when I got involved
+with Python language development in 2007, through Google Summer of Code. I
+started working on standard library modules and with regular contributions, I
+have now become the maintainer for urllib module in Python language 3. Working
+on a large scale software project like Python has also taught me important
+social skills required to work with a diverse group of highly experienced
+programmers and researchers. I plan to continue contributing to the python
+language through out my graduate studies. I see the potential work in improving
+libraries to support IPv6, handling IRI (Internationalized Resource
+Identifiers) and also improving the Interpreter core to support concurrency
+better. I have presented a numbers papers at various conferences like PyCon,
+Scipy in these areas.
+
+I worked as a Software Engineering at Dell India R&D for 6 years. I learnt
+important software engineering skills, planning and execution and innards of
+system software testing and development at Dell. Through Dell, I have filed Two
+patents in Blu-Ray media, One patent in Printer and One software patent in
+Systems Management Software. For my contributions to Dell Patent Portfolio, I
+was awarded the "Co-Inventor of the year" in the year 2007.
+
+I am involved with Spastics Society of Karnataka for the past 4 years, as I
+found that I liked to help people with developmental disabilities and help them
+to use computers using assistive technologies. I have researched the use of
+various accessibility technologies like voice recognition and helped the
+adoption of those with the organization. I was honored as a "Best Teacher" by
+School in the year 2009.
 
 My undergraduate studies were completed at the National Engineering College,
 India, in the year 2002. Here, I majored in Computer Science and Engineering
 and secured an aggregate of 77% in the University examinations, and was ranked
 8th in my class of 60. I also undertook part-time courses in Artificial
-Intelligence and Crypography at Indian Institute of Science, Bangalore in 2007.
-I worked on interesting theoretical problems in Cryptography and did projects
-involving various AI algorithms.
+Intelligence and Cryptography at Indian Institute of Science, Bangalore in 2007.
 
 Very early in my career, I turned towards research and occupied myself with
-interesting fundamental problems, the solutions for which, I have been able to
-successfully translate into innovative product implementations. This is
-supported by four Invention Disclosures that have been filed with USPTO during
-my employment with Dell India Research and Development Center. 
+interesting fundamental problems. My project, Uthcode, which I setup to solve
+interesting programming problems, has a accumulation of many standard solutions
+and more than 10,000 lines of code in C,Python and C++.
 
-I was also awarded "Co-Inventor for the Year 2007" for my Invention disclosures
-in the Blu-Ray media, filed with USPTO, for my work on the content search in
-Blu-ray. This efficient search algorithm using small memory footprint in an
-embedded media exploits the peculiar nature of sample space data.
+Recently, I came across a lot of Python code and articles written by Dr. David
+Eppstein, who is a professor at University of California, Irvine.  Reading his
+articles, code and knowing about the research work undertaken by him influenced
+me positively to apply for Masters Program at your University.
 
-As a Senior Software Engineer at Akamai, I see the implementation of standard
-Computer Science Algorithms and theories in practice. As Akamai was founded by
-theoretical computer science experts, algorithms like Open Shortest Path First
-and its derivatives are implemented as one of core technologies. I can
-understand from other experts the value of specialization in computer science
-education can help in building effective solutions.
-
-I am involved with designing an asynchronous request handling server which can
-fetch data on requests, the implementation of which required a thorough
-understanding of concurrency and threading.
-
-My interests for Research in Computer Science was further enhanced when I first
-got involved with Python language development during the Google Summer of Code
-program in 2007. I began working on enhancing the standard library modules.
-With my regular contributions, I have now become the maintainer for urllib
-module in Python language 3. I am inspired by the developers of Python, Guido
-van Rossum, Martin Von Lowis and other contributors. Apart from the technical
-skills, working a distrubute large scale project like Python has taught be
-important social skills required to work with a diverse group of highly
-expericed programmers and researchers. I have also presented a number of talks
-related to my contributions at different Python conferences.
-
-I plan to continue contributing to the python language while at my graduate
-studies and research. Some of the areas in which I foresee potential work are
-the networking library modules that handle ipv6 protocols and URL parsing
-modules for Non English URLS as as defined Internationalized Resource
-Identifiers Specifications and making python more suitable for concurrent
-programming tasks.
-
-I am especially interested in Research on technologies that are helpful to
-people with disabilities. I have done research in Voice Recognition areas and
-have used applications to provide a good computing interface for people with
-disability so they can operate computers using voice.
-
-I was honored with the best teacher award, in the year 2008, by the Spastics
-Society of Karnataka,an NGO involved for development of disabled students,for
-my volunteer work and for teaching Robotics to the students.
-
-I studies the programs offered by _______ and found the exciting research being
-undertaken by Computer Science Department. I understand that I can effectively
-contribute further to the researches which are involved in language design
-
-I request to you to consider my application for a PhD program at ______.
+With these interests and skills in my repertoire, I believe, I am  a good
+candidate to pursue research oriented programs in your esteemed University.
+Please consider my application for a M.S program in Distributed Systems and
+Network Programming. 
