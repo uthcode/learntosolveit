@@ -6,26 +6,29 @@ Python Notes
         Rough Notes.
 
         
-Global Interpretor Lock
-=======================
+What is Global Interpretor Lock?
+================================
 
-1. It is used to protect the Python Objects from being modified by multiple
-   threads at once.
-2. To keep multiple threads running, the interpretor automatically releases and
-   reaquires the lock at regular intervals. It also does this around
-   potentially slow or blocking low level operations, such as file and network
-   I/O.
-3. This is used internally to ensure that only one thread runs in the Python VM
-   at a time.
-4. Python offers to switch amongst threads only between bytecode instructions.
-5. Each bytecode instruction and all C implemented function is atomic from
-   Python program's point of view.
+Global Interpretor lock is used to protect the Python Objects from being
+modified by multiple threads at once. To keep multiple threads running, the
+interpretor automatically releases and reaquires the lock at regular intervals.
+It also does this around potentially slow or blocking low level operations,
+such a file and network I/O.  This is used internally to ensure that only one
+thread runs in the Python VM at a time. Python offers to switch amongst threads
+only between bytecode instructions. Each bytecode instruction and all C
+implemented function is atomic from Python program's point of view.
 
-Definitions:
 
-A machine having multiple processors
-A machine having a single processor with multiple cores.
-A machine having multple processors with each one having multiple cores.
+What kind of different hardware architectures possible?
+=======================================================
+Single Processor machine.
+Single Processor with multiple cores.
+Multiple Processors within a Single Machine.
+Multiple Processors with each having multiple cores.
+
+Core is term of Iron. It was synonymous with CPU.  So, is this all a two level
+definition?
+
 
 concurrent programming:
 1. http://en.wikipedia.org/wiki/Concurrent_computing 
@@ -44,13 +47,10 @@ concurrent programming:
 
 List of Important Publications in Concurrent, Parallel and Distributed
 Computing.
-
 http://en.wikipedia.org/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing
 
 Symposium on Principles of Distributed Computing.
-
 http://en.wikipedia.org/wiki/Symposium_on_Principles_of_Distributed_Computing
-
 
 Reworking the GIL
 http://mail.python.org/pipermail/python-dev/2009-October/093321.html
@@ -58,6 +58,7 @@ http://mail.python.org/pipermail/python-dev/2009-October/093321.html
 Process (computing)
 
 What is the difference between multi-tasking and multi-processing?
+
 Inter-Process Communication.
 
 Some History
@@ -88,10 +89,6 @@ This became necessary with the invention of re-entrant code.  Threads came
 somewhat later. However, with the advent of time-sharing; computer networks;
 multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
 way to true multitasking, multiprocessing and, later, multithreading.
-
-
-Python Threads and Global Interpretor Lock
-==========================================
 
 1. Why is the threading modules have start and join methods?
 

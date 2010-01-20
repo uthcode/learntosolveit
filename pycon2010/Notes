@@ -1,0 +1,77 @@
+String Basics
+=============
+
+The main tool Python gives us to process text is strings - immutable sequence
+of characters. There are usually two kinds of strings: plain strings, which
+contain 8-bit (ASCII) characters; and Unicode Strings, which contain Unicode
+characters.
+
+Python Strings
+' I am a string'
+" Even, I am a string too."
+
+String values can be enclosed in either a single or double quotes. The two
+different kinds of quotes work the same way, but having both allows you to
+include one kind of quotes inside of a string specified with the other kind of
+quotes, without needing to escape them with the backslash character.
+
+
+How does the \ character at the end signify continuation?
+---------------------------------------------------------
+
+If you want a breaks in the string, you can have a triple quoted string (either
+single quote or double quote)
+
+
+Strings are immutable, which means that no matter what operations you do on a
+string, you will always produce a new string object, rather than mutating the
+existing string.
+
+In general, you can do anything to a string that you can do to any other
+sequence, as long as it doesn't require changing the sequence, since the
+strings are immutable.
+
+What is the difference between string.split menthod and string.splitlines method? 
+---------------------------------------------------------------------------------
+
+Useful code:
+
+list_of_lines = one_large.string.splitlines()
+
+one_large_string = '\n'.join(list_of_lines)
+
+Python's standard module string offers much of the same functionality that is
+available from the string methods, packaged up as functions instead of methods.
+
+string.maketrans
+
+You can create a set of characters from a string.
+
+list("python")
+map(somefunc,"python")
+map(lambda x:x,"python")
+sets.Set("python")
+
+
+The built-in function ord also accepts as its argument, a Unicode string of
+length of one, in which case it returns a Unicode code value, up to 65535.
+Which means that the encoding which is used is UTF-16. 
+To make a Unicode string of length one from a numeric Unicode code value, use
+the built-in function unichr.
+
+What does u'\u2020' mean?
+-------------------------
+
+>>> print ord(u'\u2020')
+8224
+
+
+u'' is a unicode string object.
+\u2020 is the unicode code point.
+
+
+Links
+=====
+unicode code-point chart:
+http://inamidst.com/stuff/unidata/
+

@@ -54,7 +54,7 @@ Projects
 .. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
 .. _ngwallpaper: http://ngwallpaper.googlecode.com
 .. _pyljvim: http://www.vim.org/scripts/script.php?script_id=1724
-.. _Training Today: http://www.google.co.in/ig/directory?hl=en&url=orsenthil.googlepages.com%2Ftraining.xml
+.. _Training Today: http://www.google.co.in/ig/adde?hl=en&moduleurl=http://hosting.gmodules.com/ig/gadgets/file/105362442671060005772/training.xml&source=imag
 
 Presentations
 =============
