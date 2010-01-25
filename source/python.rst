@@ -31,22 +31,19 @@ definition?
 
 
 concurrent programming:
-1. http://en.wikipedia.org/wiki/Concurrent_computing 
-   Java and C# use shared memory concurrency model, with locking provided by
-   monitors. Message passing concurrency model have been implemented on top of
-   the existing shared memory concurrency model.
+http://en.wikipedia.org/wiki/Concurrent_computing 
 
-   Erlang is using message passing concurrency model.
-
-   Alice extension to Standard ML, supports concurrency via Futures.
-   Cilk is concurrent C. There are developers at Akamai.
-
-   The Actor Model.
-   Petri Nets.
+Java and C# use shared memory concurrency model, with locking provided by
+monitors. Message passing concurrency model have been implemented on top of the
+existing shared memory concurrency model.
+Erlang is using message passing concurrency model.
+Alice extension to Standard ML, supports concurrency via Futures.
+Cilk is concurrent C. There are developers at Akamai.
+The Actor Model.
+Petri Nets.
 
 
-List of Important Publications in Concurrent, Parallel and Distributed
-Computing.
+List of Important Publications in Concurrent, Parallel and Distributed Computing.
 http://en.wikipedia.org/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing
 
 Symposium on Principles of Distributed Computing.
@@ -54,6 +51,12 @@ http://en.wikipedia.org/wiki/Symposium_on_Principles_of_Distributed_Computing
 
 Reworking the GIL
 http://mail.python.org/pipermail/python-dev/2009-October/093321.html
+
+Fun Stuff
+=========
+
+Watch the Python Code Swarm here:
+http://www.vimeo.com/1093745
 
 Process (computing)
 
@@ -151,7 +154,6 @@ protocol_response is called and returned.
 
 the handlers must work in an specific order, the order is specified in a Handler attribute
 
-
 /var/www/.htaccess is the file I am going to create with senthil:senthil
 
 no_proxy
@@ -160,19 +162,24 @@ Some clients support the no_proxy environment variable that specifies a set of
 domains for which the proxy should not be consulted; the contents is a
 comma-separated list of domain names, with an optional :port part:
 
-no_proxy="cern.ch,ncsa.uiuc.edu,some.host:8080"
-export no_proxy
-[http://www.w3.org/Daemon/User/Proxies/ProxyClients.html Proxy]
-
 Python HTTP Authentication Schemes:
 http://frontier.userland.com/stories/storyReader$2159
 
-* You never encode a sequence of bytes. 
+Thus Spake
+==========
+You never encode a sequence of bytes. 
 
-Whats the python way to find the difference between two hexadecimal numbers and
-to convert hexadecimal to decimal?
 
-import base64
+Questions
+=========
+Q: Convert a Hexadecimal Strings ("FF","FFFF") to Decimal
+A: int("FF",16) and int("FFFF",16)
+
+Q: Represent 266 in Hexadecimal.
+A: print '%X' % 255
+
+Q: Where do you see RFC 3548 being utilized?
+Hint: import base64
 
 What is the difference between string, bytes and buffer?
 

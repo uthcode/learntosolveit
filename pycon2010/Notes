@@ -22,7 +22,6 @@ How does the \ character at the end signify continuation?
 If you want a breaks in the string, you can have a triple quoted string (either
 single quote or double quote)
 
-
 Strings are immutable, which means that no matter what operations you do on a
 string, you will always produce a new string object, rather than mutating the
 existing string.
@@ -31,8 +30,8 @@ In general, you can do anything to a string that you can do to any other
 sequence, as long as it doesn't require changing the sequence, since the
 strings are immutable.
 
-What is the difference between string.split menthod and string.splitlines method? 
----------------------------------------------------------------------------------
+What is the difference between string.split method and string.splitlines method? 
+--------------------------------------------------------------------------------
 
 Useful code:
 
@@ -56,8 +55,76 @@ sets.Set("python")
 The built-in function ord also accepts as its argument, a Unicode string of
 length of one, in which case it returns a Unicode code value, up to 65535.
 Which means that the encoding which is used is UTF-16. 
+
 To make a Unicode string of length one from a numeric Unicode code value, use
 the built-in function unichr.
+
+How to reverse a string in Python?
+----------------------------------
+
+For sequences, the extended slicing with negative step can be used for
+reversing. [::-1] There is reversed built-in function which can also be used
+for reversing the words in a sentence.
+
+But for reversing the characters in a string, if reversed is used, then a
+''.join needs to be called.
+
+The reversed returns an iterator, suitable for looping on or for passing to
+some "accumulator" callable such as ''.join. It does not return a ready made
+string.
+
+builtins
+--------
+1. repr
+2. ord
+3. chr
+4. unichr
+
+
+What are the Different kind of sequences in python
+
+lists, strings, unicode objects, tuples, array.arrays etc.
+
+
+Quotes
+------
+The second version may appear to be clever, but it is a complimentary adjective
+in the Python world, where simplicity and clarity are the core values.
+
+EAFP - Its easier to ask forgiveness than permission. (EAFP). try/except is the
+key tool in enabling the EAFP style.
+
+
+What is a predicate?
+--------------------
+A term you can see often in discussions about programming is predicate, it just
+means a function (or other callable object) that returns True or False as its
+result. A predicate is said to be satisfied when it returns True.
+
+
+string.translate and string.maketrans methods
+---------------------------------------------
+
+string.translate(s, table[, deletechars])
+
+   Delete all characters from *s* that are in *deletechars* (if
+   present), and then translate the characters using *table*, which
+   must be a 256-character string giving the translation for each
+   character value, indexed by its ordinal.  If *table* is ``None``,
+   then only the character deletion step is performed.
+
+string.maketrans(from, to)
+
+   Return a translation table suitable for passing to ``translate()``,
+   that will map each character in *from* into the character at the
+   same position in *to*; *from* and *to* must have the same length.
+
+   Note: Don't use strings derived from ``lowercase`` and ``uppercase`` as
+     arguments; in some locales, these don't have the same length.
+     For case conversions, always use ``str.lower()`` and
+     ``str.upper()``.
+
+
 
 What does u'\u2020' mean?
 -------------------------
@@ -69,9 +136,96 @@ What does u'\u2020' mean?
 u'' is a unicode string object.
 \u2020 is the unicode code point.
 
+Outline for Review
+------------------
+
+* Outline of the Tutorial and a Brief Overview of Standard Library. (30 minutes)
+
+        - Recollecting certain common programing paradigms.
+                - Review of Regular Expressions.
+                - Constructing lists with list comprehension.
+                - Handling Exceptions.
+                - Generators.
+        - Interesting Modules that easy our task.
+                - Collections module.
+                - itertools module.
+
+* Lets start with Strings. (15 Minutes)
+        - String Filters. Filtering a set of characters from a string.
+        - translate method on the string and maketrans function.
+        - Checking whether a string contains a set of characters.
+        - Expanding and Compression Tabs.
+        - Making Multiple Replacements in a String in a Single Pass.
+        - Reading a Text File by Paragraphs.
+
+* Files - We deal with them often. (15 Minutes)
+        - File Handling Basics.
+        - Reading a Single line from a file, given a line number (linecache module)
+        - Using Random Access Input/Output.
+        - Walking a Directory Tree
+        - Finding files given a search path and a pattern.
+
+* Date time Related (15 Minutes)
+        - Efficient Strategies for handling date and time related tasks.
+        - datetime module, time module.
+        - Calculating time periods in a date range.
+
+* Processing XMLs. (15 Minutes for next two sections)
+        - Parsing XML using xml.etree module.
+        - Other XML parsing modules and their differences.
+
+* Dealing with Database stuff.
+        - Serializing Data using pickle and cPickle Modules.
+
+Break Timing
+
+* Interesting Topic (5 Minutes)
+
+	- Difference between sort method on the list and a sorted function. Why the builtin sort is super-fast (because it is timsort!)
+
+* Process Handling. (20 Minutes)
+        - Subprocess module. 
+        - Capturing the Output and Error Streams from a Unix Shell Command.
+        - Forking a Daemon Process on Unix.
+        - Program Execution on Windows.
+        - Writing a Task Schedular.
+        - Monitoring a Directory in an asynchronous way using Twisted.
+
+* Network Programming (15 Minutes)
+        - Detecting Inactive Computers in a Network using the Socket Module.
+        - Connecting to IRC and logging the messages.
+
+* Web Programming (10 Minutes)
+        - urllib module.
+        - Parsing RSS Feeds
+
+* Unit Tests (10 Minutes)
+        - How to write Unittests for your Python programs using unittest module.
+
+* Programming tasks.(10 Minutes)
+        - Implementing Tuples with named items.
+        - Performance Measurements using timeit module
+
+* How to Convert Python 2 to Python 3. (20 Minutes)
+        - 2to3 tool.
+        - Unicode Strings and Bytes.
+        - How to handle the Strings vs bytes issue. Will *your* application be affected? How to identify and how to resolve.
+
+
+Questions
+=========
+
+Q: What is a facade design pattern?
+A: facade is the french term for face. It is the Interface. Look at facade.py
+
+Q: What is a closure?
+A: closure is an inner function that refers to names (variables) that are local
+to an "outer" function containing it.
+
+Q: What is the difference between sets.Set or the builtin set type?
+
 
 Links
 =====
 unicode code-point chart:
 http://inamidst.com/stuff/unidata/
-
