@@ -1,0 +1,11 @@
+How to Convert Python 2 to Python 3
+===================================
+
+2to3 tool
+---------
+
+Unicode Strings and Bytes
+-------------------------
+
+Handling Strings vs Bytes issues
+--------------------------------

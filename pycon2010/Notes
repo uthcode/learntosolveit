@@ -125,6 +125,9 @@ string.maketrans(from, to)
      ``str.upper()``.
 
 
+Templating String functions are there.
+--------------------------------------
+
 
 What does u'\u2020' mean?
 -------------------------
@@ -224,8 +227,90 @@ to an "outer" function containing it.
 
 Q: What is the difference between sets.Set or the builtin set type?
 
+Q: What is a bound method?
+A: Whenver a Python object supplies a method, you can get the method, already
+bound to the object, by just accessing the method on the object.
+L = ['a','b','c']
+x = L.append
+
+
 
 Links
 =====
 unicode code-point chart:
 http://inamidst.com/stuff/unidata/
+
+
+(21:16:01) ivazquez|laptop: str → .decode() → unicode
+(21:16:04) Yhg1s: phoe6: no. a bytestring contains encoded data. a unicode
+object contains unencoded data. you decode a bytestring into a unicode string.
+You encode a unicode string into a bytestring.
+
+
+File Operations
+---------------
+
+A variant of 'r' that is sometimes precious is 'rU', which tells Python to read
+the file in text mode with "universal newlines": mode 'rU' can read text files
+independently of the line termination convention the files are using, be it the
+Unix way, the Windows way or even the (Old) Mac way. (Mac OS X today uses Unix
+for all intents and purposes, but releases of Mac OS 9 and earlier were
+different).
+
+Files have other writing related methods such as flush, to send any data being
+buffered, and writelines, to write a sequence of strings in a single call.
+However, write is by far the most commonly used method.
+
+File reading is more common.
+When read is called with an integer argument N, it reads and returns the next N
+bytes (or all the remaining bytesm if less than N bytes remain)
+
+Other methods worth mentioning are seek and tell, which support random access
+to files. These methods are normally used with binary files made up of
+fixed-length records.
+
+Some Notes on Idiomatic Python
+------------------------------
+
+for line in input:
+	process(line)
+
+StringIO objects are plug-and-play compatible with file objects, so scanner
+takes its three lines of text from an in-memory string object, rather than a
+true external file.
+
+Everywhere in Python, object interfaces, rather than specific data types are
+units of coupling.
+
+Often the data you want to write is not in one bit string, but in a list (or
+other sequence) of strings. In this case, you should use the writelines method
+(which despite its name, is not limited to lines and works just as well with
+binary data as well as text files).
+
+Calling writelines is must faster than the alternatives of joining the strings
+into one big string (e.g, with the ''.join) and then calling write or calling
+write repeatedly in a loop.
+
+Calling close is even more advisable when you are writing to a file than you
+are reading from a file.
+
+Never trust your intuition in this matter - instead, always benchmark and
+measure.
+
+Counting tasks are notoriously prone to off-by-one errors.
+
+Having a function accept an optional argument, while providing the most likely
+value for the argument as the default value, is among the simplest and handiest
+ways to implment this modest and often worthwhile kind of generalization.
+
+
+struct.unpack - the format string - l stands for long.
+
+With ZipFile, the flag is not used the same way when opening a file, and rb is
+not recognized. The r flag handles the inherently binary nature of all zip
+files on all platforms.
+
+Adapter Design Pattern - What to do when you have an X and you need a Y
+instead.
+
+
