@@ -12,6 +12,7 @@ any other sequence, as long as it doesn't require changing the sequence, since
 the strings are immutable.
 
 :: 
+
 	list_of_lines = one_large.string.splitlines()
 	one_large_string = '\n'.join(list_of_lines)
 
@@ -19,6 +20,7 @@ the strings are immutable.
 Characters of a string.
 
 ::
+
 	list("python")
 	map(somefunc,"python")
 	map(lambda x:x,"python")
@@ -54,24 +56,22 @@ string.maketrans(from, to)
      For case conversions, always use ``str.lower()`` and
      ``str.upper()``.
 
+Examples of string.Template method
+
 :: 
 
-   >>> from string import Template
-   >>> s = Template('$who likes $what')
-   >>> s.substitute(who='tim', what='kung pao')
-   'tim likes kung pao'
-   >>> d = dict(who='tim')
-   >>> Template('Give $who $100').substitute(d)
-   Traceback (most recent call last):
-   [...]
-   ValueError: Invalid placeholder in string: line 1, col 10
-   >>> Template('$who likes $what').substitute(d)
-   Traceback (most recent call last):
-   [...]
-   KeyError: 'what'
-   >>> Template('$who likes $what').safe_substitute(d)
-   'tim likes $what'
+        import string
 
+        # make a template from  string where some identifiers are marked with $
+
+        template = string.Template('this is a $template')
+        print template.substitute({'template':5})
+        print template.substitute({'template':'five'})
+
+        # even keyword arguments is possible
+
+        print template.substitute(template=5)
+        print template.substitute(template='five')
 
 +---------+-----------------------------+---------------------------------------------+
 | builtin |  *python2*                  |  *python3*                                  |
@@ -94,25 +94,14 @@ e.g. an HTML Document.Bytes are not characters an JPEG Document.
 A general rule of thumb is Bytesting contains encoded data and a unicode
 object contains unencoded data.
 
-*bytes object have a decode() method that takes a character encoding and returns a string.*
-
-*string object has a encode method that takes a a character encoding and returns a bytes object.*
+* bytes object have a decode() method that takes a character encoding and returns a string.
+* string object has a encode method that takes a a character encoding and returns a bytes object.
 
 Python 2.0 had strings and Unicode Strings.
 Python 3.0 has strings. That is it.But you wont miss 8 bit strings which acted
 as bytes in python2, because there is a separate bytes datatype.
 
-String filters
---------------
+Reindent a particular string
+----------------------------
 
-Translate and maketrans function
---------------------------------
-
-Expanding and Compression of Tabs
----------------------------------
-
-Multiple Replacements in Single Pass
-------------------------------------
-
-Reading a Text file by Paragraphs
----------------------------------
+.. literalinclude:: string-reindent.py
