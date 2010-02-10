@@ -50,6 +50,64 @@ Interesting example:
 Handling Exceptions
 -------------------
 
+* A try statement may have more than one except clause, to specify handlers for
+
+::
+
+       different exceptions.
+        
+          ... except (RuntimeError, TypeError, NameError):
+
+          ...     pass
+
+* The last except clause may omit the exception name(s), to serve as a
+  wildcard. Use this with extreme caution, since it is easy to mask a real
+  programming error in this way! 
+
+*  It can also be used to print an error message and then re-raise the
+  exception (allowing a caller to handle the exception as well)
+
+* The try ... except statement has an optional else clause, executed when the
+  try clause does not raise an exception.
+
+::
+
+        for arg in sys.argv[1:]:
+            try:
+                f = open(arg, 'r')
+            except IOError:
+                print 'cannot open', arg
+            else:
+                print arg, 'has', len(f.readlines()), 'lines'
+                f.close()
+
+Defining Clean-up Actions 
+-------------------------
+
+* A finally clause is always executed before leaving the try statement, whether
+an exception has occurred or not.
+
+* In real world applications, the finally clause is useful for releasing
+  external resources (such as files or network connections), regardless of
+  whether the use of the resource was successful.
+
+Pre-defined Clean-up actions
+----------------------------
+
+*  with statement
+* Some objects define standard clean-up actions to be undertaken when the
+  object is no longer needed, regardless of whether or not the operation using
+  the object succeeded or failed. 
+
+::
+
+        with open("myfile.txt") as f:
+            for line in f:
+                print line
+
+* After the statement is executed, the file f is always closed, even if a
+  problem was encountered while processing the lines. 
+
 * Exceptions are Classes and are __builtin__ to the interpreter.
 * Until 1.5, simple string messages were exceptions.
 * The exception classes are defined in a hierarchy, related exceptions can be caught by catching their base classes.
@@ -287,6 +345,85 @@ comprehension below is a syntax error, while the second one is correct::
     [ x,y for x in seq1 for y in seq2]
     # Correct
     [ (x,y) for x in seq1 for y in seq2]
+
+
+Data Structures: List comprehensions 
+------------------------------------
+
+* Each list comprehension consists of an expression followed by a for clause, then zero or more for or if clauses.
+
+* If the expression would evaluate to a tuple, it must be parenthesized.
+
+
+::
+
+        >>> freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
+        >>> [weapon.strip() for weapon in freshfruit]
+        ['banana', 'loganberry', 'passion fruit']
+        >>> vec = [2, 4, 6]
+        >>> [3*x for x in vec]
+        [6, 12, 18]
+        >>> [3*x for x in vec if x > 3]
+        [12, 18]
+        >>> [3*x for x in vec if x < 2]
+        []
+        >>> [[x,x**2] for x in vec]
+        [[2, 4], [4, 16], [6, 36]]
+        >>> [x, x**2 for x in vec]  # error - parens required for tuples
+          File "<stdin>", line 1, in ?
+            [x, x**2 for x in vec]
+                       ^
+        SyntaxError: invalid syntax
+        >>> [(x, x**2) for x in vec]
+        [(2, 4), (4, 16), (6, 36)]
+        >>> vec1 = [2, 4, 6]
+        >>> vec2 = [4, 3, -9]
+        >>> [x*y for x in vec1 for y in vec2]
+        [8, 6, -18, 16, 12, -36, 24, 18, -54]
+        >>> [x+y for x in vec1 for y in vec2]
+        [6, 5, -7, 8, 7, -5, 10, 9, -3]
+        >>> [vec1[i]*vec2[i] for i in range(len(vec1))]
+        [8, 12, -54]
+        
+Python IAQ
+----------
+
+::
+
+        mat = [[1,2,3],
+               [4,5,6],
+               [7,8,9]
+               ]
+
+How would you transpose the matrix?
+
+:: 
+        result = [[1,4,7],
+                  [2,5,8],
+                  [3,6,9]
+                  ]
+
+        Answer:
+        >>>zip(\*mat)
+
+Iterators
+---------
+
+* The use of iterators pervades and unifies Python.
+* Behind the scenes, the iterator statement calls iter() on the container
+  object. 
+* The function returns an iterator object that defines the method next() which
+  accesses elements in the container one at a time.  
+* StopIterationException terminates
+* In your classes, define __iter__ which will return self and the next method.
+
+Generators
+----------
+
+* Just like regular function, but instead of return they use yield.
+* Generators are used to return iterators.
+* Generator expressions which are very similar to list comprehensions.
+
 
 Generators
 ----------
