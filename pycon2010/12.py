@@ -23,5 +23,3 @@ else:
         output_file.write(s.replace(stext, rtext))
     output.close()
     input.close()
-
-

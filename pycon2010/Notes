@@ -7,10 +7,10 @@ contain 8-bit (ASCII) characters; and Unicode Strings, which contain Unicode
 characters.
 
 Python Strings
-' I am a string'
-" Even, I am a string too."
+'I am a string'
+"Even, I am a string too."
 
-String values can be enclosed in either a single or double quotes. The two
+String values can be enclosed in either a single or Double quotes. The two
 different kinds of quotes work the same way, but having both allows you to
 include one kind of quotes inside of a string specified with the other kind of
 quotes, without needing to escape them with the backslash character.
@@ -50,7 +50,6 @@ list("python")
 map(somefunc,"python")
 map(lambda x:x,"python")
 sets.Set("python")
-
 
 The built-in function ord also accepts as its argument, a Unicode string of
 length of one, in which case it returns a Unicode code value, up to 65535.
