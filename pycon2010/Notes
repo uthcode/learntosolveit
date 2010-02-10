@@ -7,104 +7,38 @@ String Basics
 =============
 
 The main tool Python gives us to process text is strings - immutable sequence
-of characters. There are usually two kinds of strings: plain strings, which
+of characters.In Python2, there are two kinds of strings: plain strings, which
 contain 8-bit (ASCII) characters; and Unicode Strings, which contain Unicode
-characters.
-
-String values can be enclosed in either a single or Double quotes. The two
-different kinds of quotes work the same way, but having both allows you to
-include one kind of quotes inside of a string specified with the other kind of
-quotes, without needing to escape them with the backslash character.
-
-
-How does the \ character at the end signify continuation?
----------------------------------------------------------
-
-If you want a breaks in the string, you can have a triple quoted string (either
-single quote or double quote)
-
+characters.In Python3, there is only one string - which is unicode string.
 Strings are immutable, which means that no matter what operations you do on a
 string, you will always produce a new string object, rather than mutating the
-existing string.
+existing string. In general, you can do anything to a string that you can do to
+any other sequence, as long as it doesn't require changing the sequence, since
+the strings are immutable.
 
-In general, you can do anything to a string that you can do to any other
-sequence, as long as it doesn't require changing the sequence, since the
-strings are immutable.
+:: 
+	list_of_lines = one_large.string.splitlines()
+	one_large_string = '\n'.join(list_of_lines)
 
-What is the difference between string.split method and string.splitlines method? 
---------------------------------------------------------------------------------
 
-Useful code:
+Characters of a string.
 
-list_of_lines = one_large.string.splitlines()
+::
+	list("python")
+	map(somefunc,"python")
+	map(lambda x:x,"python")
+	sets.Set("python")
 
-one_large_string = '\n'.join(list_of_lines)
-
-Python's standard module string offers much of the same functionality that is
-available from the string methods, packaged up as functions instead of methods.
-
-string.maketrans
-
-You can create a set of characters from a string.
-
-list("python")
-map(somefunc,"python")
-map(lambda x:x,"python")
-sets.Set("python")
-
-The built-in function ord also accepts as its argument, a Unicode string of
-length of one, in which case it returns a Unicode code value, up to 65535.
-Which means that the encoding which is used is UTF-16. 
-
-To make a Unicode string of length one from a numeric Unicode code value, use
-the built-in function unichr.
-
-How to reverse a string in Python?
-----------------------------------
+Reversing
 
 For sequences, the extended slicing with negative step can be used for
 reversing. [::-1] There is reversed built-in function which can also be used
-for reversing the words in a sentence.
+for reversing the words in a sentence.  But for reversing the characters in a
+string, if reversed is used, then a ''.join needs to be called.  The reversed
+returns an iterator, suitable for looping on or for passing to some
+"accumulator" callable such as ''.join. It does not return a ready made string.
 
-But for reversing the characters in a string, if reversed is used, then a
-''.join needs to be called.
-
-The reversed returns an iterator, suitable for looping on or for passing to
-some "accumulator" callable such as ''.join. It does not return a ready made
-string.
-
-builtins
---------
-1. repr
-2. ord
-3. chr
-4. unichr
-
-
-What are the Different kind of sequences in python
-
-lists, strings, unicode objects, tuples, array.arrays etc.
-
-(21:16:01) ivazquez|laptop: str → .decode() → unicode
-(21:16:04) Yhg1s: phoe6: no. a bytestring contains encoded data. a unicode
-object contains unencoded data. you decode a bytestring into a unicode string.
-You encode a unicode string into a bytestring.
-
-You never encode a sequence of bytes. 
-
-EAFP - Its easier to ask forgiveness than permission. (EAFP). try/except is the
-key tool in enabling the EAFP style.
-
-
-What is a predicate?
---------------------
-A term you can see often in discussions about programming is predicate, it just
-means a function (or other callable object) that returns True or False as its
-result. A predicate is said to be satisfied when it returns True.
-
-
-string.translate and string.maketrans methods
----------------------------------------------
+string functions
 
 string.translate(s, table[, deletechars])
 
@@ -126,51 +60,91 @@ string.maketrans(from, to)
      ``str.upper()``.
 
 
-Templating String functions are there.
---------------------------------------
+   >>> from string import Template
+   >>> s = Template('$who likes $what')
+   >>> s.substitute(who='tim', what='kung pao')
+   'tim likes kung pao'
+   >>> d = dict(who='tim')
+   >>> Template('Give $who $100').substitute(d)
+   Traceback (most recent call last):
+   [...]
+   ValueError: Invalid placeholder in string: line 1, col 10
+   >>> Template('$who likes $what').substitute(d)
+   Traceback (most recent call last):
+   [...]
+   KeyError: 'what'
+   >>> Template('$who likes $what').safe_substitute(d)
+   'tim likes $what'
 
 
-What does u'\u2020' mean?
--------------------------
+Same in Python2 and Python3.
+repr - repr(object) -> string
 
->>> print ord(u'\u2020')
-8224
+In Python2
 
-u'' is a unicode string object.
-\u2020 is the unicode code point.
+ord  -  ord(c) -> integer
+Return the integer ordinal of a one-character string.
 
-Questions
-=========
-Q: Convert a Hexadecimal Strings ("FF","FFFF") to Decimal
-A: int("FF",16) and int("FFFF",16)
+In Python3:
 
-Q: Represent 266 in Hexadecimal.
-A: print '%X' % 255
+ord  -  ord(c) -> integer
+ Return the integer ordinal of a one-character string.
+A valid surrogate pair is also accepted.
 
-Q: Where do you see RFC 3548 being utilized?
-Hint: import base64
+In python2
+chr - chr(i) -> character
 
-What is the difference between string, bytes and buffer?
+Return a string of one character with ordinal i; 0 <= i < 256
+
+unichr - unichr(i) -> Unicode character
+
+Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff
+
+In python3
+
+chr - chr(i) -> Unicode character. 
+
+Returns a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff.
+If 0x10000 <= i, a surrogate pair is returned.
+
++-----------+-----------------------+-------------------------------------+
+| builtin   |   python2             |      python3                        |
++-----------+-----------------------+-------------------------------------+
+| repr      |   obj to str          |      obj to str                     |
++-----------------------------------+-------------------------------------+
+| ord       |   c   to int          |      c   to int                     |
+|           |                       |      valid surrogate pair accepted. |
++-----------+-----------------------+-------------------------------------+
+| chr       |   i   to c            |      i   to u                       |
+|           |   0 <= i < 256        |      0 <= i < 0x10ffff              |
++-----------+-----------------------+-------------------------------------+
+| unichr    |    i   to u           |         -                           |
+|           |   0 <=i < 0x10ffff    |                                     |
++-----------+-----------------------+-------------------------------------+
+
+A general rule of thumb is A Bytesting contains encoded data and a unicode
+object contains unencoded data.
+
+Decode the bytestring to Unicode String.
+Encode the Unicode String to ByteString.
 
 Python 2.0 had strings and Unicode Strings.
-Python 3.0 has bytes and strings.
-There will never be implicit conversion between bytes and strings.
+Python 3.0 has strings. That is it.
 
-Coming to Datatypes:
+But you wont miss 8 bit strings which acted as bytes in python2, because there
+is a separate bytes datatype.
+
 Strings are sequence of unicode characters, e.g. an HTML Document.
 Bytes and byte arrays e.g. an JPEG Document.
-
-In Python 3, all strings are sequences of Unicode characters.
-Bytes are Bytes; characters are abstraction.
-
-Here is a link between strings and bytes.
 
 bytes object have a decode() method that takes a character encoding and returns a string.
 string object has a encode method that takes a a character encoding and returns a bytes object.
 
-
-What is the difference between linefeed and a newline?
-newline is composed of Linefeed character. 
+What is a predicate?
+--------------------
+A term you can see often in discussions about programming is predicate, it just
+means a function (or other callable object) that returns True or False as its
+result. A predicate is said to be satisfied when it returns True.
 
 Outline for Review
 ------------------

@@ -11,6 +11,8 @@ arguments.
 Python 3.x is to first migrate to 2.6 (in order to take advantage of Python
 2.6's runtime compatibility checks).
 
+* In the tutorial source files, run 2to3 example_for_2to3.py and analyze the
+  output.
 
 Unicode Strings and Bytes
 -------------------------
