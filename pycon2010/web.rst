@@ -1,6 +1,14 @@
 Web Programming
 ===============
 
+urllib module is available for doing a variety of web-related stuff.
+
+urllib.request - request an url.
+urllib.parse   - parse an url.
+urllib.error   - handle errors
+urllib.robotparser - handles robots.txt file.
+
+
 Example of  Smart Redirect Handler 
 ----------------------------------
 
@@ -21,10 +29,3 @@ Example of  Smart Redirect Handler
         obj = opener.open(request)
         print 'I capture the http redirect code:', obj.status
         print 'Its been redirected to:', obj.url
-
-
-urllib module
--------------
-
-Parsing RSS feeds
------------------

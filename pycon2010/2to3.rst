@@ -4,6 +4,14 @@ How to Convert Python 2 to Python 3
 2to3 tool
 ---------
 
+Run ``./2to3`` to convert stdin (``-``), files or directories given as
+arguments.
+
+2to3 must be run with at least Python 2.6. The intended path for migrating to
+Python 3.x is to first migrate to 2.6 (in order to take advantage of Python
+2.6's runtime compatibility checks).
+
+
 Unicode Strings and Bytes
 -------------------------
 
