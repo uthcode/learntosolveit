@@ -15,7 +15,6 @@ How to Solve it using Python
    datetime
    processingxml
    database
-   timsort
    process
    network
    web
