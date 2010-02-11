@@ -178,17 +178,17 @@ latex_paper_size = 'letter'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'HowtoSolveitusingPython.tex', u'How to Solve it using Python Documentation',
+  ('index', 'HowtoSolveitusingPython.tex', u'How to Solve it using Python',
    u'Senthil Kumaran', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-#latex_logo = None
+latex_logo = '_static/pycon.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-#latex_use_parts = False
+# latex_use_parts = True
 
 # Additional stuff for the LaTeX preamble.
 #latex_preamble = ''
@@ -197,7 +197,7 @@ latex_documents = [
 #latex_appendices = []
 
 # If false, no module index is generated.
-#latex_use_modindex = True
+latex_use_modindex = False
 
 
 # -- Options for Epub output ---------------------------------------------------
