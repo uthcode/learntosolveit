@@ -23,8 +23,8 @@ Studies related
 * http://www.cra.org/reports/forsythe.html
 * http://ram.umd.edu/
 * http://cs.washington.edu/homes/arvind
-
-http://www.cs.washington.edu/homes/arvind/
+* http://www.cs.washington.edu/homes/arvind/
+* http://www.abarnett.demon.co.uk/tutorial.html
 
 Universities to Apply
 ---------------------
@@ -264,12 +264,11 @@ Statement of Purpose
 20. Patent on Distributed Download mechanism in Blu Ray is a techology
     adoptation in Blu-ray with a some of exsiting networking algorithms.
 
-   
-----------------------------------------------------------------------------------
-
 1. A Good Computer Scientist will combine both practise and theory to explore
    the truth.
+
 2. Career devoted to the development of Computer Science.
+
 3. I find the distinct relationship between the various areas of computer
    science and I specifically find interests in Algorithms, Theory of
    Computation, Distributed Systems and Networking.
@@ -340,8 +339,6 @@ Statement of Purpose
     solution. I studied the kind of sorting algorithm, timsort,  that is going
     inside the language interpretor for sorting the elements in the language
     while providing higher level sort interface to the programmer.
-
----------
 
 1. Multi threading programming, asynchronous networking programming, threading.
 
@@ -428,8 +425,6 @@ recording of having 4 or more patents.
     programming model, a reactor pattern, and asynchornous programing using
     deferreds. The twisted framework provided a neat implmentatin of these has
     been very stable.
-
--- 
 
 1. I have had several opportunities to do research.
 2. My career after graduate school is to pursue research in academedia or in
@@ -527,15 +522,14 @@ Score Recipients Requested
 
 Graduate Institution                    Department
 
-4833                                               0402
-5248                                                0402
-2074                                                1201
-4704                                                0402
+4833            0402
+5248            0402
+2074            1201
+4704            0402
 
 Score: 530. Percentile: 08%
 
 http://edulix.com/infobank/index.php  Edulix Info Banks
-
 
 Nov 09
 ------
@@ -582,8 +576,8 @@ http://docs.freebsd.org/44doc/
 Theory of Computation
 =====================
 
- * A language is called a regular language if some finite automaton recognizes it.
- * What is finite automata?
+* A language is called a regular language if some finite automaton recognizes it.
+* What is finite automata?
 
 A finite automata is a 5-tuple (Q, E, ∂, q, F), where:
 
@@ -1664,3 +1658,92 @@ Discrete Maths Video 5
 ----------------------
 * Recurrance Equation. Every next step is a function of the previous step.
 * Towers of Hanoi problem and Analysis.
+
+
+Data Structures and Algorithms
+==============================
+
+Instructions:
+-------------
+
+    1) Solve either the three problems in Section A or the
+       single problem in Section B. You must implement your
+       algorithms as working programs in the C language.
+
+    2) Try to keep your programs as simple as possible.
+       Take care of proper program layout and embellish it
+       with useful comments at the appropriate places.
+
+    3) Make your programs as robust as possible. All borderline
+       cases should be handled properly and the program should
+       exit gracefully under all circumstances.
+
+
+
+Section A
+
+Problem A1: Prime Number Generation
+-----------------------------------
+
+Given a positive number N, generate all the prime numbers
+from 2 to N. The primary emphasis in the solution to this
+problem should be on speed. In addition, you must not consume
+an inordinate amount of memory.
+
+
+Problem A2: Arbitrary Precision Arithmetic
+------------------------------------------
+
+Implement an arbitrary precision arithmetic calculator.
+You should implement addition, subtraction, multiplication
+and division in the respective order. Try to make your
+program as fast as possible and keep memory usage to the
+bare minimum.
+
+
+Problem A3: Sub-string Search
+-----------------------------
+
+Given two strings S1 and S2, determine whether S2 occurs
+as a substring in S1 and if so, find the first occurrence
+of S2 in S1. Your program should be extremely fast. Try
+to come up with a linear solution to the problem.
+
+
+
+Section B
+
+Problem B1: Simple File-system Implementation
+---------------------------------------------
+
+Implement a simple filesystem within a normal file on the
+hard disk, i.e. treat the file as a virtual disk and
+implement the filesystem by manipulating records within the
+file.
+
+You are free to devise your own scheme for the file system
+but it should minimally support the following operations:
+
+   1) Create - Create a virtual hard disk on a file of the
+      specified size and "format" it. Formatting would
+      essentially involve initialising disk allocation
+      structures and whatever else you need to do before
+      you can have a valid filesystem.
+
+   2) Open, Read, Write, Close - All the normal file operations
+      to use the files.
+
+   3) Delete, Rename - Remove unwanted files or rename existing
+      files.
+
+Do not place artificial restrictions on file names, sizes, etc.
+
+In addition, if you can, provide support for folders (also known
+as directories) which can be arbitrarily nested. Provide all
+the common operations for folders.
+
+You should implement this as a library of routines that can be
+used by anyone wanting to treat a file as a filesystem.
+Demonstrate the correctness of your routines by writing a demo
+program that lets one manipulate files interactively.
+

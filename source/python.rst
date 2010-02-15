@@ -5,98 +5,15 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
+TODO
+====
+
+* study diveintopython3 (20)
+* use of namedtuple in py3k branch for urlparse.
+* Digest Authentication is not working.
         
-What is Global Interpretor Lock?
-================================
-
-Global Interpretor lock is used to protect the Python Objects from being
-modified by multiple threads at once. To keep multiple threads running, the
-interpretor automatically releases and reaquires the lock at regular intervals.
-It also does this around potentially slow or blocking low level operations,
-such a file and network I/O.  This is used internally to ensure that only one
-thread runs in the Python VM at a time. Python offers to switch amongst threads
-only between bytecode instructions. Each bytecode instruction and all C
-implemented function is atomic from Python program's point of view.
-
-
-What kind of different hardware architectures possible?
-=======================================================
-Single Processor machine.
-Single Processor with multiple cores.
-Multiple Processors within a Single Machine.
-Multiple Processors with each having multiple cores.
-
-Core is term of Iron. It was synonymous with CPU.  So, is this all a two level
-definition?
-
-
-concurrent programming:
-http://en.wikipedia.org/wiki/Concurrent_computing 
-
-Java and C# use shared memory concurrency model, with locking provided by
-monitors. Message passing concurrency model have been implemented on top of the
-existing shared memory concurrency model.
-Erlang is using message passing concurrency model.
-Alice extension to Standard ML, supports concurrency via Futures.
-Cilk is concurrent C. There are developers at Akamai.
-The Actor Model.
-Petri Nets.
-
-
-List of Important Publications in Concurrent, Parallel and Distributed Computing.
-http://en.wikipedia.org/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing
-
-Symposium on Principles of Distributed Computing.
-http://en.wikipedia.org/wiki/Symposium_on_Principles_of_Distributed_Computing
-
-Reworking the GIL
-http://mail.python.org/pipermail/python-dev/2009-October/093321.html
-
-Fun Stuff
-=========
-
-Watch the Python Code Swarm here:
-http://www.vimeo.com/1093745
-
-Process (computing)
-
-What is the difference between multi-tasking and multi-processing?
-
-Inter-Process Communication.
-
-Some History
-
-By the early 60s computer control software had evolved from Monitor control
-software, e.g., IBSYS, to Executive control software. Computers got "faster"
-and computer time was still neither "cheap" nor fully used. It made
-multiprogramming possible and necessary.
-
-Multiprogramming means that several programs run "at the same time"
-(concurrently). At first they ran on a single processor (i.e., uniprocessor)
-and shared scarce resources. Multiprogramming is also basic form of
-multiprocessing, a much broader term.
-
-Programs consist of sequence of instruction for processor. Single processor can
-run only one instruction at a time. Therefore it is impossible to run more
-programs at the same time. Program might need some resource (input ...) which
-has "big" delay. Program might start some slow operation (output to printer
-...). This all leads to processor being "idle" (unused). To use processor at
-all time the execution of such program was halted. At that point, a second (or
-nth) program was started or restarted. User perceived that programs run "at the
-same time" (hence the term, concurrent).
-
-Shortly thereafter, the notion of a 'program' was expanded to the notion of an
-'executing program and its context'. The concept of a process was born.
-
-This became necessary with the invention of re-entrant code.  Threads came
-somewhat later. However, with the advent of time-sharing; computer networks;
-multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
-way to true multitasking, multiprocessing and, later, multithreading.
-
-1. Why is the threading modules have start and join methods?
-
-urllib2
-=======
+urllib 
+======
 
 functions
 ---------
@@ -162,16 +79,301 @@ Some clients support the no_proxy environment variable that specifies a set of
 domains for which the proxy should not be consulted; the contents is a
 comma-separated list of domain names, with an optional :port part:
 
-Python HTTP Authentication Schemes:
-http://frontier.userland.com/stories/storyReader$2159
+WWW-Authenticate
 
-Thus Spake
-==========
-You never encode a sequence of bytes. 
+The WWW-Authenticate response-header field must be included in 401
+(unauthorized) response messages. The field value consists of at least one
+challenge that indicates the authentication scheme(s) and parameters applicable
+to the Request-URI.
+
+       WWW-Authenticate = "WWW-Authenticate" ":" 1#challenge
+
+The HTTP access authentication process is described in Section 11. User agents
+must take special care in parsing the WWW-Authenticate field value if it
+contains more than one challenge, or if more than one WWW-Authenticate header
+field is provided, since the contents of a challenge may itself contain a
+comma-separated list of authentication parameters. 
+
+RFC Hierarchy for Relative URL formats
+
+:: 
+
+        RFC3986(STD066) - This is the current and is the standard.
+        |
+        RFC2396 - This was previous one.
+        |
+        RFC2368
+        |
+        RFC1808 - urlparse header says, it follows this. But this has been upgraded a lot times.
+        |
+        RFC1738 - It started with this. 
+
+Following are some of the notes I took, while working on urllib patches.  It
+should be a handy reference when working on bugs again.
+
+RFC 3986 Notes:
+Mon Aug 25 10:17:01 IST 2008
+
+A URI is a sequence of characters that is not always represented as a sequence
+of octets. ( What are octets? OCTETS means 8 Bits. Nothing else!)
+
+Percent-encoded octets may be used within a URI to represent characters outside
+the range of the US-ASCII coded character set.
+
+Specification uses Augmented Backus-Naur Form (ABNF) notation of [RFC2234],
+including the followig core ABNF syntax rules defined by that specification:
+ALPHA (letters), CR ( carriage return), DIGIT (decimal digits), DQUOTE (double
+quote), HEXDIG (hexadecimal digits), LF (line feed) and SP (space).
+
+Section 1 of RFC3986 is very generic. Understand that URI should be
+transferable and single generic syntax should denote the whole range of URI
+schemes.
+
+URI Characters are, in turn, frequently encoded as octets for transport or
+presentation.
+
+This specification does not mandate any character encoding for mapping between
+URI characters and the octets used to store or transmit those characters.
+
+pct-encoded = "%" HEXDIG HEXDIG
+
+For consistency, uri producers and normalizers should use uppercase
+hexadecimal digits, for all percent - encodings.
+reserved = gen-delims / sub-delims
+
+gen-delims = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+
+sub-delims = "!" / "$" / "&" / "'" / "(" / ")"
+/ "*" / "+" / "," / ";" / "="
 
 
-Questions
-=========
+unreserved = ALPHA / DIGIT / "-" / "." / "_" / "~"
+
+When a new URI scheme defines a component that represents textual
+data consisting of characters from the Universal Character Set [UCS],
+the data should first be encoded as octets according to the UTF-8
+character encoding [STD63]; then only those octets that do not
+correspond to characters in the unreserved set should be percent-
+encoded. For example, the character A would be represented as "A",
+the character LATIN CAPITAL LETTER A WITH GRAVE would be represented
+as "%C3%80", and the character KATAKANA LETTER A would be represented
+as "%E3%82%A2".
+
+Section 2, was on encoding and decoding the characters in the url scheme. How
+that is being used encoding reservered characters within data. Transmission of
+url from local to public when using a different encoding - translate at the
+interface level.
+
+URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+
+hier-part = "//" authority path-abempty
+/ path-absolute
+/ path-rootless
+/ path-empty
+
+Many URI schemes include a hierarchical element for a naming
+authority so that governance of the name space defined by the
+remainder of the URI is delegated to that authority (which may, in
+turn, delegate it further).
+
+:: 
+
+        userinfo = *( unreserved / pct-encoded / sub-delims / ":" )
+        host = IP-literal / IPv4address / reg-name
+
+In order to disambiguate the syntax host between IPv4address and reg-name, we
+apply the "first-match-wins" algorithm:
+
+A host identified by an Internet Protocol literal address, version 6
+[RFC3513] or later, is distinguished by enclosing the IP literal
+within square brackets ("[" and "]"). This is the only place where
+square bracket characters are allowed in the URI syntax.
+
+::
+
+
+        IP-literal = "[" ( IPv6address / IPvFuture ) "]"
+
+        IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
+
+        IPv6address = 6( h16 ":" ) ls32
+        / "::" 5( h16 ":" ) ls32
+        / [ h16 ] "::" 4( h16 ":" ) ls32
+        / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
+        / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
+        / [ *3( h16 ":" ) h16 ] "::" h16 ":" ls32
+        / [ *4( h16 ":" ) h16 ] "::" ls32
+        / [ *5( h16 ":" ) h16 ] "::" h16
+        / [ *6( h16 ":" ) h16 ] "::"
+
+        ls32 = ( h16 ":" h16 ) / IPv4address
+        ; least-significant 32 bits of address
+
+        h16 = 1*4HEXDIG
+        ; 16 bits of address represented in hexadecimal
+
+        IPv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
+
+        dec-octet = DIGIT ; 0-9
+        / %x31-39 DIGIT ; 10-99
+        / "1" 2DIGIT ; 100-199
+        / "2" %x30-34 DIGIT ; 200-249
+        / "25" %x30-35 ; 250-255
+
+        reg-name = *( unreserved / pct-encoded / sub-delims )
+
+
+Non-ASCII characters must first be encoded according to UTF-8 [STD63], and then
+each octet of the corresponding UTF-8 sequence must be percent- encoded to be
+represented as URI characters.
+
+When a non-ASCII registered name represents an internationalized domain name
+intended for resolution via the DNS, the name must be transformed to the IDNA
+encoding [RFC3490] prior to name lookup.
+
+Section 3 was about sub-components and their structure and if they are
+represented in NON ASCII how to go about with encoding/decoding that.
+
+::
+
+        path = path-abempty ; begins with "/" or is empty
+        / path-absolute ; begins with "/" but not "//"
+        / path-noscheme ; begins with a non-colon segment
+        / path-rootless ; begins with a segment
+        / path-empty ; zero characters
+
+        path-abempty = *( "/" segment )
+        path-absolute = "/" [ segment-nz *( "/" segment ) ]
+        path-noscheme = segment-nz-nc *( "/" segment )
+        path-rootless = segment-nz *( "/" segment )
+        path-empty = 0<pchar>
+        segment = *pchar
+        segment-nz = 1*pchar
+        segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+        ; non-zero-length segment without any colon ":"
+
+        pchar = unreserved / pct-encoded / sub-delims / ":" / "@"
+
+        relative-ref = relative-part [ "?" query ] [ "#" fragment ]
+
+        relative-part = "//" authority path-abempty
+        / path-absolute
+        / path-noscheme
+        / path-empty
+
+
+Section 4 was on the usage aspects and heuristics used in determining in the
+scheme in the normal usages where scheme is not given.
+
+- Base uri must be stripped of any fragment components prior to it being used
+as a Base URI.
+
+Section 5 was on relative reference implementation algorithm. I had covered
+them practically in the Python urlparse module.
+
+Section 6 was on Normalization of URIs for comparision and various
+normalization practices that are used.
+
+Dissecting urlparse:
+--------------------
+
+* __all__ methods provides the public interfaces to all the methods like
+urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
+
+* then there is classification of schemes like uses_relative, uses_netloc,
+non_hierarchical, uses_params, uses_query, uses_fragment
+- there should be defined in an rfc most probably 1808.
+- there is a special '' blank string, in certain classifications, which
+means that apply by default.
+
+* valid characters in scheme name should be defined in 1808.
+
+* class ResultMixin is defined to provide username, password, hostname and
+port.
+
+* from collections import namedtuple. This should be from python2.6.
+namedtuple is pretty interesting feature.
+
+* SplitResult and ParseResult. Very good use of namedtuple and ResultMixin
+
+* The behaviour of the public methods urlparse, urlunparse, urlsplit and
+urlunsplit and urldefrag matter most.
+
+urlparse - scheme, netloc, path, params, query and fragment.
+urlunparse will take those parameters and construct the url back.
+
+urlsplit - scheme, netloc, path, query and fragment.
+urlunsplit - takes these parameters (scheme, netloc, path, query and fragment)
+and returns a url.
+
+urlparse x urlunparse
+urlsplit x urlunsplit
+urldefrag
+urljoin
+
+
+Date: Tue Aug 19 20:40:46 IST 2008
+
+Changes to urlsplit functionality in urllib.
+As per the RFC3986, the url is split into:
+scheme, authority, path, query, frag = url
+
+The authority part in turn can be split into the sections:
+user, passwd, host, port = authority
+
+The following line is the regular expression for breaking-down a
+well-formed URI reference into its components.
+
+:: 
+
+        ^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?
+        12 3 4 5 6 7 8 9
+
+        scheme = $2
+        authority = $4
+        path = $5
+        query = $7
+        fragment = $9
+
+
+The urlsplit functionality in the urllib can be moved to new regular
+expression based parsing mechanism.
+
+From man uri, which confirms to rfc2396 and HTML 4.0 specs.
+
+* An absolute identifier refers to a resource independent of context, while a
+  relative identifier refers to a resource by describing the difference from
+  the current context.
+
+* A path segment while contains a colon character ':' can't be used as the
+  first segment of a relative URI path. Use it like this './file:path'
+
+* A query can be given in the archaic "isindex" format, consisting of a word or
+  a phrase and not including an equal sign (=). If = is there, then it must be
+  after & like &key=value format.
+
+Character Encodings:
+
+* Reserved characters: ;/?:@&=+$,
+* Unreserved characters: ALPHA, DIGITS, -_.!~*'()
+
+An escaped octet is encoded as a character triplet consisting of the percent
+character '%' followed by the two hexadecimal digits representing the octet
+code.
+
+HTML 4.0 specification section B.2 recommends the following, which should be
+considered best available current guidance:
+
+1) Represent each non-ASCII character as UTF-8
+2) Escape those bytes with the URI escaping mechanism, converting each byte to
+   %HH where HH is the hexadecimal notation of the byte value.
+
+One of the important changes when adhering to RFC3986 is parsing of IPv6
+addresses.
+
+Strings, Bytes and Python 3
+===========================
+
 Q: Convert a Hexadecimal Strings ("FF","FFFF") to Decimal
 A: int("FF",16) and int("FFFF",16)
 
@@ -199,75 +401,16 @@ Here is a link between strings and bytes.
 bytes object have a decode() method that takes a character encoding and returns a string.
 string object has a encode method that takes a a character encoding and returns a bytes object.
 
-Read diveintopython3.org 20 times.
-
 What is the difference between linefeed and a newline?
 newline is composed of Linefeed character. 
 
-What is HTTP POST?
-
-What is HTTP PUT?
-
-Call Stack:
-
-Is a dynamic data structure that stores information about the active
-subroutines.  Execution Stack, Control Stack, Runtime stack, function stack or
-simply just a stack.  A call stack is used to keep track of the point to which
-the sub-routine should return after finished executing.
-
-
-Python Developer's Notebook:
- 
-* Be conscious of bikeshedding, eats away valuable time.
-
-Whats new document details about what is new in Python.
-
-This is called auto-numbering in Python 2.7
-
-::
-        >>> '{}'.format(1)
-        '1'
-        >>> '{}:{}'.format(1,2)
-        '1:2'
-        >>> '{}:This is day:{day}'.format(1,day='Saturday')
-        '1:This is day:Saturday'
-
-int and long have a bit_length() method that gives the length of bits to
-represent them in binary. mark dickenson is cool, he implemented the
-subtraction of two large floating numbers to arbitrarary precision.
-
 What is class bytearray?
+
 byte == 8 bits.
 array == sequence.
 bytearray object can be constructed using integers; text string along with an
 encoding; using another bytes or bytearray; or any other object implementing a
 buffer API.
-
-Garbage Collector
-=================
-
-number of survivor objects from the older generation.  what is the structseq?
-
-Context Management Protocol support
-
-:: 
-        with bz2.BZ2File() as f:
-                f.something()
-
-counter class in the collections module that behave like dictionary; but return
-0 instead of {{{KeyError}}}.  there is a namedtuple class in python.
-
-compileall module is a script which which will compile all the .py files in the
-path to .pyc files.  py_compile is module which does the actual byte
-compilation.
-
-py_compile.compile(fullname, None, dfile, True)
-
-inspect module.
-
-turtle module is a good one to get started with Python. turtle modle is updated
-to 1.1 by Gregor Lingl. I promised to write a tutorial on turtle module. This
-is pending.
 
 Python's support for Unicode text, wide character strings used in
 internationalized applications, as well as binary data - strings that represent
@@ -286,9 +429,9 @@ In a nutshell:
 
 :: 
 
-        ||*Python 2.6*||*Python 3.0*||
-        ||str||		    unicode||
-        ||unicode||	    bytes,bytearray ||
+        ||*Python 2.6*||     *Python 3.0*||
+        ||str         ||     unicode     ||
+        ||unicode     || bytes,bytearray ||
 
 Unicode Text: support of text encodings to be different in 3.0; direct,
 accessible and seamless.
@@ -310,7 +453,8 @@ unicode - for representing wide character Unicode text.
 unicode - allows for the extra size of characters and has extra support for
 encodings and decodings.
 
-Python 3.x comes with 3 string object types, one for textual data and two for binary data.
+Python 3.x comes with 3 string object types, one for textual data and two for
+binary data.
 
 str - for representing Unicode text.
 bytes - for representing Binary data.
@@ -348,7 +492,9 @@ your script will use to represent its contents.
 
  * bytes or binary mode files.
  * bytearray to update data without making copies of it in memory.
- * If you are processing something that is textual in nature, such as program output, HTML, internationalized text, and CSV or XML files, you probably want to use str or text mode files.
+ * If you are processing something that is textual in nature, such as program
+   output, HTML, internationalized text, and CSV or XML files, you probably
+   want to use str or text mode files.
 
 
 Unicode Notes
@@ -373,7 +519,6 @@ Codes below 32 were called unprintable. The space was 32 and letter A was 65.
 This could conveniently be stored in 7 bits.  Most computers in those days were
 using 8 bit bytes, so not only you could store all the ASCII characters, you
 had a whole bit to spare. 
-
 
 * Because bytes have room for upto eight bits, lots of people got into
   thinking, "gosh, we can use codes 128-255 for our own purposes." :) 
@@ -671,321 +816,87 @@ Typing Unicode and maths symbols on gnome-terminal
 Unicode code point chart:
 http://inamidst.com/stuff/unidata/
 
-Python 3.0 strings in Action
-============================
+What is Global Interpretor Lock?
+================================
 
-Python Bugs
-
-When does the http_error_auth_reqed( gets called?
-
-WWW-Authenticate
-
-The WWW-Authenticate response-header field must be included in 401
-(unauthorized) response messages. The field value consists of at least one
-challenge that indicates the authentication scheme(s) and parameters applicable
-to the Request-URI.
-
-       WWW-Authenticate = "WWW-Authenticate" ":" 1#challenge
-
-The HTTP access authentication process is described in Section 11. User agents
-must take special care in parsing the WWW-Authenticate field value if it
-contains more than one challenge, or if more than one WWW-Authenticate header
-field is provided, since the contents of a challenge may itself contain a
-comma-separated list of authentication parameters. 
-
-RFC Hierarchy for Relative URL formats
-
-:: 
-
-        RFC3986(STD066) - This is the current and is the standard.
-        |
-        RFC2396 - This was previous one.
-        |
-        RFC2368
-        |
-        RFC1808 - urlparse header says, it follows this. But this has been upgraded a lot times.
-        |
-        RFC1738 - It started with this. 
-
-Following are some of the notes I took, while working on urllib patches.  It
-should be a handy reference when working on bugs again.
-
-RFC 3986 Notes:
-Mon Aug 25 10:17:01 IST 2008
-
-A URI is a sequence of characters that is not always represented as a sequence
-of octets. ( What are octets? OCTETS means 8 Bits. Nothing else!)
-
-Percent-encoded octets may be used within a URI to represent characters outside
-the range of the US-ASCII coded character set.
-
-Specification uses Augmented Backus-Naur Form (ABNF) notation of [RFC2234],
-including the followig core ABNF syntax rules defined by that specification:
-ALPHA (letters), CR ( carriage return), DIGIT (decimal digits), DQUOTE (double
-quote), HEXDIG (hexadecimal digits), LF (line feed) and SP (space).
-
-Section 1 of RFC3986 is very generic. Understand that URI should be
-transferable and single generic syntax should denote the whole range of URI
-schemes.
-
-URI Characters are, in turn, frequently encoded as octets for transport or
-presentation.
-
-This specification does not mandate any character encoding for mapping between
-URI characters and the octets used to store or transmit those characters.
-
-pct-encoded = "%" HEXDIG HEXDIG
-
-For consistency, uri producers and normalizers should use uppercase
-hexadecimal digits, for all percent - encodings.
-reserved = gen-delims / sub-delims
-
-gen-delims = ":" / "/" / "?" / "#" / "[" / "]" / "@"
-
-sub-delims = "!" / "$" / "&" / "'" / "(" / ")"
-/ "*" / "+" / "," / ";" / "="
+Global Interpretor lock is used to protect the Python Objects from being
+modified by multiple threads at once. To keep multiple threads running, the
+interpretor automatically releases and reaquires the lock at regular intervals.
+It also does this around potentially slow or blocking low level operations,
+such a file and network I/O.  This is used internally to ensure that only one
+thread runs in the Python VM at a time. Python offers to switch amongst threads
+only between bytecode instructions. Each bytecode instruction and all C
+implemented function is atomic from Python program's point of view.
 
 
-unreserved = ALPHA / DIGIT / "-" / "." / "_" / "~"
+Different types of concurrency models
+=====================================
 
-When a new URI scheme defines a component that represents textual
-data consisting of characters from the Universal Character Set [UCS],
-the data should first be encoded as octets according to the UTF-8
-character encoding [STD63]; then only those octets that do not
-correspond to characters in the unreserved set should be percent-
-encoded. For example, the character A would be represented as "A",
-the character LATIN CAPITAL LETTER A WITH GRAVE would be represented
-as "%C3%80", and the character KATAKANA LETTER A would be represented
-as "%E3%82%A2".
+* Java and C# uses shared memory concurrency model with locking provided by
+  monitors. Message passing concurrency model have been implemented on top of
+  the existing shared memory concurrency model.
 
-Section 2, was on encoding and decoding the characters in the url scheme. How
-that is being used encoding reservered characters within data. Transmission of
-url from local to public when using a different encoding - translate at the
-interface level.
+* Erlang uses message passing concurrency model.
 
-URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+* Alice Extensions to Standard ML supports concurrency via Futures.
 
-hier-part = "//" authority path-abempty
-/ path-absolute
-/ path-rootless
-/ path-empty
+* Cilk is concurrent C.
 
-Many URI schemes include a hierarchical element for a naming
-authority so that governance of the name space defined by the
-remainder of the URI is delegated to that authority (which may, in
-turn, delegate it further).
+* The Actor Model.
+
+* Petri Net Model.
+
+Some History of Inter Process Communication
+===========================================
+
+By the early 60s computer control software had evolved from Monitor control
+software, e.g., IBSYS, to Executive control software. Computers got "faster"
+and computer time was still neither "cheap" nor fully used. It made
+multiprogramming possible and necessary.
+
+Multiprogramming means that several programs run "at the same time"
+(concurrently). At first they ran on a single processor (i.e., uniprocessor)
+and shared scarce resources. Multiprogramming is also basic form of
+multiprocessing, a much broader term.
+
+Programs consist of sequence of instruction for processor. Single processor can
+run only one instruction at a time. Therefore it is impossible to run more
+programs at the same time. Program might need some resource (input ...) which
+has "big" delay. Program might start some slow operation (output to printer
+...). This all leads to processor being "idle" (unused). To use processor at
+all time the execution of such program was halted. At that point, a second (or
+nth) program was started or restarted. User perceived that programs run "at the
+same time" (hence the term, concurrent).
+
+Shortly thereafter, the notion of a 'program' was expanded to the notion of an
+'executing program and its context'. The concept of a process was born.
+
+This became necessary with the invention of re-entrant code.  Threads came
+somewhat later. However, with the advent of time-sharing; computer networks;
+multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
+way to true multitasking, multiprocessing and, later, multithreading.
+
+Context Management Protocol support
 
 :: 
+        with bz2.BZ2File() as f:
+                f.something()
 
-        userinfo = *( unreserved / pct-encoded / sub-delims / ":" )
-        host = IP-literal / IPv4address / reg-name
+Counter class in the collections module that behave like dictionary; but return
+0 instead of {{{KeyError}}}.  There is a namedtuple class in python.
 
-In order to disambiguate the syntax host between IPv4address and reg-name, we
-apply the "first-match-wins" algorithm:
+compileall module is a script which which will compile all the .py files in the
+path to .pyc files.  py_compile is module which does the actual byte
+compilation.
 
-A host identified by an Internet Protocol literal address, version 6
-[RFC3513] or later, is distinguished by enclosing the IP literal
-within square brackets ("[" and "]"). This is the only place where
-square bracket characters are allowed in the URI syntax.
+py_compile.compile(fullname, None, dfile, True)
 
-::
+inspect module.
 
+turtle module is a good one to get started with Python. turtle modle is updated
+to 1.1 by Gregor Lingl. I promised to write a tutorial on turtle module. This
+is pending.
 
-        IP-literal = "[" ( IPv6address / IPvFuture ) "]"
-
-        IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
-
-        IPv6address = 6( h16 ":" ) ls32
-        / "::" 5( h16 ":" ) ls32
-        / [ h16 ] "::" 4( h16 ":" ) ls32
-        / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
-        / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
-        / [ *3( h16 ":" ) h16 ] "::" h16 ":" ls32
-        / [ *4( h16 ":" ) h16 ] "::" ls32
-        / [ *5( h16 ":" ) h16 ] "::" h16
-        / [ *6( h16 ":" ) h16 ] "::"
-
-        ls32 = ( h16 ":" h16 ) / IPv4address
-        ; least-significant 32 bits of address
-
-        h16 = 1*4HEXDIG
-        ; 16 bits of address represented in hexadecimal
-
-        IPv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
-
-        dec-octet = DIGIT ; 0-9
-        / %x31-39 DIGIT ; 10-99
-        / "1" 2DIGIT ; 100-199
-        / "2" %x30-34 DIGIT ; 200-249
-        / "25" %x30-35 ; 250-255
-
-        reg-name = *( unreserved / pct-encoded / sub-delims )
-
-
-Non-ASCII characters must first be encoded according to UTF-8 [STD63], and then
-each octet of the corresponding UTF-8 sequence must be percent- encoded to be
-represented as URI characters.
-
-When a non-ASCII registered name represents an internationalized domain name
-intended for resolution via the DNS, the name must be transformed to the IDNA
-encoding [RFC3490] prior to name lookup.
-
-Section 3 was about sub-components and their structure and if they are
-represented in NON ASCII how to go about with encoding/decoding that.
-
-::
-
-        path = path-abempty ; begins with "/" or is empty
-        / path-absolute ; begins with "/" but not "//"
-        / path-noscheme ; begins with a non-colon segment
-        / path-rootless ; begins with a segment
-        / path-empty ; zero characters
-
-        path-abempty = *( "/" segment )
-        path-absolute = "/" [ segment-nz *( "/" segment ) ]
-        path-noscheme = segment-nz-nc *( "/" segment )
-        path-rootless = segment-nz *( "/" segment )
-        path-empty = 0<pchar>
-        segment = *pchar
-        segment-nz = 1*pchar
-        segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
-        ; non-zero-length segment without any colon ":"
-
-        pchar = unreserved / pct-encoded / sub-delims / ":" / "@"
-
-        relative-ref = relative-part [ "?" query ] [ "#" fragment ]
-
-        relative-part = "//" authority path-abempty
-        / path-absolute
-        / path-noscheme
-        / path-empty
-
-
-Section 4 was on the usage aspects and heuristics used in determining in the
-scheme in the normal usages where scheme is not given.
-
-- Base uri must be stripped of any fragment components prior to it being used
-as a Base URI.
-
-Section 5 was on relative reference implementation algorithm. I had covered
-them practically in the Python urlparse module.
-
-Section 6 was on Normalization of URIs for comparision and various
-normalization practices that are used.
-
-:: 
-
-        ---- 
-
-        Python playground:
-
-        >>> if -1:
-        ... print True
-        ...
-        True
-
-        >>> if 0:
-        ... print True
-        ...
-        >>>
-
-Use of namedtuple in py3k branch for urlparse.
-
-Dissecting urlparse:
-
-* __all__ methods provides the public interfaces to all the methods like
-urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
-
-* then there is classification of schemes like uses_relative, uses_netloc,
-non_hierarchical, uses_params, uses_query, uses_fragment
-- there should be defined in an rfc most probably 1808.
-- there is a special '' blank string, in certain classifications, which
-means that apply by default.
-
-* valid characters in scheme name should be defined in 1808.
-
-* class ResultMixin is defined to provide username, password, hostname and
-port.
-
-* from collections import namedtuple. This should be from python2.6.
-namedtuple is pretty interesting feature.
-
-* SplitResult and ParseResult. Very good use of namedtuple and ResultMixin
-
-* The behaviour of the public methods urlparse, urlunparse, urlsplit and
-urlunsplit and urldefrag matter most.
-
-urlparse - scheme, netloc, path, params, query and fragment.
-urlunparse will take those parameters and construct the url back.
-
-urlsplit - scheme, netloc, path, query and fragment.
-urlunsplit - takes these parameters (scheme, netloc, path, query and fragment)
-and returns a url.
-
-urlparse x urlunparse
-urlsplit x urlunsplit
-urldefrag
-urljoin
-
-
-Date: Tue Aug 19 20:40:46 IST 2008
-
-Changes to urlsplit functionality in urllib.
-As per the RFC3986, the url is split into:
-scheme, authority, path, query, frag = url
-
-The authority part in turn can be split into the sections:
-user, passwd, host, port = authority
-
-The following line is the regular expression for breaking-down a
-well-formed URI reference into its components.
-
-:: 
-
-        ^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?
-        12 3 4 5 6 7 8 9
-
-        scheme = $2
-        authority = $4
-        path = $5
-        query = $7
-        fragment = $9
-
-
-The urlsplit functionality in the urllib can be moved to new regular
-expression based parsing mechanism.
-
-From man uri, which confirms to rfc2396 and HTML 4.0 specs.
-
-* An absolute identifier refers to a resource independent of context, while a
-  relative identifier refers to a resource by describing the difference from
-  the current context.
-
-* A path segment while contains a colon character ':' can't be used as the
-  first segment of a relative URI path. Use it like this './file:path'
-
-* A query can be given in the archaic "isindex" format, consisting of a word or
-  a phrase and not including an equal sign (=). If = is there, then it must be
-  after & like &key=value format.
-
-Character Encodings:
-
-* Reserved characters: ;/?:@&=+$,
-* Unreserved characters: ALPHA, DIGITS, -_.!~*'()
-
-An escaped octet is encoded as a character triplet consisting of the percent
-character '%' followed by the two hexadecimal digits representing the octet
-code.
-
-HTML 4.0 specification section B.2 recommends the following, which should be
-considered best available current guidance:
-
-1) Represent each non-ASCII character as UTF-8
-2) Escape those bytes with the URI escaping mechanism, converting each byte to
-   %HH where HH is the hexadecimal notation of the byte value.
-
-One of the important changes when adhering to RFC3986 is parsing of IPv6
-addresses.
 
 What does this construct imply?
 
@@ -1134,33 +1045,20 @@ Example of  Smart Redirect Handler
         print 'I capture the http redirect code:', obj.status
         print 'Its been redirected to:', obj.url
 
+* Apache 2.0 supports IPv6.
+
+::
+        phoe6:  I want to setup a test server which will do a redirect ( I know
+        how to do that), but with a delay. So that when I am testing my client,
+        I can test the clients timeout. Can someone give me suggestions as how
+        can i go about this?
+
+        jMCg: phoe6: http://httpd.apache.org/docs/2.2/mod/mod_ext_filter.html#examples
+
+* apache is configured by placing directives in configuration files. the main configuration file is called apache2.conf
+* Other configuration files are added by Include directive.
 
 
-Using Math Symbols in gnome-terminal
-------------------------------------
-
-* How to type unicode characters in gnome-terminal?
-* HOLD CTRL+SHIFT + U + CODEPOINT.  That's it.
-* For e.g. CTRL + SHIFT + U + 2200 will output ∀
-* After typing CTRL + SHIFT + U, when the terminal identifies that what follows
-  is unicode, you might leave the keypresses and just type the codepoint.
-
-∀ U2200
-∁ U2201
-∂ U2202
-∃ U2203
-∄ U2204
-∅ U2205
-∆ U2206
-  U2207
-  U2208
-∉ U2209
-∊ U220A
-
-Work Area
----------
-
- * Adaptive Grammer ?
 
 Why do YOU like Python?
 -----------------------
@@ -1221,17 +1119,7 @@ Language Feature: Unicode
 
 * Without an encoding, the bytestring is essentially meaningless. 
 * The default encoding assumed by Python is ASCII
-* In order to convert unicode string back to bytestring.
 
-::
-
-  >>> bytestring = german_ae.decode('utf8')
-  >>> bytestring
-  \xc3\xa4
-  >>> bytestring = german_ae.decode('latin1')
-  >>> bytestring
-  \xe4
-  BTW, both are same german characters albeit in different encodings.
 
 Python Specialities: else clauses on loops 
 ------------------------------------------
@@ -1485,7 +1373,8 @@ an exception has occurred or not.
 Pre-defined Clean-up actions
 ----------------------------
 
-*  with statement
+* with statement
+
 * Some objects define standard clean-up actions to be undertaken when the
   object is no longer needed, regardless of whether or not the operation using
   the object succeeded or failed. 
@@ -1513,7 +1402,7 @@ Classs in Python
 ----------------
 
 * When a class definition is entered, a new namespace is created, and used as
-  the local scope â thus, all assignments to local variables go into this new
+  the local scope and thus, all assignments to local variables go into this new
   namespace. In particular, function definitions bind the name of the new
   function here.
 * When a class definition is left normally (via the end), a class object is
@@ -1552,36 +1441,12 @@ Generators
 * Generators are used to return iterators.
 * Generator expressions which are very similar to list comprehensions.
 
-=== Batteries Included ===
-
  * Python Standard Library. 
  * Explore!
 
-== Topics requiring familiarity ==
-
- * urllib
- * urllib2
- * urlparse
- * httplib
- * cookielib
- * socket
- * pdb
-
  
-* Apache 2.0 supports IPv6.
-
-::
-        phoe6:  I want to setup a test server which will do a redirect ( I know
-        how to do that), but with a delay. So that when I am testing my client,
-        I can test the clients timeout. Can someone give me suggestions as how
-        can i go about this?
-
-        jMCg: phoe6: http://httpd.apache.org/docs/2.2/mod/mod_ext_filter.html#examples
-
-* apache is configured by placing directives in configuration files. the main configuration file is called apache2.conf
-* Other configuration files are added by Include directive.
-
 Explain Classmethods, Staticmethods and Decorators in Python.
+=============================================================
 
 In Object Oriented Programming, you can create a method which can get
 associated either with a class or with an instance of the class, namely an
@@ -1720,6 +1585,7 @@ Good Article on Decorators
 http://personalpages.tds.net/~kent37/kk/00001.html
 
 Static Methods and Class Methods
+--------------------------------
 
 A class method receives the class it was called on as the first
 argument. This can be useful with subclasses. A staticmethod doesn't get a
@@ -1981,53 +1847,73 @@ sloppy and not write test cases at all.
 
 Coroutines
 
-1. Coroutines are subroutines that allow multiple entry points for suspending and resuming execution at certain locations.
-2. subroutine are subprograms, methods, functions for performing a subtask and it is relatively independent of other task.
-3. Coroutines are usful for implementing cooperative tasks, iterators, infinite lists and pipes.
-4. Cooperative Tasks - Similar programs, CPU is yielded to each program coperatively.
-5. Iterators - an object that allows the programmer to traverse all the elements of a collection.
-6. Lazy Evaluation is the technique for delaying the computation till the result is required. Why Infite Lists and Lazy evaluation are given together?
-7. Coroutines in which subsequent calls can be yield more results are called as generators.
-8. Subroutines are implemented using stacks and coroutines are implemented using continuations.
-9. continuation are an abstract representation of a control state, or the rest of the computation, or rest of the code to be executed.
+Coroutines are subroutines that allow multiple entry points for suspending and
+resuming execution at certain locations.  Subroutine are subprograms, methods,
+functions for performing a subtask and it is relatively independent of other
+task.  Coroutines are usful for implementing cooperative tasks, iterators,
+infinite lists and pipes.  Cooperative Tasks - Similar programs, CPU is yielded
+to each program coperatively.  Iterators - an object that allows the programmer
+to traverse all the elements of a collection.  Lazy Evaluation is the technique
+for delaying the computation till the result is required. Why Infite Lists and
+Lazy evaluation are given together?  Coroutines in which subsequent calls can
+be yield more results are called as generators.  Subroutines are implemented
+using stacks and coroutines are implemented using continuations.  continuation
+are an abstract representation of a control state, or the rest of the
+computation, or rest of the code to be executed.
 
 Multithreading
 
-1. Multithreading computers have hardware support to efficiently execute multiple threads.
-2. Threads of program results from fork of a computer program into two or more concurrently running tasks.
-3. In multi-threading the threads have to share a single core,cache and TLB unlike the multiprocessing machines.
+Multithreading computers have hardware support to efficiently execute multiple
+threads.  Threads of program results from fork of a computer program into two
+or more concurrently running tasks.  In multi-threading the threads have to
+share a single core,cache and TLB unlike the multiprocessing machines.
 
 Twisted Framework
 
-1. Asynchronous, Event-Driven Applications for Distributed Network Environment.
-2. Event Driven Networking Framework.
-3. Asynchronous means not being in a Synchornous State.
-4. Synchronous, happening in a time defined way.
-5. At the core of Twisted Framework is its Network Layer, which can used to integrate any existing  protocol as well as model new ones.
-6. Twisted is a pure python framework.
-7. As a platform, twisted should be focussed on integration.
-8. Twisted supports Asynchronous programming and deferred abstraction, which symbolizes a promised result and which can pass eventual result to  handler functions.
-9. Document will give you a high-level overview of concurrent programming and Twisted's concurrency model: non-blocking code and asynchronous code.
-10. Concurrent programming - Need. It is either computationally intensive; or it has to wait for the data to be available as a result.
-11. A fundamental feature of Network Programming is waiting for data.
-12. Not waiting on data:- handle each connection in a separate OS process; so that OS will take of letting other process run while one is waiting.
-13. Handle each connection in a separate thread; threading framework takes care of the details.
-14. Use non-blocking system calls to handle all connections in one thread.
-15. The Normal Model when using twisted framework is by using Non-Blocking Calls.
-16. When dealing with many connections in one thread, the scheduling is the responsiblity of the application, not the operating system, and is usually implemented by calling a registered function when each function is ready to go for reading or writing - commonly known as asynchronous, event based, callback based programming.
-17. In synchrnous programming, a function requests data, waits for the data, and then processes it. In asynchronous programming, a function requests the data, and lets the library call the callback function when the data is ready.
-18. It is the second class of concurrency problems, non-computationally intensive tasks that involve an appreciable delay that deferreds are designed to help solve.
-19. They do this by giving a simple management interface for callbacks and applications.
-20. blocking - means, if one tasks is waiting for data, the other task cannot get CPU but also waits until the first tasks finishes.
-21. The typical asynchronous model to notify can application that some data is ready is called as callback.
-22. Twisted uses Deferred objects to managed callback sequence.
-23. Libraries know that they make their results available by using Deferred.callback and errors by Deferred.errback.
-24. How does the parent function or its controlling program know that connection does not exist and when it will know, when the connection becomes alive?
-25. Twisted has an object that signals this situation, it is called twisted.internet.defer.Deferred
-26. Deferred has two purposes; first is saying that I am a signal, of whatever you wanted me to do is still pending; second you can ask differed to run things when the data arrives.
-27. the way to tell the deffered what to do when the data arrives is by defining a callback - asking the deferred to call a function once the data arrives.
-28. One Twisted library function that returns a Deferred is twisted.web.client.getPage.
-29. If nothing else is understood, please understand that you create a differed object, add a callback function to that object and add an errorback function to that object. Differed will get called after a particular period of time or some data is avaiable.
+Asynchronous, Event-Driven Applications for Distributed Network Environment.
+Event Driven Networking Framework.  Asynchronous means not being in a
+Synchornous State.  Synchronous, happening in a time defined way.  At the core
+of Twisted Framework is its Network Layer, which can used to integrate any
+existing  protocol as well as model new ones.  Twisted is a pure python
+framework.  As a platform, twisted should be focussed on integration.  Twisted
+supports Asynchronous programming and deferred abstraction, which symbolizes a
+promised result and which can pass eventual result to  handler functions.
+Document will give you a high-level overview of concurrent programming and
+Twisted's concurrency model: non-blocking code and asynchronous code.
+Concurrent programming - Need. It is either computationally intensive; or it
+has to wait for the data to be available as a result.  A fundamental feature of
+Network Programming is waiting for data.  Not waiting on data:- handle each
+connection in a separate OS process; so that OS will take of letting other
+process run while one is waiting.  Handle each connection in a separate thread;
+threading framework takes care of the details.  Use non-blocking system calls
+to handle all connections in one thread.  The Normal Model when using twisted
+framework is by using Non-Blocking Calls.  When dealing with many connections
+in one thread, the scheduling is the responsiblity of the application, not the
+operating system, and is usually implemented by calling a registered function
+when each function is ready to go for reading or writing - commonly known as
+asynchronous, event based, callback based programming.  In synchrnous
+programming, a function requests data, waits for the data, and then processes
+it. In asynchronous programming, a function requests the data, and lets the
+library call the callback function when the data is ready.
+It is the second class of concurrency problems, non-computationally intensive
+tasks that involve an appreciable delay that deferreds are designed to help
+solve.  They do this by giving a simple management interface for callbacks and
+applications.  blocking - means, if one tasks is waiting for data, the other
+task cannot get CPU but also waits until the first tasks finishes.  The typical
+asynchronous model to notify can application that some data is ready is called
+as callback.  Twisted uses Deferred objects to managed callback sequence.
+Libraries know that they make their results available by using Deferred.callback and errors by Deferred.errback.
+How does the parent function or its controlling program know that connection
+does not exist and when it will know, when the connection becomes alive?
+Twisted has an object that signals this situation, it is called
+twisted.internet.defer.Deferred Deferred has two purposes; first is saying that
+I am a signal, of whatever you wanted me to do is still pending; second you can
+ask differed to run things when the data arrives.
+the way to tell the deffered what to do when the data arrives is by defining a
+callback - asking the deferred to call a function once the data arrives.  28.
+One Twisted library function that returns a Deferred is
+twisted.web.client.getPage.
+If nothing else is understood, please understand that you create a differed object, add a callback function to that object and add an errorback function to that object. Differed will get called after a particular period of time or some data is avaiable.
 30. Differed Objects are signals that the function that you have called does not have the data, you want available.
 31. What Differeds dont do: Make your code asynchronous!.
 32. Differeds are the signals for asynchronous functions to use to pass results onto the callbacks, but using them does not guarantee that you have asynchronous functions.
@@ -2065,7 +1951,7 @@ There are many ways to write network programs. The main ones are:
 * handle each connection in a separate operating system process, in which case
   the operating system will take care of letting other processes run while one
   is waiting.
-* handle each connection in a separate thread1 in which the threading framework
+* handle each connection in a separate thread in which the threading framework
   takes care of letting other threads run while one is waiting; or
 * use non-blocking system calls to handle all connections in one thread.
 * twisted.internet.defer.Deferred object.
@@ -2202,10 +2088,6 @@ Interface classes are a way of specifying what methods and attributes an
 
 * In the Twisted, internet term actually denotes internetworking.
 
-Urllib2 Notes
-
- * Digest Authentication is not working.
-
 External Training Presentations 
 
 Alex Martelli's Tutorials
@@ -2337,3 +2219,8 @@ as xml.etree.cElementTree
 
 
 Why and when do you subclass object?
+
+The Evolution of  Python Programmer
+-----------------------------------
+http://gist.github.com/289467
+
