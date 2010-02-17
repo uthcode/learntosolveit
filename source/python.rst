@@ -47,7 +47,6 @@ class
   * HTTPHandler
   * HTTPSHandler
 
-
 * HTTPPasswordMgr
   * HTTPPasswordMgrWithDefaultRealm
 
@@ -66,18 +65,16 @@ class
 
 urlopen -> build_opener -> OpenerDirector() -> OpenerDirector.add_handler for
 each class and handler -> OpenerDirector.open() method on the composite object.
--> Request -> returns stateful url -> protocol_request is called -> _open -> and
-protocol_response is called and returned.
+-> Request -> returns stateful url -> protocol_request is called -> _open ->
+and protocol_response is called and returned. The handler is invoked in the
+specific order as specified by the Handler attribute.
 
-the handlers must work in an specific order, the order is specified in a Handler attribute
-
-/var/www/.htaccess is the file I am going to create with senthil:senthil
-
-no_proxy
+In order to setup a password for your apache based site, in the
+/var/www/.htaccess file specify the username as password as senthil:senthil
 
 Some clients support the no_proxy environment variable that specifies a set of
 domains for which the proxy should not be consulted; the contents is a
-comma-separated list of domain names, with an optional :port part:
+comma-separated list of domain names, with an optional :port part.
 
 WWW-Authenticate
 
@@ -112,56 +109,46 @@ Following are some of the notes I took, while working on urllib patches.  It
 should be a handy reference when working on bugs again.
 
 RFC 3986 Notes:
-Mon Aug 25 10:17:01 IST 2008
 
 A URI is a sequence of characters that is not always represented as a sequence
-of octets. ( What are octets? OCTETS means 8 Bits. Nothing else!)
+of octets.Percent-encoded octets may be used within a URI to represent
+characters outside the range of the US-ASCII coded character set.
 
-Percent-encoded octets may be used within a URI to represent characters outside
-the range of the US-ASCII coded character set.
-
-Specification uses Augmented Backus-Naur Form (ABNF) notation of [RFC2234],
-including the followig core ABNF syntax rules defined by that specification:
+Specification uses Augmented Backus-Naur Form (ABNF) notation of RFC2234,
+including the following core ABNF syntax rules defined by that specification:
 ALPHA (letters), CR ( carriage return), DIGIT (decimal digits), DQUOTE (double
 quote), HEXDIG (hexadecimal digits), LF (line feed) and SP (space).
 
 Section 1 of RFC3986 is very generic. Understand that URI should be
 transferable and single generic syntax should denote the whole range of URI
-schemes.
-
-URI Characters are, in turn, frequently encoded as octets for transport or
-presentation.
-
-This specification does not mandate any character encoding for mapping between
-URI characters and the octets used to store or transmit those characters.
+schemes.URI Characters are, in turn, frequently encoded as octets for transport
+or presentation. This specification does not mandate any character encoding for
+mapping between URI characters and the octets used to store or transmit those
+characters.
 
 pct-encoded = "%" HEXDIG HEXDIG
 
 For consistency, uri producers and normalizers should use uppercase
 hexadecimal digits, for all percent - encodings.
+
 reserved = gen-delims / sub-delims
-
 gen-delims = ":" / "/" / "?" / "#" / "[" / "]" / "@"
-
 sub-delims = "!" / "$" / "&" / "'" / "(" / ")"
 / "*" / "+" / "," / ";" / "="
 
-
 unreserved = ALPHA / DIGIT / "-" / "." / "_" / "~"
 
-When a new URI scheme defines a component that represents textual
-data consisting of characters from the Universal Character Set [UCS],
-the data should first be encoded as octets according to the UTF-8
-character encoding [STD63]; then only those octets that do not
-correspond to characters in the unreserved set should be percent-
-encoded. For example, the character A would be represented as "A",
-the character LATIN CAPITAL LETTER A WITH GRAVE would be represented
-as "%C3%80", and the character KATAKANA LETTER A would be represented
-as "%E3%82%A2".
+When a new URI scheme defines a component that represents textual data
+consisting of characters from the Universal Character Set, the data should
+first be encoded as octets according to the UTF-8 character encoding [STD63];
+then only those octets that do not correspond to characters in the unreserved
+set should be percent- encoded. For example, the character A would be
+represented as "A", the character LATIN CAPITAL LETTER A WITH GRAVE would be
+represented as "%C3%80", and the character KATAKANA LETTER A would be
+represented as "%E3%82%A2".
 
-Section 2, was on encoding and decoding the characters in the url scheme. How
-that is being used encoding reservered characters within data. Transmission of
-url from local to public when using a different encoding - translate at the
+How that is being used encoding reservered characters within data. Transmission
+of url from local to public when using a different encoding - translate at the
 interface level.
 
 URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
@@ -177,21 +164,16 @@ remainder of the URI is delegated to that authority (which may, in
 turn, delegate it further).
 
 :: 
-
         userinfo = *( unreserved / pct-encoded / sub-delims / ":" )
         host = IP-literal / IPv4address / reg-name
 
 In order to disambiguate the syntax host between IPv4address and reg-name, we
-apply the "first-match-wins" algorithm:
-
-A host identified by an Internet Protocol literal address, version 6
-[RFC3513] or later, is distinguished by enclosing the IP literal
-within square brackets ("[" and "]"). This is the only place where
-square bracket characters are allowed in the URI syntax.
+apply the "first-match-wins" algorithm. A host identified by an Internet
+Protocol literal address, version 6 [RFC3513] or later, is distinguished by
+enclosing the IP literal within square brackets ("[" and "]"). This is the only
+place where square bracket characters are allowed in the URI syntax.
 
 ::
-
-
         IP-literal = "[" ( IPv6address / IPvFuture ) "]"
 
         IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
@@ -225,11 +207,9 @@ square bracket characters are allowed in the URI syntax.
 
 Non-ASCII characters must first be encoded according to UTF-8 [STD63], and then
 each octet of the corresponding UTF-8 sequence must be percent- encoded to be
-represented as URI characters.
-
-When a non-ASCII registered name represents an internationalized domain name
-intended for resolution via the DNS, the name must be transformed to the IDNA
-encoding [RFC3490] prior to name lookup.
+represented as URI characters.  When a non-ASCII registered name represents an
+internationalized domain name intended for resolution via the DNS, the name
+must be transformed to the IDNA encoding [RFC3490] prior to name lookup.
 
 Section 3 was about sub-components and their structure and if they are
 represented in NON ASCII how to go about with encoding/decoding that.
@@ -261,18 +241,13 @@ represented in NON ASCII how to go about with encoding/decoding that.
         / path-noscheme
         / path-empty
 
-
 Section 4 was on the usage aspects and heuristics used in determining in the
-scheme in the normal usages where scheme is not given.
-
-- Base uri must be stripped of any fragment components prior to it being used
-as a Base URI.
+scheme in the normal usages where scheme is not given.  Base uri must be
+stripped of any fragment components prior to it being used as a Base URI.
 
 Section 5 was on relative reference implementation algorithm. I had covered
-them practically in the Python urlparse module.
-
-Section 6 was on Normalization of URIs for comparision and various
-normalization practices that are used.
+them practically in the Python urlparse module.Section 6 was on Normalization
+of URIs for comparision and various normalization practices that are used.
 
 Dissecting urlparse:
 --------------------
@@ -282,7 +257,9 @@ urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
 
 * then there is classification of schemes like uses_relative, uses_netloc,
 non_hierarchical, uses_params, uses_query, uses_fragment
+
 - there should be defined in an rfc most probably 1808.
+
 - there is a special '' blank string, in certain classifications, which
 means that apply by default.
 
@@ -306,16 +283,8 @@ urlsplit - scheme, netloc, path, query and fragment.
 urlunsplit - takes these parameters (scheme, netloc, path, query and fragment)
 and returns a url.
 
-urlparse x urlunparse
-urlsplit x urlunsplit
-urldefrag
-urljoin
+As per the RFC3986, the url is split into: 
 
-
-Date: Tue Aug 19 20:40:46 IST 2008
-
-Changes to urlsplit functionality in urllib.
-As per the RFC3986, the url is split into:
 scheme, authority, path, query, frag = url
 
 The authority part in turn can be split into the sections:
@@ -359,10 +328,8 @@ Character Encodings:
 
 An escaped octet is encoded as a character triplet consisting of the percent
 character '%' followed by the two hexadecimal digits representing the octet
-code.
-
-HTML 4.0 specification section B.2 recommends the following, which should be
-considered best available current guidance:
+code.HTML 4.0 specification section B.2 recommends the following, which should
+be considered best available current guidance:
 
 1) Represent each non-ASCII character as UTF-8
 2) Escape those bytes with the URI escaping mechanism, converting each byte to
@@ -371,97 +338,146 @@ considered best available current guidance:
 One of the important changes when adhering to RFC3986 is parsing of IPv6
 addresses.
 
+CacheFTPHandler testcasesare hard to write.  played around with pdb module
+today to debug this issue. pdb is really helpful.
+
+Here's how the control goes.
+
+1) There is an url with two '//'s in the path.
+2) The call is data = urllib2.urlopen(url).read()
+3) urlopen calls the build_opener. build_opener builds the opener using (tuple)
+of handlers.
+4) opener is an instance of OpenerDirector() and has default HTTPHandler and
+HTTPSHandler.
+5) When the Request call is made and the request has 'http' protocol, then
+http_request method is called.
+
+::
+
+         HTTPHandler has http_request method which is
+         AbstractHTTPHandler.do_request_ Now, for this issue we get to the
+         do_request_ method and see that host is set in the do_request_ method
+         in the get_host() call.
+
+         request.get_selector() is the call which is causing this particular
+         issue of "urllib2 getting confused with path containing //".
+         .get_selector() method returns self.__r_host.
+
+Now, when proxy is set using set_proxy(), self.__r_host is self.__original (
+The original complete url itself), so the get_selector() call is returns the
+sel_url properly and we can get teh host from the splithost() call on teh
+sel_url.
+
+When proxy is not set, and the url contains '//' in the path segment, then
+.get_host() (step 7) call would have seperated the self.host and self.__r_host
+(it pointing to the rest of the url) and .get_selector() simply returns this
+(self.__r_host, rest of the url expect host. Thus causing call to fail.
+
+9) Before the fix, request.add_unredirected_header('Host', sel_host or host)
+had the escape mechanism set for proper urls wherein with sel_host is not set
+and the host is used. Unfortunately, that failed when this bug caused sel_host
+to be set to self.__r_host and Host in the headers was being setup wrongly (
+rest of the url).
+
+The patch which was attached appropriately fixed the issue. I modified and
+included for py3k.
+
+* urllib2 in python 3k was divided into urllib2.request and urllib2.error. I
+was thinking if the urllib2.respones class is included; but no, response
+object is nothing but a addinfourl object.
+
+Example of  Smart Redirect Handler 
+----------------------------------
+
+::
+
+        import urllib2
+
+        class SmartRedirectHandler(urllib2.HTTPRedirectHandler):
+            def http_error_302(self, req, fp, code, msg, headers):
+                result = urllib2.HTTPRedirectHandler.http_error_302(self, req, fp,
+                                                                         code, msg,
+                                                                         headers)
+                result.status = code
+                return result
+
+        request = urllib2.Request("http://localhost/index.html")
+        opener = urllib2.build_opener(SmartRedirectHandler())
+        obj = opener.open(request)
+        print 'I capture the http redirect code:', obj.status
+        print 'Its been redirected to:', obj.url
+
+* Apache 2.0 supports IPv6.
+
+::
+        phoe6:  I want to setup a test server which will do a redirect ( I know
+        how to do that), but with a delay. So that when I am testing my client,
+        I can test the clients timeout. Can someone give me suggestions as how
+        can i go about this?
+
+        jMCg: phoe6: http://httpd.apache.org/docs/2.2/mod/mod_ext_filter.html#examples
+
+* apache is configured by placing directives in configuration files. the main configuration file is called apache2.conf
+* Other configuration files are added by Include directive.
+
+
 Strings, Bytes and Python 3
 ===========================
 
 Q: Convert a Hexadecimal Strings ("FF","FFFF") to Decimal
 A: int("FF",16) and int("FFFF",16)
 
-Q: Represent 266 in Hexadecimal.
+Q: Represent 255 in Hexadecimal.
 A: print '%X' % 255
 
-Q: Where do you see RFC 3548 being utilized?
-Hint: import base64
+If you want to encode a string in base16, base32 or base64 encoding, the python
+standard library provides base64 module which is based on the RFC 3564.
 
 What is the difference between string, bytes and buffer?
 
-Python 2.0 had strings and Unicode Strings.
-Python 3.0 has bytes and strings.
-There will never be implicit conversion between bytes and strings.
+In Python 2.0, the normal strings were of 8 bit characters and for representing
+Characters from foreign languages, a special kind of class was provided, which
+was called Unicode String.
 
-Coming to Datatypes:
-Strings are sequence of unicode characters, e.g. an HTML Document.
-Bytes and byte arrays e.g. an JPEG Document.
+The string object when they had to be stored or transfered over the wire, they
+had to be encoded into bytes. As normal string character was 8 bits, they
+directly corresponded to one byte and Python2.0 had an implicit ascii encoding
+which conveniently encoded them to 8-bit bytes.  The Unicode object had to have
+an encoding specified, which encoded the unicoded strings into sequence of
+bytes.
 
-In Python 3, all strings are sequences of Unicode characters.
-Bytes are Bytes; characters are abstraction.
+Just as string object had an encode method, to convert to string, the bytes
+object had a decode method, that takes a character encoding an returns a
+string.
 
-Here is a link between strings and bytes.
+In Python 3.0, the normal string was made the Unicode String. However, the 8bit
+character datatype was still retained and it was called as bytes.
 
-bytes object have a decode() method that takes a character encoding and returns a string.
-string object has a encode method that takes a a character encoding and returns a bytes object.
+In other words. Python2.6 supports both simple text and binary data in its
+normal string type and provides an alternative string type for non-ASCII type
+called the Unicode text. Whereas Python3.0 supports Unicode text in its normal
+string type, with ASCII being treated a simple type of unicode and provides an
+alternative string type for binary data called bytes.
 
 What is the difference between linefeed and a newline?
 newline is composed of Linefeed character. 
 
 What is class bytearray?
 
-byte == 8 bits.
-array == sequence.
-bytearray object can be constructed using integers; text string along with an
-encoding; using another bytes or bytearray; or any other object implementing a
-buffer API.
+A Byte is 8 bits and array is a sequence. A Bytearray object can be constructed
+using integers only or text string along with an encoding or using another
+bytes or bytearray or any other object implementing a buffer API. Most
+important of it is it mutable.
 
-Python's support for Unicode text, wide character strings used in
-internationalized applications, as well as binary data - strings that represent
-absolute byte values.
-
-What is binary data, do you really care about it?
-
-Python 3.0 provides an alternative string type for binary data and supports
-Unicode text in its normal string type (ASCII is treated as a simple type of
-Unicode)
-
-Python 2.6 provides an alternative string type for non-ASCII  Unicode text, and
-supports both simple text and binary data in its normal string type.
-
-In a nutshell:
-
-:: 
-
-        ||*Python 2.6*||     *Python 3.0*||
-        ||str         ||     unicode     ||
-        ||unicode     || bytes,bytearray ||
-
-Unicode Text: support of text encodings to be different in 3.0; direct,
-accessible and seamless.
-
-Binary Data: Image or audio files or packed data processed with the struct
-module - you will need to understand 3.0's new bytes object and 3.0's different
-and sharper distinction between text, binary data and files.
-
-sys.getdefaultencoding()
-
-Python's String Type
-
-Python 2.x
-
-str - 8 bit string type as well binary data. ( I can understand binary data,
-but 8 bit string type??, should it not be 7 bit string type)
-
-unicode - for representing wide character Unicode text.
-unicode - allows for the extra size of characters and has extra support for
-encodings and decodings.
-
-Python 3.x comes with 3 string object types, one for textual data and two for
+Python3 comes with 3 types of string objects, one for textual data and two for
 binary data.
 
-str - for representing Unicode text.
-bytes - for representing Binary data.
-bytearray - a mutable flavor of bytes type.
+ * str - for representing Unicode text.
+ * bytes - for representing Binary data.
+ * bytearray - a mutable flavor of bytes type.
 
 3.0 str type defined an immutable sequence of characters (not neccesarily
-bytes), which may be either normal text such as ASCII or Multi byte UTF-8.  A
+bytes), which may be either normal text such as ASCII or multi byte UTF-8.  A
 new type called bytes was introduced to support truly binary data.
 
 In 2.x; the general string type filled this binary data role, because strings
@@ -470,22 +486,34 @@ immutable sequence of 8-bit integers representing absolute byte values.  A 3.0
 bytes object really is a sequence of small integers, each of which is in the
 range 0 through 255; indexing a bytes returns int, slicing one returns another
 bytes and running list() on one returns a list of integers, not characters.
-
 While they were at it, the Python developers also added bytearray type in 3.0,
 a variant of bytes, which is mutable and also supports in-place changes. The
 bytearray type supports the usual string operations that str and bytes do, but
 has inplace change operations also.
 
-::
-
-        ||*Python 2.6*|| *Python 3.0*||
-        ||str || str, bytes||
-        ||unicode || str and bytearray||
-
 Because str and bytes are sharply differentiated by the language, the net
 effect is that you must decide whether your data is text or binary in nature
 and use 'str' or 'bytes' objects to represent its content in your script
 respectively.
+
+Image or audio file or packed data processed with the struct module is an
+exmaple of bytes object. Python3.0 has a sharp distinction between text, binary
+data and files.
+
+::
+        $ python
+        Python 2.6.2 (release26-maint, Apr 19 2009, 01:58:18) [GCC 4.3.3] on linux2
+        >>> import sys
+        >>> print sys.getdefaultencoding()
+        ascii
+        >>> 
+        07:56 PM:senthil@:~/uthcode/source
+        $ python3.1
+        Python 3.1a2+ (py3k:71811, Apr 22 2009, 20:47:22) [GCC 4.3.2] on linux2
+        >>> import sys
+        >>> print(sys.getdefaultencoding())
+        utf-8
+        >>> 
 
 Ultimately, the mode in which you open a file will dictate which type of object
 your script will use to represent its contents.
@@ -500,168 +528,112 @@ your script will use to represent its contents.
 Unicode Notes
 =============
 
-* [http://www.joelonsoftware.com/articles/Unicode.html Understanding Unicode]
-
-* Content-Type tag in HTML? and emails have ???? ????
-* Popular web development tool PHP, had a complete ignorance of character
-  encoding issues.  blithely ( carelessly) using 8 bits for characters.
-* Unicode, character sets, encoding is not that hard
-* All that stuff about, plain text = ascii = characters are 8 bits is not only
-  wrong but horribly wrong.
-* When Kernighan and Ritche had invented The C Programming Language, everything
-  was simple.  EBCDIC was on its way out.  ASCII was used.
+A good introductory document for getting started with Unicode is, 
+`Joel's article on Unicode`_
 
 Trivia:
-
 In ASCII when you press CNTL, you subtract 64 from the value of the next
 character.  So BELL is ASCII 7, which is CNTL+G, (CNTL is 64) and G is 71.
-Codes below 32 were called unprintable. The space was 32 and letter A was 65.
-This could conveniently be stored in 7 bits.  Most computers in those days were
-using 8 bit bytes, so not only you could store all the ASCII characters, you
-had a whole bit to spare. 
 
-* Because bytes have room for upto eight bits, lots of people got into
-  thinking, "gosh, we can use codes 128-255 for our own purposes." :) 
-* Eventually, this OEM free-for-all got codified in the ANSI standard.
-* In the ANSI standard, everyone agreed for bottom 128 but not the upper limits.
-* Asian alphabets have thousands of letters, which were never going to fit into 8 bits.
-* This was actually solved by a messy system called DBCS, the "double byte
-  character set" in which some letters were stored in one byte and others took
-  two bytes.
-* It was easy to move forward in a string, but it was impossible to move
-  backwards in the string.  Programmers were encouraged not to use s++ or s--
-  but instead rely on Windows' AnsiNext and AnsiPrev functions which knew how
-  to deal with that mess.
+IN ASCII, the Codes below 32 were called unprintable. The space was 32 and
+letter A was 65.  This could conveniently be stored in 7 bits.  Most computers
+in those days were using 8 bit bytes, so not only you could store all the ASCII
+characters, you had a whole bit to spare.  Because bytes have room for upto
+eight bits, lots of people got into thinking, "gosh, we can use codes 128-255
+for our own purposes." :) Eventually, this OEM free-for-all got codified in the
+ANSI standard.  In the ANSI standard, everyone agreed for bottom 128 but not
+the upper limits.  Asian alphabets have thousands of letters, which were never
+going to fit into 8 bits.  This was actually solved by a messy system called
+DBCS, the "double byte character set" in which some letters were stored in one
+byte and others took two bytes.It was easy to move forward in a string, but it
+was impossible to move backwards in the string.  Programmers were encouraged
+not to use s++ or s-- but instead rely on Windows' AnsiNext and AnsiPrev
+functions which knew how to deal with that mess.
 
 Unicode
-=======
 
-* Unicode was a brave effort to create a single character set that included
-  every reasonable writing system on the planet.  Some people are under the
-  mis-conception that unicode is simply a 16-bit code where each character
-  takes 16 bits and therefore there are 65,536 possible characters.
+Unicode was a brave effort to create a single character set that included every
+reasonable writing system on the planet.  Some people are under the
+mis-conception that unicode is simply a 16-bit code where each character takes
+16 bits and therefore there are 65,536 possible characters, which is incorrect.
 
-* This is not correct. This is the single most common myth about unicode.
-  Unicode has a different way of thinking about characters, and you have to
-  understand the Unicode way of thinking of things or nothing will make sense.
+In Unicode, every alphabet is assigned a magic number by the Unicode consortium
+which is written like this: U+0639. This number is called the code-point. The
+U+ means "Unicode" and the numbers are in hexadecimal notation. U+0639 is the
+arabic letter Ain (ع).
 
-* Until now, we've assumed that a letter maps to some bits which you can store
-  on disk or in memory.
+There is no real limit on the number of letters that Unicode can define and in
+fact, they have gone beyond 65,536 so not every unicode letter can really be
+squeezed into two bytes. That was a myth anyways.
 
-	A -> 0100 0001
-
-* In unicode, a letter maps to something called code point, which is still just
-  a theoretical concept.
-* How that code point is represented in memory or on disk is a whole another
-  story.
-* In Unicode, the letter A is a platonic ideal. It's just floating in heaven.
-* Every platonic letter in every alphabet is assigned a magic number by the
-  Unicode consortium which is written like this: U+0639
-* This magic number is called code-point.  The U+ means "Unicode" and the
-  numbers are hexadecimal. U+0639 is the arabic letter Ain (ع).
-* The English letter A would be U+0041 (A). You can find them all using the
-  charmap utility on Windows 2000/XP.
-* There is no real limit on the number of letters that Unicode can define and
-  in fact, they have gone beyond 65,536 so not every unicode letter can really
-  be squeezed into two bytes. That was a myth anyways.
-
-OK, so we have a string:
-
-	Hello
-
-which, in Unicode, corresponds to these five code-points:
-U+0048 U+0065 U+006C U+006C U+006F 
-
-  (Hello)
+OK, so we have a string: Hello which, in Unicode, corresponds to these five
+code-points: U+0048 U+0065 U+006C U+006C U+006F 
 
 It was U- before 3.0 and then it became U+. If you look at the release notes of
 Unicode 3.0, you might find the reason for the change.
 
+How do we store those numbers?  That is where encoding comes in.
 
-* How do we store those numbers?  That is where encoding comes in.
-* The earliest idea was, that to store the numbers in two bytes each:
+The earliest idea was, that to store the numbers in two bytes each:
 
 	00 48 00 65 00 6C 00 6C 00 6F.
 
-* ( That is where the idea that unicode was 2 bytes had originated).
-* Why not it be stored like this:
+Why not it be stored like this:
 
 	48 00 65 00 6C 00 6C 00 6F 00
 
-* Well, it could be stored in that way too. Early implementors wanted to store
-  the numbers in either big-endian or little-endian, in whichever way their
-  particular CPU  was fastest at... 
-* So, people came up with Byte Order Mark, where FEFF denoted Little Endian and
-  FFFE denoted big endian.
-* For a while, it seemed like that might be good enough, but programmers were
-  complaining. "Look at all those zeros!", they said, since they were Americans
-  and they were looking at English text which rarely used code points above
-  U+OOFF.  People decided to ignore Unicode and things got worse.
-* And thus was invented the brilliant concept of UTF-8. (Read Rob Pike's mail)
-* UTF-8 was another system for storing your string of unicode code points,
-  those magic U+ numbers, in memory using 8 bits.
-* In UTF-8, every code point from 0-127 is stored in a single byte. Only code
-  points 128 and above are stored using 2, 3, in fact upto 6 bytes.  This has
-  the neat side-effect that English text looks exactly the same in UTF-8 as it
-  did in ASCII, so Americans don't even notice anything wrong.  
-* Specifically, Hello which was "0048, 0065, 006C, 006C and 006F" would simply
-  be stored as 48,65,6C,6C and 6F.
+Well, it could be stored in that way too. Early implementors wanted to store
+the numbers in either big-endian or little-endian, in whichever way their
+particular CPU  was fastest at...  So, people came up with Byte Order Mark,
+where FEFF denoted Little Endian and FFFE denoted big endian.
 
-So far, we have discussed three ways of storing unicode:
+FEFF - Little Endian
+FFFE - Big Endian
 
-* Traditional two bytes method; UCS-2 or UTF-16 ( It is no longer used). And
-  you might also have to figure out, if it is a high-endian UCS-2 or low-endian
-  UCS-2.
-*  using UTF-8 standard.
-* Where the heck is the third??
+Feel for Little Endian (FE for Little Endian and its opposite for Big Endian)
 
-There a bunch of other ways of encoding Unicode. There is something called
-UTF-7, which is lot like UTF-8 but guarantees that the high bit will always be
-zero.  It was for systems which can recognize only 7 bits. UCS-4 which stores
-each code point in 4 bytes, which has a nice property that every single code
-point can be stored in same number of bytes. But that is memory hungry.
+For a while, it seemed like that might be good enough, but programmers were
+complaining. "Look at all those zeros!", they said, since they were Americans
+and they were looking at English text which rarely used code points above
+U+OOFF.  People decided to ignore Unicode and things got worse.  And thus was
+invented the brilliant concept of UTF-8. (Read Rob Pike's mail)
 
-* Now that we are thinking of 'Platonic ideals' in unicode code-points, those
-   unicode code-points can be encoded in any old-school encoding scheme too.
-   Those code points can be encoded in any encoding scheme; but with one catch;
-   some of the letters might not show up. ( Aha, here is the interesting
-   thing).
+In UTF-8, every code point from 0-127 is stored in a single byte. Only code
+points 128 and above are stored using 2, 3, in fact upto 6 bytes.  This has the
+neat side-effect that English text looks exactly the same in UTF-8 as it did in
+ASCII, so Americans don't even notice anything wrong.  Specifically, Hello
+which was "0048, 0065, 006C, 006C and 006F" would simply be stored as
+48,65,6C,6C and 6F.
 
-If there is no equivalent for the Unicode code point you are trying to
-represent in, you usually get a little question mark: ?  or a box. 
+So, here we have ways such as UCS-2 (UTF-26), which had its own UCS-2 little
+endian or UCS-2 big endian and then UTF-8 encoding method.  There are also a
+bunch of other ways of encoding Unicode. There is something called UTF-7, which
+is lot like UTF-8 but guarantees that the high bit will always be zero.  It was
+for systems which can recognize only 7 bits. UCS-4 which stores each code point
+in 4 bytes, which has a nice property that every single code point can be
+stored in same number of bytes. But that is memory hungry.
 
 There are hundreds of traditional encodings, which can only store some
 code-points correctly and change all other code points into question marks.
-
 Some popular encodings of the English text are, Windows 1252 and ISO-8859-1,
 aka Latin-1 (also useful for any western european languages). But try to store
 Russian, or Hebrew letters in those encodings and you will get a bunch of
 question marks. UTF 7, UTF 8, UTF 16 and UTF 32 all have the nice property of
 being able to store any code point correctly.
 
-_The Single Most Important Fact About Encodings._ 
-
-_It does not make sense to have a string without knowing what encoding it uses._
-_There is no such thing as plain text._
-
 If you have a string in memory, in a file, or in an email message, you have to
 know what encoding it is in or you cannot interpret it or display to your users
-correctly.
-
-All the problems of ????, comes down to the fact that if you don't tell me
-whether a particular string is encoded using UTF-8 or ASCII or ISO 8859-1
-(Latin 1) or Western 1252 (Western European), you simply cannot display it
-correctly or even figure it out where it actually ends.
-
-There are over 100 encodings, and above code point 127, all the bets are off.
+correctly.  All the problems of ????, comes down to the fact that if you don't
+tell me whether a particular string is encoded using UTF-8 or ASCII or ISO
+8859-1 (Latin 1) or Western 1252 (Western European), you simply cannot display
+it correctly or even figure it out where it actually ends.  There are over 100
+encodings, and above code point 127, all the bets are off.
 
 How do we preserve this information about what encoding a string uses?  Email,
-Content-Type: text/plain; charset="UTF-8"
-
-For a web page, the original idea was that the web server would return a
-similar Content-Type http header along with the web page itself -- not in the
-HTML itself, but as one of the response headers that are sent before the HTML
-page.
+Content-Type: text/plain; charset="UTF-8" For a web page, the original idea was
+that the web server would return a similar Content-Type http header along with
+the web page itself -- not in the HTML itself, but as one of the response
+headers that are sent before the HTML page.
 
 Relying on webserver to send Content-Type was problematic, because many
 different people could use the same web-server for different types of web
@@ -787,13 +759,6 @@ U+0048 U+0065 U+006C U+006C U+006F U+002C U+0057 U+006F U+0072 U+006C U+0064
 is the devnagari script that starts with U0900 
 U+0928 U+092E U+0938 U+0942 U+0915 U+090 U+0930 U+0926 U+0941 U+0928 U+092F U+093F U+0965
 
-
-Thats good. 
-- Confusion as where to use which code point.
-- This may be different for different languages.
-- xterm did not support it at all.
-- 
-
 The above was just a bunch of code points. We have not said anything about how
 to store them in memory or represent them in email messages yet.
 
@@ -827,7 +792,6 @@ such a file and network I/O.  This is used internally to ensure that only one
 thread runs in the Python VM at a time. Python offers to switch amongst threads
 only between bytecode instructions. Each bytecode instruction and all C
 implemented function is atomic from Python program's point of view.
-
 
 Different types of concurrency models
 =====================================
@@ -975,90 +939,6 @@ Go to the /etc/httpd/conf/httpd.conf
 For e.g:
 Add the information on headers
 Header set Author "Senthil"
-
-CacheFTPHandler testcasesare hard to write.  played around with pdb module
-today to debug this issue. pdb is really helpful.
-
-Here's how the control goes.
-
-1) There is an url with two '//'s in the path.
-2) The call is data = urllib2.urlopen(url).read()
-3) urlopen calls the build_opener. build_opener builds the opener using (tuple)
-of handlers.
-4) opener is an instance of OpenerDirector() and has default HTTPHandler and
-HTTPSHandler.
-5) When the Request call is made and the request has 'http' protocol, then
-http_request method is called.
-
-::
-
-         HTTPHandler has http_request method which is
-         AbstractHTTPHandler.do_request_ Now, for this issue we get to the
-         do_request_ method and see that host is set in the do_request_ method
-         in the get_host() call.
-
-         request.get_selector() is the call which is causing this particular
-         issue of "urllib2 getting confused with path containing //".
-         .get_selector() method returns self.__r_host.
-
-Now, when proxy is set using set_proxy(), self.__r_host is self.__original (
-The original complete url itself), so the get_selector() call is returns the
-sel_url properly and we can get teh host from the splithost() call on teh
-sel_url.
-
-When proxy is not set, and the url contains '//' in the path segment, then
-.get_host() (step 7) call would have seperated the self.host and self.__r_host
-(it pointing to the rest of the url) and .get_selector() simply returns this
-(self.__r_host, rest of the url expect host. Thus causing call to fail.
-
-9) Before the fix, request.add_unredirected_header('Host', sel_host or host)
-had the escape mechanism set for proper urls wherein with sel_host is not set
-and the host is used. Unfortunately, that failed when this bug caused sel_host
-to be set to self.__r_host and Host in the headers was being setup wrongly (
-rest of the url).
-
-The patch which was attached appropriately fixed the issue. I modified and
-included for py3k.
-
-* urllib2 in python 3k was divided into urllib2.request and urllib2.error. I
-was thinking if the urllib2.respones class is included; but no, response
-object is nothing but a addinfourl object.
-
-Example of  Smart Redirect Handler 
-----------------------------------
-
-::
-
-        import urllib2
-
-        class SmartRedirectHandler(urllib2.HTTPRedirectHandler):
-            def http_error_302(self, req, fp, code, msg, headers):
-                result = urllib2.HTTPRedirectHandler.http_error_302(self, req, fp,
-                                                                         code, msg,
-                                                                         headers)
-                result.status = code
-                return result
-
-        request = urllib2.Request("http://localhost/index.html")
-        opener = urllib2.build_opener(SmartRedirectHandler())
-        obj = opener.open(request)
-        print 'I capture the http redirect code:', obj.status
-        print 'Its been redirected to:', obj.url
-
-* Apache 2.0 supports IPv6.
-
-::
-        phoe6:  I want to setup a test server which will do a redirect ( I know
-        how to do that), but with a delay. So that when I am testing my client,
-        I can test the clients timeout. Can someone give me suggestions as how
-        can i go about this?
-
-        jMCg: phoe6: http://httpd.apache.org/docs/2.2/mod/mod_ext_filter.html#examples
-
-* apache is configured by placing directives in configuration files. the main configuration file is called apache2.conf
-* Other configuration files are added by Include directive.
-
-
 
 Why do YOU like Python?
 -----------------------
@@ -2224,3 +2104,4 @@ The Evolution of  Python Programmer
 -----------------------------------
 http://gist.github.com/289467
 
+.. _Joel's article on Unicode: http://www.joelonsoftware.com/articles/Unicode.html 
