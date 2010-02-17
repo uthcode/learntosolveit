@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.6
+
 import string
 msg = string.Template('the square of the $number is $square')
 for number in range(10):

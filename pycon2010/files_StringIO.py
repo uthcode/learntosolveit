@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.6
+
 from cStringIO import StringIO
 
 def scanner(fileobject, linehandler):

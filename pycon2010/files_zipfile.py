@@ -1,5 +1,6 @@
-# Recipe which demonstrates writing to a zipfile and reading the content from
-# it.
+#!/usr/bin/env python2.6
+
+# Recipe which demonstrates writing to a zipfile and reading the content from it.
 
 import zipfile
 import tempfile

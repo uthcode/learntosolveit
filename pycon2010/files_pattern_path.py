@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.6
+
 # Finding Files Given a Search Path and a Pattern
 
 import glob

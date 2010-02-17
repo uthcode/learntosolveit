@@ -28,14 +28,20 @@ Outline for Review
         - translate method on the string and maketrans function.
         - Checking whether a string contains a set of characters.
         - Expanding and Compression Tabs.
+          -- Probably give the Tools/reident.py Introduction.
+	- Strings reindent.
         - Making Multiple Replacements in a String in a Single Pass.
-        - Reading a Text File by Paragraphs.
+        - Strings Template
+        - Reading a Text File by Paragraphs. 
+          -- Where did I get this idea from?
+          http://code.activestate.com/recipes/66063/
 
 * Files - We deal with them often. (15 Minutes)
         - File Handling Basics.
         - Reading a Single line from a file, given a line number (linecache module)
         - Using Random Access Input/Output.
         - Walking a Directory Tree
+          -- Use example for last year's tutorial.
         - Finding files given a search path and a pattern.
 
 * Date time Related (15 Minutes)

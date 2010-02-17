@@ -1,6 +1,9 @@
+#!/usr/bin/env python2.6
+
 # Reading a Specific Line from a file
 import linecache
-theline = linecache.getline('12.py',10)
+SOMEFILE = '/usr/share/games/fortunes/perl'
+theline = linecache.getline(SOMEFILE,10)
 print theline,
 
 def getline(thefilepath, desired_line_number):

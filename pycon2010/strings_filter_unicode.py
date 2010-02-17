@@ -1,10 +1,9 @@
+#!/usr/bin/env python2.6
 #-*- coding:utf-8 -*- 
-
-import sets
 
 class Keeper(object):
     def __init__(self, keep):
-        self.keep = sets.Set(map(ord, keep))
+        self.keep = set(map(ord, keep))
 
     def __getitem__(self, n):
         if n not in self.keep:
@@ -17,5 +16,5 @@ class Keeper(object):
 makefilter = Keeper
 
 if __name__ == '__main__':
-    just_vowels = makefilter(u'aeiouy∇∂')
-    print just_vowels(u'∇something about strings∂')
+    just_vowels_and_maths = makefilter(u'aeiouy∇∂')
+    print just_vowels_and_maths(u'∇something about strings∂')
