@@ -17,9 +17,6 @@ Parsing XML using xml.etree module
 First of all understand that Element Tree is a tree datastructure. It
 represents the XML document as a Tree. The XML Nodes are Elements. (Thus Element Tree)
 Now, if I were to structure an html document as a element tree.
-
-
-
 :: 
                 <html>
                   |
@@ -37,4 +34,6 @@ and a dictionary.  The C implementation of xml.etree.ElementTree is available
 as xml.etree.cElementTree
 
 
+Processing XML using the ElementTree module
+-------------------------------------------
 .. literalinclude:: py31/howto12_processing_xml.py

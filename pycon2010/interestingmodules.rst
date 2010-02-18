@@ -60,7 +60,7 @@ deque([iterable[, maxlen]])
    corresponding number of items are discarded from the opposite end.  Bounded
    length deques provide functionality similar to the ``tail`` filter in
    Unix. They are also useful for tracking transactions and other pools of data
-   where only the most recent activity is of interest.
+   where only the most recent activity is of interest.::
 
 
     def moving_average(iterable, n=3):
@@ -79,7 +79,7 @@ Default Dict
 ------------
 
 ing :class:`list` as the :attr:`default_factory`, it is easy to group a
-sequence of key-value pairs into a dictionary of lists:
+sequence of key-value pairs into a dictionary of lists::
 
    >>> s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
    >>> d = defaultdict(list)
@@ -96,7 +96,7 @@ Namedtuple
 imed tuples assign meaning to each position in a tuple and allow for more readable,
 self-documenting code.  They can be used wherever regular tuples are used, and
 they add the ability to access fields by name instead of position index.
-tertools module
+tertools module::
 
 >>> from collections import namedtuple
 >>> Point = namedtuple('Point', 'x y', verbose=True)

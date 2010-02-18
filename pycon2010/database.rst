@@ -27,7 +27,7 @@ represents the database.  Here the data will be stored in the
 You can also supply the special name ``:memory:`` to create a database in RAM.
 
 Once you have a :class:`Connection`, you can create a :class:`Cursor`  object
-and call its :meth:`Cursor.execute` method to perform SQL commands::
+and call its :meth:`Cursor.execute` method to perform SQL commands
 
 
 .. literalinclude:: py31/howto13_sqlite_example.py
@@ -62,6 +62,6 @@ The following can be pickled.
     * instances of such classes whose __dict__ or __setstate__() is picklable (see section Pickling Class Instances for details)
  
 
-For the simplest code, use the :func:`dump` and :func:`load` functions. ::
+For the simplest code, use the :func:`dump` and :func:`load` functions.
 
 .. literalinclude:: py31/howto14_pickle_example.py

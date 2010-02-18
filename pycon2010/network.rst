@@ -27,7 +27,8 @@ To create a client, you need to:
    3. send and receive data
 
 
-*echo client*::
+**echo client**
+::
         import socket
 
         host = '127.0.0.1'
@@ -41,8 +42,8 @@ To create a client, you need to:
         s.close()
         print 'Received:', data
 
-*echo server*::
-
+**echo server**
+::
         import socket
 
         host = '127.0.0.1'

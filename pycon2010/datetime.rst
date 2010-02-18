@@ -5,12 +5,11 @@ Date and time related
   This returns the number of seconds passed since a fixed instant called the
   epoch, it is usually the midnight of 1 Jan 1970.
  
-
 To find out which epoch, your platform uses.
-
 ::
-        >>> import time
-        >>> print time.asctime(time.gmtime(0))
+
+>>> import time
+>>> print time.asctime(time.gmtime(0))
 
 * time.gmtime - converts any timestamp into a tuple without TZ convertion.
 * time.asctime - represents it in human readable way.
