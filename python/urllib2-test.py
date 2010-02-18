@@ -11,7 +11,7 @@ class FixedPasswordMgr:
         print 'auth: '+authuri+' '+self.user
         return self.user, self.password
 
-authhandler = urllib2.HTTPDigestAuthHandler( FixedPasswordMgr( 'phoe6', '0dotaur' ) )
+authhandler = urllib2.HTTPDigestAuthHandler( FixedPasswordMgr( 'phoe6', 'xxxxx' ) )
 
 opener = urllib2.build_opener(authhandler)
 urllib2.install_opener(opener)

@@ -26,7 +26,6 @@ functions
 * parse_keqv_list
 * parse_http_list
 
-
 class
 -----
 * Request
@@ -206,7 +205,7 @@ place where square bracket characters are allowed in the URI syntax.
 
 
 Non-ASCII characters must first be encoded according to UTF-8 [STD63], and then
-each octet of the corresponding UTF-8 sequence must be percent- encoded to be
+each octet of the corresponding UTF-8 sequence must be percent-encoded to be
 represented as URI characters.  When a non-ASCII registered name represents an
 internationalized domain name intended for resolution via the DNS, the name
 must be transformed to the IDNA encoding [RFC3490] prior to name lookup.
@@ -338,8 +337,7 @@ be considered best available current guidance:
 One of the important changes when adhering to RFC3986 is parsing of IPv6
 addresses.
 
-CacheFTPHandler testcasesare hard to write.  played around with pdb module
-today to debug this issue. pdb is really helpful.
+CacheFTPHandler testcases are hard to write. 
 
 Here's how the control goes.
 
@@ -365,7 +363,7 @@ http_request method is called.
 
 Now, when proxy is set using set_proxy(), self.__r_host is self.__original (
 The original complete url itself), so the get_selector() call is returns the
-sel_url properly and we can get teh host from the splithost() call on teh
+sel_url properly and we can get the host from the splithost() call on the
 sel_url.
 
 When proxy is not set, and the url contains '//' in the path segment, then
@@ -420,6 +418,16 @@ Example of  Smart Redirect Handler
 * apache is configured by placing directives in configuration files. the main configuration file is called apache2.conf
 * Other configuration files are added by Include directive.
 
+How is the HTTP response given by the urllib?
+GetRequestHandler which takes the responses as the parameter and returns a handler.
+What does the GetRequestHandler do?
+It takes responses as one of its argument.
+Implements a FakeHTTPRequestHandler which is extending BaseHTTPRequestHandler.
+BaseHTTPRequestHandler implements do_GET, do_POST and send_head
+The send_head method when it is returning the body it is sending it properly.
+
+Why is that the response is getting trimmed to 49042?
+
 
 Strings, Bytes and Python 3
 ===========================
@@ -446,7 +454,7 @@ which conveniently encoded them to 8-bit bytes.  The Unicode object had to have
 an encoding specified, which encoded the unicoded strings into sequence of
 bytes.
 
-Just as string object had an encode method, to convert to string, the bytes
+Just as string object had an encode method, to convert to bytes, the bytes
 object had a decode method, that takes a character encoding an returns a
 string.
 
@@ -466,8 +474,8 @@ What is class bytearray?
 
 A Byte is 8 bits and array is a sequence. A Bytearray object can be constructed
 using integers only or text string along with an encoding or using another
-bytes or bytearray or any other object implementing a buffer API. Most
-important of it is it mutable.
+bytes or bytearray or any other object implementing a buffer API. More
+importantly, it is mutable.
 
 Python3 comes with 3 types of string objects, one for textual data and two for
 binary data.
@@ -605,7 +613,7 @@ ASCII, so Americans don't even notice anything wrong.  Specifically, Hello
 which was "0048, 0065, 006C, 006C and 006F" would simply be stored as
 48,65,6C,6C and 6F.
 
-So, here we have ways such as UCS-2 (UTF-26), which had its own UCS-2 little
+So, here we have ways such as UCS-2 (UTF-16), which had its own UCS-2 little
 endian or UCS-2 big endian and then UTF-8 encoding method.  There are also a
 bunch of other ways of encoding Unicode. There is something called UTF-7, which
 is lot like UTF-8 but guarantees that the high bit will always be zero.  It was
@@ -1472,10 +1480,6 @@ argument. This can be useful with subclasses. A staticmethod doesn't get a
 class or instance argument. It is just a way to put a plain function into the
 scope of a class.
 
-Both of these are rarely used; I don't think I have ever written a
-class method in live code. I have used staticmethods as a convenient
-way to put a function into a class namespace. // Kent Jonhson.
-
 And that's the definition of the difference in Python.
 In the wider world of OOP they are two names for the same concept.
 Smalltalk and Lisp etc used the term "class method" to mean a
@@ -1487,7 +1491,7 @@ without instantiating an object. This meant it could effectively be
 used as a class method.
 
 [In C it is possible to prefix a normal function definition with
-the word static to get the compiler to load the fiunction into
+the word static to get the compiler to load the function into
 static memory - this often gives a performance improvement.]
 
 Python started off implementing "static methods" then later
@@ -1589,16 +1593,6 @@ Look a bit into property.
 Usage of Ellipses
 
 
-How is the HTTP response given by the urllib?
-GetRequestHandler which takes the responses as the parameter and returns a handler.
-What does the GetRequestHandler do?
-It takes responses as one of its argument.
-Implements a FakeHTTPRequestHandler which is extending BaseHTTPRequestHandler.
-BaseHTTPRequestHandler implements do_GET, do_POST and send_head
-The send_head method when it is returning the body it is sending it properly.
-
-Why is that the response is getting trimmed to 49042?
-
 What is the difference between process and a thread?
 
 Both threads and processes are methods of parallelizing an application.
@@ -1629,11 +1623,15 @@ The GIL is a single lock inside of the Python interpreter, which effectively
 prevents multiple threads from being executed in parallel, even on multi-core
 or multi-CPU systems!
 
-* All threads within a single process share memory; this includes Python's internal structures (such as reference counts for each variable).  Course grained locking.
+* All threads within a single process share memory; this includes Python's
+  internal structures (such as reference counts for each variable).  Course
+  grained locking.
 * fine grained locking.
 * @synchronized decorator
 * technically speaking, threads have shared heaps but separate stacks.
-* Interpreter of a language is said to be stackless if the function calls in the language do not use the C Stack. In effect, the entire interpretor has to run as a giant loop.
+* Interpreter of a language is said to be stackless if the function calls in
+  the language do not use the C Stack. In effect, the entire interpretor has to
+  run as a giant loop.
 
 What is Global Interpretor Lock in Python?
 
@@ -1775,6 +1773,7 @@ asynchronous, event based, callback based programming.  In synchrnous
 programming, a function requests data, waits for the data, and then processes
 it. In asynchronous programming, a function requests the data, and lets the
 library call the callback function when the data is ready.
+
 It is the second class of concurrency problems, non-computationally intensive
 tasks that involve an appreciable delay that deferreds are designed to help
 solve.  They do this by giving a simple management interface for callbacks and
@@ -1782,17 +1781,18 @@ applications.  blocking - means, if one tasks is waiting for data, the other
 task cannot get CPU but also waits until the first tasks finishes.  The typical
 asynchronous model to notify can application that some data is ready is called
 as callback.  Twisted uses Deferred objects to managed callback sequence.
-Libraries know that they make their results available by using Deferred.callback and errors by Deferred.errback.
-How does the parent function or its controlling program know that connection
-does not exist and when it will know, when the connection becomes alive?
-Twisted has an object that signals this situation, it is called
-twisted.internet.defer.Deferred Deferred has two purposes; first is saying that
-I am a signal, of whatever you wanted me to do is still pending; second you can
-ask differed to run things when the data arrives.
-the way to tell the deffered what to do when the data arrives is by defining a
-callback - asking the deferred to call a function once the data arrives.  28.
-One Twisted library function that returns a Deferred is
+Libraries know that they make their results available by using
+Deferred.callback and errors by Deferred.errback.  How does the parent function
+or its controlling program know that connection does not exist and when it will
+know, when the connection becomes alive?  Twisted has an object that signals
+this situation, it is called twisted.internet.defer.Deferred Deferred has two
+purposes; first is saying that I am a signal, of whatever you wanted me to do
+is still pending; second you can ask differed to run things when the data
+arrives.  the way to tell the deffered what to do when the data arrives is by
+defining a callback - asking the deferred to call a function once the data
+arrives.  28.  One Twisted library function that returns a Deferred is
 twisted.web.client.getPage.
+
 If nothing else is understood, please understand that you create a differed object, add a callback function to that object and add an errorback function to that object. Differed will get called after a particular period of time or some data is avaiable.
 30. Differed Objects are signals that the function that you have called does not have the data, you want available.
 31. What Differeds dont do: Make your code asynchronous!.
@@ -1825,22 +1825,6 @@ If nothing else is understood, please understand that you create a differed obje
 49. I dont get the howto/plugin.html page at all? How do I implement plugin for the IMaterial Interface?
 
 
-
-There are many ways to write network programs. The main ones are:
-
-* handle each connection in a separate operating system process, in which case
-  the operating system will take care of letting other processes run while one
-  is waiting.
-* handle each connection in a separate thread in which the threading framework
-  takes care of letting other threads run while one is waiting; or
-* use non-blocking system calls to handle all connections in one thread.
-* twisted.internet.defer.Deferred object.
-* asynchronous callback based programming. Instead of having a blocking code,
-  or using threads to run a blocking code, you return back immediate and when
-  data is available it is passed to the function that requires it.
-* After reading the Document, "Asynchrnous programming using Twisted" the
-  reader should be able to write Twisted Application and read the code that is
-  using Twisted Framework.
 
 Callbacks
 =========
@@ -2047,9 +2031,6 @@ References
 
 * [http://code.activestate.com/recipes/86900/ Factory Example]
 * [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
-
-The dev libraries are required for Python source to include many things like
-_ssl and bz2 etc.
 
 * SAX - Simple API for XML - serial access parser API for XML.
 
