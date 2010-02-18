@@ -46,14 +46,17 @@ Outline for Review
 
 * Date time Related (15 Minutes)
         - Efficient Strategies for handling date and time related tasks.
-        - datetime module, time module.
-        - Calculating time periods in a date range.
+        - datetime module, time module. 
+        - Calculating time periods in a date range. 
+          -- basic method.
 
 * Processing XMLs. (15 Minutes for next two sections)
         - Parsing XML using xml.etree module.
         - Other XML parsing modules and their differences.
+          -- this should be theory.
 
 * Dealing with Database stuff.
+        - sqlite3 database - write for dealing with reading for reading the data too.
         - Serializing Data using pickle and cPickle Modules.
 
 Break Timing
@@ -66,17 +69,22 @@ Break Timing
         - Subprocess module. 
         - Capturing the Output and Error Streams from a Unix Shell Command.
         - Forking a Daemon Process on Unix.
+ 	  -- Is it there?
         - Program Execution on Windows.
+          -- Use subprocess module again
         - Writing a Task Schedular.
+          -- Read a bit about sched module.
         - Monitoring a Directory in an asynchronous way using Twisted.
 
 * Network Programming (15 Minutes)
         - Detecting Inactive Computers in a Network using the Socket Module.
+          -- Big Program. Decide later.
         - Connecting to IRC and logging the messages.
 
 * Web Programming (10 Minutes)
         - urllib module.
         - Parsing RSS Feeds
+          -- Dont have time for this one.
 
 * Unit Tests (10 Minutes)
         - How to write Unittests for your Python programs using unittest module.
@@ -84,6 +92,7 @@ Break Timing
 * Programming tasks.(10 Minutes)
         - Implementing Tuples with named items.
         - Performance Measurements using timeit module
+          -- sorted and sorts kind of explained that.
 
 * How to Convert Python 2 to Python 3. (20 Minutes)
         - 2to3 tool.

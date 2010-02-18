@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.6
+
 import socket
 SERVER = 'irc.freenode.net'
 PORT = 6667

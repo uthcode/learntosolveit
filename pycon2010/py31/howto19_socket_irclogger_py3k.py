@@ -1,8 +1,10 @@
+#!/usr/bin/env python3.1
+
 import socket
 SERVER = 'irc.freenode.net'
 PORT = 6667
 NICKNAME = 'phoe6'  # REPLACE WITH YOUR USERNAME
-CHANNEL = '#python-dev' # CHANGE CHANNEL IF DESIRED
+CHANNEL = '#python' # CHANGE CHANNEL IF DESIRED
 
 IRC = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -10,7 +12,7 @@ def irc_conn():
     IRC.connect((SERVER,PORT))
 
 def send_data(command):
-    IRC.send(command + '\r\n')
+    IRC.send((command + '\r\n').encode('utf-8'))
 
 def join(channel):
     send_data("JOIN %s" % channel)
@@ -33,13 +35,13 @@ try:
     while True:
         buffer = IRC.recv(1024)
         msg = buffer.split()
-        print msg
+        print(msg)
         if msg[0] == "PING":
             # answer PING with PONG, as RFC 1459 specifies
             send_data("PONG %s" % msg[1])
         if msg[1] == 'PRIVMSG':
             nick_name = msg[0][:msg[0].find("!")]
             message = ' '.join(msg[3:])
-            print nick_name.lstrip(':'), '->', message.lstrip(':')
+            print(nick_name.lstrip(':'), '->', message.lstrip(':'))
 finally:
     part()

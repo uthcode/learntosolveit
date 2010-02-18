@@ -20,18 +20,14 @@ def main(cmd, inc=60):
 
 if __name__ == '__main__':
     numargs = len(sys.argv)
-    print numargs
     if numargs <= 1 or numargs > 3:
-        print "usage: " + sys.argv[0] + " command [seconds_delay]"
+        print("usage: " + sys.argv[0] + " command [seconds_delay]")
         sys.exit(1)
 
     cmd = sys.argv[1]
-    print numargs
     if numargs < 3:
-        print 'here'
         main(cmd)
     else:
-        print 'its here'
         inc = int(sys.argv[2])
-        print inc
+        print(inc)
         main(cmd, inc)
