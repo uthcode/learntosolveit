@@ -9,9 +9,10 @@ input/output/error pipes, and obtain their return codes.
 
 ``subprocess.call(*popenargs, **kwargs)``
 -----------------------------------------
-This is convenience function provided by subprocess module which executes the command given by the argument, when shell=True is the shell variables are expanded in the command line.
 
-.. literalinclude::        subprocess_1.py
+This is convenience function provided by subprocess module which executes the
+command given by the argument, when shell=True is the shell variables are
+expanded in the command line.
 
 Popen method
 ------------
@@ -31,9 +32,16 @@ Popen method
   to Popen and indicates that standard error should go into the same handle as
   standard output.
 
-.. literalinclude::        subprocess_2.py
+
+.. literalinclude:: py31/howto16_subprocess_examples.py
 
 Writing a Task Scheduler
 ------------------------
 
-.. literalinclude:: datetime2.py
+.. literalinclude:: py31/howto17_scheduling.py
+
+Monitoring a directory for changes
+----------------------------------
+
+.. literalinclude:: py31/howto18_monitordir.py
+.. literalinclude:: py31/howto18_monitordir_twisted-py26.py

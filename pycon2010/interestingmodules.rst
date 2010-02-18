@@ -109,8 +109,6 @@ Ordered dictionaries are just like regular dictionaries but they remember the
 order that items were inserted.  When iterating over an ordered dictionary,
 the items are returned in the order their keys were first added.
 
-----------------
-
 The :mod:`itertools` module contains a number of commonly-used iterators as well
 as functions for combining several iterators.  This section will introduce the
 module's contents by showing small examples.

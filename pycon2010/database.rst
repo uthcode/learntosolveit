@@ -27,24 +27,10 @@ represents the database.  Here the data will be stored in the
 You can also supply the special name ``:memory:`` to create a database in RAM.
 
 Once you have a :class:`Connection`, you can create a :class:`Cursor`  object
-and call its :meth:`~Cursor.execute` method to perform SQL commands::
+and call its :meth:`Cursor.execute` method to perform SQL commands::
 
-   c = conn.cursor()
 
-   # Create table
-   c.execute('''create table stocks
-   (date text, trans text, symbol text,
-    qty real, price real)''')
-
-   # Insert a row of data
-   c.execute("""insert into stocks
-             values ('2006-01-05','BUY','RHAT',100,35.14)""")
-
-   # Save (commit) the changes
-   conn.commit()
-
-   # We can also close the cursor if we are done with it
-   c.close()
+.. literalinclude:: py31/howto13_sqlite_example.py
 
 pickle module
 -------------
@@ -78,30 +64,4 @@ The following can be pickled.
 
 For the simplest code, use the :func:`dump` and :func:`load` functions. ::
 
-   #!/usr/bin/python3.1
-
-   import pickle
-
-   # An arbitrary collection of objects supported by pickle.
-   data = {
-       'a': [1, 2.0, 3, 4+6j],
-       'b': ("character string", b"byte string"),
-       'c': set([None, True, False])
-   }
-
-   with open('data.pickle', 'wb') as f:
-       # Pickle the 'data' dictionary using the highest protocol available.
-       pickle.dump(data, f, pickle.HIGHEST_PROTOCOL)
-
-
-The following example reads the resulting pickled data. ::
-
-   #!/usr/bin/python3.1
-
-   import pickle
-
-   with open('data.pickle', 'rb') as f:
-       # The protocol version used is detected automatically, so we do not
-       # have to specify it.
-       data = pickle.load(f)
-
+.. literalinclude:: py31/howto14_pickle_example.py

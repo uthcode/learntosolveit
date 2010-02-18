@@ -26,10 +26,40 @@ To create a client, you need to:
    2. connect to the server
    3. send and receive data
 
-.. literalinclude::        socket_echo_client.py
-.. literalinclude::        socket_echo_server.py
+
+*echo client*::
+        import socket
+
+        host = '127.0.0.1'
+        port = 50000
+        size = 1024
+
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((host, port))
+        s.send("Hello,World")
+        data = s.recv(size)
+        s.close()
+        print 'Received:', data
+
+*echo server*::
+
+        import socket
+
+        host = '127.0.0.1'
+        port = 50000
+        backlog = 5
+        size = 1024
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((host, port))
+        s.listen(backlog)
+        while True:
+            client, address = s.accept()
+            data = client.recv(size)
+            if data:
+                client.send(data)
+            client.close()
 
 Connecting to IRC and logging the messages
 ------------------------------------------
 
-.. literalinclude::        socket_irclogger-py3k.py
+.. literalinclude::        py31/howto19_socket_irclogger.py

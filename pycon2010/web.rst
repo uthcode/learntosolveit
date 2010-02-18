@@ -29,3 +29,13 @@ Example of  Smart Redirect Handler
         obj = opener.open(request)
         print 'I capture the http redirect code:', obj.status
         print 'Its been redirected to:', obj.url
+
+
+
+urllib - basic authentication example
+-------------------------------------
+.. literalinclude:: py31/howto20_urllib_basic.py
+
+urllib - digest authentication example
+--------------------------------------
+.. literalinclude:: py31/howto20_urllib_digest.py

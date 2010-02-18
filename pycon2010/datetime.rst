@@ -44,6 +44,11 @@ Python version accepts float and allows for sub-second delays.
 * The `datetime` module provides better abstractions to deal with dates and
   times.
 
+Basic datetime handling method
+------------------------------
+.. literalinclude:: py31/howto11_datatime_basic.py
+
+
 ::
 
         >>> today = datetime.date.today()
@@ -89,12 +94,3 @@ Python version accepts float and allows for sub-second delays.
 
 * dateutil and mxDatetime are two third party utils that are worth looking at
   too.
-
-Efficient Strategies for handling date and time related tasks
--------------------------------------------------------------
-
-datetime module and time module
--------------------------------
-
-calculating time periods in a date range
-----------------------------------------

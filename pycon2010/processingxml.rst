@@ -37,32 +37,4 @@ and a dictionary.  The C implementation of xml.etree.ElementTree is available
 as xml.etree.cElementTree
 
 
-    <html>
-        <head>
-            <title>Example page</title>
-        </head>
-        <body>
-            <p>Moved to <a href="http://example.org/">example.org</a>
-            or <a href="http://example.com/">example.com</a>.</p>
-        </body>
-    </html>
-
-Example of changing the attribute "target" of every link in first paragraph::
-
-    >>> from xml.etree.ElementTree import ElementTree
-    >>> tree = ElementTree()
-    >>> tree.parse("index.xhtml")
-    <Element html at b7d3f1ec>
-    >>> p = tree.find("body/p")     # Finds first occurrence of tag p in body
-    >>> p
-    <Element p at 8416e0c>
-    >>> links = p.getiterator("a")  # Returns list of all links
-    >>> links
-    [<Element a at b7d4f9ec>, <Element a at b7d4fb0c>]
-    >>> for i in links:             # Iterates through all found links
-    ...     i.attrib["target"] = "blank"
-    >>> tree.write("output.xhtml")
-
-
-Dealing with Database stuff
----------------------------
+.. literalinclude:: py31/howto12_processing_xml.py

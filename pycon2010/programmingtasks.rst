@@ -4,6 +4,8 @@ Programming Tasks
 Implement Tuples with named items
 ---------------------------------
 
+.. literalinclude:: py31/howto21_namedtuple_example.py
+
 Performance measurements using timeit module
 --------------------------------------------
 
