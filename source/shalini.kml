@@ -3,8 +3,80 @@
 <Document>
   <name>Happy Birthday to Shalini! </name>
   <open>1</open>
+  <gx:Tour>
+    <name>Happy Birthday to you!</name>
+    <gx:Playlist>
+      <gx:FlyTo>
+        <gx:duration>5.0</gx:duration>
+        <!-- bounce is the default flyToMode -->
+        <Camera>
+          <longitude>170.157</longitude>
+          <latitude>-43.671</latitude>
+          <altitude>9700</altitude>
+          <heading>-6.333</heading>
+          <tilt>33.5</tilt>
+        </Camera>
+      </gx:FlyTo>
 
-<gx:Tour>
+      <gx:Wait>
+        <gx:duration>1.0</gx:duration>
+      </gx:Wait>
+
+      <gx:FlyTo>
+        <gx:duration>6.0</gx:duration>
+        <Camera>
+          <longitude>174.063</longitude>
+          <latitude>-39.663</latitude>
+          <altitude>18275</altitude>
+          <heading>-4.921</heading>
+          <tilt>65</tilt>
+          <altitudeMode>absolute</altitudeMode>
+        </Camera>
+      </gx:FlyTo>
+
+      <gx:FlyTo>
+        <gx:duration>3.0</gx:duration>
+        <gx:flyToMode>smooth</gx:flyToMode>
+        <LookAt>
+          <longitude>174.007</longitude>
+          <latitude>-39.279</latitude>
+          <altitude>0</altitude>
+          <heading>112.817</heading>
+          <tilt>68.065</tilt>
+          <range>6811.884</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+      </gx:FlyTo>
+
+      <gx:FlyTo>
+        <gx:duration>3.0</gx:duration>
+        <gx:flyToMode>smooth</gx:flyToMode>
+        <LookAt>
+          <longitude>174.064</longitude>
+          <latitude>-39.321</latitude>
+          <altitude>0</altitude>
+          <heading>-48.463</heading>
+          <tilt>67.946</tilt>
+          <range>4202.579</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+       </gx:FlyTo>
+
+      <gx:FlyTo>
+        <gx:duration>5.0</gx:duration>
+        <LookAt>
+          <longitude>175.365</longitude>
+          <latitude>-36.523</latitude>
+          <altitude>0</altitude>
+          <heading>-95</heading>
+          <tilt>65</tilt>
+          <range>2500</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+      </gx:FlyTo>
+</Document>
+</kml>
+<!---
 	<name>Shalini Birthday</name>
 	<description><![CDATA[<h1> Shalini's Birthday ! </h1>]]></description>
 	<gx:Playlist>
@@ -3667,3 +3739,4 @@
 </gx:Tour>
 </Document>
 </kml>
+--!>
