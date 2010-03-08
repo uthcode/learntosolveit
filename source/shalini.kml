@@ -3,6 +3,65 @@
 <Document>
   <name>Happy Birthday to Shalini! </name>
   <open>1</open>
+	<GroundOverlay id="Bangalore">
+		<name>Bangalore</name>
+		<description>Happy Birthday to you Shalini!</description>
+		<Icon>
+			<href>http://farm4.static.flickr.com/3552/3341605323_4ed626a455_d.jpg</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>12.97212825142645</north>
+			<south>12.97160915156312</south>
+			<east>77.65721338805815</east>
+			<west>77.65642016498551</west>
+			<rotation>-70.15257243687749</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay id="TajMahal">
+		<name>Taj Mahal</name>
+		<description>Happy Birthday Shalini!</description>
+		<Icon>
+			<href>http://farm4.static.flickr.com/3056/2735666555_01d53e74fe_d.jpg</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>27.17450732026979</north>
+			<south>27.17327176011419</south>
+			<east>78.04122847725782</east>
+			<west>78.03929712996629</west>
+			<rotation>27.91779205313828</rotation>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay id="Australia">
+		<name>Blue Mountains Australia</name>
+		<description>Happy Birthday Shalini!</description>
+		<Icon>
+			<href>http://farm3.static.flickr.com/2088/1872525468_3ebed6384b_d.jpg</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>-33.49955839447559</north>
+			<south>-33.50235383795991</south>
+			<east>150.251208451007</east>
+			<west>150.246849459011</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay id="PhuketThailand">
+		<name>Phuket, Thailand</name>
+		<description>Happy Birthday, Shalini.</description>
+		<Icon>
+			<href>http://farm3.static.flickr.com/2338/2133951029_cc4fd559ff_m_d.jpg</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<LatLonBox>
+			<north>8.077911111111112</north>
+			<south>7.959929214416563</south>
+			<east>98.34652435306913</east>
+			<west>98.20810833333334</west>
+			<rotation>26.03124770060386</rotation>
+		</LatLonBox>
+	</GroundOverlay>
   <gx:Tour>
 	<gx:Playlist>
 		<gx:AnimatedUpdate>
