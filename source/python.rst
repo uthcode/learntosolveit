@@ -32,6 +32,75 @@ http://bugs.python.org/issue1599329
 Add a "decode to declared encoding" version of urlopen to urllib
 http://bugs.python.org/issue4733
 
+issue1314572 Trailing slash redirection for SimpleHTTPServer
+
+issue1462525 -  URI parsing library 
+http://bugs.python.org/issue1462525
+
+issue1643370 - recursive urlparse
+
+issue1673007 - urllib2 requests history + HEAD support
+
+issue1712522 -  urllib.quote throws exception on Unicode
+
+issue1722 -  Undocumented urllib functions 
+
+issue1755841 - Patch for [ 735515 ] urllib2 should cach 
+
+issue2202 - urllib2 fails against IIS 6.0
+
+[issue1229646] httplib error checking.
+                                                                                                      
+In Python3 the code for httplib changed:                                                              
+Py3:                                                                                                  
+http://svn.python.org/view/python/branches/py3k/Lib/http/client.py?view=markup#send                   
+Py2: http://svn.python.org/view/python/trunk/Lib/httplib.py?view=markup#send                          
+                                                                                                      
+Does this still need to be fixed on Py2.7 (and maybe on Py3 too)?  
+
+issue2987 -  RFC2732 support for urlparse
+issue3243 -  Support iterable bodies in httplib
+issue3244 -  multipart/form-data encoding
+issue4758 -  Python 3.x internet documentation needs wor
+issue5650 -  Obsolete RFC's should be removed from doc
+issue5673 -  Add timeout option to subprocess.Popen
+issue6280 -  calendar.timegm() belongs in time module
+issue6312 -  httplib fails with HEAD requests to pages
+issue6500 -  urllib2 maximum recursion depth exceeded  (1)
+issue6520 -  urllib.urlopen does not have timeout parame
+issue1208304 - urllib2's urlopen() method causes a memor
+issue6631    -  urlparse.urlunsplit() can't handle relative
+issue6640    -  urlparse should parse mailto: URL headers as
+issue7150    -  datetime operations spanning MINYEAR give b
+issue7152    -  urllib2.build_opener() skips ProxyHandler
+issue7159    -  Urllib2 authentication memory
+issue7291    -  urllib2 cannot handle https with proxy requ 
+issue7305    -  urllib2.urlopen() segfault using SSL on Solaris
+issue7464    -  circular reference in HTTPResponse by urllib
+issue7620    -  Vim syntax highlight 
+issue7648    -  test_urllib2 fails on Windows if not run from
+issue7665    -  test_urllib2 fails if path contains "\"
+issue7668    -  test_httpservers fails with non-ascii path
+issue7776    -  httplib.py: ._tunnel() broken
+issue7806    -  httplib.HTTPConnection.getresponse closes s
+issue8083    -  urllib proxy interface is too limited
+issue8095    -  test_urllib2 crashes on OS X 10.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 print as a function in python3.
 New string model
