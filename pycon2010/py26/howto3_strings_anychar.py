@@ -13,5 +13,5 @@ def containsAny_itertoolsway(seq, aset):
         return True
     return False
 
-print containsAny('916',string.digits)
+print containsAny('abc',string.digits)
 print containsAny_itertoolsway('916',string.digits)

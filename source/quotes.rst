@@ -4,10 +4,6 @@ Life, Universe and Everything
 
 .. image:: _static/ch-full.jpg
 
-
-* It's a magical world, Hobbes, ol' buddy... Let's go exploring! 
-  --:Calvin and Hobbes
-
 Life
 ====
 
@@ -24,8 +20,7 @@ Life
   stage of adventure.
 * "Now, Now", cried the Queen, "Faster,Faster".  - Alice in Wonderland. 
 * Half of being smart is knowing what you're dumb at.
-
-
+* Being entirely honest with oneself is a good exercise. --Sigmund Freud 
 * What Linux myths or misconceptions do you find particularly galling?.
   Torvalds responds.
 
@@ -78,3 +73,11 @@ Everything
 * Programming is the art of writing essays in crystal clear prose and making
   them executable - Per Brinch Hansen
 
+* You know you have acheived perfection in design, not when you have nothing
+  more to add, but when you have nothing more to take away. - Antoine Saint
+  Exupery.
+
+---- 
+
+* It's a magical world, Hobbes, ol' buddy... Let's go exploring! 
+  --:Calvin and Hobbes

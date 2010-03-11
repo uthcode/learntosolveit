@@ -2,6 +2,7 @@ TODO
 ====
 
 - Read a Bit about Exception Handling in python3k.
+cp -r _build/html/ ~/uthcode/build/html/pycon2010
 
 What is a predicate?
 --------------------

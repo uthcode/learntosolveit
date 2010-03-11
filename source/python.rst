@@ -11,6 +11,56 @@ TODO
 * study diveintopython3 (20)
 * use of namedtuple in py3k branch for urlparse.
 * Digest Authentication is not working.
+* Classic Classes and new-style classes.
+* Complete the forms for PyCon payment.
+
+* Email Module work is in progress where the discussions are going on for the
+  different types and type of support for Internal and External APIs and the
+  way to handle text and binary data.
+ 
+* urllib2 has memory leak.
+
+ 
+
+Python bugs
+-----------
+
+urllib(2) should allow automatic decoding by charset
+
+http://bugs.python.org/issue1599329
+
+Add a "decode to declared encoding" version of urlopen to urllib
+http://bugs.python.org/issue4733
+
+
+print as a function in python3.
+New string model
+classic class vs new style class and everything is new style class.
+Updated Syntax for Exceptions
+Improved Exception Handling Mechanism,
+Chaging the Division Operator.
+True Division PEP 238
+New Binary Literals, bin, oct and hex
+Dictionary methods PEP 3106
+Type Updates and io class ( PEP 3116)
+Dictionary Comprehensions
+set comprehensions
+tuple methods - count and index.
+Changes to reserved keywords.
+removed - print and exec
+added - as, with, nonlocal, True and False
+
+Changes to Operators.
+Removed <> and backticks
+Added - bytes, bytearray and range
+Removed - basestring, buffer, file, long, unicode and xrange
+
+use of 2to3 tool.
+
+Python 2.6 status and Python 2.7 plan.
+Python 3.1 status and further plans.
+
+
         
 urllib 
 ======
@@ -69,7 +119,7 @@ and protocol_response is called and returned. The handler is invoked in the
 specific order as specified by the Handler attribute.
 
 In order to setup a password for your apache based site, in the
-/var/www/.htaccess file specify the username as password as senthil:senthil
+/var/www/.htaccess file specify the username and password as senthil:senthil
 
 Some clients support the no_proxy environment variable that specifies a set of
 domains for which the proxy should not be consulted; the contents is a
@@ -380,9 +430,9 @@ rest of the url).
 The patch which was attached appropriately fixed the issue. I modified and
 included for py3k.
 
-* urllib2 in python 3k was divided into urllib2.request and urllib2.error. I
-was thinking if the urllib2.respones class is included; but no, response
-object is nothing but a addinfourl object.
+* urllib2 in python 3k was divided into urllib.request and urllib.error. I was
+  thinking if the urllib.response class is included; but no, response object is
+  nothing but a addinfourl object.
 
 Example of  Smart Redirect Handler 
 ----------------------------------
@@ -849,7 +899,6 @@ multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
 way to true multitasking, multiprocessing and, later, multithreading.
 
 Context Management Protocol support
-
 :: 
         with bz2.BZ2File() as f:
                 f.something()
@@ -857,9 +906,8 @@ Context Management Protocol support
 Counter class in the collections module that behave like dictionary; but return
 0 instead of {{{KeyError}}}.  There is a namedtuple class in python.
 
-compileall module is a script which which will compile all the .py files in the
-path to .pyc files.  py_compile is module which does the actual byte
-compilation.
+compileall module is a script which will compile all the .py files in the path
+to .pyc files.  py_compile is module which does the actual byte compilation.
 
 py_compile.compile(fullname, None, dfile, True)
 
@@ -869,15 +917,9 @@ turtle module is a good one to get started with Python. turtle modle is updated
 to 1.1 by Gregor Lingl. I promised to write a tutorial on turtle module. This
 is pending.
 
-
-What does this construct imply?
-
-x = lambda: None
-
 How can we differentiate if an expression used is a general expression or a
 boolean expression.
 Having a construct like:
-
 ::
 
         def __init__(self, *args, **kwargs):
@@ -885,9 +927,6 @@ Having a construct like:
 
 But in the base class, I find that it is not taking the tuple and dict as
 arguments.
-
-I dont understand the
-assert(proxies, 'has_key'), "proxies must be mapping"
 
 * What is an addrinfo struct.
 
@@ -917,8 +956,6 @@ print socket.gethostbyname(hostname)
 def gethostbyname(hostname)
 family, socktype, proto, canonname, sockaddr = socket.getaddrinfo(hostname)
 return canonname
-
-Compare dates for cache control
 
 RFC 1123 date format:
 Thu, 01 Dec 1994 16:00:00 GMT
@@ -1344,7 +1381,6 @@ And most often in our regular practice, we always create methods to be
 associated with an object. Those are called instance methods.
 
 For e.g.
-
 ::
 
         class Car:
@@ -1749,30 +1785,29 @@ share a single core,cache and TLB unlike the multiprocessing machines.
 Twisted Framework
 
 Asynchronous, Event-Driven Applications for Distributed Network Environment.
-Event Driven Networking Framework.  Asynchronous means not being in a
-Synchornous State.  Synchronous, happening in a time defined way.  At the core
-of Twisted Framework is its Network Layer, which can used to integrate any
-existing  protocol as well as model new ones.  Twisted is a pure python
-framework.  As a platform, twisted should be focussed on integration.  Twisted
-supports Asynchronous programming and deferred abstraction, which symbolizes a
-promised result and which can pass eventual result to  handler functions.
-Document will give you a high-level overview of concurrent programming and
-Twisted's concurrency model: non-blocking code and asynchronous code.
-Concurrent programming - Need. It is either computationally intensive; or it
-has to wait for the data to be available as a result.  A fundamental feature of
-Network Programming is waiting for data.  Not waiting on data:- handle each
-connection in a separate OS process; so that OS will take of letting other
-process run while one is waiting.  Handle each connection in a separate thread;
-threading framework takes care of the details.  Use non-blocking system calls
-to handle all connections in one thread.  The Normal Model when using twisted
-framework is by using Non-Blocking Calls.  When dealing with many connections
-in one thread, the scheduling is the responsiblity of the application, not the
-operating system, and is usually implemented by calling a registered function
-when each function is ready to go for reading or writing - commonly known as
-asynchronous, event based, callback based programming.  In synchrnous
-programming, a function requests data, waits for the data, and then processes
-it. In asynchronous programming, a function requests the data, and lets the
-library call the callback function when the data is ready.
+At the core of Twisted Framework is its Network Layer, which can used to
+integrate any existing  protocol as well as model new ones.  Twisted is a pure
+python framework.  As a platform, twisted should be focussed on integration.
+Twisted supports Asynchronous programming and deferred abstraction, which
+symbolizes a promised result and which can pass eventual result to  handler
+functions.  Document will give you a high-level overview of concurrent
+programming and Twisted's concurrency model: non-blocking code and asynchronous
+code.  Concurrent programming - Need. It is either computationally intensive;
+or it has to wait for the data to be available as a result.  A fundamental
+feature of Network Programming is waiting for data.  Not waiting on data:-
+handle each connection in a separate OS process; so that OS will take of
+letting other process run while one is waiting.  Handle each connection in a
+separate thread; threading framework takes care of the details.  Use
+non-blocking system calls to handle all connections in one thread.  The Normal
+Model when using twisted framework is by using Non-Blocking Calls.  When
+dealing with many connections in one thread, the scheduling is the
+responsiblity of the application, not the operating system, and is usually
+implemented by calling a registered function when each function is ready to go
+for reading or writing - commonly known as asynchronous, event based, callback
+based programming.  In synchrnous programming, a function requests data, waits
+for the data, and then processes it. In asynchronous programming, a function
+requests the data, and lets the library call the callback function when the
+data is ready.
 
 It is the second class of concurrency problems, non-computationally intensive
 tasks that involve an appreciable delay that deferreds are designed to help

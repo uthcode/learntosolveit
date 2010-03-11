@@ -62,7 +62,6 @@ deque([iterable[, maxlen]])
    Unix. They are also useful for tracking transactions and other pools of data
    where only the most recent activity is of interest.::
 
-
     def moving_average(iterable, n=3):
         # moving_average([40, 30, 50, 46, 39, 44]) --> 40.0 42.0 45.0 43.0
         # http://en.wikipedia.org/wiki/Moving_average
@@ -108,6 +107,9 @@ Ordered Dictionary
 Ordered dictionaries are just like regular dictionaries but they remember the
 order that items were inserted.  When iterating over an ordered dictionary,
 the items are returned in the order their keys were first added.
+
+itertools
+---------
 
 The :mod:`itertools` module contains a number of commonly-used iterators as well
 as functions for combining several iterators.  This section will introduce the

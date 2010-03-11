@@ -17,4 +17,4 @@ sentence = """
 """
 print sentence
 print '-'*80
-print reindent(sentence)
+print reindent(sentence,3)

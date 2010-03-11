@@ -27,8 +27,6 @@ Files - we handle them often
   true external file.This shows that Everywhere in Python, object interfaces,
   rather than specific data types are units of coupling.
 
-
-
 * Often the data you want to write is not in one bit string, but in a list (or
   other sequence) of strings. In this case, you should use the writelines
   method (which despite its name, is not limited to lines and works just as

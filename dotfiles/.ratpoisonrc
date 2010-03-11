@@ -1,0 +1,63 @@
+alias term exec gnome-terminal -x screen
+escape C-f
+warp off
+startup_message off
+set winname class
+defborder 0
+set padding 0 0 0 0
+defbarpadding 0 0
+exec xsetroot -solid \006060 -cursor_name left_ptr
+bind semicolon colon
+set bgcolor black
+set fgcolor cyan
+set font  -xos4-terminus-*-*-*-*-16-*-*-*-*-*-iso8859-15
+set bargravity sw
+
+alias showroot exec ratpoison -c fdump; ratpoison -c 'select -' -c only
+alias unshowroot exec ratpoison -c "frestore at $HOME/.rpfdump"
+
+## To show the desktop
+bind B showroot
+
+### Virtual desktops
+exec rpws -1
+exec /usr/bin/rpws init 6 -k
+
+## bind = C-f
+bind F1 exec rpws 1
+bind F2 exec rpws 2
+bind F3 exec rpws 3
+bind F4 exec rpws 4
+
+# "toggle between two frames"
+bind C-Tab focuslast
+
+##Alt-tab
+definekey top M-Tab next
+definekey top M-ISO_Left_Tab prev
+
+### keybindings
+bind f exec firefox
+bind u exec pidgin
+bind r restart
+bind Delete exec sudo /sbin/shutdown -h now
+bind c exec gnome-terminal
+bind l exec xscreensaver-command -lock
+bind a exec akafox
+bind q remove
+bind p exec gnome-terminal -e elinks
+
+rudeness 12
+
+# To launch a Run box:
+definekey top C-space exec
+
+#To make a screenshot:
+definekey top Print exec rxvt -e scrot -cd 10
+
+#exec (trayer --align right --edge bottom --distance 0 --expand true --transparent true --alpha 128 --tint 0 --SetDockType true --SetPartialStrut true) &
+exec nm-applet &
+#exec osd_clock & 
+#exec firefox &
+exec (sleep 2;gnome-terminal)& 
+exec xscreensaver &

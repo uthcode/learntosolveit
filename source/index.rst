@@ -12,8 +12,17 @@ K&R , solutions to programming contest problems, snippets for common
 programming tasks, notes from Computer Science subjects and articles on
 programming and software engineering. The website is hosted at `Sarovar.org`_.
 
-
 .. _Sarovar.org: http://sarovar.org 
+
+PyCon 2010
+==========
+**How to Solve it using Python** Tutorial Materials.
+
+* `Download the pdf and source code`_
+* `Browse Online`_
+
+.. _Download the pdf and source code: http://uthcode.googlecode.com/files/pycon2010_howtosolveit.zip
+.. _Browse Online: http://uthcode.sarovar.org/pycon2010/
 
 Project Page
 ============

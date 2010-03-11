@@ -18,3 +18,4 @@ makefilter = Keeper
 if __name__ == '__main__':
     just_vowels_and_maths = makefilter(u'aeiouy∇∂')
     print just_vowels_and_maths(u'∇something about strings∂')
+

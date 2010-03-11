@@ -7,6 +7,7 @@ def scanner(fileobject, linehandler):
         linehandler(line)
 
 
-def firstword(line): print line.split()[0]
+def firstword(line): 
+    print line.split()[0]
 string = StringIO('one\ntwo xxx\nthree\n')
 scanner(string, firstword)

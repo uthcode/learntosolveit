@@ -1,0 +1,49 @@
+set username = orsenthil@gmail.com
+set server = talk.google.com
+set ssl = 1
+set ssl_verify = 0
+
+set lang = en
+set cmdhistory_lines = 1000
+set autoaway = 300
+set block_unsubscribed = 0
+set delete_on_reject = 0
+set muc_auto_whois = 1
+set iq_version_hide_os = 1
+set beep_on_message = 1
+set log_display_sender = 1
+set log_win_height = 10
+set log_win_on_top = 0
+set roster_width = 36
+set roster_win_on_right = 0
+set roster_display_filter = ofdna
+set buddy_format = 2
+set buddy_me_fulljid = 0
+set show_status_in_buffer = 1
+set time_prefix = 0
+set disable_chatstates = 0
+
+set color_background   = black
+set color_general      = brightcyan
+set color_msgin        = brightcyan
+set color_msgout       = brightyellow
+set color_msghl        = brightmagenta
+set color_bgstatus     = blue
+set color_status       = brightwhite
+set color_roster       = brightwhite
+set color_bgrostersel  = red
+set color_rostersel    = brightwhite
+set color_rosterselmsg = brightyellow
+set color_rosternewmsg = brightyellow
+
+color roster * * white
+color roster f * brightblue
+color roster o * brightgreen
+color roster a * brightcyan
+color roster n * brightred
+color roster d * brightmagenta
+color roster _ * brightblack
+
+set nick_colors = red green blue
+color muc * on
+

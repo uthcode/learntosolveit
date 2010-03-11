@@ -91,6 +91,13 @@ as bytes in python2, because there is a separate bytes datatype.
 String filters. Filtering a Set of Characters from a String.
 ------------------------------------------------------------
 Refer to the source code **howto1_strings_filter.py** directly.
+**python2.6 version**
+
+.. literalinclude:: py26/howto1_strings_filter.py
+
+**python3.1 version**
+
+.. literalinclude:: py31/howto1_strings_filter.py
 
 String translate method and maketrans function
 ----------------------------------------------

@@ -69,6 +69,49 @@ Exception Handling
         else:
             print 'No exception'
 
+Exception-Handling Changes
+--------------------------
+
+One error that Python programmers occasionally make
+is writing the following code::
+
+    try:
+        ...
+    except TypeError, ValueError:  # Wrong!
+        ...
+
+The author is probably trying to catch both :exc:`TypeError` and
+:exc:`ValueError` exceptions, but this code actually does something
+different: it will catch :exc:`TypeError` and bind the resulting
+exception object to the local name ``"ValueError"``.  The
+:exc:`ValueError` exception will not be caught at all.  The correct
+code specifies a tuple of exceptions::
+
+    try:
+        ...
+    except (TypeError, ValueError):
+        ...
+
+This error happens because the use of the comma here is ambiguous:
+does it indicate two different nodes in the parse tree, or a single
+node that's a tuple?
+
+Python 3.0 makes this unambiguous by replacing the comma with the word
+"as".  To catch an exception and store the exception object in the
+variable ``exc``, you must write::
+
+    try:
+        ...
+    except TypeError as exc:
+        ...
+
+Python 3.0 will only support the use of "as", and therefore interprets
+the first example as catching two different exceptions.  Python 2.6
+supports both the comma and "as", so existing code will continue to
+work.  We therefore suggest using "as" when writing new Python code
+that will only be executed with 2.6.
+
+
 Iterators
 ----------
 
@@ -125,7 +168,7 @@ Generators
 
 Generators are a special class of functions that simplify the task of writing
 iterators.  Regular functions compute a value and return it, but generators
-return an iterator that returns a stream of values.  Generators can they can be
+return an iterator that returns a stream of values.  Generators can then can be
 thought of as resumable functions.
 
 Here's the simplest example of a generator function::
@@ -145,4 +188,3 @@ value, such as ``return 5``, is a syntax error inside a generator function.  The
 end of the generator's results can also be indicated by raising
 ``StopIteration`` manually, or by just letting the flow of execution fall off
 the bottom of the function.
-
