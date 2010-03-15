@@ -1,0 +1,37 @@
+escape C-f
+warp off
+startup_message off
+set winname class
+defborder 0
+set padding 0 0 0 0
+defbarpadding 0 0
+bind semicolon colon
+set bargravity sw
+set font -xos4-terminus-*-*-*-*-16-*-*-*-*-*-iso8859-15
+
+### Virtual desktops
+exec rpws -1
+exec /usr/bin/rpws init 6 -k
+
+## bind = C-f
+bind F1 exec rpws 1
+bind F2 exec rpws 2
+bind F3 exec rpws 3
+bind F4 exec rpws 4
+
+# "toggle between two frames"
+bind C-Tab focuslast
+
+##Alt-tab
+definekey top M-Tab next
+definekey top M-ISO_Left_Tab prev
+
+### keybindings
+bind f exec firefox
+bind r restart
+bind c exec xterm
+bind l exec xscreensaver-command -lock
+
+banish
+rudeness 12
+exec xterm -e screen
