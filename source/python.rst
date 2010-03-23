@@ -17,8 +17,6 @@ TODO
 * Email Module work is in progress where the discussions are going on for the
   different types and type of support for Internal and External APIs and the
   way to handle text and binary data.
- 
-* urllib2 has memory leak.
 
  
 
@@ -58,6 +56,9 @@ Py2: http://svn.python.org/view/python/trunk/Lib/httplib.py?view=markup#send
                                                                                                       
 Does this still need to be fixed on Py2.7 (and maybe on Py3 too)?  
 
+issue1027206 - unicode DNS names in socket, urllib, urlopen
+issue8150 - urllib needs ability to set METHOD for HTTP requests
+issue8143 - urlparse has a duplicate of urllib.unquote
 issue2987 -  RFC2732 support for urlparse
 issue3243 -  Support iterable bodies in httplib
 issue3244 -  multipart/form-data encoding
@@ -85,22 +86,7 @@ issue7776    -  httplib.py: ._tunnel() broken
 issue7806    -  httplib.HTTPConnection.getresponse closes s
 issue8083    -  urllib proxy interface is too limited
 issue8095    -  test_urllib2 crashes on OS X 10.3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+issue8077    -  cgi handling of POSTed files is broken
 
 print as a function in python3.
 New string model
