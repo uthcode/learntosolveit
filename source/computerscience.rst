@@ -28,12 +28,47 @@ Studies related
 
 Anti SIP:
 http://sip.antisip.com/account/
+http://fonosip.com/english/
+
+http://www.ipkall.com/
+
+
 
 Voip User:
 http://www.voipuser.org/user.php
 
 AG Projects:
 http://www.ag-projects.com/content/view/31/277/
+
+How to
+http://ifdefined.com/blog/post/How-to-make-and-receive-free-calls-over-the-internet-using-Android.aspx
+
+Invisible Mode in gtalk
+http://chinmaykamat.wordpress.com/2010/01/22/google-talk-invisible-mode-in-pidgin/
+
+Changing CNAME record
+
+To use the custom URL atconference.spasticssocietyofkarnataka.org, you must change the CNAME record with your domain host.
+
+   1.
+
+      Sign in to your domain hosting service.
+   2.
+
+      Navigate to your DNS Management page. The location and name of this page will vary by host, but can generally be found in Domain Management or Advanced Settings.
+   3.
+
+      Find the CNAME settings and enter the following as the CNAME value or alias:
+
+      atconference
+   4.
+
+      Set the CNAME destination to the following address:
+
+      ghs.google.com
+   5.
+
+      Save changes with your domain host and click "I've completed these steps" below.
 
 Universities to Apply
 ---------------------
@@ -50,7 +85,6 @@ Distrubuted Systems.
 9. Univeristy of Delaware
 10. Umass Amherst.
 11. Portland State University.
-
 
 Done
 ----
