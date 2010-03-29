@@ -23,6 +23,9 @@ TODO
 Python bugs
 -----------
 
+BaseHTTPServer incorrectly implements response code 100
+http://bugs.python.org/issue1491
+
 urllib(2) should allow automatic decoding by charset
 
 http://bugs.python.org/issue1599329
