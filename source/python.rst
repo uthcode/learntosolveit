@@ -18,10 +18,16 @@ TODO
   different types and type of support for Internal and External APIs and the
   way to handle text and binary data.
 
+
+* http://ffwl.unfuddle.com/  username is orsenthil and password is your initials.
  
 
 Python bugs
 -----------
+
+Tests needing network flag?
+http://bugs.python.org/issue1659
+
 
 BaseHTTPServer incorrectly implements response code 100
 http://bugs.python.org/issue1491
@@ -60,35 +66,65 @@ Py2: http://svn.python.org/view/python/trunk/Lib/httplib.py?view=markup#send
 Does this still need to be fixed on Py2.7 (and maybe on Py3 too)?  
 
 issue1027206 - unicode DNS names in socket, urllib, urlopen
+
 issue8150 - urllib needs ability to set METHOD for HTTP requests
+
 issue8143 - urlparse has a duplicate of urllib.unquote
+
 issue2987 -  RFC2732 support for urlparse
+
 issue3243 -  Support iterable bodies in httplib
+
 issue3244 -  multipart/form-data encoding
+
 issue4758 -  Python 3.x internet documentation needs wor
+
 issue5650 -  Obsolete RFC's should be removed from doc
+
 issue5673 -  Add timeout option to subprocess.Popen
+
 issue6280 -  calendar.timegm() belongs in time module
+
 issue6312 -  httplib fails with HEAD requests to pages
+
 issue6500 -  urllib2 maximum recursion depth exceeded  (1)
+
 issue6520 -  urllib.urlopen does not have timeout parame
+
 issue1208304 - urllib2's urlopen() method causes a memor
+
 issue6631    -  urlparse.urlunsplit() can't handle relative
+
 issue6640    -  urlparse should parse mailto: URL headers as
+
 issue7150    -  datetime operations spanning MINYEAR give b
+
 issue7152    -  urllib2.build_opener() skips ProxyHandler
+
 issue7159    -  Urllib2 authentication memory
+
 issue7291    -  urllib2 cannot handle https with proxy requ 
+
 issue7305    -  urllib2.urlopen() segfault using SSL on Solaris
+
 issue7464    -  circular reference in HTTPResponse by urllib
+
 issue7620    -  Vim syntax highlight 
+
 issue7648    -  test_urllib2 fails on Windows if not run from
+
 issue7665    -  test_urllib2 fails if path contains "\"
+
 issue7668    -  test_httpservers fails with non-ascii path
+
 issue7776    -  httplib.py: ._tunnel() broken
+
 issue7806    -  httplib.HTTPConnection.getresponse closes s
+
 issue8083    -  urllib proxy interface is too limited
+
 issue8095    -  test_urllib2 crashes on OS X 10.3
+
 issue8077    -  cgi handling of POSTed files is broken
 
 print as a function in python3.
@@ -856,6 +892,7 @@ The RFC which explains UTF-8
            does not claim to be authoritative.  Implementors are urged to rely
            on the authoritative source, rather than on this ABNF.
 
+
 The official name of the encoding is UTF-8, where UTF stands for UCS
 Transformation Format 8.  Write it as UTF-8 only.
 
@@ -977,7 +1014,9 @@ is pending.
 
 How can we differentiate if an expression used is a general expression or a
 boolean expression.
+
 Having a construct like:
+
 ::
 
         def __init__(self, *args, **kwargs):

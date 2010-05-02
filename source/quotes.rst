@@ -77,6 +77,9 @@ Everything
   more to add, but when you have nothing more to take away. - Antoine Saint
   Exupery.
 
+* Beg your pardon, Sir, but your excuse, "We've always done it this way,' is
+  the most damaging phrase in the language." - Admiral Grace Murray Hooper
+
 ---- 
 
 * It's a magical world, Hobbes, ol' buddy... Let's go exploring! 

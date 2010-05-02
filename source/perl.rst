@@ -190,4 +190,3 @@ Links
 * qw - quote each of the words.
 * whitespace is generally insignificant in any perl programs.
 * my defines the variables inside it to be private within the enclosing block.
-* 

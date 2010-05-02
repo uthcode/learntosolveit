@@ -35,7 +35,6 @@ http://www.ipkall.com/
 
 http://aturingmachine.com/index.php
 
-
 Voip User:
 http://www.voipuser.org/user.php
 
@@ -45,32 +44,24 @@ http://www.ag-projects.com/content/view/31/277/
 How to
 http://ifdefined.com/blog/post/How-to-make-and-receive-free-calls-over-the-internet-using-Android.aspx
 
-Invisible Mode in gtalk
-http://chinmaykamat.wordpress.com/2010/01/22/google-talk-invisible-mode-in-pidgin/
+Discipline Score Application
+----------------------------
 
-Changing CNAME record
+Consider few things. You have 24 hours in a day and you have to sleep everyday
+to be fresh the next day. Having a daily routine helps to play the game of the
+day well.
 
-To use the custom URL atconference.spasticssocietyofkarnataka.org, you must change the CNAME record with your domain host.
+Play it hours basis only. Define hours for activity and provide a score if you
+concentrate on that activity for that many hours. Repeat the same continously,
+till you complete the activity.
 
-   1.
+* If thoughts are properly handled, then you can study more and be tired less
+  too - 8th Aug.
 
-      Sign in to your domain hosting service.
-   2.
+* If you keep a problem prolonged without doing something about it, you might
+  keep missing it and it might 'tend' to become harder than it was initially.
 
-      Navigate to your DNS Management page. The location and name of this page will vary by host, but can generally be found in Domain Management or Advanced Settings.
-   3.
-
-      Find the CNAME settings and enter the following as the CNAME value or alias:
-
-      atconference
-   4.
-
-      Set the CNAME destination to the following address:
-
-      ghs.google.com
-   5.
-
-      Save changes with your domain host and click "I've completed these steps" below.
+* Programming and Maths. Dont sit and think you will get an idea. Do something wrong and fix it.
 
 Universities to Apply
 ---------------------
@@ -88,20 +79,6 @@ Distrubuted Systems.
 10. Umass Amherst.
 11. Portland State University.
 
-Done
-----
-1. University of Washington.
-
-TODO
-----
-
-2. Send TOEFL, GENERAL GRE Scores to University of Toronto.
-
-3. Send Transcript to University of CMU.
-
-The MIT TOEFL reporting code is 3514, the department code for Computer Science
-is 78, and for Electrical Engineering 66
-
 Games
 -----
 
@@ -116,20 +93,17 @@ General Test Date: 05/08
 Registration Date: 6634905
 Birthday: MM/DD/YY = 01/06/81
 
-1. University of Washington Institution Code: 4854
-
-
 GRE Scores and Academia 
 =======================
 
-+ General Test Scores: *Verbal: 530. Quants: 780. AWA: 4.0*
-+ TOEFL Scores: *Reading: 29, Listening: 28, Speaking: 28, Writing: 22, Total: 107*
-+ Bachelor of Engineering, Computer Science. 1998-2002. *Final Percentage: 77.3%* 
++ General Test Scores: Verbal: 530. Quants: 780. AWA: 4.0
++ TOEFL Scores: Reading: 29, Listening: 28, Speaking: 28, Writing: 22, Total: 107
++ Bachelor of Engineering, Computer Science. 1998-2002. Final Percentage: 77.3% 
 
 GRE General Test Scores:
 
-    * Date: 05-08 
-    * Registration # 6634-905
+* Date: 05-08 
+* Registration # 6634-905
 
 Verbal : 530 - Below 68%
 Quantitative: 780 - Below 90%
@@ -141,7 +115,6 @@ TOEFL Internet Based Test:
 
 Registration: 0000 0000 0587 7817
 Test Date: 03 August 2008
-
 
 TOEFL iBT Scaled Scores:
 
@@ -159,17 +132,9 @@ Test Date: 11/08.08  COMPUT SCI
 
 Score Recipients Requested
 
-Graduate Institution                    Department
-
-4833                                               0402
-5248                                                0402
-2074                                                1201
-4704                                                0402
-
 Score: 530. Percentile: 08%
 
-http://edulix.com/infobank/index.php  Edulix Info Banks
-
+http://edulix.com/infobank/index.php 
 
 Nov 09
 ------
@@ -183,13 +148,7 @@ Name: Senthil Kumaran
 Deadlines
 ---------
 
-2. University of Washington - December 15
-   http://www.cs.washington.edu/education/grad/prospective.html
-
-3. University of California - Jan 15
-   http://www.ics.uci.edu/grad/admissions/index.php
-
-4. Carnegie Mellon University  - Software Engineering
+Carnegie Mellon University  - Software Engineering
 
 All applications must be submitted by midnight on Dec. 15 EST.  No exceptions
 will be made. 
@@ -197,26 +156,25 @@ will be made.
 http://www.cmu.edu/prospective/graduate.shtml
 https://www.ece.cmu.edu/prospective/graduate/application/  - Dec 15
 
-5. MIT - Media Lab and Algorithms Group - Dec 15
-   https://apply.eecs.mit.edu/
-   http://web.mit.edu/admissions/graduate/how_to_apply/application_deadlines.html
-   http://www.pmg.lcs.mit.edu/
-   Media Lab - Dec 15
-   https://www.applyweb.com/apply/mitg/menu.html
+MIT - Media Lab and Algorithms Group - Dec 15
 
-6. University of Toronto - 7 December 2009.
-   http://web.cs.toronto.edu/Page4.aspx
-   https://apply.sgs.utoronto.ca/home.aspx
+https://apply.eecs.mit.edu/
+http://web.mit.edu/admissions/graduate/how_to_apply/application_deadlines.html
+http://www.pmg.lcs.mit.edu/
 
-7. Texas A & M - (Tentative - 15 Dec 2009)
+Media Lab - Dec 15
 
-8. Rochester Institute of Technology - July 1
+https://www.applyweb.com/apply/mitg/menu.html
 
-   http://www.rit.edu/emcs/ptgrad/grad_admission.html
-    http://www.nssa.rit.edu/?q=node/33
+Texas A & M - (Tentative - 15 Dec 2009)
 
-9. University of Delware - Fall: February 1  & July 1 
-   http://www.udel.edu/gradoffice/apply/index.html
+Rochester Institute of Technology - July 1
+
+http://www.rit.edu/emcs/ptgrad/grad_admission.html
+http://www.nssa.rit.edu/?q=node/33
+
+University of Delware - Fall: February 1  & July 1 
+http://www.udel.edu/gradoffice/apply/index.html
 
 10. University of Masachusetts Armhest
     http://www.umass.edu/gradschool/prospective_students_deadlines_for_application.htm
@@ -232,212 +190,90 @@ https://www.ece.cmu.edu/prospective/graduate/application/  - Dec 15
 Statement of Purpose
 --------------------
 
-1. New way of expressing things is research.
-2. Teaching - I have conducted a number of programming contests and provided
-   rigourous feedback to students, who attended the programming contests. 
-3. Listened to Lectures of Shai Simonson and was inspired by his way of
+1. Listened to Lectures of Shai Simonson and was inspired by his way of
    teaching computer science which essentially focussed on getting an insight
    and getting the right intuition of the problem and then spending time on the
    problems and coming up with solutions.
 
-4. Self Study of number of subjects. For e.g, I had undertaken solving all
-   problem in K&R and published those code in a website and constantly improved
-   them.
-
-5. Self Study of Computer Science in aduni.org, especially Prof Shai Simonson's
-   lectures in Algorithms, Theory of Computation and Discrete Maths.
-
-6. Interest in mathematics and problem solving. I have been constantly
+2. Interest in mathematics and problem solving. I have been constantly
    improving my topcoder ratings. I got to know about Univeristy of Toronto
    from topcoder winner only.
  
-7. Gerry Sussman's lectures on Computer Science. The kind of thought process
-   which is required to be an outstanding educator like Dr. Sussman.
-
-8. Researched on concurrency concepts and selected a deferred based concurrency
+3. Researched on concurrency concepts and selected a deferred based concurrency
    system for implementing a multi-threaded server as part of my work at
    Akamai.
 
-9. Understanding the nature of knowledge. This interest was due my close
-   association as a mentor for many students from Spastics Society of Karnataka
-   and I could help them identify areas they were good at.  I taught Lego Mind
-   Storms NXT kit and Alice Programming.
-
-10. Research on technologies that are helpful to people. I have studied and
+4.  Research on technologies that are helpful to people. I have studied and
     used Dasher for an alternative text input system. Researched a lot in Voice
     Recognition and have used it for providing a good computing interface for
     people which disability and who could operate computers which voice.
 
-11. Interests in different programming languages. C, C++. The languages that I
-    have taught myself includem Python ( which I have gained sufficient
-    expertise to become a core-contributor), Java, Perl, lisp, vim-script, shell
-    script, brainfuck and Alice.  Common denominators within all the languages
-    and the subtle differences in the languages.
+5. Uthcode is project which is  part of my life and working on it for than 6
+   years. 
 
-12. Learnings from Python include - Be respectful of others and be honest.
-    There are many technical skills I have learnt from the developers of
-    Python, but following the Guido Van Rossum, lead in the project and his
-    direction for other developers, these soft-skills come to an utmost
-    important for working with a diverse group of developers.
-
-13. Invention of Languages from historical perspective and listening to
-    Dr.Gerry Sussman, I learn that development of language is the very essence
-    of  human advancement. 
-
-14. I have known some Industry researches who have decided to puruse PhD after
-    a brief stint at work. They have returned back to Industry to contribute a
-    lot to development of technologies. I am interested in research and like to
-    understand more on topics concerning multiple industries, try to understand
-    some of the problems and come up with satisfying solutions that could be
-    helpful to many people.
-
-15. Study of Certificate Courses at Indian Institute of Science, that gave me
-    time to do an sincere work with problems and solutions, have an idea on how
-    Cryptography is used in Industry and work out the mathematics behind the
-    Cryptography Problems as part of the course also utilize my programming
-    skills to implement two person games using AI algorithms.
-
-16. I have stood 8th in the class of 65 and what I remember most of my college
-    is, I stood first in many programming contests and all my programming
-    assignments were correct.
-
-17. I have earned four Patent assignments related to my work.  The technologies
-    were devised/Invented 3-4 years before any of the base technology ever
-    reached the mainstream media.
-
-18. Used accessibility software like sceen magnifier.
-
-19. Uthcode is project which is  part of my life and working on it for than 6
-    years. 
-
-20. Patent on Distributed Download mechanism in Blu Ray is a techology
-    adoptation in Blu-ray with a some of exsiting networking algorithms.
-
-1. A Good Computer Scientist will combine both practise and theory to explore
+6. A Good Computer Scientist will combine both practise and theory to explore
    the truth.
 
-2. Career devoted to the development of Computer Science.
+7. Career devoted to the development of Computer Science.
 
-3. I find the distinct relationship between the various areas of computer
-   science and I specifically find interests in Algorithms, Theory of
-   Computation, Distributed Systems and Networking.
-
-4. My specific areas of interests are Theory of Computation, Discrete
-   Mathematics and Algorithms. I find that Theory of Computating and Discrete
-   Mathematics are very related and it is the underlying topics to understand
-   which thread across in many of the higher level subjects in Computer
-   Science.
-
-5. The various practical problems that we face in text processing, in
+8. The various practical problems that we face in text processing, in
    programming, writing text parsers are easily modelled in theory of
    computation. The Regular expressions were common fields for person working
    on text processsing problems, and understandin the regex engines helps model
    the regular languages and Finite Statement automata.
 
-6. Even while writing prototypes for good concurrent systems, the theory of
+9. Even while writing prototypes for good concurrent systems, the theory of
    computations comes handy where we tend to write distinct finite state
    automata machines and try to follow the logic in the model and when
    satisfied with the model, we go ahead with the implementation in the
    program.
 
-7. I have seen the real world application of the Open Shortest Path first
-   algorithm in the packet routing.
+10. Very interesting to note the power of dynamic programming in effectively
+    solving the problem of diffs in version managemnt systems.
 
-8. Very interesting to note the power of dynamic programming in effectively
-   solving the problem of diffs in version managemnt systems.
-
-9. Finite automata and their probablistic counter parts. Markov chains are used
+11. Finite automata and their probablistic counter parts. Markov chains are used
    in speech recognition systems.
 
-10. How exponential time complexity programs can be brought down to polynomial
-    time complexity using Dynamic programming strategies.  It is further
-    realzied while participating in the programming contests, where if you
-    could identify the problem strategy and the trick involved, then the
-    solution becomes incredibly simple.
-
-11. Graduation problem - Bipartite match problem using mincut max flow
+12. Graduation problem - Bipartite match problem using mincut max flow
     strategy.
 
-12. Being firm on the theoritical concepts, and learning the latest
-    technologies and relate them both.
+13. I like finding solutions to problems that are both practical and elegant. 
 
-13. Research and teaching on how to make better software.
-
-14. I like finding solutions to problems that are both practical and elegant. 
-
-15. As an undergraduate, I attended National Engineering College in India where
-    I majored in Computer Science, I secured 78% as the aggregate percentage
-    had won many programming contests.
-
-16. One benefit of working in the Industry is that it provided a good
+14. One benefit of working in the Industry is that it provided a good
     environment to study software systems and software engineer. The training
     to build a releasable working software with plan and good team
     communication.
 
-17. Graph algorithms in computer networking and routing. They become all the
-    more important as distributed systems are growing and efficient
-    communications between the computer systems invariably have some good graph
-    theory associated with it.
+15. Debugging and Path profiling algorithms use Graph algorithms.
 
-18. Debugging and Path profiling algorithms use Graph algorithms.
+16. Are two graphs equal, it is a graph iso-morphism problem.
 
-19. Are two graphs equal, it is a graph iso-morphism problem.
-
-20. Presented a topic on "Algorithms in Python" where I demonstrated all the
-    common algorithm problems in Python, explaining the complexity of each
-    solution. I studied the kind of sorting algorithm, timsort,  that is going
-    inside the language interpretor for sorting the elements in the language
-    while providing higher level sort interface to the programmer.
-
-1. Multi threading programming, asynchronous networking programming, threading.
-
-2. Interest in Global Interpretor lock of the Python and presented a topic on
-   "understand gil" to the scientific python community.
-
-3. I have an inclination towards research and occupying myself with interesting
-fundamental problems, and I also have certain ability to translat the answers
+17.I have an inclination towards research and occupying myself with interesting
+fundamental problems, and I also have certain ability to translate the answers
 to the fundamental problems to more concrete ones in the products and come out
 with new innovations. This is supported by four inventions that have been filed
 with USPTO by my former employer Dell. They were important contributions even
 in the business, because only 4 out of 600 people in the group had a track
 recording of having 4 or more patents.
 
-4. I plan to contribute to python language further through out the period of my
-   graduate studies. One the areas which I have recognized I will be working on
-   is the networking library modules that would handle ipv6 protocols
-   effectively and url parsing modules for Non English URLS as the IRI
-   (Internationalized Resource Identifiers are becoming common), I would like
-   gain understanding of the Interpretor core and enhancements to it, making
-   improvements to it to make a Python a suitable language for distributed
-   computing tasks.
+18.I plan to contribute to python language further to make it a beautiful
+   language for people to use.
 
 5. Interests and teaching using Visual Programming Languages like Alice and
    Mindstorms NXT. The concepts of programming are same, but it increases the
    ease of programming systems. It affects the way we approach programming.
 
-6. Mentored and led developers in modern design patterns, implementation,
-   debugging, documentation, and testing practices.
-7. Developed various configuration management, simulation, and testing tools
-   utilizing a variety of technologies.
 8. I was awarded "Co-Inventor for the Year 2007" for my Invention disclosures
    in the Blu-Ray media, which were filed with USPTO.
+
 9. I was honored with best teacher award by Spastics Society of Karnataka, for
    teaching Robotics to the students, in the year 2008.
+
 10. Who Dares wins! An algorithm game where I studied the A* algorithms from
     Peter Norvig's books, studied the lisp implementations for N puzzle game,
     and converted them into a two player game using Python and Pygame, SDL
     library in python. This visulaization of the algorithm helped the players
     appreciate the computer moves.
-
-11. The Content Search in Blu-Ray is an efficient search algorithm using small
-    moemory because it is an embeded media, it uses the nature data for
-    implmenting the search. The results which of interest to the end user are
-    obtained in an indirect and an effecient by indexing subtitles rather than
-    then video frames.
-
-12. I, Senthil Kumaran, am applying to University of Toronto, for the admission
-    to Masters program, in Computer Science and Engineering with specialization
-    in the field of algorithms.
 
 13. Deep interests in specific fields in computer science and language design,
     working with smart people and desire to work on hard problems in computer
@@ -459,148 +295,22 @@ recording of having 4 or more patents.
 17. Cache Oblivious Algorithms has developed a good load balancing algorithms
     for distributed systems.
 
-18. I would be dependent on finantial aid for my graduate studies, and PhD
-    program with its research assistance stipend will help to meet financial
-    demands.
-
-19. Akamai, is not a content cache network or CDN, but interesting algorithms
+18. Akamai, is not a content cache network or CDN, but interesting algorithms
     in effective path finding (OSPF), and challenges in handling software
     management and deployment on a distributed network (consisting of 50,000
-    computers) play a major role. I have studied the design behind software and
-    have found solid theoritical underpinnings for the design.
+    computers) play a major role. Study the design behind software and have
+    found solid theoritical underpinnings for the design.
 
-20. For my own project of desinging an asynchronous requesting handling server
-    to for distributed log collection from the network, I used a very standard
-    programming model, a reactor pattern, and asynchornous programing using
-    deferreds. The twisted framework provided a neat implmentatin of these has
-    been very stable.
-
-1. I have had several opportunities to do research.
-2. My career after graduate school is to pursue research in academedia or in
-   Industrial Labs. I would like to solve the persisting problems and also see
-   through the application of the solutions for larger benefit.
-3. I take up a particular problem and pursue it till I find a satisfying
-   logical solution to the problem.
-4. Research Interest in design and implmentation of advanced programming
-   systems, incorporating expressive programming languages, efficient
-   implementations and supportive programming environments.
-
-5. I am specifically interested in Programming Languages, Programming Language
-   development.  I have gained expertise in certain programming languages like
-   Python and C have studied a other many programming languages like C++, Alice
-   and esoteric languages. 
-
-6. Independent thinking experimentation and deriving results. 
-
-7. Being a Python Core developer, I have the value of mutual respect and being
-   honest in the code from the fellow python developers and Guido van Rossum
-   who is a the lead of the project.
-
-8. I have been a volunteer for Spastics Society of Karnataka for more than 4
-   years, I got engaged with students and got interested that I could  utitlize
-   my technical expertise in developing solutions for them. That project took
-   more than 4 years to complete, where I first tried the different solutions
-   in Voice Recognition and Dasher. I was able to successfully design a
-   solution students who could operate their computer independently using
-   Voice. The technology of voice recognition has improved a lot over past 3
-   years, I know how certain technologies can be helpful as an assistive
-   technology. I have also studied the kind of research work that is involved
-   in developing those technologies, like Brown university is involved with
-   Camera Mouse and the Dasher which is a product of Inference Group, UK uses
-   Statistical Markov chain processes in word prediction.
-
-9. Practise the State of art in Software engineering at a leading university
-   such as yours.
-
-10. I find the problems in the field of ____ as challenging areas for
-    research., 
-
-11. As a computer science student, I had a final percentage of 76% in my
-    University exams and stood 8th in my class of 60. 
-
-12. Python Standard Library work involved the research of Internet Standards,
-    understanding the RFC specifications for developing Internet libraries and
-    working with expertise to implement those specifications.
-
-13. I initiated the Robotics club and taught design of robotics and programming
-    to students.
-
-14. Pursing a PhD at ____ would enable me to study and contribute to the
-    research in the field of ____.
-
-
-GRE Scores and Academia 
-=======================
-
-+ General Test Scores: *Verbal: 530. Quants: 780. AWA: 4.0*
-+ TOEFL Scores: *Reading: 29, Listening: 28, Speaking: 28, Writing: 22, Total: 107*
-+ Bachelor of Engineering, Computer Science. 1998-2002. *Final Percentage: 77.3%* 
-
-GRE General Test Scores:
-
-    * Date: 05-08 
-    * Registration # 6634-905
-
-Verbal : 530 - Below 68%
-Quantitative: 780 - Below 90%
-Analytical Writing: 4.0 - Below 33%
-
-Test Scores:
-
-TOEFL Internet Based Test:
-
-Registration: 0000 0000 0587 7817
-Test Date: 03 August 2008
-
-
-TOEFL iBT Scaled Scores:
-
-Reading 29
-Listening 28
-Speaking 28
-Writing 22
-
-Total  107
-
-
-GRE Subject Test
-
-Test Date: 11/08.08  COMPUT SCI
-
-Score Recipients Requested
-
-Graduate Institution                    Department
-
-4833            0402
-5248            0402
-2074            1201
-4704            0402
-
-Score: 530. Percentile: 08%
 
 http://edulix.com/infobank/index.php  Edulix Info Banks
-
-Nov 09
-------
-Registration Number 4614110
-Test Center Number 10044
-Test Date: 11/07/09
-
-Name: Senthil Kumaran
-
-Preparation Notes
-=================
- 
-* If thoughts are properly handled, then you can study more and be tired less too - 8th Aug.
-* If you keep a problem prolonged without doing something about it, you might
-  keep missing it and it might 'tend' to become harder than it was initially.
 
 Physical Science Monologues 
 ===========================
 
 This is the list of twelve best physical sciences monologue of the 20th century
-according to American Scientist. Found this at
-`TAOCP<http://www-cs-faculty.stanford.edu/%7Euno/taocp.html>`_ page.
+according to American Scientist.
+
+Found this at `TAOCP<http://www-cs-faculty.stanford.edu/%7Euno/taocp.html>`_ page.
 
 * Dirac on Quantum 
 * Einstein on relativity
@@ -615,12 +325,10 @@ according to American Scientist. Found this at
 * Einstein's collected papers.
 * Knuth's The Art of Computer Programming
 
-
 Unix Operating System Documents
 ===============================
 
 http://docs.freebsd.org/44doc/
-
 
 Theory of Computation
 =====================
@@ -673,11 +381,9 @@ an answer with the help of a computer. Stephen Cook and Leonid Levin formulated
 the P (i.e., easy to find) versus NP (i.e., easy to check) problem
 independently in 1971. 
 
-
 A problem is of type P, if it can be solved using an algorithm whose running
 time grows no faster than some fixed power of number of symbols required to
 specify the initial data.
-
 
 Theory of Computation 1.1 
 =========================
@@ -935,25 +641,6 @@ Notes
 * CYK ⊙(n^3) 
 * Syntax Diagram, Backus Norm Form, Extended Backus Norm Form are convenient way to write Context free Grammers.
 
-
-Password Algorithm
-==================
- 
-* Easy to Remember.
-* Minimum 8 Chars.
-* Satisfying various idiosynchrnous requirements.
-* Cap char
-* Small char.
-* Numerals
-* Special Chars.
-* Form a complicated sentence with special symbols like ; and .  Facswssl;a.
-
-
-Regular Languages
-=================
-
-Finite Automata and their probabilitics counter parts, Markov chains are used in Speech Recognition.
-
 ADUni.org courses
 =================
 
@@ -1000,27 +687,15 @@ Video Lecture 2: Closure and Non-Determinism
 ACM Meeting
 ===========
 
-* Bangalore is the IT Hub but far away from being a CS Hub.
-* The very IT which is responsible for growth of economy, might feel the after-effect of its utter negligence of CS.
 * http://people.freebsd.org/~jkoshy/ Koshi Joseph FreeBSD Committer working from his village in India.
-* Marvels of Engineering distinctly absent in CS.
-* Civil Engineering - Golden Gate bridge.
-* Have we designed the right programming language?
-* Have your steps firmly on the concepts and learn the latest technologies and related them both.
 * http://en.wikipedia.org/wiki/Barbara_Liskov Barbara Liskov won the 2008 Turing prize for her contributions to OOP.
-* 62% (roughly) of Turing award winners have been in Programming field.
-* To distinguish the technology from Marketting hype, spend time with the correct community.
 * Assertion Checking Problem - It is not solvable.
 * YOGI reaches the close points by Static Verification.
 * Basic block profiling, Edge Profiling and Tracing.
 * Acyclic, Intra Procedure Path finding.
 * http://research.microsoft.com/~tball Ball Laurus Algorithm - Linear time complexity.
 * Preferential Path profiling.
-* Holmes - Automated Root Cause Analysis. *This one was pretty cool*
-* Specification Inference for security.
-* Power Debuggingm tool developed using relationship graph.
-* Research Area in Races and Deadlocks.
-* New Type Systems for Language.
+* Holmes - Automated Root Cause Analysis.
 * CNF SAT - Area for Research
 * www.satcompetition.org
 * QBF - Valid or Not Valid - Area for Research - Quantified Boolean Formula Satisfiablity.
@@ -1084,19 +759,12 @@ What is Amortized time?
 What is inverse Akerman function or even straight Akerman function?
 
 disjoint set?
-
 Priority Queue?
-
 Polylogarithmic? AKS Primality Test?
-
 What is KD-Tree?
-
 Lineararithmic?
-
 Fast Fourier Transform?
-
 Shortest Path on a weighted Digraph with the Floyd-Warshall Algorithm.
-
 
 Computer Architecture
 ---------------------
@@ -1129,10 +797,8 @@ Justify that CPU in personal computer is a general purpose processor.
  * It can fairly handle the graphic requirements.
  * It can do multi-tasking to satisfy the users requirements.
 
-
 In a mathematical sense, only three operations are needed to compute any
 computable function: add one, subtract one and branch if a value is non-zero.
-
 
 Minimizing Finite State Machines 
 --------------------------------
@@ -1214,8 +880,6 @@ The Art of Sorting
 ==================
 
 * C's qsport and C++ std::sort and std::partial_sort.
-* Its beneficial to understand what algorithms are available, what their advantages and disadvantages are, and how to implement your own algorithm that's custom tailored to your data if the need arises.
-* To sort or not to sort. That's the question, Is'nt it?
 * It should be really obvious that Upper Bound of any sorting algorithm is infinite, as long as it eventually sorts the items.
 * The Lowest possible bound for most sorting algorithms is Ω(N logN).
 * There must be as many leaves as the permutations of the algorithm to be correct.
@@ -1237,7 +901,6 @@ The Art of Sorting
 * The relative order of children in the Heaptree is irrelavent.( Funny, because it is binary tree)
 * Insertion sort is blazingly fast on arrays that are sorted or partially sorted. That makes it a good one to use as the last part of quick sort.
 * What is knuth sequence?
-
 
 Recitation-1 Theory of Computation
 ==================================
@@ -1397,7 +1060,8 @@ Video 7 - Theory of Computation
 * Is queue more powerful than stack? How many queues are required to simulate a stack?
 * Deterministic Context Free Languages are Closed under Complement.
 
-*Ars Digita University taught BE level courses in Computer Science*
+Ars Digita University taught BE level courses in Computer Science
+-----------------------------------------------------------------
 
 Recitation Video 3 - Theory of Computation 
 ------------------------------------------
@@ -1564,55 +1228,6 @@ Algorithms Video 5
 * Delete Nodes in Binary Tree.
 * Insert Nodes in the Red Black Tree.
 
-
-Questions to Ask
-----------------
-
-Should I apply for Ph.D or M.S?
-
-My aspiration is to pursue Ph.D because I have an inclination towards research
-and like solving problems especially going into depth with in a small area.
-But, as I have only Bachelors degree, I am trying to figure out what should I
-prove in order for universities to recognize and admit me into Ph.D program. 
-
-I would not hesistate to do a Masters in passing, if there is any objective
-requirement to for it in order to pursue research in that particular area. But
-I would be able to evaluate it best after considering the cases like finance. 
-
-About me:
-
-I am a Computer Science graduate, interested in programming, algorithms, maths
-and general problem solving techniques.  I graduted from  a college called
-National Engineering College, Tamil Nadu, India. It's a private college, though
-an established one in South India. I had tried for GATE and failed 2 times and
-I had tried for Subject GRE and have failed 2 times and I am trying it again.
-
-I have an inclination towards research and occupying myself with interesting
-fundamental problems, and I also have certain ability to translat the answers
-to the fundamental problems to more concrete ones in the products and come out
-with new innovations. This is supported by four inventions that have been filed
-with USPTO by my former employer Dell.
-
-Well, I personally do not consider them as my achievements because I still feel
-that patents from companies are towards securing business value than a real
-fundamental breakthrough, but they were important contributions becuase only
-few people (4 to be exact in the group of 600) had filed more than 1 patent
-over the 5 years I was at Dell.
-
-I had been doing software testing and more occupied with Engineering processes
-than software architecture, that I had to move myself to Software Developer's
-role on my own initiation. So, I studied the basic books again, solved all the
-problems in Kernighan and Ritchie (sometimes honestly and some times not-so
-honestly) and started trying for moving to a Developers role. I got some
-breakthrough in a developer in test inside Automation team and then I joined
-the Python Core Developers through Google's Summer of Code Program. I started
-working on enhancing the urllib module and now I am currently the maintainer of
-the urllib module. I fix bugs on the module and entertain the feature requests
-that come in. I also participate in the discussions in the evolution of Python
-language and library. I plan to carry with this task (possibly increasing my
-contributions) through out my post-graduation studies as well.
-
-
 Programming
 ===========
 
@@ -1665,20 +1280,13 @@ programming.
 The purpose of the Alice course is the provide the students with the conceptual
 underpinnings of the fundamental programming principles.
 
-Use of LOGO Style EGO Centric Coordinate System.
-Key Framing
-Programming by Demonstrating
-Visual Programming as well as scripting.
-
-Alice is a tool for describing time based and interactive behaviour of 3D
-Objects.
+Alice is a tool for describing time based and interactive behaviour of 3D Objects.
 
 Programming languages
 ---------------------
 
 1. Processing
 http://www.processing.org/
-
 
 Discrete Maths Video 3
 ----------------------
@@ -1693,11 +1301,6 @@ Discrete Maths Video 3
 6. Derangement problem (distributing lunch boxes to others). It uses Inclusion and Exclusion theorem.
 7. How many numbers are divisible by 1,5,7 between 1 and 1000. This is worked out by inclusion-exclusion theorem.
 
-Practise
-========
-
-1. C Programming - Pointer to a Pointer.
-
 Discrete Maths Video 4 
 ----------------------
 
@@ -1707,7 +1310,6 @@ Discrete Maths Video 5
 ----------------------
 * Recurrance Equation. Every next step is a function of the previous step.
 * Towers of Hanoi problem and Analysis.
-
 
 Data Structures and Algorithms
 ==============================
@@ -1795,4 +1397,3 @@ You should implement this as a library of routines that can be
 used by anyone wanting to treat a file as a filesystem.
 Demonstrate the correctness of your routines by writing a demo
 program that lets one manipulate files interactively.
-

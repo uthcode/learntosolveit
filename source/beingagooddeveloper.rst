@@ -8,9 +8,9 @@ Being a Good Developer
 
 First of all, I would like to thank Dr.K. Ramar in providing me this
 opportunity to write for the college alumni magazine. I graduated in the year
-2002 in Computer Science and Engineering. This alumni magazine, I suppose
-would be glanced through by other friends of mine and also by my juniors. I
-hope everyone finds something useful and informative.
+2002 in Computer Science and Engineering. This alumni magazine, I suppose would
+     be glanced through by my friends. I hope everyone finds something useful
+     and informative.
 
 At the outset, I would like to inform you that I am not a good developer yet,
 but I am constantly striving to become one. 
@@ -31,14 +31,15 @@ Who is a good cook according to you?
 
 * A cook who is working in a 5 star hotel and earning more money than his
   friend in another restaurant?
+
 * A cook who goes to work at restaurant in USA and serves there?
 
 Well, none of these mean a good cook, right? 
 
 A good cook is someone who prepares tasty food. Who has devoted his mind to the
-task of preparing the food, so that he and his friends can enjoy good food.
-A cook might choose to make a business; but that is a separate aspect and his
-business will flourish only if his food tastes good.
+task of preparing food, so that he and his friends can enjoy good food.  A cook
+might choose to make a business; but that is a separate aspect and his business
+will flourish only if his food tastes good.
 
 How do I become a good cook?
 
