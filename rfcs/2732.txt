@@ -1,0 +1,283 @@
+
+
+
+
+
+
+Network Working Group                                        R. Hinden
+Request for Comments: 2732                                       Nokia
+Category: Standards Track                                 B. Carpenter
+                                                                   IBM
+                                                           L. Masinter
+                                                                  AT&T
+                                                         December 1999
+
+
+               Format for Literal IPv6 Addresses in URL's
+
+Status of this Memo
+
+   This document specifies an Internet standards track protocol for the
+   Internet community, and requests discussion and suggestions for
+   improvements.  Please refer to the current edition of the "Internet
+   Official Protocol Standards" (STD 1) for the standardization state
+   and status of this protocol.  Distribution of this memo is unlimited.
+
+Copyright Notice
+
+   Copyright (C) The Internet Society (1999).  All Rights Reserved.
+
+Abstract
+
+   This document defines the format for literal IPv6 Addresses in URL's
+   for implementation in World Wide Web browsers.  This format has been
+   implemented in the IPv6 versions of several widely deployed browsers
+   including Microsoft Internet Explorer, Mozilla, and Lynx.  It is also
+   intended to be used in the IPv6 version of the service location
+   protocol.
+
+   This document incudes an update to the generic syntax for Uniform
+   Resource Identifiers defined in RFC 2396 [URL].  It defines a syntax
+   for IPv6 addresses and allows the use of "[" and "]" within a URI
+   explicitly for this reserved purpose.
+
+1. Introduction
+
+   The textual representation defined for literal IPv6 addresses in
+   [ARCH] is not directly compatible with URL's.  Both use ":" and "."
+   characters as delimiters.  This document defines the format for
+   literal IPv6 Addresses in URL's for implementation in World Wide Web
+   browsers.  The goal is to have a format that allows easy "cut" and
+   "paste" operations with a minimum of editing of the literal address.
+
+
+
+
+
+
+Hinden, et al.              Standards Track                     [Page 1]
+
+RFC 2732            IPv6 Literal Addresses in URL's        December 1999
+
+
+   The format defined in this document has been implemented in the IPv6
+   versions of several widely deployed browsers including Microsoft
+   Internet Explorer, Mozilla, and Lynx.  It is also intended to be used
+   in the IPv6 version of the service location protocol.
+
+1.1 Requirements
+
+   The keywords MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
+   SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL, if and where they appear
+   in this document, are to be interpreted as described in [KEYWORDS].
+
+   World Wide Web browsers SHOULD implement the format of IPv6 literals
+   in URL's defined in this document.  Other types of applications and
+   protocols that use URL's MAY use this format.
+
+2. Literal IPv6 Address Format in URL's Syntax
+
+   To use a literal IPv6 address in a URL, the literal address should be
+   enclosed in "[" and "]" characters.  For example the following
+   literal IPv6 addresses:
+
+      FEDC:BA98:7654:3210:FEDC:BA98:7654:3210
+      1080:0:0:0:8:800:200C:4171
+      3ffe:2a00:100:7031::1
+      1080::8:800:200C:417A
+      ::192.9.5.5
+      ::FFFF:129.144.52.38
+      2010:836B:4179::836B:4179
+
+   would be represented as in the following example URLs:
+
+      http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html
+      http://[1080:0:0:0:8:800:200C:417A]/index.html
+      http://[3ffe:2a00:100:7031::1]
+      http://[1080::8:800:200C:417A]/foo
+      http://[::192.9.5.5]/ipng
+      http://[::FFFF:129.144.52.38]:80/index.html
+      http://[2010:836B:4179::836B:4179]
+
+3. Changes to RFC 2396
+
+   This document updates the generic syntax for Uniform Resource
+   Identifiers defined in RFC 2396 [URL].  It defines a syntax for IPv6
+   addresses and allows the use of "[" and "]" within a URI explicitly
+   for this reserved purpose.
+
+
+
+
+
+
+Hinden, et al.              Standards Track                     [Page 2]
+
+RFC 2732            IPv6 Literal Addresses in URL's        December 1999
+
+
+   The following changes to the syntax in RFC 2396 are made:
+   (1) change the 'host' non-terminal to add an IPv6 option:
+
+      host          = hostname | IPv4address | IPv6reference
+      ipv6reference = "[" IPv6address "]"
+
+   where IPv6address is defined as in RFC2373 [ARCH].
+
+   (2) Replace the definition of 'IPv4address' with that of RFC 2373, as
+   it correctly defines an IPv4address as consisting of at most three
+   decimal digits per segment.
+
+   (3) Add "[" and "]" to the set of 'reserved' characters:
+
+      reserved    = ";" | "/" | "?" | ":" | "@" | "&" | "=" | "+" |
+                    "$" | "," | "[" | "]"
+
+   and remove them from the 'unwise' set:
+
+      unwise      = "{" | "}" | "|" | "\" | "^" | "`"
+
+4. Security Considerations
+
+   The use of this approach to represent literal IPv6 addresses in URL's
+   does not introduce any known new security concerns.
+
+5. IANA Considerations
+
+   None.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hinden, et al.              Standards Track                     [Page 3]
+
+RFC 2732            IPv6 Literal Addresses in URL's        December 1999
+
+
+6. Authors' Addresses
+
+   Robert M. Hinden
+   Nokia
+   313 Fairchild Drive
+   Mountain View, CA 94043
+   USA
+
+   Phone: +1 650 625 2004
+   EMail: hinden@iprg.nokia.com
+   Web: http://www.iprg.nokia.com/~hinden
+
+
+   Brian E. Carpenter
+   IBM
+   iCAIR, Suite 150
+   1890 Maple Avenue
+   Evanston IL 60201
+   USA
+
+   EMail: brian@icair.org
+
+
+   Larry Masinter
+   AT&T Labs
+   75 Willow Road
+   Menlo Park, CA 94025
+
+   EMail: LMM@acm.org
+   Web: http://larry.masinter.net
+
+7. References
+
+   [ARCH]     Hinden, R. and  S. Deering, "IP Version 6 Addressing
+              Architecture", RFC 2373, July 1998.
+
+   [STD-PROC] Bradner, S., The Internet Standards Process -- Revision 3,
+              BCP 9, RFC 2026, October 1996.
+
+   [URL]      Fielding, R., Masinter, L. and T. Berners-Lee, "Uniform
+              Resource Identifiers: Generic Syntax", RFC 2396, August
+              1998.
+
+
+
+
+
+
+
+
+
+Hinden, et al.              Standards Track                     [Page 4]
+
+RFC 2732            IPv6 Literal Addresses in URL's        December 1999
+
+
+8. Full Copyright Statement
+
+   Copyright (C) The Internet Society (1999).  All Rights Reserved.
+
+   This document and translations of it may be copied and furnished to
+   others, and derivative works that comment on or otherwise explain it
+   or assist in its implementation may be prepared, copied, published
+   and distributed, in whole or in part, without restriction of any
+   kind, provided that the above copyright notice and this paragraph are
+   included on all such copies and derivative works.  However, this
+   document itself may not be modified in any way, such as by removing
+   the copyright notice or references to the Internet Society or other
+   Internet organizations, except as needed for the purpose of
+   developing Internet standards in which case the procedures for
+   copyrights defined in the Internet Standards process must be
+   followed, or as required to translate it into languages other than
+   English.
+
+   The limited permissions granted above are perpetual and will not be
+   revoked by the Internet Society or its successors or assigns.
+
+   This document and the information contained herein is provided on an
+   "AS IS" basis and THE INTERNET SOCIETY AND THE INTERNET ENGINEERING
+   TASK FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+   BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION
+   HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF
+   MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+Acknowledgement
+
+   Funding for the RFC Editor function is currently provided by the
+   Internet Society.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hinden, et al.              Standards Track                     [Page 5]
+
