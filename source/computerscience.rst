@@ -5,85 +5,9 @@ Computer Science Notes
 .. warning::
         Rough Notes
 
-Studies related
-===============
+.. todo::
+        # Write about http://aturingmachine.com/index.php
 
-* Advice to Phd Students from CAR Hoare : Aim for the advancement of science, not your career.
-* University of Toronto - Canada: _AleaActaEst_ in the Topcoder winner.
-* University of Colorado, Boulder: Squid proxy developer is from there.
-* SUNY Buffalo: some network tool developer ( most commonly used in Akamai) is from there. Is it xsupplicant?
-* Bruce Maggs is from CMU, can take advice.
-* The lead developer of Sage is  William Stein from University of Washington.
-* Les Earnest the inventor of finger is from MIT and currently a staff at Stanford.
-* John Resig, a Javascript pioneer and inventor of JQuery is from
-  http://www.rit.edu/  Rochester Institute of Technology.
-* Greg Wilson, mentor of many GSOC projects and author of beautiful code is a professor at University of Toronto.
-* http://www.ics.uci.edu/~eppstein/research.html David Eppstein is a professor at University of California, Irvine.
-* University of North Carolina at Chapel Hill
-* http://www.cra.org/reports/forsythe.html
-* http://ram.umd.edu/
-* http://cs.washington.edu/homes/arvind
-* http://www.cs.washington.edu/homes/arvind/
-* http://www.abarnett.demon.co.uk/tutorial.html
-
-Anti SIP:
-http://sip.antisip.com/account/
-http://fonosip.com/english/
-
-http://www.ipkall.com/
-
-
-http://aturingmachine.com/index.php
-
-Voip User:
-http://www.voipuser.org/user.php
-
-AG Projects:
-http://www.ag-projects.com/content/view/31/277/
-
-How to
-http://ifdefined.com/blog/post/How-to-make-and-receive-free-calls-over-the-internet-using-Android.aspx
-
-Discipline Score Application
-----------------------------
-
-Consider few things. You have 24 hours in a day and you have to sleep everyday
-to be fresh the next day. Having a daily routine helps to play the game of the
-day well.
-
-Play it hours basis only. Define hours for activity and provide a score if you
-concentrate on that activity for that many hours. Repeat the same continously,
-till you complete the activity.
-
-* If thoughts are properly handled, then you can study more and be tired less
-  too - 8th Aug.
-
-* If you keep a problem prolonged without doing something about it, you might
-  keep missing it and it might 'tend' to become harder than it was initially.
-
-* Programming and Maths. Dont sit and think you will get an idea. Do something wrong and fix it.
-
-Universities to Apply
----------------------
-
-Course to apply: Algorithms, Theory of Computation, Computer Networking and
-Distrubuted Systems.
-
-1. University of Washington (Seatle Project).
-2. University of California - David Eppstein.
-3. Carneige Mellon University - Just email Joseph Lisee or under Bruce Maggs.
-4. MIT - Algorithms Group or Media Labs.
-6. Rochestor Institute of Technology.
-7. Texas A & M.
-9. Univeristy of Delaware
-10. Umass Amherst.
-11. Portland State University.
-
-Games
------
-
-http://youdig.mainada.net/
-http://www.guessasketch.com/
 
 GRE Score Report
 ----------------

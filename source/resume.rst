@@ -1,45 +1,53 @@
 O.R.Senthil Kumaran
 ===================
 
-Research Interests
-------------------
+Email: orsenthil@gmail.com
 
- * Algorithms, Theory of Computation, Programming Languages, Distributed Systems.
+Phone: +919880459565
+
+Interests
+---------
+
+ * Algorithms
+ * Internet Programming
+ * Distributed Systems
+ * Programming Languages
 
 
 Work Experience
 ---------------
 
-+--------------------+----------------------------+------------------+
-| Organization       | Role                       |   Period         |
-+--------------------+----------------------------+------------------+
-| Akamai Technologies| Senior Software Engineer   |  2008 - Till Date|
-|                    |                            |                  |
-| Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
-+--------------------+----------------------------+------------------+
+        +--------------------+----------------------------+------------------+
+        | Organization       | Role                       |   Period         |
+        +====================+============================+==================+
+        | Akamai Technologies| Senior Software Engineer   |  2008 - Till Date|
+        |                    |                            |                  |
+        | Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
+        +--------------------+----------------------------+------------------+
 
 
 Education
 ---------
 
-+-----------------------------+-----------+------------------------+--------+
-| School                      | Period    | Major                  | Grade  |
-+-----------------------------+-----------+------------------------+--------+
-| National Engineering College| 1998-2002 | Bachelor of Enginering | 77.3%  |
-|  Tamil Nadu, India          |           | Computer Science       |        |
-+-----------------------------+-----------+------------------------+--------+
+
+        +-----------------------------+-----------+------------------------+--------+
+        | School                      | Period    | Major                  | Grade  |
+        +=============================+===========+========================+========+
+        | National Engineering College| 1998-2002 | Bachelor of Enginering | 77.3%  |
+        |  Tamil Nadu, India          |           | Computer Science       |        |
+        +-----------------------------+-----------+------------------------+--------+
 
 
 Certificate Courses
 -------------------
 
-+-----------------------------+------+----------------------------------+---------+
-|       School                | Year |  Topic                           | Grade   |
-+-----------------------------+------+----------------------------------+---------+
-| Indian Institute of Science | 2007 | Cryptography and Network Security|  D      |
-|                             |      |                                  |         |
-| Indian Institute of Science | 2007 | Artificial Intelligence          |  A      |
-+-----------------------------+------+----------------------------------+---------+
+        +-----------------------------+------+----------------------------------+---------+
+        |       School                | Year |  Topic                           | Grade   |
+        +=============================+======+==================================+=========+
+        | Indian Institute of Science | 2007 | Cryptography and Network Security|  D      |
+        |                             |      |                                  |         |
+        | Indian Institute of Science | 2007 | Artificial Intelligence          |  A      |
+        +-----------------------------+------+----------------------------------+---------+
 
 Software Projects
 -----------------
