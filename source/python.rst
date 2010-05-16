@@ -9,17 +9,20 @@ TODO
 ====
 
 * study diveintopython3 (20)
-* use of namedtuple in py3k branch for urlparse.
 * Digest Authentication is not working.
 * Classic Classes and new-style classes.
-* Complete the forms for PyCon payment.
 
 * Email Module work is in progress where the discussions are going on for the
   different types and type of support for Internal and External APIs and the
   way to handle text and binary data.
 
-
 * http://ffwl.unfuddle.com/  username is orsenthil and password is your initials.
+
+
+Good Python Question and Answers
+--------------------------------
+
+* http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
  
 
 Python bugs
@@ -28,21 +31,16 @@ Python bugs
 Tests needing network flag?
 http://bugs.python.org/issue1659
 
-
 BaseHTTPServer incorrectly implements response code 100
 http://bugs.python.org/issue1491
 
 urllib(2) should allow automatic decoding by charset
-
 http://bugs.python.org/issue1599329
 
 Add a "decode to declared encoding" version of urlopen to urllib
 http://bugs.python.org/issue4733
 
 issue1314572 Trailing slash redirection for SimpleHTTPServer
-
-issue1462525 -  URI parsing library 
-http://bugs.python.org/issue1462525
 
 issue1643370 - recursive urlparse
 
@@ -71,15 +69,11 @@ issue8150 - urllib needs ability to set METHOD for HTTP requests
 
 issue8143 - urlparse has a duplicate of urllib.unquote
 
-issue2987 -  RFC2732 support for urlparse
-
 issue3243 -  Support iterable bodies in httplib
 
 issue3244 -  multipart/form-data encoding
 
 issue4758 -  Python 3.x internet documentation needs wor
-
-issue5650 -  Obsolete RFC's should be removed from doc
 
 issue5673 -  Add timeout option to subprocess.Popen
 
@@ -154,8 +148,6 @@ use of 2to3 tool.
 Python 2.6 status and Python 2.7 plan.
 Python 3.1 status and further plans.
 
-
-        
 urllib 
 ======
 
@@ -233,20 +225,6 @@ must take special care in parsing the WWW-Authenticate field value if it
 contains more than one challenge, or if more than one WWW-Authenticate header
 field is provided, since the contents of a challenge may itself contain a
 comma-separated list of authentication parameters. 
-
-RFC Hierarchy for Relative URL formats
-
-:: 
-
-        RFC3986(STD066) - This is the current and is the standard.
-        |
-        RFC2396 - This was previous one.
-        |
-        RFC2368
-        |
-        RFC1808 - urlparse header says, it follows this. But this has been upgraded a lot times.
-        |
-        RFC1738 - It started with this. 
 
 Following are some of the notes I took, while working on urllib patches.  It
 should be a handy reference when working on bugs again.
@@ -411,11 +389,6 @@ means that apply by default.
 * class ResultMixin is defined to provide username, password, hostname and
 port.
 
-* from collections import namedtuple. This should be from python2.6.
-namedtuple is pretty interesting feature.
-
-* SplitResult and ParseResult. Very good use of namedtuple and ResultMixin
-
 * The behaviour of the public methods urlparse, urlunparse, urlsplit and
 urlunsplit and urldefrag matter most.
 
@@ -571,7 +544,6 @@ BaseHTTPRequestHandler implements do_GET, do_POST and send_head
 The send_head method when it is returning the body it is sending it properly.
 
 Why is that the response is getting trimmed to 49042?
-
 
 Strings, Bytes and Python 3
 ===========================
@@ -742,7 +714,7 @@ where FEFF denoted Little Endian and FFFE denoted big endian.
 FEFF - Little Endian
 FFFE - Big Endian
 
-Feel for Little Endian (FE for Little Endian and its opposite for Big Endian)
+Three F's together is BIG.
 
 For a while, it seemed like that might be good enough, but programmers were
 complaining. "Look at all those zeros!", they said, since they were Americans
@@ -1701,8 +1673,7 @@ in C# code:
         objMyExample.InstanceExample();
 
 
-Confusingly, methods marked as class in Object Pascal also cannot refer to a
-class object, as can class methods in Python or Smalltalk. For example, this
+       
 Python method can create an instance of Dict or of any subclass of it, because
 it receives a reference to a class object as cls:
 
@@ -1803,14 +1774,13 @@ Python Standard Library
 -----------------------
 
 Python's standard library is very extensive, offering a wide range of
-facilities as indicated by the long table of contents listed below. The library
-contains built-in modules (written in C) that provide access to system
-functionality such as file I/O that would otherwise be inaccessible to Python
-programmers, as well as modules written in Python that provide standardized
-solutions for many problems that occur in everyday programming. Some of these
-modules are explicitly designed to encourage and enhance the portability of
-Python programs by abstracting away platform-specifics into platform-neutral
-APIS.
+facilities. The library contains built-in modules (written in C) that provide
+access to system functionality such as file I/O that would otherwise be
+inaccessible to Python programmers, as well as modules written in Python that
+provide standardized solutions for many problems that occur in everyday
+programming. Some of these modules are explicitly designed to encourage and
+enhance the portability of Python programs by abstracting away
+platform-specifics into platform-neutral APIS.
 
 In addition to the standard library, there is a growing collection of several
 thousand components (from individual programs and modules to packages and
