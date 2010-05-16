@@ -13,6 +13,37 @@ Interests
  * Distributed Systems
  * Programming Languages
 
+Skills
+======
+
+Python Core Developer 
+---------------------
+
+Current maintainer of the urllib and related modules in Python Standard Library.
+
+Language Familiarity 
+--------------------
+
+* Python: 4 Years.
+* C++ : 1 Year.
+* C: : 2 Years. 
+
+Design Skills 
+-------------
+
+* Network Programming and Designing Hi-End Network Systems.
+* Design and Implementation of Secure Systems.
+
+Technologies,Tools and Frameworks
+---------------------------------
+
+* cvs, svn, perforce, git and hg
+* Understanding of XML
+* Understanding of Unicode and Encodings
+* OpenSSL based Security Systems.
+* Twisted Networking Framework.
+* Test Automation Design Framework and Unittest Frameworks.
+* Troubleshooting and Network Diagnostics Tools.
 
 Work Experience
 ---------------

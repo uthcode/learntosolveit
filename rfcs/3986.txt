@@ -1,9 +1,3 @@
-
-
-
-
-
-
 Network Working Group                                     T. Berners-Lee
 Request for Comments: 3986                                       W3C/MIT
 STD: 66                                                      R. Fielding
@@ -40,19 +34,6 @@ Abstract
    of every possible identifier.  This specification does not define a
    generative grammar for URIs; that task is performed by the individual
    specifications of each URI scheme.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Berners-Lee, et al.         Standards Track                     [Page 1]

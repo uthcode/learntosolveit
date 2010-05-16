@@ -19,7 +19,6 @@ Life
 * In life, after we get past the stage of fear, I think it is a never ending
   stage of adventure.
 * "Now, Now", cried the Queen, "Faster,Faster".  - Alice in Wonderland. 
-* Half of being smart is knowing what you're dumb at.
 * Being entirely honest with oneself is a good exercise. --Sigmund Freud 
 * What Linux myths or misconceptions do you find particularly galling?.
   Torvalds responds.
@@ -46,11 +45,8 @@ Universe
   easily write an advertising jingle, but his motivation for learning music was
   to create something beautiful.
 
-* For indeed, there is nothing in the intellect which was not in the senses,
-  except the intellect itself. Music is the pleasure the human mind experiences
-  from counting without being aware that it is counting. Nothing exists and
-  nothing happens without a reason why it is so, and not otherwise. 
-  - Gottfried Leibniz
+* Music is the pleasure the human mind experiences from counting without being
+  aware that it is counting. - Gottfried Leibniz
 
 Everything
 ==========

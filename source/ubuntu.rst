@@ -48,16 +48,6 @@ office email via mutt.
 fetchmail automatically.
 http://ubuntuforums.org/showthread.php?t=175438
 
-Virtual machine
-----------------
-1. Install Ubuntu JeOS for just enough Operating System. It is super cool.
-2. Follow this information for expanding the console only portion. 
-   http://forums.virtualbox.org/viewtopic.php?f=3&t=12590&p=51680&hilit=JeOS#p51680
-3. My Settings were:
-   VboxManage setextradata Juice "CustomVideoMode1" "1424x856x16"
-4. Managing ssh: http://linuxgazette.net/issue67/nazario2.html
-
-
 httpd
 -----
 

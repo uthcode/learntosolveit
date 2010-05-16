@@ -18,6 +18,7 @@ TODO
 
 * http://ffwl.unfuddle.com/  username is orsenthil and password is your initials.
 
+* http://krondo.com/blog/?p=1209
 
 Good Python Question and Answers
 --------------------------------
@@ -27,6 +28,63 @@ Good Python Question and Answers
 
 Python bugs
 -----------
+
+[issue8653] urlparse.urlparse/urlsplit doc missing 
+
+[issue8619] Doc bug for urllib.request._urlopener in Python 3.1
+
+[issue8598] test/support: don't use localhost as IPv6 host name  
+
+[issue8595] Explain the default timeout in http-client-related librarie
+
+[issue8590] test_httpservers.CGIHTTPServerTestCase failure on 3.1-maint
+
+[issue8572] httplib getheader() throws error instead of default 
+
+[issue8499] Set a timeout in test_urllibnet 
+
+[issue8455] buildbot: test_urllib2_localnet failures (Connection refuse
+
+[issue8450] httplib: false BadStatusLine() raised
+
+[issue8280] urllib2 passes fragment identifier to server 
+
+[issue8238] Proxy handling
+
+urlparse.urlsplit mishandles novel schemes
+http://bugs.python.org/issue7904
+
+urllib2 request does not update content length after new add
+http://bugs.python.org/issue7540
+
+urllib2 cannot handle https with proxy requiring auth
+
+HTMLParser.HTMLParser doesn't handle malformed charrefs
+http://bugs.python.org/issue6662
+
+Contradictory documentation for email.mime.text.MIMEText
+http://bugs.python.org/issue6521
+
+Logging in BaseHTTPServer.BaseHTTPRequestHandler causes lag
+http://bugs.python.org/issue6085
+
+LWPCookieJar cannot handle cookies with expirations of 2038
+http://bugs.python.org/issue5537
+
+urllib2.HTTPDigestAuthHandler fails on third hostname? 
+http://bugs.python.org/issue4683
+
+Add utf8 alias for email charsets 
+http://bugs.python.org/issue4487
+
+new urllib2.Request 'timeout' attribute needs to have a default
+http://bugs.python.org/issue4079
+
+cookielib doesn't handle URLs with / in parameters
+http://bugs.python.org/issue3704
+
+urllib.quote is too slow
+http://bugs.python.org/issue1285086
 
 Tests needing network flag?
 http://bugs.python.org/issue1659
