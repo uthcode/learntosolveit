@@ -20,6 +20,9 @@ TODO
 
 * http://krondo.com/blog/?p=1209
 
+
+- What is the Buffer Protocol and How is it useful?
+
 Good Python Question and Answers
 --------------------------------
 
@@ -29,9 +32,12 @@ Good Python Question and Answers
 Python bugs
 -----------
 
-[issue8653] urlparse.urlparse/urlsplit doc missing 
+1. TODO in urllib.request.py for global _opener
 
-[issue8619] Doc bug for urllib.request._urlopener in Python 3.1
+2. Tarfile issue regression
+http://bugs.python.org/issue8741
+
+[issue8653] urlparse.urlparse/urlsplit doc missing 
 
 [issue8598] test/support: don't use localhost as IPv6 host name  
 
