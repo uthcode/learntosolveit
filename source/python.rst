@@ -32,6 +32,16 @@ Good Python Question and Answers
 Python bugs
 -----------
 
+[issue8805] urllib should support SSL contexts   
+
+[issue7962] Demo/ directory needs to be tested and pruned
+
+httplib fails with HEAD requests to pages with "transfer-encoding"
+http://bugs.python.org/issue6312
+
+Support TLS SNI extension in ssl module
+http://bugs.python.org/issue5639
+
 1. TODO in urllib.request.py for global _opener
 
 2. Tarfile issue regression
