@@ -2,9 +2,9 @@
 .. include:: <s5defs.txt>
 .. |==>| unicode:: U+02794 .. thick rightwards arrow
 
-==========================================
- Code Like a Pythonista: Idiomatic Python
-==========================================
+=======================================================
+Python 3000 through Python Enhancement Proposals (PEPS)
+=======================================================
 
 .. sidebar:: Contents
    :class: handout
@@ -13,12 +13,11 @@
 
 .. class:: center big
 
-   | *David Goodger*
-   | goodger@python.org
-   | http://python.net/~goodger
+   | *Senthil Kumaran*
+   | orsenthil@gmail.com
+   | http://uthcode.sarovar.org
 
-In this interactive tutorial, we'll cover many essential Python idioms
-and techniques in depth, adding immediately useful tools to your belt.
+Let us look at design process of Python 3 language through the PEPs.
 
 There are 3 versions of this presentation:
 
@@ -60,8 +59,8 @@ There are 3 versions of this presentation:
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
 
-The Zen of Python (1)
-=====================
+Python 3000
+===========
 
 .. container:: handout
 
@@ -87,12 +86,11 @@ The Zen of Python (1)
        | Although practicality beats purity.
        | Errors should never pass silently.
        | Unless explicitly silenced.
-       |
        |     ...
 
 
-The Zen of Python (2)
-=====================
+Python 3100
+===========
 
 .. class:: small
 
@@ -145,8 +143,8 @@ The Zen of Python (2)
    What a bunch of comedians! :-)
 
 
-Coding Style: Readability Counts
-================================
+PEP 3101
+========
 
     Programs must be written for people to read, and only incidentally
     for machines to execute.
@@ -158,8 +156,8 @@ Coding Style: Readability Counts
    Try to make your programs easy to read and obvious.
 
 
-PEP 8: Style Guide for Python Code
-==================================
+PEP 3105
+========
 
 Worthwhile reading:
 
@@ -185,8 +183,8 @@ PEP = Python Enhancement Proposal
    closely.
 
 
-Whitespace 1
-============
+PEP 3106
+========
 
 .. class:: incremental
 
@@ -206,8 +204,8 @@ Whitespace 1
 * Two blank lines between classes.
 
 
-Whitespace 2
-============
+PEP 3108
+========
 
 .. class:: incremental
 
@@ -230,9 +228,8 @@ Whitespace 2
              l = [key, value]
              return d, l
 
-
-Naming
-======
+PEP 3109
+========
 
 .. class:: incremental
 
@@ -295,8 +292,8 @@ Naming
      * http://stackoverflow.com/questions/1641219/does-python-have-private-variables-in-classes
 
 
-Long Lines & Continuations
-==========================
+PEP - 3110
+==========
 
 .. class:: incremental
 
@@ -321,8 +318,8 @@ Long Lines & Continuations
    they're ugly.
 
 
-Long Strings
-============
+PEP - 3111
+==========
 
 .. container:: handout
 
@@ -396,8 +393,8 @@ one
    The backslashes must be at the end of their lines.
 
 
-Compound Statements
-===================
+PEP - 3112
+==========
 
 Good::
 
@@ -423,8 +420,8 @@ Bad::
    *readability counts*.
 
 
-Docstrings & Comments
-=====================
+PEP - 3113
+==========
 
 Docstrings = **How to use** code
 
@@ -470,8 +467,8 @@ Comments = **Why** (rationale) & **how code works**
        http://www.python.org/dev/peps/pep-0257/
 
 
-Practicality Beats Purity
-=========================
+PEP - 3114
+==========
 
     A foolish consistency is the hobgoblin of little minds.
 
@@ -502,8 +499,8 @@ Practicality Beats Purity
 `... but practicality shouldn't beat purity to a pulp!`
 
 
-Idiom Potpourri
-===============
+PEP - 3115
+==========
 
 A selection of small, useful idioms.
 
@@ -514,8 +511,8 @@ A selection of small, useful idioms.
    We'll start with some easy ones and work our way up.
 
 
-Swap Values
-===========
+PEP - 3115 (2)
+==============
 
 In other languages::
 
@@ -584,8 +581,8 @@ In other languages::
    ['David', 'Pythonista', '+1-514-555-1234']
 
 
-More About Tuples
-=================
+PEP - 3118
+==========
 
 .. container:: handout
 
@@ -646,8 +643,8 @@ More About Tuples
    So if you see a tuple where you don't expect one, look for a comma!
 
 
-Interactive "_"
-===============
+PEP - 3119
+==========
 
 .. container:: handout
 
@@ -689,8 +686,8 @@ Interactive "_"
 0.50000000000000011
 
 
-Building Strings from Substrings
-================================
+PEP - 3120
+==========
 
 .. container:: handout
 
@@ -737,8 +734,8 @@ Building Strings from Substrings
    **will** make a difference.
 
 
-Building Strings, Variations 1
-==============================
+PEP - 3128
+==========
 
 .. container:: handout
 
@@ -781,8 +778,8 @@ Building Strings, Variations 1
        Choose red, blue, green or yellow
 
 
-Building Strings, Variations 2
-==============================
+PEP - 3132
+==========
 
 If you need to apply a function to generate the substrings::
 
