@@ -2,34 +2,39 @@
 .. include:: <s5defs.txt>
 .. |==>| unicode:: U+02794 .. thick rightwards arrow
 
-========================================
-Py3K Python Enhancement Proposals (PEPS)
-========================================
+=========
+Py3K PEPS
+=========
 
 .. sidebar:: Contents
    :class: handout
 
    .. contents:: :local:
 
+.. class:: center large
+
+   | APAC PyCon 2010, Singapore
+
 .. class:: center small
 
-   | *Senthil Kumaran*
+   | **Senthil Kumaran**
+   | *Python Core Developer*
    | orsenthil@gmail.com
    | http://uthcode.sarovar.org
 
-Let us look at design process of Python 3 language through the PEPs.
+.. class:: handout
 
-There are 3 versions of this presentation:
+        Let us look at design process of Python 3 language through the PEPs.
 
-* `S5 presentation <presentation.html>`__
-* `Plain HTML handout <handout.html>`__
-* `reStructuredText source <presentation.txt>`__
+        There are 3 versions of this presentation:
 
-.. class:: small
+        * `S5 presentation <presentation.html>`__
+        * `Plain HTML handout <handout.html>`__
+        * `reStructuredText source <presentation.txt>`__
 
-   ©2006-2008, licensed under a `Creative Commons
-   Attribution/Share-Alike (BY-SA) license
-   <http://creativecommons.org/licenses/by-sa/3.0/>`__.
+        ©2010, licensed under a `Creative Commons
+        Attribution/Share-Alike (BY-SA) license
+        <http://creativecommons.org/licenses/by-sa/3.0/>`__.
 
 PEP 3000
 ========
@@ -93,53 +98,53 @@ PEP 3109
 * Changes to raise exception syntax and throw method in generator object.
 * To hold exception object raise E as e
 
-PEP - 3110
-==========
+PEP 3110
+========
 
 * Changes to catching Exceptions.
-… ``except E, N:``
-… ``except E as n:``
+* ``except E, N:``
+* ``except E as n:``
 * Open issues – Replacing or Dropping sys.exc_info()
 
-PEP - 3111
-==========
+PEP 3111
+========
 
 * Simple input builtin for python
 * No longer input() and raw_input()
 * Its just one, which is raw_input() renamed to just the input()
 
-PEP - 3112
-==========
+PEP 3112
+========
 
 * Literal syntax for bytes object  - b'bytes'
 * Convenient way to spell ascii strings and arbitrary binary data.
 
-PEP - 3113
-==========
+PEP 3113
+========
 
 * Removal of tuple parameter unpacking.
 *  ``def fxn(a, (b, c), d):      pass``
 * Remove the ablity to pass a container to be received as tuple. More harmful than useful.
 * Introspection issues. Un informative error messages, little use-cases.
 
-PEP - 3114
-==========
+PEP 3114
+========
 
 * Renaming iterator.next() to iterator.__next__()
 * Its for consistency sake with other implicitly called methods. 
 * ``next(x) → x.__next__()``
 * iter(function, sentinel) <--> next(iterator, sentinel)
 
-PEP - 3115
-==========
+PEP 3115
+========
 
 * Metaclasses in Python 3
 * Changes to Syntax for Declaring metaclasses and alters the semantics of how classes with metaclasses are constructed.
-``class C(B1, B2, metaclass=MC, *more_bases, **kwds):  pass``
+* ``class C(B1, B2, metaclass=MC, *more_bases, **kwds):  pass``
 * http://bugs.python.org/issue1681101
 
-PEP - 3115 (2)
-==============
+PEP 3115
+========
 
 * New I/O Module.
 * Specification for Basic Byte based I/O Stream to which we can add further buffering and text handling features.
@@ -147,15 +152,15 @@ PEP - 3115 (2)
 * The new I/O spec is influenced by Java's I/O libraries.
 * Open() factory method backwards compatible with old IO.
 
-PEP - 3118
-==========
+PEP 3118
+========
 
 * Revising the buffer protocol.
 * Improving the ways Python allows memory sharing in Python 3.
 * Work in progress.
 
-PEP - 3119
-==========
+PEP 3119
+========
 
 * Guido – Introduction of Abstract Base Classes (ABC).
 * Way to overload isinstance and issubclass.
@@ -164,16 +169,16 @@ PEP - 3119
 * What makes a set, mapping, sequence?
 * Companion PEP 3141 for numeric types.
 
-PEP - 3120
-==========
+PEP 3120
+========
 
 * Using UTF-8 as the default source Encoding.
 * Martin von Löwis
 * Default Source Encoding of Python scripts from ASCII to UTF-8.
 * IDLE Changed to use UTF-8 as default encoding.
 
-PEP - 3128
-==========
+PEP 3128
+========
 
 * Introduction of Class Decorators.
 * Collin Winters
@@ -181,39 +186,39 @@ PEP - 3128
 * To make certain constructs more easily expressed and less reliant on Cpython Interpretor implementation.
 * Its simpler than using metaclasses for class to acheive the same purpose.
 
-PEP - 3132
-==========
+PEP 3132
+========
 
 * Extended Iterable unpacking
+* ``>>> a, *b, c = range(5)``
+* ``>>> a``
+* 0
+* ``>>> c``
+* 4
+* ``>>> b``
+* [1, 2, 3]
 
-``>>> a, *b, c = range(5)``
-``>>> a``
-0
-``>>> c``
-4
-``>>> b``
-[1, 2, 3]
-
-PEP - 3135
-==========
+PEP 3135
+========
 
 * New super
 * Syntactic Suger for the super.
 * super().foo(1, 2) instead of super(Foo, self).foo(1, 2)
 
-PEP - 3137
-==========
+PEP 3137
+========
+
 * Guido – Immutable bytes and Mutable buffer
 * bytes is a immutable array of bytes.
 * bytearray is a mutable array of bytes.
 * memoryview is a bytes view of another object.
 
-PEP - 3138
-==========
+PEP 3138
+========
 
 * String representation in Py3k.
-… ``use repr()``
- ``backticks`` gone – its same as repr()
+* ``use repr()``
+* ``backticks`` gone – its same as repr()
 * Repr is Unicode based and not ASCII based in py3
 
 2to3 Tool
@@ -225,8 +230,8 @@ PEP - 3138
 * Look or str, bytes issues after the translation. Fix those and fix the interfaces (phew!).
 * You are done.
 
-PEP - 3099
-==========
+PEP 3099
+========
 
 * Greog Brandl – April-2006- Things which will not change in Python 3000.
 * BDFL pronoucements on things which will not happen.
@@ -235,8 +240,8 @@ PEP - 3099
 * No braces, no more backticks
 * The interpreter prompt will not change. It gives Guido warm fuzzy feelings..
 
-PEP - 3003
-==========
+PEP 3003
+========
 
 * Python language Moratorium.
 * Other Python Implementations to Catch up.
