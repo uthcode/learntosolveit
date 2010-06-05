@@ -2,16 +2,16 @@
 .. include:: <s5defs.txt>
 .. |==>| unicode:: U+02794 .. thick rightwards arrow
 
-=======================================================
-Python 3000 through Python Enhancement Proposals (PEPS)
-=======================================================
+========================================
+Py3K Python Enhancement Proposals (PEPS)
+========================================
 
 .. sidebar:: Contents
    :class: handout
 
    .. contents:: :local:
 
-.. class:: center big
+.. class:: center small
 
    | *Senthil Kumaran*
    | orsenthil@gmail.com
@@ -31,295 +31,215 @@ There are 3 versions of this presentation:
    Attribution/Share-Alike (BY-SA) license
    <http://creativecommons.org/licenses/by-sa/3.0/>`__.
 
-.. container:: handout
-
 PEP 3000
 ========
 
-.. class:: small
+* GuidoVan Rossum  - 05/April/2006
+* Python 3.0 will break the backwards compatiblity with Python 2.x
+* Python 2.6+ to support forward compatiblity.
+* Implementation Details – Write in C.
+* Source code conversion tool (2to3), context free source to source translation.
 
-   ..
-
-       | Beautiful is better than ugly.
-       | Explicit is better than implicit.
-       | Simple is better than complex.
-       | Complex is better than complicated.
-       | Flat is better than nested.
-       | Sparse is better than dense.
-       | Readability counts.
-       | Special cases aren't special enough to break the rules.
-       | Although practicality beats purity.
-       | Errors should never pass silently.
-       | Unless explicitly silenced.
-       |     ...
-
-
-.. container:: handout
-   
 PEP 3100
 ========
 
-.. class:: small
-
-   ..
-
-       | In the face of ambiguity, refuse the temptation to guess.
-       | There should be one—and preferably only one—obvious way to do it.
-       | Although that way may not be obvious at first unless you're Dutch.
-       | Now is better than never.
-       | Although never is often better than *right* now.
-       | If the implementation is hard to explain, it's a bad idea.
-       | If the implementation is easy to explain, it may be a good idea.
-       | Namespaces are one honking great idea—let's do more of those!
-
-       -- Tim Peters
-
-.. class:: incremental
-
-   When in doubt::
-
-       import this
-
-.. container:: handout
-
-   This particular "poem" began as a kind of a joke, but it really
-   embeds a lot of truth about the philosophy behind Python.  The Zen
-   of Python has been formalized in PEP 20, where the abstract reads:
-
-       Long time Pythoneer Tim Peters succinctly channels the BDFL's
-       guiding principles for Python's design into 20 aphorisms, only
-       19 of which have been written down.
-
-       -- http://www.python.org/dev/peps/pep-0020/
-
-   You can decide for yourself if you're a "Pythoneer" or a
-   "Pythonista".  The terms have somewhat different connotations.
-
-   Try it in a Python interactive interpreter:
-
-   >>> import this
-
-   Here's another easter egg:
-
-   >>> from __future__ import braces
-     File "<stdin>", line 1
-   SyntaxError: not a chance
-
-   What a bunch of comedians! :-)
-
+* Brett Canon – Mischellaneous Python 3 Plans.
+* This is overall implementation details, kind of index to all the other PEPS which will detail the specific changes.
+* One PEP to Check them all.
 
 PEP 3101
 ========
 
-.. class:: small
-
-* foo
-* bar
-
-.. class:: incremental
-
-* foo
-* bar
-
-.. container:: handout
-
-* foo
-* bar
+* Talin – Advanced String Formatting
+* Current ones - '%' and string.Template methods.
+* ``'{0},{1}'.format('hello','world')``
+* Details the format specifiers options.
+* ``[[fill]align][sign][#][0][minimumwidth][.precision][type]``
+* User defined formatting and other issues and usecases.
 
 PEP 3105
 ========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Make print a function
+* Good move!
+* Rationale for making print as a function.
+* Signature of the print function
+* ``def print(*args, sep=' ', end='\n', file=None)``
+* No backwards compatible. All your python 2 code which contains print statement will break.
 
 PEP 3106
 ========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Guido – Changes to dict.keys(), .values() and .items()
+* It returns a set like unordered container objects whose contents are derived from underlying dictionary rather than a list which is a copy of keys etc. 
+* Remove iterkeys, itervalues and iteritems method.
+* Inspired by the Java Collections Framework.
 
 PEP 3108
 ========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Standard Library Reorganisation.
+* Removal of obsolete modules, restructuring of the modules, 
+* Modules removed – cfmfile, cf, md5, mimetools, MimeWriter, mimify, multifile, posixfile, rfc822, sha, sv, timing.Removal of platform specific modules.
+* Modules and Code with PEP8 Violation
+* 1000 line document. It was kept track as bug tracker bug, which I believe is still open
 
 PEP 3109
 ========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Changes to Python's Exception Raise mechanism.
+* Intended to reduce Line Noise as well as size of the language.
+* Consolidation of several raise forms – raise X,Y and raise X(Y) which are equivalent in py2.
+* Changes to raise exception syntax and throw method in generator object.
+* To hold exception object raise E as e
 
 PEP - 3110
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Changes to catching Exceptions.
+… ``except E, N:``
+… ``except E as n:``
+* Open issues – Replacing or Dropping sys.exc_info()
 
 PEP - 3111
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Simple input builtin for python
+* No longer input() and raw_input()
+* Its just one, which is raw_input() renamed to just the input()
 
 PEP - 3112
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Literal syntax for bytes object  - b'bytes'
+* Convenient way to spell ascii strings and arbitrary binary data.
 
 PEP - 3113
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Removal of tuple parameter unpacking.
+*  ``def fxn(a, (b, c), d):      pass``
+* Remove the ablity to pass a container to be received as tuple. More harmful than useful.
+* Introspection issues. Un informative error messages, little use-cases.
 
 PEP - 3114
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Renaming iterator.next() to iterator.__next__()
+* Its for consistency sake with other implicitly called methods. 
+* ``next(x) → x.__next__()``
+* iter(function, sentinel) <--> next(iterator, sentinel)
 
 PEP - 3115
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Metaclasses in Python 3
+* Changes to Syntax for Declaring metaclasses and alters the semantics of how classes with metaclasses are constructed.
+``class C(B1, B2, metaclass=MC, *more_bases, **kwds):  pass``
+* http://bugs.python.org/issue1681101
 
 PEP - 3115 (2)
 ==============
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* New I/O Module.
+* Specification for Basic Byte based I/O Stream to which we can add further buffering and text handling features.
+* Enables the programmers to treat stream like interfaces in very stream like manner instead of just for file-like object or for socket interface obj.
+* The new I/O spec is influenced by Java's I/O libraries.
+* Open() factory method backwards compatible with old IO.
 
 PEP - 3118
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Revising the buffer protocol.
+* Improving the ways Python allows memory sharing in Python 3.
+* Work in progress.
 
 PEP - 3119
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Guido – Introduction of Abstract Base Classes (ABC).
+* Way to overload isinstance and issubclass.
+* A new module abc which is to support the Abstract Base Class framework.
+* Specific ABCs for Containers and Iterators to be added to collections module.
+* What makes a set, mapping, sequence?
+* Companion PEP 3141 for numeric types.
 
 PEP - 3120
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Using UTF-8 as the default source Encoding.
+* Martin von Löwis
+* Default Source Encoding of Python scripts from ASCII to UTF-8.
+* IDLE Changed to use UTF-8 as default encoding.
 
 PEP - 3128
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Introduction of Class Decorators.
+* Collin Winters
+* Its an extension of function and method decorators.
+* To make certain constructs more easily expressed and less reliant on Cpython Interpretor implementation.
+* Its simpler than using metaclasses for class to acheive the same purpose.
 
 PEP - 3132
 ==========
 
-.. class:: small
+* Extended Iterable unpacking
 
-.. class:: incremental
-
-.. container:: handout
+``>>> a, *b, c = range(5)``
+``>>> a``
+0
+``>>> c``
+4
+``>>> b``
+[1, 2, 3]
 
 PEP - 3135
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* New super
+* Syntactic Suger for the super.
+* super().foo(1, 2) instead of super(Foo, self).foo(1, 2)
 
 PEP - 3137
 ==========
-
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Guido – Immutable bytes and Mutable buffer
+* bytes is a immutable array of bytes.
+* bytearray is a mutable array of bytes.
+* memoryview is a bytes view of another object.
 
 PEP - 3138
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* String representation in Py3k.
+… ``use repr()``
+ ``backticks`` gone – its same as repr()
+* Repr is Unicode based and not ASCII based in py3
 
 2to3 Tool
 =========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Context sensitive source code to source code translator.
+* Useful to convert the py2 source to py3.
+* Use it.
+* Look or str, bytes issues after the translation. Fix those and fix the interfaces (phew!).
+* You are done.
 
 PEP - 3099
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Greog Brandl – April-2006- Things which will not change in Python 3000.
+* BDFL pronoucements on things which will not happen.
+* Things such as 'self' will not become implicit.
+* Parser wont be more complex than LL
+* No braces, no more backticks
+* The interpreter prompt will not change. It gives Guido warm fuzzy feelings..
 
 PEP - 3003
 ==========
 
-.. class:: small
-
-.. class:: incremental
-
-.. container:: handout
+* Python language Moratorium.
+* Other Python Implementations to Catch up.
+* Changes put into Python be used by large user-base.
+* Does not allow for Exceptions to changes in the syntax and semantics of the language.
+* Defines what can change and what cannot change.
