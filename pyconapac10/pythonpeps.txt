@@ -57,9 +57,17 @@ PEP 3101
 
 * Talin – Advanced String Formatting
 * Current ones - '%' and string.Template methods.
-* ``'{0},{1}'.format('hello','world')``
+
+::
+
+        '{0},{1}'.format('hello','world')
+
 * Details the format specifiers options.
-* ``[[fill]align][sign][#][0][minimumwidth][.precision][type]``
+
+::
+
+        [[fill]align][sign][#][0][minimumwidth][.precision][type]
+
 * User defined formatting and other issues and usecases.
 
 PEP 3105
@@ -69,7 +77,11 @@ PEP 3105
 * Good move!
 * Rationale for making print as a function.
 * Signature of the print function
-* ``def print(*args, sep=' ', end='\n', file=None)``
+
+::
+
+        def print(*args, sep=' ', end='\n', file=None)
+
 * No backwards compatible. All your python 2 code which contains print statement will break.
 
 PEP 3106
@@ -102,8 +114,12 @@ PEP 3110
 ========
 
 * Changes to catching Exceptions.
-* ``except E, N:``
-* ``except E as n:``
+
+::
+
+        except E, N:
+        except E as n:
+
 * Open issues – Replacing or Dropping sys.exc_info()
 
 PEP 3111
@@ -123,7 +139,11 @@ PEP 3113
 ========
 
 * Removal of tuple parameter unpacking.
-*  ``def fxn(a, (b, c), d):      pass``
+
+::
+
+        def fxn(a, (b, c), d):      pass
+
 * Remove the ablity to pass a container to be received as tuple. More harmful than useful.
 * Introspection issues. Un informative error messages, little use-cases.
 
@@ -132,7 +152,11 @@ PEP 3114
 
 * Renaming iterator.next() to iterator.__next__()
 * Its for consistency sake with other implicitly called methods. 
-* ``next(x) → x.__next__()``
+
+::
+
+        next(x) → x.__next__()
+
 * iter(function, sentinel) <--> next(iterator, sentinel)
 
 PEP 3115
@@ -140,7 +164,11 @@ PEP 3115
 
 * Metaclasses in Python 3
 * Changes to Syntax for Declaring metaclasses and alters the semantics of how classes with metaclasses are constructed.
-* ``class C(B1, B2, metaclass=MC, *more_bases, **kwds):  pass``
+
+::
+
+        class C(B1, B2, metaclass=MC, *more_bases, **kwds):  pass
+
 * http://bugs.python.org/issue1681101
 
 PEP 3115
@@ -190,13 +218,16 @@ PEP 3132
 ========
 
 * Extended Iterable unpacking
-* ``>>> a, *b, c = range(5)``
-* ``>>> a``
-* 0
-* ``>>> c``
-* 4
-* ``>>> b``
-* [1, 2, 3]
+
+::
+
+        >>>a, *b, c = range(5)
+        >>>a
+        0
+        >>>c
+        4
+        >>>b
+        [1, 2, 3]
 
 PEP 3135
 ========
@@ -217,9 +248,12 @@ PEP 3138
 ========
 
 * String representation in Py3k.
-* ``use repr()``
-* ``backticks`` gone – its same as repr()
-* Repr is Unicode based and not ASCII based in py3
+
+::
+
+        use repr()
+        `backticks` gone – its same as repr()
+        Repr is Unicode based and not ASCII based in py3
 
 2to3 Tool
 =========
