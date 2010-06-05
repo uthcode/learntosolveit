@@ -39,11 +39,61 @@ Py3K PEPS
 PEP 3000
 ========
 
-* GuidoVan Rossum  - 05/April/2006
+* GuidoVan Rossum  - 05/April/2006 (*It's June/2010 now. Lot of thought has gone in*)
 * Python 3.0 will break the backwards compatiblity with Python 2.x
 * Python 2.6+ to support forward compatiblity.
 * Implementation Details – Write in C.
 * Source code conversion tool (2to3), context free source to source translation.
+
+.. class:: handout
+
+        Python 3000, Python 3.0 and Py3K are all names for the same thing.
+        The project is called Python 3000, or abbreviated to Py3k.  The actual
+        Python release will same naming convention is used for Python 2.x.
+
+        Guido planned that Python 3.1 and 3.2 to be released much sooner after
+        3.0 than it has been customary for the 2.x series.  The 3.x release
+        pattern will stabilize once the community is happy with 3.x.
+
+        Actually Python 3.1 shippped with io module written in Python which
+        caused significant performance problems. Python Core Devs recommend
+        against the use of Python 3.1 for any purpose. Use Python 3.2 which is better.
+
+        Python 3.x will be break the backward compability, but Python 2.6 and Python
+        2.7 will support forwarding compatibility in the following ways.
+
+        * It will support a "Py3k warnings mode" which will warn dynamically (i.e. at
+          runtime) about features that will stop working in Python 3.0, e.g. assuming
+          that range() returns a list.
+
+        * It will contain backported versions of many Py3k features, either enabled
+          through __future__ statements or simply by allowing old and new syntax to be
+          used side-by-side (if the new syntax would be a syntax error in 2.x).
+
+        * 2to3 source conversion tool is provide.This tool can do a context-free
+          source-to-source translation.  For example, it can translate ``apply(f,
+          args)`` into ``f(*args)``.  However, the tool cannot do data flow analysis or
+          type inferencing, so it simply assumes that ``apply`` in this example refers
+          to the old built-in function.
+
+        The recommended development model for a project that needs to support
+        Python 2.7 and 3.2 simultaneously is as follows:
+
+        0. You should have excellent unit tests with close to full coverage.
+        1. Port your project to Python 2.6.
+        2. Turn on the Py3k warnings mode.
+        3. Test and edit until no warnings remain.
+        4. Use the 2to3 tool to convert this source code to 3.2 syntax.
+           **Do not manually edit the output!**
+        5. Test the converted source code under 3.2.
+        6. If problems are found, make corrections to the **2.6** version
+           of the source code and go back to step 3.
+        7. When it's time to release, release separate 2.6 and 3.2 tarballs
+           (or whatever archive form you use for releases).
+
+        It is recommended not to edit the 3.2 source code until you are ready
+        to reduce 2.6 support to pure maintenance (i.e. the moment when you
+        would normally move the 2.6 code to a maintenance branch anyway).
 
 PEP 3100
 ========
