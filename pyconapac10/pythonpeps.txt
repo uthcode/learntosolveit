@@ -102,6 +102,20 @@ PEP 3100
 * This is overall implementation details, kind of index to all the other PEPS which will detail the specific changes.
 * One PEP to Check them all.
 
+.. class:: handout
+
+        Influencing PEPs include:
+
+        * PEP 238 (Changing the Division Operator)
+        * PEP 328 (Imports: Multi-Line and Absolute/Relative)
+        * PEP 343 (The "with" Statement)
+        * PEP 352 (Required Superclass for Exceptions)
+
+        http://www.python.org/dev/peps/pep-3100/
+
+        Python Regrets presentation:
+        http://www.python.org/doc/essays/ppt/regrets/PythonRegrets.pdf
+
 PEP 3101
 ========
 
@@ -119,6 +133,11 @@ PEP 3101
         [[fill]align][sign][#][0][minimumwidth][.precision][type]
 
 * User defined formatting and other issues and usecases.
+
+
+.. class:: handout
+        
+        http://us.pycon.org/2010/conference/schedule/event/49/
 
 PEP 3105
 ========
