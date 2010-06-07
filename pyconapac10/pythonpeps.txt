@@ -249,17 +249,63 @@ PEP 3109
 * Changes to raise exception syntax and throw method in generator object.
 * To hold exception object raise E as e
 
+.. class:: handout
+
+        One of Python's guiding maxims is "there should be one -- and
+        preferably only one -- obvious way to do it". Python 2.x's
+        ``raise`` statement violates this principle, permitting multiple
+        ways of expressing the same thought. For example, these statements
+        are equivalent:
+
+            raise E, V
+
+            raise E(V)
+
+        There is a third form of the ``raise`` statement, allowing arbitrary
+        tracebacks to be attached to an exception ::
+
+            raise E, V, T
+
+        where T is a traceback. As specified in PEP 344,
+        exception objects in Python 3.x will possess a ``__traceback__``
+        attribute, admitting this translation of the three-expression
+        ``raise`` statement: ::
+
+            raise E, V, T
+
+        is translated to ::
+
+            e = E(V)
+            e.__traceback__ = T
+            raise e
+
+        Using these translations, we can reduce the ``raise`` statement from
+        four forms to two:
+
+        1. ``raise`` (with no arguments) is used to re-raise the active
+           exception in an ``except`` suite.
+
+        2. ``raise EXCEPTION`` is used to raise a new exception. This form has
+           two sub-variants: ``EXCEPTION`` may be an exception class or an
+           instance of an exception class; valid exception classes are
+           BaseException and its subclasses. If ``EXCEPTION``
+           is a subclass, it will be called with no arguments to obtain
+           an exception instance.
+
+           To raise anything else is an error.
+
+
 PEP 3110
 ========
 
 * Changes to catching Exceptions.
 
 ::
-
         except E, N:
         except E as n:
 
 * Open issues – Replacing or Dropping sys.exc_info()
+* http://mail.python.org/pipermail/python-dev/2006-March/062449.html
 
 PEP 3111
 ========
