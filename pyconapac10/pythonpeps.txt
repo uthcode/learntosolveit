@@ -153,6 +153,42 @@ PEP 3105
 
 * No backwards compatible. All your python 2 code which contains print statement will break.
 
+.. class:: handout
+       
+
+        * ``print`` is the only application-level functionality that has a
+          statement dedicated to it. Within Python's world, syntax is generally
+          used as a last resort, when something *can't* be done without help from
+          the compiler. Print doesn't qualify for such an exception.
+
+        * At some point in application development one quite often feels the need
+          to replace ``print`` output by something more sophisticated, like
+          logging calls or calls into some other I/O library. With a ``print()``
+          function, this is a straightforward string replacement, today it is
+          a mess adding all those parentheses and possibly converting ``>>stream``
+          style syntax.
+
+        * Having special syntax for ``print`` puts up a much larger barrier for
+          evolution, e.g. a hypothetical new ``printf()`` function is not too
+          far fetched when it will coexist with a ``print()`` function.
+
+        * There's no easy way to convert ``print`` statements into another call
+          if one needs a different separator, not spaces, or none at all.
+          Also, there's no easy way *at all* to conveniently print objects with
+          some other separator than a space.
+
+        * If ``print()`` is a function, it would be much easier to replace it within
+          one module (just ``def print(*args):...``) or even throughout a program
+          (e.g. by putting a different function in ``__builtin__.print``). As it is,
+          one can do this by writing a class with a ``write()`` method and
+          assigning that to ``sys.stdout`` -- that's not bad, but definitely a much
+          larger conceptual leap, and it works at a different level than print.
+
+        Luckily, as it is a statement in Python 2, ``print`` can be detected
+        and replaced reliably and non-ambiguously by an automated tool, so
+        there should be no major porting problems.
+
+
 PEP 3106
 ========
 
