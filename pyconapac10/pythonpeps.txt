@@ -404,10 +404,60 @@ PEP 3113
 * Remove the ablity to pass a container to be received as tuple. More harmful than useful.
 * Introspection issues. Un informative error messages, little use-cases.
 
+
+.. class:: handout
+
+        Tuple parameter unpacking is the use of a tuple as a parameter in a
+        function signature so as to have a sequence argument automatically
+        unpacked.  An example is::
+
+          def fxn(a, (b, c), d):
+              pass
+
+        The use of ``(b, c)`` in the signature requires that the second
+        argument to the function be a sequence of length two (e.g.,
+        ``[42, -13]``).  When such a sequence is passed it is unpacked and
+        has its values assigned to the parameters, just as if the statement
+        ``b, c = [42, -13]`` had been executed in the parameter.
+
+        Unfortunately this feature of Python's rich function signature
+        abilities, while handy in some situations, causes more issues than
+        they are worth.  Thus this PEP proposes their removal from the
+        language in Python 3.0.
+
+        The 2to3 refactoring tool 2to3 will gain a fixer
+        fixer for translating tuple parameters to being a single parameter
+        that is unpacked as the first statement in the function.  The name of
+        the new parameter will be changed.  The new parameter will then be
+        unpacked into the names originally used in the tuple parameter.  This
+        means that the following function
+
+         def fxn((a, (b, c))):
+             pass
+
+        will be translated into::
+
+         def fxn(a_b_c):
+             (a, (b, c)) = a_b_c
+             pass
+
+        As tuple parameters are used by lambdas because of the single
+        expression limitation, they must also be supported.  This is done by
+        having the expected sequence argument bound to a single parameter and
+        then indexing on that parameter::
+
+         lambda (x, y): x + y
+
+        will be translated into::
+
+         lambda x_y: x_y[0] + x_y[1]
+
+
 PEP 3114
 ========
 
 * Renaming iterator.next() to iterator.__next__()
+* In python 2.x, next() is a protocol, not a method. 
 * Its for consistency sake with other implicitly called methods. 
 
 ::
@@ -415,6 +465,51 @@ PEP 3114
         next(x) → x.__next__()
 
 * iter(function, sentinel) <--> next(iterator, sentinel)
+
+
+.. class:: handout
+
+
+        Following this pattern, the natural way to handle ``next`` is to add a
+        ``next`` built-in function that behaves in exactly the same fashion.
+
+        *   ``next(x)`` --> internal ``tp_iternext`` --> ``x.__next__()``
+
+        Further, it is proposed that the ``next`` built-in function accept a
+        sentinel value as an optional second argument, following the style of
+        the ``getattr`` and ``iter`` built-in functions.  When called with two
+        arguments, ``next`` catches the StopIteration exception and returns
+        the sentinel value instead of propagating the exception.  This creates
+        a nice duality between ``iter`` and ``next``:
+
+            iter(function, sentinel) <--> next(iterator, sentinel)
+
+        There have been a few objections to the addition of more built-ins.
+        In particular, Martin von Loewis writes:
+
+        I dislike the introduction of more builtins unless they have a true
+        generality (i.e. are likely to be needed in many programs). For this
+        one, I think the normal usage of __next__ will be with a for loop, so
+        I don't think one would often need an explicit next() invocation.
+
+        It is also not true that most protocols are explicitly invoked through
+        builtin functions. Instead, most protocols are can be explicitly invoked
+        through methods in the operator module. So following tradition, it
+        should be operator.next.
+
+        ...
+
+        As an alternative, I propose that object grows a .next() method,
+        which calls __next__ by default.
+
+
+        Implementation and Transformation
+
+        Method definitions named ``next`` will be renamed to ``__next__``.
+
+        Explicit calls to the ``next`` method will be replaced with calls to
+        the built-in ``next`` function.  For example, ``x.next()`` will become
+        ``next(x)``.
 
 PEP 3115
 ========
