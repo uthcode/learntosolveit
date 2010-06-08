@@ -325,26 +325,28 @@ PEP 3111
         ``eval(input())`` and ``raw_input()`` with ``input()``.
 
 
+        BDFL Thoughts on this issue:
+
         http://mail.python.org/pipermail/python-3000/2006-December/005249.html
 
-        I like the exact proposal made here better than any of the
-        alternatives mentioned so far.
+        I like the exact proposal made here better than any of the alternatives
+        mentioned so far.
 
-        - Against naming it readline(): the "real" readline doesn't strip the
-        \n and returns an empty string for EOF instead of raising EOFError; I
+        Against naming it readline(): the "real" readline doesn't strip the \n
+        and returns an empty string for EOF instead of raising EOFError; I
         believe the latter is more helpful for true beginners' code.
 
-        - Against naming it ask() and renaming print() to say(): I find those
+        Against naming it ask() and renaming print() to say(): I find those
         rather silly names that belong in toy or AI languages. Changing print
         from statement to function maintains Pythonicity; renaming it say()
         does not.
 
-        - I don't expect there will be much potential confusion with the 2.x
+        I don't expect there will be much potential confusion with the 2.x
         input(); that function is used extremely rarely. It will be trivial to
         add rules to the refactoring tool (sandbox/2to3/) that replace input()
         with eval(input()) and replace raw_input() with input().
 
-        --Guido
+        Guido
 
 
 PEP 3112
