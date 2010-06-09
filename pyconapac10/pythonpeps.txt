@@ -687,14 +687,48 @@ PEP 3120
 * Default Source Encoding of Python scripts from ASCII to UTF-8.
 * IDLE Changed to use UTF-8 as default encoding.
 
-PEP 3128
+.. class:: handout
+
+        The parser needs to be changed to accept bytes > 127 if no source
+        encoding is specified; instead of giving an error, it needs to check
+        that the bytes are well-formed UTF-8 (decoding is not necessary,
+        as the parser converts all source code to UTF-8, anyway).
+ 
+
+PEP 3129
 ========
 
 * Introduction of Class Decorators.
-* Collin Winters
+* Collin Winters, Jack Diederich
 * Its an extension of function and method decorators.
 * To make certain constructs more easily expressed and less reliant on Cpython Interpretor implementation.
 * Its simpler than using metaclasses for class to acheive the same purpose.
+
+.. class:: handout
+        
+        It is an extension to the function and method decorators introduced in
+        PEP 318.
+
+        When function decorators were originally debated for inclusion in
+        Python 2.4, class decorators were seen as obscure and unnecessary
+        thanks to metaclasses.  After several years' experience
+        with the Python 2.4.x series of releases and an increasing
+        familiarity with function decorators and their uses, the BDFL and
+        the community re-evaluated class decorators and recommended their
+        inclusion in Python 3.0.
+
+        The motivating use-case was to make certain constructs more easily
+        expressed and less reliant on implementation details of the CPython
+        interpreter.  While it is possible to express class decorator-like
+        functionality using metaclasses, the results are generally unpleasant and the
+        implementation highly fragile.  In addition, metaclasses are inherited, whereas
+        class decorators are not, making metaclasses unsuitable for some, single
+        class-specific uses of class decorators. The fact that large-scale Python
+        projects like Zope were going through these wild contortions to achieve
+        something like class decorators won over the BDFL.
+
+        Examination of Decorators - PEP 318
+
 
 PEP 3132
 ========
