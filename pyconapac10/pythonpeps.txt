@@ -523,6 +523,88 @@ PEP 3115
 
 * http://bugs.python.org/issue1681101
 
+.. class:: handout
+
+        Information on metaclass
+
+        http://www.python.org/doc/essays/metaclasses/meta-vladimir.txt
+        http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
+        http://www.voidspace.org.uk/python/articles/metaclasses.shtml
+
+
+        def make_hook(f):
+        """Decorator to turn 'foo' method into '__foo__'"""
+                f.is_hook = 1
+                return f
+
+        class MyType(type):
+            def __new__(cls, name, bases, attrs):
+
+                if name.startswith('None'):
+                    return None
+
+                # Go over attributes and see if they should be renamed.
+                newattrs = {}
+                for attrname, attrvalue in attrs.iteritems():
+                    if getattr(attrvalue, 'is_hook', 0):
+                        newattrs['__%s__' % attrname] = attrvalue
+                    else:
+                        newattrs[attrname] = attrvalue
+
+                return super(MyType, cls).__new__(cls, name, bases, newattrs)
+
+            def __init__(self, name, bases, attrs):
+                super(MyType, self).__init__(name, bases, attrs)
+
+                # classregistry.register(self, self.interfaces)
+                print "Would register class %s now." % self
+
+            def __add__(self, other):
+                class AutoClass(self, other):
+                    pass
+                return AutoClass
+                # Alternatively, to autogenerate the classname as well as the class:
+                # return type(self.__name__ + other.__name__, (self, other), {})
+
+            def unregister(self):
+                # classregistry.unregister(self)
+                print "Would unregister class %s now." % self
+
+        class MyObject:
+            __metaclass__ = MyType
+
+
+        class NoneSample(MyObject):
+            pass
+
+        # Will print "NoneType None"
+        print type(NoneSample), repr(NoneSample)
+
+        class Example(MyObject):
+            def __init__(self, value):
+                self.value = value
+            @make_hook
+            def add(self, other):
+                return self.__class__(self.value + other.value)
+
+        # Will unregister the class
+        Example.unregister()
+
+        inst = Example(10)
+        # Will fail with an AttributeError
+        #inst.unregister()
+
+        print inst + inst
+        class Sibling(MyObject):
+            pass
+
+        ExampleSibling = Example + Sibling
+        # ExampleSibling is now a subclass of both Example and Sibling (with no
+        # content of its own) although it will believe it's called 'AutoClass'
+        print ExampleSibling
+        print ExampleSibling.__mro__
+
+
 PEP 3115
 ========
 
@@ -531,6 +613,35 @@ PEP 3115
 * Enables the programmers to treat stream like interfaces in very stream like manner instead of just for file-like object or for socket interface obj.
 * The new I/O spec is influenced by Java's I/O libraries.
 * Open() factory method backwards compatible with old IO.
+
+
+.. class:: handout
+
+        Python allows for a variety of stream-like (a.k.a. file-like) objects
+        that can be used via ``read()`` and ``write()`` calls.  Anything that
+        provides ``read()`` and ``write()`` is stream-like.  However, more
+        exotic and extremely useful functions like ``readline()`` or
+        ``seek()`` may or may not be available on every stream-like object.
+        Python needs a specification for basic byte-based I/O streams to which
+        we can add buffering and text-handling features.
+
+        Once we have a defined raw byte-based I/O interface, we can add
+        buffering and text handling layers on top of any byte-based I/O class.
+        The same buffering and text handling logic can be used for files,
+        sockets, byte arrays, or custom I/O classes developed by Python
+        programmers.  Developing a standard definition of a stream lets us
+        separate stream-based operations like ``read()`` and ``write()`` from
+        implementation specific operations like ``fileno()`` and ``isatty()``.
+        It encourages programmers to write code that uses streams as streams
+        and not require that all streams support file-specific or
+        socket-specific operations.
+
+        The new I/O spec is intended to be similar to the Java I/O libraries,
+        but generally less confusing.  Programmers who don't want to muck
+        about in the new I/O world can expect that the ``open()`` factory
+        method will produce an object backwards-compatible with old-style file
+        objects.
+
 
 PEP 3118
 ========
@@ -634,3 +745,8 @@ PEP 3003
 * Changes put into Python be used by large user-base.
 * Does not allow for Exceptions to changes in the syntax and semantics of the language.
 * Defines what can change and what cannot change.
+
+That's all folks
+================
+
+Thank you.
