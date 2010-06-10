@@ -48,7 +48,7 @@ Status of Python
 
 * Python 3.2 ( py3k and will become trunk)
 * Python 3.1.2 (release31-maint)
-
+* Python 3.0 is not there!  
 * Python 2.7 (current trunk)
 * Python 2.6.5 (release26-maint)
 
@@ -76,9 +76,9 @@ PEP 3000
         3.0 than it has been customary for the 2.x series.  The 3.x release
         pattern will stabilize once the community is happy with 3.x.
 
-        Actually Python 3.1 shippped with io module written in Python which
+        Actually Python 3.0 shippped with io module written in Python which
         caused significant performance problems. Python Core Devs recommend
-        against the use of Python 3.1 for any purpose. Use Python 3.2 which is better.
+        against the use of Python 3.0 for any purpose. Use Python 3.1 which is better.
 
         Python 3.x will be break the backward compability, but Python 2.6 and Python
         2.7 will support forwarding compatibility in the following ways.
@@ -101,7 +101,7 @@ PEP 3000
         Python 2.7 and 3.2 simultaneously is as follows:
 
         0. You should have excellent unit tests with close to full coverage.
-        1. Port your project to Python 2.6.
+        1. Port your project to Python 2.7.
         2. Turn on the Py3k warnings mode.
         3. Test and edit until no warnings remain.
         4. Use the 2to3 tool to convert this source code to 3.2 syntax.
@@ -553,6 +553,7 @@ PEP 3115
         http://www.voidspace.org.uk/python/articles/metaclasses.shtml
 
 
+::
         def make_hook(f):
         """Decorator to turn 'foo' method into '__foo__'"""
                 f.is_hook = 1
@@ -626,7 +627,7 @@ PEP 3115
         print ExampleSibling.__mro__
 
 
-PEP 3115
+PEP 3116
 ========
 
 * New I/O Module.
