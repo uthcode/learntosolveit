@@ -18,7 +18,6 @@ Py3K PEPS
 .. class:: center small
 
    | **Senthil Kumaran**
-   | *Python Core Developer*
    | orsenthil@gmail.com
    | http://uthcode.sarovar.org
 
@@ -35,6 +34,28 @@ Py3K PEPS
         ©2010, licensed under a `Creative Commons
         Attribution/Share-Alike (BY-SA) license
         <http://creativecommons.org/licenses/by-sa/3.0/>`__.
+
+
+About Me
+========
+
+* Python Core Developer. 
+* Maintainer of urllib2 and related modules.
+* Software Engineer at Akamai, India.
+
+Status of Python
+================
+
+* Python 3.2 ( py3k and will become trunk)
+* Python 3.1.2 (release31-maint)
+
+* Python 2.7 (current trunk)
+* Python 2.6.5 (release26-maint)
+
+
+.. class:: handout
+        
+        http://www.python.org/dev/
 
 PEP 3000
 ========
