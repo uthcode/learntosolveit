@@ -27,9 +27,9 @@ Py3K PEPS
 
         There are 3 versions of this presentation:
 
-        * `S5 presentation <presentation.html>`__
-        * `Plain HTML handout <handout.html>`__
-        * `reStructuredText source <presentation.txt>`__
+        * `S5 presentation <py3kpeps.html>`__
+        * `Handout <py3kpepshandout.html>`__
+        * `reStructuredText source <py3kpeps.txt>`__
 
         ©2010, licensed under a `Creative Commons
         Attribution/Share-Alike (BY-SA) license
