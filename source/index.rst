@@ -14,6 +14,13 @@ programming and software engineering. The website is hosted at `Sarovar.org`_.
 
 .. _Sarovar.org: http://sarovar.org 
 
+APAC Pycon 2010
+===============
+
+* `Py3k PEPS`_
+
+.. _Py3k PEPS: http://uthcode.sarovar.org/pyconapac10/py3kpeps.html
+
 PyCon 2010
 ==========
 **How to Solve it using Python** Tutorial Materials.

@@ -22,6 +22,8 @@ TODO
 
 * What is a multiset?
 * Find out the various Exception raising mechanisms.
+* http://www.linuxjournal.com/article/8497
+* http://www.linuxjournal.com/article/3641
 
 
 - What is the Buffer Protocol and How is it useful?
@@ -30,10 +32,38 @@ Good Python Question and Answers
 --------------------------------
 
 * http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
+
+
  
 
 Python bugs
 -----------
+
+cgi module cannot handle POST with multipart/form-data in 3.0
+http://bugs.python.org/issue4953
+
+[issue8653] urlparse.urlparse/urlsplit doc missing
+
+[issue8797] urllib2 basicauth broken in 2.6.5: RuntimeError
+
+[issue8801] Inconsistency in behaviour of urllib and urllib2 with file
+
+[issue8843] urllib2 Digest Authorization uri must match request URI
+
+http://bugs.python.org/issue3819
+
+issue1712522 -  urllib.quote throws exception on Unicode
+http://bugs.python.org/issue3243
+
+BaseHTTPServer reinventing rfc822 date
+http://bugs.python.org/issue7370
+
+http://bugs.python.org/issue1491
+BaseHTTPServer incorrectly implements response code 100
+
+[issue8572] httplib getheader() throws error instead of default 
+
+https://bugs.launchpad.net/bugs/94130
 
 [issue8805] urllib should support SSL contexts   
 
@@ -58,7 +88,6 @@ http://bugs.python.org/issue8741
 
 [issue8590] test_httpservers.CGIHTTPServerTestCase failure on 3.1-maint
 
-[issue8572] httplib getheader() throws error instead of default 
 
 [issue8499] Set a timeout in test_urllibnet 
 
@@ -123,7 +152,6 @@ issue1643370 - recursive urlparse
 
 issue1673007 - urllib2 requests history + HEAD support
 
-issue1712522 -  urllib.quote throws exception on Unicode
 
 issue1722 -  Undocumented urllib functions 
 
@@ -2407,17 +2435,6 @@ Module Structure
 .. container:: handout
 
    This is how a module should be structured.
-
-
-Command-Line Processing
-=======================
-
-Example: `<cmdline.py>`__:
-
-.. container:: handout
-
-   .. include:: cmdline.py
-      :literal:
 
 
 Packages
