@@ -11,33 +11,30 @@ TODO
 * study diveintopython3 (20)
 * Digest Authentication is not working.
 * Classic Classes and new-style classes.
-
 * Email Module work is in progress where the discussions are going on for the
   different types and type of support for Internal and External APIs and the
   way to handle text and binary data.
-
 * http://ffwl.unfuddle.com/  username is orsenthil and password is your initials.
-
 * http://krondo.com/blog/?p=1209
-
 * What is a multiset?
 * Find out the various Exception raising mechanisms.
 * http://www.linuxjournal.com/article/8497
 * http://www.linuxjournal.com/article/3641
-
-
-- What is the Buffer Protocol and How is it useful?
+* What is the Buffer Protocol and How is it useful?
 
 Good Python Question and Answers
 --------------------------------
 
 * http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
-
-
  
 
 Python bugs
 -----------
+
+[issue9040] using MIMEApplication to attach a PDF raises a TypeError
+
+Issue5468
+urlencode does not handle "bytes",and could easily handle alternate encodings
 
 cgi module cannot handle POST with multipart/form-data in 3.0
 http://bugs.python.org/issue4953
@@ -87,7 +84,6 @@ http://bugs.python.org/issue8741
 [issue8595] Explain the default timeout in http-client-related librarie
 
 [issue8590] test_httpservers.CGIHTTPServerTestCase failure on 3.1-maint
-
 
 [issue8499] Set a timeout in test_urllibnet 
 
@@ -227,303 +223,81 @@ issue8095    -  test_urllib2 crashes on OS X 10.3
 issue8077    -  cgi handling of POSTed files is broken
 
 
-==========================================
- Code Like a Pythonista: Idiomatic Python
-==========================================
+Here's another easter egg:
 
-.. sidebar:: Contents
-   :class: handout
-
-   .. contents:: :local:
-
-.. class:: center big
-
-   | *David Goodger*
-   | goodger@python.org
-   | http://python.net/~goodger
-
-In this interactive tutorial, we'll cover many essential Python idioms
-and techniques in depth, adding immediately useful tools to your belt.
-
-There are 3 versions of this presentation:
-
-* `S5 presentation <presentation.html>`__
-* `Plain HTML handout <handout.html>`__
-* `reStructuredText source <presentation.txt>`__
-
-.. class:: small
-
-   ©2006-2008, licensed under a `Creative Commons
-   Attribution/Share-Alike (BY-SA) license
-   <http://creativecommons.org/licenses/by-sa/3.0/>`__.
-
-.. container:: handout
-
-   My credentials: I am
-
-   * a resident of Montreal,
-   * father of two great kids, husband of one special woman,
-   * a full-time Python programmer,
-   * author of the Docutils_ project and reStructuredText_,
-   * an editor of the Python Enhancement Proposals (or PEPs),
-   * an organizer of PyCon 2007, and chair of PyCon 2008,
-   * a member of the Python Software Foundation,
-   * a Director of the Foundation for the past year, and its Secretary.
-
-   In the tutorial I presented at PyCon 2006 (called Text & Data
-   Processing), I was surprised at the reaction to some techniques I
-   used that I had thought were common knowledge.  But many of the
-   attendees were unaware of these tools that experienced Python
-   programmers use without thinking.
-
-   Many of you will have seen some of these techniques and idioms
-   before.  Hopefully you'll learn a few techniques that you haven't
-   seen before and maybe something new about the ones you have already
-   seen.
-
-.. _Docutils: http://docutils.sourceforge.net/
-.. _reStructuredText: http://docutils.sourceforge.net/rst.html
-
-
-The Zen of Python (1)
-=====================
-
-.. container:: handout
-
-   These are the guiding principles of Python, but are open to
-   interpretation.  A sense of humor is required for their proper
-   interpretation.
-
-   If you're using a programming language named after a sketch comedy
-   troupe, you had better have a sense of humor.
-
-.. class:: small
-
-   ..
-
-       | Beautiful is better than ugly.
-       | Explicit is better than implicit.
-       | Simple is better than complex.
-       | Complex is better than complicated.
-       | Flat is better than nested.
-       | Sparse is better than dense.
-       | Readability counts.
-       | Special cases aren't special enough to break the rules.
-       | Although practicality beats purity.
-       | Errors should never pass silently.
-       | Unless explicitly silenced.
-       |
-       |     ...
-
-
-The Zen of Python (2)
-=====================
-
-.. class:: small
-
-   ..
-
-       | In the face of ambiguity, refuse the temptation to guess.
-       | There should be one—and preferably only one—obvious way to do it.
-       | Although that way may not be obvious at first unless you're Dutch.
-       | Now is better than never.
-       | Although never is often better than *right* now.
-       | If the implementation is hard to explain, it's a bad idea.
-       | If the implementation is easy to explain, it may be a good idea.
-       | Namespaces are one honking great idea—let's do more of those!
-
-       -- Tim Peters
-
-.. container:: handout
-
-   This particular "poem" began as a kind of a joke, but it really
-   embeds a lot of truth about the philosophy behind Python.  The Zen
-   of Python has been formalized in PEP 20, where the abstract reads:
-
-       Long time Pythoneer Tim Peters succinctly channels the BDFL's
-       guiding principles for Python's design into 20 aphorisms, only
-       19 of which have been written down.
-
-       -- http://www.python.org/dev/peps/pep-0020/
-
-   You can decide for yourself if you're a "Pythoneer" or a
-   "Pythonista".  The terms have somewhat different connotations.
-
-.. class:: incremental
-
-   When in doubt::
-
-       import this
-
-.. container:: handout
-
-   Try it in a Python interactive interpreter:
-
-   >>> import this
-
-   Here's another easter egg:
-
-   >>> from __future__ import braces
-     File "<stdin>", line 1
-   SyntaxError: not a chance
-
-   What a bunch of comedians! :-)
-
+>>> from __future__ import braces
+    File "<stdin>", line 1
+SyntaxError: not a chance
 
 Coding Style: Readability Counts
 ================================
 
-    Programs must be written for people to read, and only incidentally
-    for machines to execute.
+Programs must be written for people to read, and only incidentally for machines
+to execute.
 
-    -- Abelson & Sussman, *Structure and Interpretation of Computer Programs*
-
-.. container:: handout
-
-   Try to make your programs easy to read and obvious.
-
-
-PEP 8: Style Guide for Python Code
-==================================
-
-Worthwhile reading:
-
-    http://www.python.org/dev/peps/pep-0008/
-
-PEP = Python Enhancement Proposal
-
-.. container:: handout
-
-   A PEP is a design document providing information to the Python
-   community, or describing a new feature for Python or its processes
-   or environment.
-
-   The Python community has its own standards for what source code
-   should look like, codified in PEP 8.  These standards are different
-   from those of other communities, like C, C++, C#, Java,
-   VisualBasic, etc.
-
-   Because indentation and whitespace are so important in Python, the
-   Style Guide for Python Code approaches a standard.  It would be
-   wise to adhere to the guide!  Most open-source projects and
-   (hopefully) in-house projects follow the style guide quite
-   closely.
-
-
-Whitespace 1
-============
-
-.. class:: incremental
-
-* 4 spaces per indentation level.
-
-* No hard tabs.
-
-* **Never** mix tabs and spaces.
-
-  .. container:: handout
-
-     This is exactly what IDLE and the Emacs Python mode support.
-     Other editors may also provide this support.
+-- Abelson & Sussman, *Structure and Interpretation of Computer Programs*
 
 * One blank line between functions.
-
 * Two blank lines between classes.
-
-
-Whitespace 2
-============
-
-.. class:: incremental
-
-   * Add a space after "," in dicts, lists, tuples, & argument lists, and
-     after ":" in dicts, but not before.
-
-   * Put spaces around assignments & comparisons (except in argument
-     lists).
-
-   * No spaces just inside parentheses or just before argument
-     lists.
-
-   * No spaces just inside docstrings.
-
-   ::
-
-         def make_squares(key, value=0):
-             """Return a dictionary and a list..."""
-             d = {key: value}
-             l = [key, value]
-             return d, l
-
-
-Naming
-======
-
-.. class:: incremental
-
+* Add a space after "," in dicts, lists, tuples, & argument lists, and after
+  ":" in dicts, but not before.
+* Put spaces around assignments & comparisons (except in argument lists).
+* No spaces just inside parentheses or just before argument lists.
+* No spaces just inside docstrings.
 * ``joined_lower`` for functions, methods, attributes
-
 * ``joined_lower`` or ``ALL_CAPS`` for constants
-
 * ``StudlyCaps`` for classes
-
 * ``camelCase`` **only** to conform to pre-existing conventions
-
 * Attributes: ``interface``, ``_internal``, ``__private``
 
-  .. container:: handout
+But try to avoid the ``__private`` form.  I never use it.
+Trust me.  If you use it, you **WILL** regret it later.
 
-     But try to avoid the ``__private`` form.  I never use it.
-     Trust me.  If you use it, you **WILL** regret it later.
+Explanation:
 
-     Explanation:
+People coming from a C++/Java background are especially prone to
+overusing/misusing this "feature".  But ``__private`` names don't
+work the same way as in Java or C++.  They just trigger a `name
+mangling`__ whose purpose is to prevent accidental namespace
+collisions in subclasses: ``MyClass.__private`` just becomes
+``MyClass._MyClass__private``.  (Note that even this breaks down
+for subclasses with the same name as the superclass,
+e.g. subclasses in different modules.)  It *is* possible to
+access ``__private`` names from outside their class, just
+inconvenient and fragile (it adds a dependency on the exact name
+of the superclass).
 
-     People coming from a C++/Java background are especially prone to
-     overusing/misusing this "feature".  But ``__private`` names don't
-     work the same way as in Java or C++.  They just trigger a `name
-     mangling`__ whose purpose is to prevent accidental namespace
-     collisions in subclasses: ``MyClass.__private`` just becomes
-     ``MyClass._MyClass__private``.  (Note that even this breaks down
-     for subclasses with the same name as the superclass,
-     e.g. subclasses in different modules.)  It *is* possible to
-     access ``__private`` names from outside their class, just
-     inconvenient and fragile (it adds a dependency on the exact name
-     of the superclass).
+__ http://docs.python.org/dev/reference/expressions.html#atom-identifiers
 
-     __ http://docs.python.org/dev/reference/expressions.html#atom-identifiers
+The problem is that the author of a class may legitimately think
+"this attribute/method name should be private, only accessible
+from within this class definition" and use the ``__private``
+convention.  But later on, a user of that class may make a
+subclass that legitimately needs access to that name.  So either
+the superclass has to be modified (which may be difficult or
+impossible), or the subclass code has to use manually mangled
+names (which is ugly and fragile at best).
 
-     The problem is that the author of a class may legitimately think
-     "this attribute/method name should be private, only accessible
-     from within this class definition" and use the ``__private``
-     convention.  But later on, a user of that class may make a
-     subclass that legitimately needs access to that name.  So either
-     the superclass has to be modified (which may be difficult or
-     impossible), or the subclass code has to use manually mangled
-     names (which is ugly and fragile at best).
+There's a concept in Python: "we're all consenting adults here".
+If you use the ``__private`` form, who are you protecting the
+attribute from?  It's the responsibility of subclasses to use
+attributes from superclasses properly, and it's the
+responsibility of superclasses to document their attributes
+properly.
 
-     There's a concept in Python: "we're all consenting adults here".
-     If you use the ``__private`` form, who are you protecting the
-     attribute from?  It's the responsibility of subclasses to use
-     attributes from superclasses properly, and it's the
-     responsibility of superclasses to document their attributes
-     properly.
+It's better to use the single-leading-underscore convention,
+``_internal``. 　This isn't name mangled at all; it just
+indicates to others to "be careful with this, it's an internal
+implementation detail; don't touch it if you don't **fully**
+understand it".  It's only a convention though.
 
-     It's better to use the single-leading-underscore convention,
-     ``_internal``. 　This isn't name mangled at all; it just
-     indicates to others to "be careful with this, it's an internal
-     implementation detail; don't touch it if you don't **fully**
-     understand it".  It's only a convention though.
+There are some good explanations in the answers here:
 
-     There are some good explanations in the answers here:
-
-     * http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
-     * http://stackoverflow.com/questions/1641219/does-python-have-private-variables-in-classes
-
+* http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
+* http://stackoverflow.com/questions/1641219/does-python-have-private-variables-in-classes
 
 Long Lines & Continuations
 ==========================
-
-.. class:: incremental
 
    Keep lines below 80 characters in length.
 
@@ -539,8 +313,6 @@ Long Lines & Continuations
        VeryLong.left_hand_side \
            = even_longer.right_hand_side()
 
-.. container:: handout
-
    Backslashes are fragile; they must end the line they're on.  If you
    add a space after the backslash, it won't work any more.  Also,
    they're ugly.
@@ -549,28 +321,7 @@ Long Lines & Continuations
 Long Strings
 ============
 
-.. container:: handout
-
-   Adjacent literal strings are concatenated by the parser:
-
-.. class:: incremental
-
->>> print 'o' 'n' "e"
-one
-
-.. container:: handout
-
-   The spaces between literals are not required, but help with
-   readability.  Any type of quoting can be used:
-
-   >>> print 't' r'\/\/' """o"""
-   t\/\/o
-
-   The string prefixed with an "r" is a "raw" string.  Backslashes are
-   not evaluated as escapes in raw strings.  They're useful for
-   regular expressions and Windows filesystem paths.
-
-   Note named string objects are **not** concatenated:
+Note named string objects are **not** concatenated:
 
    >>> a = 'three'
    >>> b = 'four'
@@ -580,24 +331,16 @@ one
          ^
    SyntaxError: invalid syntax
 
-   That's because this automatic concatenation is a feature of the
-   Python parser/compiler, not the interpreter.  You must use the "+"
-   operator to concatenate strings at run time.
+That's because this automatic concatenation is a feature of the Python
+parser/compiler, not the interpreter.  You must use the "+" operator to
+concatenate strings at run time.
 
-.. class:: incremental
+text = ('Long strings can be made up '
+        'of several shorter strings.')
 
-::
+The parentheses allow implicit line continuation.
 
-    text = ('Long strings can be made up '
-            'of several shorter strings.')
-
-.. container:: handout
-
-   The parentheses allow implicit line continuation.
-
-   Multiline strings use triple quotes:
-
-.. class:: incremental
+Multiline strings use triple quotes:
 
    ::
 
@@ -613,13 +356,10 @@ one
        quotes\
        '''
 
-.. container:: handout
-
-   In the last example above (triple single quotes), note how the
-   backslashes are used to escape the newlines.  This eliminates extra
-   newlines, while keeping the text and quotes nicely left-justified.
-   The backslashes must be at the end of their lines.
-
+In the last example above (triple single quotes), note how the
+backslashes are used to escape the newlines.  This eliminates extra
+newlines, while keeping the text and quotes nicely left-justified.
+The backslashes must be at the end of their lines.
 
 Compound Statements
 ===================
@@ -637,17 +377,6 @@ Bad::
     if foo == 'blah': do_something()
     do_one(); do_two(); do_three()
 
-.. container:: handout
-
-   Whitespace & indentations are useful visual indicators of the
-   program flow.  The indentation of the second "Good" line above
-   shows the reader that something's going on, whereas the lack of
-   indentation in "Bad" hides the "if" statement.
-
-   Multiple statements on one line are a cardinal sin.  In Python,
-   *readability counts*.
-
-
 Docstrings & Comments
 =====================
 
@@ -655,74 +384,70 @@ Docstrings = **How to use** code
 
 Comments = **Why** (rationale) & **how code works**
 
-.. container:: handout
+Docstrings explain **how** to use code, and are for the **users**
+of your code.  Uses of docstrings:
 
-   Docstrings explain **how** to use code, and are for the **users**
-   of your code.  Uses of docstrings:
+* Explain the purpose of the function even if it seems obvious to
+you, because it might not be obvious to someone else later on.
 
-   * Explain the purpose of the function even if it seems obvious to
-     you, because it might not be obvious to someone else later on.
+* Describe the parameters expected, the return values, and any
+exceptions raised.
 
-   * Describe the parameters expected, the return values, and any
-     exceptions raised.
+* If the method is tightly coupled with a single caller, make some
+mention of the caller (though be careful as the caller might
+change later).
 
-   * If the method is tightly coupled with a single caller, make some
-     mention of the caller (though be careful as the caller might
-     change later).
+Comments explain **why**, and are for the **maintainers** of your
+code.  Examples include notes to yourself, like::
 
-   Comments explain **why**, and are for the **maintainers** of your
-   code.  Examples include notes to yourself, like::
+# !!! BUG: ...
 
-       # !!! BUG: ...
+# !!! FIX: This is a hack
 
-       # !!! FIX: This is a hack
+# ??? Why is this here?
 
-       # ??? Why is this here?
+Both of these groups include **you**, so write good docstrings and
+comments!
 
-   Both of these groups include **you**, so write good docstrings and
-   comments!
+Docstrings are useful in interactive use (``help()``) and for
+auto-documentation systems.
 
-   Docstrings are useful in interactive use (``help()``) and for
-   auto-documentation systems.
+False comments & docstrings are worse than none at all.  So keep
+them up to date!  When you make changes, make sure the comments &
+docstrings are consistent with the code, and don't contradict it.
 
-   False comments & docstrings are worse than none at all.  So keep
-   them up to date!  When you make changes, make sure the comments &
-   docstrings are consistent with the code, and don't contradict it.
+There's an entire PEP about docstrings, PEP 257, "Docstring
+Conventions":
 
-   There's an entire PEP about docstrings, PEP 257, "Docstring
-   Conventions":
-
-       http://www.python.org/dev/peps/pep-0257/
+http://www.python.org/dev/peps/pep-0257/
 
 
 Practicality Beats Purity
 =========================
 
-    A foolish consistency is the hobgoblin of little minds.
+A foolish consistency is the hobgoblin of little minds.
 
-    -- Ralph Waldo Emerson
+-- Ralph Waldo Emerson
 
-.. container:: handout
+(*hobgoblin*: Something causing superstitious fear; a bogy.)
 
-   (*hobgoblin*: Something causing superstitious fear; a bogy.)
+There are always exceptions.  From PEP 8:
 
-   There are always exceptions.  From PEP 8:
+But most importantly: know when to be inconsistent -- sometimes
+the style guide just doesn't apply.  When in doubt, use your
+best judgment.  Look at other examples and decide what looks
+best.  And don't hesitate to ask!
 
-       But most importantly: know when to be inconsistent -- sometimes
-       the style guide just doesn't apply.  When in doubt, use your
-       best judgment.  Look at other examples and decide what looks
-       best.  And don't hesitate to ask!
+Two good reasons to break a particular rule:
 
-       Two good reasons to break a particular rule:
+(1) When applying the rule would make the code less readable,
+   even for someone who is used to reading code that follows
+   the rules.
 
-       (1) When applying the rule would make the code less readable,
-           even for someone who is used to reading code that follows
-           the rules.
-
-       (2) To be consistent with surrounding code that also breaks it
-           (maybe for historic reasons) -- although this is also an
-           opportunity to clean up someone else's mess (in true XP
-           style).
+(2) To be consistent with surrounding code that also breaks it
+   (maybe for historic reasons) -- although this is also an
+   opportunity to clean up someone else's mess (in true XP
+   style).
 
 `... but practicality shouldn't beat purity to a pulp!`
 
@@ -748,66 +473,14 @@ In other languages::
     a = b
     b = temp
 
-.. class:: incremental
-
    In Python::
 
        b, a = a, b
 
-.. container:: handout
 
-   Perhaps you've seen this before.  But do you know how it works?
-
-.. class:: incremental
-
-   * The **comma** is the tuple constructor syntax.
-   * A tuple is created on the right (tuple packing).
-   * A tuple is the target on the left (tuple unpacking).
-
-.. container:: handout
-
-   The right-hand side is **unpacked** into the names in the tuple on
-   the left-hand side.
-
-   Further examples of unpacking:
-
-   >>> l =['David', 'Pythonista', '+1-514-555-1234']
-   >>> name, title, phone = l
-   >>> name
-   'David'
-   >>> title
-   'Pythonista'
-   >>> phone
-   '+1-514-555-1234'
-
-   Useful in loops over structured data:
-
-   ``l`` (L) above is the list we just made (David's info).  So
-   ``people`` is a list containing two items, each a 3-item list.
-
-   >>> people = [l, ['Guido', 'BDFL', 'unlisted']]
-   >>> for (name, title, phone) in people:
-   ...     print name, phone
-   ...
-   David +1-514-555-1234
-   Guido unlisted
-
-   Each item in ``people`` is being unpacked into the ``(name, title,
-   phone)`` tuple.
-
-   Arbitrarily nestable (just be sure to match the structure on the
-   left & right!):
-
-   >>> david, (gname, gtitle, gphone) = people
-   >>> gname
-   'Guido'
-   >>> gtitle
-   'BDFL'
-   >>> gphone
-   'unlisted'
-   >>> david
-   ['David', 'Pythonista', '+1-514-555-1234']
-
+* The **comma** is the tuple constructor syntax.
+* A tuple is created on the right (tuple packing).
+* A tuple is the target on the left (tuple unpacking).
 
 More About Tuples
 =================

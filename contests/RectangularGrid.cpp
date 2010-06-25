@@ -75,4 +75,43 @@ Returns: 0
 964
 Returns: 81508708664
 
-This problem statement is the exclusive and proprietary property of TopCoder, Inc. Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited. (c)2003, TopCoder, Inc. All rights reserved.
+This problem statement is the exclusive and proprietary property of TopCoder,
+     Inc. Any unauthorized use or reproduction of this information without the
+     prior written consent of TopCoder, Inc. is strictly prohibited. (c)2003,
+     TopCoder, Inc. All rights reserved.
+
+**/
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
+class RectangularGrid{
+
+	public:
+		long long countRectangles(int width, int height)
+		{
+			int i=0,j=0;
+			long long count=0;
+			for (i=1;i<=width;i++)
+				for(j=1;j<=width;j++)
+				{
+					if (i == j)
+						continue;
+					count += i*j;
+				}
+			return count;
+
+		}
+};
+
+int main(int argc, char *argv[])
+{
+	RectangularGrid obj;
+	cout<<obj.countRectangles(3,3)<<endl;
+}

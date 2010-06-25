@@ -1,52 +1,125 @@
+===================
 O.R.Senthil Kumaran
 ===================
 
-Email: orsenthil@gmail.com
+:Email: orsenthil@gmail.com 
+:Phone: **+919880459565**/656393215
 
-Phone: +919880459565
+---- 
 
-Interests
----------
+.. topic:: OBJECTIVE
+        
+        Seeking an Senior Engineering Role where I can utilize my skills in
+        Software Development, Object Oriented Programming, Design and
+        Architecture in a creative and a challenging Software Development
+        Environment.
 
- * Algorithms
- * Internet Programming
- * Distributed Systems
- * Programming Languages
+.. topic:: SKILLS AND TECHNICAL PROFICIENCY
 
-Skills
-======
+        * **Python Core Developer** - Active contributer to the Python Programming Language.
+        * Programming Laguages Known - **C++, Python, C, Perl**
+        * Revision Control Systems - **CVS, SVN, Perforce, git and Mercurial**
+        * Profeciency in writing **System Software using C++ for Linux and Windows.**
+        * Expertise in **Internet Programming, Cloud Computing and Distributed Systems.**
+        * **OpenSSL** based Secure Programming System.
+        * Expertise in Designing **Test Automation and Unittest Frameworks**.
 
-Python Core Developer 
----------------------
+.. topic:: PROJECT DETAILS
 
-Current maintainer of the urllib and related modules in Python Standard Library.
 
-Language Familiarity 
---------------------
+        * **urllib - Python Standard Library Module**
 
-* Python: 4 Years.
-* C++ : 1 Year.
-* C: : 2 Years. 
+           Current Maintainer of the urllib module of *Python Standard Library*.
+           This module is at the core of handling any URLS in the web
+           programming. This is Pure Python module.
 
-Design Skills 
--------------
+           * `Commit Stats`_
+           * `Tracker Stats`_
 
-* Network Programming and Designing Hi-End Network Systems.
-* Design and Implementation of Secure Systems.
+        * **uthcode - programming project.**
 
-Technologies,Tools and Frameworks
----------------------------------
+           Project which is aimed towards study of programming principles,
+           algorithms and other research. This contains good solutions for
+           commonly occurring programming tasks. 
 
-* cvs, svn, perforce, git and hg
-* Understanding of XML
-* Understanding of Unicode and Encodings
-* OpenSSL based Security Systems.
-* Twisted Networking Framework.
-* Test Automation Design Framework and Unittest Frameworks.
-* Troubleshooting and Network Diagnostics Tools.
+           * Website: uthcode_ 
+           * Languages: **C, C++, Python**
+           
+        * **Data Analyzer - A Distributed Log Analyzer project at Akamai**
 
-Work Experience
----------------
+          Data Analyzer was a platform to collect and analyze HTTP Logs and
+          other information from different sources. It was designed using
+          Asynchronous Event Handling Framework (twisted) and the processing
+          analysis of the data was performed using a map-reduce framework.
+
+          * Role: Built the core asynchronous engine and the underlying request
+            and response mechanism.
+          * Languages and Technologies: **Python, XML, C++, Asynchronous Servers, Large Volume Data Processing**
+
+        * **BIOS and Framework Test Automation Suite**
+
+          This was a Command Line Automation Framework, which was helpful in
+          testing System Software like BIOS and system firmwares. The framework
+          was developed using Python.
+
+          * Role: Test Automation Engineer. Build and Release of Software
+          * Languages: **Python, C, Silk Test**
+
+        * **Event Simulator Tool**
+
+          This Tool simulates the Windows Systems Events like Processor
+          Overheating, maximum IO Load. This was helpful for testing the
+          Systems Management Software which look out for events from event
+          manager.
+
+          * Languages: **Microsoft Visual C++**
+
+        * **Linux Server Configuration Tool**
+
+          Scripts that would ease the configuration of sendmail, postfix, mysql
+          databases and populate with a set of test values. These scripts were
+          used for load testing the servers.
+
+          * Language: **BASH Scripting, Python.**
+
+        * **RollBack CD**
+         
+          One person project, which will downgrade the entire system software
+          to a chosen level. This was helpful to test the upgrade manager
+          software.  This project was helpful in saving a countless man hours
+          in testing the upgrade manager.
+
+          * Language: **Windows Batch Scripting**
+
+        * **ngwallpaper**
+
+          Yahoo hack day project. This is wallpaper creator, which will take up
+          latest buzz, pick up photos and generates wallpapers and sets it up
+          on your Desktop.  This won the **Best Desktop Hack** for Yahoo hackday
+          2007. 
+
+          * Website: ngwallpaper_
+
+        * **pylvim**
+ 
+          vim script hack to update the Livejournal blog directly from vim text
+          editor. 
+          
+          * Website: pyljvim_
+
+
+        * **Who Slides Wins!**
+
+          An Algorithmic game. It is a competition between user and the
+          computer to solve the N-Puzzle. Computer uses A* best first search
+          algorithm and uses manhatten distances to calculate the target moves.
+
+          Website: pygame07_
+
+
+.. topic:: WORK EXPERIENCE
+
+        **Total Experience: 7 Years**
 
         +--------------------+----------------------------+------------------+
         | Organization       | Role                       |   Period         |
@@ -56,183 +129,58 @@ Work Experience
         | Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
         +--------------------+----------------------------+------------------+
 
-
-Education
----------
-
+.. topic:: EDUCATION
 
         +-----------------------------+-----------+------------------------+--------+
         | School                      | Period    | Major                  | Grade  |
         +=============================+===========+========================+========+
         | National Engineering College| 1998-2002 | Bachelor of Enginering | 77.3%  |
         |  Tamil Nadu, India          |           | Computer Science       |        |
+        |                             |           |                        |        |
+        | Indian Institute of Science | 2007      | Certificate Courses in | A, D   |
+        |                             |           | Cryptography and AI    |        |
         +-----------------------------+-----------+------------------------+--------+
 
+.. topic:: AWARDS AND RECOGNITIONS
 
-Certificate Courses
--------------------
+        * Co-Inventor of year 2007, Dell India R&D.
+        * One Quarterly Achievement Award - 2005.
+        * Community Service Ambassador, Dell India R&D - 2006 - 2008.
 
-        +-----------------------------+------+----------------------------------+---------+
-        |       School                | Year |  Topic                           | Grade   |
-        +=============================+======+==================================+=========+
-        | Indian Institute of Science | 2007 | Cryptography and Network Security|  D      |
-        |                             |      |                                  |         |
-        | Indian Institute of Science | 2007 | Artificial Intelligence          |  A      |
-        +-----------------------------+------+----------------------------------+---------+
+.. topic:: COMMUNITY ACTIVITIES
 
-Software Projects
------------------
-
-urllib - Python Standard Library Module
-
-   Current Maintainer of the urllib *Python Standard Library* module. I was
-   involved with fix bugs in the urllib and other internet related modules and
-   also worked on porting urllib to Python 3.
-   * `Commit Stats`_
-   * `Tracker Stats`_
+        * Associated with `Spastics Society of Karnataka`_ as a teacher,
+          volunteer and a web-master.
+        * Teaching Robotics to High School Students and Mentor in the First
+          Lego League Competition.
 
 
-uthcode - programming project.
-
-   One person project which is aimed towards study of programming principles,
-   algorithms and other research. This contains good solutions for commonly
-   occurring programming tasks. Website: uthcode_ 
-   
-
-
-Data Analyzer - A Distributed Log Analyzer project at Akamai
-
-  Data Analyzer was a platform to collect and analyze HTTP Logs and other
-  information from different sources. It was designed using Asynchronous Event
-  Handling Framework (twisted) and the processing analysis of the data was
-  performed using a map-reduce framework.
-
-  Role: Built the core asynchronous engine and the underlying request and
-  response mechanism.
-
-
-BIOS and Framework Test Automation Suite
-
-  This was a Command Line Automation Framework, which was helpful in testing
-  System Software like BIOS and system firmwares. The framework was developed
-  using Python.
-
-
-Event Simulator Tool
-
-  This Tool simulates the Windows Systems Events like Processor Overheating,
-  maximum IO Load. This was helpful for testing the Systems Management Software
-  which look out for events from event manager.
-
-Linux Server Configuration Tool
-
-  Scripts that would ease the configuration of sendmail, postfix, mysql
-  databases and populate with a set of test values. These scripts were used for
-  load testing the servers.
-
-RollBack CD
+.. topic:: PATENT APPLICATIONS
  
-  One person project, which will downgrade the entire system software to a
-  chosen level. This was helpful to test the upgrade manager software.
-  This project was helpful in saving a countless man hours in testing the
-  upgrade manager.
+        * Obtaining User Input for Including in System Management Logs. `Patent Application- July 2006`_
+        * XML Syndication and Aggregation for printers `Patent Application- September 2006`_
+        * Content Search in Blu-Ray disk using Video sub title indexing and frame weight algorithm.  `Patent Application- August 2008`_
+        * Fast Download mechanisms in Blu Ray disk. Patent Application:May 2008
 
+.. topic:: INDUSTRY PUBLICATIONS
 
-ngwallpaper
+        * Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. `Power Solutions - 2004`_
+        * Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
 
-  Yahoo hack day project. This is wallpaper creator, which will take up latest
-  buzz, pick up photos and generates wallpapers and sets it up on your Desktop.
-  This won the best desktop hack for Yahoo hackday 2007. Website: ngwallpaper_
-
-
-
-pylvim
+.. topic:: CONFERENCE PRESENTATIONS
  
-  vim script hack to update the Livejournal blog directly from vim text editor.
-  Website: pyljvim_
+        * Taught Python Standard Library Overview at `PyCon 2009 Conference`_,
+          Chicago, USA.
+        * Teaching "How to Solve it using Python" Programming methodologies
+          using Python at `PyCon 2010 Conference`_, Atlanta, USA.
+        * Presentation on "Python 3 Language" at APAC PyCon, Singapore.
 
+.. topic:: OPEN SOURCE CONTRIBUTIONS
 
-Who Slides Wins!
-
-  An Algorithmic game. It is a competition between user and the computer to
-  solve the N-Puzzle. Computer uses A* best first search algorithm and uses
-  manhatten distances to calculate the target moves. Website: pygame07_
-
-
-
-Awards and Recognitions
------------------------
-
- * Co-Inventor of year 2007, Dell India R&D.
- * One Quarterly Achievement Award - 2005.
- * Community Service Ambassador, Dell India R&D - 2006 - 2008.
-
-
-Conference Talks and Teaching
------------------------------
- 
- * Taught Python Standard Library Overview at `PyCon 2009 Conference`_, Chicago,
-   USA.
- * Teaching "How to Solve it using Python" Programming methodologies  using
-   Python at `PyCon 2010 Conference`_, Atlanta, USA.
-
- * Teaching Robotics to High School Students using LEGO Mindstorms NXT and also
-   programming using Alice Programming Language.
-
-Community Activities
---------------------
-
- * Associated with `Spastics Society of Karnataka`_ as a teacher, volunteer and
-   a web-master.
-
-
-Patents
--------
- 
-Obtaining User Input for Including in System Management Logs.
-   
-   This is patent on a feature of Systems Management Software, which makes
-   analysis of logs efficient. It enhances the system log analysis with an
-   ability for users to add their interpretation directly into the log messages
-   that would be helpful to other users.  
-   `Patent Application- July 2006`_
-
-XML Syndication and Aggregation for printers
- 
-   This patent enables the printers to be a personal news publishing device. It
-   adds the capabilities to understand XML feeds and parsing of the XML feeds
-   based on topic, aggregation and formatted printing so that personal
-   newspaper can be made possible. Patent Application Filed: 
-   `Patent Application- September 2006`_
-
-
-Content Search in Blu-Ray disk using Video sub title indexing and frame weight algorithm.
-  
-  This patent is on Blu-Ray media which enables fast search of digital media,
-  like High Definition video, within a Blu Ray Disk.
-  `Patent Application- August 2008`_
-
-Fast Download mechanisms in Blu Ray disk.
-
-  Unique distributed method of enabling a fast download of high definition
-  media in the Blu Ray disk.
-
-  Patent Application:May 2008
-
-
-Industry Publications
----------------------
-
-* Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. `Power Solutions - 2004`_
-* Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
-
-Other Open Source Contributions
--------------------------------
-
-* Libsmbios_ and patch for skipping tests.
-* Guest Editor for entries in FOLDOC_.
-* Feature Enhancements for nanoblogger_ - A tiny blog engine for Unix.
-* Feature implementations in Rapple_ - A Standards based Website generator.
+        * Libsmbios_ and patch for skipping tests.
+        * Guest Editor for entries in FOLDOC_.
+        * Feature Enhancements for nanoblogger_ - A tiny blog engine for Unix.
+        * Feature implementations in Rapple_ - A Standards based Website generator.
 
 .. _Commit Stats: http://www.ohloh.net/p/python/contributors/111669178856
 .. _Tracker Stats: http://cia.vc/stats/author/orsenthil

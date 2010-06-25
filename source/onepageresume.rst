@@ -1,40 +1,36 @@
 ===================
 O.R.Senthil Kumaran
 ===================
-
--------------------------
-Senior Software Developer
--------------------------
-
+------------------------------------------------
+*Senior Software Developer / Software Architect*
+------------------------------------------------
 :Email: orsenthil@gmail.com 
 :Phone: +919880459565
+:Address: Kim Tian Road. Singapore
 
 ---- 
 
-**Objective**
+.. topic:: OBJECTIVE
 
-        Software Architect Role
+        Seeking a position as Senior Software Developer in a creative environment.
 
-**Skills**
+.. topic:: SKILLS
 
-        * Python Core Developer.
-        * Python - 4 years.
-        * C++ - 1 Year.
-        * C - 2 Years.
-        * Network Programming and Designing Hi-End Network Systems.
+        * **Python Core Developer** - Active contributer to the Python Programming Language.
+        * **Python - 4 years.**
+        * **C++ - 1 Year.**
+        * **C - 2 Years.**
+        * Network Programming, Designing Hi-End Network Systems, Twisted Networking Framework.
         * Design and Implementation of Secure Systems.
+        * Understanding of Source Control Management - cvs, svn, perforce, git and hg.
+        * Expertise in XML, Unicode and Encoding.
+        * Expertise in OpenSSL based Secure systems.
+        * Expertise in Designing Test Automation and Unittest frameworks.
 
-**Technologies,Tools and Frameworks**
 
-* cvs, svn, perforce, git and hg
-* Understanding of XML
-* Understanding of Unicode and Encodings
-* OpenSSL based Security Systems.
-* Twisted Networking Framework.
-* Test Automation Design Framework and Unittest Frameworks.
-* Troubleshooting and Network Diagnostics Tools.
+.. topic:: WORK EXPERIENCE
 
-**Work Experience**
+        **Total Experience: 7 Years**
 
         +--------------------+----------------------------+------------------+
         | Organization       | Role                       |   Period         |
@@ -44,7 +40,7 @@ Senior Software Developer
         | Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
         +--------------------+----------------------------+------------------+
 
-**Education**
+.. topic:: EDUCATION
 
         +-----------------------------+-----------+------------------------+--------+
         | School                      | Period    | Major                  | Grade  |
@@ -52,77 +48,45 @@ Senior Software Developer
         | National Engineering College| 1998-2002 | Bachelor of Enginering | 77.3%  |
         |  Tamil Nadu, India          |           | Computer Science       |        |
         |                             |           |                        |        |
-        | Indian Institute of Science | 2007      | Certificate Courses in | A      |
+        | Indian Institute of Science | 2007      | Certificate Courses in | A, D   |
         |                             |           | Cryptography and AI    |        |
         +-----------------------------+-----------+------------------------+--------+
 
-**Awards and Recognitions**
+.. topic:: AWARDS AND RECOGNITIONS
 
- * Co-Inventor of year 2007, Dell India R&D.
- * One Quarterly Achievement Award - 2005.
- * Community Service Ambassador, Dell India R&D - 2006 - 2008.
+        * Co-Inventor of year 2007, Dell India R&D.
+        * One Quarterly Achievement Award - 2005.
+        * Community Service Ambassador, Dell India R&D - 2006 - 2008.
 
+.. topic:: COMMUNITY ACTIVITIES
 
-**Conference Talks**
+        * Associated with `Spastics Society of Karnataka`_ as a teacher,
+          volunteer and a web-master.
+
+.. topic:: PATENT APPLICATIONS
  
- * Taught Python Standard Library Overview at `PyCon 2009 Conference`_, Chicago,
-   USA.
- * Teaching "How to Solve it using Python" Programming methodologies  using
-   Python at `PyCon 2010 Conference`_, Atlanta, USA.
+        * Obtaining User Input for Including in System Management Logs. `Patent Application- July 2006`_
+        * XML Syndication and Aggregation for printers `Patent Application- September 2006`_
+        * Content Search in Blu-Ray disk using Video sub title indexing and frame weight algorithm.  `Patent Application- August 2008`_
+        * Fast Download mechanisms in Blu Ray disk. Patent Application:May 2008
 
- * Teaching Robotics to High School Students using LEGO Mindstorms NXT and also
-   programming using Alice Programming Language.
+.. topic:: INDUSTRY PUBLICATIONS
 
-**Community Activities**
+        * Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. `Power Solutions - 2004`_
+        * Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
 
- * Associated with `Spastics Society of Karnataka`_ as a teacher, volunteer and
-   a web-master.
-
-
-**Patents**
+.. topic:: CONFERENCE PRESENTATIONS
  
-Obtaining User Input for Including in System Management Logs.
-   
-   This is patent on a feature of Systems Management Software, which makes
-   analysis of logs efficient. It enhances the system log analysis with an
-   ability for users to add their interpretation directly into the log messages
-   that would be helpful to other users.  
-   `Patent Application- July 2006`_
+        * Taught Python Standard Library Overview at `PyCon 2009 Conference`_,
+          Chicago, USA.
+        * Teaching "How to Solve it using Python" Programming methodologies
+          using Python at `PyCon 2010 Conference`_, Atlanta, USA.
+        * Teaching Robotics to High School Students using LEGO Mindstorms NXT
+          and also programming using Alice Programming Language.
 
-XML Syndication and Aggregation for printers
- 
-   This patent enables the printers to be a personal news publishing device. It
-   adds the capabilities to understand XML feeds and parsing of the XML feeds
-   based on topic, aggregation and formatted printing so that personal
-   newspaper can be made possible. Patent Application Filed: 
-   `Patent Application- September 2006`_
+.. topic:: ONLINE RESUME AND PROJECT DETAILS
 
-
-Content Search in Blu-Ray disk using Video sub title indexing and frame weight algorithm.
-  
-  This patent is on Blu-Ray media which enables fast search of digital media,
-  like High Definition video, within a Blu Ray Disk.
-  `Patent Application- August 2008`_
-
-Fast Download mechanisms in Blu Ray disk.
-
-  Unique distributed method of enabling a fast download of high definition
-  media in the Blu Ray disk.
-
-  Patent Application:May 2008
-
-
-**Industry Publications**
-
-* Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. `Power Solutions - 2004`_
-* Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
-
-**Other Open Source Contributions**
-
-* Libsmbios_ and patch for skipping tests.
-* Guest Editor for entries in FOLDOC_.
-* Feature Enhancements for nanoblogger_ - A tiny blog engine for Unix.
-* Feature implementations in Rapple_ - A Standards based Website generator.
+        http://uthcode.sarovar.org/resume.html
 
 .. _Commit Stats: http://www.ohloh.net/p/python/contributors/111669178856
 .. _Tracker Stats: http://cia.vc/stats/author/orsenthil

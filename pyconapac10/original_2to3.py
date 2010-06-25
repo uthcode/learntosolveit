@@ -31,46 +31,46 @@ None
 import sys
 
 def unicode_examples():
-    a = unicode(b)
-    a = u"xxx"
-    a = U"""xxx"""
-    a = ur'xxx'
-    a = UR'''xxx'''
-    a = Ur"xxx"
-    a = uR"""xxx"""
-    b = u"..." u'...'
+    a = str(b)
+    a = "xxx"
+    a = """xxx"""
+    a = r'xxx'
+    a = R'''xxx'''
+    a = r"xxx"
+    a = R"""xxx"""
+    b = "..." '...'
 
 def ne_examples():
-    if x <> y:
+    if x != y:
         pass
-    if x<>y:
+    if x!=y:
         pass
-    if x<>y<>z:
+    if x!=y!=z:
         pass
 
 def has_key_examples():
     #
-    x = d.has_key("x") or d.has_key("y")
+    x = "x" in d or "y" in d
     #
-    x = a.b.c.d.has_key("x") ** 3
+    x = ("x" in a.b.c.d) ** 3
     #
-    x = a.b.has_key(1 + 2).__repr__()
+    x = (1 + 2 in a.b).__repr__()
     #
-    x = a.b.has_key(1 + 2).__repr__() ** -3 ** 4
+    x = (1 + 2 in a.b).__repr__() ** -3 ** 4
     #
-    x = a.has_key(f or g)
+    x = (f or g) in a
     #
-    x = a + b.has_key(c)
+    x = a + (c in b)
     #
-    x = a.has_key(lambda: 12)
+    x = (lambda: 12) in a
     #
-    x = a.has_key(a for a in b)
+    x = (a for a in b) in a
     #
-    if not a.has_key(b): pass
+    if b not in a: pass
     #
-    if not a.has_key(b).__repr__(): pass
+    if not (b in a).__repr__(): pass
     #
-    if not a.has_key(b) ** 2: pass
+    if not (b in a) ** 2: pass
 
 def foo():
 	pass # body indented by tab
@@ -78,32 +78,30 @@ def foo():
 def test_ws_comma():
     yield 1,2 ,3
     f(1,2 ,3)
-    `a ,b`
+    repr((a ,b))
     def f(a,b ,c): pass
     { a:b,c:d , e : f }
 
 def apply_examples():
-    x = apply(f, g + h)
-    y = apply(f, g, h)
-    z = apply(fs[0], g or h, h or g)
+    x = f(*g + h)
+    y = f(*g, **h)
+    z = fs[0](*g or h, **h or g)
     # Hello
-    apply(f, (x, y) + t)
-    apply(f, args,)
-    apply(f, args, kwds,)
+    f(*(x, y) + t)
+    f(*args)
+    f(*args, **kwds)
     # Test that complex functions are parenthesized
-    x = apply(f+g, args)
-    x = apply(f*g, args)
-    x = apply(f**g, args)
+    x = (f+g)(*args)
+    x = (f*g)(*args)
+    x = (f**g)(*args)
     # But dotted names etc. not
-    x = apply(f.g, args)
-    x = apply(f[x], args)
-    x = apply(f(), args)
+    x = f.g(*args)
+    x = f[x](*args)
+    x = f()(*args)
     # Extreme case
-    x = apply(a.b.c.d.e.f, args, kwds)
+    x = a.b.c.d.e.f(*args, **kwds)
     # XXX Comments in weird places still get lost
-    apply(   # foo
-          f, # bar
-          args)
+    f(*args)
 
 def bad_apply_examples():
     # These should *not* be touched
@@ -118,29 +116,28 @@ def bad_apply_examples():
     apply(f, args, kwds=kwds)
 
 def metaclass_examples():
-    class X:
-        __metaclass__ = Meta
+    class X(metaclass=Meta):
+        pass
 
-    class X(b1, b2):
+    class X(b1, b2, metaclass=Meta):
         bar = 23 # Comment on me!
-        __metaclass__ = Meta
         spam = 27.23 # Laughable
 
-    class X:
-        __metaclass__ = Meta; x = 23; y = 34 # Yes, I can handle this, too.
+    class X(metaclass=Meta):
+        x = 23; y = 34 # Yes, I can handle this, too.
 
 def intern_examples():
     #
     # These should be refactored:
     #
-    x = intern(a)
+    x = sys.intern(a)
     #
-    y = intern("b" # test
+    y = sys.intern("b" # test
               )
     #
-    z = intern(a+b+c.d,)
+    z = sys.intern(a+b+c.d,)
     #
-    intern("y%s" % 5).replace("y", "")
+    sys.intern("y%s" % 5).replace("y", "")
     #
     # These not:
     #
@@ -154,43 +151,43 @@ def intern_examples():
 
 def print_examples():
     # plain vanilla
-    print 1, 1+1, 1+1+1
+    print(1, 1+1, 1+1+1)
     #
-    print 1, 2
+    print(1, 2)
     #
-    print 1
+    print(1)
 
-    print
+    print()
 
     # trailing commas
-    print 1, 2, 3,
+    print(1, 2, 3, end=' ')
     #
-    print 1, 2,
+    print(1, 2, end=' ')
     #
-    print 1,
+    print(1, end=' ')
     #
-    print
+    print()
 
     # >> stuff
-    print >>sys.stderr, 1, 2, 3    # no trailing comma
+    print(1, 2, 3, file=sys.stderr)    # no trailing comma
     #
-    print >>sys.stdder, 1, 2,      # trailing comma
+    print(1, 2, end=' ', file=sys.stdder)      # trailing comma
     #
-    print >>sys.stderr, 1+1        # no trailing comma
+    print(1+1, file=sys.stderr)        # no trailing comma
     #
-    print >>  sys.stderr           # spaces before sys.stderr
+    print(file=sys.stderr)           # spaces before sys.stderr
 
 def exec_examples():
     #
-    exec code
+    exec(code)
     #
-    exec code in ns
+    exec(code, ns)
     #
-    exec code in ns1, ns2
+    exec(code, ns1, ns2)
     #
-    exec (a.b()) in ns
+    exec((a.b()), ns)
     #
-    exec a.b() + c in ns
+    exec(a.b() + c, ns)
     #
     # These should not be touched:
     #
@@ -203,49 +200,54 @@ def exec_examples():
     exec(code, ns1, ns2)
 
 def repr_examples():
-    x = `1 + 2`
+    x = repr(1 + 2)
     #
-    y = `x`
+    y = repr(x)
     #
-    z = `y`.__repr__()
+    z = repr(y).__repr__()
     #
-    x = `1, 2, 3`
+    x = repr((1, 2, 3))
     #
-    x = `1 + `2``
+    x = repr(1 + repr(2))
     #
-    x = `1, 2 + `3, 4``
+    x = repr((1, 2 + repr((3, 4))))
 
 def except_examples():
     try:
         pass
-    except Exception, (f, e):
+    except Exception as xxx_todo_changeme:
+        (f, e) = xxx_todo_changeme.args
         pass
-    except ImportError, e:
-        print e.args
+    except ImportError as e:
+        print(e.args)
     #
     try:
         pass
-    except (RuntimeError, ImportError), e:
-        pass
-    #
-    try:
-        pass
-    except Exception, (a, b):
+    except (RuntimeError, ImportError) as e:
         pass
     #
     try:
         pass
-    except Exception, d[5]:
+    except Exception as xxx_todo_changeme1:
+        (a, b) = xxx_todo_changeme1.args
         pass
     #
     try:
         pass
-    except Exception, a.foo:
+    except Exception as xxx_todo_changeme2:
+        d[5] = xxx_todo_changeme2
         pass
     #
     try:
         pass
-    except Exception, a().foo:
+    except Exception as xxx_todo_changeme3:
+        a.foo = xxx_todo_changeme3
+        pass
+    #
+    try:
+        pass
+    except Exception as xxx_todo_changeme4:
+        a().foo = xxx_todo_changeme4
         pass
     #
     # These should not be touched:
@@ -266,11 +268,11 @@ def except_examples():
         pass
 
 def raise_examples():
-    raise Exception, 5
+    raise Exception(5)
     #
-    raise Exception,5
+    raise Exception(5)
     #
-    raise Exception, (5, 6, 7)
+    raise Exception(5, 6, 7)
     #
     # These should not be touched
     #
@@ -282,18 +284,18 @@ def raise_examples():
     # TODO: convert "raise E, V, T" to
     #  "e = E(V); e.__traceback__ = T; raise e;"
     #
-    raise Exception, 5, 6
+    raise Exception(5).with_traceback(6)
     #
-    raise Exception,5,6
+    raise Exception(5).with_traceback(6)
     #
-    raise Exception, (5, 6, 7), 6
+    raise Exception(5, 6, 7).with_traceback(6)
 
 def long_examples():
-    x = long(x)
-    y = isinstance(x, long)
-    z = type(x) in (int, long)
-    a = 12L
-    b = 0x12l
+    x = int(x)
+    y = isinstance(x, int)
+    z = type(x) in (int, int)
+    a = 12
+    b = 0x12
     # unchanged:
     a = 12
     b = 0x12
@@ -303,79 +305,79 @@ def dict_examples():
     #
     # Plain method calls
     #
-    print d.keys()
-    print d.items()
-    print d.values()
+    print(list(d.keys()))
+    print(list(d.items()))
+    print(list(d.values()))
     #
     # Plain method calls in special contexts
     #
-    print iter(e.keys())
-    for i in e.keys(): print i
-    [i for i in e.keys()]
-    (i for i in e.keys())
+    print(iter(list(e.keys())))
+    for i in list(e.keys()): print(i)
+    [i for i in list(e.keys())]
+    (i for i in list(e.keys()))
     #
     # Iterator method calls
     #
-    print f.iterkeys()
-    print f.iteritems()
-    print f.itervalues()
+    print(iter(f.keys()))
+    print(iter(f.items()))
+    print(iter(f.values()))
     #
     # Iterator method calls in special contexts
     #
-    print list(g.iterkeys())
-    print sorted(g.iterkeys())
-    print iter(g.iterkeys())
-    for i in g.iterkeys(): print i
-    [i for i in g.iterkeys()]
-    (i for i in g.iterkeys())
+    print(list(g.keys()))
+    print(sorted(g.keys()))
+    print(iter(g.keys()))
+    for i in g.keys(): print(i)
+    [i for i in g.keys()]
+    (i for i in g.keys())
     #
     # Examples with a "tail"; these are never "special"
     #
-    print h.iterkeys().next()
-    print h.keys()[0]
-    print list(h.iterkeys().next())
-    for x in h.keys()[0]: print x
+    print(next(h.iterkeys()))
+    print(list(h.keys())[0])
+    print(list(next(h.iterkeys())))
+    for x in list(h.keys())[0]: print(x)
 
 def dict_negative_examples():
     #
     # These should all remain unchanged:
     #
-    print list(h.keys())
-    print sorted(h.keys())
+    print(list(h.keys()))
+    print(sorted(h.keys()))
 
 def xrange_examples():
-    for i in xrange(100): print i
-    for i in xrange(0, 100): print i
-    for i in xrange(0, 100, 10): print i
+    for i in range(100): print(i)
+    for i in range(0, 100): print(i)
+    for i in range(0, 100, 10): print(i)
 
 def input_examples():
-    a = input()
-    b = input(str(a))
+    a = eval(input())
+    b = eval(input(str(a)))
 
 def raw_input_examples():
-    a = raw_input()
-    b = raw_input(a.rstrip())
+    a = input()
+    b = input(a.rstrip())
 
 def filter_examples():
-    filter(os.unlink, filenames)
-    filter(None, "whatever")
-    filter(lambda x: not x, range(4))
+    list(filter(os.unlink, filenames))
+    [_f for _f in "whatever" if _f]
+    [x for x in list(range(4)) if not x]
 
 def map_examples():
-    map(None, foo.bar)
-    map(None, foo.bar,)
-    map(None, foo, bar)
-    map(f, foo.bar)
-    map(lambda x: x+1, range(10))
+    list(map(None, foo.bar))
+    list(map(None, foo.bar,))
+    list(map(None, foo, bar))
+    list(map(f, foo.bar))
+    list(map(lambda x: x+1, list(range(10))))
 
 def basestring_examples():
-    if isinstance(x, basestring): pass
+    if isinstance(x, str): pass
 
 def buffer_examples():
     x = buffer(y)
 
 def sys_exc_examples():
-    print sys.exc_type, sys.exc_value, sys.exc_traceback
+    print(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])
 
 def operator_examples():
     import operator
