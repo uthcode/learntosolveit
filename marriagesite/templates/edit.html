@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ application_name }} - {{ page.name|escape }} - Edit{% endblock %}
+
+{% block head %}
+  <script type="text/javascript" src="/static/javascript/tinymce/tiny_mce.js"></script>
+  <script type="text/javascript">
+
+  tinyMCE.init({
+  mode: "textareas",
+  theme: "advanced",
+    content_css: "/static/css/base.css",
+    auto_focus: "mce_editor_0"
+  });
+
+  </script>
+  <style type="text/css">
+
+  #body {
+    margin: 29px;
+    margin-top: 19px;
+  }
+
+  #body .buttons {
+    margin-top: 0.75em;
+  }
+
+  #body .buttons .item {
+    margin-right: 0.5em;
+  }
+
+  </style>
+{% endblock %}
+
+{% block body %}
+  <form action="{{ page.edit_url|escape }}" method="post">
+    <div><textarea rows="10" cols="50" id="content" style="width: 100%; height: 400px" name="content">{{ page.content|escape }}</textarea></div>
+    <div class="buttons">
+      <span class="item"><input style="font-weight: bold" type="submit" value="Save Changes"/></span>
+      <span class="item"><input type="button" onclick="location.href='{{ page.view_url|escape }}'" value="Cancel"/></span>
+    </div>
+  </form>
+{% endblock %}

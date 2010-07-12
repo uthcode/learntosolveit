@@ -1,0 +1,163 @@
+/*Autumn Template by Brandon Booth : LucidGreen.net*/
+
+/*Styles reset*/
+* {
+margin:0;
+	padding:0;
+}
+
+html {
+	position:relative;
+}
+
+body {
+	font:90%/1.7em Arial,Verdana,Tahoma,"Trebuchet MS",sans-serif;
+	position:relative;
+	background:url('/static/images/bodyBackground.png') top repeat-x #363422;
+	color:#FFF6D8;
+}
+
+a,a:active,a:visited,a:link {
+	color:#BD6C05;
+}
+
+a:hover {
+	color:#FFC643;
+}
+p {
+	margin:1em 0;
+}
+
+/* Layout and color */
+
+#header {
+	height:342px;
+	margin:0 auto;
+	width:950px;
+	background:url('/static/images/GraphicTrees.jpg') bottom center no-repeat;
+	position:relative;
+}
+
+#page {
+	margin:0 auto;
+	overflow:hidden;
+	padding-top:1.5em;
+	width:950px;
+}
+
+#footer {
+	margin:0 auto;
+	padding:1em 0;
+	
+	text-align:center;
+	background-color:#000;
+}
+
+#content {
+	float:right;
+	padding:0 20px;
+	width:590px;
+	overflow:hidden;
+}
+
+#sidebar {
+	float:left;
+	padding:0 15px 0 30px;
+	width:270px;
+	overflow:hidden;
+}
+
+#navigation ul {
+	list-style:none;
+	position:absolute;
+	top:35px;
+	left:310px;
+}
+
+#navigation li {
+	display:inline;
+}
+
+#navigation a {
+	display:block;
+	float:left;
+	height:34px;
+	padding-right:25px;
+	font-size:1.1em;
+	font-weight:bold;
+	text-decoration:none;
+	color:#FFF6D8;
+}
+#navigation a:hover, #navigation .current {
+	color:#FFC643;
+}
+
+#branding {
+	float:left;
+	height:55px;
+	width:300px;
+	background:url('/static/images/logo.jpg') center left no-repeat;
+	padding:8px 0 0 55px;
+	color:#FFC643;
+	font:normal 1em "Times New Roman";
+}
+#branding h1 {
+	font-size:1.4em;
+}
+#branding h2 {
+	font-size:0.8em;
+	font-weight:normal;
+}
+
+/*content styles */
+.page-title {
+	font:2.2em "Times New Roman", serif;
+	font-weight:bold;
+	letter-spacing:1px;
+	color:#FFC643;
+}
+.post-title {
+	font:1.5em "Times New Roman", serif;
+	font-weight:normal;
+	letter-spacing:1px;
+	color:#FFC643;
+}
+#content ul {
+	margin: 1em 0 1em 45px;
+}
+
+
+/*navigation secondary styles*/
+#navigation-secondary {
+	background:url('/static/images/navHeader.jpg') top center no-repeat;
+	width:256px;
+	margin: 20px 0;
+}
+#navigation-secondary h5 {
+	font:1.5em Arial,sans-serif;
+	font-weight:bold;
+	color:#363422;
+	height:35px;
+	padding:10px 0 0 10px;
+}
+#navigation-secondary ul {
+	border:1px solid #FFC643;
+	border-top:none;
+	padding:10px 0;
+	list-style:none;
+}
+#navigation-secondary a {
+	display:block;
+	width:245px;
+	height:25px;
+	padding:12px 0 0 10px;
+	background:url('/static/images/navLinkBackground.jpg') left bottom no-repeat;
+	text-decoration:none;
+	font-size:1.1em;
+	font-weight:bold;
+	color:#FFC643;
+}
+#navigation-secondary a:hover {
+	background:url('/static/images/navLinkBackgroundHover.jpg') left bottom no-repeat;
+	color:#FFF6DA;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}{{ application_name }}{% endblock %}</title>
+    <link href="/static/css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/chrome.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+
+    function NewPage() {
+      var pageName = window.prompt("Enter the WikiName of your new page:");
+      if (pageName) {
+        location.href = pageName + "?mode=edit";
+      }
+    }
+
+    </script>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+	  <div id="header"> 
+		  <br/>
+		  <center>
+		  <h3 class="page-title">Shalini weds Senthil</h3>
+	          </center>
+	  </div>
+    <div id="body">{% block body %}{% endblock %}</div>
+    <div id="footer">
+	 <div class="top">
+        <div class="login">
+          {% if user %}
+            <span class="item nickname">{{ user.nickname }}</span> |
+            <span class="item"><a href="{{ logout_url|escape }}">Sign out</a></span>
+	    <div class="buttons"><span class="item"><input type="button" value="New Page" onclick="NewPage()"/></span>	           {% block buttons %}<span class="item"><input type="button" onclick="location.href='{{ page.edit_url|escape }}'" value="Edit This Page"/></span>{% endblock %}
+	    </div>
+	    {% else %}
+	    <span class="item"><a href="{{ login_url|escape }}">--</a></span><br/>
+	    Website template design by: <a href="http://www.lucidgreen.net/">Brandon Booth &mdash; LucidGreen.net</a><br/>
+          {% endif %}
+        </div>
+      </div>
+      <div style="clear: both"></div>
+      </div>
+    </div>
+  </body>
+</html>
