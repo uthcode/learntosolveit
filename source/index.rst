@@ -14,6 +14,11 @@ programming and software engineering. The website is hosted at `Sarovar.org`_.
 
 .. _Sarovar.org: http://sarovar.org 
 
+Links
+=====
+
+http://uthcode.slinkset.com/
+
 APAC Pycon 2010
 ===============
 

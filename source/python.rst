@@ -8,7 +8,7 @@ Python Notes
 TODO
 ====
 
-* study diveintopython3 (20)
+* study diveintopython3 (19)
 * Digest Authentication is not working.
 * Classic Classes and new-style classes.
 * Email Module work is in progress where the discussions are going on for the
@@ -26,24 +26,54 @@ Good Python Question and Answers
 --------------------------------
 
 * http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
- 
+* http://stackoverflow.com/questions/990169/how-do-convert-unicode-escape-sequences-to-unicode-characters-in-a-python-string
+
+chr - Gives the characters of length 1 from in the range 0 to 256. That is \x00 to \xff. It should be known that It borders the ASCII and it is the Latin-1 character set. 
+
+It should also be known that \u00ff and \xff are both same.
+
+How is \xa0 is c2a0 in utf-8 encoding?
+--------------------------------------
+
+Bytes vs Str
+------------
+1. Guido is suggesting a Polymorphic function.
+2. Bytes input should return bytes out.
+3. String input should return String output.
+4. There should be intelligence in the function when there is a combination of Bytes and String.
+5. URL parts are Bytes or String? If they are strings they are an ASCII Superset.
+
+Hg Mirror
+
+http://code.python.org/hg/branches/release2.7-maint/  
 
 Python bugs
 -----------
 
-[issue9040] using MIMEApplication to attach a PDF raises a TypeError
+Prioritize:
 
-Issue5468
-urlencode does not handle "bytes",and could easily handle alternate encodings
+http://bugs.python.org/issue8595
+
+https://bugs.launchpad.net/bugs/94130
+
+
+Issue1712522
+urllib.quote throws exception on Unicode URL
+
+http.client.HTTPMessage.getallmatchingheaders() always retur
+
+http://bugs.python.org/issue5053
+
+CGIHTTPRequestHandler.run_cgi() HTTP_ACCEPT improperly parse
+http://bugs.python.org/issue5054
+
+[issue5673] Add timeout option to subprocess.Popen
+http://bugs.python.org/issue5673
 
 cgi module cannot handle POST with multipart/form-data in 3.0
 http://bugs.python.org/issue4953
 
-[issue8653] urlparse.urlparse/urlsplit doc missing
-
 [issue8797] urllib2 basicauth broken in 2.6.5: RuntimeError
-
-[issue8801] Inconsistency in behaviour of urllib and urllib2 with file
 
 [issue8843] urllib2 Digest Authorization uri must match request URI
 
@@ -144,10 +174,7 @@ http://bugs.python.org/issue4733
 
 issue1314572 Trailing slash redirection for SimpleHTTPServer
 
-issue1643370 - recursive urlparse
-
 issue1673007 - urllib2 requests history + HEAD support
-
 
 issue1722 -  Undocumented urllib functions 
 
