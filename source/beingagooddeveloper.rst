@@ -16,7 +16,7 @@ At the outset, I would like to inform you that I am not a good developer yet,
 but I am constantly striving to become one. 
 
 In this article, I would like share about what being a good software developer
-means.
+means to me.
 
 What does it mean to be a software developer?
 

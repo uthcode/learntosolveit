@@ -91,3 +91,14 @@ Notes
 * In Combination, the number of times a particular letter appears is (n!/n!*(n-r)!) * r/n
 * It is not sufficient to know how to use an algorithm in the default sense;
   always strive to know any algorithms you have memorized inside and out
+
+In order to convert an int (or any other numeric type, e.g., float, double,
+etc.) to string, you can use:
+
+#include <sstream>
+
+int i = 5;
+std::string s;
+std::stringstream out;
+out << i;
+s = out.str();
