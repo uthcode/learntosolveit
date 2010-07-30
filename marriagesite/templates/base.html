@@ -25,11 +25,13 @@
 	          </center>
 	  </div>
 	  <div id="page">
+	  <div id="content">{% block body %}{% endblock %}</div>
 	  <div id="sidebar">
 		<div id="navigation-secondary">
 		<h5>Our Wedding</h5>
 			<ul>
-				<li><a href="/OurStory" title="Our Story">Our Story</a></li>
+				<li><a href="MainPage" title="Home">Home</a></li>
+				<li><a href="OurStory" title="Our Story">Our Story</a></li>
 				<li><a href="BrideGroom" title="Bride and Groom">Bride and Groom</a></li>
 				<li><a href="WeddingParty" title="Wedding Party">Wedding Party</a></li>
 				<li><a href="PhotoSlideshow" title="Photo Slideshow">Photo Slideshow</a></li>
@@ -38,7 +40,6 @@
 			</ul>
 		</div>
 	</div> <!--END sidebar div-->
-	<div id="body">{% block body %}{% endblock %}</div>
 	</div>
     <div id="footer">
 	 <div class="top">
