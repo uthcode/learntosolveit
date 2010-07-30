@@ -24,7 +24,22 @@
 		  <h3 class="page-title">Shalini weds Senthil</h3>
 	          </center>
 	  </div>
-    <div id="body">{% block body %}{% endblock %}</div>
+	  <div id="page">
+	  <div id="body">{% block body %}{% endblock %}</div>
+	  <div id="sidebar">
+		<div id="navigation-secondary">
+		<h5>Our Wedding</h5>
+			<ul>
+				<li><a href="#" title="Link1">Our Story</a></li>
+				<li><a href="#" title="Link2">Bride and Groom</a></li>
+				<li><a href="#" title="Dolor">Wedding Party</a></li>
+				<li><a href="#" title="Sit amet">Photo Slideshow</a></li>
+				<li><a href="#" title="Sit amet">Ceremony & Reception</a></li>
+				<li><a href="#" title="Sit amet">Guestbook</a></li>
+			</ul>
+		</div>
+	</div> <!--END sidebar div-->
+	<div id="page">
     <div id="footer">
 	 <div class="top">
         <div class="login">
@@ -34,7 +49,7 @@
 	    <div class="buttons"><span class="item"><input type="button" value="New Page" onclick="NewPage()"/></span>	           {% block buttons %}<span class="item"><input type="button" onclick="location.href='{{ page.edit_url|escape }}'" value="Edit This Page"/></span>{% endblock %}
 	    </div>
 	    {% else %}
-	    <span class="item"><a href="{{ login_url|escape }}">--</a></span><br/>
+	    <span class="item"><a href="{{ login_url|escape }}">~</a></span><br/>
 	    Website template design by: <a href="http://www.lucidgreen.net/">Brandon Booth &mdash; LucidGreen.net</a><br/>
           {% endif %}
         </div>
