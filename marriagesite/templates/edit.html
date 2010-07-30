@@ -2,7 +2,8 @@
 
 {% block title %}{{ application_name }} - {{ page.name|escape }} - Edit{% endblock %}
 
-{% block head %}
+<div id="page">
+{% block body %}
   <script type="text/javascript" src="/static/javascript/tinymce/tiny_mce.js"></script>
   <script type="text/javascript">
 
@@ -30,9 +31,7 @@
   }
 
   </style>
-{% endblock %}
 
-{% block body %}
   <form action="{{ page.edit_url|escape }}" method="post">
     <div><textarea rows="10" cols="50" id="content" style="width: 100%; height: 400px" name="content">{{ page.content|escape }}</textarea></div>
     <div class="buttons">
@@ -40,4 +39,5 @@
       <span class="item"><input type="button" onclick="location.href='{{ page.view_url|escape }}'" value="Cancel"/></span>
     </div>
   </form>
-{% endblock %}
+  {% endblock %}
+<div id="page">

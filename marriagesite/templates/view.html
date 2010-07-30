@@ -2,10 +2,11 @@
 
 {% block title %}{{ application_name }} - {{ page.name|escape }}{% endblock %}
 
+<div id="page">
+
 {% block head %}
 {% endblock %}
 
-<div id="page">
 {% block body %}
   {{ page.wikified_content }}
   {% endblock %}
