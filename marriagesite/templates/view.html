@@ -1,12 +1,8 @@
-{% extends "base.html" %}
-
-{% block title %}{{ application_name }} - {{ page.name|escape }}{% endblock %}
-
 <div id="page">
-
+{% extends "base.html" %}
+{% block title %}{{ application_name }} - {{ page.name|escape }}{% endblock %}
 {% block head %}
 {% endblock %}
-
 {% block body %}
   {{ page.wikified_content }}
   {% endblock %}
