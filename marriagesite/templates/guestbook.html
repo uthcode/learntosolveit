@@ -11,8 +11,7 @@
       <div><textarea name="author" rows="1" cols="20"></textarea></div>
       <label for="content">Wishes</label>
       <div><textarea name="content" rows="10" cols="60"></textarea></div>
-      <div><label for="spam">2+2=</label><textarea name="spam" rows="1" cols="4"></textarea></div>
-  <div><input type="submit" value="Sign Guestbook"></div>
+      <div><input type="submit" value="Sign Guestbook"></div>
     </form>
     <br>
     <a href="{{ url }}">{{ url_linktext }}</a>
@@ -28,8 +27,9 @@
       {% else %}
       <b>A friend wrote:</b>
       {% endif %}
-      <i> {{ greeting.date }} </i>
       <blockquote>{{ greeting.content|escape }}</blockquote>
+      <br>
+      <i> {{ greeting.date }} </i>
       <hr>
     {% endfor %}
 
