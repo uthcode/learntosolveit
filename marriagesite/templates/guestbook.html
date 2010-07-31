@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}{{ application_name }} - {{ page.name|escape }}{% endblock %}
+{% block title %} Dum Dum Dum - Guest Book {% endblock %}
 {% block head %}
 {% endblock %}
 {% block body %}
-    <h1>Guest Book</h1>
-    <h3>Please sign our guest book</h3>
+    <h1>Guest Book</h1><br>
+    <h3>Share your wishes with us</h3>
 
     <form action="/guestbook/sign" method="post">
       <label for="author">Name</label>
@@ -28,8 +28,6 @@
       <b>A friend wrote:</b>
       {% endif %}
       <blockquote>{{ greeting.content|escape }}</blockquote>
-      <br>
-      <i> {{ greeting.date }} </i>
       <hr>
     {% endfor %}
 
