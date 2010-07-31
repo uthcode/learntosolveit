@@ -11,5 +11,8 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /guestbook.*
+  script: guestbook.py
+
 - url: .*
   script: main.py
