@@ -5,27 +5,34 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
-TODO
-====
+How is the Python Private methods and Attributes handled?
+---------------------------------------------------------
 
-* study diveintopython3 (19)
-* Digest Authentication is not working.
-* Classic Classes and new-style classes.
-* Email Module work is in progress where the discussions are going on for the
-  different types and type of support for Internal and External APIs and the
-  way to handle text and binary data.
-* http://ffwl.unfuddle.com/  username is orsenthil and password is your initials.
-* http://krondo.com/blog/?p=1209
-* What is a multiset?
-* Find out the various Exception raising mechanisms.
-* http://www.linuxjournal.com/article/8497
-* http://www.linuxjournal.com/article/3641
-* What is the Buffer Protocol and How is it useful?
+They are handled by name mangling.
 
-Good Python Question and Answers
---------------------------------
+::
 
-* http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
+        >>> class Foo(object):
+        ...     def __init__(self):
+        ...         self.__baz = 42
+        ...     def foo(self):
+        ...         print self.__baz
+        ...     
+        >>> class Bar(Foo):
+        ...     def __init__(self):
+        ...         super(Bar, self).__init__()
+        ...         self.__baz = 21
+        ...     def bar(self):
+        ...         print self.__baz
+        ...
+        >>> x = Bar()
+        >>> x.foo()
+        42
+        >>> x.bar()
+        21
+        >>> print x.__dict__
+        {'_Bar__baz': 21, '_Foo__baz': 42}
+
 * http://stackoverflow.com/questions/990169/how-do-convert-unicode-escape-sequences-to-unicode-characters-in-a-python-string
 
 chr - Gives the characters of length 1 from in the range 0 to 256. That is \x00 to \xff. It should be known that It borders the ASCII and it is the Latin-1 character set. 
