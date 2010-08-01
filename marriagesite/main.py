@@ -38,6 +38,7 @@ from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
+import datetime
 
 # Set to true if we want to have our webapp print stack traces, etc
 _DEBUG = True
@@ -51,12 +52,23 @@ class BaseRequestHandler(webapp.RequestHandler):
   in the 'request' variable.
   """
   def generate(self, template_name, template_values={}):
+    count = datetime.datetime(2010,8,29) - datetime.datetime.today()
+    if count.days > 0:
+        count = str(count.days) + ' days to go!'
+    elif count.days == 0:
+        count = 'Today!'
+    else:
+        count = 'Infinity and Beyond'
+    quote = 'Love is the condition in which the happiness of another person \
+    essential to your own.  ~Robert Heinlein'
     values = {
       'request': self.request,
       'user': users.get_current_user(),
       'login_url': users.create_login_url(self.request.uri),
       'logout_url': users.create_logout_url(self.request.uri),
       'application_name': 'Dum Dum Dum',
+      'count': count,
+      'quote': quote,
     }
     values.update(template_values)
     directory = os.path.dirname(__file__)
