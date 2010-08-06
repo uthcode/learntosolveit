@@ -39,6 +39,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 import datetime
+import conf
 
 # Set to true if we want to have our webapp print stack traces, etc
 _DEBUG = True
@@ -59,8 +60,9 @@ class BaseRequestHandler(webapp.RequestHandler):
         count = 'Today!'
     else:
         count = 'Infinity and Beyond'
-    quote = 'Love is the condition in which the happiness of another person \
-    essential to your own.  ~Robert Heinlein'
+    #quote = 'Love is the condition in which the happiness of another person \
+    #essential to your own.  ~Robert Heinlein'
+    quote = conf.quote
     values = {
       'request': self.request,
       'user': users.get_current_user(),

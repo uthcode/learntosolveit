@@ -110,12 +110,28 @@ p {
 }
 
 /*content styles */
+/**
 .page-title {
 	font:2.2em "Times New Roman", serif;
 	font-weight:bold;
 	letter-spacing:1px;
 	color:#FFC643;
 }
+**/
+
+.page-title {
+  font-family: 'Tangerine', serif;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px #aaa;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: -0.05em;
+  word-spacing: 0.258em;
+  line-height: 0.6em;
+}
+
 .post-title {
 	font:1.5em "Times New Roman", serif;
 	font-weight:normal;
