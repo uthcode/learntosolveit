@@ -66,7 +66,7 @@ class BaseRequestHandler(webapp.RequestHandler):
     quote = random.choice(conf.quotes)
     values = {
       'request': self.request,
-      'user': users.get_current_user(),
+      'user': users.is_current_user_admin(),
       'login_url': users.create_login_url(self.request.uri),
       'logout_url': users.create_logout_url(self.request.uri),
       'application_name': 'Dum Dum Dum',

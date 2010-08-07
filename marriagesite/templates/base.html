@@ -34,7 +34,7 @@
 				<li><a href="BrideGroom" title="Bride and Groom">Bride and Groom</a></li>
 				<li><a href="WeddingParty" title="Wedding Party">Wedding Party</a></li>
 				<li><a href="PhotoSlideshow" title="Photo Slideshow">Photo Slideshow</a></li>
-				<li><a href="HelpfulLinks" title="Some Links">Some Links</a></li>
+				<li><a href="HelpfulLinks" title="Some Links">General Links</a></li>
 				<li><a href="guestbook" title="Guest Book">Guestbook</a></li>
 			</ul>
 		</div>
@@ -47,11 +47,11 @@
 	</div> <!--END sidebar div-->
 	</div>
 	<div id="footer">
-		<center> {{ quote }} </center>
+		<center><i> {{ quote }} </i> </center>
 	 <div class="top">
         <div class="login">
           {% if user %}
-            <span class="item nickname">{{ user.nickname }}</span> |
+            <span class="item nickname">Hello!</span> |
             <span class="item"><a href="{{ logout_url|escape }}">Sign out</a></span>
 	    <div class="buttons"><span class="item"><input type="button" value="New Page" onclick="NewPage()"/></span>	           {% block buttons %}<span class="item"><input type="button" onclick="location.href='{{ page.edit_url|escape }}'" value="Edit This Page"/></span>{% endblock %}
 	    </div>
