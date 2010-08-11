@@ -28,7 +28,7 @@ class MainPage(webapp.RequestHandler):
     else:
       logging.info("No greetings in memcache, re-querying datastore")
       greetings_query = Greeting.all().order('-date')
-      greetings = greetings_query.fetch(10)
+      greetings = greetings_query.fetch(100)
       if not memcache.set(MEMCACHE_GREETINGS, pickle.dumps(greetings)):
         logging.error("Memcache set failed.")
 
