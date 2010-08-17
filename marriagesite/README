@@ -1,14 +1,7 @@
 marriagesite
 ============
 
-If the marriages are made in heaven, then marriage website should be hosted on
-cloud. :)
-
 1. Change the settings in app.yaml to reflect your App Engine Account.
 2. conf.py has some quotes, add quote with %% seperate to include new one.
 3. You might want to create WikiPages inorder to create the sidebar links.
-
-
-Thanks for downloading.
-
-Wish you a happy married life!
+4. In order have Photo Slide Shows, you might want to disable javascript add Photos and then enable Javascripts.
