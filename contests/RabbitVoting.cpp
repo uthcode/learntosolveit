@@ -92,16 +92,15 @@ class RabbitVoting {
 				name = names[i];
 				vote =0;
 				for(j = 0; j <=number;j++)
-					if ((name.compare(votes[j]) == 0) && (i != j))
+					if (name.compare(votes[j]) == 0)
 						vote++;
-
-				if (vote == higgest)
-					winner = "";
 				if (vote > higgest)
 				{
 					winner = name;
 					higgest = vote;
 				}
+				if (vote == higgest)
+					winner = "";
 			}
 			return winner;
 		}
@@ -112,13 +111,7 @@ int main(int argc, char *argv[])
 {
 	RabbitVoting obj;
 	vector<string> names, votes;
-	names.push_back("Alice");
-	names.push_back("Bill");
-	names.push_back("Carol");
-	names.push_back("Dick");
-	votes.push_back("Bill");
-	votes.push_back("Dick");
-	votes.push_back("Alice");
-	votes.push_back("Alice");
+	names.push_back("one");
+	votes.push_back("one");
 	cout<<obj.getWinner(names,votes)<<endl;
 }

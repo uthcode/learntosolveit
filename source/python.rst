@@ -33,229 +33,136 @@ They are handled by name mangling.
         >>> print x.__dict__
         {'_Bar__baz': 21, '_Foo__baz': 42}
 
-* http://stackoverflow.com/questions/990169/how-do-convert-unicode-escape-sequences-to-unicode-characters-in-a-python-string
+Unicode Characters
+------------------
 
-chr - Gives the characters of length 1 from in the range 0 to 256. That is \x00 to \xff. It should be known that It borders the ASCII and it is the Latin-1 character set. 
+In python 2.x, the a string starting with u'' is a unicode object. It might
+contain unicode code-point in the hexadecimal notation. If your terminal
+supports it, then printing that unicode object will print the proper character.
+
+chr - Gives the characters of length 1 from in the range 0 to 256. That is \x00
+to \xff. It should be known that It borders the ASCII and it is the Latin-1
+character set. 
 
 It should also be known that \u00ff and \xff are both same.
 
-How is \xa0 is c2a0 in utf-8 encoding?
---------------------------------------
+Python Objects
+--------------
 
-Bytes vs Str
-------------
-1. Guido is suggesting a Polymorphic function.
-2. Bytes input should return bytes out.
-3. String input should return String output.
-4. There should be intelligence in the function when there is a combination of Bytes and String.
-5. URL parts are Bytes or String? If they are strings they are an ASCII Superset.
+All Python Objects have:
+* A Unique identifier (returned by id())
+* A Type (returned by type())
+* And a content.
 
-Hg Mirror
+The Identifier and the type of the object cannot be changed. Only under limited
+circumstances, user defined types can be changed.
 
-http://code.python.org/hg/branches/release2.7-maint/  
+Some objects allow you to change their content, while some objects will not
+allow you to change the content.  The type is represented by type object which
+knows more obout the objects of this type, like how many memory they occupy,
+what methods they have.
+
+Objects have 0 or more methods.
+Objects have 0 or more names.
+
+There is no variable in python. They are just names and that too within
+namespaces. The names refer to a particular object on assignment.
+
+Even if the objects have methods, you can never change its type or identity.
+Things like attribute assignments and item references are just syntactic sugar.
+
+
+
 
 Python bugs
 -----------
 
-Prioritize:
+List of bugs:
 
-http://bugs.python.org/issue8595
+* http://bugs.python.org/issue8595
+* https://bugs.launchpad.net/bugs/94130
+* http.client.HTTPMessage.getallmatchingheaders() always return http://bugs.python.org/issue5053
+* CGIHTTPRequestHandler.run_cgi() HTTP_ACCEPT improperly parse http://bugs.python.org/issue5054
+* Add timeout option to subprocess.Popen http://bugs.python.org/issue5673
+* cgi module cannot handle POST with multipart/form-data in 3.0 http://bugs.python.org/issue4953
+* urllib2 basicauth broken in 2.6.5: RuntimeError
+* urllib2 Digest Authorization uri must match request URI http://bugs.python.org/issue3819
+* urllib.quote throws exception on Unicode http://bugs.python.org/issue3243
+* BaseHTTPServer reinventing rfc822 date http://bugs.python.org/issue7370
+* http://bugs.python.org/issue1491 BaseHTTPServer incorrectly implements response code 100
+* https://bugs.launchpad.net/bugs/94130
+* urllib should support SSL contexts   
+* Demo/ directory needs to be tested and pruned
+* httplib fails with HEAD requests to pages with "transfer-encoding" http://bugs.python.org/issue6312
+* Support TLS SNI extension in ssl module http://bugs.python.org/issue5639
+* TODO in urllib.request.py for global _opener
+* Tarfile issue regression http://bugs.python.org/issue8741
+* urlparse.urlparse/urlsplit doc missing 
+* [issue8598] test/support: don't use localhost as IPv6 host name  
+* [issue8595] Explain the default timeout in http-client-related librarie
+* [issue8590] test_httpservers.CGIHTTPServerTestCase failure on 3.1-maint
+* [issue8499] Set a timeout in test_urllibnet 
+* [issue8455] buildbot: test_urllib2_localnet failures (Connection refuse
+* [issue8450] httplib: false BadStatusLine() raised
+* [issue8280] urllib2 passes fragment identifier to server 
+* [issue8238] Proxy handling
+* urlparse.urlsplit mishandles novel schemes http://bugs.python.org/issue7904
+* urllib2 request does not update content length after new add http://bugs.python.org/issue7540
+* urllib2 cannot handle https with proxy requiring auth
+* HTMLParser.HTMLParser doesn't handle malformed charrefs http://bugs.python.org/issue6662
+* Contradictory documentation for email.mime.text.MIMEText http://bugs.python.org/issue6521
+* Logging in BaseHTTPServer.BaseHTTPRequestHandler causes lag http://bugs.python.org/issue6085
+* LWPCookieJar cannot handle cookies with expirations of 2038 http://bugs.python.org/issue5537
+* urllib2.HTTPDigestAuthHandler fails on third hostname?  http://bugs.python.org/issue4683
+* Add utf8 alias for email charsets http://bugs.python.org/issue4487
+* new urllib2.Request 'timeout' attribute needs to have a default http://bugs.python.org/issue4079
+* cookielib doesn't handle URLs with / in parameters http://bugs.python.org/issue3704
+* Tests needing network flag?  http://bugs.python.org/issue1659
+* BaseHTTPServer incorrectly implements response code 100 http://bugs.python.org/issue1491
+* urllib(2) should allow automatic decoding by charset http://bugs.python.org/issue1599329
+* Add a "decode to declared encoding" version of urlopen to urllib http://bugs.python.org/issue4733
+* issue1314572 Trailing slash redirection for SimpleHTTPServer
+* issue1673007 - urllib2 requests history + HEAD support
+* issue1722 -  Undocumented urllib functions 
+* issue1755841 - Patch for [ 735515 ] urllib2 should cach 
+* issue2202 - urllib2 fails against IIS 6.0
+* [issue1229646] httplib error checking.
+* issue1027206 - unicode DNS names in socket, urllib, urlopen
+* issue8150 - urllib needs ability to set METHOD for HTTP requests
+* issue8143 - urlparse has a duplicate of urllib.unquote
+* issue3243 -  Support iterable bodies in httplib
+* issue3244 -  multipart/form-data encoding
+* issue4758 -  Python 3.x internet documentation needs wor
+* issue5673 -  Add timeout option to subprocess.Popen
+* issue6280 -  calendar.timegm() belongs in time module
+* issue6312 -  httplib fails with HEAD requests to pages
+* issue6500 -  urllib2 maximum recursion depth exceeded  (1)
+* issue6520 -  urllib.urlopen does not have timeout parame
+* issue1208304 - urllib2's urlopen() method causes a memor
+* issue6631    -  urlparse.urlunsplit() can't handle relative
+* issue6640    -  urlparse should parse mailto: URL headers as
+* issue7150    -  datetime operations spanning MINYEAR give b
+* issue7152    -  urllib2.build_opener() skips ProxyHandler
+* issue7159    -  Urllib2 authentication memory
+* issue7291    -  urllib2 cannot handle https with proxy requ 
+* issue7305    -  urllib2.urlopen() segfault using SSL on Solaris
+* issue7464    -  circular reference in HTTPResponse by urllib
+* issue7620    -  Vim syntax highlight 
+* issue7648    -  test_urllib2 fails on Windows if not run from
+* issue7665    -  test_urllib2 fails if path contains "\"
+* issue7668    -  test_httpservers fails with non-ascii path
+* issue7776    -  httplib.py: ._tunnel() broken
+* issue7806    -  httplib.HTTPConnection.getresponse closes s
+* issue8083    -  urllib proxy interface is too limited
+* issue8095    -  test_urllib2 crashes on OS X 10.3
+* issue8077    -  cgi handling of POSTed files is broken
 
-https://bugs.launchpad.net/bugs/94130
-
-
-Issue1712522
-urllib.quote throws exception on Unicode URL
-
-http.client.HTTPMessage.getallmatchingheaders() always retur
-
-http://bugs.python.org/issue5053
-
-CGIHTTPRequestHandler.run_cgi() HTTP_ACCEPT improperly parse
-http://bugs.python.org/issue5054
-
-[issue5673] Add timeout option to subprocess.Popen
-http://bugs.python.org/issue5673
-
-cgi module cannot handle POST with multipart/form-data in 3.0
-http://bugs.python.org/issue4953
-
-[issue8797] urllib2 basicauth broken in 2.6.5: RuntimeError
-
-[issue8843] urllib2 Digest Authorization uri must match request URI
-
-http://bugs.python.org/issue3819
-
-issue1712522 -  urllib.quote throws exception on Unicode
-http://bugs.python.org/issue3243
-
-BaseHTTPServer reinventing rfc822 date
-http://bugs.python.org/issue7370
-
-http://bugs.python.org/issue1491
-BaseHTTPServer incorrectly implements response code 100
-
-[issue8572] httplib getheader() throws error instead of default 
-
-https://bugs.launchpad.net/bugs/94130
-
-[issue8805] urllib should support SSL contexts   
-
-[issue7962] Demo/ directory needs to be tested and pruned
-
-httplib fails with HEAD requests to pages with "transfer-encoding"
-http://bugs.python.org/issue6312
-
-Support TLS SNI extension in ssl module
-http://bugs.python.org/issue5639
-
-1. TODO in urllib.request.py for global _opener
-
-2. Tarfile issue regression
-http://bugs.python.org/issue8741
-
-[issue8653] urlparse.urlparse/urlsplit doc missing 
-
-[issue8598] test/support: don't use localhost as IPv6 host name  
-
-[issue8595] Explain the default timeout in http-client-related librarie
-
-[issue8590] test_httpservers.CGIHTTPServerTestCase failure on 3.1-maint
-
-[issue8499] Set a timeout in test_urllibnet 
-
-[issue8455] buildbot: test_urllib2_localnet failures (Connection refuse
-
-[issue8450] httplib: false BadStatusLine() raised
-
-[issue8280] urllib2 passes fragment identifier to server 
-
-[issue8238] Proxy handling
-
-urlparse.urlsplit mishandles novel schemes
-http://bugs.python.org/issue7904
-
-urllib2 request does not update content length after new add
-http://bugs.python.org/issue7540
-
-urllib2 cannot handle https with proxy requiring auth
-
-HTMLParser.HTMLParser doesn't handle malformed charrefs
-http://bugs.python.org/issue6662
-
-Contradictory documentation for email.mime.text.MIMEText
-http://bugs.python.org/issue6521
-
-Logging in BaseHTTPServer.BaseHTTPRequestHandler causes lag
-http://bugs.python.org/issue6085
-
-LWPCookieJar cannot handle cookies with expirations of 2038
-http://bugs.python.org/issue5537
-
-urllib2.HTTPDigestAuthHandler fails on third hostname? 
-http://bugs.python.org/issue4683
-
-Add utf8 alias for email charsets 
-http://bugs.python.org/issue4487
-
-new urllib2.Request 'timeout' attribute needs to have a default
-http://bugs.python.org/issue4079
-
-cookielib doesn't handle URLs with / in parameters
-http://bugs.python.org/issue3704
-
-urllib.quote is too slow
-http://bugs.python.org/issue1285086
-
-Tests needing network flag?
-http://bugs.python.org/issue1659
-
-BaseHTTPServer incorrectly implements response code 100
-http://bugs.python.org/issue1491
-
-urllib(2) should allow automatic decoding by charset
-http://bugs.python.org/issue1599329
-
-Add a "decode to declared encoding" version of urlopen to urllib
-http://bugs.python.org/issue4733
-
-issue1314572 Trailing slash redirection for SimpleHTTPServer
-
-issue1673007 - urllib2 requests history + HEAD support
-
-issue1722 -  Undocumented urllib functions 
-
-issue1755841 - Patch for [ 735515 ] urllib2 should cach 
-
-issue2202 - urllib2 fails against IIS 6.0
-
-[issue1229646] httplib error checking.
-                                                                                                      
-In Python3 the code for httplib changed:                                                              
-Py3:                                                                                                  
-http://svn.python.org/view/python/branches/py3k/Lib/http/client.py?view=markup#send                   
+* In Python3 the code for httplib changed: 
+  
+Py3: http://svn.python.org/view/python/branches/py3k/Lib/http/client.py?view=markup#send                   
 Py2: http://svn.python.org/view/python/trunk/Lib/httplib.py?view=markup#send                          
                                                                                                       
 Does this still need to be fixed on Py2.7 (and maybe on Py3 too)?  
-
-issue1027206 - unicode DNS names in socket, urllib, urlopen
-
-issue8150 - urllib needs ability to set METHOD for HTTP requests
-
-issue8143 - urlparse has a duplicate of urllib.unquote
-
-issue3243 -  Support iterable bodies in httplib
-
-issue3244 -  multipart/form-data encoding
-
-issue4758 -  Python 3.x internet documentation needs wor
-
-issue5673 -  Add timeout option to subprocess.Popen
-
-issue6280 -  calendar.timegm() belongs in time module
-
-issue6312 -  httplib fails with HEAD requests to pages
-
-issue6500 -  urllib2 maximum recursion depth exceeded  (1)
-
-issue6520 -  urllib.urlopen does not have timeout parame
-
-issue1208304 - urllib2's urlopen() method causes a memor
-
-issue6631    -  urlparse.urlunsplit() can't handle relative
-
-issue6640    -  urlparse should parse mailto: URL headers as
-
-issue7150    -  datetime operations spanning MINYEAR give b
-
-issue7152    -  urllib2.build_opener() skips ProxyHandler
-
-issue7159    -  Urllib2 authentication memory
-
-issue7291    -  urllib2 cannot handle https with proxy requ 
-
-issue7305    -  urllib2.urlopen() segfault using SSL on Solaris
-
-issue7464    -  circular reference in HTTPResponse by urllib
-
-issue7620    -  Vim syntax highlight 
-
-issue7648    -  test_urllib2 fails on Windows if not run from
-
-issue7665    -  test_urllib2 fails if path contains "\"
-
-issue7668    -  test_httpservers fails with non-ascii path
-
-issue7776    -  httplib.py: ._tunnel() broken
-
-issue7806    -  httplib.HTTPConnection.getresponse closes s
-
-issue8083    -  urllib proxy interface is too limited
-
-issue8095    -  test_urllib2 crashes on OS X 10.3
-
-issue8077    -  cgi handling of POSTed files is broken
-
 
 Here's another easter egg:
 
@@ -265,11 +172,6 @@ SyntaxError: not a chance
 
 Coding Style: Readability Counts
 ================================
-
-Programs must be written for people to read, and only incidentally for machines
-to execute.
-
--- Abelson & Sussman, *Structure and Interpretation of Computer Programs*
 
 * One blank line between functions.
 * Two blank lines between classes.
@@ -285,77 +187,30 @@ to execute.
 * Attributes: ``interface``, ``_internal``, ``__private``
 
 But try to avoid the ``__private`` form.  I never use it.
-Trust me.  If you use it, you **WILL** regret it later.
-
-Explanation:
-
-People coming from a C++/Java background are especially prone to
-overusing/misusing this "feature".  But ``__private`` names don't
-work the same way as in Java or C++.  They just trigger a `name
-mangling`__ whose purpose is to prevent accidental namespace
-collisions in subclasses: ``MyClass.__private`` just becomes
-``MyClass._MyClass__private``.  (Note that even this breaks down
-for subclasses with the same name as the superclass,
-e.g. subclasses in different modules.)  It *is* possible to
-access ``__private`` names from outside their class, just
-inconvenient and fragile (it adds a dependency on the exact name
-of the superclass).
-
-__ http://docs.python.org/dev/reference/expressions.html#atom-identifiers
-
-The problem is that the author of a class may legitimately think
-"this attribute/method name should be private, only accessible
-from within this class definition" and use the ``__private``
-convention.  But later on, a user of that class may make a
-subclass that legitimately needs access to that name.  So either
-the superclass has to be modified (which may be difficult or
-impossible), or the subclass code has to use manually mangled
-names (which is ugly and fragile at best).
-
-There's a concept in Python: "we're all consenting adults here".
-If you use the ``__private`` form, who are you protecting the
-attribute from?  It's the responsibility of subclasses to use
-attributes from superclasses properly, and it's the
-responsibility of superclasses to document their attributes
-properly.
-
-It's better to use the single-leading-underscore convention,
-``_internal``. 　This isn't name mangled at all; it just
-indicates to others to "be careful with this, it's an internal
-implementation detail; don't touch it if you don't **fully**
-understand it".  It's only a convention though.
-
-There are some good explanations in the answers here:
-
-* http://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
-* http://stackoverflow.com/questions/1641219/does-python-have-private-variables-in-classes
 
 Long Lines & Continuations
 ==========================
 
-   Keep lines below 80 characters in length.
-
-   Use implied line continuation inside parentheses/brackets/braces::
+* Keep lines below 80 characters in length.
+* Use implied line continuation inside parentheses/brackets/braces::
 
        def __init__(self, first, second, third,
                     fourth, fifth, sixth):
            output = (first + second + third
                      + fourth + fifth + sixth)
 
-   Use backslashes as a last resort::
+* Use backslashes as a last resort::
 
        VeryLong.left_hand_side \
            = even_longer.right_hand_side()
 
-   Backslashes are fragile; they must end the line they're on.  If you
-   add a space after the backslash, it won't work any more.  Also,
-   they're ugly.
-
+* Backslashes are fragile; they must end the line they're on.  If you add a
+  space after the backslash, it won't work any more.  Also, they're ugly.
 
 Long Strings
 ============
 
-Note named string objects are **not** concatenated:
+* Note named string objects are **not** concatenated::
 
    >>> a = 'three'
    >>> b = 'four'
@@ -365,17 +220,15 @@ Note named string objects are **not** concatenated:
          ^
    SyntaxError: invalid syntax
 
-That's because this automatic concatenation is a feature of the Python
-parser/compiler, not the interpreter.  You must use the "+" operator to
-concatenate strings at run time.
+* That's because this automatic concatenation is a feature of the Python
+  parser/compiler, not the interpreter.  You must use the "+" operator to
+  concatenate strings at run time.
 
-text = ('Long strings can be made up '
-        'of several shorter strings.')
+  text = ('Long strings can be made up '
+  'of several shorter strings.')
 
-The parentheses allow implicit line continuation.
-
-Multiline strings use triple quotes:
-
+* The parentheses allow implicit line continuation.
+* Multiline strings use triple quotes:
    ::
 
        """Triple
@@ -389,11 +242,10 @@ Multiline strings use triple quotes:
        single
        quotes\
        '''
-
-In the last example above (triple single quotes), note how the
-backslashes are used to escape the newlines.  This eliminates extra
-newlines, while keeping the text and quotes nicely left-justified.
-The backslashes must be at the end of their lines.
+* In the last example above (triple single quotes), note how the backslashes
+  are used to escape the newlines.  This eliminates extra newlines, while
+  keeping the text and quotes nicely left-justified.  The backslashes must be
+  at the end of their lines.
 
 Compound Statements
 ===================
@@ -410,424 +262,6 @@ Bad::
 
     if foo == 'blah': do_something()
     do_one(); do_two(); do_three()
-
-Docstrings & Comments
-=====================
-
-Docstrings = **How to use** code
-
-Comments = **Why** (rationale) & **how code works**
-
-Docstrings explain **how** to use code, and are for the **users**
-of your code.  Uses of docstrings:
-
-* Explain the purpose of the function even if it seems obvious to
-you, because it might not be obvious to someone else later on.
-
-* Describe the parameters expected, the return values, and any
-exceptions raised.
-
-* If the method is tightly coupled with a single caller, make some
-mention of the caller (though be careful as the caller might
-change later).
-
-Comments explain **why**, and are for the **maintainers** of your
-code.  Examples include notes to yourself, like::
-
-# !!! BUG: ...
-
-# !!! FIX: This is a hack
-
-# ??? Why is this here?
-
-Both of these groups include **you**, so write good docstrings and
-comments!
-
-Docstrings are useful in interactive use (``help()``) and for
-auto-documentation systems.
-
-False comments & docstrings are worse than none at all.  So keep
-them up to date!  When you make changes, make sure the comments &
-docstrings are consistent with the code, and don't contradict it.
-
-There's an entire PEP about docstrings, PEP 257, "Docstring
-Conventions":
-
-http://www.python.org/dev/peps/pep-0257/
-
-
-Practicality Beats Purity
-=========================
-
-A foolish consistency is the hobgoblin of little minds.
-
--- Ralph Waldo Emerson
-
-(*hobgoblin*: Something causing superstitious fear; a bogy.)
-
-There are always exceptions.  From PEP 8:
-
-But most importantly: know when to be inconsistent -- sometimes
-the style guide just doesn't apply.  When in doubt, use your
-best judgment.  Look at other examples and decide what looks
-best.  And don't hesitate to ask!
-
-Two good reasons to break a particular rule:
-
-(1) When applying the rule would make the code less readable,
-   even for someone who is used to reading code that follows
-   the rules.
-
-(2) To be consistent with surrounding code that also breaks it
-   (maybe for historic reasons) -- although this is also an
-   opportunity to clean up someone else's mess (in true XP
-   style).
-
-`... but practicality shouldn't beat purity to a pulp!`
-
-
-Idiom Potpourri
-===============
-
-A selection of small, useful idioms.
-
-.. container:: handout
-
-   Now we move on to the meat of the tutorial: lots of idioms.
-
-   We'll start with some easy ones and work our way up.
-
-
-Swap Values
-===========
-
-In other languages::
-
-    temp = a
-    a = b
-    b = temp
-
-   In Python::
-
-       b, a = a, b
-
-
-* The **comma** is the tuple constructor syntax.
-* A tuple is created on the right (tuple packing).
-* A tuple is the target on the left (tuple unpacking).
-
-More About Tuples
-=================
-
-.. container:: handout
-
-   We saw that the **comma** is the tuple constructor, not the
-   parentheses.  Example:
-
-.. class:: incremental
-
-   >>> 1,
-   (1,)
-
-.. container:: handout
-
-   The Python interpreter shows the parentheses for clarity, and I
-   recommend you use parentheses too:
-
-.. class:: incremental
-
-   >>> (1,)
-   (1,)
-
-.. container:: handout
-
-   Don't forget the comma!
-
-.. class:: incremental
-
-   >>> (1)
-   1
-
-.. container:: handout
-
-   In a one-tuple, the trailing comma is required; in 2+-tuples, the
-   trailing comma is optional.  In 0-tuples, or empty tuples, a pair
-   of parentheses is the shortcut syntax:
-
-.. class:: incremental
-
-   >>> ()
-   ()
-
-   >>> tuple()
-   ()
-
-.. container:: handout
-
-   A common typo is to leave a comma even though you don't want a
-   tuple.  It can be easy to miss in your code:
-
-.. class:: incremental
-
-   >>> value = 1,
-   >>> value
-   (1,)
-
-.. container:: handout
-
-   So if you see a tuple where you don't expect one, look for a comma!
-
-
-Interactive "_"
-===============
-
-.. container:: handout
-
-   This is a really useful feature that surprisingly few people know.
-
-   In the interactive interpreter, whenever you evaluate an expression
-   or call a function, the result is bound to a temporary name, ``_``
-   (an underscore):
-
-.. class:: incremental
-
-   >>> 1 + 1
-   2
-   >>> _
-   2
-
-   ``_`` stores the last *printed* expression.
-
-.. container:: handout
-
-   When a result is ``None``, nothing is printed, so ``_`` doesn't
-   change.  That's convenient!
-
-   This only works in the interactive interpreter, not within a
-   module.
-
-   It is especially useful when you're working out a problem
-   interactively, and you want to store the result for a later step:
-
-.. class:: incremental
-
->>> import math
->>> math.pi / 3
-1.0471975511965976
->>> angle = _
->>> math.cos(angle)
-0.50000000000000011
->>> _
-0.50000000000000011
-
-
-Building Strings from Substrings
-================================
-
-.. container:: handout
-
-   Start with a list of strings:
-
-::
-
-    colors = ['red', 'blue', 'green', 'yellow']
-
-.. container:: handout
-
-   We want to join all the strings together into one large string.
-   Especially when the number of substrings is large...
-
-.. class:: incremental
-
-   Don't do this::
-
-       result = ''
-       for s in colors:
-           result += s
-
-.. container:: handout
-
-   This is very inefficient.
-
-   It has terrible memory usage and performance patterns.  The
-   "summation" will compute, store, and then throw away each
-   intermediate step.
-
-.. class:: incremental
-
-   Instead, do this::
-
-       result = ''.join(colors)
-
-.. container:: handout
-
-   The ``join()`` string method does all the copying in one pass.
-
-   When you're only dealing with a few dozen or hundred strings, it
-   won't make much difference.  But get in the habit of building
-   strings efficiently, because with thousands or with loops, it
-   **will** make a difference.
-
-
-Building Strings, Variations 1
-==============================
-
-.. container:: handout
-
-   Here are some techniques to use the ``join()`` string method.
-
-.. class:: incremental
-
-   If you want spaces between your substrings::
-
-       result = ' '.join(colors)
-
-   Or commas and spaces::
-
-       result = ', '.join(colors)
-
-   Here's a common case::
-
-       colors = ['red', 'blue', 'green', 'yellow']
-       print 'Choose', ', '.join(colors[:-1]), \
-             'or', colors[-1]
-
-.. container:: handout
-
-   To make a nicely grammatical sentence, we want commas between all
-   but the last pair of values, where we want the word "or".  The
-   slice syntax does the job.  The "slice until -1" (``[:-1]``) gives
-   all but the last value, which we join with comma-space.
-
-   Of course, this code wouldn't work with corner cases, lists of
-   length 0 or 1.
-
-.. container:: handout
-
-   Output:
-
-.. class:: incremental
-
-   ::
-
-       Choose red, blue, green or yellow
-
-
-Building Strings, Variations 2
-==============================
-
-If you need to apply a function to generate the substrings::
-
-    result = ''.join(fn(i) for i in items)
-
-.. container:: handout
-
-   This involves a *generator expression*, which we'll cover later.
-
-.. class:: incremental
-
-   If you need to compute the substrings incrementally, accumulate
-   them in a list first::
-
-       items = []
-       ...
-       items.append(item)  # many times
-       ...
-       # items is now complete
-       result = ''.join(fn(i) for i in items)
-
-.. container:: handout
-
-   We accumulate the parts in a list so that we can apply the ``join``
-   string method, for efficiency.
-
-
-Use ``in`` where possible (1)
-=============================
-
-Good::
-
-    for key in d:
-        print key
-
-.. container:: handout
-
-   * ``in`` is generally faster.
-   * This pattern also works for items in arbitrary containers (such
-     as lists, tuples, and sets).
-   * ``in`` is also an operator (as we'll see).
-
-Bad::
-
-    for key in d.keys():
-        print key
-
-.. container:: handout
-
-   This is limited to objects with a ``keys()`` method.
-
-
-Use ``in`` where possible (2)
-=============================
-
-But ``.keys()`` is **necessary** when mutating the dictionary::
-
-    for key in d.keys():
-        d[str(key)] = d[key]
-
-.. container:: handout
-
-   ``d.keys()`` creates a static list of the dictionary keys.
-   Otherwise, you'll get an exception "RuntimeError: dictionary
-   changed size during iteration".
-
-.. class:: incremental
-
-   For consistency, use ``key in dict``, not ``dict.has_key()``::
-
-       # do this:
-       if key in d:
-           ...do something with d[key]
-
-       # not this:
-       if d.has_key(key):
-           ...do something with d[key]
-
-.. container:: handout
-
-   This usage of ``in`` is as an operator.
-
-
-Dictionary ``get``  Method
-==========================
-
-We often have to initialize dictionary entries before use:
-
-.. container:: handout
-
-   This is the naïve way to do it:
-
-::
-
-    navs = {}
-    for (portfolio, equity, position) in data:
-        if portfolio not in navs:
-            navs[portfolio] = 0
-        navs[portfolio] += position * prices[equity]
-
-.. class:: incremental
-
-   ``dict.get(key, default)`` removes the need for the test::
-
-       navs = {}
-       for (portfolio, equity, position) in data:
-           navs[portfolio] = (navs.get(portfolio, 0)
-                              + position * prices[equity])
-
-.. container:: handout
-
-   Much more direct.
-
 
 Dictionary ``setdefault`` Method (1)
 ====================================
@@ -978,89 +412,31 @@ New in Python 2.5.
 Building & Splitting Dictionaries
 =================================
 
-.. container:: handout
-
-   Here's a useful technique to build a dictionary from two lists (or
-   sequences): one list of keys, another list of values.
-
-.. class:: incremental
-
-   ::
+Here's a useful technique to build a dictionary from two lists (or sequences):
+one list of keys, another list of values.::
 
        given = ['John', 'Eric', 'Terry', 'Michael']
        family = ['Cleese', 'Idle', 'Gilliam', 'Palin']
-
-   ::
-
        pythons = dict(zip(given, family))
-
-   ::
-
        >>> pprint.pprint(pythons)
        {'John': 'Cleese',
         'Michael': 'Palin',
         'Eric': 'Idle',
         'Terry': 'Gilliam'}
 
-.. container:: handout
-
-   The reverse, of course, is trivial:
-
-.. class:: incremental
-
-   ::
-
-       >>> pythons.keys()
-       ['John', 'Michael', 'Eric', 'Terry']
-       >>> pythons.values()
-       ['Cleese', 'Palin', 'Idle', 'Gilliam']
-
-.. container:: handout
-
-   Note that the order of the results of .keys() and .values() is
-   different from the order of items when constructing the dictionary.
-   The order going in is different from the order coming out.  This is
-   because a dictionary is inherently unordered.  However, the order
-   is guaranteed to be consistent (in other words, the order of keys
-   will correspond to the order of values), as long as the dictionary
-   isn't changed between calls.
-
-
-Testing for Truth Values
-========================
-
-::
-
-    # do this:        # not this:
-    if x:             if x == True:
-        pass              pass
-
-.. container:: handout
-
-   It's elegant and efficient to take advantage of the intrinsic truth
-   values (or Boolean values) of Python objects.
-
-.. class:: incremental
-
-   Testing a list::
-
-       # do this:        # not this:
-       if items:         if len(items) != 0:
-           pass              pass
-
-                         # and definitely not this:
-                         if items != []:
-                             pass
+Note that the order of the results of .keys() and .values() is different from
+the order of items when constructing the dictionary.  The order going in is
+different from the order coming out.  This is because a dictionary is
+inherently unordered.  However, the order is guaranteed to be consistent (in
+other words, the order of keys will correspond to the order of values), as long
+as the dictionary isn't changed between calls.
 
 
 Truth Values
 ============
 
-.. container:: handout
-
-   The ``True`` and ``False`` names are built-in instances of type
-   ``bool``, Boolean values.  Like ``None``, there is only one
-   instance of each.
+The ``True`` and ``False`` names are built-in instances of type ``bool``,
+Boolean values.  Like ``None``, there is only one instance of each.
 
 =================================  ================================
 False                              True
@@ -1079,75 +455,6 @@ False                              True
                                    explicitly False
 =================================  ================================
 
-.. container:: handout
-
-   Example of an object's truth value:
-
-   >>> class C:
-   ...  pass
-   ...
-   >>> o = C()
-   >>> bool(o)
-   True
-   >>> bool(C)
-   True
-
-   (Examples: execute `<truth.py>`__.)
-
-   To control the truth value of instances of a user-defined class,
-   use the ``__nonzero__`` or ``__len__`` special methods.  Use
-   ``__len__`` if your class is a container which has a length::
-
-       class MyContainer(object):
-
-           def __init__(self, data):
-               self.data = data
-
-           def __len__(self):
-               """Return my length."""
-               return len(self.data)
-
-   If your class is not a container, use ``__nonzero__``::
-
-       class MyClass(object):
-
-           def __init__(self, value):
-               self.value = value
-
-           def __nonzero__(self):
-               """Return my truth value (True or False)."""
-               # This could be arbitrarily complex:
-               return bool(self.value)
-
-   In Python 3.0, ``__nonzero__`` has been renamed to ``__bool__`` for
-   consistency with the ``bool`` built-in type.  For compatibility,
-   add this to the class definition::
-
-           __bool__ = __nonzero__
-
-
-Index & Item (1)
-================
-
-.. container:: handout
-
-   Here's a cute way to save some typing if you need a list of words:
-
->>> items = 'zero one two three'.split()
->>> print items
-['zero', 'one', 'two', 'three']
-
-.. class:: incremental
-
-   Say we want to iterate over the items, and we need both the item's
-   index and the item itself::
-
-                         - or -
-       i = 0
-       for item in items:      for i in range(len(items)):
-           print i, item               print i, items[i]
-           i += 1
-
 
 Index & Item (2): ``enumerate``
 ===============================
@@ -1158,40 +465,15 @@ pairs:
 >>> print list(enumerate(items))
 [(0, 'zero'), (1, 'one'), (2, 'two'), (3, 'three')]
 
-.. container:: handout
+We need use a ``list`` wrapper to print the result because ``enumerate`` is a
+lazy function: it generates one item, a pair, at a time, only when required.  A
+``for`` loop is one place that requires one result at a time.  ``enumerate`` is
+an example of a *generator*. ``print`` does not take one result at a time -- we
+want the entire result, so we have to explicitly convert the generator into a
+list when we print it.
 
-   We need use a ``list`` wrapper to print the result because
-   ``enumerate`` is a lazy function: it generates one item, a pair, at
-   a time, only when required.  A ``for`` loop is one place that
-   requires one result at a time.  ``enumerate`` is an example of a
-   *generator*, which we'll cover in greater detail later.  ``print``
-   does not take one result at a time -- we want the entire result, so
-   we have to explicitly convert the generator into a list when we
-   print it.
-
-.. class:: incremental
-
-   Our loop becomes much simpler::
-
-       for (index, item) in enumerate(items):
-           print index, item
-
-   ::
-
-       # compare:              # compare:
-       index = 0               for i in range(len(items)):
-       for item in items:              print i, items[i]
-           print index, item
-           index += 1
-
-.. container:: handout
-
-   The ``enumerate`` version is much shorter and simpler than the
-   version on the left, and much easier to read and understand than
-   either.
-
-   An example showing how the ``enumerate`` function actually returns
-   an iterator (a generator is a kind of iterator):
+An example showing how the ``enumerate`` function actually returns an iterator
+(a generator is a kind of iterator).::
 
    >>> enumerate(items)
    <enumerate object at 0x011EA1C0>
@@ -1213,149 +495,43 @@ pairs:
 Other languages have "variables"
 ================================
 
-.. container:: handout
-
-   In many other languages, assigning to a variable puts a value into
-   a box.
-
-.. list-table::
-   :class: incremental borderless
-
-   * - ::
-
-           int a = 1;
-
-     - .. image:: a1box.png
-          :class: incremental
-
-.. container:: handout
-
-   Box "a" now contains an integer 1.
-
-   Assigning another value to the same variable replaces the contents
-   of the box:
-
-.. list-table::
-   :class: incremental borderless
-
-   * - ::
-
-           a = 2;
-
-     - .. image:: a2box.png
-          :class: incremental
-
-.. container:: handout
-
-   Now box "a" contains an integer 2.
-
-   Assigning one variable to another makes a copy of the value and
-   puts it in the new box:
-
-.. list-table::
-   :class: incremental borderless
-
-   * - ::
-
-           int b = a;
-
-     - .. image:: b2box.png
-          :class: incremental
-
-     - .. image:: a2box.png
-          :class: incremental
-
-.. container:: handout
-
-   "b" is a second box, with a copy of integer 2.  Box "a" has a
-   separate copy.
-
+In many other languages, assigning to a variable puts a value into a box.
 
 Python has "names"
 ==================
 
-.. container:: handout
+In Python, a "name" or "identifier" is like a parcel tag (or nametag) attached
+to an object.
 
-   In Python, a "name" or "identifier" is like a parcel tag (or
-   nametag) attached to an object.
+Here, an integer 1 object has a tag labelled "a".  If we reassign to "a", we
+just move the tag to another object:
 
-.. list-table::
-   :class: incremental borderless
+Now the name "a" is attached to an integer 2 object.
 
-   * - ::
+The original integer 1 object no longer has a tag "a".  It may live on, but we
+can't get to it through the name "a".  (When an object has no more references
+or tags, it is removed from memory.)
 
-           a = 1
-
-     - .. image:: a1tag.png
-          :class: incremental
-
-.. container:: handout
-
-   Here, an integer 1 object has a tag labelled "a".
-
-   If we reassign to "a", we just move the tag to another object:
-
-.. list-table::
-   :class: incremental borderless
-
-   * - ::
-
-           a = 2
-
-     - .. image:: a2tag.png
-          :class: incremental
-
-     - .. image:: 1.png
-          :class: incremental
-
-.. container:: handout
-
-   Now the name "a" is attached to an integer 2 object.
-
-   The original integer 1 object no longer has a tag "a".  It may live
-   on, but we can't get to it through the name "a".  (When an object
-   has no more references or tags, it is removed from memory.)
-
-   If we assign one name to another, we're just attaching another
-   nametag to an existing object:
-
-.. list-table::
-   :class: incremental borderless
-
-   * - ::
+If we assign one name to another, we're just attaching another nametag to an
+existing object:
 
            b = a
 
-     - .. image:: ab2tag.png
-          :class: incremental
+The name "b" is just a second tag bound to the same object as "a".
 
-.. container:: handout
+Although we commonly refer to "variables" even in Python (because it's common
+terminology), we really mean "names" or "identifiers".  In Python, "variables"
+are nametags for values, not labelled boxes.
 
-   The name "b" is just a second tag bound to the same object as "a".
-
-.. container:: handout
-
-   Although we commonly refer to "variables" even in Python (because
-   it's common terminology), we really mean "names" or "identifiers".
-   In Python, "variables" are nametags for values, not labelled boxes.
-
-   If you get nothing else out of this tutorial, I hope you understand
-   how Python names work.  A good understanding is certain to pay
-   dividends, helping you to avoid cases like this:
-
-   .. container:: spoken
-
-      |==>|
-
+If you get nothing else out of this tutorial, I hope you understand how Python
+names work.  A good understanding is certain to pay dividends, helping you to
+avoid cases like this:
 
 Default Parameter Values
 ========================
 
-.. container:: handout
-
-   This is a common mistake that beginners often make.  Even more
-   advanced programmers make this mistake if they don't understand
-   Python names.
+This is a common mistake that beginners often make.  Even more advanced
+programmers make this mistake if they don't understand Python names.
 
 ::
 
@@ -1363,14 +539,10 @@ Default Parameter Values
         a_list.append(new_item)
         return a_list
 
-.. container:: handout
 
-   The problem here is that the default value of ``a_list``, an empty
-   list, is evaluated at function definition time.  So every time you
-   call the function, you get the **same** default value.  Try it
-   several times:
-
-.. class:: incremental
+The problem here is that the default value of ``a_list``, an empty list, is
+evaluated at function definition time.  So every time you call the function,
+you get the **same** default value.  Try it several times:
 
    ::
 
@@ -1382,15 +554,9 @@ Default Parameter Values
        >>> print bad_append('two')
        ['one', 'two']
 
-.. container:: handout
-
-   Lists are a mutable objects; you can change their contents.  The
-   correct way to get a default list (or dictionary, or set) is to
-   create it at run time instead, **inside the function**:
-
-.. class:: incremental
-
-   ::
+Lists are a mutable objects; you can change their contents.  The correct way to
+get a default list (or dictionary, or set) is to create it at run time instead,
+**inside the function**.::
 
        def good_append(new_item, a_list=None):
            if a_list is None:
@@ -1398,171 +564,58 @@ Default Parameter Values
            a_list.append(new_item)
            return a_list
 
-
-% String Formatting
-===================
-
-.. container:: handout
-
-   Python's ``%`` operator works like C's ``sprintf`` function.
-
-.. container:: handout
-
-   Although if you don't know C, that's not very helpful.  Basically,
-   you provide a template or format and interpolation values.
-
-   In this example, the template contains two conversion
-   specifications: "%s" means "insert a string here", and "%i" means
-   "convert an integer to a string and insert here".  "%s" is
-   particularly useful because it uses Python's built-in ``str()``
-   function to to convert any object to a string.
-
-   The interpolation values must match the template; we have two
-   values here, a tuple.
-
-::
-
-    name = 'David'
-    messages = 3
-    text = ('Hello %s, you have %i messages'
-            % (name, messages))
-    print text
-
-.. class:: incremental
-
-   Output::
-
-       Hello David, you have 3 messages
-
-.. container:: handout
-
-   Details are in the *Python Library Reference*, section 2.3.6.2,
-   "String Formatting Operations".  Bookmark this one!
-
-.. container:: handout
-
-   If you haven't done it already, go to python.org, download the HTML
-   documentation (in a .zip file or a tarball), and install it on your
-   machine.  There's nothing like having the definitive resource at
-   your fingertips.
-
-
 Advanced % String Formatting
 ============================
 
-.. container:: handout
+What many people don't realize is that there are other, more flexible ways to
+do string formatting:
 
-   What many people don't realize is that there are other, more
-   flexible ways to do string formatting:
-
-.. class:: incremental
-
-   By name with a dictionary::
+By name with a dictionary::
 
        values = {'name': name, 'messages': messages}
        print ('Hello %(name)s, you have %(messages)i '
               'messages' % values)
 
-.. container:: handout
+Here we specify the names of interpolation values, which are looked up in the
+supplied dictionary.
 
-   Here we specify the names of interpolation values, which are looked
-   up in the supplied dictionary.
+Notice any redundancy?  The names "name" and "messages" are already defined in
+the local namespace.  We can take advantage of this.
 
-   Notice any redundancy?  The names "name" and "messages" are already
-   defined in the local namespace.  We can take advantage of this.
-
-.. class:: incremental
-
-   By name using the local namespace::
+By name using the local namespace::
 
        print ('Hello %(name)s, you have %(messages)i '
               'messages' % locals())
 
-.. container:: handout
 
-   The ``locals()`` function returns a dictionary of all
-   locally-available names.
+The namespace of an object's instance attributes is just a dictionary,
+``self.__dict__``.
 
-   This is very powerful.  With this, you can do all the string
-   formatting you want without having to worry about matching the
-   interpolation values to the template.
-
-   But power can be dangerous.  ("With great power comes great
-   responsibility.")  If you use the ``locals()`` form with an
-   externally-supplied template string, you expose your entire local
-   namespace to the caller.  This is just something to keep in mind.
-
-.. container:: handout
-
-   To examine your local namespace:
-
-   >>> from pprint import pprint
-   >>> pprint(locals())
-
-.. container:: handout
-
-   ``pprint`` is a very useful module.  If you don't know it already,
-   try playing with it.  It makes debugging your data structures much
-   easier!
-
-
-Advanced % String Formatting
-============================
-
-.. container:: handout
-
-   The namespace of an object's instance attributes is just a
-   dictionary, ``self.__dict__``.
-
-.. class:: incremental
-
-   By name using the instance namespace::
+By name using the instance namespace::
 
        print ("We found %(error_count)d errors"
               % self.__dict__)
 
-   Equivalent to, but more flexible than::
+Equivalent to, but more flexible than::
 
        print ("We found %d errors"
               % self.error_count)
 
-.. container:: handout
-
-   Note: Class attributes are in the class __dict__.  Namespace
-   lookups are actually chained dictionary lookups.
-
-
 List Comprehensions
 ===================
 
-.. container:: handout
+List comprehensions ("listcomps" for short) are syntax shortcuts for this
+general pattern.
 
-   List comprehensions ("listcomps" for short) are syntax shortcuts
-   for this general pattern:
-
-.. class:: incremental
-
-   The traditional way, with ``for`` and ``if`` statements::
-
-       new_list = []
-       for item in a_list:
-           if condition(item):
-               new_list.append(fn(item))
-
-   As a list comprehension::
+As a list comprehension::
 
        new_list = [fn(item) for item in a_list
                    if condition(item)]
 
-.. container:: handout
-
-   Listcomps are clear & concise, up to a point.  You can have
-   multiple ``for``-loops and ``if``-conditions in a listcomp, but
-   beyond two or three total, or if the conditions are complex, I
-   suggest that regular ``for`` loops should be used.  Applying the
-   Zen of Python, choose the more readable way.
-
-.. container:: handout
+Listcomps are clear & concise, up to a point.  You can have multiple
+``for``-loops and ``if``-conditions in a listcomp, but beyond two or three
+total, or if the conditions are complex, I suggest that regular ``for`` loops
+should be used.  Applying the Zen of Python, choose the more readable way.::
 
    For example, a list of the squares of 0–9:
 
@@ -1575,121 +628,74 @@ List Comprehensions
    [1, 9, 25, 49, 81]
 
 
-Generator Expressions (1)
-=========================
+Generator Expressions
+=====================
 
-.. container:: handout
-
-   Let's sum the squares of the numbers up to 100:
-
-.. class:: incremental
-
-   As a loop::
+Let's sum the squares of the numbers up to 100:
+As a loop::
 
        total = 0
        for num in range(1, 101):
            total += num * num
 
-.. container:: handout
+We can use the ``sum`` function to quickly do the work for us, by building the
+appropriate sequence.
 
-   We can use the ``sum`` function to quickly do the work for us, by
-   building the appropriate sequence.
-
-.. class:: incremental
-
-   As a list comprehension::
+As a list comprehension::
 
        total = sum([num * num for num in range(1, 101)])
 
-   As a generator expression::
+As a generator expression::
 
        total = sum(num * num for num in xrange(1, 101))
 
-.. container:: handout
 
-   Generator expressions ("genexps") are just like list
-   comprehensions, except that where listcomps are greedy, generator
-   expressions are lazy.  Listcomps compute the entire result list all
-   at once, as a list.  Generator expressions compute one value at a
-   time, when needed, as individual values.  This is especially useful
-   for long sequences where the computed list is just an intermediate
-   step and not the final result.
+Generator expressions ("genexps") are just like list comprehensions, except
+that where listcomps are greedy, generator expressions are lazy.  Listcomps
+compute the entire result list all at once, as a list.  Generator expressions
+compute one value at a time, when needed, as individual values.  This is
+especially useful for long sequences where the computed list is just an
+intermediate step and not the final result.
 
-   In this case, we're only interested in the sum; we don't need the
-   intermediate list of squares.  We use ``xrange`` for the same
-   reason: it lazily produces values, one at a time.
+In this case, we're only interested in the sum; we don't need the intermediate
+list of squares.  We use ``xrange`` for the same reason: it lazily produces
+values, one at a time.
 
+For example, if we were summing the squares of several billion integers, we'd
+run out of memory with list comprehensions, but generator expressions have no
+problem.  This does take time, though!  
 
-Generator Expressions (2)
-=========================
-
-.. container:: handout
-
-   For example, if we were summing the squares of several billion
-   integers, we'd run out of memory with list comprehensions, but
-   generator expressions have no problem.  This does take time,
-   though!
-
-.. class:: incremental
-
-   ::
-
+::
        total = sum(num * num
                    for num in xrange(1, 1000000000))
 
-.. container:: handout
+The difference in syntax is that listcomps have square brackets, but generator
+expressions don't.  Generator expressions sometimes do require enclosing
+parentheses though, so you should always use them.
 
-   The difference in syntax is that listcomps have square brackets,
-   but generator expressions don't.  Generator expressions sometimes
-   do require enclosing parentheses though, so you should always use
-   them.
+Rule of thumb:
 
-.. container:: handout
+* Use a list comprehension when a computed list is the desired end result.
+* Use a generator expression when the computed list is just an intermediate
+  step.
 
-   Rule of thumb:
 
-   * Use a list comprehension when a computed list is the desired end
-     result.
+We needed a dictionary mapping month numbers (both as string and as integers)
+to month codes for futures contracts.  It can be done in one logical line of
+code.
 
-   * Use a generator expression when the computed list is just an
-     intermediate step.
+The way this works is as follows:
 
-.. container:: handout
+* The ``dict()`` built-in takes a list of key/value pairs (2-tuples).
+* We have a list of month codes (each month code is a single letter, and a
+  string is also just a list of letters).  We enumerate over this list to get
+  both the month code and the index.
+* The month numbers start at 1, but Python starts indexing at 0, so the month
+  number is one more than the index.
+* We want to look up months both as strings and as integers.  We can use the
+  ``int()`` and ``str()`` functions to do this for us, and loop over them.
 
-   Here's a recent example I saw at work.
-
-   .. container:: spoken
-
-      |==>|
-
-   We needed a dictionary mapping month numbers (both as string and as
-   integers) to month codes for futures contracts.  It can be done in
-   one logical line of code.
-
-   .. container:: spoken
-
-      |==>|
-
-   The way this works is as follows:
-
-   * The ``dict()`` built-in takes a list of key/value pairs
-     (2-tuples).
-
-   * We have a list of month codes (each month code is a single
-     letter, and a string is also just a list of letters).  We
-     enumerate over this list to get both the month code and the
-     index.
-
-   * The month numbers start at 1, but Python starts indexing at 0, so
-     the month number is one more than the index.
-
-   * We want to look up months both as strings and as integers.  We
-     can use the ``int()`` and ``str()`` functions to do this for us,
-     and loop over them.
-
-.. class:: incremental
-
-   Recent example::
+Recent example::
 
         month_codes = dict((fn(i+1), code)
             for i, code in enumerate('FGHJKMNQUVXZ')
@@ -1704,28 +710,17 @@ Generator Expressions (2)
 Sorting
 =======
 
-.. container:: handout
-
-   It's easy to sort a list in Python:
-
 ::
 
     a_list.sort()
 
-.. container:: handout
+(Note that the list is sorted in-place: the original list is sorted, and the
+``sort`` method does **not** return the list or a copy.)
 
-   (Note that the list is sorted in-place: the original list is
-   sorted, and the ``sort`` method does **not** return the list or a
-   copy.)
-
-   But what if you have a list of data that you need to sort, but it
-   doesn't sort naturally (i.e., sort on the first column, then the
-   second column, etc.)?  You may need to sort on the second column
-   first, then the fourth column.
-
-.. class:: incremental
-
-   We can use list's built-in ``sort`` method with a custom function::
+But what if you have a list of data that you need to sort, but it doesn't sort
+naturally (i.e., sort on the first column, then the second column, etc.)?  You
+may need to sort on the second column first, then the fourth column.
+We can use list's built-in ``sort`` method with a custom function::
 
        def custom_cmp(item1, item2):
            return cmp((item1[1], item1[3]),
@@ -1733,10 +728,7 @@ Sorting
 
        a_list.sort(custom_cmp)
 
-.. container:: handout
-
-   This works, but it's extremely slow for large lists.
-
+This works, but it's extremely slow for large lists.
 
 Sorting with DSU *
 ==================
@@ -1746,14 +738,8 @@ DSU = Decorate-Sort-Undecorate
 \* Note: DSU is often no longer necessary.  See the next section,
 `Sorting With Keys`_ for the new approach.
 
-.. container:: handout
-
-   Instead of creating a custom comparison function, we create an
-   auxiliary list that *will* sort naturally:
-
-.. class:: incremental
-
-   ::
+Instead of creating a custom comparison function, we create an auxiliary list
+that *will* sort naturally.::
 
        # Decorate:
        to_sort = [(item[1], item[3], item)
@@ -1765,49 +751,32 @@ DSU = Decorate-Sort-Undecorate
        # Undecorate:
        a_list = [item[-1] for item in to_sort]
 
-.. container:: handout
-
-   The first line creates a list containing tuples: copies of the sort
-   terms in priority order, followed by the complete data record.
-
-   The second line does a native Python sort, which is very fast and
-   efficient.
-
-   The third line retrieves the **last** value from the sorted list.
-   Remember, this last value is the complete data record.  We're
-   throwing away the sort terms, which have done their job and are no
-   longer needed.
-
-.. container:: handout
-
-   This is a tradeoff of space and complexity against time.  Much
-   simpler and faster, but we do need to duplicate the original list.
-
+The first line creates a list containing tuples: copies of the sort terms in
+priority order, followed by the complete data record.The second line does a
+native Python sort, which is very fast and efficient. The third line retrieves
+the **last** value from the sorted list.  Remember, this last value is the
+complete data record.  We're throwing away the sort terms, which have done
+their job and are no longer needed. This is a tradeoff of space and complexity
+against time.  Much simpler and faster, but we do need to duplicate the
+original list.
 
 Sorting With Keys
 =================
 
-.. container:: handout
-
-   Python 2.4 introduced an optional argument to the ``sort`` list
-   method, "key", which specifies a function of one argument that is
-   used to compute a comparison key from each list element.  For
-   example:
-
-.. class:: incremental
-
-   ::
+Python 2.4 introduced an optional argument to the ``sort`` list method, "key",
+which specifies a function of one argument that is used to compute a comparison
+key from each list element.  For example: ::
 
        def my_key(item):
            return (item[1], item[3])
 
        to_sort.sort(key=my_key)
 
-   The function ``my_key`` will be called once for each item in the
-   ``to_sort`` list.
+The function ``my_key`` will be called once for each item in the ``to_sort``
+list.
 
-   You can make your own key function, or use any existing
-   one-argument function if applicable:
+You can make your own key function, or use any existing one-argument function
+if applicable:
 
    * ``str.lower`` to sort alphabetically regarless of case.
    * ``len`` to sort on the length of the items (strings or containers).
@@ -1818,12 +787,8 @@ Sorting With Keys
 Generators
 ==========
 
-.. container:: handout
-
-   We've already seen generator expressions.  We can devise our own
-   arbitrarily complex generators, as functions:
-
-::
+We've already seen generator expressions.  We can devise our own arbitrarily
+complex generators, as functions: ::
 
     def my_range_generator(stop):
         value = 0
@@ -1834,50 +799,41 @@ Generators
     for i in my_range_generator(10):
         do_something(i)
 
-.. container:: handout
+The ``yield`` keyword turns a function into a generator.  When you call a
+generator function, instead of running the code immediately Python returns a
+generator object, which is an iterator; it has a ``next`` method.  ``for``
+loops just call the ``next`` method on the iterator, until a ``StopIteration``
+exception is raised.  You can raise ``StopIteration`` explicitly, or implicitly
+by falling off the end of the generator code as above.
 
-   The ``yield`` keyword turns a function into a generator.  When you
-   call a generator function, instead of running the code immediately
-   Python returns a generator object, which is an iterator; it has a
-   ``next`` method.  ``for`` loops just call the ``next`` method on
-   the iterator, until a ``StopIteration`` exception is raised.  You
-   can raise ``StopIteration`` explicitly, or implicitly by falling
-   off the end of the generator code as above.
+Generators can simplify sequence/iterator handling, because we don't need to
+build concrete lists; just compute one value at a time.  The generator function
+maintains state.
 
-   Generators can simplify sequence/iterator handling, because we
-   don't need to build concrete lists; just compute one value at a
-   time.  The generator function maintains state.
+This is how a ``for`` loop really works.  Python looks at the sequence supplied
+after the ``in`` keyword.  If it's a simple container (such as a list, tuple,
+dictionary, set, or user-defined container) Python converts it into an
+iterator.  If it's already an iterator, Python uses it directly.
 
-.. container:: handout
+Then Python repeatedly calls the iterator's ``next`` method, assigns the return
+value to the loop counter (``i`` in this case), and executes the indented code.
+This is repeated over and over, until ``StopIteration`` is raised, or a
+``break`` statement is executed in the code.
 
-   This is how a ``for`` loop really works.  Python looks at the
-   sequence supplied after the ``in`` keyword.  If it's a simple
-   container (such as a list, tuple, dictionary, set, or user-defined
-   container) Python converts it into an iterator.  If it's already an
-   iterator, Python uses it directly.
+A ``for`` loop can have an ``else`` clause, whose code is executed after the
+iterator runs dry, but **not** after a ``break`` statement is executed.  This
+distinction allows for some elegant uses.  ``else`` clauses are not always or
+often used on ``for`` loops, but they can come in handy.  Sometimes an ``else``
+clause perfectly expresses the logic you need.
 
-   Then Python repeatedly calls the iterator's ``next`` method,
-   assigns the return value to the loop counter (``i`` in this case),
-   and executes the indented code.  This is repeated over and over,
-   until ``StopIteration`` is raised, or a ``break`` statement is
-   executed in the code.
-
-   A ``for`` loop can have an ``else`` clause, whose code is executed
-   after the iterator runs dry, but **not** after a ``break``
-   statement is executed.  This distinction allows for some elegant
-   uses.  ``else`` clauses are not always or often used on ``for``
-   loops, but they can come in handy.  Sometimes an ``else`` clause
-   perfectly expresses the logic you need.
-
-   For example, if we need to check that a condition holds on some
-   item, any item, in a sequence::
+For example, if we need to check that a condition holds on some item, any item,
+in a sequence::
 
        for item in sequence:
            if condition(item):
                break
        else:
            raise Exception('Condition not satisfied.')
-
 
 Example Generator
 =================
@@ -1902,200 +858,57 @@ Reading Lines From Text/Data Files
     for line in datafile:
         do_something(line)
 
-.. container:: handout
+This is possible because files support a ``next`` method, as do other
+iterators: lists, tuples, dictionaries (for their keys), generators.
 
-   This is possible because files support a ``next`` method, as do
-   other iterators: lists, tuples, dictionaries (for their keys),
-   generators.
-
-   There is a caveat here: because of the way the buffering is done,
-   you cannot mix ``.next`` & ``.read*`` methods unless you're using
-   Python 2.5+.
-
-
-EAFP vs. LBYL
-=============
-
-.. class:: incremental
-
-   It's easier to ask forgiveness than permission
-
-   Look before you leap
-
-   .. container:: handout
-
-      Generally EAFP is preferred, but not always.
-
-   * Duck typing
-
-     If it walks like a duck, and talks like a duck, and looks like a
-     duck: it's a duck.  `(Goose?  Close enough.)`
-
-   * Exceptions
-
-     .. container:: handout
-
-        Use coercion if an object must be a particular type.  If ``x``
-        must be a string for your code to work, why not call
-
-     .. class:: incremental
-
-        ::
-
-            str(x)
-
-     .. container:: handout
-
-        instead of trying something like
-
-     .. class:: incremental
-
-        ::
-
-            isinstance(x, str)
-
-
-EAFP ``try/except`` Example
-===========================
-
-.. container:: handout
-
-   You can wrap exception-prone code in a ``try/except`` block to
-   catch the errors, and you will probably end up with a solution
-   that's much more general than if you had tried to anticipate every
-   possibility.
-
-.. class:: incremental
-
-   ::
-
-       try:
-           return str(x)
-       except TypeError:
-           ...
-
-.. container:: handout
-
-   Note: Always specify the exceptions to catch.  Never use bare
-   ``except`` clauses.  Bare ``except`` clauses will catch unexpected
-   exceptions, making your code exceedingly difficult to debug.
-
+There is a caveat here: because of the way the buffering is done, you cannot
+mix ``.next`` & ``.read*`` methods unless you're using Python 2.5+.
 
 Importing
 =========
 
-    ::
+::
 
         from module import *
 
-.. container:: handout
+You've probably seen this "wild card" form of the import statement.  You may
+even like it.  **Don't use it.**
 
-   You've probably seen this "wild card" form of the import statement.
-   You may even like it.  **Don't use it.**
 
-   To adapt `a well-known exchange
-   <http://www.python.org/doc/humor/#python-vs-perl-according-to-yoda>`__:
+The ``from module import *`` wild-card style leads to namespace pollution.
+You'll get things in your local namespace that you didn't expect to get.  You
+may see imported names obscuring module-defined local names.  You won't be able
+to figure out where certain names come from.  Although a convenient shortcut,
+this should not be in production code.
 
-       (Exterior Dagobah, jungle, swamp, and mist.)
+Moral: **don't use wild-card imports!**
 
-       LUKE: Is ``from module import *`` better than explicit imports?
+It's much better to:
 
-       YODA: No, not better.  Quicker, easier, more seductive.
+* reference names through their module (fully qualified identifiers),
+* import a long module using a shorter name (alias; recommended),
+* or explicitly import just the names you need.
 
-       LUKE: But how will I know why explicit imports are better than
-       the wild-card form?
 
-       YODA: Know you will when your code you try to read six months
-       from now.
-
-   Wild-card imports are from the dark side of Python.
-
-.. class:: incremental
-
-   **Never!**
-
-.. container:: handout
-
-   The ``from module import *`` wild-card style leads to namespace
-   pollution.  You'll get things in your local namespace that you
-   didn't expect to get.  You may see imported names obscuring
-   module-defined local names.  You won't be able to figure out where
-   certain names come from.  Although a convenient shortcut, this
-   should not be in production code.
-
-   Moral: **don't use wild-card imports!**
-
-   .. container:: spoken
-
-      |==>|
-
-   It's much better to:
-
-   * reference names through their module
-     (fully qualified identifiers),
-
-     .. container:: spoken
-
-        |==>|
-
-   * import a long module using a shorter name (alias; recommended),
-
-     .. container:: spoken
-
-        |==>|
-
-   * or explicitly import just the names you need.
-
-     .. container:: spoken
-
-        |==>|
-
-.. container:: handout
-
-   Namespace pollution alert!
-
-.. class:: incremental
-
-   Instead,
-
-.. container:: handout
-
-   Reference names through their module (fully qualified identifiers):
-
-.. class:: incremental
-
-   ::
+Namespace pollution alert!  ::
 
        import module
        module.name
 
-.. container:: handout
-
-   Or import a long module using a shorter name (alias):
-
-.. class:: incremental
-
-   ::
+Or import a long module using a shorter name (alias): ::
 
        import long_module_name as mod
        mod.name
 
-.. container:: handout
 
-   Or explicitly import just the names you need:
-
-.. class:: incremental
-
-   ::
+Or explicitly import just the names you need: ::
 
        from module import name
        name
 
-.. container:: handout
 
-   Note that this form doesn't lend itself to use in the interactive
-   interpreter, where you may want to edit and "reload()" a module.
-
+Note that this form doesn't lend itself to use in the interactive interpreter,
+where you may want to edit and "reload()" a module.
 
 Modules & Scripts
 =================
@@ -2105,23 +918,21 @@ To make a simultaneously importable module and executable script::
     if __name__ == '__main__':
         # script code here
 
-.. container:: handout
 
-   When imported, a module's ``__name__`` attribute is set to the
-   module's file name, without ".py".  So the code guarded by the
-   ``if`` statement above will not run when imported.  When executed
-   as a script though, the ``__name__`` attribute is set to
-   "__main__", and the script code *will* run.
+When imported, a module's ``__name__`` attribute is set to the module's file
+name, without ".py".  So the code guarded by the ``if`` statement above will
+not run when imported.  When executed as a script though, the ``__name__``
+attribute is set to "__main__", and the script code *will* run.
 
-   Except for special cases, you shouldn't put any major executable
-   code at the top-level.  Put code in functions, classes, methods,
-   and guard it with ``if __name__ == '__main__'``.
+Except for special cases, you shouldn't put any major executable code at the
+top-level.  Put code in functions, classes, methods, and guard it with ``if
+__name__ == '__main__'``.
 
 
 Module Structure
 ================
 
-::
+This is how a module should be structured.::
 
     """module docstring"""
 
@@ -2139,11 +950,6 @@ Module Structure
         status = main()
         sys.exit(status)
 
-.. container:: handout
-
-   This is how a module should be structured.
-
-
 Packages
 ========
 
@@ -2156,70 +962,34 @@ Packages
             __init__.py
             module2.py
 
-.. class:: incremental
 
-   - Used to organize your project.
-   - Reduces entries in load-path.
-   - Reduces import name conflicts.
+- Used to organize your project.
+- Reduces entries in load-path.
+- Reduces import name conflicts.
 
-   Example::
+Example::
 
-       import package.module1
-       from package.subpackage import module2
-       from package.subpackage.module2 import name
+import package.module1
+from package.subpackage import module2
+from package.subpackage.module2 import name
 
-.. container:: handout
-
-   In Python 2.5 we now have absolute and relative imports via a
-   future import::
+In Python 2.5 we now have absolute and relative imports via a future import::
 
        from __future__ import absolute_import
-
-   I haven't delved into these myself yet, so we'll conveniently cut
-   this discussion short.
-
 
 Simple is Better Than Complex
 =============================
 
-    Debugging is twice as hard as writing the code in the first place.
-    Therefore, if you write the code as cleverly as possible, you are,
-    by definition, not smart enough to debug it.
+Debugging is twice as hard as writing the code in the first place.  Therefore,
+if you write the code as cleverly as possible, you are, by definition, not
+smart enough to debug it.
 
     -- Brian W. Kernighan, co-author of *The C Programming Language*
        and the "K" in "AWK"
 
-.. container:: handout
 
-   In other words, keep your programs simple!
+In other words, keep your programs simple!
 
-
-Don't reinvent the wheel
-========================
-
-.. container:: handout
-
-   Before writing any code,
-
-.. container:: spoken
-
-   |==>| |==>| |==>| |==>|
-
-.. class:: incremental
-
-* Check Python's standard library.
-
-* Check the Python Package Index (the "Cheese Shop"):
-
-      http://cheeseshop.python.org/pypi
-
-* Search the web.  `Google is your friend.`
-
-
-References
-==========
-
-.. class:: small
 
 * "Python Objects", Fredrik Lundh,
   http://www.effbot.org/zone/python-objects.htm
@@ -2249,8 +1019,6 @@ References
   http://wiki.python.org/moin/HowTo/Sorting
 
 * "Python Idioms", http://www.gungfu.de/facts/wiki/Main/PythonIdioms
-
-* "Python FAQs", http://www.python.org/doc/faq/
 
 print as a function in python3.
 New string model
@@ -3185,13 +1953,6 @@ For e.g:
 Add the information on headers
 Header set Author "Senthil"
 
-Why do YOU like Python?
------------------------
-
- * Python enables programs to be written compactly and readably.
- * Strongly typed and a Dynamic Language.
- * Why settle for snake oil, when you can have the whole snake? _Usenet post by Mark Jackson, 1998 and also mentioned on top of python-dev page!_
-
 Language Feature: Source code encoding
 --------------------------------------
 
@@ -3804,7 +2565,6 @@ in C# code:
         objMyExample.InstanceExample();
 
 
-       
 Python method can create an instance of Dict or of any subclass of it, because
 it receives a reference to a class object as cls:
 
@@ -3826,7 +2586,6 @@ Question:
 What is metaclass attributes?
 Look a bit into property.
 Usage of Ellipses
-
 
 What is the difference between process and a thread?
 
@@ -3894,12 +2653,6 @@ much to worry about threads.
 3. when speed does matter (ie: when C code is run) Python applications is not
 hampered by a brain dead VM that is so ’screwed’ up that it must pause
 to collect its garbage.
-
-
-Links:
-
-http://jessenoller.com/2009/02/01/python-threads-and-the-global-interpreter-lock/
-http://en.wikipedia.org/wiki/Global_Interpreter_Lock
 
 Python Standard Library
 -----------------------
@@ -4311,11 +3064,5 @@ data structures in memory. The type can be described as a cross between a list
 and a dictionary.  The C implementation of xml.etree.ElementTree is available
 as xml.etree.cElementTree
 
-
-Why and when do you subclass object?
-
-The Evolution of  Python Programmer
------------------------------------
-http://gist.github.com/289467
 
 .. _Joel's article on Unicode: http://www.joelonsoftware.com/articles/Unicode.html 

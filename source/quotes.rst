@@ -38,6 +38,10 @@ Life
         And I think that is true in most cases, be it the "great sport coach" or
         the "great spiritual leader."
 
+* You are never given a wish without also being given the power to make it true.
+  You may have to work for it, however. - Richard Bach
+* A foolish consistency is the hobgoblin of little minds. -- Ralph Waldo Emerson
+
 Universe
 ========
 
@@ -76,6 +80,10 @@ Everything
 
 * Beg your pardon, Sir, but your excuse, "We've always done it this way,' is
   the most damaging phrase in the language." - Admiral Grace Murray Hooper
+
+* Programs must be written for people to read, and only incidentally for
+  machines to execute.  -- Abelson & Sussman, *Structure and Interpretation of
+  Computer Programs*
 
 ---- 
 
