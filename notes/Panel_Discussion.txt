@@ -1,4 +1,0 @@
-IronPython - Why .NET was such a bad platform for dynamic languages.
-Performance
-Implementation has its own uses.
-CPython - lack of man power and Unladen Swallow will have the speed benefits which will get merged back.

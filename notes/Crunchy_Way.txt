@@ -1,9 +1,0 @@
-http://code.google.com/p/crunchy
-http://pywhip.appspot.com
-
-There is pyflakes, pychecker available with Crunchy.
-
-Restructured based presentation is available for Crunchy.
-
-If you are an advanced deveoper, Crunchy is not the way. Even Dr. does not use it.
-It is for beginning developers.
