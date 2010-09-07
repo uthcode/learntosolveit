@@ -1,0 +1,41 @@
+<html> 
+
+<head> 
+  <title>Shal Greetings</title> 
+
+  <script> 
+
+  function picnik(id){
+  document.edit.imgid.value=id;
+  document.edit._import.value='http://shalgreetings.appspot.com/photo/'+id;
+  document.edit.submit();
+  }
+  </script> 
+
+</head> 
+
+<body style="margin:60px;"> 
+<center><h2>Welcome to Shal Greetings</h2></center> 
+<center><h3>Choose, Customize and Send!</h3></center> 
+
+<form method='POST' action='http://www.picnik.com/service' name="edit"> 
+
+<input type='hidden' name='_apikey' value='4e7895252eb064d1660de2dbc3251227'/> 
+<input type='hidden' name='_export' value='http://picnikspot.appspot.com/export'/> 
+<input type='hidden' name='_export_title' value='Okay,I am Done!'/> 
+<input type='hidden' name='_close_target' value='http://shalgreetings.appspot.com/'/> 
+<input type='hidden' name='_import' value='http://picnikspot.appspot.com/media/king.gif'/> 
+<input type='hidden' name='_redirect' value='http://shalgreetings.appspot.com'/> 
+<input type='hidden' name='_host_name' value='ShalGreetings'/> 
+<input type='hidden' name='_exclude' value='out'/> 
+<input type='hidden' name='_export_field' value='imgdata'/> 
+<input type='hidden' name='imgid' value=''/> 
+<input type='hidden' name='_export_method' value='POST'/> 
+</form><hr/> 
+<center> 
+ 
+<a href="#" onclick="picnik(4)"><img src="/image/4" width="300" style="margin:10px;"/></a> 
+ 
+</center> 
+</body> 
+</html>
