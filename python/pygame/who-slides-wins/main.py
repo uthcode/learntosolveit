@@ -120,10 +120,12 @@ if __name__ == '__main__':
     p_window = (p_width, p_height) = (630, 450)
     pygame.init()
     pygame.display.set_caption("Who Slides Wins!")
+    """
     if pygame.mixer:
         music = os.path.join('data','player.wav')
         pygame.mixer.music.load(music)
         pygame.mixer.music.play(-1)
+    """
     fontfile = os.path.join('data','ARCADE.TTF')
     font = pygame.font.Font(fontfile,82)
     text = font.render("Who Slides Wins!",0,FONTCOLOR)

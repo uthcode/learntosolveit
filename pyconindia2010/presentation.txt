@@ -1,0 +1,87 @@
+.. -*- coding: utf-8 -*-
+.. include:: <s5defs.txt>
+.. |==>| unicode:: U+02794 .. thick rightwards arrow
+
+====================================
+Internet Protocol Libraries - Python
+====================================
+
+.. sidebar:: Contents
+   :class: handout
+
+   .. contents:: :local:
+
+.. class:: center large
+
+   | PyCon India 2010, Bangalore
+
+.. class:: center small
+
+   | **Senthil Kumaran**
+   | orsenthil@gmail.com
+   | http://uthcode.sarovar.org
+
+.. class:: handout
+
+        Let us look at the some of Python Standard Library modules which
+        formulate and make available various Internet Protocol and help us
+        build good Internet Applications.
+
+        There are 3 versions of this presentation:
+
+        * `S5 presentation <presentation.html>`__
+        * `Plain HTML handout <handout.html>`__
+        * `reStructuredText source <presentation.txt>`__
+
+        ©2010, licensed under a `Creative Commons
+        Attribution/Share-Alike (BY-SA) license
+        <http://creativecommons.org/licenses/by-sa/3.0/>`__.
+
+
+About Me
+========
+
+* Python Core Developer. 
+* Maintainer of urllib2 and related modules.
+* Software Engineer at Akamai, India.
+
+Status of Python
+================
+
+* Python 3.2a2+ (This is the trunk)
+* Python 3.1.2 (release31-maint)
+* Python 2.7 (release27-maint)
+
+Unsupported versions:
+
+* Python 3.0 is not there!  
+* Python 2.6.5 (release26-maint)
+
+.. class:: handout
+        
+        http://www.python.org/dev/
+
+Template
+========
+
+* Point 1
+* Point 2
+* Point 3
+* Point 4
+
+::
+
+        Code
+
+.. class:: handout
+        
+        handout
+Good Resources
+==============
+
+* http://docs.python.org/py3k/
+* http://www.python.org/dev/peps/
+* http://diveintopython3.org/
+
+Thank you. :)
+=============

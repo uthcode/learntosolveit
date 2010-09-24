@@ -30,10 +30,9 @@ for tc in range(N):
                 else:
                     next[i] = next[i] + last[i-1]
         last = next
-        print next
 
 
-    result.append((last[len(S)-1] % 10000))
+    result.append((last[-1] % 10000))
 
 for n,c in enumerate(result):
     print 'Case #%d: %s' % (n+1,str(c).zfill(4))
