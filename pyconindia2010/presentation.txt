@@ -61,13 +61,30 @@ Unsupported versions:
         
         http://www.python.org/dev/
 
-Template
-========
+Internet Protocols and Support
+==============================
 
-* Point 1
-* Point 2
-* Point 3
-* Point 4
+* Most of the modules are built on top of **socket** module.
+* Some useful highlevel modules.
+* **webbrowser**
+* **cgi**
+* **wsgiref**
+* **uuid**
+
+::
+        Code
+
+.. class:: handout
+        
+        handout
+
+Internet Protocols and Support
+==============================
+
+* URL Handling Modules
+* **urllib**
+* **urllib2**
+* **urlparse**
 
 ::
 
@@ -76,6 +93,113 @@ Template
 .. class:: handout
         
         handout
+
+Internet Protocols and Support
+==============================
+
+* Implementation of Common Protocols
+* **httplib**
+* **ftplib**
+* **poplib**
+* **imaplib**
+* **smtplib**
+* **telnetlib**
+
+::
+
+        Code
+
+.. class:: handout
+        
+        handout
+
+Internet Protocols and Support
+==============================
+
+* Cookies and XMLRPC
+* **cookielib**
+* **Cookie**
+* **xmlrpclib**
+
+::
+
+        Code
+
+.. class:: handout
+        
+        handout
+
+
+Internet Protocols and Support
+==============================
+
+* Some Simple Servers
+* **SocketServer**
+* **BaseHTTPServer**
+* **SimpleHTTPServer**
+* **CGIHTTPServer**
+* **SimpleXMLRPCServer**
+* **DocXMLRPCServer**
+
+::
+
+        Code
+
+.. class:: handout
+        
+        handout
+
+
+webbrowser
+==========
+
+*
+
+
+cgi
+===
+
+wsgiref
+
+uuid
+
+urllib
+
+urllib2
+
+urlparse
+
+httplib
+
+ftplib
+
+poplib
+
+imaplib
+
+smtplib
+
+telnetlib
+
+cookielib
+
+Cookie
+
+xmlrpclib
+
+SocketServer
+
+BaseHTTPServer
+
+SimpleHTTPServer
+
+CGIHTTPServer
+
+SimpleXMLRPCServer
+
+DocXMLRPCServer
+
+
 Good Resources
 ==============
 
