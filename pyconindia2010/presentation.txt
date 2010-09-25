@@ -65,90 +65,62 @@ Internet Protocols and Support
 ==============================
 
 * Most of the modules are built on top of **socket** module.
-* Some useful highlevel modules.
-* **webbrowser**
-* **cgi**
-* **wsgiref**
-* **uuid**
-
-::
-        Code
-
-.. class:: handout
-        
-        handout
-
-Internet Protocols and Support
-==============================
-
-* URL Handling Modules
-* **urllib**
-* **urllib2**
-* **urlparse**
-
-::
-
-        Code
-
-.. class:: handout
-        
-        handout
-
-Internet Protocols and Support
-==============================
-
-* Implementation of Common Protocols
-* **httplib**
-* **ftplib**
-* **poplib**
-* **imaplib**
-* **smtplib**
-* **telnetlib**
-
-::
-
-        Code
-
-.. class:: handout
-        
-        handout
-
-Internet Protocols and Support
-==============================
-
-* Cookies and XMLRPC
-* **cookielib**
-* **Cookie**
-* **xmlrpclib**
-
-::
-
-        Code
-
-.. class:: handout
-        
-        handout
+* They are highlevel modules implmenting Specifications mostly from RFC.
+* Provide commonly used helper functions.
 
 
-Internet Protocols and Support
-==============================
+Applications which are using these
+==================================
 
-* Some Simple Servers
-* **SocketServer**
-* **BaseHTTPServer**
-* **SimpleHTTPServer**
-* **CGIHTTPServer**
-* **SimpleXMLRPCServer**
-* **DocXMLRPCServer**
+* Mercurial
+* Google Code (and google-cl)
+* youtube-dl
+* Bittorrent
+* Mailman
+ 
 
-::
+Modules in 2 and 3
+==================
+* webbrowser
+* cgi
+* wsgiref
+* uuid
 
-        Code
 
-.. class:: handout
-        
-        handout
+Modules in 2 and 3
+==================
+* less commonly used protocol modules.
+* ftplib
+* poplib
+* imaplib
+* smtplib
+* telnetlib
+ 
+urllib package in python3
+=========================
 
+* urllib **->** urllib.request, urllib.response, urllib.parse
+* urllib2 **->** urllib.request, urllib.response, urllib.parse
+* urlparse **->** urllib.parse
+
+http package in python3
+=======================
+
+* httplib **->** http.client
+* cookiekib **->** http.cookiejar
+* Cookie **->** http.cookies
+* BaseHTTPServer **->** http.server
+* SimpleHTTPServer **->** http.server
+* CGIHTTPServer **->** http.server
+
+* SocketServer **->** socketserver
+
+xmlrpc package in python3
+=========================
+
+* xmlrpclib **->** xmlrpc.client
+* SimpleXMLRPCServer **->** xmlrpc.server
+* DocXMLRPCServer **->** xmlrpc.server
 
 webbrowser
 ==========
@@ -176,6 +148,7 @@ cgi
 * FieldStorage class for handling forms.
 
 ::
+
         import cgitb
         cgitb.enable()
 
@@ -187,6 +160,9 @@ wsgiref
 * Django, TurboGears, App Engine, all many different Web Frameworks.
 * Standardization helps. You speak one language and follow similar protocols.
 * wsgiref is the reference implementation of WSGI Specification.
+
+wsgiref
+=======
 
 ::
         from wsgiref.simple_server import make_server
@@ -244,51 +220,75 @@ httplib
 ftplib
 ======
 
-
-poplib
-======
-
-
-imaplib
-=======
-
-smtplib
-=======
-
-
-telnetlib
-=========
-
-
-cookielib
-=========
-
-
-Cookie
-======
-
-xmlrpclib
-=========
+* Defines the FTP class and related items. The FTP class implments the client side FTP protocol.
+* Internally used by urllib module for handling ftp urls.
+* Got support FTP TLS from Python 2.7 onwards.
 
 SocketServer
 ============
 
-BaseHTTPServer
-==============
+* Handling synchronous network requests.
+* Helper classes for Mixins.
 
-SimpleHTTPServer
-================
+SocketServer
+============
 
-CGIHTTPServer
+::
+
+        +------------+
+        | BaseServer |
+        +------------+
+              |
+              v
+        +-----------+        +------------------+
+        | TCPServer |------->| UnixStreamServer |
+        +-----------+        +------------------+
+              |
+              v
+        +-----------+        +--------------------+
+        | UDPServer |------->| UnixDatagramServer |
+        +-----------+        +--------------------+
+
+Other Servers
 =============
+* BaseHTTPServer
+* SimpleHTTPServer
+* CGIHTTPServer
+
+::
+
+        python -m SimpleHTTPServer 8000
+
+
+xmlrpclib
+=========
+
+* XML-RPC client code; it handles all the details of translating between
+conformable Python objects and XML on the wire.
+
+::
+
+        import xmlrpclib
+        proxy = xmlrpclib.ServerProxy("http://localhost:8000/")
+        print "3 is even: %s" % str(proxy.is_even(3))
+        print "100 is even: %s" % str(proxy.is_even(100))
+
 
 SimpleXMLRPCServer
 ==================
 
+::
 
-DocXMLRPCServer
-===============
+        import xmlrpclib
+        from SimpleXMLRPCServer import SimpleXMLRPCServer
 
+        def is_even(n):
+            return n%2 == 0
+
+        server = SimpleXMLRPCServer(("localhost", 8000))
+        print "Listening on port 8000..."
+        server.register_function(is_even, "is_even")
+        server.serve_forever()
 
 Good Resources
 ==============
@@ -297,6 +297,7 @@ Good Resources
 * http://www.python.org/dev/peps/
 * http://diveintopython3.org/
 * http://stackoverflow.com/questions/1453952/most-useful-python-modules-from-the-standard-library
+
 
 Thank you. :)
 =============
