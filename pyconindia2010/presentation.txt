@@ -153,51 +153,97 @@ Internet Protocols and Support
 webbrowser
 ==========
 
-*
+* Module for Handling all different kinds of browsers
+
+::
+
+        url = 'http://www.python.org/'
+        webbrowser.open_new_tab(url + 'doc/')
+        webbrowser.open_new(url)
 
 
 cgi
 ===
 
+* Support for Common Gateway Interface Scripts
+
+::
+
+        print "Content-Type: text/html"
+        print                         
+        print "<h1>Hello,World</h1>"
+
+* FieldStorage class for handling forms.
+
 wsgiref
+=======
 
 uuid
+====
+
 
 urllib
+======
 
 urllib2
+=======
+
 
 urlparse
+========
+
 
 httplib
+=======
+
 
 ftplib
+======
+
 
 poplib
+======
+
 
 imaplib
+=======
 
 smtplib
+=======
+
 
 telnetlib
+=========
+
 
 cookielib
+=========
+
 
 Cookie
+======
 
 xmlrpclib
+=========
 
 SocketServer
+============
 
 BaseHTTPServer
+==============
 
 SimpleHTTPServer
+================
 
 CGIHTTPServer
+=============
 
 SimpleXMLRPCServer
+==================
+
 
 DocXMLRPCServer
+===============
 
 
 Good Resources

@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>Internet Protocol Libraries - Python</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5951 2009-05-18 18:03:10Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left{
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: left }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/default/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>Internet Protocol Libraries - Python</h1>
+
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">Internet Protocol Libraries - Python</h1>
+
+<!-- -*- coding: utf-8 -*- -->
+<!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
+<!-- This data file has been placed in the public domain. -->
+<!-- Colours
+======= -->
+<!-- Text Sizes
+========== -->
+<!-- Display in Slides (Presentation Mode) Only
+========================================== -->
+<!-- Display in Outline Mode Only
+============================ -->
+<!-- Display in Print Only
+===================== -->
+<!-- Display in Handout Mode Only
+============================ -->
+<!-- Incremental Display
+=================== -->
+<div class="handout sidebar">
+<p class="first sidebar-title">Contents</p>
+<div class="contents local last topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#about-me" id="id5">About Me</a></li>
+<li><a class="reference internal" href="#status-of-python" id="id6">Status of Python</a></li>
+<li><a class="reference internal" href="#internet-protocols-and-support" id="id7">Internet Protocols and Support</a></li>
+<li><a class="reference internal" href="#id1" id="id8">Internet Protocols and Support</a></li>
+<li><a class="reference internal" href="#id2" id="id9">Internet Protocols and Support</a></li>
+<li><a class="reference internal" href="#id3" id="id10">Internet Protocols and Support</a></li>
+<li><a class="reference internal" href="#id4" id="id11">Internet Protocols and Support</a></li>
+<li><a class="reference internal" href="#webbrowser" id="id12">webbrowser</a></li>
+<li><a class="reference internal" href="#cgi" id="id13">cgi</a></li>
+<li><a class="reference internal" href="#wsgiref" id="id14">wsgiref</a></li>
+<li><a class="reference internal" href="#uuid" id="id15">uuid</a></li>
+<li><a class="reference internal" href="#urllib" id="id16">urllib</a></li>
+<li><a class="reference internal" href="#urllib2" id="id17">urllib2</a></li>
+<li><a class="reference internal" href="#urlparse" id="id18">urlparse</a></li>
+<li><a class="reference internal" href="#httplib" id="id19">httplib</a></li>
+<li><a class="reference internal" href="#ftplib" id="id20">ftplib</a></li>
+<li><a class="reference internal" href="#poplib" id="id21">poplib</a></li>
+<li><a class="reference internal" href="#imaplib" id="id22">imaplib</a></li>
+<li><a class="reference internal" href="#smtplib" id="id23">smtplib</a></li>
+<li><a class="reference internal" href="#telnetlib" id="id24">telnetlib</a></li>
+<li><a class="reference internal" href="#cookielib" id="id25">cookielib</a></li>
+<li><a class="reference internal" href="#cookie" id="id26">Cookie</a></li>
+<li><a class="reference internal" href="#xmlrpclib" id="id27">xmlrpclib</a></li>
+<li><a class="reference internal" href="#socketserver" id="id28">SocketServer</a></li>
+<li><a class="reference internal" href="#basehttpserver" id="id29">BaseHTTPServer</a></li>
+<li><a class="reference internal" href="#simplehttpserver" id="id30">SimpleHTTPServer</a></li>
+<li><a class="reference internal" href="#cgihttpserver" id="id31">CGIHTTPServer</a></li>
+<li><a class="reference internal" href="#simplexmlrpcserver" id="id32">SimpleXMLRPCServer</a></li>
+<li><a class="reference internal" href="#docxmlrpcserver" id="id33">DocXMLRPCServer</a></li>
+<li><a class="reference internal" href="#good-resources" id="id34">Good Resources</a></li>
+<li><a class="reference internal" href="#thank-you" id="id35">Thank you. :)</a></li>
+</ul>
+</div>
+</div>
+<div class="center large line-block">
+<div class="line">PyCon India 2010, Bangalore</div>
+</div>
+<div class="center small line-block">
+<div class="line"><strong>Senthil Kumaran</strong></div>
+<div class="line"><a class="reference external" href="mailto:orsenthil&#64;gmail.com">orsenthil&#64;gmail.com</a></div>
+<div class="line"><a class="reference external" href="http://uthcode.sarovar.org">http://uthcode.sarovar.org</a></div>
+</div>
+<p class="handout">Let us look at the some of Python Standard Library modules which
+formulate and make available various Internet Protocol and help us
+build good Internet Applications.</p>
+<p class="handout">There are 3 versions of this presentation:</p>
+<ul class="handout simple">
+<li><a class="reference external" href="presentation.html">S5 presentation</a></li>
+<li><a class="reference external" href="handout.html">Plain HTML handout</a></li>
+<li><a class="reference external" href="presentation.txt">reStructuredText source</a></li>
+</ul>
+<p class="handout">©2010, licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+Attribution/Share-Alike (BY-SA) license</a>.</p>
+
+</div>
+<div class="slide" id="about-me">
+<h1>About Me</h1>
+<ul class="simple">
+<li>Python Core Developer.</li>
+<li>Maintainer of urllib2 and related modules.</li>
+<li>Software Engineer at Akamai, India.</li>
+</ul>
+</div>
+<div class="slide" id="status-of-python">
+<h1>Status of Python</h1>
+<ul class="simple">
+<li>Python 3.2a2+ (This is the trunk)</li>
+<li>Python 3.1.2 (release31-maint)</li>
+<li>Python 2.7 (release27-maint)</li>
+</ul>
+<p>Unsupported versions:</p>
+<ul class="simple">
+<li>Python 3.0 is not there!</li>
+<li>Python 2.6.5 (release26-maint)</li>
+</ul>
+<p class="handout"><a class="reference external" href="http://www.python.org/dev/">http://www.python.org/dev/</a></p>
+</div>
+<div class="slide" id="internet-protocols-and-support">
+<h1>Internet Protocols and Support</h1>
+<ul class="simple">
+<li>Most of the modules are built on top of <strong>socket</strong> module.</li>
+<li>Some useful highlevel modules.</li>
+<li><strong>webbrowser</strong></li>
+<li><strong>cgi</strong></li>
+<li><strong>wsgiref</strong></li>
+<li><strong>uuid</strong></li>
+</ul>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Code</dd>
+</dl>
+<p class="handout">handout</p>
+</div>
+<div class="slide" id="id1">
+<h1>Internet Protocols and Support</h1>
+<ul class="simple">
+<li>URL Handling Modules</li>
+<li><strong>urllib</strong></li>
+<li><strong>urllib2</strong></li>
+<li><strong>urlparse</strong></li>
+</ul>
+<pre class="literal-block">
+Code
+</pre>
+<p class="handout">handout</p>
+</div>
+<div class="slide" id="id2">
+<h1>Internet Protocols and Support</h1>
+<ul class="simple">
+<li>Implementation of Common Protocols</li>
+<li><strong>httplib</strong></li>
+<li><strong>ftplib</strong></li>
+<li><strong>poplib</strong></li>
+<li><strong>imaplib</strong></li>
+<li><strong>smtplib</strong></li>
+<li><strong>telnetlib</strong></li>
+</ul>
+<pre class="literal-block">
+Code
+</pre>
+<p class="handout">handout</p>
+</div>
+<div class="slide" id="id3">
+<h1>Internet Protocols and Support</h1>
+<ul class="simple">
+<li>Cookies and XMLRPC</li>
+<li><strong>cookielib</strong></li>
+<li><strong>Cookie</strong></li>
+<li><strong>xmlrpclib</strong></li>
+</ul>
+<pre class="literal-block">
+Code
+</pre>
+<p class="handout">handout</p>
+</div>
+<div class="slide" id="id4">
+<h1>Internet Protocols and Support</h1>
+<ul class="simple">
+<li>Some Simple Servers</li>
+<li><strong>SocketServer</strong></li>
+<li><strong>BaseHTTPServer</strong></li>
+<li><strong>SimpleHTTPServer</strong></li>
+<li><strong>CGIHTTPServer</strong></li>
+<li><strong>SimpleXMLRPCServer</strong></li>
+<li><strong>DocXMLRPCServer</strong></li>
+</ul>
+<pre class="literal-block">
+Code
+</pre>
+<p class="handout">handout</p>
+</div>
+<div class="slide" id="webbrowser">
+<h1>webbrowser</h1>
+<ul class="simple">
+<li>Module for Handling all different kinds of browsers</li>
+</ul>
+<pre class="literal-block">
+url = 'http://www.python.org/'
+
+# Open URL in a new tab, if a browser window is already open.
+webbrowser.open_new_tab(url + 'doc/')
+
+# Open URL in new window, raising the window if possible.
+webbrowser.open_new(url)
+</pre>
+</div>
+<div class="slide" id="cgi">
+<h1>cgi</h1>
+</div>
+<div class="slide" id="wsgiref">
+<h1>wsgiref</h1>
+</div>
+<div class="slide" id="uuid">
+<h1>uuid</h1>
+</div>
+<div class="slide" id="urllib">
+<h1>urllib</h1>
+</div>
+<div class="slide" id="urllib2">
+<h1>urllib2</h1>
+</div>
+<div class="slide" id="urlparse">
+<h1>urlparse</h1>
+</div>
+<div class="slide" id="httplib">
+<h1>httplib</h1>
+</div>
+<div class="slide" id="ftplib">
+<h1>ftplib</h1>
+</div>
+<div class="slide" id="poplib">
+<h1>poplib</h1>
+</div>
+<div class="slide" id="imaplib">
+<h1>imaplib</h1>
+</div>
+<div class="slide" id="smtplib">
+<h1>smtplib</h1>
+</div>
+<div class="slide" id="telnetlib">
+<h1>telnetlib</h1>
+</div>
+<div class="slide" id="cookielib">
+<h1>cookielib</h1>
+</div>
+<div class="slide" id="cookie">
+<h1>Cookie</h1>
+</div>
+<div class="slide" id="xmlrpclib">
+<h1>xmlrpclib</h1>
+</div>
+<div class="slide" id="socketserver">
+<h1>SocketServer</h1>
+</div>
+<div class="slide" id="basehttpserver">
+<h1>BaseHTTPServer</h1>
+</div>
+<div class="slide" id="simplehttpserver">
+<h1>SimpleHTTPServer</h1>
+</div>
+<div class="slide" id="cgihttpserver">
+<h1>CGIHTTPServer</h1>
+</div>
+<div class="slide" id="simplexmlrpcserver">
+<h1>SimpleXMLRPCServer</h1>
+</div>
+<div class="slide" id="docxmlrpcserver">
+<h1>DocXMLRPCServer</h1>
+</div>
+<div class="slide" id="good-resources">
+<h1>Good Resources</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/py3k/">http://docs.python.org/py3k/</a></li>
+<li><a class="reference external" href="http://www.python.org/dev/peps/">http://www.python.org/dev/peps/</a></li>
+<li><a class="reference external" href="http://diveintopython3.org/">http://diveintopython3.org/</a></li>
+</ul>
+</div>
+<div class="slide" id="thank-you">
+<h1>Thank you. :)</h1>
+</div>
+</div>
+</body>
+</html>
