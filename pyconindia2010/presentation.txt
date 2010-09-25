@@ -175,27 +175,71 @@ cgi
 
 * FieldStorage class for handling forms.
 
+::
+        import cgitb
+        cgitb.enable()
+
 wsgiref
 =======
+
+* The Web Server Gateway Interface (WSGI)
+* PEP 333
+* Django, TurboGears, App Engine, all many different Web Frameworks.
+* Standardization helps. You speak one language and follow similar protocols.
+* wsgiref is the reference implementation of WSGI Specification.
+
+::
+        from wsgiref.simple_server import make_server
+        def hello_world_app(environ, start_response):
+            status = '200 OK'
+            headers = [('Content-type', 'text/plain')]
+            start_response(status, headers)
+            return ["Hello World"]
+        httpd = make_server('', 8000, hello_world_app)
+        httpd.serve_forever()
 
 uuid
 ====
 
+* Universally Unique Identifier (RFC 4122)
+
+::
+
+        >>> import uuid
+        >>> print uuid.uuid1()
+        32fb97c6-c8d3-11df-a47f-00216bad94a4
+        >>> print uuid.uuid4()
+        f9e0a0cd-23dd-46c8-95d6-e0bb0198c121
 
 urllib
 ======
 
+* Higher Level Interface for Fetching Data from the Web.
+* Clients/ Client libraries which handle URLs.
+* **urllib.urlopen**
+
 urllib2
 =======
 
+* Next Version of urllib.
+* Create a Request Object.
+* Have different Handlers depending upon the Protocol.
+* Get the Response by the corresponding Handler object.
 
 urlparse
 ========
 
+* Parse the URLs into its constituents.
+* It is required when are building bigger applications.
+* Referencing sections within pages.
+* Parse IPv6 URLs too.
 
 httplib
 =======
 
+* It is the underlying layer to the urllib. 
+* It implements HTTP/1.1 spec.
+* Implements the HTTP States on top of socket.
 
 ftplib
 ======
@@ -252,6 +296,7 @@ Good Resources
 * http://docs.python.org/py3k/
 * http://www.python.org/dev/peps/
 * http://diveintopython3.org/
+* http://stackoverflow.com/questions/1453952/most-useful-python-modules-from-the-standard-library
 
 Thank you. :)
 =============
