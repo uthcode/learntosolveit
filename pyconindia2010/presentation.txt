@@ -103,6 +103,11 @@ urllib package in python3
 * urllib2 **->** urllib.request, urllib.response, urllib.parse
 * urlparse **->** urllib.parse
 
+.. class:: handout
+
+        http://www.python.org/dev/peps/pep-3108/
+
+
 http package in python3
 =======================
 
@@ -294,10 +299,12 @@ Good Resources
 ==============
 
 * http://docs.python.org/py3k/
-* http://www.python.org/dev/peps/
 * http://diveintopython3.org/
+* http://www.python.org/dev/peps/pep-3108/
 * http://stackoverflow.com/questions/1453952/most-useful-python-modules-from-the-standard-library
 
 
 Thank you. :)
 =============
+
+Senthil Kumaran <orsenthil@gmail.com>
