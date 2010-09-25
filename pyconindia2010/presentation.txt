@@ -170,6 +170,7 @@ wsgiref
 =======
 
 ::
+
         from wsgiref.simple_server import make_server
         def hello_world_app(environ, start_response):
             status = '200 OK'
@@ -178,6 +179,7 @@ wsgiref
             return ["Hello World"]
         httpd = make_server('', 8000, hello_world_app)
         httpd.serve_forever()
+
 
 uuid
 ====
@@ -268,8 +270,7 @@ Other Servers
 xmlrpclib
 =========
 
-* XML-RPC client code; it handles all the details of translating between
-conformable Python objects and XML on the wire.
+* XML-RPC client code; it handles all the details of translating between conformable Python objects and XML on the wire.
 
 ::
 
