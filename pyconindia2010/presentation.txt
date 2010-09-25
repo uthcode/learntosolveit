@@ -237,8 +237,7 @@ SocketServer
 * Handling synchronous network requests.
 * Helper classes for Mixins.
 
-SocketServer
-============
+.. class:: handout
 
 ::
 
