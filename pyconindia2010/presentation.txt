@@ -209,6 +209,18 @@ urllib2
 * Have different Handlers depending upon the Protocol.
 * Get the Response by the corresponding Handler object.
 
+
+Design Patterns in urllib2
+==========================
+
+* Builder Design Pattern
+
+.. image:: ./static/Builder2.png
+   :height: 680px
+   :width: 1200px
+   :align: center
+
+
 urlparse
 ========
 
@@ -299,6 +311,7 @@ Good Resources
 ==============
 
 * http://docs.python.org/py3k/
+* http://www.doughellmann.com/PyMOTW/
 * http://diveintopython3.org/
 * http://www.python.org/dev/peps/pep-3108/
 * http://stackoverflow.com/questions/1453952/most-useful-python-modules-from-the-standard-library
