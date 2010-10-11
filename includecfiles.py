@@ -26,6 +26,7 @@ template_value = """
 .. literalinclude:: ../$fileloc
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 """

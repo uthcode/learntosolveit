@@ -1,8 +1,0 @@
-2006-12-02  O.R.Senthil Kumaran <orsenthil@gmail.com>
-  * Added Support for Windows.
-  * Added Support for Proxy.
-  * Added Support for ConfigFile.
-2003-03-13  Wartan Hachaturow <wart@tepkom.ru>
-
-	* Revision 0.0.1
-	* Initial release
