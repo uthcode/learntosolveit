@@ -5,6 +5,15 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
+Bytes in API
+------------
+
+* Is ASCII with surrogateescape OK?
+* Non Decodable Bytes in System Character Interfaces.
+* PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
+* Issue4661
+
+
 How is the Python Private methods and Attributes handled?
 ---------------------------------------------------------
 
@@ -70,8 +79,6 @@ namespaces. The names refer to a particular object on assignment.
 
 Even if the objects have methods, you can never change its type or identity.
 Things like attribute assignments and item references are just syntactic sugar.
-
-
 
 
 Python bugs

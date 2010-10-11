@@ -14,10 +14,12 @@ programming and software engineering. The website is hosted at `Sarovar.org`_.
 
 .. _Sarovar.org: http://sarovar.org 
 
-Links
-=====
+PyCon India 2010
+================
 
-http://uthcode.slinkset.com/
+* `Internet Protocols in Python`_
+
+.. _Internet Protocols in Python: http://uthcode.sarovar.org/pyconindia2010/presentation.html
 
 APAC Pycon 2010
 ===============
