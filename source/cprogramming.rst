@@ -17,4 +17,11 @@ You may checkout the programs using the command
 Source code is most-often commented. My plan with uthcode is, it should
 eventually have a literal inclusion of programs and explaination of the code.
 
-.. literalinclude:: ../cprogs/helloworld.c
+.. literalinclude:: /cprogs/helloworld.c
+   :language: c
+   :linenos:
+
+.. literalinclude:: ../hello.c
+   :language: c
+   :linenos:
+
