@@ -11,6 +11,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/wumpus.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -19,6 +20,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/val_limits.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -27,6 +29,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/ungets.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -35,6 +38,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/unescape.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -43,6 +47,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/undcl.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -51,6 +56,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/undcl-1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -59,6 +65,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/trim.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -67,6 +74,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/tempconv.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -75,6 +83,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/tailn.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -83,6 +92,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/synerrors.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -91,6 +101,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/swap_t_x_y.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -99,6 +110,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/swap.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -107,6 +119,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/strindexv2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -115,6 +128,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/strendv2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -123,6 +137,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/strend.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -131,6 +146,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/squeezess.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -139,6 +155,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/squeezesc.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -147,6 +164,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sqrt.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -155,6 +173,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sortv2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -163,6 +182,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sortrevnum.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -171,6 +191,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sortfnr.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -179,6 +200,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sortdfnr-withoption.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -187,6 +209,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sort.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -195,6 +218,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sort-dfnr.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -203,6 +227,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/sizeof_various.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -211,6 +236,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/shellsort.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -219,6 +245,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/setbits.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -227,6 +254,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rudicalci.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -235,6 +263,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rpn.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -243,6 +272,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rpn-4.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -251,6 +281,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rpn-3.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -259,6 +290,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rpn-2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -267,6 +299,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rpn-1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -275,6 +308,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rot13.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -283,6 +317,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rightstrindex.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -291,6 +326,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/rightrot.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -299,6 +335,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/reversestr.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -307,6 +344,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/reversecomma.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -315,6 +353,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/remtrailbt.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -323,6 +362,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/remcomments.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -331,6 +371,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/recurreverse.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -339,6 +380,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/recuritoa.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -347,6 +389,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/quicksort.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -355,6 +398,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/printd.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -363,6 +407,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/prepro2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -371,6 +416,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/prepro1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -379,6 +425,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/pngetint.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -387,6 +434,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/pgechov3.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -395,6 +443,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/pgechov2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -403,6 +452,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/pgechov1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -411,6 +461,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/numsort.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -419,6 +470,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/numlinesort.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -427,6 +479,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/nongraphic.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -435,6 +488,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrncpy.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -443,6 +497,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrncmp.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -451,6 +506,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrncat.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -459,6 +515,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrlen.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -467,6 +524,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrlen-1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -475,6 +533,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcpy.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -483,6 +542,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcpy-4.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -491,6 +551,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcpy-3.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -499,6 +560,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcpy-2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -507,6 +569,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcmp.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -515,6 +578,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcmp-1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -523,6 +587,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mystrcat.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -531,6 +596,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mymalloc.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -539,6 +605,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mygetchar.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -547,6 +614,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mygetchar-2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -555,6 +623,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mycp.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -563,6 +632,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/mycat.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -571,6 +641,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/myatoi.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -579,6 +650,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/myatoi-2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -587,6 +659,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/modentab.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -595,6 +668,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/moddetab.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -603,6 +677,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/minprintf.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -611,6 +686,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/makedir.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -619,6 +695,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/lowercondit.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -627,6 +704,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/lower.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -635,6 +713,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/lower-upper.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -643,6 +722,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/long_extnal.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -651,6 +731,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/likegrep.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -659,6 +740,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/likefind.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -667,6 +749,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/lengt80.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -675,6 +758,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/leap.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -683,6 +767,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/justcp.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -691,6 +776,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/itob.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -699,6 +785,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/itoav2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -707,6 +794,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/itoa.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -715,6 +803,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/itoa-3.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -723,6 +812,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/itoa-2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -731,6 +821,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/invert.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -739,6 +830,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/intostr.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -747,6 +839,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/htoi.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -755,6 +848,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/helloworld.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -763,6 +857,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/glat17.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -771,6 +866,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getopv2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -779,6 +875,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getlinev2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -787,6 +884,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getline_woandr.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -795,6 +893,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getint.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -803,6 +902,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getfloat.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -811,6 +911,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getch_static.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -819,6 +920,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getch_getline.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -827,6 +929,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/getbits.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -835,6 +938,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/fsize_1.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -843,6 +947,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/fsize.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -851,6 +956,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/fold.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -859,6 +965,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/findpattern.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -867,6 +974,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/fahr2cel.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -875,6 +983,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/exprcmd.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -883,6 +992,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/expand.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -891,6 +1001,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/escape.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -899,6 +1010,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/eratosthenes.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -907,6 +1019,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/eofval.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -915,6 +1028,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/eof_getch.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -923,6 +1037,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/entab.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -931,6 +1046,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/endian.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -939,6 +1055,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/detab.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -947,6 +1064,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/dcl.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -955,6 +1073,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/dcl-funcargs.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -963,6 +1082,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/dcl-errorec.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -971,6 +1091,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/day_datev3.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -979,6 +1100,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/day_datev2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -987,6 +1109,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/day_date.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -995,6 +1118,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/counts.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1003,6 +1127,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/condientab.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1011,6 +1136,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/conddetab.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1019,6 +1145,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/calloc.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1027,6 +1154,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/cal_limits.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1035,6 +1163,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/buf1c.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1043,6 +1172,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/bitcount2s.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1051,6 +1181,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/bitcount.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1059,6 +1190,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/binsearch.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1067,6 +1199,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/binsearch-2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1075,6 +1208,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/bfree.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1083,6 +1217,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/atoiv2.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1091,6 +1226,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/atofwitheE.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1099,6 +1235,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/atof.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1107,6 +1244,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/anylonglinelen.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1115,6 +1253,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/any.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1123,6 +1262,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/alloc_afree.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1131,6 +1271,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/TbsBkSpaces.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1139,6 +1280,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/SinBlank.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1147,6 +1289,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/Nofbtn.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1155,6 +1298,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/LongLine.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1163,6 +1307,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/Hist_Freq.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1171,6 +1316,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/His_Vertical.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1179,6 +1325,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/His_Horizontal.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -1187,6 +1334,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 .. literalinclude:: ../cprogs/Fibonacci.c
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 

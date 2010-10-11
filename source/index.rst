@@ -12,14 +12,11 @@ K&R , solutions to programming contest problems, snippets for common
 programming tasks, notes from Computer Science subjects and articles on
 programming and software engineering. The website is hosted at `Sarovar.org`_.
 
-.. _Sarovar.org: http://sarovar.org 
-
-
 Project Page
 ============
 
-* http://code.google.com/p/uthcode/
-
+* `Uthcode Project Page`_
+* `Uthcode Blog`_ 
 
 Code
 ====
@@ -43,6 +40,7 @@ Projects
 * `Endhiroid`_ - Endhiran Live Wallpaper for Android 2.1 and 2.2
 * `marriagesite`_ - Get your marriage website hosted on Google App Engine.
 * `yhackday-elementary`_ -  A Sherlock Holmes Story generator based on Current News. Done on Yahoo Hackday.
+* `Discipline Score App`_ - A TODO list manager (at the moment) on Google App Engine.
 
 Articles
 ========
@@ -70,14 +68,10 @@ Presentations
 * `How to Solve it using Python (Online)`_ - PyCon US 2010 Tutorial
 * `How to Solve it using Python (Download)`_ - PyCon US 2010 Tutorial
 
-Social Web
-==========
-
-* `Uthcode Blog`_ 
-* `Senthil's General Blog`_
-
+.. _Discipline Score App: http://discipline-score.appspot.com
+.. _Sarovar.org: http://sarovar.org 
+.. _Uthcode Project Page: http://code.google.com/p/uthcode/
 .. _Uthcode Blog: http://uthcode.blogspot.com
-.. _Senthil's General Blog: http://anythingisfine.wordpress.com
 .. _How to Solve it using Python (Download): http://uthcode.googlecode.com/files/pycon2010_howtosolveit.zip
 .. _How to Solve it using Python (Online): http://uthcode.sarovar.org/pycon2010/
 .. _Freed.in 2009: http://uthcode.googlecode.com/files/freedin09_pygame.zip

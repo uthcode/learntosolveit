@@ -11,6 +11,7 @@ problems.
 .. literalinclude:: ../contests/tsort.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -19,6 +20,7 @@ problems.
 .. literalinclude:: ../contests/simple1.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -27,6 +29,7 @@ problems.
 .. literalinclude:: ../contests/megaCool.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -35,6 +38,7 @@ problems.
 .. literalinclude:: ../contests/fallingpoints.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -43,6 +47,7 @@ problems.
 .. literalinclude:: ../contests/ex_typeof.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -51,6 +56,7 @@ problems.
 .. literalinclude:: ../contests/ex_defines.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -59,6 +65,7 @@ problems.
 .. literalinclude:: ../contests/binarycode.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -67,6 +74,7 @@ problems.
 .. literalinclude:: ../contests/Yatzee.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -75,6 +83,7 @@ problems.
 .. literalinclude:: ../contests/Xosceles.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -83,6 +92,7 @@ problems.
 .. literalinclude:: ../contests/WidgetRepairs.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -91,6 +101,7 @@ problems.
 .. literalinclude:: ../contests/Underprimes.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -99,6 +110,7 @@ problems.
 .. literalinclude:: ../contests/ToolsBox.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -107,6 +119,7 @@ problems.
 .. literalinclude:: ../contests/TheEncryptionDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -115,6 +128,7 @@ problems.
 .. literalinclude:: ../contests/TheCardShufflingDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -123,6 +137,7 @@ problems.
 .. literalinclude:: ../contests/TallPeople.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -131,6 +146,7 @@ problems.
 .. literalinclude:: ../contests/SoccerLeagues.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -139,6 +155,7 @@ problems.
 .. literalinclude:: ../contests/SimpleWordGame.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -147,6 +164,7 @@ problems.
 .. literalinclude:: ../contests/RoyalTresurer.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -155,6 +173,7 @@ problems.
 .. literalinclude:: ../contests/RectangularGrid.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -163,6 +182,7 @@ problems.
 .. literalinclude:: ../contests/RabbitVoting.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -171,6 +191,7 @@ problems.
 .. literalinclude:: ../contests/PunctuationCleaner.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -179,6 +200,7 @@ problems.
 .. literalinclude:: ../contests/ProfitCalculator.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -187,6 +209,7 @@ problems.
 .. literalinclude:: ../contests/PrefixCode.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -195,6 +218,7 @@ problems.
 .. literalinclude:: ../contests/PassingGrade.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -203,6 +227,7 @@ problems.
 .. literalinclude:: ../contests/ObtainDigitK.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -211,6 +236,7 @@ problems.
 .. literalinclude:: ../contests/NoOrderOfOperations.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -219,6 +245,7 @@ problems.
 .. literalinclude:: ../contests/MagicalSource.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -227,6 +254,7 @@ problems.
 .. literalinclude:: ../contests/Graduation_SnapDragon.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -235,6 +263,7 @@ problems.
 .. literalinclude:: ../contests/FixedPointTheorem.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -243,6 +272,7 @@ problems.
 .. literalinclude:: ../contests/ErdosNumber.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -251,6 +281,7 @@ problems.
 .. literalinclude:: ../contests/DiscSpace.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -259,6 +290,7 @@ problems.
 .. literalinclude:: ../contests/CarrotJumping.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -267,6 +299,7 @@ problems.
 .. literalinclude:: ../contests/Bonuses.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -275,6 +308,7 @@ problems.
 .. literalinclude:: ../contests/vaish_solution.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -283,6 +317,7 @@ problems.
 .. literalinclude:: ../contests/userName.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -291,6 +326,7 @@ problems.
 .. literalinclude:: ../contests/topcoder_template.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -299,6 +335,7 @@ problems.
 .. literalinclude:: ../contests/sample.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -307,6 +344,7 @@ problems.
 .. literalinclude:: ../contests/picalculator.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -315,6 +353,7 @@ problems.
 .. literalinclude:: ../contests/mazeWandering.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -323,6 +362,7 @@ problems.
 .. literalinclude:: ../contests/matchmaking.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -331,6 +371,7 @@ problems.
 .. literalinclude:: ../contests/map_ex.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -339,6 +380,7 @@ problems.
 .. literalinclude:: ../contests/limits.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -347,6 +389,7 @@ problems.
 .. literalinclude:: ../contests/incredibleMachine.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -355,6 +398,7 @@ problems.
 .. literalinclude:: ../contests/ex_map.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -363,6 +407,7 @@ problems.
 .. literalinclude:: ../contests/ZigZag.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -371,6 +416,7 @@ problems.
 .. literalinclude:: ../contests/TriFibonacci.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -379,6 +425,7 @@ problems.
 .. literalinclude:: ../contests/Time.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -387,6 +434,7 @@ problems.
 .. literalinclude:: ../contests/TheTournamentDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -395,6 +443,7 @@ problems.
 .. literalinclude:: ../contests/TheProduct.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -403,6 +452,7 @@ problems.
 .. literalinclude:: ../contests/TheNewHouseDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -411,6 +461,7 @@ problems.
 .. literalinclude:: ../contests/TheMoviesLevelOneDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -419,6 +470,7 @@ problems.
 .. literalinclude:: ../contests/TheCardLineDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -427,6 +479,7 @@ problems.
 .. literalinclude:: ../contests/TheBlackJackDivTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -435,6 +488,7 @@ problems.
 .. literalinclude:: ../contests/RouteIntersection.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -443,6 +497,7 @@ problems.
 .. literalinclude:: ../contests/ReverseMagicalSource.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -451,6 +506,7 @@ problems.
 .. literalinclude:: ../contests/Quipu.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -459,6 +515,7 @@ problems.
 .. literalinclude:: ../contests/PowerOutage.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -467,6 +524,7 @@ problems.
 .. literalinclude:: ../contests/PawnsandKings.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -475,6 +533,7 @@ problems.
 .. literalinclude:: ../contests/PalindromesCount.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -483,6 +542,7 @@ problems.
 .. literalinclude:: ../contests/NotTwo.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -491,6 +551,7 @@ problems.
 .. literalinclude:: ../contests/MostProfitable.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -499,6 +560,7 @@ problems.
 .. literalinclude:: ../contests/MatrixShiftings.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -507,6 +569,7 @@ problems.
 .. literalinclude:: ../contests/KnightsTour.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -515,6 +578,7 @@ problems.
 .. literalinclude:: ../contests/KiwiJuice.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -523,6 +587,7 @@ problems.
 .. literalinclude:: ../contests/ImportantTasks.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -531,6 +596,7 @@ problems.
 .. literalinclude:: ../contests/ImageDithering.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -539,6 +605,7 @@ problems.
 .. literalinclude:: ../contests/Graduation.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -547,6 +614,7 @@ problems.
 .. literalinclude:: ../contests/GirlsAndBoys.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -555,6 +623,7 @@ problems.
 .. literalinclude:: ../contests/FormatAmt.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -563,6 +632,7 @@ problems.
 .. literalinclude:: ../contests/EggCartons.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -571,6 +641,7 @@ problems.
 .. literalinclude:: ../contests/DivisorDigits.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -579,6 +650,7 @@ problems.
 .. literalinclude:: ../contests/CCipher.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -587,6 +659,7 @@ problems.
 .. literalinclude:: ../contests/BoredPhilosophers.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
@@ -595,6 +668,7 @@ problems.
 .. literalinclude:: ../contests/BettingMoney.cpp
    :language: c
    :linenos:
+   :tab-width: 4
 
 ----
 
