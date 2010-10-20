@@ -59,6 +59,7 @@ Python Objects
 --------------
 
 All Python Objects have:
+
 * A Unique identifier (returned by id())
 * A Type (returned by type())
 * And a content.

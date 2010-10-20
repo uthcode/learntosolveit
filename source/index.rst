@@ -12,11 +12,11 @@ K&R , solutions to programming contest problems, snippets for common
 programming tasks, notes from Computer Science subjects and articles on
 programming and software engineering. The website is hosted at `Sarovar.org`_.
 
-Project Page
-============
+.. hlist::
+   :columns: 2
 
-* `Uthcode Project Page`_
-* `Uthcode Blog`_ 
+   * `Uthcode Project Page`_
+   * `Uthcode Blog`_ 
 
 Code
 ====
@@ -27,6 +27,18 @@ Code
    cprogramming
    pythonsnippets
    contests
+
+Articles
+========
+
+.. toctree::
+   :maxdepth: 1
+
+   pythonstart
+   beingagooddeveloper
+   python
+   computerscience
+   quotes
 
 Projects
 ========
@@ -41,18 +53,6 @@ Projects
 * `marriagesite`_ - Get your marriage website hosted on Google App Engine.
 * `yhackday-elementary`_ -  A Sherlock Holmes Story generator based on Current News. Done on Yahoo Hackday.
 * `Discipline Score App`_ - A TODO list manager (at the moment) on Google App Engine.
-
-Articles
-========
-
-.. toctree::
-   :maxdepth: 1
-
-   pythonstart
-   beingagooddeveloper
-   python
-   computerscience
-   quotes
 
 
 Presentations
