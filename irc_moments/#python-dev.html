@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>#python-dev</title>
+</head>
+<body>
+<h1>Conversation with #python-dev</h1>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson roundup * #8510/update to autoconf2.65: Roumen: good catch! Indeed, nested functions aren't legal in ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">spiv roundup * #8685/set(range(100000)).difference(set()) is slow: [new] set.difference(s), when s is also a set, basically ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson * r81077 /python/trunk/ (2 files): Issue #8510: Remove nested 'main' functions (causing ...</font><br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>spiv: Your patch seems to assume that x-y is the same as y-x for sets x and y.<br>
+<span style='font-weight: normal;color: #621ce9;'>spiv: </span>dickinsm: hmm, possibly!<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>spiv: There's also the issue that you can't assume that 'other' has type set...<br>
+<span style='font-weight: normal;color: #621ce9;'>spiv: </span>you can at that point<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>but you could test for that.<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>Ah, okay.<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>I didn't look at the code properly.<br>
+<span style='font-weight: normal;color: #621ce9;'>spiv: </span>But you're right about the y-x issue<br>
+<span style='font-weight: bold;color: #062585;'>***spiv </span>fies<br>
+<span style='font-weight: bold;color: #062585;'>***spiv </span>fixes, rather<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>spiv: Did you see the related recent issue about -=?<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span><a href="http://bugs.python.org/issue8425">http://bugs.python.org/issue8425</a><br>
+<span style='font-weight: normal;color: #621ce9;'>spiv: </span>dickinsm: no, thanks!<br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">spiv roundup * #8685/set(range(100000)).difference(set()) is slow: Oops, obvious bug in this patch. set('abc') - set('bcd') != ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson roundup * #8510/update to autoconf2.65: Merged to py3k, and fixed up an additional nested 'int ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson * r81078 /python/branches/ (3 files in 2 dirs): Recorded merge of revisions 81077 via svnmerge from ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson roundup * #8425/a -= b should be fast if a is a small set and b is a large set: See also issue 8685.</font><br>
+<span style='font-weight: normal;color: #3465a4;'>py-bb: </span>build #616 of x86 Windows7 trunk is complete: Success [build successful]  Build details are at <a href="http://www.python.org/dev/buildbot/all/builders/x86%20Windows7%20trunk/builds/616">http://www.python.org/dev/buildbot/all/builders/x86%20Windows7%20trunk/builds/616</a><br>
+<span style='font-weight: normal;color: #3465a4;'>py-bb: </span>build #424 of x86 XP-5 trunk is complete: Success [build successful]  Build details are at <a href="http://www.python.org/dev/buildbot/all/builders/x86%20XP-5%20trunk/builds/424">http://www.python.org/dev/buildbot/all/builders/x86%20XP-5%20trunk/builds/424</a><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson roundup * #8510/update to autoconf2.65: BTW, it looks as though the nested functions were introduced ...</font><br>
+<span style='font-weight: normal;color: #3465a4;'>py-bb: </span>build #627 of x86 Windows7 3.x is complete: Failure [failed test]  Build details are at <a href="http://www.python.org/dev/buildbot/all/builders/x86%20Windows7%203.x/builds/627">http://www.python.org/dev/buildbot/all/builders/x86%20Windows7%203.x/builds/627</a><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">spiv roundup * #8685/set(range(100000)).difference(set()) is slow: Ok, this time test_set* passes :) Currently if you have ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson roundup * #8510/update to autoconf2.65: Just double checked that r80969 didn't introduce any other ...</font><br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>spiv: Looks much better!<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>doko: Can issue 8510 be closed?<br>
+<span style='font-weight: normal;color: #621ce9;'>spiv: </span>dickinsm: yes, thanks for noticing my foolishness :)<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>spiv: Raymond Hettinger's away for a bit, so you might not get much feedback on that patch for a couple of weeks.<br>
+<span style='font-weight: normal;color: #621ce9;'>spiv: </span>Ah ok.  That's good to know.<br>
+<span style='font-weight: normal;color: #3f1ab3;'>doko: </span>dickinsm: yes, thanks for catching the macosx issue<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>doko: Great.  Thanks for doing the update!<br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">mark.dickinson roundup * #8510/update to autoconf2.65: [closed] Closing. Roumen, please open a new issue for any ...</font><br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>__ap__: Helloooo.<br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">pitrou roundup * #8684/improvements to sched.py: This must be retargeted to 3.2. Also, the patch lacks some ...</font><br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>Morning dickinsm !<br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">naoki roundup * #8686/&quot;This isn't defined beyond that&quot; phrase is not friendly to non-native English speakers.: [new] ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">pitrou roundup * #8684/improvements to sched.py: By the way, the patch lacks docs for new public APIs.</font><br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">r.david.murray roundup * #3704/cookielib doesn't handle URLs with / in parameters: There is a reason, and that is that it may break existing ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>Hi. I know common wisdom says 'don't ask to ask', but my question is a bit elaborate and I think maybe some background is in order. I'm trying to write a series of articles about Python's internals (only one published so far, if you care I'll paste the URL), and am having some difficulty with some of the details of Python's object system.<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>This isn't core Python development per-se, but I think document development is also a valid contribution and could use a bit of help with a particular detail (I'm stuck with something typeobject.c:type_new). If someone here (Anotine and Mark, I saw you two! :) would like to spend a few minutes and help me with a series of questions, I'd appreciate the help.<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>Specifically, what's eluding me at the moment is the creation of a new type when using build_class, and more specifically, where does a new type inheriting object get its slots from.<br>
+<span style='font-weight: normal;color: #02b209;'>CIA-29: </span><font size="3">r.david.murray roundup * #3704/cookielib doesn't handle URLs with / in parameters: Hmm. I didn't read your comment carefully enough before I ...</font><br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>(i.e., when doing 'class Foo(object): pass' in py3k, I can't seem to understand exactly how Foo's slots are filled up; I think they're supposed to be copied over from PyBaseObject_Type, but can't see it happening neither in the source nor in gdb). Cheers.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>Wow, the object system is one of the complicated things in Python :)<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>I think you'd better ask on a mailing-list, because it's difficult do give accurate answers on IRC<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>As for me, I don't even know many of the details :S<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>if it's about 3.x, you could start by reading <a href="http://www.python.org/dev/peps/pep-3115/">http://www.python.org/dev/peps/pep-3115/</a><br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>I'll do that. I really want to approach python-dev with this as a last resort.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>I do think the slots are copied over from the base class<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>just not necessarily where you are looking :)<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>the mechanics are complicated<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>Sneaky slots, now aren't they. :)<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>have you looked at type.__new__?<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>yeah<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>I avoid looking at typeobject.c usually<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>I'm currently reading type_new, and I have a particular line that's breaking my balls.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>haha<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>which line?<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>In Python 3.1.2 it's 2123, in latest py3k it's 2128.<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>teolicy: Have you found inherit_slots?<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>I think that's where the slots actually get copied from the base class.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>    et = (PyHeapTypeObject *)type;<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>?<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>I just barely understand why does the type structure have two separate representations, and the bit where you do &quot;et = type&quot;, and just a few lines later &quot;type-&gt;blah = et-&gt;blah&quot; kills me.<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>dickinsm, I don't think I read that, no. I don't recall seeing it called (though that doesn't mean it isn't... :). I'll look shortly.<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>__ap__, how come et takes the value of type, and then without any substantial mutation of et that I can see, type is filled from et?<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>It's called by PyType_Ready<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>why it has two separate representations? hmm, that's a good question<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>he, it's the first time I read that code!<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>well, that's a really good question<br>
+<span style='font-weight: bold;color: #062585;'>***teolicy </span>feels much better about not being able to get this for about two days now<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>I'll go chasing PyType_Ready a bit.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>a heap type is a type augmented with some seemingly redundant information, it needs<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>it seems<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>    /* Note: there's a dependency on the order of these members<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>       in slotptr() in typeobject.c . */<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>perhaps it's the explanation, although that seems a bit weak<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>I couldn't understand when types get allocated on the heap and when do they get allocated elsewhere (on the stack, I presume)? I mean, why the distinction at all?<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>(I read that comment, it didn't make things very clear, it read to me: &quot;Note: there's magic going on here, tread carefully&quot;)<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>dickinsm, I'll go read PyType_Ready et al for a bit.<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>Have fun!<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>teolicy: For bonus points, figure out whether the 'goto error' lines in PyType_Ready leak references or not.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>well the strange thing is that tp_alloc() should only allocate, not initialize the structure, so it should be full of zeros :/<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>yikes<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>teolicy: actually, I think I know why<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>__ap__, do tell.<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>the heaptype object has a &quot;PyNumberMethods&quot;, while the type object only has &quot;PyNumberMethods *&quot;<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>so this is an easy way to provide storage for these fields<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>rather than malloc stuff<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>(I think so)<br>
+<span style='font-weight: normal;color: #6cea09;'>__ap__: </span>(well, it would be an explanation at least)<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>When is one used and when is the other? If someone felt well about avoiding malloc()ation, why not stick with &quot;PyNumberMethods&quot; (not a pointer)? Why two types?<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>(sorry for the flurry of questions)<br>
+<span style='font-weight: normal;color: #02b209;'>teolicy: </span>dickinsm, PyType_Ready is /really/ an enlightening read. I was certain the lines I saw in type_new are what initializes the slots and got stuck on them so hard I hardly looked beyond.<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>teolicy: Yes, inherit_slots is what you're looking for, I think.<br>
+<span style='font-weight: normal;color: #fb5a9e;'>dickinsm: </span>Though that doesn't help explain the many weirdnesses in type_new
+</body>
+</html>
