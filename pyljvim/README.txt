@@ -14,7 +14,7 @@ Requirements:
 Installation:
   To Install on Windows.
   0)Provide Accurate Details to Configfile.txt
-  1)python install_pyljvim.py
+  1)python setup.py install
   2)Open vim and type :LJTemplate extended or standart.
   3)Type :LJPost to post to the journal.
   4)Thanks it!

@@ -157,6 +157,20 @@ for line in bodylines:
 	result_line += line
 post["event"] = result_line
 
+# Setting up the Proxy Address
+if False:
+  proxy_ip = "10.10.10.10:80"
+  proxy_user = "senthil_or"
+  proxy_password_orig= "Password"
+  proxy_password = urllib.quote(proxy_password_orig,"")
+
+  # Setup the Proxy with urllib2
+
+  proxy_url = 'http://' + proxy_user + ':' + proxy_password + '@' + proxy_ip
+  proxy_support = urllib2.ProxyHandler({"http":proxy_url})
+  opener = urllib2.build_opener(proxy_support,urllib2.HTTPHandler)
+  urllib2.install_opener(opener)
+
 urldata = urllib.urlencode(post)
 result = urllib2.urlopen("http://www.livejournal.com/interface/flat", urldata)
 

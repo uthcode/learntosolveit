@@ -32,22 +32,6 @@ def configParsed():
 def replaceProxy(settings):
     '''Replace the Proxy Credential values'''
     shutil.copyfile('src'+os.sep+'pyljpost.py','src'+os.sep+'pyljpost-orig.py')
-    '''
-    srcfile = 'src' + os.sep + 'pyljpost.py'
-    destfile = 'src' + os.sep + 'pyljpost.py-temp'
-    src = open(srcfile,'r')
-    dest = open(destfile,'w')
-    for line in src:
-      for target,repl in settings.items():
-        line = line.replace(target,repl)
-      dest.write(line)
-    src.close()
-    dest.close()
-    os.remove(srcfile)
-    os.rename(destfile,srcfile)
-    '''
-    # fileinput.input does not work properly on DOS File System so I wrote the above.
-    # PEBKAC - Problem Exist(ed) Between Keyboard and Chair
     for k,v in settings.items():
       for line in fileinput.input('src' + os.sep+'pyljpost.py',inplace=1):
         print line.replace(k.strip(),v.strip()),
@@ -55,6 +39,13 @@ def replaceProxy(settings):
 
 def copyVimfiles(settings):
     '''Copy vim files to the vim location.'''
+    vim_location = settings['VIM']
+    if not os.path.exists(vim_location):
+        raise OSError("%s does not exists" % vim_location)
+    else:
+        vim_syntax = os.path.join(vim_location, 'syntax')
+        vim_macros = os.path.join(vim_location, 'macros')
+        vim_templates = os.path.join(vim_location, 'templates')
     shutil.copy('syntax' + os.sep + 'lj.vim', settings['VIM']+ os.sep + 'syntax')
     shutil.copy('macros' + os.sep + 'pyljpost.vim',settings['VIM'] + os.sep + 'macros')
     if not os.path.exists(settings['VIM'] + os.sep + 'templates'):
