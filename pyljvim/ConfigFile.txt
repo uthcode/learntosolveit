@@ -25,4 +25,4 @@ PROXY_PASSWORD: Password
 [LIVEJOURNAL]
 # Provide the LiveJournal Details
 LJ_USER = phoe6
-LJ_PASSWORD = 0dotaur
+LJ_PASSWORD = 
