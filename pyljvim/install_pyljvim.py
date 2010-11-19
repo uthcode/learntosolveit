@@ -89,7 +89,7 @@ def convertToVimPath(path):
     for eachvalue in dircomponents:
       dirpath = dirpath + eachvalue + os.sep + os.sep
     return dirpath
-    
+
 def editVimrc(settings):
     """Edit the _vimrc file to add the support for LJPost"""
     if sys.platform == 'win32':
