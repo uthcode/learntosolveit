@@ -33,8 +33,10 @@ def editVimrc(settings):
       vim = settings["VIM"].strip(dircom[len(dircom)-1]).strip(os.sep)
       vimrc = vim + os.sep + '_vimrc'
       appendToFile(vimrc,'source ' + settings['VIM']+ os.sep +'macros' + os.sep + 'pyljpost.vim')
-      # XXX: Get this automatically.
-      pyljpost_path = convertToVimPath(settings['PYTHON'] + os.sep + 'Lib' + os.sep + 'dist-packages')
+      install_location = settings['PYTHON']
+      if not install_location.endswith(os.sep):
+          install_location = install_location + os.sep
+      pyljpost_path = convertToVimPath(install_location)
       pyljpost_templates_path = convertToVimPath(settings['VIM'] + os.sep + 'templates')
       appendToFile(vimrc,'let g:pyljpost_path = '+ '"'+ pyljpost_path + 'pyljpost.py'+ '"' )
       appendToFile(vimrc,'let g:pyljpost_templates_path = ' + '"'+ pyljpost_templates_path + '"')
@@ -44,8 +46,10 @@ def editVimrc(settings):
     elif sys.platform == 'linux2':
       vimrc = os.path.join(os.path.expanduser('~'),'.vimrc')
       appendToFile(vimrc,'source ' + settings['VIM']+ os.sep +'macros' + os.sep + 'pyljpost.vim')
-      # XXX: Get this automatically.
-      pyljpost_path = convertToVimPath('/usr/local/lib/python2.6/dist-packages/')
+      install_location = settings['PYTHON']
+      if not install_location.endswith(os.sep):
+          install_location = install_location + os.sep
+      pyljpost_path = convertToVimPath(install_location)
       pyljpost_templates_path = settings['VIM'] + os.sep + 'templates'
       appendToFile(vimrc,'let g:pyljpost_path = '+ '"'+ pyljpost_path + 'pyljpost.py'+ '"' )
       appendToFile(vimrc,'let g:pyljpost_templates_path = ' + '"'+ pyljpost_templates_path + '"')
@@ -84,6 +88,11 @@ if __name__ == '__main__':
     settings = configParsed()
     replaceProxy(settings)
     vim_location = settings['VIM']
+    script_install_location = settings['PYTHON']
+
+    if not os.path.exists(script_install_location):
+        raise OSError("%s does not exist." % script_install_location)
+
     if not os.path.exists(vim_location):
         raise OSError("%s does not exist." % vim_location)
     else:
@@ -95,8 +104,9 @@ if __name__ == '__main__':
 
     setup(name='pyljvim',
           version='0.4',
-          py_modules=['pyljpost'],
-          data_files = [(vim_syntax,['syntax/lj.vim']),
+          data_files = [
+                        (script_install_location, ['pyljpost.py']),
+                        (vim_syntax,['syntax/lj.vim']),
                         (vim_macros,['macros/pyljpost.vim']),
                         (vim_templates,['templates/standard','templates/extended'])]
           )

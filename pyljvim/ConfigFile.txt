@@ -6,9 +6,9 @@
 #VIM: C:\Program Files\Vim\vim70
 VIM: /usr/share/vim/vim72
 
-# Enter the Python Installation Location
-#PYTHON: C:\Python24\
-PYTHON: /usr/lib/python2.6/
+# Enter the Install Location for the script
+#PYTHON: C:\
+PYTHON: /usr/local/bin
 
 
 [PROXY]
@@ -25,4 +25,4 @@ PROXY_PASSWORD: Password
 [LIVEJOURNAL]
 # Provide the LiveJournal Details
 LJ_USER = phoe6
-LJ_PASSWORD = 
+LJ_PASSWORD = 0dotaur
