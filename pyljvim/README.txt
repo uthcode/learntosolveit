@@ -6,14 +6,17 @@ pyljvim helps to post to LiveJournal from vim itself. Users of vim having
 python installed in their machines should find this facility useful.
 
 Requirements:
+-------------
 
 Python, vim. It uses python's distutils for installation.
 
 Installation:
+-------------
 
 Run: [sudo] python setup.py install.
 
 Usage:
+------
 
 0)Open Configfile.txt and provide the appropriate values.
 1)Open vim and type :LJTemplate extended or standard.
