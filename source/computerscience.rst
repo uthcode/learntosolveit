@@ -5,9 +5,6 @@ Computer Science Notes
 .. warning::
         Rough Notes
 
-.. todo::
-        # Write about http://aturingmachine.com/index.php
-
 
 GRE Score Report
 ----------------
@@ -91,11 +88,6 @@ Media Lab - Dec 15
 https://www.applyweb.com/apply/mitg/menu.html
 
 Texas A & M - (Tentative - 15 Dec 2009)
-
-Rochester Institute of Technology - July 1
-
-http://www.rit.edu/emcs/ptgrad/grad_admission.html
-http://www.nssa.rit.edu/?q=node/33
 
 University of Delware - Fall: February 1  & July 1 
 http://www.udel.edu/gradoffice/apply/index.html
@@ -1321,3 +1313,27 @@ You should implement this as a library of routines that can be
 used by anyone wanting to treat a file as a filesystem.
 Demonstrate the correctness of your routines by writing a demo
 program that lets one manipulate files interactively.
+
+
+Umass
+-----
+        
+If you wish, please enter your Personal Statement below, otherwise you must
+send a copy to the Graduate Admissions Office by surface mail. Securely attach
+a copy of your Application Transmittal Acknowledgment Page (received at the end
+of the application process) as the first page of your statement or clearly
+print/type your name, birth date and the graduate program to which you have
+applied at the top of your statement. Your Personal Statement should be a brief
+but carefully written essay regarding: 1) the reasons you want to do graduate
+work in this particular field, 2) your specific interests and experiences in
+this field, 3) any special skills or experiences that may relate to an
+assistantship, and 4) your career plans.
+
+William Stallings
+-----------------
+
+* Operating Systems Problems and Solutions.
+* There is problem which asks to calculate the maximum number of writes in one
+  sec. Could not understand that.
+* 
+

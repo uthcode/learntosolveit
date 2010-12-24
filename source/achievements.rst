@@ -16,7 +16,6 @@ Conference Talks and Teaching
    USA.
  * Teaching "How to Solve it using Python" Programming methodologies  using
    Python at `PyCon 2010 Conference`_, Atlanta, USA.
-
  * Teaching Robotics to High School Students using LEGO Mindstorms NXT and also
    programming using Alice Programming Language.
 
@@ -64,8 +63,10 @@ Fast Download mechanisms in Blu Ray disk.
 Industry Publications
 ---------------------
 
-* Using Log Messages and Alert Actions in Dell Open Manage Server Administrator. `Power Solutions - 2004`_
-* Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
+ * Using Log Messages and Alert Actions in Dell Open Manage Server
+   Administrator. `Power Solutions - 2004`_
+ * Methods of Installing Open Manage Software on Linux Operating Systems.
+   `Power Solutions - 2007`_
 
 .. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
 .. _PyCon 2009 Conference: http://us.pycon.org/2009/tutorials/schedule/2PM6/

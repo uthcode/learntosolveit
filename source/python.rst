@@ -5,6 +5,122 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
+and or operators
+----------------
+
+and returns the right operand if the left is true. or returns the right operand
+if the left is false. Otherwise they both return the left operand. They are
+said to coalesce
+
+Iterable and Iterator
+---------------------
+
+Because an iterator generally points to a single instance in a collection.
+Iterable implies that one may obtain an iterator from an object to traverse
+over its elements - and there's no need to iterate over a single instance,
+which is what an iterator represents.
+
++1: A collection is iterable. An iterator is not iterable because it's not a
+collection.
+
+I will have to get this right - sockets accept only binary strings, not unicode.
+
+>>> hasattr('lol','__next__')
+False
+>>> import collections
+>>> isinstance('lol',collections.Iterable)
+True
+>>> for i in 'lol':
+...     print(i)
+...
+l
+o
+l
+>>> hasattr('lol','__iter__')
+True
+
+
+Basically, this whole patch (both parts of it) will be much better off iif
+there is a clean way to say "a is an iterable but a is not a sequence", because
+even though b'this is a message' is Iterable, we want to treat it differently
+compared to, say, a generator object; we do NOT want to use the Iterator
+features (iter, next) of it, we want to use the sequencey features (by sending
+the whole chunk of it, by calling len)
+
+---
+
+A string is a sequence (isinstance('', Sequence) == True) and as any sequence
+it is iterable (isinstance('', Iterable)). Though hasattr('', '__iter__') ==
+False and it might be confusing. 
+
+---
+
+1. What is the difference between a bytes string and a unicode.
+
+Byte string is the 8 bit string. Unicode is not a 8 bit string. Unicode strings
+are a new generation of strings in themselves.
+
+
+OpenerDirector
+--------------
+
+handlers is a list.
+handle_open is a dictionary.
+handle_error is a dictionary.
+process_request is a dictionary.
+process_response is a dictionary.
+
+When handlers are getting added, it should not have attribute called
+add_parent.
+For each handler don't add the methods redirect_request, do_open, proxy_open
+
+The methods which are like _error, _open, _request, _response are handled in a
+special manner.  The error, open and response are called conditions.  And the
+terms preceding them are called protocol.
+
+When it is an error condition, some magic is done to find it's kind. The error
+kind could have been got from the error_XXX, but instead, it the position is
+determined and then it is extraced from the method name. Surprisingly, kind is
+not used in the error block. Instead, in the OpenerDirector's handle_error
+dictionary, for the protocol, which got an _error, a key is added, the value is
+initially {}.
+
+If the condition is _open, the kind is the protocol and the lookup is handle_open dictionary.
+If the condition is _request, the kind is the protocol and the lookup process_request dictionary.
+If the condition is _response, the kind is the protocol and the lookup is process_response.
+
+Why is it that redirect_request, do_open and proxy_open are not handled.
+
+Because it is a for loop on the methods of the handler, the kind and the lookup
+is set at the end and it could be either for error, open, request or response.
+But within the for loop, the handler having those methods is added. It is
+bisect.insorted and then, again, it is bisect.insorted for all the handlers.
+
+So, it seems that for that portion of the code, the appropriate handlers are
+added. That is all.
+
+What happens is, for any of these dictionaries, if it is an error, open,
+request or response, dictionary method's setdefault is called for that protocol
+
+There is a doubt when added=True comes in, handlers is list of all handlers is
+added.
+
+What's an add_unredirectedheader doing and what is it's purpose?  What is
+self._call_chain's behavior?  The redirect_cache was not setting in, because
+the object's parent method was calling and entirely new request, forgetting
+about the current request. When made a change that request object is carrying
+the information about the redirect, the cache hit was observed. Something along
+the same lines would be good.
+
+
+
+Extending Python
+----------------
+* To support extensions, the Python API (Application Programmers Interface)
+  defines a set of functions, macros and variables that provide access to most
+  aspects of the Python run-time system. The Python API is incorporated in a C
+  source file by including the header "Python.h".
+
 Bytes in API
 ------------
 
@@ -80,97 +196,6 @@ namespaces. The names refer to a particular object on assignment.
 
 Even if the objects have methods, you can never change its type or identity.
 Things like attribute assignments and item references are just syntactic sugar.
-
-
-Python bugs
------------
-
-List of bugs:
-
-* http://bugs.python.org/issue8595
-* https://bugs.launchpad.net/bugs/94130
-* http.client.HTTPMessage.getallmatchingheaders() always return http://bugs.python.org/issue5053
-* CGIHTTPRequestHandler.run_cgi() HTTP_ACCEPT improperly parse http://bugs.python.org/issue5054
-* Add timeout option to subprocess.Popen http://bugs.python.org/issue5673
-* cgi module cannot handle POST with multipart/form-data in 3.0 http://bugs.python.org/issue4953
-* urllib2 basicauth broken in 2.6.5: RuntimeError
-* urllib2 Digest Authorization uri must match request URI http://bugs.python.org/issue3819
-* urllib.quote throws exception on Unicode http://bugs.python.org/issue3243
-* BaseHTTPServer reinventing rfc822 date http://bugs.python.org/issue7370
-* http://bugs.python.org/issue1491 BaseHTTPServer incorrectly implements response code 100
-* https://bugs.launchpad.net/bugs/94130
-* urllib should support SSL contexts   
-* Demo/ directory needs to be tested and pruned
-* httplib fails with HEAD requests to pages with "transfer-encoding" http://bugs.python.org/issue6312
-* Support TLS SNI extension in ssl module http://bugs.python.org/issue5639
-* TODO in urllib.request.py for global _opener
-* Tarfile issue regression http://bugs.python.org/issue8741
-* urlparse.urlparse/urlsplit doc missing 
-* [issue8598] test/support: don't use localhost as IPv6 host name  
-* [issue8595] Explain the default timeout in http-client-related librarie
-* [issue8590] test_httpservers.CGIHTTPServerTestCase failure on 3.1-maint
-* [issue8499] Set a timeout in test_urllibnet 
-* [issue8455] buildbot: test_urllib2_localnet failures (Connection refuse
-* [issue8450] httplib: false BadStatusLine() raised
-* [issue8280] urllib2 passes fragment identifier to server 
-* [issue8238] Proxy handling
-* urlparse.urlsplit mishandles novel schemes http://bugs.python.org/issue7904
-* urllib2 request does not update content length after new add http://bugs.python.org/issue7540
-* urllib2 cannot handle https with proxy requiring auth
-* HTMLParser.HTMLParser doesn't handle malformed charrefs http://bugs.python.org/issue6662
-* Contradictory documentation for email.mime.text.MIMEText http://bugs.python.org/issue6521
-* Logging in BaseHTTPServer.BaseHTTPRequestHandler causes lag http://bugs.python.org/issue6085
-* LWPCookieJar cannot handle cookies with expirations of 2038 http://bugs.python.org/issue5537
-* urllib2.HTTPDigestAuthHandler fails on third hostname?  http://bugs.python.org/issue4683
-* Add utf8 alias for email charsets http://bugs.python.org/issue4487
-* new urllib2.Request 'timeout' attribute needs to have a default http://bugs.python.org/issue4079
-* cookielib doesn't handle URLs with / in parameters http://bugs.python.org/issue3704
-* Tests needing network flag?  http://bugs.python.org/issue1659
-* BaseHTTPServer incorrectly implements response code 100 http://bugs.python.org/issue1491
-* urllib(2) should allow automatic decoding by charset http://bugs.python.org/issue1599329
-* Add a "decode to declared encoding" version of urlopen to urllib http://bugs.python.org/issue4733
-* issue1314572 Trailing slash redirection for SimpleHTTPServer
-* issue1673007 - urllib2 requests history + HEAD support
-* issue1722 -  Undocumented urllib functions 
-* issue1755841 - Patch for [ 735515 ] urllib2 should cach 
-* issue2202 - urllib2 fails against IIS 6.0
-* [issue1229646] httplib error checking.
-* issue1027206 - unicode DNS names in socket, urllib, urlopen
-* issue8150 - urllib needs ability to set METHOD for HTTP requests
-* issue8143 - urlparse has a duplicate of urllib.unquote
-* issue3243 -  Support iterable bodies in httplib
-* issue3244 -  multipart/form-data encoding
-* issue4758 -  Python 3.x internet documentation needs wor
-* issue5673 -  Add timeout option to subprocess.Popen
-* issue6280 -  calendar.timegm() belongs in time module
-* issue6312 -  httplib fails with HEAD requests to pages
-* issue6500 -  urllib2 maximum recursion depth exceeded  (1)
-* issue6520 -  urllib.urlopen does not have timeout parame
-* issue1208304 - urllib2's urlopen() method causes a memor
-* issue6631    -  urlparse.urlunsplit() can't handle relative
-* issue6640    -  urlparse should parse mailto: URL headers as
-* issue7150    -  datetime operations spanning MINYEAR give b
-* issue7152    -  urllib2.build_opener() skips ProxyHandler
-* issue7159    -  Urllib2 authentication memory
-* issue7291    -  urllib2 cannot handle https with proxy requ 
-* issue7305    -  urllib2.urlopen() segfault using SSL on Solaris
-* issue7464    -  circular reference in HTTPResponse by urllib
-* issue7620    -  Vim syntax highlight 
-* issue7648    -  test_urllib2 fails on Windows if not run from
-* issue7665    -  test_urllib2 fails if path contains "\"
-* issue7668    -  test_httpservers fails with non-ascii path
-* issue7776    -  httplib.py: ._tunnel() broken
-* issue7806    -  httplib.HTTPConnection.getresponse closes s
-* issue8083    -  urllib proxy interface is too limited
-* issue8095    -  test_urllib2 crashes on OS X 10.3
-* issue8077    -  cgi handling of POSTed files is broken
-
-* In Python3 the code for httplib changed: 
-  
-Py3: http://svn.python.org/view/python/branches/py3k/Lib/http/client.py?view=markup#send                   
-Py2: http://svn.python.org/view/python/trunk/Lib/httplib.py?view=markup#send                          
-                                                                                                      
-Does this still need to be fixed on Py2.7 (and maybe on Py3 too)?  
 
 Here's another easter egg:
 
