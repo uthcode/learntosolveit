@@ -1,0 +1,106 @@
+PROBLEM STATEMENT
+
+John is a marble collector. He keeps his marbles in boxes. He also likes to
+keep things in order.
+
+One day, his younger brother was playing with the marbles.  After he was done,
+he put all the marbles back in boxes, but he did it randomly, so certain boxes
+might now contain marbles of different colors. John wants him to regroup the
+marbles so that the grouping satisfies the following restrictions:
+
+At most one box, called the joker box, may contain marbles of different colors.
+We can choose any box as a joker box.
+
+Every box except the joker box must either be empty or only contain marbles of
+the same color.
+All marbles of the same color, except those in the joker box, must be in the
+same box. It's possible that all marbles of the same color are in the joker
+box.
+
+You are given a vector <string> boxes, where the j-th digit of the i-th element
+is the number of marbles of color j in the i-th box. Return the minimal number
+of moves necessary to regroup the marbles, where each move consists of taking
+any number of marbles from one box (not necessarily of the same color) and
+putting them into another.
+
+
+DEFINITION
+Class:MarblesRegroupingEasy
+Method:minMoves
+Parameters:vector <string>
+Returns:int
+Method signature:int minMoves(vector <string> boxes)
+
+
+CONSTRAINTS
+-boxes will contain between 1 and 50 elements, inclusive.
+-Each element of boxes will contain between 1 and 50 characters, inclusive.
+-All elements of boxes will contain the same number of characters.
+-Each element of boxes will contain only digits ('0'-'9').
+
+
+EXAMPLES
+
+0)
+{"20",
+ "11"}
+
+Returns: 0
+
+Let box 1 be the joker box. All marbles of color 0, except those in the joker box, are in box 0. Box 0 contain only marbles of the color 0. So, all restrictions are already satisfied.
+
+
+1)
+{"11",
+ "11",
+ "10"}
+
+Returns: 1
+
+There are several possible solutions:
+
+Move all marbles from box 0 into box 1. Box 1 is the joker box.
+Move all marbles from box 1 into box 0. Box 0 is the joker box.
+Move the marble of color 0 from box 0 into box 1 or 2. Box 1 is the joker box.
+Move the marble of color 0 from box 1 into box 0 or 2. Box 0 is the joker box.
+
+
+
+2)
+{"10",
+ "10",
+ "01",
+ "01"}
+
+Returns: 1
+
+Let box 0 be the joker box. Now we only need to group all marbles of  color 1 into one box.
+
+3)
+{"11",
+ "11",
+ "11",
+ "10",
+ "10",
+ "01"}
+
+Returns: 3
+
+
+
+4)
+{"020008000070",
+ "000004000000",
+ "060000600000",
+ "006000000362",
+ "000720000000",
+ "000040000000", 
+ "004009003000",
+ "000800000000", 
+ "020030003000",
+ "000500200000",
+ "000000300000"}
+
+Returns: 6
+
+

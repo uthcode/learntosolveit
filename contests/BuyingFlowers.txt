@@ -1,0 +1,71 @@
+PROBLEM STATEMENT
+
+Teddy loves roses and Tracy loves lilies. They wish to plant these flowers in a
+large garden.  
+
+However, the only florist in town sells these flowers in packets which are
+represented by vector <int>s roses and lilies. The i-th packet contains
+roses[i] roses and lilies[i] lilies. Each packet can be bought only once.
+
+Teddy and Tracy wish to buy some flowers and arrange them into a rectangular grid. This grid must be arranged such that each cell contains exactly one flower, and any two cells which share an edge must contain different kinds of flowers. Additionally, Teddy and Tracy must use all the flowers they buy.
+
+Teddy and Tracy love square-shaped grids, so they wish to buy a set of packets such that they can arrange the flowers into the most square-like grid possible. More precisely, they wish to arrange the flowers into an R x C grid, where R and C are positive integers, such that |R-C| (|R-C| denotes the absolute value of R-C) is minimized. Return this minimum absolute value, or -1 if no valid arrangement exists.
+
+DEFINITION
+Class:BuyingFlowers
+Method:buy
+Parameters:vector <int>, vector <int>
+Returns:int
+Method signature:int buy(vector <int> roses, vector <int> lilies)
+
+
+CONSTRAINTS
+-roses and lilies will contain the same number of elements, between 1 and 16, inclusive.
+-Each element of roses and lilies will be between 0 and 10000, inclusive.
+-The total number of flowers in each packet represented by roses and lilies will be greater than 0.
+
+
+EXAMPLES
+
+0)
+{2, 4}
+{4, 2}
+
+Returns: 1
+
+Buying all the packets to get 6 roses and 6 lilies, they can create a 3 x 4 grid with the following arrangement:
+
+  RLRL
+  LRLR
+  RLRL
+
+The difference of the height and the width of this arrangement is 1.
+
+1)
+{2, 7, 3}
+{3, 4, 1}
+
+Returns: 0
+
+Buying the first and the third packets, they can create the following square arrangement:
+
+  RLR
+  LRL
+  RLR
+
+
+2)
+{4, 5, 2, 1}
+{6, 10, 5, 9}
+
+Returns: -1
+
+No valid grid can be created.
+
+3)
+{1, 208, 19, 0, 3, 234, 1, 106, 99, 17}
+{58, 30, 3, 5, 0, 997, 9, 615, 77, 5}
+
+Returns: 36
+
+
