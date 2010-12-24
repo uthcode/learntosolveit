@@ -3320,22 +3320,12 @@ RFC 2616                        HTTP/1.1                       June 1999
    redirect its request to that location.
 
    Unless it was a HEAD request, the response SHOULD include an entity
-   containing a list of resource characteristics and location(s) from
-   which the user or user agent can choose the one most appropriate. The
-   entity format is specified by the media type given in the Content-
-   Type header field. Depending upon the format and the capabilities of
-
-
-
-
-Fielding, et al.            Standards Track                    [Page 61]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
-   the user agent, selection of the most appropriate choice MAY be
-   performed automatically. However, this specification does not define
-   any standard for such automatic selection.
+   containing a list of resource characteristics and location(s) from which the
+   user or user agent can choose the one most appropriate. The entity format is
+   specified by the media type given in the Content- Type header field.
+   Depending upon the format and the capabilities of the user agent, selection
+   of the most appropriate choice MAY be performed automatically. However, this
+   specification does not define any standard for such automatic selection.
 
    If the server has a preferred choice of representation, it SHOULD
    include the specific URI for that representation in the Location
@@ -3377,17 +3367,6 @@ RFC 2616                        HTTP/1.1                       June 1999
    response. Unless the request method was HEAD, the entity of the
    response SHOULD contain a short hypertext note with a hyperlink to
    the new URI(s).
-
-
-
-
-
-
-
-Fielding, et al.            Standards Track                    [Page 62]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
 
    If the 302 status code is received in response to a request other
    than GET or HEAD, the user agent MUST NOT automatically redirect the
@@ -3434,17 +3413,6 @@ RFC 2616                        HTTP/1.1                       June 1999
 
       - Date, unless its omission is required by section 14.18.1
 
-
-
-
-
-
-
-Fielding, et al.            Standards Track                    [Page 63]
-
-RFC 2616                        HTTP/1.1                       June 1999
-
-
    If a clockless origin server obeys these rules, and proxies and
    clients add their own Date to any response received without one (as
    already specified by [RFC 2068], section 14.19), caches will operate
@@ -3486,19 +3454,6 @@ RFC 2616                        HTTP/1.1                       June 1999
 
    The 306 status code was used in a previous version of the
    specification, is no longer used, and the code is reserved.
-
-
-
-
-
-
-
-
-
-
-Fielding, et al.            Standards Track                    [Page 64]
-
-RFC 2616                        HTTP/1.1                       June 1999
 
 
 10.3.8 307 Temporary Redirect

@@ -15,7 +15,6 @@ int main(void)
 	printf("swapping...\n");
 	swap(&a,&b);
 
-	
 	printf("a=%d\n",a);
 	printf("b=%d\n",b);
 

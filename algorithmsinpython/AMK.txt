@@ -1,57 +1,54 @@
 A.M. Kuchling amk at amk.ca
 Tue Aug 19 17:11:52 EDT 2003
 
-I'm vaguely considering a document or book that uses Python to explain 
+I'm vaguely considering a document or book that uses Python to explain
 algorithms.
-An outline is below.  I'm interested in hearing reactions to this 
-outline, especially
-from teachers using Python in courses.
 
-   * Are there any important topics that aren't included?
-   * Are there any included topics that are of marginal importance?
-     The outline is already quite long, and the shorter it is, the 
-better the odds of it
-     being written.
-     Comments on the relative importance of topics -- "don't spend too 
-much space
-     on numbers, but graphs are important, so spend a lot of time on 
-them"
-   * Are there any features the book needs?  (Project suggestions, 
-exercises,
-     a chapter on mathematical fundamentals, etc.)
-   * Any other suggested changes?
+An outline is below.  I'm interested in hearing reactions to this outline,
+especially from teachers using Python in courses.
 
-Thanks for any ideas you might have; they'll all be taken into 
-consideration.
+* Are there any important topics that aren't included?
+* Are there any included topics that are of marginal importance?
+
+     The outline is already quite long, and the shorter it is, the better the
+     odds of it being written.  Comments on the relative importance of topics
+     -- "don't spend too much space on numbers, but graphs are important, so
+     spend a lot of time on them"
+* Are there any features the book needs?  (Project suggestions, 
+  exercises, a chapter on mathematical fundamentals, etc.)
+* Any other suggested changes?
+
+Thanks for any ideas you might have; they'll all be taken into consideration.
 
 --amk
 
-"Algorithms in Python" (alt. "Learning Algorithms with Python") is a
-book that uses Python as the vehicle to teach the basic ideas of
-algorithms -- what an algorithm is, how to notate them clearly, what
-O() notation means, etc. -- and to introduce a number of different
-algorithms.
+"Algorithms in Python" (alt. "Learning Algorithms with Python") is a book that
+uses Python as the vehicle to teach the basic ideas of algorithms -- what an
+algorithm is, how to notate them clearly, what O() notation means, etc. -- and
+to introduce a number of different algorithms.
 
-It is not a formal textbook; discussions will rarely or never be
-rigorous, and there won't be any exercises.  Requirements:
+It is not a formal textbook; discussions will rarely or never be rigorous, and
+there won't be any exercises. 
+
+Requirements:
 
 * Minimal mathematical background should be required (basically
-   functions, I think).  Those bits of notation that are necessary will
-   be explained as they're needed.
+   functions, I think).  Those bits of notation that are necessary will be
+   explained as they're needed.
+
 * Elementary Python programming knowledge is needed, so readers
-   should have a tutorial such as "Learning Python" alongside this book;
-   it will not attempt to teach Python, though it will introduce relevant
-   standard library modules.
+   should have a tutorial such as "Learning Python" alongside this book; it
+   will not attempt to teach Python, though it will introduce relevant standard
+   library modules.
 * Python 2.3 will be used.
 
-The overarching goal is to make the book understandable by a
-bright high-school student.
+The overarching goal is to make the book understandable by a bright high-school
+student.
 
-This outline is very long, quite possibly too long.  I can't estimate
-a length yet, but it's somewhat frightening that the comparable Perl
-book, O'Reilly's "Mastering Algorithms with Perl", had three authors.
-If shortening the book is required, there are two sets of chapters
-that could be dropped.
+This outline is very long, quite possibly too long.  I can't estimate a length
+yet, but it's somewhat frightening that the comparable Perl book, O'Reilly's
+"Mastering Algorithms with Perl", had three authors.  If shortening the book is
+required, there are two sets of chapters that could be dropped.
 
 1. Drop "Game Trees", "Strings", "Real Implementations".  Shorten
     the "Sorting" chapter by dropping bubble sort or other
@@ -235,6 +232,3 @@ Not Covered
 
 * Linked lists (they aren't the source of many algorithms,
    and their implementation in Python doesn't seem very interesting)
-
-
-
