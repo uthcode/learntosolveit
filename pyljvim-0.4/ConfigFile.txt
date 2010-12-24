@@ -1,0 +1,28 @@
+# Configuration File for pyljvim
+
+[LOCATION]
+
+# Enter the Vim Installation Location
+#VIM: C:\Program Files\Vim\vim70
+VIM: /usr/share/vim/vim72
+
+# Enter the Install Location for the script
+#PYTHON: C:\
+PYTHON: /usr/local/bin
+
+
+[PROXY]
+
+# Enter True if you wish to use PROXY  or enter False
+USE_PROXY: False
+
+# Provide the Proxy Details
+PROXY_IP: 10.10.10.10
+PROXY_PORT: 80
+PROXY_USER: senthil_or
+PROXY_PASSWORD: Password
+
+[LIVEJOURNAL]
+# Provide the LiveJournal Details
+LJ_USER = phoe6
+LJ_PASSWORD = 
