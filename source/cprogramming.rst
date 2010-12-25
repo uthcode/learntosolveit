@@ -6,97 +6,16 @@ The following project page contains the solutions to problems presented in
 Kernighan and Ritchie and additional programs written out of my interest.
 
 
-*wumpus.c* - On 11 Oct,2010.
+*fork1.c* - On 22 Dec,2010.
 
-.. literalinclude:: ../cprogs/wumpus.c
+.. literalinclude:: ../cprogs/fork1.c
    :language: c
    :linenos:
    :tab-width: 4
 
 ----
 
-*val_limits.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/val_limits.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ungets.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/ungets.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*unescape.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/unescape.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*undcl.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/undcl.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*undcl-1.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/undcl-1.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*trim.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/trim.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*tempconv.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/tempconv.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*tailn.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/tailn.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*synerrors.c* - On 11 Oct,2010.
-
-.. literalinclude:: ../cprogs/synerrors.c
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*swap_t_x_y.c* - On 11 Oct,2010.
+*swap_t_x_y.c* - On 13 Dec,2010.
 
 .. literalinclude:: ../cprogs/swap_t_x_y.c
    :language: c
@@ -105,7 +24,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*swap.c* - On 11 Oct,2010.
+*swap.c* - On 13 Dec,2010.
 
 .. literalinclude:: ../cprogs/swap.c
    :language: c
@@ -114,7 +33,97 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*strindexv2.c* - On 11 Oct,2010.
+*wumpus.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/wumpus.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*val_limits.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/val_limits.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ungets.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/ungets.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*unescape.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/unescape.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*undcl.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/undcl.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*undcl-1.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/undcl-1.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*trim.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/trim.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*tempconv.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/tempconv.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*tailn.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/tailn.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*synerrors.c* - On 07 Nov,2010.
+
+.. literalinclude:: ../cprogs/synerrors.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*strindexv2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/strindexv2.c
    :language: c
@@ -123,7 +132,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*strendv2.c* - On 11 Oct,2010.
+*strendv2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/strendv2.c
    :language: c
@@ -132,7 +141,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*strend.c* - On 11 Oct,2010.
+*strend.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/strend.c
    :language: c
@@ -141,7 +150,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*squeezess.c* - On 11 Oct,2010.
+*squeezess.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/squeezess.c
    :language: c
@@ -150,7 +159,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*squeezesc.c* - On 11 Oct,2010.
+*squeezesc.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/squeezesc.c
    :language: c
@@ -159,7 +168,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sqrt.c* - On 11 Oct,2010.
+*sqrt.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sqrt.c
    :language: c
@@ -168,7 +177,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sortv2.c* - On 11 Oct,2010.
+*sortv2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sortv2.c
    :language: c
@@ -177,7 +186,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sortrevnum.c* - On 11 Oct,2010.
+*sortrevnum.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sortrevnum.c
    :language: c
@@ -186,7 +195,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sortfnr.c* - On 11 Oct,2010.
+*sortfnr.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sortfnr.c
    :language: c
@@ -195,7 +204,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sortdfnr-withoption.c* - On 11 Oct,2010.
+*sortdfnr-withoption.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sortdfnr-withoption.c
    :language: c
@@ -204,7 +213,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sort.c* - On 11 Oct,2010.
+*sort.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sort.c
    :language: c
@@ -213,7 +222,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sort-dfnr.c* - On 11 Oct,2010.
+*sort-dfnr.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sort-dfnr.c
    :language: c
@@ -222,7 +231,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*sizeof_various.c* - On 11 Oct,2010.
+*sizeof_various.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/sizeof_various.c
    :language: c
@@ -231,7 +240,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*shellsort.c* - On 11 Oct,2010.
+*shellsort.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/shellsort.c
    :language: c
@@ -240,7 +249,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*setbits.c* - On 11 Oct,2010.
+*setbits.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/setbits.c
    :language: c
@@ -249,7 +258,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rudicalci.c* - On 11 Oct,2010.
+*rudicalci.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rudicalci.c
    :language: c
@@ -258,7 +267,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rpn.c* - On 11 Oct,2010.
+*rpn.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rpn.c
    :language: c
@@ -267,7 +276,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rpn-4.c* - On 11 Oct,2010.
+*rpn-4.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rpn-4.c
    :language: c
@@ -276,7 +285,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rpn-3.c* - On 11 Oct,2010.
+*rpn-3.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rpn-3.c
    :language: c
@@ -285,7 +294,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rpn-2.c* - On 11 Oct,2010.
+*rpn-2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rpn-2.c
    :language: c
@@ -294,7 +303,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rpn-1.c* - On 11 Oct,2010.
+*rpn-1.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rpn-1.c
    :language: c
@@ -303,7 +312,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rot13.c* - On 11 Oct,2010.
+*rot13.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rot13.c
    :language: c
@@ -312,7 +321,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rightstrindex.c* - On 11 Oct,2010.
+*rightstrindex.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rightstrindex.c
    :language: c
@@ -321,7 +330,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*rightrot.c* - On 11 Oct,2010.
+*rightrot.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/rightrot.c
    :language: c
@@ -330,7 +339,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*reversestr.c* - On 11 Oct,2010.
+*reversestr.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/reversestr.c
    :language: c
@@ -339,7 +348,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*reversecomma.c* - On 11 Oct,2010.
+*reversecomma.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/reversecomma.c
    :language: c
@@ -348,7 +357,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*remtrailbt.c* - On 11 Oct,2010.
+*remtrailbt.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/remtrailbt.c
    :language: c
@@ -357,7 +366,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*remcomments.c* - On 11 Oct,2010.
+*remcomments.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/remcomments.c
    :language: c
@@ -366,7 +375,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*recurreverse.c* - On 11 Oct,2010.
+*recurreverse.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/recurreverse.c
    :language: c
@@ -375,7 +384,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*recuritoa.c* - On 11 Oct,2010.
+*recuritoa.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/recuritoa.c
    :language: c
@@ -384,7 +393,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*quicksort.c* - On 11 Oct,2010.
+*quicksort.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/quicksort.c
    :language: c
@@ -393,7 +402,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*printd.c* - On 11 Oct,2010.
+*printd.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/printd.c
    :language: c
@@ -402,7 +411,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*prepro2.c* - On 11 Oct,2010.
+*prepro2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/prepro2.c
    :language: c
@@ -411,7 +420,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*prepro1.c* - On 11 Oct,2010.
+*prepro1.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/prepro1.c
    :language: c
@@ -420,7 +429,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*pngetint.c* - On 11 Oct,2010.
+*pngetint.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/pngetint.c
    :language: c
@@ -429,7 +438,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*pgechov3.c* - On 11 Oct,2010.
+*pgechov3.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/pgechov3.c
    :language: c
@@ -438,7 +447,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*pgechov2.c* - On 11 Oct,2010.
+*pgechov2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/pgechov2.c
    :language: c
@@ -447,7 +456,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*pgechov1.c* - On 11 Oct,2010.
+*pgechov1.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/pgechov1.c
    :language: c
@@ -456,7 +465,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*numsort.c* - On 11 Oct,2010.
+*numsort.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/numsort.c
    :language: c
@@ -465,7 +474,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*numlinesort.c* - On 11 Oct,2010.
+*numlinesort.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/numlinesort.c
    :language: c
@@ -474,7 +483,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*nongraphic.c* - On 11 Oct,2010.
+*nongraphic.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/nongraphic.c
    :language: c
@@ -483,7 +492,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrncpy.c* - On 11 Oct,2010.
+*mystrncpy.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrncpy.c
    :language: c
@@ -492,7 +501,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrncmp.c* - On 11 Oct,2010.
+*mystrncmp.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrncmp.c
    :language: c
@@ -501,7 +510,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrncat.c* - On 11 Oct,2010.
+*mystrncat.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrncat.c
    :language: c
@@ -510,7 +519,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrlen.c* - On 11 Oct,2010.
+*mystrlen.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrlen.c
    :language: c
@@ -519,7 +528,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrlen-1.c* - On 11 Oct,2010.
+*mystrlen-1.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrlen-1.c
    :language: c
@@ -528,7 +537,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcpy.c* - On 11 Oct,2010.
+*mystrcpy.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcpy.c
    :language: c
@@ -537,7 +546,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcpy-4.c* - On 11 Oct,2010.
+*mystrcpy-4.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcpy-4.c
    :language: c
@@ -546,7 +555,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcpy-3.c* - On 11 Oct,2010.
+*mystrcpy-3.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcpy-3.c
    :language: c
@@ -555,7 +564,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcpy-2.c* - On 11 Oct,2010.
+*mystrcpy-2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcpy-2.c
    :language: c
@@ -564,7 +573,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcmp.c* - On 11 Oct,2010.
+*mystrcmp.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcmp.c
    :language: c
@@ -573,7 +582,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcmp-1.c* - On 11 Oct,2010.
+*mystrcmp-1.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcmp-1.c
    :language: c
@@ -582,7 +591,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mystrcat.c* - On 11 Oct,2010.
+*mystrcat.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mystrcat.c
    :language: c
@@ -591,7 +600,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mymalloc.c* - On 11 Oct,2010.
+*mymalloc.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mymalloc.c
    :language: c
@@ -600,7 +609,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mygetchar.c* - On 11 Oct,2010.
+*mygetchar.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mygetchar.c
    :language: c
@@ -609,7 +618,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mygetchar-2.c* - On 11 Oct,2010.
+*mygetchar-2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mygetchar-2.c
    :language: c
@@ -618,7 +627,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mycp.c* - On 11 Oct,2010.
+*mycp.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mycp.c
    :language: c
@@ -627,7 +636,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*mycat.c* - On 11 Oct,2010.
+*mycat.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/mycat.c
    :language: c
@@ -636,7 +645,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*myatoi.c* - On 11 Oct,2010.
+*myatoi.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/myatoi.c
    :language: c
@@ -645,7 +654,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*myatoi-2.c* - On 11 Oct,2010.
+*myatoi-2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/myatoi-2.c
    :language: c
@@ -654,7 +663,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*modentab.c* - On 11 Oct,2010.
+*modentab.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/modentab.c
    :language: c
@@ -663,7 +672,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*moddetab.c* - On 11 Oct,2010.
+*moddetab.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/moddetab.c
    :language: c
@@ -672,7 +681,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*minprintf.c* - On 11 Oct,2010.
+*minprintf.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/minprintf.c
    :language: c
@@ -681,7 +690,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*makedir.c* - On 11 Oct,2010.
+*makedir.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/makedir.c
    :language: c
@@ -690,7 +699,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*lowercondit.c* - On 11 Oct,2010.
+*lowercondit.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/lowercondit.c
    :language: c
@@ -699,7 +708,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*lower.c* - On 11 Oct,2010.
+*lower.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/lower.c
    :language: c
@@ -708,7 +717,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*lower-upper.c* - On 11 Oct,2010.
+*lower-upper.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/lower-upper.c
    :language: c
@@ -717,7 +726,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*long_extnal.c* - On 11 Oct,2010.
+*long_extnal.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/long_extnal.c
    :language: c
@@ -726,7 +735,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*likegrep.c* - On 11 Oct,2010.
+*likegrep.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/likegrep.c
    :language: c
@@ -735,7 +744,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*likefind.c* - On 11 Oct,2010.
+*likefind.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/likefind.c
    :language: c
@@ -744,7 +753,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*lengt80.c* - On 11 Oct,2010.
+*lengt80.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/lengt80.c
    :language: c
@@ -753,7 +762,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*leap.c* - On 11 Oct,2010.
+*leap.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/leap.c
    :language: c
@@ -762,7 +771,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*justcp.c* - On 11 Oct,2010.
+*justcp.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/justcp.c
    :language: c
@@ -771,7 +780,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*itob.c* - On 11 Oct,2010.
+*itob.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/itob.c
    :language: c
@@ -780,7 +789,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*itoav2.c* - On 11 Oct,2010.
+*itoav2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/itoav2.c
    :language: c
@@ -789,7 +798,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*itoa.c* - On 11 Oct,2010.
+*itoa.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/itoa.c
    :language: c
@@ -798,7 +807,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*itoa-3.c* - On 11 Oct,2010.
+*itoa-3.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/itoa-3.c
    :language: c
@@ -807,7 +816,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*itoa-2.c* - On 11 Oct,2010.
+*itoa-2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/itoa-2.c
    :language: c
@@ -816,7 +825,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*invert.c* - On 11 Oct,2010.
+*invert.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/invert.c
    :language: c
@@ -825,7 +834,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*intostr.c* - On 11 Oct,2010.
+*intostr.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/intostr.c
    :language: c
@@ -834,7 +843,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*htoi.c* - On 11 Oct,2010.
+*htoi.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/htoi.c
    :language: c
@@ -843,7 +852,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*helloworld.c* - On 11 Oct,2010.
+*helloworld.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/helloworld.c
    :language: c
@@ -852,7 +861,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*glat17.c* - On 11 Oct,2010.
+*glat17.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/glat17.c
    :language: c
@@ -861,7 +870,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getopv2.c* - On 11 Oct,2010.
+*getopv2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getopv2.c
    :language: c
@@ -870,7 +879,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getlinev2.c* - On 11 Oct,2010.
+*getlinev2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getlinev2.c
    :language: c
@@ -879,7 +888,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getline_woandr.c* - On 11 Oct,2010.
+*getline_woandr.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getline_woandr.c
    :language: c
@@ -888,7 +897,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getint.c* - On 11 Oct,2010.
+*getint.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getint.c
    :language: c
@@ -897,7 +906,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getfloat.c* - On 11 Oct,2010.
+*getfloat.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getfloat.c
    :language: c
@@ -906,7 +915,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getch_static.c* - On 11 Oct,2010.
+*getch_static.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getch_static.c
    :language: c
@@ -915,7 +924,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getch_getline.c* - On 11 Oct,2010.
+*getch_getline.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getch_getline.c
    :language: c
@@ -924,7 +933,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getbits.c* - On 11 Oct,2010.
+*getbits.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/getbits.c
    :language: c
@@ -933,7 +942,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*fsize_1.c* - On 11 Oct,2010.
+*fsize_1.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/fsize_1.c
    :language: c
@@ -942,7 +951,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*fsize.c* - On 11 Oct,2010.
+*fsize.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/fsize.c
    :language: c
@@ -951,7 +960,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*fold.c* - On 11 Oct,2010.
+*fold.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/fold.c
    :language: c
@@ -960,7 +969,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*findpattern.c* - On 11 Oct,2010.
+*findpattern.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/findpattern.c
    :language: c
@@ -969,7 +978,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*fahr2cel.c* - On 11 Oct,2010.
+*fahr2cel.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/fahr2cel.c
    :language: c
@@ -978,7 +987,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*exprcmd.c* - On 11 Oct,2010.
+*exprcmd.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/exprcmd.c
    :language: c
@@ -987,7 +996,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*expand.c* - On 11 Oct,2010.
+*expand.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/expand.c
    :language: c
@@ -996,7 +1005,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*escape.c* - On 11 Oct,2010.
+*escape.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/escape.c
    :language: c
@@ -1005,7 +1014,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*eratosthenes.c* - On 11 Oct,2010.
+*eratosthenes.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/eratosthenes.c
    :language: c
@@ -1014,7 +1023,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*eofval.c* - On 11 Oct,2010.
+*eofval.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/eofval.c
    :language: c
@@ -1023,7 +1032,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*eof_getch.c* - On 11 Oct,2010.
+*eof_getch.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/eof_getch.c
    :language: c
@@ -1032,7 +1041,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*entab.c* - On 11 Oct,2010.
+*entab.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/entab.c
    :language: c
@@ -1041,7 +1050,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*endian.c* - On 11 Oct,2010.
+*endian.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/endian.c
    :language: c
@@ -1050,7 +1059,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*detab.c* - On 11 Oct,2010.
+*detab.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/detab.c
    :language: c
@@ -1059,7 +1068,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*dcl.c* - On 11 Oct,2010.
+*dcl.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/dcl.c
    :language: c
@@ -1068,7 +1077,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*dcl-funcargs.c* - On 11 Oct,2010.
+*dcl-funcargs.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/dcl-funcargs.c
    :language: c
@@ -1077,7 +1086,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*dcl-errorec.c* - On 11 Oct,2010.
+*dcl-errorec.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/dcl-errorec.c
    :language: c
@@ -1086,7 +1095,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*day_datev3.c* - On 11 Oct,2010.
+*day_datev3.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/day_datev3.c
    :language: c
@@ -1095,7 +1104,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*day_datev2.c* - On 11 Oct,2010.
+*day_datev2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/day_datev2.c
    :language: c
@@ -1104,7 +1113,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*day_date.c* - On 11 Oct,2010.
+*day_date.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/day_date.c
    :language: c
@@ -1113,7 +1122,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*counts.c* - On 11 Oct,2010.
+*counts.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/counts.c
    :language: c
@@ -1122,7 +1131,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*condientab.c* - On 11 Oct,2010.
+*condientab.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/condientab.c
    :language: c
@@ -1131,7 +1140,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*conddetab.c* - On 11 Oct,2010.
+*conddetab.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/conddetab.c
    :language: c
@@ -1140,7 +1149,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*calloc.c* - On 11 Oct,2010.
+*calloc.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/calloc.c
    :language: c
@@ -1149,7 +1158,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*cal_limits.c* - On 11 Oct,2010.
+*cal_limits.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/cal_limits.c
    :language: c
@@ -1158,7 +1167,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*buf1c.c* - On 11 Oct,2010.
+*buf1c.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/buf1c.c
    :language: c
@@ -1167,7 +1176,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*bitcount2s.c* - On 11 Oct,2010.
+*bitcount2s.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/bitcount2s.c
    :language: c
@@ -1176,7 +1185,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*bitcount.c* - On 11 Oct,2010.
+*bitcount.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/bitcount.c
    :language: c
@@ -1185,7 +1194,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*binsearch.c* - On 11 Oct,2010.
+*binsearch.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/binsearch.c
    :language: c
@@ -1194,7 +1203,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*binsearch-2.c* - On 11 Oct,2010.
+*binsearch-2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/binsearch-2.c
    :language: c
@@ -1203,7 +1212,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*bfree.c* - On 11 Oct,2010.
+*bfree.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/bfree.c
    :language: c
@@ -1212,7 +1221,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*atoiv2.c* - On 11 Oct,2010.
+*atoiv2.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/atoiv2.c
    :language: c
@@ -1221,7 +1230,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*atofwitheE.c* - On 11 Oct,2010.
+*atofwitheE.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/atofwitheE.c
    :language: c
@@ -1230,7 +1239,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*atof.c* - On 11 Oct,2010.
+*atof.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/atof.c
    :language: c
@@ -1239,7 +1248,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*anylonglinelen.c* - On 11 Oct,2010.
+*anylonglinelen.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/anylonglinelen.c
    :language: c
@@ -1248,7 +1257,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*any.c* - On 11 Oct,2010.
+*any.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/any.c
    :language: c
@@ -1257,7 +1266,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*alloc_afree.c* - On 11 Oct,2010.
+*alloc_afree.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/alloc_afree.c
    :language: c
@@ -1266,7 +1275,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*TbsBkSpaces.c* - On 11 Oct,2010.
+*TbsBkSpaces.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/TbsBkSpaces.c
    :language: c
@@ -1275,7 +1284,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*SinBlank.c* - On 11 Oct,2010.
+*SinBlank.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/SinBlank.c
    :language: c
@@ -1284,7 +1293,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*Nofbtn.c* - On 11 Oct,2010.
+*Nofbtn.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/Nofbtn.c
    :language: c
@@ -1293,7 +1302,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*LongLine.c* - On 11 Oct,2010.
+*LongLine.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/LongLine.c
    :language: c
@@ -1302,7 +1311,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*Hist_Freq.c* - On 11 Oct,2010.
+*Hist_Freq.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/Hist_Freq.c
    :language: c
@@ -1311,7 +1320,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*His_Vertical.c* - On 11 Oct,2010.
+*His_Vertical.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/His_Vertical.c
    :language: c
@@ -1320,7 +1329,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*His_Horizontal.c* - On 11 Oct,2010.
+*His_Horizontal.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/His_Horizontal.c
    :language: c
@@ -1329,7 +1338,7 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*Fibonacci.c* - On 11 Oct,2010.
+*Fibonacci.c* - On 07 Nov,2010.
 
 .. literalinclude:: ../cprogs/Fibonacci.c
    :language: c
