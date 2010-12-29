@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">{{ task_list.name|escape }}</title>
+  <updated>{{ updated|rfc3339date }}</updated>
+  <id>http://{{ request.host }}/{{ request.path }}?id={{ task_list.key|stringformat:"s"|urlencode }}</id>
+  <icon>http://{{ request.host }}/favicon.ico</icon>
+  <link rel="alternate" href="http://{{ request.host }}{{ request.path }}?id={{ task_list.key|stringformat:"s"|urlencode }}" title="{{ task_list.name|escape }}" type="text/html"/>
+  <link rel="self" href="{{ request.uri|escape }}" title="{{ task_list.name|escape }}" type="application/atom+xml"/>
+  {% for member in task_list.tasklistmember_set %}
+  <author>
+    <name>{{ member.user.nickname }}</name>
+  </author>
+  {% endfor %}
+  {% for task in tasks %}<entry>
+    <title>{{ task.description|escape }}</title>
+    <updated>{{ task.updated|rfc3339date }}</updated>
+    <published>{{ task.created|rfc3339date }}</published>
+    <id>{{ request.uri|escape }}#{{ task.key|stringformat:"s"|urlencode }}</id>
+  </entry>{% endfor %}
+</feed>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task_list.name|escape }} - {{ application_name }}{% endblock %}
+
+{% block head %}
+  <style type="text/css">
+
+  #body {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  h1 {
+    font-size: large;
+    margin: 0;
+  }
+
+  ul.tasklist {
+    margin: 0;
+    padding: 0;
+    margin-left: 1.25em;
+    list-style-type: square;
+  }
+
+  ul.tasklist li {
+    margin-top: 0.75em;
+  }
+
+  ul.tasklist li.completed {
+    color: gray;
+    text-decoration: line-through;
+  }
+
+  </style>
+{% endblock %}
+
+{% block body %}
+  <h1>{{ task_list.name|escape }}</h1>
+
+  <ul class="tasklist">
+    {% for task in tasks %}
+      <li{% if task.completed %} class="completed"{% endif %}>{{ task.description|escape }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

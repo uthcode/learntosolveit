@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <script type="text/javascript">
+  //<![CDATA[
+
+  function newTaskList() {
+    var form = document.getElementById("tasklistform");
+    var dialog = document.getElementById("tasklistform_dialog");
+    DialogBox.instance().show(dialog, function() {
+      form["name"].focus();
+    });
+  }
+
+  function selectLists(all) {
+    var inputs = document.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      if (input.type == "checkbox" && input.className == "listcheckbox") {
+        var id = input.id.substring(8);
+        var row = document.getElementById("row" + id);
+        input.checked = all;
+        updateHighlight(input, row);
+      }
+    }
+  }
+
+  function updateHighlight(checkbox, row) {
+    if (checkbox.checked) {
+      row.style.backgroundColor = "#ffffcc";
+    } else {
+      row.style.backgroundColor = "white";
+    }
+  }
+
+  //]]>
+  </script>
+{% endblock %}
+
+{% block body %}
+  <form action="/inboxaction.do" method="post">
+    <div class="inbox">
+      <input type="hidden" name="next" value="{{ request.uri|escape }}"/>
+      <div class="menu">
+        <span class="item"><a href="javascript:newTaskList()">New Task List</a></span>
+      </div>
+      <div class="buttons top">
+        <div class="left corner"></div>
+        <div class="right corner"></div>
+        <div class="info">
+          {% if archive %}
+            <span class="count">{{ lists|length }} task lists</span>
+          {% else %}
+            <span class="count">{{ lists|length }} active</span>
+            <span class="link"><a href="{{ request.path }}?archive=1">View all</a></span>
+          {% endif %}
+        </div>
+        <span class="button"><input type="submit" name="action" value="Archive"/></span>
+        {% if archive %}
+          <span class="button"><input type="submit" name="action" value="Unarchive"/></span>
+        {% endif %}
+        <span class="button"><input type="submit" name="action" value="Delete" onclick="return confirm('Are you sure you want to permanently delete the selected task lists?')"/></span>
+      </div>
+      <div class="table">
+        <table>
+          <tr>
+            <th class="checkbox"><input type="checkbox" onclick="selectLists(this.checked)"/></th>
+            <th>Active Task Lists</th>
+            <th>Collaborators</th>
+            <th>Last Edited</th>
+          </tr>
+          </tr>
+          {% for list in lists %}
+            <tr id="row{{ forloop.counter }}">
+              <td class="checkbox"><input class="listcheckbox" type="checkbox" name="list" value="{{ list.key }}" id="checkbox{{ forloop.counter }}" onclick="updateHighlight(this, document.getElementById('row{{ forloop.counter }}'))"/></td>
+              <td class="main">
+                <div class="name"><a {% if not list.archived %}class="active"{%endif %} href="/list?id={{ list.key|stringformat:"s"|urlencode }}">{{ list.name|escape }}</a></div>
+              </td>
+              <td class="members">
+                {% for member in list.tasklistmember_set %}
+                  {% ifequal member.user.email user.email %}
+                    Me
+                  {% else %}
+                    {{ member.user.nickname }}
+                  {% endifequal %}
+                  {% if not forloop.last %}/{% endif %}
+                {% endfor %}
+              </td>
+              <td class="date">
+                {{ list.updated|date:"D, M j, Y \a\t P" }}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        {% if not lists %}
+          <div class="message">You don't have any active task lists. To get started, <a href="javascript:newTaskList()">create a new list</a>.</div>
+        {% else %}
+          {% if not archive %}
+            <div class="message">Showing only active task lists. Looking for something older?  <a href="{{ request.path }}?archive=1">Show all</a></div>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="buttons bottom">
+        <div class="left corner"></div>
+        <div class="right corner"></div>
+        <span class="button"><input type="submit" name="action" value="Archive"/></span>
+        {% if archive %}
+          <span class="button"><input type="submit" name="action" value="Unarchive"/></span>
+        {% endif %}
+        <span class="button"><input type="submit" name="action" value="Delete"/></span>
+      </div>
+    </div>
+  </form>
+
+  <div id="tasklistform_dialog" class="dialog" style="display: none">
+    <div class="title">New Task List</div>
+    <div class="content">
+      <form action="/createtasklist.do" method="post" id="tasklistform">
+        <div class="form">
+          <input type="hidden" name="task" value=""/>
+          <div class="field">
+            <div class="name">Name</div>
+            <div class="value"><input name="name" type="text" size="70"/></div>
+          </div>
+          <div class="buttons">
+            <span class="button"><input type="submit" name="action" value="Create Task List"/></span>
+            <span class="button"><input type="button" value="Cancel" onclick="DialogBox.instance().close()"/></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+  {% if debug %}
+    <script src="/static/javascript/debug/browser.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/dialog.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/dom.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/drag.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/event.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/io.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/lang.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/offscreen.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/tasklist.js" type="text/javascript"></script>
+  {% else %}
+    <script src="/static/javascript/tasks.js" type="text/javascript"></script>
+  {% endif %}
+{% endblock %}

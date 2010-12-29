@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task_list.name|escape }} - {{ application_name }}{% endblock %}
+
+{% block head %}
+  {% if debug %}
+    <script src="/static/javascript/debug/browser.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/dialog.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/dom.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/drag.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/event.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/io.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/lang.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/offscreen.js" type="text/javascript"></script>
+    <script src="/static/javascript/debug/tasklist.js" type="text/javascript"></script>
+  {% else %}
+    <script src="/static/javascript/tasks.js" type="text/javascript"></script>
+  {% endif %}
+
+  {% if task_list.published %}
+    <link rel="alternate" type="application/atom+xml" title="{{ task_list.name|escape }}" href="{{ request.path }}?id={{ task_list.key|stringformat:"s"|urlencode }}&amp;output=atom"/>
+  {% endif %}
+
+  <script type="text/javascript">
+  //<![CDATA[
+
+  function newCollaborator() {
+    var form = document.getElementById("memberform");
+    var dialog = document.getElementById("memberform_dialog");
+    DialogBox.instance().show(dialog, function() {
+      form["email"].focus();
+    });
+  }
+
+  function publishTaskList(button) {
+    var publish = button.value == "Publish";
+    if (publish) {
+      var dialog = document.getElementById("publishform_dialog");
+      DialogBox.instance().show(dialog);
+    } else {
+      doPublish(false);
+    }
+  }
+
+  function doPublish(publish) {
+    var dialog = document.getElementById("publishform_dialog");
+    var info = document.getElementById("publish_info");
+
+    // Disable all the publish buttons as we make the request
+    var buttons = [document.getElementById("publish_button")];
+    var inputs = dialog.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].type == "button") {
+        buttons.push(inputs[i]);
+      }
+    }
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+
+    // Make the request
+    var body = "id={{ task_list.key|stringformat:"s"|urlencode }}";
+    if (publish) {
+      body += "&publish=1";
+    }
+    download("/publishtasklist.do", function() {
+      buttons[0].value = publish ? "Unpublish" : "Publish";
+      if (publish) {
+        DialogBox.instance().close();
+        info.style.display = "";
+      } else {
+        info.style.display = "none";
+      }
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false;
+      }
+    }, {
+      post: true,
+      body: body
+    });
+  }
+
+  //]]>
+  </script>
+  <style type="text/css">
+
+  .tasklist .completed td.description .text {
+    color: gray;
+    text-decoration: line-through;
+  }
+
+  .collaborators {
+    float: right;
+  }
+
+  .collaborators .button {
+    padding-left: 0.5em;
+  }
+
+  h1 {
+    font-size: large;
+    margin: 0;
+  }
+
+  .inbox {
+    clear: both;
+    margin-top: 0.5em;
+  }
+
+  .inbox .top {
+    margin-bottom: 5px;
+  }
+
+  .inbox .task table td {
+    border-bottom: 0;
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+
+  #publish_info {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .newtasklist {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  .newtasklist img {
+    vertical-align: middle;
+  }
+
+  .newtasklist .text {
+    text-decoration: underline;
+    color: #0000cc;
+  }
+
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="collaborators">
+    <table><tr><td>
+      <span class="label">Collaborators:</span>
+      {% for member in task_list.tasklistmember_set %}
+        {% ifequal member.user.email user.email %}
+          Me
+        {% else %}
+          {{ member.user.nickname }}
+        {% endifequal %}
+        {% if not forloop.last %}/{% endif %}
+      {% endfor %}
+    </td><td class="button">
+      <input type="button" value="New" onclick="newCollaborator()"/>
+    </td></tr></table>
+  </div>
+
+  <h1>{{ task_list.name|escape }}</h1>
+
+  <form action="/tasklist.do" method="post">
+    <div class="inbox">
+      <input type="hidden" name="next" value="{{ request.uri|escape }}"/>
+      <div class="buttons top">
+        <div class="left corner"></div>
+        <div class="right corner"></div>
+        <div class="info">
+          {% if archive %}
+            <span class="count">{{ tasks|length }} tasks</span>
+          {% else %}
+            <span class="count">{{ tasks|length }} active</span>
+            <span class="link"><a href="{{ request.path }}?id={{ task_list.key|stringformat:"s"|urlencode }}&amp;archive=1">View all</a></span>
+          {% endif %}
+        </div>
+        <span class="button"><input type="submit" name="action" value="Archive Completed"/></span>
+        <span class="button"><input id="publish_button" type="button" value="{% if task_list.published %}Unpublish{% else %}Publish{% endif %}" onclick="publishTaskList(this)"/></span>
+        <span id="publish_info" style="margin-left: 0.5em;{% if not task_list.published %}display: none{% endif %}">Published as <a href="{{ request.uri|escape }}&amp;output=html">HTML</a>, <a href="{{ request.uri|escape }}&amp;output=atom">Atom feed</a></span>
+      </div>
+      <div class="table">
+        <div id="container"></div>
+        <div class="newtasklist" style="cursor: pointer" onclick="taskList.newTask()"><img src="/static/images/zip-plus.gif" style="width: 14px; height: 14px"> <span class="text">New task</span></div>
+        {% if not tasks %}
+          <div class="message">You don't have any active tasks in this list. To get started, <a href="javascript:Task.showDialog()">create a new task</a>.</div>
+        {% else %}
+          <div class="message">Drag tasks up and down to rearrange them.</div>
+        {% endif %}
+      </div>
+    </div>
+  </form>
+  
+  <div id="memberform_dialog" class="dialog" style="display: none">
+    <div class="title">New Collaborator</div>
+    <div class="content">
+      <form action="/addmember.do" method="post" id="memberform">
+        <div class="form">
+          <input type="hidden" name="next" value="{{ request.uri|escape }}"/>
+          <input type="hidden" name="list" value="{{ task_list.key }}"/>
+          <div class="field">
+            <div class="name">Username</div>
+            <div class="value"><input name="email" type="text" size="10"/></div>
+          </div>
+          <div class="buttons">
+            <span class="button"><input type="submit" value="Add Collaborator"/></span>
+            <span class="button"><input type="button" value="Cancel" onclick="DialogBox.instance().close()"/></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="publishform_dialog" class="dialog" style="display: none">
+    <div class="title">Publish Task List</div>
+    <div class="content">
+      <div class="form">
+        <div class="message">Publishing this task list will make it visible to anyone (though only collaborators will be able to add/edit tasks).  Are you sure you want to do this?</div>
+        <div class="buttons">
+          <span class="button"><input class="publishform_button" type="button" value="Yes, Publish Task List" onclick="doPublish(true)"/></span>
+          <span class="button"><input class="publishform_button" type="button" value="Cancel" onclick="DialogBox.instance().close()"/></span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <script type="text/javascript">
+
+  var k = "{{ task_list.key }}";
+  var taskList = new TaskList(k, Task.parseList([
+    {% for task in tasks %}
+      [k, "{{ task.key }}", "{{ task.description|stringformat:"s"|addslashes }}", {% if task.completed %}true{% else %}false{% endif %}] {% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]));
+  taskList.attach(document.getElementById("container"));
+
+  </script>
+{% endblock %}

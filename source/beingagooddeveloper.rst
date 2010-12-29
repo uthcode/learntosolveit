@@ -9,8 +9,8 @@ Being a Good Developer
 First of all, I would like to thank Dr.K. Ramar in providing me this
 opportunity to write for the college alumni magazine. I graduated in the year
 2002 in Computer Science and Engineering. This alumni magazine, I suppose would
-     be glanced through by my friends. I hope everyone finds something useful
-     and informative.
+be glanced through by my friends. I hope everyone finds something useful and
+informative.
 
 At the outset, I would like to inform you that I am not a good developer yet,
 but I am constantly striving to become one. 
@@ -107,4 +107,3 @@ Senthil
 Thanks to:
 
 * Vijayakumar Subburaj ( வி. சு.) for sharing so his insightful Comments.
-
