@@ -34,8 +34,23 @@ class HTTPMyDebugProcessor(urllib2.AbstractHTTPHandler):
     https_response = http_response
 
 # Example
-#cjar = cookielib.LWPCookieJar()
-#opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cjar),HTTPMyDebugProcessor(),)
-opener = urllib2.build_opener(HTTPMyDebugProcessor(),)
+cjar = cookielib.LWPCookieJar()
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cjar),HTTPMyDebugProcessor(),)
+#opener = urllib2.build_opener(HTTPMyDebugProcessor(),)
 urllib2.install_opener(opener)
-response = urllib2.urlopen("http://www.google.com")
+##response = urllib2.urlopen("http://www.google.com")
+#response = urllib2.urlopen("https://www.idcourts.us/repository/start.do")
+#response = urllib2.urlopen("https://www.idcourts.us/repository/searchParty.do")
+req = urllib2.Request('http://www.microsoft.com/windows/windows-7/default.aspx')
+#req = urllib2.Request('https://www.idcourts.us/repository/start.do')
+res = opener.open(req)
+
+print cjar
+for c in cjar:
+    cookie_str = "%s=%s" % (c.name, c.value)
+print cookie_str
+
+req = urllib2.Request('http://www.microsoft.com/windows/windows-xp/default.aspx')
+#req.add_header("Cookie",cookie_str)
+opener.open(req)
+print cjar
