@@ -5,6 +5,28 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
+How do see the system calls?
+----------------------------
+
+By using strace. strace is a Linux command line utility that traces the system calls.
+You can create a program like this:
+
+::
+
+        $cat 1.py
+        print 'hello'
+
+And run the strace using using following syntax
+
+::
+
+        $strace python 1.py
+
+
+What is spitted out is an enormous amout of details on the system calls which
+are executed when running this program.
+
+
 wsgi
 ----
 

@@ -1,5 +1,6 @@
 /***
  *
+
 Problem Statement
     
 You are a student advisor at TopCoder University (TCU). The graduation
@@ -160,7 +161,7 @@ class Graduation
 	public:
 		string moreClasses(string classesTaken, vector <string> requirements)
 		{
-			vector <vector <int> > m;
+			vector <vector <int> > m; // [[]]
 			int remaining,paths;
 			int nextclass;
 			string ret="";
