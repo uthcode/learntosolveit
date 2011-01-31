@@ -5,6 +5,65 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
+memoryview was creating a read-write object when using with a buffered IO
+interface. test_bdb was failing due to non-ascii characters. test_urllib and
+test_urllib2 resource failing warning. Python does not exit with proper return
+code on SIGINT. test_trace is broken. Consistency in unittest assert methods.
+FancyURLOpener is struct when trying to open a redirected url. ZipFile with
+encoded file name has some problems. peephole optimizer to reverse
+store/unstore instead of pack/unpack. Wrong powerpc defined in ceval. unittest
+should have assertChanges context manager. shutil behaves improperly on
+Windows, changing the case of the folder, deletes the old folder. unknown
+charset for headers in email module. zipfile.py end of central directory
+detection not robust.  test_threadsignals was failing on freebsd old version.
+REMOTE_USER collision in wsgiref, the bug was withdrawn. What is a
+_weakref.proxy?  os.getpriority and os.setpriority and when to ues the
+PY_BEGIN_THREAD and PY_END_THREAD. parser should store the file name as unicode
+object.  What is the difference between UTF-8 and unicode. test_concurrent
+futures was failing on FreeBSD, a reboot can help if it has old semaphores
+hanging around. print trace_back throws AttributeError when the exception is
+None. Subprocess fds when they are closed throw an error. complex builtin help
+wrongly says that it support NaN and InF. Add a new set of functions to the
+posixmodule, well written and quick for receiving comments and modifying the
+code. Decimal Module with some dot specific usage. There was problem when
+python3 was attempting to write to /dev/full and it was being written. VS
+pointed out that it is fixed in 3.2. there were unclosed sockets from
+test_multiprocessing and Victor fixed them. There is  misbehavior in the
+ContentTooShort Exception from the urllib.request. I had assigned it to myself.
+There is cleaning up of pydoc module, a patch by Ron Adam is in the tracker.
+The filesystem check can be done using os.rename itself.
+
+
+
+Question about pointers:
+http://stackoverflow.com/questions/5727/what-are-the-barriers-to-understanding-pointers-and-what-can-be-done-to-overcome/5754#5754
+http://stackoverflow.com/questions/143552/comparing-date-ranges/143568#143568
+
+
+
+>>> class Counter(dict):
+...     def __missing__(self, key):
+...         return 0
+>>> c = Counter()
+>>> c['red']
+0
+>>> c['red'] += 1
+>>> c['red']
+1
+
+TCP is "Transmission Control Protocol" and is the fundamental system via which
+two computers on the Internet send streams of bytes to each other.
+
+Server responds with a set of headers indicating which protocol is actually
+being used, whether or not the file requested was found, how many bytes are
+contained in that file, and what kind of information is contained in the file
+(the Multipurpose Internet Mail Extensions or "MIME" type)
+
+Note: Servers ought to be cautious about depending on URI lengths above 255
+bytes, because some older client or proxy implementations might not properly
+support these lengths.
+
+
 How do see the system calls?
 ----------------------------
 

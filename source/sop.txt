@@ -1,3 +1,192 @@
+Application Guided Network Design
+
+Design a networked computing and control (NCC) system that dynamically
+partitions software services between cloud or infrastructure servers and mobile
+devices; this involves an application-aware network that interfaces with
+programming language, compiler and runtime system software.
+
+Investigated by 
+Li-Shiuan Peh (Department of Electrical Engineering and Computer Science)
+
+
+Real-time Path Tracking/Predictions and On-Demand Route Guidance Under Uncertainty 
+
+Algorithms that use real-time data from many heterogeneous sources in order to
+(i) track and predict paths in dynamic transportation networks, and (ii)
+provide on-demand route guidance under uncertainty, based on a combination of
+optimization, data-fusion, machine learning, and novel behavioral techniques
+
+MIT Investigator(s):
+
+Patrick Jaillet (MIT, Department of Electrical Engineering and Computer Science)
+Daniela Rus (MIT, Department of Electrical Engineering and Computer Science)
+
+
+Congestion-Aware Routing for Urban Mobility
+
+Develop, implement, and evaluate novel decentralised control algorithms for
+individual participants in urban traffic; algorithms should provide stability
+and global behaviour guarantees under different types of traffic scenarios, by
+combining machine learning  and control techniques. 
+
+MIT Investigator(s):
+Daniela Rus (MIT, Department of Electrical Engineering and Computer Science)
+Patrick Jaillet (MIT, Department of Electrical Engineering and Computer Science)
+
+
+
+Li-Shiuan Peh - Networks on Chip. Projects related to Computer Networks.
+-------------
+
+Patrick Jaillet
+---------------
+
+1. Online Traveling Salesman and Hamiltonian Path Problem: Concentrating on
+autonomous spatial exploration and information harvesting problems, this
+research considers online version of classical combinatorial optimization
+problems (TSP, Hamiltonian path) with (i) incomplete and uncertain input
+streams and (ii) time-sensitive objectives. Goal is to design and analyze
+rigorous algorithmic solution strategies for these canonical problems.
+
+2. Online Resource Allocation Problem: Similar in spirit to the previous
+project, but motivated by applications from telecom/internet (Sponsored search
+auctions and online auctions, Load balancing for content delivery networks,
+Distributed caching problems, On-demand video/movie requests), and using an
+online version of the classical bipartite matching problem.
+
+3. Real-time Paths Tracking/Predictions and On-Demand Route Guidance Under
+Uncertainty: This overall activity is to develop novel algorithms using
+real-time data (from many heterogeneous sources) in order to (i) track and
+predict paths in dynamic transportation networks, and (ii) provide on-demand
+route guidance under uncertainty. Based on a combination of optimization,
+data-fusion, machine learning, and novel behavioral techniques. The aim is to
+develop rigorous data-driven algorithms and methodologies with provable
+properties, and practical implementations
+
+This is what is SMART program is undertaking.
+
+
+Daniela Rus
+-----------
+
+Distributed Algorithms and Self Organizing Robots
+
+To create autonomous robot systems capable of such applications, a fundamental
+goal of this research is to further the science-base for modular
+self-organizing systems. This is a considerable challenge, which we propose to
+meet by the synergistic integration of the following new directions of work
+with our existing work:
+
+Designing heterogeneous robot systems with self-organization capabilities. In
+the past we designed the Molecule Robot and the Crystal Robot. Our current
+focus is to design self-organizing adaptive mobile trusses that consist of
+active and passive parts.
+
+Focus on distributed and generic rather than architecture-specific algorithms.
+Focus on heterogeneous rather than homogeneous systems.
+Focus on automating the development and analysis of the algorithms used to
+control these robots.
+
+
+----------------------------------------------------------------------
+
+My areas of interest in Computer Science are Design of Programming Languages,
+Algorithms , Distributed Systems and Software Engineering. I am interested in
+pursuing a PhD program under SMART and I identify that research works such as
+"Real-time Path Tracking/Predictions and On-Demand Route Guidance Under
+Uncertainty" and "Congestion-Aware Routing for Urban Mobility" present unique
+opportunity for further study of canonical algorithms, exciting challenges to
+develop new algorithms and engineering opportunity to implement and test
+algorithms on a large scale distributed networks and which will have
+significant real world impact.
+
+I am currently working for Akamai Technologies at Bangalore where I work on
+Distributed Computing and Network Security related projects. I am serving as a
+lead developer for designing tools and software solutions. Previously I had
+worked with Dell India R&D, developing System Software and Test Automation
+Solutions.  I am an active contributer to Python Programming Language project
+and the maintainer of Internet Protocol related modules in the Python Standard
+library.
+
+Throughout my career as software developer, I have discovered that I enjoy
+pursuing creative challenges and I persist coming up with solutions for hard
+problems. I have also realized that I prefer going in depth in one area to gain
+expertise, appreciate the technology and gain an insight into the creative
+thought process that led to a good design.
+
+I am familiar with problems which are specific to the problem domain of path
+finding in Graphs and realize the implications any advancement in this field
+can have in applications working on Internet. I have noticed that many great
+applications are based upon sound theoretical research.  The foundational
+projects at Akamai involving global load balancing and Shortest Path Algorithms
+for Networks had very strong theoretical backing.  The Distributed Query system
+is a result of good theoretical background and sound software engineering
+practises.
+
+Furthermore, a number of design decisions made in the Python language have
+strong theoretical research underpinnings in functional languages. These have
+naturally contributed to my desire to pursue research.
+
+There have been specific instances which have motivated me and encouraged me to
+apply for PhD program. My work on Internet related modules in Python Standard
+Library follow the RFC's written by Roy T Fielding. I have been inspired by his
+PhD dissertation work on architecture of Internet Applications which is very
+prevalent today as REST.I desire to identify such a pattern in the current
+Distributed Systems and come out with innovative solutions for designing the
+next generation for systems which has to work with the increasing complexity of
+the Internet.
+
+During my work tenure at Dell, I realized that I could come up with innovative
+solutions for technical problems in areas related to Blu-Ray, Printers and
+Internet. It is supported by four patent applications Dell filed for my
+inventions.
+
+My undergraduate studies were completed at the National Engineering College,
+India, in the year 2002. I majored in Computer Science and Engineering and
+emerged in the 9th position among my 65 peers. To further advance my knowledge,
+I undertook part-time courses in Artificial Intelligence and Cryptography at
+Indian Institute of Science, Bangalore in 2007.  As a part of the AI course, I
+designed a two player N-puzzle solver game in which the AI program used A*
+algorithm to reach the goal.
+
+I have also been a teacher of Programming and Robotics to the High school
+students for a Special Education School called Spastics Society of Karnataka.
+I introduced Robotics using LEGO MindStorms NXT and taught students to program
+using MindStorms Programming Environment. I have mentored them for Robotics
+contests such as First Lego League.
+
+I studied the research projects being undertaken by Prof. Patrick Jaillet and
+Prof. Daniela Rus. I would be excited to contribute the research working they
+are currently undertaking. It would provide me a good opportunity to study the
+Canonical Graph Problems such as TSP and Hamiltonian Path and tackle
+interesting engineering problems with Distributed Systems and Autonomous
+Robots. I can foresee that results would have enormous impact on areas related
+to Urban mobility and usage of Autonomous vehicles in Singapore and other parts
+of the world.
+
+
+Daniela Rus
+-----------
+
+Distributed Algorithms and Self Organizing Robots
+
+To create autonomous robot systems capable of such applications, a fundamental
+goal of this research is to further the science-base for modular
+self-organizing systems. This is a considerable challenge, which we propose to
+meet by the synergistic integration of the following new directions of work
+with our existing work:
+
+Designing heterogeneous robot systems with self-organization capabilities. In
+the past we designed the Molecule Robot and the Crystal Robot. Our current
+focus is to design self-organizing adaptive mobile trusses that consist of
+active and passive parts.
+
+Focus on distributed and generic rather than architecture-specific algorithms.
+Focus on heterogeneous rather than homogeneous systems.
+Focus on automating the development and analysis of the algorithms used to
+control these robots.
+
+
 ===
 SOP
 ===
