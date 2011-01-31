@@ -1,0 +1,219 @@
+/* Copyright 2007 Google */
+
+body {
+  background-color: white;
+  color: black;
+  margin: 10px;
+}
+
+body, input, textarea {
+  font-family: Arial, sans-serif;
+  font-size: small;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0;
+  border: 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  color: #0000cc;
+}
+
+a:active {
+  color: red;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+#header {
+  position: relative;
+}
+
+#header .title img {
+  width: 241px;
+  height: 26px;
+  border: 0;
+}
+
+#header .login {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#header .login .nickname {
+  font-weight: bold;
+}
+
+#body {
+  clear: both;
+  position: relative;
+  margin-top: 10px;
+}
+
+#footer {
+  margin-top: 4em;
+}
+
+a.button, input[type^="submit"], input[type^="button"] {
+  margin: 0;
+  padding: 2px 5px 2px 5px;
+  font-family: Arial, Sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  color: #222;
+  cursor: default;
+  background: #ddd url("/static/images/button-background.gif") repeat-x 0 0;
+  border: 1px solid #aaa;
+}
+
+a.button:hover, input[type^="submit"]:hover, input[type^="button"]:hover {
+  border-color: #9cf #69e #69e #7af;
+}
+
+.form .field {
+  margin-bottom: 0.5em;
+}
+
+.dialog .form .message {
+  width: 30em;
+  margin-bottom: 1em;
+}
+
+.dialog {
+  border: 1px solid #3a5774;
+  padding: 8px;
+  background-color: #C1d9ff;
+}
+
+.dialog .content {
+  background-color: white;
+  padding: 25px;
+}
+
+.dialog .title {
+  background-color: #e0edfe;
+  font-size: medium;
+  font-weight: bold;
+  padding: 7px;
+  padding-left: 10px;
+}
+
+.inbox .menu {
+  margin-bottom: 0.5em;
+  margin-left: 4px;
+}
+
+.inbox .menu .item {
+  margin-right: 1em;
+  font-weight: bold;
+}
+
+.inbox .buttons {
+  background-color: #c3d9ff;
+  padding: 7px;
+  position: relative;
+}
+
+.inbox .buttons .info {
+  float: right;
+  margin-top: 4px;
+}
+
+.inbox .buttons .info .count {
+  font-weight: bold;
+}
+
+.inbox .buttons .info .link {
+  margin-left: 0.5em;
+}
+
+.inbox .buttons .corner {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+}
+
+.inbox .buttons .right {
+  right: 0px;
+}
+
+.inbox .buttons .left {
+  left: 0px;
+}
+
+.inbox .top .corner {
+  top: 0px;
+}
+
+.inbox .bottom .corner {
+  bottom: 0px;
+}
+
+.inbox .top .left {
+  background-image: url("http://groups-beta.google.com/groups/roundedcorners?c=c3d9ff&bc=white&w=4&h=4&a=tl");
+}
+
+.inbox .top .right {
+  background-image: url("http://groups-beta.google.com/groups/roundedcorners?c=c3d9ff&bc=white&w=4&h=4&a=tr");
+}
+
+.inbox .bottom .left {
+  background-image: url("http://groups-beta.google.com/groups/roundedcorners?c=c3d9ff&bc=white&w=4&h=4&a=bl");
+}
+
+.inbox .bottom .right {
+  background-image: url("http://groups-beta.google.com/groups/roundedcorners?c=c3d9ff&bc=white&w=4&h=4&a=br");
+}
+
+.inbox .bottom {
+  margin-top: 4em;
+}
+
+.inbox table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.inbox table th,
+.inbox table td {
+  padding: 5px;
+  text-align: left;
+}
+
+.inbox table th {
+  background-color: #e8eef7;
+}
+
+.inbox table td {
+  border-bottom: 1px solid #ebe8d7;
+}
+
+.inbox table td.checkbox,
+.inbox table th.checkbox {
+  width: 20px;
+}
+
+.inbox table td.main a.active {
+  font-weight: bold;
+}
+
+.inbox .table .message {
+  margin-top: 3em;
+  text-align: center;
+  color: #676767;
+}
