@@ -35,6 +35,47 @@ What's new in Python 3.2
         Attribution/Share-Alike (BY-SA) license
         <http://creativecommons.org/licenses/by-sa/3.0/>`__.
 
+Python 3.2 Release Schedule
+===========================
+
+* 3.2 beta 1: December 4, 2010. (Feature Freeze)
+* 3.2 final: February 19, 2011  (Release Date)
+* 3.2 Release Manager: Georg Brandl
+* Binaries/Installers: Windows (Martin v. Loewis) and Mac (Ronald Oussoren)
+
+*At the moment* 
+
+::
+
+        Python 3.2rc2+ (py3k:88393M, Feb 11 2011, 19:21:59) 
+
+Python Language Moratorium
+==========================
+
+* Python 3.1 was released on June 27, 2009
+* Disallows changes to syntax, semantics, and built-ins
+* Language Moratorium to allow non-CPython implmentations to
+  catchup.
+* Help ease the adoption of Python 3.x and provide a more stable base.
+
+.. class:: handout
+        
+        Here are list of issues which would be handled after moratorium. http://goo.gl/CCqDn
+
+Defining a Stable ABI
+=====================
+
+* Python Extension modules were required to be rebuilt for each feature release
+* Now, Extension modules can limit themselves to a limited APIs **Py_LIMITED_API**
+* During the compilation of applications, the preprocessor macro Py_LIMITED_API
+  must be defined. 
+* There are list of GLOBALS, Functions available which fall under stable ABI. A definition file is made available.
+* There is a converter module, which C source can use to convert itself to ABI compatible way.
+
+
+.. class:: handout
+      
+         http://www.python.org/dev/peps/pep-0384/
 
 
 Slide-Heading
