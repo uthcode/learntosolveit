@@ -85,6 +85,10 @@ Everything
   machines to execute.  -- Abelson & Sussman, *Structure and Interpretation of
   Computer Programs*
 
+* ❝ Our imagination is stretched to the utmost, not, as in fiction, to imagine
+  things which are not really there, but just to comprehend those things which
+  are. ❞ — Richard Feynman
+
 ---- 
 
 * It's a magical world, Hobbes, ol' buddy... Let's go exploring! 

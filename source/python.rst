@@ -33,12 +33,66 @@ ContentTooShort Exception from the urllib.request. I had assigned it to myself.
 There is cleaning up of pydoc module, a patch by Ron Adam is in the tracker.
 The filesystem check can be done using os.rename itself.
 
+Python uses carriage returns to separate statements and a colon and indentation
+to separate code blocks. c++ and Java use semicolons to separate statements and
+curly braces to separate code blocks.
+
+Python uses try...except blocks to handle exceptions, and the raise statement
+to generate them. Java and c++ use try...catch blocks to handle exceptions, and
+the throw statement to generate them.
+
+Like c, Python uses == for comparison and = for assignment. Unlike c, Python
+does not support in-line assignment, so there’s no chance of accidentally
+assigning the value you thought you were comparing.
+
+Due to some legacy issues left over from Python 2, booleans can be treated as
+numbers. True is 1; False is 0.
+
+The int() function truncates negative numbers towards 0. It’s a true truncate
+function, not a floor function.
+
+Floating point numbers are accurate to 15 decimal places.
+
+For lists in python, a better analogy would be to the ArrayList class, which
+can hold arbitrary objects and can expand dynamically as new items are added.
+
+If the negative index is confusing to you, think of it this way: a_list[-n] ==
+a_list[len(a_list) - n]. So in this list, a_list[-3] == a_list[5 - 3] ==
+a_list[2].
+
+For list representation, If it helps, you can think of it this way: reading the
+list from left to right, the first slice index specifies the first item you
+want, and the second slice index specifies the first item you don’t want. The
+return value is everything in between.
+
+As you might not expect, if the value is not found in the list, the index()
+method will raise an exception.
+
+Due to historical quirks carried over from Python 2, you can not create an
+empty set with two curly brackets. This actually creates an empty dictionary,
+not an empty set.
+
+If you call the discard() method with a value that doesn’t exist in the set, it
+does nothing. No error; it’s just a no-op.
+
+Here’s the difference: if the value doesn’t exist in the set, the remove()
+method raises a KeyError exception.
+
+A dictionary in Python is like a hash in Perl 5. In Perl 5, variables that
+store hashes always start with a % character. In Python, variables can be named
+anything, and Python keeps track of the datatype internally.
+
+You can assign None to any variable, but you can not create other NoneType objects.
 
 
 Question about pointers:
 http://stackoverflow.com/questions/5727/what-are-the-barriers-to-understanding-pointers-and-what-can-be-done-to-overcome/5754#5754
 http://stackoverflow.com/questions/143552/comparing-date-ranges/143568#143568
 
+
+Links:
+
+http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
 
 
 >>> class Counter(dict):

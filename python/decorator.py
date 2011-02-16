@@ -9,7 +9,9 @@ def my_decorator(fun):
     return wrapper
 
 @my_decorator
-def hello_world():
+def hello_world(x):
     print "Hello, World"
+    print x
 
-hello_world()
+hello_world(10)
+
