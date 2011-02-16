@@ -85,6 +85,8 @@ import argparse
 * That makes it 3. getopt,optparse and argparse. It was quite a discussion.
 * argparse will be the future and optparse will slowly be deprecated.
 * Support for positional args, sub-commands, **'required options'**, pattern for specifying and validating options.
+* argparse has the ability to define subparsers, each with their own argument patterns and help displays:
+
 
 .. class:: handout
 
@@ -106,6 +108,42 @@ import argparse
                     help = 'login as user')
 
         print(parser.parse_args('-h'.split()))
+
+logging module - Configuration Dictionary.
+==========================================
+
+* **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
+
+from concurrent import futures
+==============================
+
+* Package for modules which deal with concurrency.
+* first one is futures high level interface for managing threads and processes.
+* status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions
+
+pyc directories
+===============
+* Multiple implementations can refer to their own .pyc files.
+* mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
+* pyc files are now collected in a **__pycache__** directory stored under the package directory
+* Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported
+* tag that is unique to each interpreter is accessible from the **imp** module
+
+ABI version tagged .so 
+======================
+
+* shared object files by giving them a common directory and distinct names for each version
+* common directory is “pyshared” and the file names are made distinct by identifying the Python implementation
+* **/usr/share/pyshared/foo.cpython-32m.so**
+
+WSGI 1.1
+========
+
+* Well Intentioned Upgrade for WSGI to support Python3.
+* Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
+
+
+
 
 Slide-Heading
 =============
