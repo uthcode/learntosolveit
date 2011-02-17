@@ -180,9 +180,9 @@ WSGI 1.1
 String formatting sub-language
 ==============================
 
-::
-
 * Old string formatting had '#' type specifiers. It is included in the format sublanguage for compatiblity.
+
+::
 
         >>> format(20, '#o')
         '0o24'
@@ -222,6 +222,7 @@ Some environment Variables
 * **ResourceWarning**, has been added. It is emitted when potential issues with resource consumption or cleanup are detected.
 
 ::
+
         >>> f = open('foo','w')
         >>> del f
         __main__:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='foo' mode='w' encoding='UTF-8'>
@@ -231,6 +232,7 @@ New methods on range
 ====================
 
 ::
+
         >>> range(0, 100, 2).count(10)
         1
         >>> range(0, 100, 2).index(10)
