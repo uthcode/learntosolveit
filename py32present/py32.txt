@@ -115,6 +115,7 @@ import argparse
 logging module - Configuration Dictionary.
 ==========================================
 
+* The logging documentation has been augmented by a basic tutorial, an advanced tutorial, and a cookbook of logging recipes.
 * **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
 
 ::
@@ -244,18 +245,188 @@ New methods on range
 
 * Part of an effort to make more objects fully implement the **collections.Sequence** abstract base class
 
-Slide-Heading
-=============
+Unicode handling improvements
+=============================
 
-* Point 1
-* Point 2
-* Point 3
+* Python’s import mechanism can now load modules installed in directories with non-ASCII characters in the path name.
+
+stdlib - 1
+==========
+
+* **email** package, **mailcap** package, **nntplib** packages work properly with bytes/text model in Python 3. 
+* Throughout stdlib there has been a careful attention to encodings and text versus bytes issues
+* Better support for SSL connections and security certificates in Internet Protocol related modules.
+* More classes now implement a context manager to support convenient and reliable resource clean-up using a with statement.
+
+stdlib improvements -2
+======================
+
+* The xml.etree.ElementTree package and its xml.etree.cElementTree counterpart have been updated to version 1.3.
+* The datetime module has a new type **timezone** that implements the tzinfo interface by returning a fixed UTC offset and timezone name.
+* Many more ...
+  
+functools
+=========
+
+* The functools module includes a new decorator for caching function calls.
+  **functools.lru_cache()** can save repeated queries to an external resource
+  whenever the results are expected to be the same.
 
 ::
 
-        print('{0},{1}'.format('hello','world'))
+        >>> import functools
+        >>> @functools.lru_cache(maxsize=300)
+        >>> def get_phone_number(name):
+                c = conn.cursor()
+                c.execute('SELECT phonenumber FROM phonelist WHERE name=?', (name,))
+                return c.fetchone()[0]
+        ...
+        >>> get_phone_number(name)        # cached lookup
 
-.. class:: handout
-        
-        Handout Notes.
+functools
+=========
+
+* We have cache stats
+
+::
+
+        >>> get_phone_number.cache_info()
+        CacheInfo(hits=4805, misses=980, maxsize=300, currsize=300)
+
+* OMG! Way to get unwrapped function.
+
+::
+
+        >>> get_phone_number = get_phone_number.__wrapped__    # uncached function
+
+functools
+=========
+
+* functools.total_ordering - rich comparison methods, a new decorator functools.total_ordering() will use a existing equality and inequality methods to fill in the remaining methods.
+
+::
+
+        @total_ordering
+        class Student:
+            def __eq__(self, other):
+                return ((self.lastname.lower(), self.firstname.lower()) ==
+                        (other.lastname.lower(), other.firstname.lower()))
+            def __lt__(self, other):
+                return ((self.lastname.lower(), self.firstname.lower()) <
+                        (other.lastname.lower(), other.firstname.lower()))
+
+
+* Magic happens.
+
+
+itertools
+=========
+
+::
+
+        >>> from itertools import accumulate
+        >>> list(accumulate([8, 2, 50]))
+        [8, 10, 60]
+
+
+collections
+===========
+
+* The collections.Counter class now has two forms of in-place subtraction, the existing -= operator for saturating subtraction and the new subtract() method for regular subtraction
+
+* http://en.wikipedia.org/wiki/Saturation_arithmetic
+
+
+collections
+===========
+
+::
+
+        >>> tally = Counter(dogs=5, cat=3)
+        >>> tally -= Counter(dogs=2, cats=8)    # saturating subtraction
+        >>> tally
+        Counter({'dogs': 3})
+
+        >>> tally = Counter(dogs=5, cats=3)
+        >>> tally.subtract(dogs=2, cats=8)      # regular subtraction
+        >>> tally
+        Counter({'dogs': 3, 'cats': -5})
+
+
+threading
+=========
+
+* The threading module has a new Barrier synchronization class for making multiple threads wait until all of them have reached a common barrier point. 
+
+::
+
+        from threading import Barrier, Thread
+
+        def get_votes(site):
+            ballots = conduct_election(site)
+            all_polls_closed.wait()        # do not count until all polls are closed
+            totals = summarize(ballots)
+            publish(site, totals)
+
+        all_polls_closed = Barrier(len(sites))
+        for site in sites:
+            Thread(target=get_votes, args=(site,)).start()
+
+
+ast module
+==========
+
+* The ast.literal_eval() function serves as a secure alternative to the builtin eval() function which is easily abused.
+
+::
+
+        >>> from ast import literal_eval
+        >>> request = "{'req': 3, 'func': 'pow', 'args': (2, 0.5)}"
+        >>> literal_eval(request)
+        {'args': (2, 0.5), 'req': 3, 'func': 'pow'}
+
+        >>> request = "os.system('do something harmful')"
+        >>> literal_eval(request)
+        Traceback (most recent call last):
+          ...
+        ValueError: malformed node or string: <_ast.Call object at 0x101739a10>
+
+unicode - os module
+===================
+
+* The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.
+
+
+unittest
+========
+
+* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
+
+::
+    python -m unittest discover -s my_proj_dir -p _test.py
+
+* Interactivity!
+    
+::
+
+    >>> TestCase().assertEqual(pow(2, 3), 8)
+
+
+urllib
+======
+
+* The urlparse() function now supports IPv6 addresses as described in RFC 2732:
+* urlopen can take POST which can be an iterable. 
+* http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
+
+There is more
+=============
+
+* http://docs.python.org/dev/whatsnew/3.2.html
+* **Misc/NEWS** file.
+* **If you are interested in sprints, let me know.**.
+
+::
+
+        print('{0} {1}'.format('Thank',' you!'))
 
