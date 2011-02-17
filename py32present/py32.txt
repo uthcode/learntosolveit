@@ -47,7 +47,10 @@ Python 3.2 Release Schedule
 
 ::
 
-        Python 3.2rc2+ (py3k:88393M, Feb 11 2011, 19:21:59) 
+        $python -q
+        >>> import sys;sys.version
+        '3.2rc3+ (py3k:88430M, Feb 17 2011, 14:53:19) \n[GCC 4.4.5]'
+
 
 Python Language Moratorium
 ==========================
@@ -114,12 +117,43 @@ logging module - Configuration Dictionary.
 
 * **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
 
+::
+
+        with open('conf.json', 'r') as f:
+                conf = json.load(f)
+        logging.config.dictConfig(conf)
+
+
 from concurrent import futures
 ==============================
 
-* Package for modules which deal with concurrency.
-* first one is futures high level interface for managing threads and processes.
+* Code for creating and managing concurrency is being collected in a new top-level namespace, concurrent
+* first package is **futures** high level interface for managing threads and processes.
+* Inspired by java.utils.concurrent and Future Object.
 * status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions
+
+
+.. class:: handout
+
+        The primary offering of the new module is a pair of executor classes
+        for launching and managing calls. The goal of the executors is to make
+        it easier to use existing tools for making parallel calls. They save
+        the effort needed to setup a pool of resources, launch the calls,
+        create a results queue, add time-out handling, and limit the total
+        number of threads, processes, or remote procedure calls.
+
+        Ideally, each application should share a single executor across
+        multiple components so that process and thread limits can be centrally
+        managed. This solves the design challenge that arises when each
+        component has its own competing strategy for resource management.
+
+        Both classes share a common interface with three methods: submit() for
+        scheduling a callable and returning a Future object; map() for
+        scheduling many asynchronous calls at a time, and shutdown() for
+        freeing resources. The class is a context manager and can be used in a
+        with statement to assure that resources are automatically released when
+        currently pending futures are done executing.
+
 
 pyc directories
 ===============
@@ -143,7 +177,70 @@ WSGI 1.1
 * Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
 
 
+String formatting sub-language
+==============================
 
+::
+
+* Old string formatting had '#' type specifiers. It is included in the format sublanguage for compatiblity.
+
+        >>> format(20, '#o')
+        '0o24'
+        >>> format(12.34, '#5.0f') # You can have leading space.
+        '  12.'
+        >>> format(1,'#%')  # percent operation
+        '100.000000%'
+        >>> format(1,'#.0%') # trailing dot.
+        '100.%'
+        >>> format(1,'.0%')
+        '100%'
+
+New string formatting methods
+=============================
+
+* **str.format_map** 
+* It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
+
+::
+
+        >>> import shelve
+        >>> d = shelve.open('tmp.shl')
+        >>> 'The {project_name} status is {status} as of {date}'.format_map(d)
+        'The testing project status is green as of February 15, 2011'
+
+        >>> class PlaceholderDict(dict):
+                def __missing__(self, key):
+                    return '<{}>'.format(key)
+        >>> 'Hello {name}, welcome to {location}'.format_map(PlaceholderDict())
+        'Hello <name>, welcome to <location>'
+
+
+Some environment Variables
+==========================
+
+* Warnings are now easier to control using the **PYTHONWARNINGS** environment variable as an alternative to using -W.
+* **ResourceWarning**, has been added. It is emitted when potential issues with resource consumption or cleanup are detected.
+
+::
+        >>> f = open('foo','w')
+        >>> del f
+        __main__:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='foo' mode='w' encoding='UTF-8'>
+
+
+New methods on range
+====================
+
+::
+        >>> range(0, 100, 2).count(10)
+        1
+        >>> range(0, 100, 2).index(10)
+        5
+        >>> range(0, 100, 2)[5]
+        10
+        >>> range(0, 100, 2)[0:5]
+        range(0, 10, 2)
+
+* Part of an effort to make more objects fully implement the **collections.Sequence** abstract base class
 
 Slide-Heading
 =============
