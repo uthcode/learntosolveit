@@ -6,7 +6,7 @@ The following project page contains the solutions to some programming contest
 problems.
 
 
-*vaish_solution.cpp* - On 08 Feb,2011.
+*vaish_solution.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/vaish_solution.cpp
    :language: c
@@ -15,322 +15,7 @@ problems.
 
 ----
 
-*tsort.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/tsort.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*sample.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/sample.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*picalculator.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/picalculator.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*megaCool.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/megaCool.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*mazeWandering.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/mazeWandering.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*matchmaking.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/matchmaking.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*map_ex.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/map_ex.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*incredibleMachine.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/incredibleMachine.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ex_defines.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/ex_defines.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*binarycode.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/binarycode.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ZigZag.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/ZigZag.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*Xosceles.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/Xosceles.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*TriFibonacci.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/TriFibonacci.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*Time.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/Time.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*TheTournamentDivTwo.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/TheTournamentDivTwo.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*TheEncryptionDivTwo.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/TheEncryptionDivTwo.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*TheBlackJackDivTwo.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/TheBlackJackDivTwo.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*SimpleWordGame.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/SimpleWordGame.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*RoyalTresurer.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/RoyalTresurer.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*RouteIntersection.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/RouteIntersection.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*PunctuationCleaner.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/PunctuationCleaner.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ProfitCalculator.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/ProfitCalculator.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*PrefixCode.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/PrefixCode.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*PalindromesCount.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/PalindromesCount.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ObtainDigitK.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/ObtainDigitK.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*NotTwo.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/NotTwo.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*MostProfitable.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/MostProfitable.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*MagicalSource.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/MagicalSource.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ImportantTasks.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/ImportantTasks.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*GuessingNextElement.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/GuessingNextElement.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*FixedPointTheorem.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/FixedPointTheorem.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*ErdosNumber.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/ErdosNumber.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*DivisorDigits.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/DivisorDigits.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*BuyingFlowers.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/BuyingFlowers.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*Bonuses.cpp* - On 08 Feb,2011.
-
-.. literalinclude:: ../contests/Bonuses.cpp
-   :language: c
-   :linenos:
-   :tab-width: 4
-
-----
-
-*userName.cpp* - On 08 Feb,2011.
+*userName.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/userName.cpp
    :language: c
@@ -339,7 +24,16 @@ problems.
 
 ----
 
-*topcoder_template.cpp* - On 08 Feb,2011.
+*tsort.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/tsort.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*topcoder_template.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/topcoder_template.cpp
    :language: c
@@ -348,7 +42,7 @@ problems.
 
 ----
 
-*simple1.cpp* - On 08 Feb,2011.
+*simple1.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/simple1.cpp
    :language: c
@@ -357,7 +51,61 @@ problems.
 
 ----
 
-*limits.cpp* - On 08 Feb,2011.
+*sample.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/sample.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*picalculator.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/picalculator.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*megaCool.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/megaCool.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*mazeWandering.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/mazeWandering.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*matchmaking.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/matchmaking.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*map_ex.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/map_ex.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*limits.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/limits.cpp
    :language: c
@@ -366,7 +114,16 @@ problems.
 
 ----
 
-*fallingpoints.cpp* - On 08 Feb,2011.
+*incredibleMachine.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/incredibleMachine.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*fallingpoints.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/fallingpoints.cpp
    :language: c
@@ -375,7 +132,7 @@ problems.
 
 ----
 
-*ex_typeof.cpp* - On 08 Feb,2011.
+*ex_typeof.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/ex_typeof.cpp
    :language: c
@@ -384,7 +141,7 @@ problems.
 
 ----
 
-*ex_map.cpp* - On 08 Feb,2011.
+*ex_map.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/ex_map.cpp
    :language: c
@@ -393,7 +150,34 @@ problems.
 
 ----
 
-*Yatzee.cpp* - On 08 Feb,2011.
+*ex_defines.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/ex_defines.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*binarycode.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/binarycode.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ZigZag.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/ZigZag.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*Yatzee.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Yatzee.cpp
    :language: c
@@ -402,7 +186,16 @@ problems.
 
 ----
 
-*WidgetRepairs.cpp* - On 08 Feb,2011.
+*Xosceles.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/Xosceles.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*WidgetRepairs.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/WidgetRepairs.cpp
    :language: c
@@ -411,7 +204,7 @@ problems.
 
 ----
 
-*Underprimes.cpp* - On 08 Feb,2011.
+*Underprimes.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Underprimes.cpp
    :language: c
@@ -420,7 +213,16 @@ problems.
 
 ----
 
-*ToolsBox.cpp* - On 08 Feb,2011.
+*TriFibonacci.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/TriFibonacci.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ToolsBox.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/ToolsBox.cpp
    :language: c
@@ -429,7 +231,25 @@ problems.
 
 ----
 
-*TheProduct.cpp* - On 08 Feb,2011.
+*Time.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/Time.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*TheTournamentDivTwo.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/TheTournamentDivTwo.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*TheProduct.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheProduct.cpp
    :language: c
@@ -438,7 +258,7 @@ problems.
 
 ----
 
-*TheNewHouseDivTwo.cpp* - On 08 Feb,2011.
+*TheNewHouseDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheNewHouseDivTwo.cpp
    :language: c
@@ -447,7 +267,7 @@ problems.
 
 ----
 
-*TheMoviesLevelOneDivTwo.cpp* - On 08 Feb,2011.
+*TheMoviesLevelOneDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheMoviesLevelOneDivTwo.cpp
    :language: c
@@ -456,7 +276,16 @@ problems.
 
 ----
 
-*TheCardShufflingDivTwo.cpp* - On 08 Feb,2011.
+*TheEncryptionDivTwo.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/TheEncryptionDivTwo.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*TheCardShufflingDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheCardShufflingDivTwo.cpp
    :language: c
@@ -465,7 +294,7 @@ problems.
 
 ----
 
-*TheCardLineDivTwo.cpp* - On 08 Feb,2011.
+*TheCardLineDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheCardLineDivTwo.cpp
    :language: c
@@ -474,7 +303,7 @@ problems.
 
 ----
 
-*TheBoringStoreDivTwo.cpp* - On 08 Feb,2011.
+*TheBoringStoreDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheBoringStoreDivTwo.cpp
    :language: c
@@ -483,7 +312,7 @@ problems.
 
 ----
 
-*TheBoringGameDivTwo.cpp* - On 08 Feb,2011.
+*TheBoringGameDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheBoringGameDivTwo.cpp
    :language: c
@@ -492,7 +321,7 @@ problems.
 
 ----
 
-*TheBoredomDivTwo.cpp* - On 08 Feb,2011.
+*TheBoredomDivTwo.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TheBoredomDivTwo.cpp
    :language: c
@@ -501,7 +330,16 @@ problems.
 
 ----
 
-*TallPeople.cpp* - On 08 Feb,2011.
+*TheBlackJackDivTwo.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/TheBlackJackDivTwo.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*TallPeople.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/TallPeople.cpp
    :language: c
@@ -510,7 +348,7 @@ problems.
 
 ----
 
-*Starport.cpp* - On 08 Feb,2011.
+*Starport.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Starport.cpp
    :language: c
@@ -519,7 +357,7 @@ problems.
 
 ----
 
-*SoccerLeagues.cpp* - On 08 Feb,2011.
+*SoccerLeagues.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/SoccerLeagues.cpp
    :language: c
@@ -528,7 +366,34 @@ problems.
 
 ----
 
-*ReverseMagicalSource.cpp* - On 08 Feb,2011.
+*SimpleWordGame.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/SimpleWordGame.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*RoyalTresurer.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/RoyalTresurer.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*RouteIntersection.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/RouteIntersection.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ReverseMagicalSource.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/ReverseMagicalSource.cpp
    :language: c
@@ -537,7 +402,7 @@ problems.
 
 ----
 
-*RectangularGrid.cpp* - On 08 Feb,2011.
+*RectangularGrid.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/RectangularGrid.cpp
    :language: c
@@ -546,7 +411,7 @@ problems.
 
 ----
 
-*RabbitVoting.cpp* - On 08 Feb,2011.
+*RabbitVoting.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/RabbitVoting.cpp
    :language: c
@@ -555,7 +420,7 @@ problems.
 
 ----
 
-*Quipu.cpp* - On 08 Feb,2011.
+*Quipu.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Quipu.cpp
    :language: c
@@ -564,7 +429,34 @@ problems.
 
 ----
 
-*PowerOutage.cpp* - On 08 Feb,2011.
+*PunctuationCleaner.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/PunctuationCleaner.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ProfitCalculator.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/ProfitCalculator.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*PrefixCode.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/PrefixCode.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*PowerOutage.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/PowerOutage.cpp
    :language: c
@@ -573,7 +465,7 @@ problems.
 
 ----
 
-*PawnsandKings.cpp* - On 08 Feb,2011.
+*PawnsandKings.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/PawnsandKings.cpp
    :language: c
@@ -582,7 +474,7 @@ problems.
 
 ----
 
-*PassingGrade.cpp* - On 08 Feb,2011.
+*PassingGrade.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/PassingGrade.cpp
    :language: c
@@ -591,7 +483,34 @@ problems.
 
 ----
 
-*NoOrderOfOperations.cpp* - On 08 Feb,2011.
+*PalindromesCount.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/PalindromesCount.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ObtainDigitK.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/ObtainDigitK.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*NotTwo.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/NotTwo.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*NoOrderOfOperations.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/NoOrderOfOperations.cpp
    :language: c
@@ -600,7 +519,16 @@ problems.
 
 ----
 
-*MonotoneSequence.cpp* - On 08 Feb,2011.
+*MostProfitable.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/MostProfitable.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*MonotoneSequence.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/MonotoneSequence.cpp
    :language: c
@@ -609,7 +537,7 @@ problems.
 
 ----
 
-*Microwaveselling.cpp* - On 08 Feb,2011.
+*Microwaveselling.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Microwaveselling.cpp
    :language: c
@@ -618,7 +546,7 @@ problems.
 
 ----
 
-*MatrixShiftings.cpp* - On 08 Feb,2011.
+*MatrixShiftings.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/MatrixShiftings.cpp
    :language: c
@@ -627,7 +555,7 @@ problems.
 
 ----
 
-*MarblesRegroupingEasy.cpp* - On 08 Feb,2011.
+*MarblesRegroupingEasy.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/MarblesRegroupingEasy.cpp
    :language: c
@@ -636,7 +564,16 @@ problems.
 
 ----
 
-*LuckyCounter.cpp* - On 08 Feb,2011.
+*MagicalSource.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/MagicalSource.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*LuckyCounter.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/LuckyCounter.cpp
    :language: c
@@ -645,7 +582,7 @@ problems.
 
 ----
 
-*LeaguePicks.cpp* - On 08 Feb,2011.
+*LeaguePicks.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/LeaguePicks.cpp
    :language: c
@@ -654,7 +591,7 @@ problems.
 
 ----
 
-*KnightsTour.cpp* - On 08 Feb,2011.
+*KnightsTour.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/KnightsTour.cpp
    :language: c
@@ -663,7 +600,7 @@ problems.
 
 ----
 
-*KiwiJuice.cpp* - On 08 Feb,2011.
+*KiwiJuice.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/KiwiJuice.cpp
    :language: c
@@ -672,7 +609,16 @@ problems.
 
 ----
 
-*ImageDithering.cpp* - On 08 Feb,2011.
+*ImportantTasks.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/ImportantTasks.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ImageDithering.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/ImageDithering.cpp
    :language: c
@@ -681,7 +627,16 @@ problems.
 
 ----
 
-*Graduation_SnapDragon.cpp* - On 08 Feb,2011.
+*GuessingNextElement.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/GuessingNextElement.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*Graduation_SnapDragon.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Graduation_SnapDragon.cpp
    :language: c
@@ -690,7 +645,7 @@ problems.
 
 ----
 
-*Graduation.cpp* - On 08 Feb,2011.
+*Graduation.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/Graduation.cpp
    :language: c
@@ -699,7 +654,7 @@ problems.
 
 ----
 
-*GirlsAndBoys.cpp* - On 08 Feb,2011.
+*GirlsAndBoys.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/GirlsAndBoys.cpp
    :language: c
@@ -708,7 +663,7 @@ problems.
 
 ----
 
-*FormatAmt.cpp* - On 08 Feb,2011.
+*FormatAmt.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/FormatAmt.cpp
    :language: c
@@ -717,7 +672,25 @@ problems.
 
 ----
 
-*EggCartons.cpp* - On 08 Feb,2011.
+*FixedPointTheorem.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/FixedPointTheorem.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ErdosNumber.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/ErdosNumber.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*EggCartons.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/EggCartons.cpp
    :language: c
@@ -726,7 +699,16 @@ problems.
 
 ----
 
-*DiscSpace.cpp* - On 08 Feb,2011.
+*DivisorDigits.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/DivisorDigits.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*DiscSpace.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/DiscSpace.cpp
    :language: c
@@ -735,7 +717,7 @@ problems.
 
 ----
 
-*CarrotJumping.cpp* - On 08 Feb,2011.
+*CarrotJumping.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/CarrotJumping.cpp
    :language: c
@@ -744,7 +726,7 @@ problems.
 
 ----
 
-*CCipher.cpp* - On 08 Feb,2011.
+*CCipher.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/CCipher.cpp
    :language: c
@@ -753,7 +735,16 @@ problems.
 
 ----
 
-*BoxesOfBooks.cpp* - On 08 Feb,2011.
+*BuyingFlowers.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/BuyingFlowers.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*BoxesOfBooks.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/BoxesOfBooks.cpp
    :language: c
@@ -762,7 +753,7 @@ problems.
 
 ----
 
-*BoredPhilosophers.cpp* - On 08 Feb,2011.
+*BoredPhilosophers.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/BoredPhilosophers.cpp
    :language: c
@@ -771,7 +762,16 @@ problems.
 
 ----
 
-*BettingMoney.cpp* - On 08 Feb,2011.
+*Bonuses.cpp* - On 18 Feb,2011.
+
+.. literalinclude:: ../contests/Bonuses.cpp
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
+*BettingMoney.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/BettingMoney.cpp
    :language: c
@@ -780,7 +780,7 @@ problems.
 
 ----
 
-*BadVocabulary.cpp* - On 08 Feb,2011.
+*BadVocabulary.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/BadVocabulary.cpp
    :language: c
@@ -789,7 +789,7 @@ problems.
 
 ----
 
-*AfraidOfEven.cpp* - On 08 Feb,2011.
+*AfraidOfEven.cpp* - On 18 Feb,2011.
 
 .. literalinclude:: ../contests/AfraidOfEven.cpp
    :language: c

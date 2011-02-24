@@ -5,7 +5,7 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
-*xmlrpcserver-eg.py* - On 08 Feb,2011.
+*xmlrpcserver-eg.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/xmlrpcserver-eg.py
    :linenos:
@@ -13,7 +13,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*xmlrpcclient-eg.py* - On 08 Feb,2011.
+*xmlrpcclient-eg.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/xmlrpcclient-eg.py
    :linenos:
@@ -21,7 +21,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urlopen_passwd.py* - On 08 Feb,2011.
+*urlopen_passwd.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urlopen_passwd.py
    :linenos:
@@ -29,7 +29,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2_auth_ex1.py* - On 08 Feb,2011.
+*urllib2_auth_ex1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2_auth_ex1.py
    :linenos:
@@ -37,7 +37,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2.-1.py* - On 08 Feb,2011.
+*urllib2.-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2.-1.py
    :linenos:
@@ -45,7 +45,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-test.py* - On 08 Feb,2011.
+*urllib2-test.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-test.py
    :linenos:
@@ -53,7 +53,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-pycall1.py* - On 08 Feb,2011.
+*urllib2-pycall1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-pycall1.py
    :linenos:
@@ -61,7 +61,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-headers-eg-1.py* - On 08 Feb,2011.
+*urllib2-headers-eg-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-headers-eg-1.py
    :linenos:
@@ -69,7 +69,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-digest1.py* - On 08 Feb,2011.
+*urllib2-digest1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-digest1.py
    :linenos:
@@ -77,7 +77,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-digest.py* - On 08 Feb,2011.
+*urllib2-digest.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-digest.py
    :linenos:
@@ -85,7 +85,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-debugheaders.py* - On 08 Feb,2011.
+*urllib2-debugheaders.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-debugheaders.py
    :linenos:
@@ -93,7 +93,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-binary-upload.py* - On 08 Feb,2011.
+*urllib2-binary-upload.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-binary-upload.py
    :linenos:
@@ -101,7 +101,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-basic3.py* - On 08 Feb,2011.
+*urllib2-basic3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic3.py
    :linenos:
@@ -109,7 +109,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-basic2.py* - On 08 Feb,2011.
+*urllib2-basic2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic2.py
    :linenos:
@@ -117,7 +117,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-basic1.py* - On 08 Feb,2011.
+*urllib2-basic1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic1.py
    :linenos:
@@ -125,7 +125,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-basic-digest1.py* - On 08 Feb,2011.
+*urllib2-basic-digest1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic-digest1.py
    :linenos:
@@ -133,7 +133,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2-adddata.py* - On 08 Feb,2011.
+*urllib2-adddata.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-adddata.py
    :linenos:
@@ -141,7 +141,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib-1.py* - On 08 Feb,2011.
+*urllib-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib-1.py
    :linenos:
@@ -149,7 +149,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*udp-time.py* - On 08 Feb,2011.
+*udp-time.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/udp-time.py
    :linenos:
@@ -157,7 +157,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*twisted3.py* - On 08 Feb,2011.
+*twisted3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted3.py
    :linenos:
@@ -165,7 +165,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*twisted2.py* - On 08 Feb,2011.
+*twisted2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted2.py
    :linenos:
@@ -173,7 +173,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*twisted1.py* - On 08 Feb,2011.
+*twisted1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted1.py
    :linenos:
@@ -181,7 +181,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*twisted-parallel-2.py* - On 08 Feb,2011.
+*twisted-parallel-2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted-parallel-2.py
    :linenos:
@@ -189,7 +189,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*twisted-parallel-1.py* - On 08 Feb,2011.
+*twisted-parallel-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted-parallel-1.py
    :linenos:
@@ -197,7 +197,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*try-except.py* - On 08 Feb,2011.
+*try-except.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/try-except.py
    :linenos:
@@ -205,7 +205,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*trials3.py* - On 08 Feb,2011.
+*trials3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trials3.py
    :linenos:
@@ -213,7 +213,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*trials2.py* - On 08 Feb,2011.
+*trials2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trials2.py
    :linenos:
@@ -221,7 +221,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*trials.py* - On 08 Feb,2011.
+*trials.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trials.py
    :linenos:
@@ -229,7 +229,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*trackerlink.py* - On 08 Feb,2011.
+*trackerlink.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trackerlink.py
    :linenos:
@@ -237,7 +237,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*traceit.py* - On 08 Feb,2011.
+*traceit.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/traceit.py
    :linenos:
@@ -245,7 +245,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*toss_coins.py* - On 08 Feb,2011.
+*toss_coins.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/toss_coins.py
    :linenos:
@@ -253,7 +253,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*tkintertimer.py* - On 08 Feb,2011.
+*tkintertimer.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/tkintertimer.py
    :linenos:
@@ -261,7 +261,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*time_convertor.py* - On 08 Feb,2011.
+*time_convertor.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/time_convertor.py
    :linenos:
@@ -269,7 +269,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*textreplace.py* - On 08 Feb,2011.
+*textreplace.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/textreplace.py
    :linenos:
@@ -277,7 +277,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*test_codec03.py* - On 08 Feb,2011.
+*test_codec03.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/test_codec03.py
    :linenos:
@@ -285,7 +285,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*test_codec02.py* - On 08 Feb,2011.
+*test_codec02.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/test_codec02.py
    :linenos:
@@ -293,7 +293,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*test_codec01.py* - On 08 Feb,2011.
+*test_codec01.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/test_codec01.py
    :linenos:
@@ -301,7 +301,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*syllcount.py* - On 08 Feb,2011.
+*syllcount.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/syllcount.py
    :linenos:
@@ -309,7 +309,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprocess_6.py* - On 08 Feb,2011.
+*subprocess_6.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_6.py
    :linenos:
@@ -317,7 +317,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprocess_5.py* - On 08 Feb,2011.
+*subprocess_5.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_5.py
    :linenos:
@@ -325,7 +325,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprocess_4.py* - On 08 Feb,2011.
+*subprocess_4.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_4.py
    :linenos:
@@ -333,7 +333,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprocess_3.py* - On 08 Feb,2011.
+*subprocess_3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_3.py
    :linenos:
@@ -341,7 +341,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprocess_2.py* - On 08 Feb,2011.
+*subprocess_2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_2.py
    :linenos:
@@ -349,7 +349,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprocess_1.py* - On 08 Feb,2011.
+*subprocess_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_1.py
    :linenos:
@@ -357,7 +357,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subprob1.py* - On 08 Feb,2011.
+*subprob1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprob1.py
    :linenos:
@@ -365,7 +365,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*subhex.py* - On 08 Feb,2011.
+*subhex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subhex.py
    :linenos:
@@ -373,7 +373,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*struct_calcsize.py* - On 08 Feb,2011.
+*struct_calcsize.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/struct_calcsize.py
    :linenos:
@@ -381,7 +381,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*stringio-example1.py* - On 08 Feb,2011.
+*stringio-example1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/stringio-example1.py
    :linenos:
@@ -389,7 +389,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*stackinspection.py* - On 08 Feb,2011.
+*stackinspection.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/stackinspection.py
    :linenos:
@@ -397,7 +397,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*splitter2.py* - On 08 Feb,2011.
+*splitter2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/splitter2.py
    :linenos:
@@ -405,7 +405,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*spelling.py* - On 08 Feb,2011.
+*spelling.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/spelling.py
    :linenos:
@@ -413,7 +413,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*socket_example4.py* - On 08 Feb,2011.
+*socket_example4.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example4.py
    :linenos:
@@ -421,7 +421,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*socket_example3.py* - On 08 Feb,2011.
+*socket_example3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example3.py
    :linenos:
@@ -429,7 +429,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*socket_example2.py* - On 08 Feb,2011.
+*socket_example2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example2.py
    :linenos:
@@ -437,7 +437,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*socket_example1.py* - On 08 Feb,2011.
+*socket_example1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example1.py
    :linenos:
@@ -445,7 +445,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*simple_threading1.py* - On 08 Feb,2011.
+*simple_threading1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/simple_threading1.py
    :linenos:
@@ -453,7 +453,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*simple_subprocess.py* - On 08 Feb,2011.
+*simple_subprocess.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/simple_subprocess.py
    :linenos:
@@ -461,7 +461,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*simple_http_processor.py* - On 08 Feb,2011.
+*simple_http_processor.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/simple_http_processor.py
    :linenos:
@@ -469,7 +469,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*server.py* - On 08 Feb,2011.
+*server.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/server.py
    :linenos:
@@ -477,7 +477,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*scrmable.py* - On 08 Feb,2011.
+*scrmable.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/scrmable.py
    :linenos:
@@ -485,7 +485,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*scan_web.py* - On 08 Feb,2011.
+*scan_web.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/scan_web.py
    :linenos:
@@ -493,7 +493,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*runningtime_intvsfloat.py* - On 08 Feb,2011.
+*runningtime_intvsfloat.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/runningtime_intvsfloat.py
    :linenos:
@@ -501,7 +501,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*runningtime_intaddition.py* - On 08 Feb,2011.
+*runningtime_intaddition.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/runningtime_intaddition.py
    :linenos:
@@ -509,7 +509,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*runningtime.py* - On 08 Feb,2011.
+*runningtime.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/runningtime.py
    :linenos:
@@ -517,7 +517,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*run_under_strace.py* - On 08 Feb,2011.
+*run_under_strace.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/run_under_strace.py
    :linenos:
@@ -525,7 +525,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*restricter_class.py* - On 08 Feb,2011.
+*restricter_class.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/restricter_class.py
    :linenos:
@@ -533,7 +533,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*removeOldEggs.py* - On 08 Feb,2011.
+*removeOldEggs.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/removeOldEggs.py
    :linenos:
@@ -541,7 +541,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*recipe-511490-1.py* - On 08 Feb,2011.
+*recipe-511490-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/recipe-511490-1.py
    :linenos:
@@ -549,7 +549,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*quicksort.py* - On 08 Feb,2011.
+*quicksort.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/quicksort.py
    :linenos:
@@ -557,7 +557,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*quick_sort.py* - On 08 Feb,2011.
+*quick_sort.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/quick_sort.py
    :linenos:
@@ -565,7 +565,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*python3k_json.py* - On 08 Feb,2011.
+*python3k_json.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/python3k_json.py
    :linenos:
@@ -573,7 +573,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*python-objects-type.py* - On 08 Feb,2011.
+*python-objects-type.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/python-objects-type.py
    :linenos:
@@ -581,7 +581,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*pyrsa.py* - On 08 Feb,2011.
+*pyrsa.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/pyrsa.py
    :linenos:
@@ -589,7 +589,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*pyex_multiprocessing.py* - On 08 Feb,2011.
+*pyex_multiprocessing.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/pyex_multiprocessing.py
    :linenos:
@@ -597,7 +597,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*pyex2_multiprocessing.py* - On 08 Feb,2011.
+*pyex2_multiprocessing.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/pyex2_multiprocessing.py
    :linenos:
@@ -605,7 +605,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*py3rsa.py* - On 08 Feb,2011.
+*py3rsa.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/py3rsa.py
    :linenos:
@@ -613,7 +613,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*py3AES.py* - On 08 Feb,2011.
+*py3AES.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/py3AES.py
    :linenos:
@@ -621,7 +621,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*provide_warnings.py* - On 08 Feb,2011.
+*provide_warnings.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/provide_warnings.py
    :linenos:
@@ -629,7 +629,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*peepholeoptimization.py* - On 08 Feb,2011.
+*peepholeoptimization.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/peepholeoptimization.py
    :linenos:
@@ -637,7 +637,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*os_exec1.py* - On 08 Feb,2011.
+*os_exec1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/os_exec1.py
    :linenos:
@@ -645,7 +645,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*optimization2.py* - On 08 Feb,2011.
+*optimization2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/optimization2.py
    :linenos:
@@ -653,7 +653,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*oop1.py* - On 08 Feb,2011.
+*oop1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/oop1.py
    :linenos:
@@ -661,7 +661,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*object_size.py* - On 08 Feb,2011.
+*object_size.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/object_size.py
    :linenos:
@@ -669,7 +669,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*number_sets.py* - On 08 Feb,2011.
+*number_sets.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/number_sets.py
    :linenos:
@@ -677,7 +677,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*mp3.py* - On 08 Feb,2011.
+*mp3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/mp3.py
    :linenos:
@@ -685,7 +685,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*maxsort.py* - On 08 Feb,2011.
+*maxsort.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/maxsort.py
    :linenos:
@@ -693,7 +693,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*logging5.py* - On 08 Feb,2011.
+*logging5.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging5.py
    :linenos:
@@ -701,7 +701,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*logging4.py* - On 08 Feb,2011.
+*logging4.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging4.py
    :linenos:
@@ -709,7 +709,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*logging3.py* - On 08 Feb,2011.
+*logging3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging3.py
    :linenos:
@@ -717,7 +717,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*logging2.py* - On 08 Feb,2011.
+*logging2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging2.py
    :linenos:
@@ -725,7 +725,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*logging1.py* - On 08 Feb,2011.
+*logging1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging1.py
    :linenos:
@@ -733,7 +733,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*locate.py* - On 08 Feb,2011.
+*locate.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/locate.py
    :linenos:
@@ -741,7 +741,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*lexical_analyzer_1.py* - On 08 Feb,2011.
+*lexical_analyzer_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/lexical_analyzer_1.py
    :linenos:
@@ -749,7 +749,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*leibniz.py* - On 08 Feb,2011.
+*leibniz.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/leibniz.py
    :linenos:
@@ -757,7 +757,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*iterator_ex2.py* - On 08 Feb,2011.
+*iterator_ex2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/iterator_ex2.py
    :linenos:
@@ -765,7 +765,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*iterator_ex1.py* - On 08 Feb,2011.
+*iterator_ex1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/iterator_ex1.py
    :linenos:
@@ -773,7 +773,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*iscombination.py* - On 08 Feb,2011.
+*iscombination.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/iscombination.py
    :linenos:
@@ -781,7 +781,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*ipy.py* - On 08 Feb,2011.
+*ipy.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ipy.py
    :linenos:
@@ -789,7 +789,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*int_to_roman.py* - On 08 Feb,2011.
+*int_to_roman.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/int_to_roman.py
    :linenos:
@@ -797,7 +797,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*httplib_head.py* - On 08 Feb,2011.
+*httplib_head.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib_head.py
    :linenos:
@@ -805,7 +805,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*httplib-example-3.py* - On 08 Feb,2011.
+*httplib-example-3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib-example-3.py
    :linenos:
@@ -813,7 +813,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*httplib-example-2.py* - On 08 Feb,2011.
+*httplib-example-2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib-example-2.py
    :linenos:
@@ -821,7 +821,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*httplib-example-1.py* - On 08 Feb,2011.
+*httplib-example-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib-example-1.py
    :linenos:
@@ -829,7 +829,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*http_auth_header_code.py* - On 08 Feb,2011.
+*http_auth_header_code.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/http_auth_header_code.py
    :linenos:
@@ -837,7 +837,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*htmlwriter.py* - On 08 Feb,2011.
+*htmlwriter.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/htmlwriter.py
    :linenos:
@@ -845,7 +845,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*hexlify.py* - On 08 Feb,2011.
+*hexlify.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/hexlify.py
    :linenos:
@@ -853,7 +853,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*hanoi1.py* - On 08 Feb,2011.
+*hanoi1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/hanoi1.py
    :linenos:
@@ -861,7 +861,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*hanoi.py* - On 08 Feb,2011.
+*hanoi.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/hanoi.py
    :linenos:
@@ -869,7 +869,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*googlesearch.py* - On 08 Feb,2011.
+*googlesearch.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/googlesearch.py
    :linenos:
@@ -877,7 +877,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*generator_follow.py* - On 08 Feb,2011.
+*generator_follow.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_follow.py
    :linenos:
@@ -885,7 +885,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*generator_example1.py* - On 08 Feb,2011.
+*generator_example1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_example1.py
    :linenos:
@@ -893,7 +893,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*generator_countdown.py* - On 08 Feb,2011.
+*generator_countdown.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_countdown.py
    :linenos:
@@ -901,7 +901,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*generator_countdown-2.py* - On 08 Feb,2011.
+*generator_countdown-2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_countdown-2.py
    :linenos:
@@ -909,7 +909,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*gen2.py* - On 08 Feb,2011.
+*gen2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/gen2.py
    :linenos:
@@ -917,7 +917,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*gen1.py* - On 08 Feb,2011.
+*gen1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/gen1.py
    :linenos:
@@ -925,7 +925,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fri_13.py* - On 08 Feb,2011.
+*fri_13.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fri_13.py
    :linenos:
@@ -933,7 +933,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*freev.py* - On 08 Feb,2011.
+*freev.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/freev.py
    :linenos:
@@ -941,7 +941,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fortune-card.py* - On 08 Feb,2011.
+*fortune-card.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fortune-card.py
    :linenos:
@@ -949,7 +949,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fibo2.py* - On 08 Feb,2011.
+*fibo2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fibo2.py
    :linenos:
@@ -957,7 +957,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fibo.py* - On 08 Feb,2011.
+*fibo.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fibo.py
    :linenos:
@@ -965,7 +965,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fetchrfc.py* - On 08 Feb,2011.
+*fetchrfc.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fetchrfc.py
    :linenos:
@@ -973,7 +973,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fcntl_1.py* - On 08 Feb,2011.
+*fcntl_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fcntl_1.py
    :linenos:
@@ -981,7 +981,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*ex_iterable27.py* - On 08 Feb,2011.
+*ex_iterable27.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ex_iterable27.py
    :linenos:
@@ -989,7 +989,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*ex.py* - On 08 Feb,2011.
+*ex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ex.py
    :linenos:
@@ -997,7 +997,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*euclid.py* - On 08 Feb,2011.
+*euclid.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/euclid.py
    :linenos:
@@ -1005,7 +1005,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*encoding_unicode_xml_html.py* - On 08 Feb,2011.
+*encoding_unicode_xml_html.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/encoding_unicode_xml_html.py
    :linenos:
@@ -1013,7 +1013,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*doctest_example.py* - On 08 Feb,2011.
+*doctest_example.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/doctest_example.py
    :linenos:
@@ -1021,7 +1021,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*dict_list.py* - On 08 Feb,2011.
+*dict_list.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/dict_list.py
    :linenos:
@@ -1029,7 +1029,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*default-not-shared.py* - On 08 Feb,2011.
+*default-not-shared.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/default-not-shared.py
    :linenos:
@@ -1037,7 +1037,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*decorator.py* - On 08 Feb,2011.
+*decorator.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/decorator.py
    :linenos:
@@ -1045,7 +1045,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*curses_1.py* - On 08 Feb,2011.
+*curses_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/curses_1.py
    :linenos:
@@ -1053,7 +1053,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*createtempfiles.py* - On 08 Feb,2011.
+*createtempfiles.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/createtempfiles.py
    :linenos:
@@ -1061,7 +1061,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*copy_files_unicode.py* - On 08 Feb,2011.
+*copy_files_unicode.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/copy_files_unicode.py
    :linenos:
@@ -1069,7 +1069,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*contextmanager_ex.py* - On 08 Feb,2011.
+*contextmanager_ex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/contextmanager_ex.py
    :linenos:
@@ -1077,7 +1077,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*context_1.py* - On 08 Feb,2011.
+*context_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/context_1.py
    :linenos:
@@ -1085,7 +1085,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*combination.py* - On 08 Feb,2011.
+*combination.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/combination.py
    :linenos:
@@ -1093,7 +1093,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*client.py* - On 08 Feb,2011.
+*client.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/client.py
    :linenos:
@@ -1101,7 +1101,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*checking_string_text_or_binary.py* - On 08 Feb,2011.
+*checking_string_text_or_binary.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/checking_string_text_or_binary.py
    :linenos:
@@ -1109,7 +1109,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*cgi_ex.py* - On 08 Feb,2011.
+*cgi_ex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/cgi_ex.py
    :linenos:
@@ -1117,7 +1117,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*cellauto.py* - On 08 Feb,2011.
+*cellauto.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/cellauto.py
    :linenos:
@@ -1125,7 +1125,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*caseinsensitivedict.py* - On 08 Feb,2011.
+*caseinsensitivedict.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/caseinsensitivedict.py
    :linenos:
@@ -1133,7 +1133,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*bug_gethostbyname.py* - On 08 Feb,2011.
+*bug_gethostbyname.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/bug_gethostbyname.py
    :linenos:
@@ -1141,7 +1141,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*bipartite.py* - On 08 Feb,2011.
+*bipartite.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/bipartite.py
    :linenos:
@@ -1149,7 +1149,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*binary_to_octal.py* - On 08 Feb,2011.
+*binary_to_octal.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/binary_to_octal.py
    :linenos:
@@ -1157,7 +1157,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*binary_repre.py* - On 08 Feb,2011.
+*binary_repre.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/binary_repre.py
    :linenos:
@@ -1165,7 +1165,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*ast_1.py* - On 08 Feb,2011.
+*ast_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ast_1.py
    :linenos:
@@ -1173,7 +1173,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*args_kwargs.py* - On 08 Feb,2011.
+*args_kwargs.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/args_kwargs.py
    :linenos:
@@ -1181,7 +1181,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*allipaddress.py* - On 08 Feb,2011.
+*allipaddress.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/allipaddress.py
    :linenos:
@@ -1189,7 +1189,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*allifaces.py* - On 08 Feb,2011.
+*allifaces.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/allifaces.py
    :linenos:
@@ -1197,7 +1197,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*accessing_substrings.py* - On 08 Feb,2011.
+*accessing_substrings.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/accessing_substrings.py
    :linenos:
@@ -1205,7 +1205,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*PythonTwo.py* - On 08 Feb,2011.
+*PythonTwo.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/PythonTwo.py
    :linenos:
@@ -1213,7 +1213,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*PythonOne.py* - On 08 Feb,2011.
+*PythonOne.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/PythonOne.py
    :linenos:
@@ -1221,7 +1221,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*MultipartPostHandler.py* - On 08 Feb,2011.
+*MultipartPostHandler.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/MultipartPostHandler.py
    :linenos:
@@ -1229,7 +1229,7 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*JavaOne.py* - On 08 Feb,2011.
+*JavaOne.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/JavaOne.py
    :linenos:

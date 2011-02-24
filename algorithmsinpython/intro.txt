@@ -13,3 +13,7 @@ Let's see how far we go. Both in Python and in err.. having fun.
 
 The idea is to develop a handy set of algorithms in Languages such a Python and
 C++ which can be useful in coding contests.
+
+Links
+
+http://users.softlab.ece.ntua.gr/~ttsiod/python.html
