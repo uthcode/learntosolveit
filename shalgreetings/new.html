@@ -9,14 +9,14 @@
 <style type="text/css"> 
 * { margin:0; padding:0; border:0;}
 /* Correct behavior for the HTML5 tags used */
-figure, footer, header, nav, section, figcaption { display: block; }
+figure, header, nav, section, figcaption, footer { display: block; }
 /* Gallery images with CSS animated captions */
 #imagegallery section figure {
 	position:relative;
 	float:left;
 	margin:20px;
-	width:198px;
-	height:198px;
+	width:298px;
+	height:298px;
 	border:1px solid #333;
 	overflow:hidden;
 	background: #fff;
@@ -72,12 +72,21 @@ figure, footer, header, nav, section, figcaption { display: block; }
     opacity:0;
     z-index: 9;
 }
+
 #imagegallery :target {
     opacity:1;
     z-index: 10;
 }
 #gal1, #gal2, #gal3 {
 	position: absolute;
+}
+#footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	background: #272727;
+	color: #aaa;
+	font-family: Arial, Helvetica, sans-serif;
 }
 /* Basic Styling - example still works without this part of the css */
 body {
@@ -88,6 +97,15 @@ header {
 	width: 100%;
 	background: #272727;
 }
+
+/*
+footer {
+	width: 100%;
+	background: #272727;
+}
+
+*/
+
 header h1 {
 	color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
@@ -144,9 +162,11 @@ nav li a:active {
 	background:#ccc;
 	border:1px solid #888;
 }
+
 #imagegallery section {
 	padding: 20px;
 }
+
 #imagegallery section h2 {
 	font-size: 19px;
 	color: #222;
@@ -166,52 +186,54 @@ nav li a:active {
 	border-top: 1px solid #ddd;
 	text-shadow: #eee 0px 1px 0px;
 }
+
 </style> 
 </head> 
 <body> 
 	<header> 
-		<h1><a href="index.html">ShalGreetings</a></h1> 
-		<p>Creating a tabbed animated image gallery with only HTML & CSS - by: <a href="http://cmartinez.es/">Carlos Martinez</a></p> 
+		<center><h1><a href="index.html">ShalGreetings</a></h1> </center>
+		<p>Send a customized friendly greeting card to your loved ones today!</p>
 		<br/>
 		<br/>
 	</header> 
 	<section id="imagegallery"> 
-		<h4>Choose a gallery:</h4> 
-		<nav> 
-			<ul> 
-				<li><a href="#gal1">Bokeh</a></li> 
-				<li><a href="#gal2">Textures</a></li> 
-				<li><a href="#gal3">Macro</a></li> 
-			</ul> 
-		</nav> 
+		<center>
+			<nav> 
+				<ul> 
+					<li><a href="#gal1">Flowers</a></li> 
+					<li><a href="#gal2">Nature</a></li> 
+					<li><a href="#gal3">Thoughts</a></li> 
+				</ul> 
+			</nav> 
+		</center>
 		<section id="gal1"> 
-			<h2>Bokeh Gallery</h2> 
-			<p>Hover one of the images in the gallery to see the CSS animated description.</p> 
+			<h2>Flowers Gallery</h2> 
+			<p>Hover one of the images to see the description.</p> 
 			<figure> 
 				<img src="images/bokeh/1.jpg"/> 
 				<figcaption> 
-					<h3>Bokeh 1</h3> 
+					<h3>Flower 1</h3> 
 					<p>Here we see the image description.</p>			
 				</figcaption> 
 			</figure> 
 			<figure> 
 				<img src="images/bokeh/2.jpg"/> 
 				<figcaption> 
-					<h3>Bokeh 2</h3> 
+					<h3>Flower 2</h3> 
 					<p>Here we see the image description.</p>			
 				</figcaption> 
 			</figure> 
 			<figure> 
 				<img src="images/bokeh/3.jpg"/> 
 				<figcaption> 
-					<h3>Bokeh 3</h3> 
+					<h3>Flower 3</h3> 
 					<p>Here we see the image description.</p>			
 				</figcaption> 
 			</figure> 
 		</section> 
 		<section id="gal2"> 
-			<h2>Textures Gallery</h2> 
-			<p>Hover one of the images in the gallery to see the CSS animated description.</p> 
+			<h2>Nature Gallery</h2> 
+			<p>Hover one of the images to see the description.</p> 
 			<figure> 
 				<img src="images/textures/1.jpg"/> 
 				<figcaption> 
@@ -235,8 +257,8 @@ nav li a:active {
 			</figure> 
 		</section> 
 		<section id="gal3"> 
-			<h2>Macro Gallery</h2> 
-			<p>Hover one of the images in the gallery to see the CSS animated description.</p> 
+			<h2>Thoughtful</h2> 
+			<p>Hover one of the images to view the description.</p> 
 			<figure> 
 				<img src="images/macro/1.jpg"/> 
 				<figcaption> 
@@ -260,5 +282,8 @@ nav li a:active {
 			</figure> 
 		</section> 
 	</section> 
+	<section id="footer">
+	<center><p>Content and Website Copyright by Shalini. Website Design by Carlos Martínez.</p></Center>
+	</section>
 </body> 
 </html>
