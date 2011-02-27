@@ -18,12 +18,8 @@ from google.appengine.ext import db
 class MainHandler(webapp.RequestHandler):
     def get(self):
         """Get the cards and display it."""
-        cardslist = ['/cards/sunset.png','/cards/red_flower.jpg','/cards/white_flower.jpg']
-
-        values = {
-                'imagelist' : cardslist,
-                'title' : 'Shal Greetings'
-                }
+        # We are not using any template features at the moment.
+        values = { }
 
         template_loc = os.path.join(os.path.dirname(__file__),'templates',
                 'index.html')
