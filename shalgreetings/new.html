@@ -2,7 +2,16 @@
 <html lang="en"> 
 <head> 
 <meta charset="UTF-8"> 
-<title>ShalGreetings</title> 
+<title>Shal Greetings</title> 
+
+<!-- This section is for picnik -->
+<script> 
+function picnik(id){
+document.edit.imgid.value=id;
+document.edit._import.value='http://shalgreetings.appspot.com/cards/'+id;
+document.edit.submit();
+}
+</script> 
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]--> 
@@ -190,9 +199,25 @@ nav li a:active {
 </style> 
 </head> 
 <body> 
+<!-- For Picnik -->
+
+	<form method='POST' action='http://www.picnik.com/service' name="edit"> 
+	<input type='hidden' name='_apikey' value='08cbd51d6ac62767ad563808b6e76845'/> 
+	<input type='hidden' name='_export' value='http://picnikspot.appspot.com/export'/> 
+	<input type='hidden' name='_export_title' value='Welcome to Shalgreetings!'/> 
+	<input type='hidden' name='_close_target' value='http://shalgreetings.appspot.com/'/> 
+	<input type='hidden' name='_import' value='http://shalgreetings.appspot.com/cards/4'/> 
+	<input type='hidden' name='_redirect' value='http://shalgreetings.appspot.com'/> 
+	<input type='hidden' name='_host_name' value='ShalGreetings'/> 
+	<input type='hidden' name='_exclude' value='out'/> 
+	<input type='hidden' name='_export_field' value='imgdata'/> 
+	<input type='hidden' name='imgid' value=''/> 
+	<input type='hidden' name='_export_method' value='POST'/> 
+	</form><hr/> 
+
 	<header> 
 		<center><h1><a href="index.html">ShalGreetings</a></h1> </center>
-		<p>Send a customized friendly greeting card to your loved ones today!</p>
+		<center> simple, beautiful greeting cards. a click away.</center>
 		<br/>
 		<br/>
 	</header> 
