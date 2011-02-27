@@ -1,0 +1,12 @@
+application: shalgreetings
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /cards
+  static_dir: cards
+
+- url: .*
+  script: main.py
