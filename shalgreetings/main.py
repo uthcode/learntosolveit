@@ -27,6 +27,13 @@ class MainHandler(webapp.RequestHandler):
 
         self.response.out.write(template.render(template_loc, values))
 
+class EditedHandler(webapp.RequestHandler):
+    def post(self):
+        cardimage = self.request.get("imgdata")
+        cardimage = db.Blob(cardimage)
+        self.response.headers['Content-Type'] = 'image/jpeg'
+        self.response.out.write(cardimage)
+
 class UploadPage(webapp.RequestHandler):
     def get(self):
         self.response.out.write("""
@@ -63,6 +70,7 @@ class Guestbook(webapp.RequestHandler):
 
 application = webapp.WSGIApplication([
     ('/', MainHandler),
+    ('/ecard', EditedHandler),
     ('/upload', UploadPage),
     ('/submit', Guestbook),
     ('/cards/(.*)',ImageHandler)
