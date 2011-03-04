@@ -5,5 +5,9 @@ api_version: 1
 
 handlers:
 
+- url: /logo
+  static_dir: logo
+
 - url: .*
   script: main.py
+
