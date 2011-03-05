@@ -29,10 +29,24 @@ class MainHandler(webapp.RequestHandler):
 
 class EditedHandler(webapp.RequestHandler):
     def post(self):
+        logging.debug("Got to the Edited Handler")
+        greeting = Greeting()
+        greeting.cardid = self.request.get("imgid")
         cardimage = self.request.get("imgdata")
-        cardimage = db.Blob(cardimage)
-        self.response.headers['Content-Type'] = 'image/jpeg'
-        self.response.out.write(cardimage)
+        greeting.cardimage = db.Blob(cardimage)
+        greeting.put()
+        logging.debug("Posted the Card Back")
+
+class EcardHandler(webapp.RequestHandler):
+    def get(self):
+        logging.debug("Got to the Ecard Handler")
+        cardid = self.request.get("imgid")
+        logging.debug("Card id %s" % cardid)
+        result = db.GqlQuery("SELECT * FROM Greeting WHERE cardid = :1 LIMIT 1", cardid).fetch(1)
+        chosencard = result[0]
+        if chosencard and chosencard.cardimage:
+            self.response.headers['Content-Type'] = 'image/jpeg'
+            self.response.out.write(chosencard.cardimage)
 
 class UploadPage(webapp.RequestHandler):
     def get(self):
@@ -70,7 +84,8 @@ class Guestbook(webapp.RequestHandler):
 
 application = webapp.WSGIApplication([
     ('/', MainHandler),
-    ('/ecard', EditedHandler),
+    ('/export', EditedHandler),
+    ('/ecard', EcardHandler),
     ('/upload', UploadPage),
     ('/submit', Guestbook),
     ('/cards/(.*)',ImageHandler)
@@ -78,6 +93,7 @@ application = webapp.WSGIApplication([
 
 
 def main():
+    logging.getLogger().setLevel(logging.DEBUG)
     run_wsgi_app(application)
 
 

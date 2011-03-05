@@ -205,13 +205,13 @@ nav li a:active {
 
 	<form method='POST' action='http://www.picnik.com/service' name="edit"> 
 	<input type='hidden' name='_apikey' value='08cbd51d6ac62767ad563808b6e76845'/> 
-	<input type='hidden' name='_export' value='http://shalgreetings.appspot.com/export'/> 
-	<input type='hidden' name='_export_title' value='Done!'/> 
+	<input type='hidden' name='_export' value='http://shalgreetings.appspot.com/ecard'/> 
+	<input type='hidden' name='_export_title' value='Back to ShalGreetings.'/> 
 	<input type='hidden' name='_close_target' value='http://shalgreetings.appspot.com/'/> 
 	<input type='hidden' name='_import' value='http://shalgreetings.appspot.com/cards/4'/> 
-	<input type='hidden' name='_redirect' value='http://shalgreetings.appspot.com/ecard'/> 
+	<input type='hidden' name='_redirect' value='http://shalgreetings.appspot.com'/> 
 	<input type='hidden' name='_host_name' value='ShalGreetings'/> 
-	<input type='hidden' name='_exclude' value='in,edit,out'/> 
+	<input type='hidden' name='_exclude' value='out,in,edit'/> 
 	<input type='hidden' name='_export_field' value='imgdata'/> 
 	<input type='hidden' name='imgid' value=''/> 
 	<input type='hidden' name='_export_method' value='POST'/> 
@@ -228,88 +228,9 @@ nav li a:active {
 	<section id="imagegallery"> 
 		<center>
 			<nav> 
-				<ul> 
-					<li><a href="#gal1">Flowers</a></li> 
-					<li><a href="#gal2">Nature</a></li> 
-					<li><a href="#gal3">Thoughts</a></li> 
-				</ul> 
 			</nav> 
 		</center>
-		<section id="gal1"> 
-			<h2>Flowers Gallery</h2> 
-			<p>Hover one of the images to see the description.</p> 
-			<figure> 
-				<a ref="#" onclick="picnik(1)"><img src="cards/1"/> </a>
-				<figcaption> 
-					<h3>Flower 1</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-			<figure> 
-				<a ref="#" onclick="picnik(2)"><img src="cards/2"/> </a>
-				<figcaption> 
-					<h3>Flower 2</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-			<figure> 
-				<a ref="#" onclick="picnik(3)"><img src="cards/3"/> </a>
-				<figcaption> 
-					<h3>Flower 3</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-		</section> 
-		<section id="gal2"> 
-			<h2>Nature Gallery</h2> 
-			<p>Hover one of the images to see the description.</p> 
-			<figure> 
-				<a ref="#" onclick="picnik(1)"><img src="cards/1"/> </a>
-				<figcaption> 
-					<h3>Texture 1</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-			<figure> 
-				<a ref="#" onclick="picnik(2)"><img src="cards/2"/> </a>
-				<figcaption> 
-					<h3>Texture 2</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-			<figure> 
-				<a ref="#" onclick="picnik(3)"><img src="cards/3"/> </a>
-				<figcaption> 
-					<h3>Texture 3</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-		</section> 
-		<section id="gal3"> 
-			<h2>Thoughtful</h2> 
-			<p>Hover one of the images to view the description.</p> 
-			<figure> 
-				<a ref="#" onclick="picnik(1)"><img src="cards/1"/> </a>
-				<figcaption> 
-					<h3>Macro 1</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-			<figure> 
-				<a ref="#" onclick="picnik(2)"><img src="cards/2"/> </a>
-				<figcaption> 
-					<h3>Macro 2</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-			<figure> 
-				<a ref="#" onclick="picnik(3)"><img src="cards/3"/> </a>
-				<figcaption> 
-					<h3>Macro 3</h3> 
-					<p>Here we see the image description.</p>			
-				</figcaption> 
-			</figure> 
-		</section> 
+		<img src="cards/{{}}"/>
 	</section> 
 	<section id="footer">
 	<center><p>Content and Website Copyright by Shalini. Website Design by Carlos Martínez.</p></Center>
