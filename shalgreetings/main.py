@@ -8,6 +8,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.api import images
 from google.appengine.ext.webapp import template
+from google.appengine.api import mail
 
 logging.getLogger().setLevel(logging.DEBUG)
 
@@ -36,7 +37,7 @@ class EditedHandler(webapp.RequestHandler):
         greeting.cardimage = db.Blob(cardimage)
         greeting.put()
         logging.debug("Posted the Card Back")
-        self.redirect('/ecard')
+        self.redirect('/sendit')
 
 class EcardHandler(webapp.RequestHandler):
     def get(self):
@@ -45,6 +46,25 @@ class EcardHandler(webapp.RequestHandler):
         if chosencard and chosencard.cardimage:
             self.response.headers['Content-Type'] = 'image/jpeg'
             self.response.out.write(chosencard.cardimage)
+
+class SendHandler(webapp.RequestHandler):
+    def get(self):
+        values = { }
+        template_loc = os.path.join(os.path.dirname(__file__),'templates',
+                'selected.html')
+        self.response.out.write(template.render(template_loc, values))
+
+class MailHandler(webapp.RequestHandler):
+    def post(self):
+        chosencard = Greeting.get_by_key_name('ecard')
+        mail.send_mail(sender='orsenthil@gmail.com',
+                to=self.request.get('friendemail'),
+                subject='A greeting card for you',
+                body="""
+                Hi %s,\nA friend has sent the following greetings, \
+                        from www.shalgreetings.com """ % (self.request.get('friendname')),
+                attachments=[('greetings.jpg', chosencard.cardimage)])
+        self.redirect('/')
 
 class UploadPage(webapp.RequestHandler):
     def get(self):
@@ -84,6 +104,8 @@ application = webapp.WSGIApplication([
     ('/', MainHandler),
     ('/export', EditedHandler),
     ('/ecard', EcardHandler),
+    ('/sendit', SendHandler),
+    ('/mail', MailHandler),
     ('/upload', UploadPage),
     ('/submit', Guestbook),
     ('/cards/(.*)',ImageHandler)
