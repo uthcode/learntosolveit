@@ -30,18 +30,18 @@ class MainHandler(webapp.RequestHandler):
 class EditedHandler(webapp.RequestHandler):
     def post(self):
         logging.debug("Got to the Edited Handler")
-        greeting = Greeting()
+        greeting = Greeting(key_name="ecard")
         greeting.cardid = "ecard"
         cardimage = self.request.get("imgdata")
         greeting.cardimage = db.Blob(cardimage)
         greeting.put()
         logging.debug("Posted the Card Back")
+        self.redirect('/ecard')
 
 class EcardHandler(webapp.RequestHandler):
     def get(self):
         logging.debug("Got to the Ecard Handler")
-        result = db.GqlQuery("SELECT * FROM Greeting WHERE cardid = 'ecard' LIMIT 1").fetch(1)
-        chosencard = result[0]
+        chosencard = Greeting.get_by_key_name('ecard')
         if chosencard and chosencard.cardimage:
             self.response.headers['Content-Type'] = 'image/jpeg'
             self.response.out.write(chosencard.cardimage)
