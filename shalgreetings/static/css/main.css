@@ -3,14 +3,14 @@
 figure, header, nav, section, figcaption, footer { display: block; }
 /* Gallery images with CSS animated captions */
 #imagegallery section figure {
-	position:relative;
+	position: relative;
 	float:left;
 	margin:20px;
-	width:298px;
-	height:298px;
-	border:1px solid #333;
+	width:300px;
+	height:200px;
+	border:0;
 	overflow:hidden;
-	background: #fff;
+	background: transparent;
 	padding: 1px;
 }
 #imagegallery section figure figcaption {
@@ -93,18 +93,18 @@ figure, header, nav, section, figcaption, footer { display: block; }
 
 
 #logo {
-	float: right;
+	float: left;
 	margin: 10px 35px 15px 10px
 }
 /* Basic Styling - example still works without this part of the css */
 body {
-	background: #d6ffaf;
+	background: #79bbdd;
 	font-family: Arial, Helvetica, sans-serif;
+	border: 50px #fff solid;
 }
 header {
 	width: 100%;
-	background: #ffffff;
-	/*background: #272727; */
+	background: #d6ffaf;
 }
 
 header h1 {
