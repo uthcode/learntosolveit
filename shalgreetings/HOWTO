@@ -5,3 +5,17 @@
 5. Love - 6
 6. Nature - 6
 7. Thank you - 6
+
+#footer { 
+        position: absolute; 
+        border-top: 1px solid #ccc; 
+        border-bottom: 1px solid #ccc; 
+        bottom: 0px; 
+        width: 100%; 
+        color: #f6cef5; 
+        font-family: Arial, Helvetica, sans-serif; 
+}
+
+* Removed padding: 10px from the #imagegallery section figure
+* 
+
