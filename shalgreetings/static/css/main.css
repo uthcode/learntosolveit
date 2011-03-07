@@ -11,14 +11,13 @@ figure, header, nav, section, figcaption, footer { display: block; }
 	border:0;
 	overflow:hidden;
 	background: transparent;
-	padding: 1px;
 }
 #imagegallery section figure figcaption {
 	position:absolute;
 	bottom:0;
 	left:0;
 	opacity: .75;
-	margin-bottom:-115px;		
+	margin-bottom:-115px;
 	-webkit-transition: margin-bottom;
 	-webkit-transition-duration: 400ms;
 	-webkit-transition-timing-function: ease-out;
@@ -69,28 +68,18 @@ figure, header, nav, section, figcaption, footer { display: block; }
     z-index: 10;
 }
 #gal1, #gal2, #gal3 {
-	position: absolute;
-}
-#footer {
-	position: absolute;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	bottom: 0px;
-	width: 100%;
-	color: #f6cef5;
-	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
 }
 
-#mainbody {
-	position: absolute;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	width: 100%;
-	background: #fff;
-	font-family: Arial, Helvetica, sans-serif;
+#footer { 
+        position: relative; 
+        border-top: 1px solid #ccc; 
+        border-bottom: 1px solid #ccc; 
+        bottom: 0px; 
+        width: 100%; 
+        color: #f6cef5; 
+        font-family: Arial, Helvetica, sans-serif; 
 }
-
-
 
 #logo {
 	float: left;
@@ -104,11 +93,11 @@ body {
 }
 header {
 	width: 100%;
-	background: #d6ffaf;
+	background: #fff;
 }
 
 header h1 {
-	color: #fff;
+	color: #000;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	padding: 20px 20px 0px 20px;
@@ -168,7 +157,7 @@ nav li a:active {
 }
 
 #imagegallery section {
-	padding: 20px;
+	padding: 60px;
 }
 
 #imagegallery section h2 {
