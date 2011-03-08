@@ -11,6 +11,14 @@ document.edit.imgid.value=id;
 document.edit._import.value='http://shalgreetings.appspot.com/cards/'+id;
 document.edit.submit();
 }
+
+function choose(set) {
+	return set[Math.floor(Math.random() * set.length)];
+}
+var set = ['#love','#birthday','#flowers','#nature','#congrats','#thankyou']
+rand = choose(set);
+window.location.hash = rand;
+
 </script> 
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,12 +46,9 @@ document.edit.submit();
 		<img src="/static/logo/shalgreetings.png">
 	</section>
 
-	<header> 
-		<br/>
-		<p>Beautiful picture cards for your loved ones. :&gt;s</p>
-		<br/>
-		</header> 
-
+	<header>
+	<p>Beautiful picture cards for your loved ones.</p>
+	</header> 
 
 	<section id="imagegallery"> 
 			<nav> 
@@ -55,14 +60,8 @@ document.edit.submit();
 					<li><a href="#congrats">Congrats</a></li>
 					<li><a href="#thankyou">Thank you</a></li>
 				</ul> 
-				</nav>
-				<p style="text-align: center">
-				<br>
-				Hello,World!
-				Welcome to ShalGreetings.com
-				Your favorite greeting cards, just a click away.
-				Enjoy!
-				</p>
+			</nav>
+
 		<section id="love"> 
 			<h2>Love</h2> 
 			<p>Cards for your Loved ones</p> 
@@ -206,7 +205,6 @@ document.edit.submit();
 				</figcaption> 
 			</figure> 
 		</section> 
-
 		<section id="nature"> 
 			<h2>Thoughtful</h2> 
 			<p>Hover one of the images to view the description.</p> 
@@ -350,7 +348,11 @@ document.edit.submit();
 		</section> 
 	</section> 
 	<section id="footer">
-	<p>Footer.</p>
+			<nav> 
+				<ul> 
+					<li><a href="/social">Social</a></li>
+				</ul> 
+			</nav>
 	</section>
 </body> 
 </html>

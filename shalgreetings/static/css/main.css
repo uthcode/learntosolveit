@@ -5,7 +5,7 @@ figure, header, nav, section, figcaption, footer { display: block; }
 #imagegallery section figure {
 	position: relative;
 	float:left;
-	margin:10px;
+	margin:20px;
 	width:300px;
 	height:200px;
 	overflow:hidden;
@@ -58,7 +58,6 @@ figure, header, nav, section, figcaption, footer { display: block; }
 	-moz-transition-timing-function: ease-in;
 	-o-transition-property: opacity;
 	-o-transition-duration: 800ms;
-    position: absolute;
     opacity: 0;
     z-index: 9;
 }
@@ -68,7 +67,7 @@ figure, header, nav, section, figcaption, footer { display: block; }
     z-index: 10;
 }
 #love, #birthday, #flowers, #nature, #congrats, #thankyou {
-	position: relative;
+	position: absolute;
 }
 
 #footer { 
@@ -79,6 +78,7 @@ figure, header, nav, section, figcaption, footer { display: block; }
         width: 100%; 
         color: #f6cef5; 
         font-family: Arial, Helvetica, sans-serif; 
+	text-align: center;
 }
 
 #logo {
@@ -159,8 +159,8 @@ nav li a:active {
 }
 
 #imagegallery section {
-	padding-top: 60px;
-	padding-left: 200px;
+	padding-top: 10px;
+	padding-left: 100px;
 	padding-bottom: 260px;
 }
 
