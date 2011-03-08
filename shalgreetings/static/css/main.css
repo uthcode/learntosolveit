@@ -5,10 +5,9 @@ figure, header, nav, section, figcaption, footer { display: block; }
 #imagegallery section figure {
 	position: relative;
 	float:left;
-	margin:20px;
+	margin:10px;
 	width:300px;
 	height:200px;
-	border:0;
 	overflow:hidden;
 	background: transparent;
 }
@@ -59,7 +58,7 @@ figure, header, nav, section, figcaption, footer { display: block; }
 	-moz-transition-timing-function: ease-in;
 	-o-transition-property: opacity;
 	-o-transition-duration: 800ms;
-    opacity:0;
+    opacity: 0;
     z-index: 9;
 }
 
@@ -87,10 +86,11 @@ figure, header, nav, section, figcaption, footer { display: block; }
 }
 /* Basic Styling - example still works without this part of the css */
 body {
-	background: #79bbdd;
+	/* background: #79bbdd; */
 	font-family: Arial, Helvetica, sans-serif;
 	border: 50px #fff solid;
 }
+
 header {
 	width: 100%;
 	background: #fff;
@@ -118,6 +118,7 @@ header a {
 header a:hover {
 	color: #ddd;
 }
+
 nav {
 	border-top: 0px solid #fff;
 	border-bottom: 0px solid #ccc;
@@ -126,6 +127,7 @@ nav {
 	/**background: #f2f5a9; **/
 	width: 100%;
 }
+
 nav ul {
 	padding: 11px 20px;
 }
@@ -143,7 +145,6 @@ nav li a {
 	-webkit-border-radius: 25px;
 	border-radius: 25px;
 	border:1px solid #ccc;
-	/** background:#ddd;  Original **/
 	background: #f6cef5;
 	padding: 1px 7px;
 }
@@ -157,7 +158,9 @@ nav li a:active {
 }
 
 #imagegallery section {
-	padding: 60px;
+	padding-top: 60px;
+	padding-left: 200px;
+	padding-bottom: 260px;
 }
 
 #imagegallery section h2 {
