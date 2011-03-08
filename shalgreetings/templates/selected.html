@@ -19,18 +19,20 @@
 		<p><i>Beautiful picture cards for your loved ones.</i></p>
 		<br/>
 	</header> 
-	<section id="mainbody">
-		<center>
-		<form action="/mail" method="post">
-			Name: <input type="text" name="friend" value="Friend's name" /></p>
-			Email id: <input type="text" name="friendemail" value="Friend's Email Id" /></p>
-			<p><img src="/ecard" height=50% width=50%></p>
-			<p><input type="submit" /></p>
-		</form>
-	</center>
-	</section>
+	<form action="/mail" method="post">
+		<p>
+		Your Name <input type="text" name="you" class="required" title="Your Name is Required"/> 
+		Your Email <input id="Email" name="youremail" class="required" title="Your Email is Required"/>
+		</p>
+		<p>
+		Your Friend's Name <input type="text" name="friend" class="required" title="Your friend's name"/>
+		Your Friend's Email <input id="Email" name="friendemail" class="required" title="Your Friend's emai"/>
+		</p>
+   	        <p><img src="/ecard"></p>
+		<p><input type="submit" /></p>
+	</form>
 	<section id="footer">
-	<center><p>Content and Website Copyright by Shalini. Website Design by Carlos Martínez.</p></Center>
+		&nbsp; &copy; ShalGreetings.com &nbsp; &nbsp; Design based upon: Gotta Love HTML5 and CSS3.
 	</section>
 </body> 
 </html>

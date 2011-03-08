@@ -57,12 +57,24 @@ class SendHandler(webapp.RequestHandler):
 class MailHandler(webapp.RequestHandler):
     def post(self):
         chosencard = Greeting.get_by_key_name('ecard')
-        mail.send_mail(sender='orsenthil@gmail.com',
-                to=self.request.get('friendemail'),
-                subject='A greeting card for you',
+        friendemail = self.request.get('friendemail')
+        friend = self.request.get('friend')
+        me = self.request.get('you')
+        myemail = self.request.get('youremail')
+        mail.send_mail(sender='shalini@shalgreetings.appspotmail.com',
+                to=friendemail,
+                reply_to=myemail,
+                subject='Hello %s!' % friend,
                 body="""
-                Hi %s,\nA friend has sent the following greetings, \
-                        from www.shalgreetings.com """ % (self.request.get('friendname')),
+Hello %s,
+
+I have this nice card for you. Hope you like it.
+
+Thanks,
+%s
+
+Card from http://www.shalgreetings.com
+""" % (friend,me),
                 attachments=[('greetings.jpg', chosencard.cardimage)])
         self.redirect('/')
 

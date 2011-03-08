@@ -72,13 +72,14 @@ figure, header, nav, section, figcaption, footer { display: block; }
 
 #footer { 
         position: absolute; 
-        border-top: 1px solid #ccc; 
-        border-bottom: 1px solid #ccc; 
-        bottom: -200px; 
+        /*border-top: 1px solid #ccc; */
+        /*border-bottom: 1px solid #ccc;*/ 
+        bottom: -200px;
         width: 100%; 
         color: #f6cef5; 
         font-family: Arial, Helvetica, sans-serif; 
 	text-align: center;
+	text-size: smaller;
 }
 
 #logo {
@@ -147,8 +148,13 @@ nav li a {
 	border-radius: 25px;
 	border:1px solid #ccc;
 	background: #f6cef5;
-	padding: 1px 7px;
+	padding: 4px 28px;
 }
+
+#footer nav li a {
+	background: #79bbdd;
+}
+
 nav li a:hover {
 	color: #000;
 	border:1px solid #aaa;

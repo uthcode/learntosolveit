@@ -5,9 +5,15 @@ api_version: 1
 
 handlers:
 
+- url: /_ah/mail/.+
+  script: handle_incoming_email.py
+  login: admin
+
 - url: /static
   static_dir: static
 
 - url: .*
   script: main.py
 
+inbound_services:
+- mail
