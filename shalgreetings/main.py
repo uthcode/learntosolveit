@@ -83,8 +83,7 @@ class UploadPage(webapp.RequestHandler):
 class ImageHandler(webapp.RequestHandler):
 
     def get(self, imageid):
-        result = db.GqlQuery("SELECT * FROM Greeting WHERE cardid = :1 LIMIT 1", imageid).fetch(1)
-        chosencard = result[0]
+        chosencard = Greeting.get_by_key_name(imageid)
         if chosencard and chosencard.cardimage:
             self.response.headers['Content-Type'] = 'image/jpeg'
             self.response.out.write(chosencard.cardimage)
@@ -92,9 +91,10 @@ class ImageHandler(webapp.RequestHandler):
 
 class Guestbook(webapp.RequestHandler):
     def post(self):
-        greeting = Greeting()
-        greeting.cardid = self.request.get("cardid")
+        cardid = self.request.get("cardid")
         cardimage = self.request.get("cardimage")
+        greeting = Greeting(key_name=cardid)
+        greeting.cardid = cardid
         greeting.cardimage = db.Blob(cardimage)
         greeting.put()
         self.redirect('/')
