@@ -58,6 +58,7 @@ figure, header, nav, section, figcaption, footer { display: block; }
 	-moz-transition-timing-function: ease-in;
 	-o-transition-property: opacity;
 	-o-transition-duration: 800ms;
+    position: absolute;
     opacity: 0;
     z-index: 9;
 }
@@ -66,15 +67,15 @@ figure, header, nav, section, figcaption, footer { display: block; }
     opacity:1;
     z-index: 10;
 }
-#gal1, #gal2, #gal3 {
+#love, #birthday, #flowers, #nature, #congrats, #thankyou {
 	position: relative;
 }
 
 #footer { 
-        position: relative; 
+        position: absolute; 
         border-top: 1px solid #ccc; 
         border-bottom: 1px solid #ccc; 
-        bottom: 0px; 
+        bottom: -200px; 
         width: 100%; 
         color: #f6cef5; 
         font-family: Arial, Helvetica, sans-serif; 
