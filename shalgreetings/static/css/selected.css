@@ -97,7 +97,7 @@ nav li a:active {
 	border:1px solid #888;
 }
 
-form { width: 400px; background-color: #fcfcfc;background-color: rgba(0,0,0,0.5);  padding: 15px 25px; margin: 0 auto; color: #fff;-moz-border-radius:  20px; -webkit-border-radius:  20px; border-radius: 20px; overflow: hidden; }
+form { width: 60%; background-color: #fcfcfc;background-color: rgba(0,0,0,0.5);  padding: 15px 25px; margin: 0 auto; color: #fff;-moz-border-radius:  20px; -webkit-border-radius:  20px; border-radius: 20px; overflow: hidden; }
 label { clear:  both; display: block; text-shadow: 0px -1px 0px #000; text-shadow: 0 -1px rgba(0,0,0,0.5);  font-family: "kaffeesatz-1","kaffeesatz-2",sans-serif; }
 input { margin-bottom: 25px; }
 sup { color: #f00; }
