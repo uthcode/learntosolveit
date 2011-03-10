@@ -61,7 +61,7 @@ class MailHandler(webapp.RequestHandler):
         friend = self.request.get('friend')
         me = self.request.get('you')
         myemail = self.request.get('youremail')
-        mail.send_mail(sender='shalini@shalgreetings.appspotmail.com',
+        mail.send_mail(sender='shalgreetings@shalgreetings.appspotmail.com',
                 to=friendemail,
                 reply_to=myemail,
                 subject='Hello %s!' % friend,

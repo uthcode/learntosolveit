@@ -19,13 +19,22 @@ var set = ['#love','#birthday','#flowers','#nature','#congrats','#thankyou']
 rand = choose(set);
 window.location.hash = rand;
 
-</script> 
+var lockit=setInterval("window.scrollTo(0,0)",10)
+
+function OnScrollDiv (div) {
+    var info = document.getElementById ("info");
+    info.innerHTML = "Horizontal: " + div.scrollLeft
+		    + "px<br/>Vertical: " + div.scrollTop + "px";
+}
+
+
+</script>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]--> 
 <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
 </head> 
-<body> 
+<body onLoad="clearInterval(lockit)"> 
 <!-- For Picnik -->
 
 	<form method='POST' action='http://www.picnik.com/service' name="edit"> 
@@ -50,6 +59,7 @@ window.location.hash = rand;
 	<p>Beautiful picture cards for your loved ones.</p>
 	</header> 
 
+        <div id="info"></div>
 	<section id="imagegallery"> 
 			<nav> 
 				<ul> 
@@ -62,7 +72,7 @@ window.location.hash = rand;
 				</ul> 
 			</nav>
 
-		<section id="love"> 
+		<section id="love" onscroll="OnScrollDiv (this)"> 
 			<h2>Love</h2> 
 			<p>Cards for your Loved ones</p> 
 			<figure> 
