@@ -2,6 +2,8 @@ import cgi
 import datetime
 import logging
 import os
+import random
+import string
 
 from google.appengine.ext import db
 from google.appengine.ext import webapp
@@ -30,33 +32,32 @@ class MainHandler(webapp.RequestHandler):
 
 class EditedHandler(webapp.RequestHandler):
     def post(self):
-        logging.debug("Got to the Edited Handler")
-        greeting = Greeting(key_name="ecard")
+        ecard = ''.join(random.sample(string.lowercase,6))
+        greeting = Greeting(key_name=ecard)
         greeting.cardid = "ecard"
         cardimage = self.request.get("imgdata")
         greeting.cardimage = db.Blob(cardimage)
         greeting.put()
-        logging.debug("Posted the Card Back")
-        self.redirect('/sendit')
+        self.redirect('/sendit',ecard)
 
 class EcardHandler(webapp.RequestHandler):
-    def get(self):
-        logging.debug("Got to the Ecard Handler")
-        chosencard = Greeting.get_by_key_name('ecard')
+    def get(self,ecard):
+        chosencard = Greeting.get_by_key_name(ecard)
         if chosencard and chosencard.cardimage:
             self.response.headers['Content-Type'] = 'image/jpeg'
             self.response.out.write(chosencard.cardimage)
 
 class SendHandler(webapp.RequestHandler):
-    def get(self):
-        values = { }
+    def get(self,ecard):
+        values = {'ecard': ecard}
         template_loc = os.path.join(os.path.dirname(__file__),'templates',
                 'selected.html')
         self.response.out.write(template.render(template_loc, values))
 
 class MailHandler(webapp.RequestHandler):
     def post(self):
-        chosencard = Greeting.get_by_key_name('ecard')
+        ecard = self.request.get('ecard')
+        chosencard = Greeting.get_by_key_name(ecard)
         friendemail = self.request.get('friendemail')
         friend = self.request.get('friend')
         me = self.request.get('you')
@@ -115,8 +116,8 @@ class Guestbook(webapp.RequestHandler):
 application = webapp.WSGIApplication([
     ('/', MainHandler),
     ('/export', EditedHandler),
-    ('/ecard', EcardHandler),
-    ('/sendit', SendHandler),
+    ('/ecard/(.*)', EcardHandler),
+    ('/sendit/(.*)', SendHandler),
     ('/mail', MailHandler),
     ('/upload', UploadPage),
     ('/submit', Guestbook),
