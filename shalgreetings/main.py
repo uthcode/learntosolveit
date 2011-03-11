@@ -38,7 +38,7 @@ class EditedHandler(webapp.RequestHandler):
         cardimage = self.request.get("imgdata")
         greeting.cardimage = db.Blob(cardimage)
         greeting.put()
-        self.redirect('/sendit',ecard)
+        self.redirect('/sendit/%s' % ecard)
 
 class EcardHandler(webapp.RequestHandler):
     def get(self,ecard):
