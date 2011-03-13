@@ -425,3 +425,5 @@ except urllib2.HTTPError:
 	self.assertEqual(count, urllib2.HTTPRedirectHandler.max_repeats)	
 
 CacheFTPHandler testcasesare hard to write.
+
+- Playing the competition requires to have solved the similar problem a couple of times earlier.

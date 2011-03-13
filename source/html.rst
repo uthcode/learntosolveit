@@ -63,6 +63,18 @@ HTML
 
         * <link>  tag goes inside the <head> section.
 
+* Styles don't smell or taste anything like HTML, they have a format of
+  'property: value' and most properties can be applied to most HTML tags.
+
+* But, if you remember, the best-practice approach is that the HTML should be a stand-alone, presentation free document, and so in-line styles should be avoided wherever possible.
+
+* aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, and yellow.
+* transparent is also a valid value.
+
+* In the CSS, a class selector is a name preceded by a full stop (.) and an ID selector is a name preceded by a hash character (#).
+
+* The difference between an ID and a class is that an ID can be used to identify one element, whereas a class can be used to identify more than one.
+
 Project Idea
 ============
 

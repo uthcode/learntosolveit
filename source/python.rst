@@ -84,6 +84,15 @@ anything, and Python keeps track of the datatype internally.
 
 You can assign None to any variable, but you can not create other NoneType objects.
 
+Import dbm module
+http://bugs.python.org/issue9523
+zlib crc32 and alder32 fix in Python27
+http://bugs.python.org/issue10276
+
+Wrapping TextIOWrapper around gzip files
+
+subprocess.getoutput fails on win32.
+
 
 Question about pointers:
 http://stackoverflow.com/questions/5727/what-are-the-barriers-to-understanding-pointers-and-what-can-be-done-to-overcome/5754#5754
