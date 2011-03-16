@@ -56,6 +56,27 @@ Recursive formulation
 Measuring time Complexity
 =========================
 
+In mathematics we come across the concept of measuing a complex function in
+terms of a simpler function which is easy to understand and get hold.  Let us
+consider some simpler functions, like a function which draws a straight line,
+with it value increasing by a double at each point. That kind of a function is
+n2. This is much easier to understand than a function of business problem which
+after some analysis we can say in terms of a polynomial equation.
+
+So, we come across the concept of expressing the complexity of a function in
+terms of a simpler function.
+
+1. If the simpler function is the upper cut-off for the growth of function
+   after some-point in time, we say that the easier function is the Big O limit
+   of the complex function. By upper cut-off, you can understand that the
+   function will wont get past this, but it will never be less than this below
+   that cut-off.
+
+2. Opposite is for the Theta notation. The function will not go lower than the
+   simpler one after the cut-off and it is called Theta notation.
+
+3. For everything in between these 2 ranges, it is called as Phi notation.
+
 O notation
 ----------
 
@@ -64,7 +85,6 @@ Theta notation
 
 Phi notation
 ------------
-
 
 Compare different time complexities : 0(n) vs 0(lg n)
 -----------------------------------------------------
