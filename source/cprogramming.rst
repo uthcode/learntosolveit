@@ -6,6 +6,15 @@ The following project page contains the solutions to problems presented in
 Kernighan and Ritchie and additional programs written out of my interest.
 
 
+*getpass1.c* - On 26 Feb,2011.
+
+.. literalinclude:: ../cprogs/getpass1.c
+   :language: c
+   :linenos:
+   :tab-width: 4
+
+----
+
 *wumpus.c* - On 18 Feb,2011.
 
 .. literalinclude:: ../cprogs/wumpus.c

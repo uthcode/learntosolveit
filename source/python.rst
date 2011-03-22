@@ -126,6 +126,13 @@ Note: Servers ought to be cautious about depending on URI lengths above 255
 bytes, because some older client or proxy implementations might not properly
 support these lengths.
 
+Dependencies to Install in Ubuntu for a full Python Interpreter
+---------------------------------------------------------------
+
+:: 
+
+        sudo apt-get install libssl-dev libreadline-dev libgdbm-dev tk-dev tk-tile libsqlite3-dev libdb4.7-dev
+
 
 How do see the system calls?
 ----------------------------

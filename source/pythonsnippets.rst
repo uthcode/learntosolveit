@@ -5,6 +5,86 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
+*urllib2-headers-eg-1.py* - On 12 Mar,2011.
+
+.. literalinclude:: ../python/urllib2-headers-eg-1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*urllib-1.py* - On 09 Mar,2011.
+
+.. literalinclude:: ../python/urllib-1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*caseinsensitivedict2.py* - On 07 Mar,2011.
+
+.. literalinclude:: ../python/caseinsensitivedict2.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*binary_to_octal.py* - On 07 Mar,2011.
+
+.. literalinclude:: ../python/binary_to_octal.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*slice_ellipes.py* - On 03 Mar,2011.
+
+.. literalinclude:: ../python/slice_ellipes.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*generator.py* - On 03 Mar,2011.
+
+.. literalinclude:: ../python/generator.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*decorator.py* - On 03 Mar,2011.
+
+.. literalinclude:: ../python/decorator.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*udp2.py* - On 26 Feb,2011.
+
+.. literalinclude:: ../python/udp2.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*udp1.py* - On 26 Feb,2011.
+
+.. literalinclude:: ../python/udp1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*test.py* - On 24 Feb,2011.
+
+.. literalinclude:: ../python/test.py
+   :linenos:
+   :tab-width: 4
+
+----
+
 *xmlrpcserver-eg.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/xmlrpcserver-eg.py
@@ -56,14 +136,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-pycall1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-pycall1.py
-   :linenos:
-   :tab-width: 4
-
-----
-
-*urllib2-headers-eg-1.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/urllib2-headers-eg-1.py
    :linenos:
    :tab-width: 4
 
@@ -136,14 +208,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-adddata.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-adddata.py
-   :linenos:
-   :tab-width: 4
-
-----
-
-*urllib-1.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/urllib-1.py
    :linenos:
    :tab-width: 4
 
@@ -1037,14 +1101,6 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*decorator.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/decorator.py
-   :linenos:
-   :tab-width: 4
-
-----
-
 *curses_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/curses_1.py
@@ -1144,14 +1200,6 @@ The following project page contains Python snippets useful for various tasks.
 *bipartite.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/bipartite.py
-   :linenos:
-   :tab-width: 4
-
-----
-
-*binary_to_octal.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/binary_to_octal.py
    :linenos:
    :tab-width: 4
 
