@@ -6,9 +6,9 @@ Python Notes
         Rough Notes.
 
 memoryview was creating a read-write object when using with a buffered IO
-interface. test_bdb was failing due to non-ascii characters. test_urllib and
-test_urllib2 resource failing warning. Python does not exit with proper return
-code on SIGINT. test_trace is broken. Consistency in unittest assert methods.
+interface. test_bdb was failing due to non-ascii characters.  test_urllib2
+resource failing warning. Python does not exit with proper return code on
+SIGINT. test_trace is broken. Consistency in unittest assert methods.
 FancyURLOpener is struct when trying to open a redirected url. ZipFile with
 encoded file name has some problems. peephole optimizer to reverse
 store/unstore instead of pack/unpack. Wrong powerpc defined in ceval. unittest
@@ -125,6 +125,30 @@ contained in that file, and what kind of information is contained in the file
 Note: Servers ought to be cautious about depending on URI lengths above 255
 bytes, because some older client or proxy implementations might not properly
 support these lengths.
+
+
+Email6 is a feature branch with more consistent email parsing and handling modules.
+There is a feature request to get the size of the email.
+
+There is a cross-compile patch.
+Multiprocessing failure here:
+
+$ ./python -c "import multiprocessing.managers ; mpp = multiprocessing.Pool(4); sm = multiprocessing.managers.SyncManager(); sm.start()"
+Fatal Python error: Invalid thread state for this thread
+
+Go ahead and handle this issue
+
+[issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
+
+Get on with this getpass.getpass issue quickly. Fix it in all versions.
+
+
+Python Internals
+----------------
+
+1. Objects - When accessing the attribute of an object, the attribute is get from the namespace.
+2. There is a difference between dict proxy and a dict.
+
 
 Dependencies to Install in Ubuntu for a full Python Interpreter
 ---------------------------------------------------------------

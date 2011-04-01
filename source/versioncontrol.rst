@@ -19,6 +19,10 @@ When you want to update your local working copy, you would do:
 a) fetch
 b) pull
 
+
+A command similar to svn init
+git remote -v
+
 ---------------
 Mercurial Notes
 ---------------

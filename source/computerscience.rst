@@ -31,6 +31,13 @@ Unix Operating System Documents
 
 http://docs.freebsd.org/44doc/
 
+C++ Questions
+=============
+
+What are Virtual Tables?
+
+What is const-correctness?
+
 Theory of Computation
 =====================
 

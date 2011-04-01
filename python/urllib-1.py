@@ -1,3 +1,3 @@
 import urllib
 import pudb;pudb.set_trace()
-urllib.urlopen('http://www.python.org')
+urllib.urlopen('http://www.google.com')
