@@ -5,142 +5,133 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
-memoryview was creating a read-write object when using with a buffered IO
-interface. test_bdb was failing due to non-ascii characters.  test_urllib2
-resource failing warning. Python does not exit with proper return code on
-SIGINT. test_trace is broken. Consistency in unittest assert methods.
-FancyURLOpener is struct when trying to open a redirected url. ZipFile with
-encoded file name has some problems. peephole optimizer to reverse
-store/unstore instead of pack/unpack. Wrong powerpc defined in ceval. unittest
-should have assertChanges context manager. shutil behaves improperly on
-Windows, changing the case of the folder, deletes the old folder. unknown
-charset for headers in email module. zipfile.py end of central directory
-detection not robust.  test_threadsignals was failing on freebsd old version.
-REMOTE_USER collision in wsgiref, the bug was withdrawn. What is a
-_weakref.proxy?  os.getpriority and os.setpriority and when to ues the
-PY_BEGIN_THREAD and PY_END_THREAD. parser should store the file name as unicode
-object.  What is the difference between UTF-8 and unicode. test_concurrent
-futures was failing on FreeBSD, a reboot can help if it has old semaphores
-hanging around. print trace_back throws AttributeError when the exception is
-None. Subprocess fds when they are closed throw an error. complex builtin help
-wrongly says that it support NaN and InF. Add a new set of functions to the
-posixmodule, well written and quick for receiving comments and modifying the
-code. Decimal Module with some dot specific usage. There was problem when
-python3 was attempting to write to /dev/full and it was being written. VS
-pointed out that it is fixed in 3.2. there were unclosed sockets from
-test_multiprocessing and Victor fixed them. There is  misbehavior in the
-ContentTooShort Exception from the urllib.request. I had assigned it to myself.
-There is cleaning up of pydoc module, a patch by Ron Adam is in the tracker.
-The filesystem check can be done using os.rename itself.
+Discussion on Bugs
+==================
 
-Python uses carriage returns to separate statements and a colon and indentation
-to separate code blocks. c++ and Java use semicolons to separate statements and
-curly braces to separate code blocks.
+* memoryview was creating a read-write object when using with a buffered IO
+  interface. 
+* test_bdb was failing due to non-ascii characters.  
+* test_urllib2 resource failing warning. 
+* Python does not exit with proper return code on SIGINT. 
+* test_trace is broken. 
+* Consistency in unittest assert methods.
+* FancyURLOpener is struct when trying to open a redirected url. 
+* ZipFile with encoded file name has some problems. 
+* peephole optimizer to reverse store/unstore instead of pack/unpack. 
+* Wrong powerpc defined in ceval. 
+* unittest should have assertChanges context manager. 
+* shutil behaves improperly on Windows, changing the case of the folder, deletes the old folder. 
+* Unknown charset for headers in email module. 
+* zipfile.py end of central directory detection not robust.
+* test_threadsignals was failing on freebsd old version.
+* REMOTE_USER collision in wsgiref, the bug was withdrawn. 
+* What is a _weakref.proxy?  
+* os.getpriority and os.setpriority ? 
+* When to ues the PY_BEGIN_THREAD and PY_END_THREAD. 
+* parser should store the file name as unicode object. 
+* What is the difference between UTF-8 and unicode. 
+* test_concurrent futures was failing on FreeBSD, a reboot can help if it has
+  old semaphores hanging around. 
+* print trace_back throws AttributeError when the exception is None. 
+* Subprocess fds when they are closed throw an error. 
+* complex builtin help wrongly says that it support NaN and InF. 
+* Add a new set of functions to the posixmodule, well written and quick for
+  receiving comments and modifying the code. 
+* Decimal Module with some dot specific usage. 
+* There was problem when python3 was attempting to write to /dev/full and it
+  was being written. VS pointed out that it is fixed in 3.2. there were
+  unclosed sockets from test_multiprocessing and Victor fixed them. 
+* There is  misbehavior in the ContentTooShort Exception from the
+  urllib.request. I had assigned it to myself.
+* There is cleaning up of pydoc module, a patch by Ron Adam is in the tracker.  
+* The filesystem check can be done using os.rename itself.
+* Import dbm module http://bugs.python.org/issue9523
+* zlib crc32 and alder32 fix in Python27 http://bugs.python.org/issue10276
+* Wrapping TextIOWrapper around gzip files
+* subprocess.getoutput fails on win32.
+* [issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
+* Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
-Python uses try...except blocks to handle exceptions, and the raise statement
-to generate them. Java and c++ use try...catch blocks to handle exceptions, and
-the throw statement to generate them.
+Notes from Python3 article
+==========================
 
-Like c, Python uses == for comparison and = for assignment. Unlike c, Python
-does not support in-line assignment, so there’s no chance of accidentally
-assigning the value you thought you were comparing.
+* Python uses carriage returns to separate statements and a colon and
+  indentation to separate code blocks. c++ and Java use semicolons to separate
+  statements and curly braces to separate code blocks.
+* Python uses try...except blocks to handle exceptions, and the raise statement
+  to generate them. Java and c++ use try...catch blocks to handle exceptions,
+  and the throw statement to generate them.
 
-Due to some legacy issues left over from Python 2, booleans can be treated as
-numbers. True is 1; False is 0.
+* Like c, Python uses == for comparison and = for assignment. Unlike c, Python
+  does not support in-line assignment, so there’s no chance of accidentally
+  assigning the value you thought you were comparing.
 
-The int() function truncates negative numbers towards 0. It’s a true truncate
-function, not a floor function.
+* Due to some legacy issues left over from Python 2, booleans can be treated as
+  numbers. True is 1; False is 0.
 
-Floating point numbers are accurate to 15 decimal places.
+* The int() function truncates negative numbers towards 0. It’s a true truncate
+  function, not a floor function.
 
-For lists in python, a better analogy would be to the ArrayList class, which
-can hold arbitrary objects and can expand dynamically as new items are added.
+* Floating point numbers are accurate to 15 decimal places.
 
-If the negative index is confusing to you, think of it this way: a_list[-n] ==
-a_list[len(a_list) - n]. So in this list, a_list[-3] == a_list[5 - 3] ==
-a_list[2].
+* For lists in python, a better analogy would be to the ArrayList class, which
+  can hold arbitrary objects and can expand dynamically as new items are added.
 
-For list representation, If it helps, you can think of it this way: reading the
-list from left to right, the first slice index specifies the first item you
-want, and the second slice index specifies the first item you don’t want. The
-return value is everything in between.
+* If the negative index is confusing to you, think of it this way: a_list[-n]
+  == a_list[len(a_list) - n]. So in this list, a_list[-3] == a_list[5 - 3] ==
+  a_list[2].
 
-As you might not expect, if the value is not found in the list, the index()
-method will raise an exception.
+* For list representation, If it helps, you can think of it this way: reading
+  the list from left to right, the first slice index specifies the first item
+  you want, and the second slice index specifies the first item you don’t want.
+  The return value is everything in between.
 
-Due to historical quirks carried over from Python 2, you can not create an
-empty set with two curly brackets. This actually creates an empty dictionary,
-not an empty set.
+* As you might not expect, if the value is not found in the list, the index()
+  method will raise an exception.
 
-If you call the discard() method with a value that doesn’t exist in the set, it
-does nothing. No error; it’s just a no-op.
+* Due to historical quirks carried over from Python 2, you can not create an
+  empty set with two curly brackets. This actually creates an empty dictionary,
+  not an empty set.
 
-Here’s the difference: if the value doesn’t exist in the set, the remove()
-method raises a KeyError exception.
+* If you call the discard() method with a value that doesn’t exist in the set,
+  it does nothing. No error; it’s just a no-op.
 
-A dictionary in Python is like a hash in Perl 5. In Perl 5, variables that
-store hashes always start with a % character. In Python, variables can be named
-anything, and Python keeps track of the datatype internally.
+* Here’s the difference: if the value doesn’t exist in the set, the remove()
+  method raises a KeyError exception.
 
-You can assign None to any variable, but you can not create other NoneType objects.
+* A dictionary in Python is like a hash in Perl 5. In Perl 5, variables that
+  store hashes always start with a % character. In Python, variables can be
+  named anything, and Python keeps track of the datatype internally.
 
-Import dbm module
-http://bugs.python.org/issue9523
-zlib crc32 and alder32 fix in Python27
-http://bugs.python.org/issue10276
-
-Wrapping TextIOWrapper around gzip files
-
-subprocess.getoutput fails on win32.
-
+* You can assign None to any variable, but you can not create other NoneType
+  objects.
 
 Question about pointers:
 http://stackoverflow.com/questions/5727/what-are-the-barriers-to-understanding-pointers-and-what-can-be-done-to-overcome/5754#5754
 http://stackoverflow.com/questions/143552/comparing-date-ranges/143568#143568
 
-
-Links:
-
+Links
+=====
 http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
 
+Implementing a defaultdict like behaviour using __missing__
+===========================================================
 
->>> class Counter(dict):
-...     def __missing__(self, key):
-...         return 0
->>> c = Counter()
->>> c['red']
-0
->>> c['red'] += 1
->>> c['red']
-1
+:: 
 
-TCP is "Transmission Control Protocol" and is the fundamental system via which
-two computers on the Internet send streams of bytes to each other.
-
-Server responds with a set of headers indicating which protocol is actually
-being used, whether or not the file requested was found, how many bytes are
-contained in that file, and what kind of information is contained in the file
-(the Multipurpose Internet Mail Extensions or "MIME" type)
+        >>> class Counter(dict):
+        ...     def __missing__(self, key):
+        ...         return 0
+        >>> c = Counter()
+        >>> c['red']
+        0
+        >>> c['red'] += 1
+        >>> c['red']
+        1
 
 Note: Servers ought to be cautious about depending on URI lengths above 255
 bytes, because some older client or proxy implementations might not properly
 support these lengths.
-
-
-Email6 is a feature branch with more consistent email parsing and handling modules.
-There is a feature request to get the size of the email.
-
-There is a cross-compile patch.
-Multiprocessing failure here:
-
-$ ./python -c "import multiprocessing.managers ; mpp = multiprocessing.Pool(4); sm = multiprocessing.managers.SyncManager(); sm.start()"
-Fatal Python error: Invalid thread state for this thread
-
-Go ahead and handle this issue
-
-[issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
-
-Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
 
 Python Internals
