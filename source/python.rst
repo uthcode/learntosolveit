@@ -137,7 +137,7 @@ support these lengths.
 Python Internals
 ----------------
 
-1. Objects - When accessing the attribute of an object, the attribute is get from the namespace.
+1. Objects - When accessing the attribute of an object, the attribute is got from the namespace.
 2. There is a difference between dict proxy and a dict.
 
 
@@ -146,7 +146,7 @@ Dependencies to Install in Ubuntu for a full Python Interpreter
 
 :: 
 
-        sudo apt-get install libssl-dev libreadline-dev libgdbm-dev tk-dev tk-tile libsqlite3-dev libdb4.7-dev
+        sudo apt-get install libssl-dev libreadline-dev libgdbm-dev tk-dev tk-tile libsqlite3-dev libdb4.7-dev libbz2-dev
 
 
 How do see the system calls?
@@ -171,14 +171,14 @@ What is spitted out is an enormous amout of details on the system calls which
 are executed when running this program.
 
 
-wsgi
+WSGI
 ----
 
-It is easy to build a web application framework.
-
-WSGI is Python PEP 333, the Web Server Gateway Interface. It's a a protocol for
-communicating with Python web applications. WSGI works by callbacks. The
-application provides a function which the server calls for each request:
+It is easy to build a web application framework in Python. WSGI is Python PEP
+333, the Web Server Gateway Interface. It's a a protocol for communicating with
+Python web applications. WSGI works by callbacks. 
+     
+The application provides a function which the server calls for each request:
 
 application(environ, start_response)
 
