@@ -1,0 +1,24 @@
+This directory contains the LaTeX source to the Python documentation.
+The documentation is not all finished, but good enough to get you
+started.
+
+The following are the important latex source files:
+
+       tut.tex         A tutorial
+       mod.tex         The library reference
+
+They both read the style option file "myformat.sty".
+
+You can use the Makefile to format, preview and print the documents.
+Type "make tut" or "make mod" to preview either document with xdvi.
+Type "make print" to print them both (this only works if your print
+spooler is set up just like mine...), or "make all" to create postscript
+files that you can you can print using your local printing commands.
+Type "make clean" to get rid of all the intermediate files produced by
+the latex process, and other junk files.
+
+You can just as well ignore the Makefile; all you really need is:
+       latex tut
+       latex tut
+       dvips tut | lpr
+and similar for the "mod" document.

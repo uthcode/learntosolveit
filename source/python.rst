@@ -58,6 +58,7 @@ Notes from Python3 article
 * Python uses carriage returns to separate statements and a colon and
   indentation to separate code blocks. c++ and Java use semicolons to separate
   statements and curly braces to separate code blocks.
+
 * Python uses try...except blocks to handle exceptions, and the raise statement
   to generate them. Java and c++ use try...catch blocks to handle exceptions,
   and the throw statement to generate them.

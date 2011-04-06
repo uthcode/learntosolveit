@@ -1,0 +1,48 @@
+Reconstructed by Andrew Dalke from alt.sources archive on Google Groups.
+The original posts were dated 21 Feb 1991 and titled:
+   Python 0.9.1 part 01/21
+      ...
+   Python 0.9.1 part 21/21
+
+although part 02 was retracted and is not needed. I also applied
+the patch titled "Python 0.9 official patch #1" (22 Feb 1991).
+I could not get patch to understand it so I applied the changes
+manually.
+
+My download from Google groups lost embedded tabs in the Makefile,
+which I fixed by hand. My download also added a space at the end
+of every line, so I wrote script to remove all trailing whitespace
+before the newline.
+
+Some of the code did not compile under gcc-4.0 on my Mac. These
+are in the files import.c, listobject.c, and regexpmodule.c. I
+added the right prototypes to make it work and put a comment
+in the text. I also commented out the inclusion of the Python-
+supplied implementation of strerror in the Makefile.
+
+Some of the files may have extra or fewer blank lines than
+the original source.
+
+To compile, "cd src; make". The result is a "./python" in
+that src directory.
+
+Some quick differences from modern Python I found when
+using the resulting binary:
+
+  - classes must have the (), as in
+      class Spam():
+        pass
+
+  - There is no '__init__' function for instances. The
+      classes in the library by convention use 'Create()'
+      and that must be explicitly called.
+
+  - The library code does not consistently use 'self'.
+
+  - Only single quote strings 'like this' are allowed. "Double quoted"
+      strings are not allowed.
+
+Enjoy!
+				Andrew Dalke
+				dalke@dalkescientific.com
+				27 March 2009

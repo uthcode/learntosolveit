@@ -1,0 +1,71 @@
+This is Python, an extensible interpreted programming language that
+combines remarkable power with very clear syntax.
+
+This is version 0.9 (the first beta release), patchlevel 1.
+
+Python can be used instead of shell, Awk or Perl scripts, to write
+prototypes of real applications, or as an extension language of large
+systems, you name it.  There are built-in modules that interface to
+the operating system and to various window systems: X11, the Mac
+window system (you need STDWIN for these two), and Silicon Graphics'
+GL library.  It runs on most modern versions of UNIX, on the Mac, and
+I wouldn't be surprised if it ran on MS-DOS unchanged.  I developed it
+mostly on an SGI IRIS workstation (using IRIX 3.1 and 3.2) and on the
+Mac, but have tested it also on SunOS (4.1) and BSD 4.3 (tahoe).
+
+Building and installing Python is easy (but do read the Makefile).
+A UNIX style manual page and extensive documentation (in LaTeX format)
+are provided.  (In the beta release, the documentation is still under
+development.)
+
+Please try it out and send me your comments (on anything -- the
+language design, implementation, portability, installation,
+documentation) and the modules you wrote for it, to make the first
+real release better.  If you needed to hack the source to get it to
+compile and run on a particular machine, send me the fixes -- I'll try
+to incorporate them into the next patch.  If you can't get it to work
+at all, send me a *detailed* description of the problem and I may look
+into it.
+
+If you want to profit of the X11 or Mac window interface, you'll need
+STDWIN.  This is a portable window system interface by the same
+author.  The versions of STDWIN floating around on some archives are
+not sufficiently up-to-date for use with Python.  I will distribute
+the latest and greatest STDWIN version at about the same time as Python.
+
+I am the author of Python:
+
+       Guido van Rossum
+       CWI, dept. CST
+       Kruislaan 413
+       1098 SJ  Amsterdam
+       The Netherlands
+
+       E-mail: gu...@cwi.nl
+
+The Python source is copyrighted, but you can freely use and copy it
+as long as you don't change or remove the copyright:
+
+/***********************************************************
+Copyright 1991 by Stichting Mathematisch Centrum, Amsterdam, The
+Netherlands.
+
+                        All Rights Reserved
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted,
+provided that the above copyright notice appear in all copies and that
+both that copyright notice and this permission notice appear in
+supporting documentation, and that the names of Stichting Mathematisch
+Centrum or CWI not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior permission.
+
+STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS, IN NO EVENT SHALL STICHTING MATHEMATISCH CENTRUM BE LIABLE
+FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+******************************************************************/

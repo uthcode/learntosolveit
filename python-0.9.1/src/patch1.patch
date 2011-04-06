@@ -1,0 +1,134 @@
+*** /usr/people/guido/python-dist/src/Makefile  Tue Feb 19 13:42:10 1991
+--- src/Makefile        Wed Feb 20 13:37:32 1991
+***************
+*** 65,70 ****
+  # Installation Options
+  # ====================
+! # You may want to change PYTHONPATH to reflect where you install the
+! # Python module library.
+! PYTHONPATH=   .:/usr/local/lib/python:/ufs/guido/lib/python
+  # For "Pure" BSD Systems
+--- 65,72 ----
+  # Installation Options
+  # ====================
+! # You may want to change DEFPYTHONPATH to reflect where you install the
+! # Python module library.  The default contains "../lib" so running
+! # the interpreter from the source/build directory as distributed will
+! # find the library (admittedly a hack).
+! DEFPYTHONPATH=        .:/usr/local/lib/python:/ufs/guido/lib/python:../lib
+  # For "Pure" BSD Systems
+***************
+*** 248,256 ****
+  # about 70K to the Python text size and about 260K to the unstripped
+  # binary size.
+  #
+! # Note: the file 'glmodule.c' is created by a Python script.  If you
+! # lost the file and have no working Python interpreter, turn off the GL
+! # and Panel options, rebuild the Python interpreter, use it to create
+! # glmodule.c, and then turn the options back on.
+  #
+  # Uncomment the following block to use the GL option.
+--- 250,264 ----
+  # about 70K to the Python text size and about 260K to the unstripped
+  # binary size.
+  #
+! # NOTE WHEN BUILDING FOR THE FIRST TIME:
+! # There is a circular dependency in the build process: you need to have
+! # a working Python interpreter before you can build a Python interpreter
+! # that incorporates the 'gl' module -- the source file 'glmodule.c' is
+! # not distributed (it's about 140K!) and a Python script is used to
+! # create it.  Thus, you first have to build python without the the GL
+! # and Panel options, then edit the Makefile to turn them (or at least GL)
+! # on and rebuild.  You may also have to set PYTHONPATH to point to
+! # the place where the module library is for the generation script to
+! # work.
+  #
+  # Uncomment the following block to use the GL option.
+***************
+*** 270,276 ****
+  # the standard module 'panel' to provide an interface to most features
+  # of the Panel Library.  This option requires that you also turn on the
+  # GL option.  It adds about 100K to the Python text size and about 160K
+! # to the unstripped binary size.
+  #
+  # Uncomment and edit the following block to use the Panel option.
+  # - Edit the PANELDIR definition to point to the top-level directory
+--- 278,286 ----
+  # the standard module 'panel' to provide an interface to most features
+  # of the Panel Library.  This option requires that you also turn on the
+  # GL option.  It adds about 100K to the Python text size and about 160K
+! # to the unstripped binary size.  This requires Panel Library version 9.7
+! # (for lower versions you may have to remove some functionality -- send
+! # me the patches if you bothered to do this).
+  #
+  # Uncomment and edit the following block to use the Panel option.
+  # - Edit the PANELDIR definition to point to the top-level directory
+***************
+*** 335,338 ****
+                tupleobject.c typeobject.c
+  CONFIGDEFS=   $(STDW_USE) $(AM_USE) $(AUDIO_USE) $(GL_USE) $(PANEL_USE) \
+!               '-DPYTHONPATH="$(PYTHONPATH)"'
+  CONFIGINCLS=  $(STDW_INCL)
+--- 345,348 ----
+                tupleobject.c typeobject.c
+  CONFIGDEFS=   $(STDW_USE) $(AM_USE) $(AUDIO_USE) $(GL_USE) $(PANEL_USE) \
+!               '-DPYTHONPATH="$(DEFPYTHONPATH)"'
+  CONFIGINCLS=  $(STDW_INCL)
+***************
+*** 480,484 ****
+  # The rules for doing so are given here.
+  # Build "glmodule.c", the GL interface.
+! # Ignore the messages emitted by the cgen script.
+  # Also ignore the warnings emitted while compiling glmodule.c; it works.
+  glmodule.c:   cstubs cgen
+--- 490,497 ----
+  # The rules for doing so are given here.
+  # Build "glmodule.c", the GL interface.
+! # See important note at "GL Option" above.
+! # You may have to set and export PYTHONPATH for this to work.
+! # Ignore the messages emitted by the cgen script as long as its exit
+! # status is zero.
+  # Also ignore the warnings emitted while compiling glmodule.c; it works.
+  glmodule.c:   cstubs cgen
+*** /usr/people/guido/python-dist/src/patchlevel.h      Tue Feb 19 13:44:44 1991
+--- src/patchlevel.h    Wed Feb 20 12:57:39 1991
+***************
+*** 1 ****
+! 1
+--- 1 ----
+! #define PATCHLEVEL 1
+*** /usr/people/guido/python-dist/lib/testall.py        Wed Dec 26 15:40:20 1990
+--- lib/testall.py      Wed Feb 20 12:59:22 1991
+***************
+*** 122,127 ****
+  [4]
+  from math import *
+  [5]
+! from sys import modules, ps1, ps2
+  [6]
+  ### compound_stmt: if_stmt | while_stmt | for_stmt | try_stmt | funcdef | classdef
+--- 122,127 ----
+  [4]
+  from math import *
+  [5]
+! from sys import modules, path
+  [6]
+  ### compound_stmt: if_stmt | while_stmt | for_stmt | try_stmt | funcdef | classdef
+***************
+*** 213,219 ****
+  x = +1
+  x = -1
+  x = 1
+! c = sys.ps1[0]
+  x = time.time()
+  x = sys.modules['time'].time()
+  a = '01234'
+--- 213,219 ----
+  x = +1
+  x = -1
+  x = 1
+! c = sys.path[0]
+  x = time.time()
+  x = sys.modules['time'].time()
+  a = '01234'
+

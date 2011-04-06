@@ -1,0 +1,1083 @@
+\section{Built-in Modules}
+
+The modules described in this section are built into the interpreter.
+They must be imported using
+{\tt import}.
+Some modules are not always available; it is a configuration option to
+provide them.
+Details are listed with the descriptions, but the best way to see if
+a module exists in a particular implementation is to attempt to import
+it.
+
+\subsection{Built-in Module {\tt sys}}
+
+This module provides access to some variables used or maintained by the
+interpreter and to functions that interact strongly with the interpreter.
+It is always available.
+\begin{description}
+\funcitem{argv}
+The list of command line arguments passed to a {\Python} script.
+{\tt sys.argv[0]}
+is the script name.
+If no script name was passed to the {\Python} interpreter,
+{\tt sys.argv}
+is empty.
+\funcitem{exit}{n}
+Exits from {\Python} with numeric exit status
+{\tt n}.
+This closes all open files and performs other cleanup-actions required by
+the interpreter (but
+{\em finally clauses}
+of
+{\tt try}
+statements are not executed!).
+\funcitem{modules}
+Gives the list of modules that have already been loaded.
+This can be manipulated to force reloading of modules and other tricks.
+\funcitem{path}
+A list of strings that specifies the search path for modules.
+Initialized from the environment variable {\tt PYTHONPATH}, or an
+installation-dependent default.
+\funcitem{ps1,~ps2}
+Strings specifying the primary and secondary prompt of the interpreter.
+These are only defined if the interpreter is in interactive mode.
+Their initial values in this case are
+{\tt '>>> '}
+and
+{\tt '... '}.
+\funcitem{stdin, stdout, stderr}
+%.br
+File objects corresponding to the interpreter's standard input, output
+and error streams.
+{\tt sys.stdin}
+is used for all interpreter input except for scripts but including calls
+to
+{\tt input()}
+and
+{\tt raw\_input()}.
+{\tt sys.stdout}
+is used for the output of
+{\tt print} and expression statements
+and for the prompts of
+{\tt input()}
+and
+{\tt raw\_input()}.
+The interpreter's own prompts and its error messages are written to
+stderr.
+Assigning to
+{\tt sys.stderr}
+has no effect on the interpreter; it can be used to write error messages
+to stderr using
+{\tt print}.
+\end{description}
+
+\subsection{Built-in Module {\tt math}}
+
+This module is always available.
+It provides access to the mathematical functions defined by the C
+standard.
+They are:
+{\tt acos(x)},
+{\tt asin(x)},
+{\tt atan(x)},
+{\tt atan2(x,y)},
+{\tt ceil(x)},
+{\tt cos(x)},
+{\tt cosh(x)},
+{\tt exp(x)},
+{\tt fabs(x)},
+{\tt floor(x)},
+%{\tt fmod(...)}  XXX not yet
+%{\tt frexp(...)} XXX not yet
+%{\tt ldexp(...)} XXX not yet
+{\tt log(x)},
+{\tt log10(x)},
+%{\tt modf(...)}  XXX not yet
+{\tt pow(x,y)},
+{\tt sin(x)},
+{\tt sinh(x)},
+{\tt sqrt(x)},
+{\tt tan(x)},
+{\tt tanh(x)}.
+
+It also defines two mathematical constants:
+{\tt pi}
+and
+{\tt e}.
+
+\subsection{Built-in Module {\tt time}}
+
+This module provides various time-related functions.
+It is always available.
+Functions are:
+\begin{description}
+\funcitem{sleep}{secs}
+Suspends execution for the given number of seconds.
+\funcitem{time}{}
+Returns the time in seconds since the Epoch (Thursday January 1,
+00:00:00, 1970 UCT on \UNIX\ machines).
+\end{description}
+
+\noindent
+In some versions (Amoeba, Mac) the following functions also exist:
+\begin{description}
+\funcitem{millisleep}{msecs}
+Suspends execution for the given number of milliseconds.
+\funcitem{millitimer}{}
+Returns the number of milliseconds of real time elapsed since some point
+in the past that is fixed per execution of the python interpreter (but
+may change in each following run).
+\end{description}
+
+\noindent
+The granularity of the milliseconds functions may be more than a
+millisecond (100 msecs on Amoeba, 1/60 sec on the Mac).
+
+\subsection{Built-in Module {\tt regexp}}
+
+This module provides a regular expression matching operation.
+It is always available.
+
+The module defines a function and an exception:
+
+\begin{description}
+
+\funcitem{compile}{pattern}
+
+Compile a regular expression given as a string into a regular
+expression object.
+The string must be an egrep-style regular expression;
+this means that the characters
+{\tt '(' ')' '*' '+' '?'\ '|' }\verb='^' '$'=
+are special.
+(It is implemented using Henry Spencer's regular expression matching
+functions.)
+
+excitem{error}{regexp.error}
+
+Exception raised when a string passed to {\tt compile()} is not a
+valid regular expression (e.g., unmatched parentheses) or when some other
+error occurs during compilation or matching
+(``no match found'' is not an error).
+
+\end{description}
+
+Compiled regular expression objects support a single method:
+
+\begin{description}
+
+\funcitem{exec}{str}
+
+Find the first occurrence of the compiled regular expression in the
+string {\tt str}.
+The return value is a tuple of pairs specifying where a match was
+found and where matches were found for subpatterns specified with
+{\tt '('} and {\tt ')'} in the pattern.
+If no match is found, an empty tuple is returned; otherwise the first
+item of the tuple is a pair of slice indices into the search string
+giving the match found.
+If there were any subpatterns in the pattern, the returned tuple has an
+additional item for each subpattern, giving the slice indices into the
+search string where that subpattern was found.
+
+\end{description}
+
+For example:
+\bcode\begin{verbatim}
+>>> import regexp
+>>> r = regexp.compile('--(.*)--')
+>>> s = 'a--b--c'
+>>> r.exec(s)
+((1, 6), (3, 4))
+>>> s[1:6] # The entire match
+'--b--'
+>>> s[3:4] # The subpattern
+'b'
+>>>
+\end{verbatim}\ecode
+
+\subsection{Built-in Module {\tt posix}}
+
+This module provides access to operating system functionality that is
+standardized by the C Standard and the POSIX standard (a thinly diguised
+{\UNIX} interface).
+It is available in all {\Python} versions except on the Macintosh.
+Errors are reported exceptions.
+It defines the following items:
+\begin{description}
+\funcitem{chdir}{path}
+Changes the current directory to
+{\tt path}.
+\funcitem{chmod}{path, mode}
+Change the mode of
+{\tt path}
+to the numeric
+{\tt mode}.
+\funcitem{environ}
+A dictionary representing the string environment at the time
+the interpreter was started.
+(Modifying this dictionary does not affect the string environment of the
+interpreter.)
+For example,
+{\tt posix.environ['HOME']}
+is the pathname of your home directory, equivalent to
+{\tt getenv("HOME")}
+in C.
+\excitem{error}{posix.error}
+%.br
+The exception raised when an POSIX function returns an error.
+The value accompanying this exception is a pair containing the numeric
+error code from
+{\tt errno}
+and the corresponding string, as would be printed by the C function
+{\tt perror()}.
+\funcitem{getcwd}{}
+Returns a string representing the current working directory.
+\funcitem{link}{src, dst}
+Creates a hard link pointing to
+{\tt src}
+named
+{\tt dst}.
+\funcitem{listdir}{path}
+Returns a list containing the names of the entries in the
+directory.
+The list is in arbitrary order.
+It includes the special entries
+{\tt '.'}
+and
+{\tt '..'}
+if they are present in the directory.
+\funcitem{mkdir}{path, mode}
+Creates a directory named
+{\tt path}
+with numeric mode
+{\tt mode}.
+\funcitem{rename}{src, dst}
+Renames the file or directory
+{\tt src}
+to
+{\tt dst}.
+\funcitem{rmdir}{path}
+Removes the directory
+{\tt path}.
+\funcitem{stat}{path}
+Performs a
+{\em stat}
+system call on the given path.
+The return value is a tuple of at least 10 integers giving the most
+important (and portable) members of the
+{\em stat}
+structure, in the order
+{\tt st\_mode},
+{\tt st\_ino},
+{\tt st\_dev},
+{\tt st\_nlink},
+{\tt st\_uid},
+{\tt st\_gid},
+{\tt st\_size},
+{\tt st\_atime},
+{\tt st\_mtime},
+{\tt st\_ctime}.
+More items may be added at the end by some implementations.
+\funcitem{system}{command}
+Executes the command (a string) in a subshell.
+This is implemented by calling the Standard C function
+{\tt system()},
+and has the same limitations.
+Changes to
+{\tt posix.environ},
+{\tt sys.stdin}
+etc. are not reflected in the environment of the executed command.
+The return value is the exit status of the process as returned by
+Standard C
+{\tt system()}.
+\funcitem{umask}{mask}
+Sets the current numeric umask and returns the previous umask.
+\funcitem{unlink}{path}
+Unlinks the file
+{\tt path}.
+\funcitem{utimes(path, }{atime, mtime)}
+%.br
+Sets the access and modified time of the file to the given values.
+(The second argument is a tuple of two items.)
+\end{description}
+
+The following functions are only available on systems that support
+symbolic links:
+\begin{description}
+\funcitem{lstat}{path}
+Like
+{\tt stat()},
+but does not follow symbolic links.
+\funcitem{readlink}{path}
+Returns a string representing the path to which the symbolic link
+points.
+\funcitem{symlink}{src, dst}
+Creates a symbolic link pointing to
+{\tt src}
+named
+{\tt dst}.
+\end{description}
+
+\subsection{Built-in Module {\tt stdwin}}
+
+This module defines several new object types and functions that
+provide access to the functionality of the Standard Window System
+Interface, STDWIN [CWI report CR-R8817].
+It is available on systems to which STDWIN has been ported (which is
+most systems).
+It is only available if the {\tt DISPLAY} environment variable is set
+or an explicit `{\tt -display \it displayname}' argument is passed to
+the interpreter.
+
+Functions have names that usually resemble their C STDWIN counterparts
+with the initial `w' dropped.
+Points are represented by pairs of integers; rectangles
+by pairs of points.
+For a complete description of STDWIN please refer to the documentation
+of STDWIN for C programmers (aforementioned CWI report).
+\subsubsection{Functions Defined in Module {\tt stdwin}}
+
+The following functions are defined in the {\tt stdwin} module:
+\begin{description}
+\funcitem{open}{title}
+%.br
+Opens a new window whose initial title is given by the string argument.
+Returns a window object; window object methods are described below.%
+\footnote{
+The {\Python} version of STDWIN does not support draw procedures; all
+drawing requests are reported as draw events.
+}
+\funcitem{getevent}{}
+%.br
+Waits for and returns the next event.
+An event is returned as a triple: the first element is the event
+type, a small integer; the second element is the window object to which
+the event applies, or
+{\tt None}
+if it applies to no window in particular;
+the third element is type-dependent.
+Names for event types and command codes are defined in the standard
+module
+{\tt stdwinevent}.
+\funcitem{setdefwinpos}{h, v}
+%.br
+Sets the default window position.
+\funcitem{setdefwinsize}{width, height}
+%.br
+Sets the default window size.
+\funcitem{menucreate}{title}
+%.br
+Creates a menu object referring to a global menu (a menu that appears in
+all windows).
+Methods of menu objects are described below.
+\funcitem{fleep}{}
+%.br
+Causes a beep or bell (or perhaps a `visual bell' or flash, hence the
+name).
+\funcitem{message}{string}
+%.br
+Displays a dialog box containing the string.
+The user must click OK before the function returns.
+\funcitem{askync}{prompt, default}
+%.br
+Displays a dialog that prompts the user to answer a question with yes or
+no.
+The function returns 0 for no, 1 for yes.
+If the user hits the Return key, the default (which must be 0 or 1) is
+returned.
+If the user cancels the dialog, the
+{\tt KeyboardInterrupt}
+exception is raised.
+\funcitem{askstr}{prompt, default}
+%.br
+Displays a dialog that prompts the user for a string.
+If the user hits the Return key, the default string is returned.
+If the user cancels the dialog, the
+{\tt KeyboardInterrupt}
+exception is raised.
+\funcitem{askfile}{prompt, default, new}
+%.br
+Asks the user to specify a filename.
+If
+{\tt new}
+is zero it must be an existing file; otherwise, it must be a new file.
+If the user cancels the dialog, the
+{\tt KeyboardInterrupt}
+exception is raised.
+\funcitem{setcutbuffer}{i, string}
+%.br
+Stores the string in the system's cut buffer number
+{\tt i},
+where it can be found (for pasting) by other applications.
+On X11, there are 8 cut buffers (numbered 0..7).
+Cut buffer number 0 is the `clipboard' on the Macintosh.
+\funcitem{getcutbuffer}{i}
+%.br
+Returns the contents of the system's cut buffer number
+{\tt i}.
+\funcitem{rotatebutbuffers}{n}
+%.br
+On X11, this rotates the 8 cut buffers by
+{\tt n}.
+Ignored on the Macintosh.
+\funcitem{getselection}{i}
+%.br
+Returns X11 selection number
+{\tt i.}
+Selections are not cut buffers.
+Selection numbers are defined in module
+{\tt stdwinevents}.
+Selection {\tt WS\_PRIMARY} is the
+{\em primary}
+selection (used by
+xterm,
+for instance);
+selection {\tt WS\_SECONDARY} is the
+{\em secondary}
+selection; selection {\tt WS\_CLIPBOARD} is the
+{\em clipboard}
+selection (used by
+xclipboard).
+On the Macintosh, this always returns an empty string.
+\funcitem{resetselection}{i}
+%.br
+Resets selection number
+{\tt i},
+if this process owns it.
+(See window method
+{\tt setselection()}).
+\funcitem{baseline}{}
+%.br
+Return the baseline of the current font (defined by STDWIN as the
+vertical distance between the baseline and the top of the
+characters).%
+\footnote{
+There is no way yet to set the current font.
+This will change in a future version.
+}
+\funcitem{lineheight}{}
+%.br
+Return the total line height of the current font.
+\funcitem{textbreak}{str, width}
+%.br
+Return the number of characters of the string that fit into a space of
+{\tt width}
+bits wide when drawn in the curent font.
+\funcitem{textwidth}{str}
+%.br
+Return the width in bits of the string when drawn in the current font.
+\end{description}
+
+\subsubsection{Window Object Methods}
+
+Window objects are created by
+{\tt stdwin.open()}.
+There is no explicit function to close a window; windows are closed when
+they are garbage-collected.
+Window objects have the following methods:
+\begin{description}
+\funcitem{begindrawing}{}
+Returns a drawing object, whose methods (described below) allow drawing
+in the window.
+\funcitem{change}{rect}
+Invalidates the given rectangle; this may cause a draw event.
+\funcitem{gettitle}{}
+Returns the window's title string.
+\funcitem{getdocsize}{}
+\begin{sloppypar}
+Returns a pair of integers giving the size of the document as set by
+{\tt setdocsize()}.
+\end{sloppypar}
+\funcitem{getorigin}{}
+Returns a pair of integers giving the origin of the window with respect
+to the document.
+\funcitem{getwinsize}{}
+Returns a pair of integers giving the size of the window.
+\funcitem{menucreate}{title}
+Creates a menu object referring to a local menu (a menu that appears
+only in this window).
+Methods menu objects are described below.
+\funcitem{scroll}{rect,~point}
+Scrolls the given rectangle by the vector given by the point.
+\funcitem{setwincursor}{name}
+\begin{sloppypar}
+Sets the window cursor to a cursor of the given name.
+It raises the
+{\tt Runtime\-Error}
+exception if no cursor of the given name exists.
+Suitable names are
+{\tt 'ibeam'},
+{\tt 'arrow'},
+{\tt 'cross'},
+{\tt 'watch'}
+and
+{\tt 'plus'}.
+On X11, there are many more (see
+{\tt <X11/cursorfont.h>}).
+\end{sloppypar}
+\funcitem{setdocsize}{point}
+Sets the size of the drawing document.
+\funcitem{setorigin}{point}
+Moves the origin of the window to the given point in the document.
+\funcitem{setselection}{i, str}
+Attempts to set X11 selection number
+{\tt i}
+to the string
+{\tt str}.
+(See stdwin method
+{\tt getselection()}
+for the meaning of
+{\tt i}.)
+Returns true if it succeeds.
+If it succeeds, the window ``owns'' the selection until
+(a) another applications takes ownership of the selection; or
+(b) the window is deleted; or
+(c) the application clears ownership by calling
+{\tt stdwin.resetselection(i)}.
+When another application takes ownership of the selection, a
+{\tt WE\_LOST\_SEL}
+event is received for no particular window and with the selection number
+as detail.
+Ignored on the Macintosh.
+\funcitem{settitle}{title}
+Sets the window's title string.
+\funcitem{settimer}{dsecs}
+Schedules a timer event for the window in
+{\tt dsecs/10}
+seconds.
+\funcitem{show}{rect}
+Tries to ensure that the given rectangle of the document is visible in
+the window.
+\funcitem{textcreate}{rect}
+Creates a text-edit object in the document at the given rectangle.
+Methods of text-edit objects are described below.
+\end{description}
+
+\subsubsection{Drawing Object Methods}
+
+Drawing objects are created exclusively by the window method
+{\tt begindrawing()}.
+Only one drawing object can exist at any given time; the drawing object
+must be deleted to finish drawing.
+No drawing object may exist when
+{\tt stdwin.getevent()}
+is called.
+Drawing objects have the following methods:
+\begin{description}
+\funcitem{box}{rect}
+Draws a box around a rectangle.
+\funcitem{circle}{center, radius}
+%.br
+Draws a circle with given center point and radius.
+\funcitem{elarc(center, (rh, rv), }{a1, a2)}
+%.br
+Draws an elliptical arc with given center point.
+{\tt (rh, rv)}
+gives the half sizes of the horizontal and vertical radii.
+{\tt (a1, a2)}
+gives the angles (in degrees) of the begin and end points.
+0 degrees is at 3 o'clock, 90 degrees is at 12 o'clock.
+\funcitem{erase}{rect}
+Erases a rectangle.
+\funcitem{invert}{rect}
+Inverts a rectangle.
+\funcitem{line}{p1, p2}
+Draws a line from point
+{\tt p1}
+to
+{\tt p2}.
+\funcitem{paint}{rect}
+Fills a rectangle.
+\funcitem{text}{p, str}
+Draws a string starting at point p (the point specifies the
+top left coordinate of the string).
+\funcitem{shade}{rect, percent}
+%.br
+Fills a rectangle with a shading pattern that is about
+{\tt percent}
+percent filled.
+\funcitem{xorline}{p1, p2}
+Draws a line in XOR mode.
+\funcitem{baseline(), lineheight(), textbreak(), textwidth}{}
+%.br
+These functions are similar to the corresponding functions described
+above for the
+{\tt stdwin}
+module, but use the current font of the window instead of the (global)
+default font.
+\end{description}
+
+\subsubsection{Menu Object Methods}
+
+A menu object represents a menu.
+The menu is destroyed when the menu object is deleted.
+The following methods are defined:
+\begin{description}
+\funcitem{additem}{text, shortcut}
+%.br
+Adds a menu item with given text.
+The shortcut must be a string of length 1, or omitted (to specify no
+shortcut).
+\funcitem{setitem}{i, text}
+Sets the text of item number
+{\tt i}.
+\funcitem{enable}{i, flag}
+Enables or disables item
+{\tt i}.
+\funcitem{check}{i, flag}
+Sets or clears the
+{\em check mark}
+for item
+{\tt i}.
+\end{description}
+
+\subsubsection{Text-edit Object Methods}
+
+A text-edit object represents a text-edit block.
+For semantics, see the STDWIN documentation for C programmers.
+The following methods exist:
+\begin{description}
+\funcitem{arrow}{code}
+Passes an arrow event to the text-edit block.
+The
+{\tt code}
+must be one of
+{\tt WC\_LEFT},
+{\tt WC\_RIGHT},
+{\tt WC\_UP}
+or
+{\tt WC\_DOWN}
+(see module
+{\tt stdwinevents}).
+\funcitem{draw}{rect}
+Passes a draw event to the text-edit block.
+The rectangle specifies the redraw area.
+\funcitem{event}{type, window, detail}
+%.br
+Passes an event gotten from
+{\tt stdwin.getevent()}
+to the text-edit block.
+Returns true if the event was handled.
+\funcitem{getfocus}{}
+Returns 2 integers representing the start and end positions of the
+focus, usable as slice indices on the string returned by
+{\tt getfocustext()}.
+\funcitem{getfocustext}{}
+Returns the text in the focus.
+\funcitem{getrect}{}
+Returns a rectangle giving the actual position of the text-edit block.
+(The bottom coordinate may differ from the initial position because
+the block automatically shrinks or grows to fit.)
+\funcitem{gettext}{}
+Returns the entire text buffer.
+\funcitem{move}{rect}
+Specifies a new position for the text-edit block in the document.
+\funcitem{replace}{str}
+Replaces the focus by the given string.
+The new focus is an insert point at the end of the string.
+\funcitem{setfocus}{i,~j}
+Specifies the new focus.
+Out-of-bounds values are silently clipped.
+\end{description}
+
+\subsubsection{Example}
+
+Here is a simple example of using STDWIN in Python.
+It creates a window and draws the string ``Hello world'' in the top
+left corner of the window.
+The window will be correctly redrawn when covered and re-exposed.
+The program quits when the close icon or menu item is requested.
+\bcode\begin{verbatim}
+import stdwin
+from stdwinevents import *
+
+def main():
+    mywin = stdwin.open('Hello')
+    #
+    while 1:
+        (type, win, detail) = stdwin.getevent()
+        if type = WE_DRAW:
+            draw = win.begindrawing()
+            draw.text((0, 0), 'Hello, world')
+            del draw
+        elif type = WE_CLOSE:
+            break
+
+main()
+\end{verbatim}\ecode
+
+\subsection{Built-in Module {\tt amoeba}}
+
+This module provides some object types and operations useful for
+Amoeba applications.
+It is only available on systems that support Amoeba operations.
+RPC errors and other Amoeba errors are reported as the exception
+{\tt amoeba.error = 'amoeba.error'}.
+The module
+{\tt amoeba}
+defines the following items:
+\begin{description}
+\funcitem{name\_append}{path,~cap}
+%.br
+Stores a capability in the Amoeba directory tree.
+Arguments are the pathname (a string) and the capability (a capability
+object as returned by
+{\tt name\_lookup()}).
+\funcitem{name\_delete}{path}
+%.br
+Deletes a capability from the Amoeba directory tree.
+Argument is the pathname.
+\funcitem{name\_lookup}{path}
+%.br
+Looks up a capability.
+Argument is the pathname.
+Returns a
+{\em capability}
+object, to which various interesting operations apply, described below.
+\funcitem{name\_replace}{path,~cap}
+%.br
+Replaces a capability in the Amoeba directory tree.
+Arguments are the pathname and the new capability.
+(This differs from
+{\tt name\_append()}
+in the behavior when the pathname already exists:
+{\tt name\_append()}
+finds this an error while
+{\tt name\_replace()}
+allows it, as its name suggests.)
+\funcitem{capv}
+A table representing the capability environment at the time the
+interpreter was started.
+(Alas, modifying this table does not affect the capability environment
+of the interpreter.)
+For example,
+{\tt amoeba.capv['ROOT']}
+is the capability of your root directory, similar to
+{\tt getcap("ROOT")}
+in C.
+\excitem{error}{amoeba.error}
+%.br
+The exception raised when an Amoeba function returns an error.
+The value accompanying this exception is a pair containing the numeric
+error code and the corresponding string, as returned by the C function
+{\tt err\_why()}.
+\funcitem{timeout}{msecs}
+%.br
+Sets the transaction timeout, in milliseconds.
+Returns the previous timeout.
+Initially, the timeout is set to 2 seconds by the {\Python} interpreter.
+\end{description}
+
+\subsubsection{Capability Operations}
+
+Capabilities are written in a convenient ASCII format, also used by the
+Amoeba utilities
+{\em c2a}(U)
+and
+{\em a2c}(U).
+For example:
+\bcode\begin{verbatim}
+>>> amoeba.name_lookup('/profile/cap')
+aa:1c:95:52:6a:fa/14(ff)/8e:ba:5b:8:11:1a
+>>>
+\end{verbatim}\ecode
+The following methods are defined for capability objects.
+\begin{description}
+\funcitem{dir\_list}{}
+Returns a list of the names of the entries in an Amoeba directory.
+\funcitem{b\_read}{offset, maxsize}
+%.br
+Reads (at most)
+{\tt maxsize}
+bytes from a bullet file at offset
+{\tt offset.}
+The data is returned as a string.
+EOF is reported as an empty string.
+\funcitem{b\_size}{}
+Returns the size of a bullet file.
+\funcitem{dir\_append(), dir\_delete(), dir\_lookup(), dir\_replace}{}
+%.br
+\itembreak
+Like the corresponding
+{\tt name\_*}
+functions, but with a path relative to the capability.
+(For paths beginning with a slash the capability is ignored, since this
+is the defined semantics for Amoeba.)
+\funcitem{std\_info}{}
+Returns the standard info string of the object.
+\funcitem{tod\_gettime}{}
+Returns the time (in seconds since the Epoch, in UCT, as for POSIX) from
+a time server.
+\funcitem{tod\_settime}{t}
+Sets the time kept by a time server.
+\end{description}
+
+\subsection{Built-in Module {\tt audio}}
+
+This module provides rudimentary access to the audio I/O device
+{\tt /dev/audio}
+on the Silicon Graphics Personal IRIS; see audio(7).
+It supports the following operations:
+\begin{description}
+\funcitem{setoutgain}{n}
+Sets the output gain (0-255).
+\funcitem{getoutgain}{}
+Returns the output gain.
+\funcitem{setrate}{n}
+Sets the sampling rate: 1=32K/sec, 2=16K/sec, 3=8K/sec.
+\funcitem{setduration}{n}
+Sets the `sound duration' in units of 1/100 seconds.
+\funcitem{read}{n}
+Reads a chunk of
+{\tt n}
+sampled bytes from the audio input (line in or microphone).
+The chunk is returned as a string of length n.
+Each byte encodes one sample as a signed 8-bit quantity using linear
+encoding.
+This string can be converted to numbers using {\tt chr2num()} described
+below.
+\funcitem{write}{buf}
+Writes a chunk of samples to the audio output (speaker).
+\end{description}
+
+These operations support asynchronous audio I/O:
+\begin{description}
+\funcitem{start\_recording}{n}
+%.br
+Starts a second thread (a process with shared memory) that begins reading
+{\tt n}
+bytes from the audio device.
+The main thread immediately continues.
+\funcitem{wait\_recording}{}
+%.br
+Waits for the second thread to finish and returns the data read.
+\funcitem{stop\_recording}{}
+%.br
+Makes the second thread stop reading as soon as possible.
+Returns the data read so far.
+\funcitem{poll\_recording}{}
+%.br
+Returns true if the second thread has finished reading (so
+{\tt wait\_recording()} would return the data without delay).
+\item[{\tt start\_playing(chunk)}, {\tt wait\_playing()},
+{\tt stop\_playing()}, {\tt poll\_playing()}]
+%.br
+\begin{sloppypar}
+Similar but for output.
+{\tt stop\_playing()}
+returns a lower bound for the number of bytes actually played (not very
+accurate).
+\end{sloppypar}
+\end{description}
+
+The following operations do not affect the audio device but are
+implemented in C for efficiency:
+\begin{description}
+\funcitem{amplify}{buf, f1, f2}
+%.br
+Amplifies a chunk of samples by a variable factor changing from
+{\tt f1}/256 to {\tt f2}/256.
+Negative factors are allowed.
+Resulting values that are to large to fit in a byte are clipped.
+\funcitem{reverse}{buf}
+%.br
+Returns a chunk of samples backwards.
+\funcitem{add}{buf1, buf2}
+%.br
+Bytewise adds two chunks of samples.
+Bytes that exceed the range are clipped.
+If one buffer shorter, it is assumed to be padded with zeros.
+\funcitem{chr2num}{buf}
+%.br
+Converts a string of sampled bytes as returned by {\tt read()} into
+a list containing the numeric values of the samples.
+\funcitem{num2chr}{list}
+%.br
+\begin{sloppypar}
+Converts a list as returned by
+{\tt chr2num()}
+back to a buffer acceptable by
+{\tt write()}.
+\end{sloppypar}
+\end{description}
+
+\subsection{Built-in Module {\tt gl}}
+
+This module provides access to the Silicon Graphics
+{\em Graphics Library}.
+It is available only on Silicon Graphics machines.
+
+{\bf Warning:}
+Some illegal calls to the GL library cause the {\Python} interpreter to dump
+core.
+In particular, the use of most GL calls is unsafe before the first
+window is opened.
+
+The module is too large to document here in its entirety, but the
+following should help you to get started.
+The parameter conventions for the C functions are translated to {\Python} as
+follows:
+
+\begin{itemize}
+\item
+All (short, long, unsigned) int values are represented by {\Python}
+integers.
+\item
+All float and double values are represented by {\Python} floating point
+numbers.
+In most cases, {\Python} integers are also allowed.
+\item
+All arrays are represented by one-dimensional {\Python} lists.
+In most cases, tuples are also allowed.
+\item
+\begin{sloppypar}
+All string and character arguments are represented by {\Python} strings,
+for instance,
+{\tt winopen('Hi~There!')}
+and
+{\tt rotate(900,~'z')}.
+\end{sloppypar}
+\item
+All (short, long, unsigned) integer arguments or return values that are
+only used to specify the length of an array argument are omitted.
+For example, the C call
+\bcode\begin{verbatim}
+lmdef(deftype, index, np, props)
+\end{verbatim}\ecode
+is translated to {\Python} as
+\bcode\begin{verbatim}
+lmdef(deftype, index, props)
+\end{verbatim}\ecode
+\item
+Output arguments are omitted from the argument list; they are
+transmitted as function return values instead.
+If more than one value must be returned, the return value is a tuple.
+If the C function has both a regular return value (that is not omitted
+because of the previous rule) and an output argument, the return value
+comes first in the tuple.
+Examples: the C call
+\bcode\begin{verbatim}
+getmcolor(i, &red, &green, &blue)
+\end{verbatim}\ecode
+is translated to {\Python} as
+\bcode\begin{verbatim}
+red, green, blue = getmcolor(i)
+\end{verbatim}\ecode
+\end{itemize}
+
+The following functions are non-standard or have special argument
+conventions:
+\begin{description}
+\funcitem{varray}{}
+Equivalent to but faster than a number of
+{\tt v3d()}
+calls.
+The argument is a list (or tuple) of points.
+Each point must be a tuple of coordinates (x, y, z) or (x, y).
+The points may be 2- or 3-dimensional but must all have the
+same dimension.
+Float and int values may be mixed however.
+The points are always converted to 3D double precision points
+by assuming z=0.0 if necessary (as indicated in the man page),
+and for each point
+{\tt v3d()}
+is called.
+\funcitem{nvarray}{}
+Equivalent to but faster than a number of
+{\tt n3f}
+and
+{\tt v3f}
+calls.
+The argument is an array (list or tuple) of pairs of normals and points.
+Each pair is a tuple of a point and a normal for that point.
+Each point or normal must be a tuple of coordinates (x, y, z).
+Three coordinates must be given.
+Float and int values may be mixed.
+For each pair,
+{\tt n3f()}
+is called for the normal, and then
+{\tt v3f()}
+is called for the point.
+\funcitem{vnarray}{}
+Similar to
+{\tt nvarray()}
+but the pairs have the point first and the normal second.
+\funcitem{nurbssurface}{s\_k[], t\_k[], ctl[][], s\_ord, t\_ord, type}
+%.br
+\itembreak
+Defines a nurbs surface.
+The dimensions of
+{\tt ctl[][]}
+are computed as follows:
+{\tt [len(s\_k)~-~s\_ord]},
+{\tt [len(t\_k)~-~t\_ord]}.
+\funcitem{nurbscurve}{knots, ctlpoints, order, type}
+%.br
+Defines a nurbs curve.
+The length of ctlpoints is
+{\tt len(knots)~-~order}.
+\funcitem{pwlcurve}{points, type}
+%.br
+Defines a piecewise-linear curve.
+{\tt points}
+is a list of points.
+{\tt type}
+must be
+{\tt N\_ST}.
+\funcitem{pick(n), select}{n}
+%.br
+The only argument to these functions specifies the desired size of the
+pick or select buffer.
+\funcitem{endpick(), endselect}{}
+%.br
+These functions have no arguments.
+They return a list of integers representing the used part of the
+pick/select buffer.
+No method is provided to detect buffer overrun.
+\end{description}
+
+Here is a tiny but complete example GL program in {\Python}:
+\bcode\begin{verbatim}
+import gl, GL, time
+
+def main():
+    gl.foreground()
+    gl.prefposition(500, 900, 500, 900)
+    w = gl.winopen('CrissCross')
+    gl.ortho2(0.0, 400.0, 0.0, 400.0)
+    gl.color(GL.WHITE)
+    gl.clear()
+    gl.color(GL.RED)
+    gl.bgnline()
+    gl.v2f(0.0, 0.0)
+    gl.v2f(400.0, 400.0)
+    gl.endline()
+    gl.bgnline()
+    gl.v2f(400.0, 0.0)
+    gl.v2f(0.0, 400.0)
+    gl.endline()
+    time.sleep(5)
+
+main()
+\end{verbatim}\ecode
+
+\subsection{Built-in Module {\tt pnl}}
+
+This module provides access to the
+{\em Panel Library}
+built by NASA Ames (to get it, send e-mail to
+{\tt panel-requ...@nas.nasa.gov}).
+All access to it should be done through the standard module
+{\tt panel},
+which transparantly exports most functions from
+{\tt pnl}
+but redefines
+{\tt pnl.dopanel()}.
+
+{\bf Warning:}
+the {\Python} interpreter will dump core if you don't create a GL window
+before calling
+{\tt pnl.mkpanel()}.
+
+The module is too large to document here in its entirety.

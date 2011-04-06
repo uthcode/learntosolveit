@@ -1,0 +1,11 @@
+This directory contains the source for the Python interpreter.
+
+To build the interpreter, edit the Makefile, follow the instructions
+there, and type "make python".
+
+To use the interpreter, you must set the environment variable PYTHONPATH
+to point to the directory containing the standard modules.  These are
+distributed as a sister directory called 'lib' of this source directory.
+Try importing the module 'testall' to see if everything works.
+
+Good Luck!

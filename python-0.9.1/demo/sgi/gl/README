@@ -1,0 +1,22 @@
+These demos run only on SGI machines and require the 'gl' built-in module.
+The demonstrate the abilities of SGI's GL library as well as the ease of
+GL programming in Python.  Most demos require the Z-buffer (aka
+24-bitplane) option.
+
+backface       Demonstrates the 'backface' GL function.
+
+kites          Show 3 flying kites.  Demonstrates the rendering speed
+               obtainable by Python programs.
+
+mclock         A colorful clock with more options than you can
+               remember.  Works on 8-bit machines (but allows more
+               colors on 24-bit machines).
+
+mixing         Demonstrates the effect of color mixing: through
+               frequent color switching it gives the effect of white
+               light.
+
+nurbs          A simple demonstration of the 'nurbs' GL functions.
+
+zrgb           Displays a 3-D Gouraud-shaded figure which can be moved
+               around with the mouse.

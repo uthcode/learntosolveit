@@ -1,0 +1,20 @@
+TMP=/usr/tmp/pytry$$
+trap 'rm -f $TMP; exit 1' 1 2 3 13 14 15
+
+cat $* >$TMP
+
+(
+    cat $TMP
+
+    sed '
+       s/^>>> //
+       s/^>>>$//
+       s/^\.\.\. //
+       s/^\.\.\.$//
+       ' $TMP |
+    python
+
+    echo '>>> '
+) 2>&1
+
+rm $TMP
