@@ -5,17 +5,89 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
-*urllib2-headers-eg-1.py* - On 12 Mar,2011.
+*PyObjectSize.py* - On 25 Mar,2011.
 
-.. literalinclude:: ../python/urllib2-headers-eg-1.py
+.. literalinclude:: ../python/PyObjectSize.py
    :linenos:
    :tab-width: 4
 
 ----
 
-*urllib-1.py* - On 09 Mar,2011.
+*sizeofobj.py* - On 25 Mar,2011.
+
+.. literalinclude:: ../python/sizeofobj.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*constant1.py* - On 25 Mar,2011.
+
+.. literalinclude:: ../python/constant1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*closure1.py* - On 25 Mar,2011.
+
+.. literalinclude:: ../python/closure1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*urllib-1.py* - On 25 Mar,2011.
 
 .. literalinclude:: ../python/urllib-1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*twisted4.py* - On 23 Mar,2011.
+
+.. literalinclude:: ../python/twisted4.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*unicode1.py* - On 22 Mar,2011.
+
+.. literalinclude:: ../python/unicode1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*ftpurl1.py* - On 19 Mar,2011.
+
+.. literalinclude:: ../python/ftpurl1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*urlretrive.py* - On 19 Mar,2011.
+
+.. literalinclude:: ../python/urlretrive.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*python3-meta-ex1.py* - On 16 Mar,2011.
+
+.. literalinclude:: ../python/python3-meta-ex1.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*urllib2-headers-eg-1.py* - On 12 Mar,2011.
+
+.. literalinclude:: ../python/urllib2-headers-eg-1.py
    :linenos:
    :tab-width: 4
 
@@ -117,14 +189,6 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*urllib2.-1.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/urllib2.-1.py
-   :linenos:
-   :tab-width: 4
-
-----
-
 *urllib2-test.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-test.py
@@ -208,6 +272,14 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-adddata.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-adddata.py
+   :linenos:
+   :tab-width: 4
+
+----
+
+*urllib2-1.py* - On 18 Feb,2011.
+
+.. literalinclude:: ../python/urllib2-1.py
    :linenos:
    :tab-width: 4
 

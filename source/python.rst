@@ -8,11 +8,7 @@ Python Notes
 Discussion on Bugs
 ==================
 
-* memoryview was creating a read-write object when using with a buffered IO
-  interface. 
 * test_bdb was failing due to non-ascii characters.  
-* test_urllib2 resource failing warning. 
-* Python does not exit with proper return code on SIGINT. 
 * test_trace is broken. 
 * Consistency in unittest assert methods.
 * FancyURLOpener is struct when trying to open a redirected url. 
@@ -107,9 +103,348 @@ Notes from Python3 article
 * You can assign None to any variable, but you can not create other NoneType
   objects.
 
-Question about pointers:
-http://stackoverflow.com/questions/5727/what-are-the-barriers-to-understanding-pointers-and-what-can-be-done-to-overcome/5754#5754
-http://stackoverflow.com/questions/143552/comparing-date-ranges/143568#143568
+Python Internals
+================
+
+Notes from the documentation at
+http://tech.blog.aknin.name/category/my-projects/pythons-innards/
+
+* Trying to explain Python's bytecode evaluation.
+
+* What happens when you do python -c "print('hello,world')"
+
+* Python’s binary is executed, the standard C library initialization which
+  pretty much any process does happens and then the main function starts
+  executing (see its source, ./Modules/python.c: main, which soon calls
+  ./Modules/main.c: Py_Main
+
+* After some mundane initialization stuff (parse arguments, see if environment
+  variables should affect behaviour, assess the situation of the standard
+  streams and act accordingly, etc), ./Python/pythonrun.c: Py_Initialize is
+  called.
+
+* In many ways, this function is what ‘builds’ and assembles together the
+  pieces needed to run the CPython machine and makes ‘a process’ into ‘a
+  process with a Python interpreter in it’. 
+
+* Among other things, it creates two very important Python data-structures: the
+  interpreter state and thread state. It also creates the built-in module sys
+  and the module which hosts all builtins. At a later post(s) we will cover all
+  these in depth.
+
+* It will execute a single string, since we invoked it with -c. To execute this
+  single string, ./Python/pythonrun.c: PyRun_SimpleStringFlags is called. This
+  function creates the __main__ namespace, which is ‘where’ our string will be
+  executed (if you run $ python -c 'a=1; print(a)', where is a stored? in this
+  namespace). After the namespace is created, the string is executed in it (or
+  rather, interpreted or evaluated in it). To do that, you must first transform
+  the string into something that machine can work on.
+
+* The parser/compiler stage of PyRun_SimpleStringFlags goes largely like this:
+  tokenize and create a Concrete Syntax Tree (CST) from the code, transorm the
+  CST into an Abstract Syntax Tree (AST) and finally compile the AST into a
+  code object using ./Python/ast.c: PyAST_FromNode.
+
+* The code object as a binary string of machine code that Python VM’s
+  ‘machinary’ can operate on – so now we’re ready to do interpretation (again,
+  evaluation in Python’s parlance).
+
+* We have an (almost) empty __main__, we have a code object, we want to
+  evaluate it. Now what? Now this line: Python/pythonrun.c: run_mod, v =
+  PyEval_EvalCode(co, globals, locals); does the trick. It receives a code
+  object and a namespace for globals and for locals (in this case, both of them
+  will be the newly created __main__ namespace), creates a frame object from
+  these and executes it.
+
+* You remember previously that I mentioned that Py_Initialize creates a thread
+  state, and that we’ll talk about it later? Well, back to that for a bit: each
+  Python thread is represented by its own thread state, which (among other
+  things) points to the stack of currently executing frames. After the frame
+  object is created and placed at the top of the thread state stack, it (or
+  rather, the byte code pointed by it) is evaluated, opcode by opcode, by means
+  of the (rather lengthy) ./Python/ceval.c: PyEval_EvalFrameEx.
+
+* PyEval_EvalFrameEx takes the frame, extracts opcode (and operands, if any,
+  we’ll get to that) after opcode, and executes a short piece of C code
+  matching the opcode. 
+
+Opcode looks like this.::
+
+        >>> from dis import dis # ooh! a handy disassembly function!
+        >>> co = compile("spam = eggs - 1", "<string>", "exec")
+        >>> dis(co)
+          1           0 LOAD_NAME                0 (eggs)
+                      3 LOAD_CONST               0 (1)
+                      6 BINARY_SUBTRACT
+                      7 STORE_NAME               1 (spam)
+                     10 LOAD_CONST               1 (None)
+                     13 RETURN_VALUE
+        >>>
+
+
+* You “load” the name eggs (where do you load it from? where do you load it to?
+  soon), and also load a constant value (1), then you do a “binary subtract”
+  (what do you mean ‘binary’ in this context? between which operands?), and so
+  on and so forth.
+
+* As you might have guessed, the names are “loaded” from the globals and locals
+  namespaces we’ve seen earlier, and they’re loaded onto an operand stack (not
+  to be confused with the stack of running frames), which is exactly where the
+  binary subtract will pop them from, subtract one from the other, and put the
+  result back on that stack. 
+
+* Look at PyEval_EvalFrameEx at ./Python/ceval.c 
+
+* The following piece of code is run when BINARY_SUBTRACT opcode is found.::
+
+        TARGET(BINARY_SUBTRACT)
+            w = POP();
+            v = TOP();
+            x = PyNumber_Subtract(v, w);
+            Py_DECREF(v);
+            Py_DECREF(w);
+            SET_TOP(x);
+            if (x != NULL) DISPATCH();
+            break;
+
+* After the frame is executed and PyRun_SimpleStringFlags returns, the main
+function does some cleanup (notably, Py_Finalize, which we’ll discuss), the
+standard C library deinitialization stuff is done (atexit, et al), and the
+process exits.
+
+* Objects are fundamental to the innards of python.
+
+* Objects are not very tightly coupled with anything else in Python.
+
+* Look at the implementation of objects as if they’re unrelated to the ‘rest’,
+  as if they’re a general purpose C API for creating an object subsystem. 
+
+* Maybe you will benefit from that line of thought, too: remember these are
+  just a bunch of structures and some functions to manipulate them.
+
+* Mostly everything in Python is an object, from integer to dictionaries, from
+  user defined classes to built-in ones, from stack frames to code objects. 
+
+* Given a pointer to a piece of memory, the very least you must expect of it to
+  treat it as an object are just a couple of fields defined in a C structure
+  called ./Objects/object.h: PyObject.::
+
+        typedef struct _object {
+            Py_ssize_t ob_refcnt;
+            struct _typeobject *ob_type;
+        } PyObject;
+
+* Many objects extend this structure to accommodate other variables required to
+  represent the object’s value, but these two fields must always exist: a
+  reference count and type (in special debug builds, a couple other esoteric
+  fields are added to track references).
+
+* The reference count is an integer which counts how many times the object is
+  referenced. >>> a = b = c = object() instantiates an empty object and binds
+  it to three different names: a, b and c.
+
+* Each of these names creates another reference to it even though the object is
+  allocated only once. Binding the object to yet another name or adding the
+  object to a list will create another reference – but will not create another
+  object!
+
+* There is much more to say about reference counting, but that’s less central
+  to the overall object system and more related to Garbage Collection. I’d
+  rather consider writing a separate post about that later than elaborate here,
+  we’ve a heady post ahead of us. 
+
+* We can now better understand the ./Objects/object.h: Py_DECREF macro we’ve
+  seen used in the introduction and didn’t know how to explain: It simply
+  decrements ob_refcnt (and initiates deallocation, if ob_refcnt hit zero).
+  That’s all we’ll say about reference counting for now.
+
+* ob_type, a pointer to an object’s type, a central piece of Python’s object model.
+
+* Every object has exactly one type, which never changes during the lifetime of the object.
+
+* Possibly most importantly, the type of an object (and only the type of an
+  object) determines what can be done with an object (see the collapsed snippet
+  at the end of this paragraph for a demonstration in code). 
+
+* When the interpreter evaluates the subtraction opcode, a single C function
+  (PyNumber_Subtract) will be called regardless of whether its operands are an
+  integer and an integer, an integer and a float or even something nonsensical
+  (subtract an exception from a dictionary).::
+
+        # n2w: the type, not the instance, determines what can be done with an instance
+        >>> class Foo(object):
+        ...     "I don't have __call__, so I can't be called"
+        ...
+        >>> class Bar(object):
+        ...     __call__ = lambda *a, **kw: 42
+        ...
+        >>> foo = Foo()
+        >>> bar = Bar()
+        >>> foo()
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        TypeError: 'Foo' object is not callable
+        >>> bar()
+        42
+        # will adding __call__ to foo help?
+        >>> foo.__call__ = lambda *a, **kw: 42
+        >>> foo()
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        TypeError: 'Foo' object is not callable
+        # how about adding it to Foo?
+        >>> Foo.__call__ = lambda *a, **kw: 42
+        >>> foo()
+        42
+        >>>
+
+* How can a single C function be used to handle any kind of object that is thrown at it? 
+
+* It can receive a void * pointer (actually it receives a PyObject * pointer,
+  which is also opaque insofar as the object’s data is concerned), but how will
+  it know how to manipulate the object it is given? 
+
+* In the object’s type lies the answer. A type is in itself a Python object (it
+  also has a reference count and a type of its own, the type of almost all
+  types is type), but in addition to the refcount and the type of the type,
+  there are many more fields in the C structure describing type objects.
+
+* This page has some information about types as well as type‘s structure’s
+  definition, which you can also find it at ./Include/object.h: PyTypeObject, I
+  suggest you refer to the definition occasionally as you read this post.
+
+* Many of the fields a type object has are called slots and they point to
+  functions (or to structures that point to a bunch of related functions).
+
+* These functions are what will actually be called when Python C-API functions
+  are invoked to operate on an object instantiated from that type.
+
+* So while you think you’re calling PyNumber_Subtract on both a, say, int and a
+  float, in reality what happens is that the types of it operands are
+  dereferenced and the type-specific subtraction function in the ‘subtraction’
+  slot is used. 
+
+* So we see that the C-API functions aren’t generic, but rather rely on types
+  to abstract the details away and appear as if they can work on anything
+  (valid work is also just to raise a TypeError).
+
+* PyNumber_Subtract calls a generic two-argument function called
+  ./Object/abstract.c: binary_op, and tells it to operate on the number-like
+  slot nb_subtract (similar slots exists for other functionality, like, say,
+  the number-like slot nb_negative or the sequence-like slot sq_length).
+  binary_op is an error-checking wrapper around binary_op1, the real ‘do work’
+  function. ./Objects/abstract.c: binary_op1 (an eye-opening read in itself)
+  receives BINARY_SUBTRACT‘s operands as v and w, and then tries to dereference
+  v->ob_type->tp_as_number, a structure pointing to many numeric slots which
+  represents how v can be used as a number.
+
+* binary_op1 will expect to find at tp_as_number->nb_subtract a C function that
+  will either do the subtraction or return the special value Py_NotImplemented,
+  to signal that these operands are ‘insubtracticable’ in relation to one
+  another (this will cause a TypeError exception to be raised).
+
+* If you want to change how objects behave, you can write an extension in C
+  which will statically define its own PyObjectType structure in code and fill
+  the slots away as you see fit. 
+
+* But when we create our own types in Python (make no mistake, >>> class
+  Foo(list): pass creates a new type, class and type are the same thing), we
+  don’t manually allocate a C structure and we don’t fill up its slots. 
+
+* How come these types behave just like built-in types? The answer is
+  inheritance, where typing plays a significant role. See, Python arrives with
+  some built-in types, like list or dict. As we said, these types have a
+  certain set of functions populating their slots and thus objects instantiated
+  from them behave in a certain way, like a mutable sequence of values or like
+  a mapping of keys to values.
+
+* When you define a new type in Python, a new C structure for that type is
+  dynamically allocated on the heap (like any other object) and its slots are
+  filled from whichever type it is inheriting, which is also called its base
+
+* Since the slots are copied over, the newly created sub-type has mostly
+  identical functionality to its base. Python also arrives with a featureless
+  base object type called object (PyBaseObject_Type in C), which has mostly
+  null slots and which you can extend without inheriting any particular
+  functionality.
+
+* You never really ‘create’ a type in pure Python, you always inherit one (if
+  you define a class without inheriting anything explicitly, you will
+  implicitly inherit object; in Python 2.x, not inheriting anything explicitly
+  leads to the creation of a so called ‘classic class’, which is out of our
+  scope).
+
+* Of course, you don’t have to inherit everything. You can, obviously, mutate
+  the behaviour of a type created in pure Python, as I’ve demonstrated in the
+  code snippet earlier in this post. By setting the special method __call__ on
+  our class Bar, I made instances of that class callable. Someone, sometime
+  during the creation of our class, noticed this __call__ method exists and
+  wired it into our newly created type’s tp_call slot.
+
+* ./Objects/typeobject.c: type_new, an elaborate and central function, is that
+  function. We shall revisit that function, at length, in “Objects 102″ (or
+  103, or 104…), but for now, let’s look at a small line right at the end after
+  the new type has been fully created and just before returning 
+  fixup_slot_dispatchers(type);. 
+ 
+* This function iterates over the correctly named methods defined for the newly
+  created type and wires them to the correct slots in the type’s structure,
+  based on their particular name.
+
+* Another thing remains unanswered in the sea of small details: we’ve
+  demonstrated already that setting the method __call__ on a type after it’s
+  created will also make objects instantiated from that type callable (even
+  objects already instantiated from that type)
+
+* Recall that a type is an object, and that the type of a type is type (if your
+  head is spinning, try: >>> class Foo(list): pass ; type(Foo)). 
+
+* So when we do stuff to a class, like calling a class, or subtracting a class,
+  or, indeed, setting an attribute on a class, what happens is that the class’
+  object’s ob_type member is dereferenced, finding that the class’ type is
+  type. 
+
+* Then the type->tp_setattro slot is used to do the actual attribute setting.
+  So a class, like an integer or a list can have its own attribute-setting
+  function. And the type-specific attribute-setting function
+  (./Objects/typeobject.c: type_setattro) calls the very same function that
+  fixup_slot_dispatchers uses to actually do the fixup work (update_one_slot)
+  after it has set a new attribute on a class. 
+
+* How does this code work?::
+
+        >>> a = object()
+        >>> class C(object): pass
+        ...
+        >>> b = C()
+        >>> a.foo = 5
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AttributeError: 'object' object has no attribute 'foo'
+        >>> b.foo = 5
+        >>>
+
+* How I can set an arbitrary attribute to b, which is an instance of C, which
+  is a class inheriting object and not changing anything, and yet I can’t do
+  the same with a, an instance of that very same object?
+
+* Some wise crackers can say: b has a __dict__ and a doesn’t, and that’s true,
+  but where in Guido’s name did this new (and totally non-trivial!)
+  functionality come from if I didn’t inherit it?!
+
+
+Python Questions (With Answers)
+===============================
+
+* What is a memoryview object?
+
+A memoryview object exposes the C level buffer interface as a Python object
+which can then be passed around like any other object.  
+
+class memoryview(obj) - Create a memoryview that references obj. obj must
+support the buffer protocol.  Built-in objects that support the buffer protocol
+include bytes and bytearray.
+
 
 Links
 =====
@@ -217,14 +552,17 @@ they can add keys to the dictionary (e.g., quixote.request for a Quixote-style
 Request object). Outbound they can modify HTTP headers or translate the body
 into Latin or Marklar. Here's a small middleware:
 
-class LowercaseMiddleware:
-    def __init__(self, application):
-        self.application = application   # A WSGI application callable.
+:: 
 
-    def __call__(self, environ, start_response):
-        pass  # We could set an item in 'environ' or a local variable.
-        for chunk in self.application(environ, start_response):
-            yield chunk.lower()
+        class LowercaseMiddleware:
+            def __init__(self, application):
+                self.application = application   # A WSGI application callable.
+
+            def __call__(self, environ, start_response):
+                pass  # We could set an item in 'environ' or a local variable.
+                for chunk in self.application(environ, start_response):
+                    yield chunk.lower()
+
 Assuming we had a server constructor Server, we could do:
 
 app = LowercaseMiddleware(app2)
@@ -687,13 +1025,10 @@ New in Python 2.5.
 
      .. container:: spoken
 
-        |==>|
 
    * or import the ``defaultdict`` name directly:
 
      .. container:: spoken
-
-        |==>|
 
 .. class:: incremental
 
@@ -2089,9 +2424,9 @@ The RFC which explains UTF-8
            UTF8-char   = UTF8-1 / UTF8-2 / UTF8-3 / UTF8-4
            UTF8-1      = %x00-7F
            UTF8-2      = %xC2-DF UTF8-tail
-           UTF8-3      = %xE0 %xA0-BF UTF8-tail / %xE1-EC 2( UTF8-tail ) /
+           UTF8-3      = %xE0 %xA0-BF UTF8-tail / %xE1-EC 2( UTF8-tail )/ 
                          %xED %x80-9F UTF8-tail / %xEE-EF 2( UTF8-tail )
-           UTF8-4      = %xF0 %x90-BF 2( UTF8-tail ) / %xF1-F3 3( UTF8-tail ) /
+           UTF8-4      = %xF0 %x90-BF 2( UTF8-tail ) / %xF1-F3 3( UTF8-tail )/
                          %xF4 %x80-8F 2( UTF8-tail )
            UTF8-tail   = %x80-BF
 
