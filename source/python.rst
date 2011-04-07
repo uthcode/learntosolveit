@@ -8,9 +8,6 @@ Python Notes
 Discussion on Bugs
 ==================
 
-* test_bdb was failing due to non-ascii characters.  
-* test_trace is broken. 
-* Consistency in unittest assert methods.
 * FancyURLOpener is struct when trying to open a redirected url. 
 * ZipFile with encoded file name has some problems. 
 * peephole optimizer to reverse store/unstore instead of pack/unpack. 
@@ -48,6 +45,8 @@ Discussion on Bugs
 * [issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
 * Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
+---- 
+
 Notes from Python3 article
 ==========================
 
@@ -71,8 +70,8 @@ Notes from Python3 article
 
 * Floating point numbers are accurate to 15 decimal places.
 
-* For lists in python, a better analogy would be to the ArrayList class, which
-  can hold arbitrary objects and can expand dynamically as new items are added.
+* For lists in python, a better analogy would be the ArrayList class, which can
+  hold arbitrary objects and can expand dynamically as new items are added.
 
 * If the negative index is confusing to you, think of it this way: a_list[-n]
   == a_list[len(a_list) - n]. So in this list, a_list[-3] == a_list[5 - 3] ==
@@ -103,6 +102,8 @@ Notes from Python3 article
 * You can assign None to any variable, but you can not create other NoneType
   objects.
 
+---- 
+
 Python Internals
 ================
 
@@ -111,12 +112,12 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
 
 * Trying to explain Python's bytecode evaluation.
 
-* What happens when you do python -c "print('hello,world')"
+* What happens when you do ``python -c "print('hello,world')"``
 
 * Python’s binary is executed, the standard C library initialization which
   pretty much any process does happens and then the main function starts
-  executing (see its source, ./Modules/python.c: main, which soon calls
-  ./Modules/main.c: Py_Main
+  executing (see its source, ``./Modules/python.c: main``, which soon calls
+  ``./Modules/main.c: Py_Main``
 
 * After some mundane initialization stuff (parse arguments, see if environment
   variables should affect behaviour, assess the situation of the standard
@@ -141,7 +142,7 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
   the string into something that machine can work on.
 
 * The parser/compiler stage of PyRun_SimpleStringFlags goes largely like this:
-  tokenize and create a Concrete Syntax Tree (CST) from the code, transorm the
+  tokenize and create a Concrete Syntax Tree (CST) from the code, transform the
   CST into an Abstract Syntax Tree (AST) and finally compile the AST into a
   code object using ./Python/ast.c: PyAST_FromNode.
 
@@ -249,9 +250,7 @@ process exits.
   object!
 
 * There is much more to say about reference counting, but that’s less central
-  to the overall object system and more related to Garbage Collection. I’d
-  rather consider writing a separate post about that later than elaborate here,
-  we’ve a heady post ahead of us. 
+  to the overall object system and more related to Garbage Collection. 
 
 * We can now better understand the ./Objects/object.h: Py_DECREF macro we’ve
   seen used in the introduction and didn’t know how to explain: It simply
@@ -263,8 +262,7 @@ process exits.
 * Every object has exactly one type, which never changes during the lifetime of the object.
 
 * Possibly most importantly, the type of an object (and only the type of an
-  object) determines what can be done with an object (see the collapsed snippet
-  at the end of this paragraph for a demonstration in code). 
+  object) determines what can be done with an object.
 
 * When the interpreter evaluates the subtraction opcode, a single C function
   (PyNumber_Subtract) will be called regardless of whether its operands are an
@@ -382,10 +380,8 @@ process exits.
   wired it into our newly created type’s tp_call slot.
 
 * ./Objects/typeobject.c: type_new, an elaborate and central function, is that
-  function. We shall revisit that function, at length, in “Objects 102″ (or
-  103, or 104…), but for now, let’s look at a small line right at the end after
-  the new type has been fully created and just before returning 
-  fixup_slot_dispatchers(type);. 
+  function. Let’s look at a small line right at the end after the new type has
+  been fully created and just before returning fixup_slot_dispatchers(type);. 
  
 * This function iterates over the correctly named methods defined for the newly
   created type and wires them to the correct slots in the type’s structure,
@@ -429,22 +425,52 @@ process exits.
   the same with a, an instance of that very same object?
 
 * Some wise crackers can say: b has a __dict__ and a doesn’t, and that’s true,
-  but where in Guido’s name did this new (and totally non-trivial!)
-  functionality come from if I didn’t inherit it?!
+  but how did this new (and totally non-trivial!) functionality come from if I
+  didn’t inherit it?!
 
 
 Python Questions (With Answers)
 ===============================
 
-* What is a memoryview object?
+*1.What is a memoryview object?*
 
-A memoryview object exposes the C level buffer interface as a Python object
-which can then be passed around like any other object.  
+        A memoryview object exposes the C level buffer interface as a Python object
+        which can then be passed around like any other object.  
 
-class memoryview(obj) - Create a memoryview that references obj. obj must
-support the buffer protocol.  Built-in objects that support the buffer protocol
-include bytes and bytearray.
+        class memoryview(obj) - Create a memoryview that references obj. obj must
+        support the buffer protocol.  Built-in objects that support the buffer protocol
+        include bytes and bytearray.
 
+
+*2. What does the trace.py module do?*
+
+        It helps in tracing the python program or function execution. It helps in
+        determining the coverage of code.  Like trace through the program execution
+        details, determine how many times a particular line was visited, etc.
+        The usage is simple, do python trace.py --trace hello.py
+
+
+*3. If I want to build python from source in Ubuntu, what packages will make it
+build completely?*
+
+        These are the packages which will help you build python completely, that is
+        dependencies satisfied for all the modules.
+
+        :: 
+
+                sudo apt-get install libssl-dev libreadline-dev libgdbm-dev \
+                tk-dev tk-tile libsqlite3-dev libdb4.7-dev libbz2-dev
+
+
+*4. How do I see the System Calls when a Python program is executed?*
+
+        By using strace. strace is a Linux command line utility that traces the
+        system calls.::
+
+                $strace python 1.py
+
+        What is spitted out is an enormous amout of details on the system calls
+        which are executed when running this program.
 
 Links
 =====
@@ -475,37 +501,6 @@ Python Internals
 
 1. Objects - When accessing the attribute of an object, the attribute is got from the namespace.
 2. There is a difference between dict proxy and a dict.
-
-
-Dependencies to Install in Ubuntu for a full Python Interpreter
----------------------------------------------------------------
-
-:: 
-
-        sudo apt-get install libssl-dev libreadline-dev libgdbm-dev tk-dev tk-tile libsqlite3-dev libdb4.7-dev libbz2-dev
-
-
-How do see the system calls?
-----------------------------
-
-By using strace. strace is a Linux command line utility that traces the system calls.
-You can create a program like this:
-
-::
-
-        $cat 1.py
-        print 'hello'
-
-And run the strace using using following syntax
-
-::
-
-        $strace python 1.py
-
-
-What is spitted out is an enormous amout of details on the system calls which
-are executed when running this program.
-
 
 WSGI
 ----
@@ -586,7 +581,6 @@ on top of other frameworks or even be emulated by them. Ideally, existing
 applications would run unchanged or with minimal changes. But this is also a
 time for framework developers to rethink how they're doing things and perhaps
 switch to more middleware-friendly APIs.
-
 
 Guido's approach to Web Framework in his blog post "Teach me Web Framework"
 
