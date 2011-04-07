@@ -437,7 +437,7 @@ Opcode looks like this.::
 Python Questions (With Answers)
 ===============================
 
-*1.What is a memoryview object?*
+**1.What is a memoryview object?**
 
         A memoryview object exposes the C level buffer interface as a Python object
         which can then be passed around like any other object.  
@@ -447,7 +447,7 @@ Python Questions (With Answers)
         include bytes and bytearray.
 
 
-*2. What does the trace.py module do?*
+**2. What does the trace.py module do?**
 
         It helps in tracing the python program or function execution. It helps in
         determining the coverage of code.  Like trace through the program execution
@@ -455,8 +455,8 @@ Python Questions (With Answers)
         The usage is simple, do python trace.py --trace hello.py
 
 
-*3. If I want to build python from source in Ubuntu, what packages will make it
-build completely?*
+**3. If I want to build python from source in Ubuntu, what packages will make it
+build completely?**
 
         These are the packages which will help you build python completely, that is
         dependencies satisfied for all the modules.
@@ -467,7 +467,7 @@ build completely?*
                 tk-dev tk-tile libsqlite3-dev libdb4.7-dev libbz2-dev
 
 
-*4. How do I see the System Calls when a Python program is executed?*
+**4. How do I see the System Calls when a Python program is executed?**
 
         By using strace. strace is a Linux command line utility that traces the
         system calls.::
@@ -477,7 +477,7 @@ build completely?*
         What is spitted out is an enormous amout of details on the system calls
         which are executed when running this program.
 
-*5. What is a defaultdict?*
+**5. What is a defaultdict?**
 
         A defaultdict is a dictionary which will return default values for missing
         keys. When you create a defaultdict, you provide a factory function, which will
@@ -508,6 +508,105 @@ build completely?*
                 >>> c['red'] += 1
                 >>> c['red']
                 1
+
+
+**7. What is special with and and or operators in python?.**
+
+        ``and`` returns the right operand if the left is true. 
+        ``or`` returns the right operand if the left is false.
+        Otherwise they both return the left operand. They are said to coalesce
+
+
+**8. What is the difference between a bytes string and a unicode?**
+
+        Byte string is the 8 bit string. Unicode is not a 8 bit string. Unicode
+        strings are a new generation of strings in themselves.
+
+
+**9. What is difference between the terms iterable and iterator?**
+
+        Iterator generally points to a single instance in a collection.
+        Iterable implies that one may obtain an iterator from an object to traverse
+        over its elements - and there's no need to iterate over a single instance,
+        which is what an iterator represents.
+
+        A collection is iterable. An iterator is not iterable because it's not a
+        collection.::
+
+                >>> hasattr('lol','__next__')
+                False
+                >>> import collections
+                >>> isinstance('lol',collections.Iterable)
+                True
+                >>> for i in 'lol':
+                ...     print(i)
+                ...
+                l
+                o
+                l
+                >>> hasattr('lol','__iter__')
+                True
+
+        A string is a sequence (isinstance('', Sequence) == True) and as any sequence
+        it is iterable (isinstance('', Iterable)). Though hasattr('', '__iter__') ==
+        False and it might be confusing. 
+
+**10. How do you extending Python?**
+
+        To support extensions, the Python API (Application Programmers Interface)
+        defines a set of functions, macros and variables that provide access to most
+        aspects of the Python run-time system. The Python API is incorporated in a C
+        source file by including the header "Python.h".
+
+**11. How is the Python Private methods and Attributes handled?**
+
+        They are handled by name mangling.
+
+        ::
+
+                >>> class Foo(object):
+                ...     def __init__(self):
+                ...         self.__baz = 42
+                ...     def foo(self):
+                ...         print self.__baz
+                ...     
+                >>> class Bar(Foo):
+                ...     def __init__(self):
+                ...         super(Bar, self).__init__()
+                ...         self.__baz = 21
+                ...     def bar(self):
+                ...         print self.__baz
+                ...
+                >>> x = Bar()
+                >>> x.foo()
+                42
+                >>> x.bar()
+                21
+                >>> print x.__dict__
+                {'_Bar__baz': 21, '_Foo__baz': 42}
+
+
+**12. What is Global Interpretor Lock?**
+
+        Global Interpretor lock is used to protect the Python Objects from being
+        modified by multiple threads at once. To keep multiple threads running, the
+        interpretor automatically releases and reaquires the lock at regular intervals.
+        It also does this around potentially slow or blocking low level operations,
+        such a file and network I/O.  This is used internally to ensure that only one
+        thread runs in the Python VM at a time. Python offers to switch amongst threads
+        only between bytecode instructions. Each bytecode instruction and all C
+        implemented function is atomic from Python program's point of view.
+
+**13. Different types of concurrency models?**
+
+        * Java and C# uses shared memory concurrency model with locking provided by
+          monitors. Message passing concurrency model have been implemented on top of
+          the existing shared memory concurrency model.
+        * Erlang uses message passing concurrency model.
+        * Alice Extensions to Standard ML supports concurrency via Futures.
+        * Cilk is concurrent C.
+        * The Actor Model.
+        * Petri Net Model.
 
 
 Links
@@ -664,122 +763,6 @@ server, and find out how the framework exposes an "application" object to be
 run by the gateway.
 
 
-and or operators
-----------------
-
-and returns the right operand if the left is true. or returns the right operand
-if the left is false. Otherwise they both return the left operand. They are
-said to coalesce
-
-Iterable and Iterator
----------------------
-
-Because an iterator generally points to a single instance in a collection.
-Iterable implies that one may obtain an iterator from an object to traverse
-over its elements - and there's no need to iterate over a single instance,
-which is what an iterator represents.
-
-+1: A collection is iterable. An iterator is not iterable because it's not a
-collection.
-
-I will have to get this right - sockets accept only binary strings, not unicode.
-
->>> hasattr('lol','__next__')
-False
->>> import collections
->>> isinstance('lol',collections.Iterable)
-True
->>> for i in 'lol':
-...     print(i)
-...
-l
-o
-l
->>> hasattr('lol','__iter__')
-True
-
-
-Basically, this whole patch (both parts of it) will be much better off iif
-there is a clean way to say "a is an iterable but a is not a sequence", because
-even though b'this is a message' is Iterable, we want to treat it differently
-compared to, say, a generator object; we do NOT want to use the Iterator
-features (iter, next) of it, we want to use the sequencey features (by sending
-the whole chunk of it, by calling len)
-
----
-
-A string is a sequence (isinstance('', Sequence) == True) and as any sequence
-it is iterable (isinstance('', Iterable)). Though hasattr('', '__iter__') ==
-False and it might be confusing. 
-
----
-
-1. What is the difference between a bytes string and a unicode.
-
-Byte string is the 8 bit string. Unicode is not a 8 bit string. Unicode strings
-are a new generation of strings in themselves.
-
-
-OpenerDirector
---------------
-
-handlers is a list.
-handle_open is a dictionary.
-handle_error is a dictionary.
-process_request is a dictionary.
-process_response is a dictionary.
-
-When handlers are getting added, it should not have attribute called
-add_parent.
-For each handler don't add the methods redirect_request, do_open, proxy_open
-
-The methods which are like _error, _open, _request, _response are handled in a
-special manner.  The error, open and response are called conditions.  And the
-terms preceding them are called protocol.
-
-When it is an error condition, some magic is done to find it's kind. The error
-kind could have been got from the error_XXX, but instead, it the position is
-determined and then it is extraced from the method name. Surprisingly, kind is
-not used in the error block. Instead, in the OpenerDirector's handle_error
-dictionary, for the protocol, which got an _error, a key is added, the value is
-initially {}.
-
-If the condition is _open, the kind is the protocol and the lookup is handle_open dictionary.
-If the condition is _request, the kind is the protocol and the lookup process_request dictionary.
-If the condition is _response, the kind is the protocol and the lookup is process_response.
-
-Why is it that redirect_request, do_open and proxy_open are not handled.
-
-Because it is a for loop on the methods of the handler, the kind and the lookup
-is set at the end and it could be either for error, open, request or response.
-But within the for loop, the handler having those methods is added. It is
-bisect.insorted and then, again, it is bisect.insorted for all the handlers.
-
-So, it seems that for that portion of the code, the appropriate handlers are
-added. That is all.
-
-What happens is, for any of these dictionaries, if it is an error, open,
-request or response, dictionary method's setdefault is called for that protocol
-
-There is a doubt when added=True comes in, handlers is list of all handlers is
-added.
-
-What's an add_unredirectedheader doing and what is it's purpose?  What is
-self._call_chain's behavior?  The redirect_cache was not setting in, because
-the object's parent method was calling and entirely new request, forgetting
-about the current request. When made a change that request object is carrying
-the information about the redirect, the cache hit was observed. Something along
-the same lines would be good.
-
-
-
-Extending Python
-----------------
-* To support extensions, the Python API (Application Programmers Interface)
-  defines a set of functions, macros and variables that provide access to most
-  aspects of the Python run-time system. The Python API is incorporated in a C
-  source file by including the header "Python.h".
-
 Bytes in API
 ------------
 
@@ -788,34 +771,6 @@ Bytes in API
 * PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
 * Issue4661
 
-
-How is the Python Private methods and Attributes handled?
----------------------------------------------------------
-
-They are handled by name mangling.
-
-::
-
-        >>> class Foo(object):
-        ...     def __init__(self):
-        ...         self.__baz = 42
-        ...     def foo(self):
-        ...         print self.__baz
-        ...     
-        >>> class Bar(Foo):
-        ...     def __init__(self):
-        ...         super(Bar, self).__init__()
-        ...         self.__baz = 21
-        ...     def bar(self):
-        ...         print self.__baz
-        ...
-        >>> x = Bar()
-        >>> x.foo()
-        42
-        >>> x.bar()
-        21
-        >>> print x.__dict__
-        {'_Bar__baz': 21, '_Foo__baz': 42}
 
 Unicode Characters
 ------------------
@@ -934,6 +889,7 @@ Long Strings
        single
        quotes\
        '''
+
 * In the last example above (triple single quotes), note how the backslashes
   are used to escape the newlines.  This eliminates extra newlines, while
   keeping the text and quotes nicely left-justified.  The backslashes must be
@@ -1017,85 +973,6 @@ Dictionary ``setdefault`` Method (2)
    we ignore it here.  We're taking advantage of ``setdefault``'s side
    effect, that it sets the dictionary value only if there is no value
    already.
-
-
-``defaultdict``
-===============
-
-New in Python 2.5.
-
-.. container:: handout
-
-   ``defaultdict`` is new in Python 2.5, part of the ``collections``
-   module.  ``defaultdict`` is identical to regular dictionaries,
-   except for two things:
-
-   * it takes an extra first argument: a default factory function; and
-   * when a dictionary key is encountered for the first time, the
-     default factory function is called and the result used to
-     initialize the dictionary value.
-
-   There are two ways to get ``defaultdict``:
-
-   * import the ``collections`` module and reference it via the
-     module,
-
-     .. container:: spoken
-
-
-   * or import the ``defaultdict`` name directly:
-
-     .. container:: spoken
-
-.. class:: incremental
-
-   ::
-
-       import collections
-       d = collections.defaultdict(...)
-
-   ::
-
-       from collections import defaultdict
-       d = defaultdict(...)
-
-.. container:: handout
-
-   Here's the example from earlier, where each dictionary value must
-   be initialized to an empty list, rewritten as with ``defaultdict``:
-
-.. class:: incremental
-
-   ::
-
-       from collections import defaultdict
-
-       equities = defaultdict(list)
-       for (portfolio, equity) in data:
-           equities[portfolio].append(equity)
-
-.. container:: handout
-
-   There's no fumbling around at all now.  In this case, the default
-   factory function is ``list``, which returns an empty list.
-
-   This is how to get a dictionary with default values of 0: use
-   ``int`` as a default factory function:
-
-.. class:: incremental
-
-   ::
-
-       navs = defaultdict(int)
-       for (portfolio, equity, position) in data:
-           navs[portfolio] += position * prices[equity]
-
-.. container:: handout
-
-   You should be careful with ``defaultdict`` though.  You cannot get
-   ``KeyError`` exceptions from properly initialized ``defaultdict``
-   instances.  You have to use a "key in dict" conditional if you need
-   to check for the existence of a specific key.
 
 
 Building & Splitting Dictionaries
@@ -1252,6 +1129,7 @@ get a default list (or dictionary, or set) is to create it at run time instead,
                a_list = []
            a_list.append(new_item)
            return a_list
+
 
 Advanced % String Formatting
 ============================
@@ -1709,33 +1587,6 @@ In other words, keep your programs simple!
 
 * "Python Idioms", http://www.gungfu.de/facts/wiki/Main/PythonIdioms
 
-print as a function in python3.
-New string model
-classic class vs new style class and everything is new style class.
-Updated Syntax for Exceptions
-Improved Exception Handling Mechanism,
-Chaging the Division Operator.
-True Division PEP 238
-New Binary Literals, bin, oct and hex
-Dictionary methods PEP 3106
-Type Updates and io class ( PEP 3116)
-Dictionary Comprehensions
-set comprehensions
-tuple methods - count and index.
-Changes to reserved keywords.
-removed - print and exec
-added - as, with, nonlocal, True and False
-
-Changes to Operators.
-Removed <> and backticks
-Added - bytes, bytearray and range
-Removed - basestring, buffer, file, long, unicode and xrange
-
-use of 2to3 tool.
-
-Python 2.6 status and Python 2.7 plan.
-Python 3.1 status and further plans.
-
 urllib 
 ======
 
@@ -1791,6 +1642,58 @@ each class and handler -> OpenerDirector.open() method on the composite object.
 -> Request -> returns stateful url -> protocol_request is called -> _open ->
 and protocol_response is called and returned. The handler is invoked in the
 specific order as specified by the Handler attribute.
+
+OpenerDirector
+--------------
+
+handlers is a list.
+handle_open is a dictionary.
+handle_error is a dictionary.
+process_request is a dictionary.
+process_response is a dictionary.
+
+When handlers are getting added, it should not have attribute called
+add_parent.
+For each handler don't add the methods redirect_request, do_open, proxy_open
+
+The methods which are like _error, _open, _request, _response are handled in a
+special manner.  The error, open and response are called conditions.  And the
+terms preceding them are called protocol.
+
+When it is an error condition, some magic is done to find it's kind. The error
+kind could have been got from the error_XXX, but instead, it the position is
+determined and then it is extraced from the method name. Surprisingly, kind is
+not used in the error block. Instead, in the OpenerDirector's handle_error
+dictionary, for the protocol, which got an _error, a key is added, the value is
+initially {}.
+
+If the condition is _open, the kind is the protocol and the lookup is handle_open dictionary.
+If the condition is _request, the kind is the protocol and the lookup process_request dictionary.
+If the condition is _response, the kind is the protocol and the lookup is process_response.
+
+Why is it that redirect_request, do_open and proxy_open are not handled.
+
+Because it is a for loop on the methods of the handler, the kind and the lookup
+is set at the end and it could be either for error, open, request or response.
+But within the for loop, the handler having those methods is added. It is
+bisect.insorted and then, again, it is bisect.insorted for all the handlers.
+
+So, it seems that for that portion of the code, the appropriate handlers are
+added. That is all.
+
+What happens is, for any of these dictionaries, if it is an error, open,
+request or response, dictionary method's setdefault is called for that protocol
+
+There is a doubt when added=True comes in, handlers is list of all handlers is
+added.
+
+What's an add_unredirectedheader doing and what is it's purpose?  What is
+self._call_chain's behavior?  The redirect_cache was not setting in, because
+the object's parent method was calling and entirely new request, forgetting
+about the current request. When made a change that request object is carrying
+the information about the redirect, the cache hit was observed. Something along
+the same lines would be good.
+
 
 In order to setup a password for your apache based site, in the
 /var/www/.htaccess file specify the username and password as senthil:senthil
@@ -2493,35 +2396,6 @@ Typing Unicode and maths symbols on gnome-terminal
 
 Unicode code point chart:
 http://inamidst.com/stuff/unidata/
-
-What is Global Interpretor Lock?
-================================
-
-Global Interpretor lock is used to protect the Python Objects from being
-modified by multiple threads at once. To keep multiple threads running, the
-interpretor automatically releases and reaquires the lock at regular intervals.
-It also does this around potentially slow or blocking low level operations,
-such a file and network I/O.  This is used internally to ensure that only one
-thread runs in the Python VM at a time. Python offers to switch amongst threads
-only between bytecode instructions. Each bytecode instruction and all C
-implemented function is atomic from Python program's point of view.
-
-Different types of concurrency models
-=====================================
-
-* Java and C# uses shared memory concurrency model with locking provided by
-  monitors. Message passing concurrency model have been implemented on top of
-  the existing shared memory concurrency model.
-
-* Erlang uses message passing concurrency model.
-
-* Alice Extensions to Standard ML supports concurrency via Futures.
-
-* Cilk is concurrent C.
-
-* The Actor Model.
-
-* Petri Net Model.
 
 Some History of Inter Process Communication
 ===========================================
