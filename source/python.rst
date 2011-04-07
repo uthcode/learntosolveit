@@ -20,7 +20,7 @@ Discussion on Bugs
 * REMOTE_USER collision in wsgiref, the bug was withdrawn. 
 * What is a _weakref.proxy?  
 * os.getpriority and os.setpriority ? 
-* When to ues the PY_BEGIN_THREAD and PY_END_THREAD. 
+* When to use the PY_BEGIN_THREAD and PY_END_THREAD. 
 * parser should store the file name as unicode object. 
 * What is the difference between UTF-8 and unicode. 
 * test_concurrent futures was failing on FreeBSD, a reboot can help if it has
@@ -121,7 +121,7 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
 
 * After some mundane initialization stuff (parse arguments, see if environment
   variables should affect behaviour, assess the situation of the standard
-  streams and act accordingly, etc), ./Python/pythonrun.c: Py_Initialize is
+  streams and act accordingly, etc), ``./Python/pythonrun.c: Py_Initialize`` is
   called.
 
 * In many ways, this function is what ‘builds’ and assembles together the
@@ -134,39 +134,39 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
   these in depth.
 
 * It will execute a single string, since we invoked it with -c. To execute this
-  single string, ./Python/pythonrun.c: PyRun_SimpleStringFlags is called. This
-  function creates the __main__ namespace, which is ‘where’ our string will be
-  executed (if you run $ python -c 'a=1; print(a)', where is a stored? in this
+  single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called. This
+  function creates the ``__main__`` namespace, which is ‘where’ our string will be
+  executed (if you run ``$python -c 'a=1; print(a)'``, where is a stored? in this
   namespace). After the namespace is created, the string is executed in it (or
   rather, interpreted or evaluated in it). To do that, you must first transform
   the string into something that machine can work on.
 
-* The parser/compiler stage of PyRun_SimpleStringFlags goes largely like this:
-  tokenize and create a Concrete Syntax Tree (CST) from the code, transform the
-  CST into an Abstract Syntax Tree (AST) and finally compile the AST into a
-  code object using ./Python/ast.c: PyAST_FromNode.
+* The parser/compiler stage of ``PyRun_SimpleStringFlags`` goes largely like
+  this: tokenize and create a Concrete Syntax Tree (CST) from the code,
+  transform the CST into an Abstract Syntax Tree (AST) and finally compile the
+  AST into a code object using ``./Python/ast.c: PyAST_FromNode``.
 
 * The code object as a binary string of machine code that Python VM’s
   ‘machinary’ can operate on – so now we’re ready to do interpretation (again,
   evaluation in Python’s parlance).
 
-* We have an (almost) empty __main__, we have a code object, we want to
-  evaluate it. Now what? Now this line: Python/pythonrun.c: run_mod, v =
-  PyEval_EvalCode(co, globals, locals); does the trick. It receives a code
+* We have an (almost) empty ``__main__``, we have a code object, we want to
+  evaluate it. Now what? Now this line: ``Python/pythonrun.c: run_mod, v =
+  PyEval_EvalCode(co, globals, locals);`` does the trick. It receives a code
   object and a namespace for globals and for locals (in this case, both of them
-  will be the newly created __main__ namespace), creates a frame object from
-  these and executes it.
+  will be the newly created ``__main__`` namespace), creates a frame object
+  from these and executes it.
 
-* You remember previously that I mentioned that Py_Initialize creates a thread
-  state, and that we’ll talk about it later? Well, back to that for a bit: each
-  Python thread is represented by its own thread state, which (among other
-  things) points to the stack of currently executing frames. After the frame
-  object is created and placed at the top of the thread state stack, it (or
-  rather, the byte code pointed by it) is evaluated, opcode by opcode, by means
-  of the (rather lengthy) ./Python/ceval.c: PyEval_EvalFrameEx.
+* You remember previously that I mentioned that ``Py_Initialize`` creates a
+  thread state, and that we’ll talk about it later? Well, back to that for a
+  bit: each Python thread is represented by its own thread state, which (among
+  other things) points to the stack of currently executing frames. After the
+  frame object is created and placed at the top of the thread state stack, it
+  (or rather, the byte code pointed by it) is evaluated, opcode by opcode, by
+  means of the (rather lengthy) ``./Python/ceval.c: PyEval_EvalFrameEx``.
 
-* PyEval_EvalFrameEx takes the frame, extracts opcode (and operands, if any,
-  we’ll get to that) after opcode, and executes a short piece of C code
+* ``PyEval_EvalFrameEx`` takes the frame, extracts opcode (and operands, if
+  any, we’ll get to that) after opcode, and executes a short piece of C code
   matching the opcode. 
 
 Opcode looks like this.::
@@ -184,9 +184,9 @@ Opcode looks like this.::
 
 
 * You “load” the name eggs (where do you load it from? where do you load it to?
-  soon), and also load a constant value (1), then you do a “binary subtract”
-  (what do you mean ‘binary’ in this context? between which operands?), and so
-  on and so forth.
+  soon), and also load a constant value (1), then you do a ``“binary
+  subtract”`` (what do you mean ‘binary’ in this context? between which
+  operands?), and so on and so forth.
 
 * As you might have guessed, the names are “loaded” from the globals and locals
   namespaces we’ve seen earlier, and they’re loaded onto an operand stack (not
@@ -194,7 +194,7 @@ Opcode looks like this.::
   binary subtract will pop them from, subtract one from the other, and put the
   result back on that stack. 
 
-* Look at PyEval_EvalFrameEx at ./Python/ceval.c 
+* Look at ``PyEval_EvalFrameEx at ./Python/ceval.c``
 
 * The following piece of code is run when BINARY_SUBTRACT opcode is found.::
 
@@ -208,10 +208,10 @@ Opcode looks like this.::
             if (x != NULL) DISPATCH();
             break;
 
-* After the frame is executed and PyRun_SimpleStringFlags returns, the main
-function does some cleanup (notably, Py_Finalize, which we’ll discuss), the
-standard C library deinitialization stuff is done (atexit, et al), and the
-process exits.
+* After the frame is executed and ``PyRun_SimpleStringFlags`` returns, the main
+  function does some cleanup (notably, Py_Finalize, which we’ll discuss), the
+  standard C library deinitialization stuff is done (atexit, et al), and the
+  process exits.
 
 * Objects are fundamental to the innards of python.
 
@@ -228,7 +228,7 @@ process exits.
 
 * Given a pointer to a piece of memory, the very least you must expect of it to
   treat it as an object are just a couple of fields defined in a C structure
-  called ./Objects/object.h: PyObject.::
+  called ``./Objects/object.h: PyObject.``::
 
         typedef struct _object {
             Py_ssize_t ob_refcnt;
@@ -241,8 +241,8 @@ process exits.
   fields are added to track references).
 
 * The reference count is an integer which counts how many times the object is
-  referenced. >>> a = b = c = object() instantiates an empty object and binds
-  it to three different names: a, b and c.
+  referenced. ``>>> a = b = c = object()`` instantiates an empty object and
+  binds it to three different names: a, b and c.
 
 * Each of these names creates another reference to it even though the object is
   allocated only once. Binding the object to yet another name or adding the
@@ -252,12 +252,13 @@ process exits.
 * There is much more to say about reference counting, but that’s less central
   to the overall object system and more related to Garbage Collection. 
 
-* We can now better understand the ./Objects/object.h: Py_DECREF macro we’ve
-  seen used in the introduction and didn’t know how to explain: It simply
-  decrements ob_refcnt (and initiates deallocation, if ob_refcnt hit zero).
+* We can now better understand the ``./Objects/object.h: Py_DECREF`` macro
+  we’ve seen used in the introduction and didn’t know how to explain: It simply
+  decrements ``ob_refcnt`` (and initiates deallocation, if ob_refcnt hit zero).
   That’s all we’ll say about reference counting for now.
 
-* ob_type, a pointer to an object’s type, a central piece of Python’s object model.
+* ``ob_type``, a pointer to an object’s type, a central piece of Python’s
+  object model.
 
 * Every object has exactly one type, which never changes during the lifetime of the object.
 
@@ -265,9 +266,9 @@ process exits.
   object) determines what can be done with an object.
 
 * When the interpreter evaluates the subtraction opcode, a single C function
-  (PyNumber_Subtract) will be called regardless of whether its operands are an
-  integer and an integer, an integer and a float or even something nonsensical
-  (subtract an exception from a dictionary).::
+  ``(PyNumber_Subtract)`` will be called regardless of whether its operands are
+  an integer and an integer, an integer and a float or even something
+  nonsensical (subtract an exception from a dictionary).::
 
         # n2w: the type, not the instance, determines what can be done with an instance
         >>> class Foo(object):
@@ -296,11 +297,12 @@ process exits.
         42
         >>>
 
-* How can a single C function be used to handle any kind of object that is thrown at it? 
+* How can a single C function be used to handle any kind of object that is
+  thrown at it? 
 
-* It can receive a void * pointer (actually it receives a PyObject * pointer,
-  which is also opaque insofar as the object’s data is concerned), but how will
-  it know how to manipulate the object it is given? 
+* It can receive a ``void * pointer`` (actually it receives a ``PyObject *``
+  pointer, which is also opaque insofar as the object’s data is concerned), but
+  how will it know how to manipulate the object it is given? 
 
 * In the object’s type lies the answer. A type is in itself a Python object (it
   also has a reference count and a type of its own, the type of almost all
@@ -308,8 +310,9 @@ process exits.
   there are many more fields in the C structure describing type objects.
 
 * This page has some information about types as well as type‘s structure’s
-  definition, which you can also find it at ./Include/object.h: PyTypeObject, I
-  suggest you refer to the definition occasionally as you read this post.
+  definition, which you can also find it at ``./Include/object.h:
+  PyTypeObject``, I suggest you refer to the definition occasionally as you
+  read this post.
 
 * Many of the fields a type object has are called slots and they point to
   functions (or to structures that point to a bunch of related functions).
@@ -317,52 +320,54 @@ process exits.
 * These functions are what will actually be called when Python C-API functions
   are invoked to operate on an object instantiated from that type.
 
-* So while you think you’re calling PyNumber_Subtract on both a, say, int and a
-  float, in reality what happens is that the types of it operands are
-  dereferenced and the type-specific subtraction function in the ‘subtraction’
-  slot is used. 
+* So while you think you’re calling ``PyNumber_Subtract`` on both a, say, ``int
+  and a float``, in reality what happens is that the types of it operands are
+  ``dereferenced`` and the type-specific subtraction function in the
+  ‘subtraction’ slot is used. 
 
 * So we see that the C-API functions aren’t generic, but rather rely on types
   to abstract the details away and appear as if they can work on anything
   (valid work is also just to raise a TypeError).
 
-* PyNumber_Subtract calls a generic two-argument function called
-  ./Object/abstract.c: binary_op, and tells it to operate on the number-like
-  slot nb_subtract (similar slots exists for other functionality, like, say,
-  the number-like slot nb_negative or the sequence-like slot sq_length).
-  binary_op is an error-checking wrapper around binary_op1, the real ‘do work’
-  function. ./Objects/abstract.c: binary_op1 (an eye-opening read in itself)
-  receives BINARY_SUBTRACT‘s operands as v and w, and then tries to dereference
-  v->ob_type->tp_as_number, a structure pointing to many numeric slots which
-  represents how v can be used as a number.
+* ``PyNumber_Subtract`` calls a generic two-argument function called
+  ``./Object/abstract.c: binary_op``, and tells it to operate on the
+  number-like ``slot nb_subtract`` (similar slots exists for other
+  functionality, like, say, the number-like slot ``nb_negative`` or the
+  sequence-like slot ``sq_length``).  ``binary_op`` is an error-checking
+  wrapper around ``binary_op1``, the real ‘do work’ function.
+  ``./Objects/abstract.c: binary_op1`` (an eye-opening read in itself) receives
+  ``BINARY_SUBTRACT‘s`` operands as v and w, and then tries to dereference
+  ``v->ob_type->tp_as_number``, a structure pointing to many numeric slots
+  which represents how v can be used as a number.
 
-* binary_op1 will expect to find at tp_as_number->nb_subtract a C function that
-  will either do the subtraction or return the special value Py_NotImplemented,
-  to signal that these operands are ‘insubtracticable’ in relation to one
-  another (this will cause a TypeError exception to be raised).
+* ``binary_op1`` will expect to find at ``tp_as_number->nb_subtract`` a C
+  function that will either do the subtraction or return the special value
+  ``Py_NotImplemented``, to signal that these operands are ‘insubtracticable’ in
+  relation to one another (this will cause a TypeError exception to be raised).
 
 * If you want to change how objects behave, you can write an extension in C
-  which will statically define its own PyObjectType structure in code and fill
-  the slots away as you see fit. 
+  which will statically define its own ``PyObjectType`` structure in code and
+  fill the slots away as you see fit. 
 
-* But when we create our own types in Python (make no mistake, >>> class
-  Foo(list): pass creates a new type, class and type are the same thing), we
+* But when we create our own types in Python (make no mistake, ``>>> class
+  Foo(list): pass`` creates a new type, class and type are the same thing), we
   don’t manually allocate a C structure and we don’t fill up its slots. 
 
 * How come these types behave just like built-in types? The answer is
   inheritance, where typing plays a significant role. See, Python arrives with
-  some built-in types, like list or dict. As we said, these types have a
+  some built-in types, like ``list or dict``. As we said, these types have a
   certain set of functions populating their slots and thus objects instantiated
   from them behave in a certain way, like a mutable sequence of values or like
   a mapping of keys to values.
 
 * When you define a new type in Python, a new C structure for that type is
-  dynamically allocated on the heap (like any other object) and its slots are
-  filled from whichever type it is inheriting, which is also called its base
+  dynamically allocated on the ``heap`` (like any other object) and its slots
+  are filled from whichever type it is inheriting, which is also called its
+  base
 
 * Since the slots are copied over, the newly created sub-type has mostly
   identical functionality to its base. Python also arrives with a featureless
-  base object type called object (PyBaseObject_Type in C), which has mostly
+  base object type called object (``PyBaseObject_Type`` in C), which has mostly
   null slots and which you can extend without inheriting any particular
   functionality.
 
@@ -376,36 +381,36 @@ process exits.
   the behaviour of a type created in pure Python, as I’ve demonstrated in the
   code snippet earlier in this post. By setting the special method __call__ on
   our class Bar, I made instances of that class callable. Someone, sometime
-  during the creation of our class, noticed this __call__ method exists and
-  wired it into our newly created type’s tp_call slot.
+  during the creation of our class, noticed this ``__call__`` method exists and
+  wired it into our newly created type’s ``tp_call`` slot.
 
-* ./Objects/typeobject.c: type_new, an elaborate and central function, is that
+* ``./Objects/typeobject.c: type_new``, an elaborate and central function, is that
   function. Let’s look at a small line right at the end after the new type has
-  been fully created and just before returning fixup_slot_dispatchers(type);. 
+  been fully created and just before returning ``fixup_slot_dispatchers(type);``. 
  
 * This function iterates over the correctly named methods defined for the newly
   created type and wires them to the correct slots in the type’s structure,
   based on their particular name.
 
 * Another thing remains unanswered in the sea of small details: we’ve
-  demonstrated already that setting the method __call__ on a type after it’s
-  created will also make objects instantiated from that type callable (even
-  objects already instantiated from that type)
+  demonstrated already that setting the method ``__call__`` on a type after
+  it’s created will also make objects instantiated from that type callable
+  (even objects already instantiated from that type)
 
 * Recall that a type is an object, and that the type of a type is type (if your
-  head is spinning, try: >>> class Foo(list): pass ; type(Foo)). 
+  head is spinning, try: ``>>> class Foo(list): pass ; type(Foo))``. 
 
 * So when we do stuff to a class, like calling a class, or subtracting a class,
-  or, indeed, setting an attribute on a class, what happens is that the class’
-  object’s ob_type member is dereferenced, finding that the class’ type is
+  or, indeed, setting an attribute on a class, what happens is that the ``class’
+  object’s ob_type`` member is dereferenced, finding that the class’ type is
   type. 
 
-* Then the type->tp_setattro slot is used to do the actual attribute setting.
-  So a class, like an integer or a list can have its own attribute-setting
-  function. And the type-specific attribute-setting function
-  (./Objects/typeobject.c: type_setattro) calls the very same function that
-  fixup_slot_dispatchers uses to actually do the fixup work (update_one_slot)
-  after it has set a new attribute on a class. 
+* Then the ``type->tp_setattro`` slot is used to do the actual attribute
+  setting.  So a class, like an integer or a list can have its own
+  attribute-setting function. And the type-specific attribute-setting function
+  (``./Objects/typeobject.c: type_setattro``) calls the very same function that
+  ``fixup_slot_dispatchers`` uses to actually do the fixup work
+  (update_one_slot) after it has set a new attribute on a class. 
 
 * How does this code work?::
 
@@ -472,24 +477,42 @@ build completely?*
         What is spitted out is an enormous amout of details on the system calls
         which are executed when running this program.
 
+*5. What is a defaultdict?*
+
+        A defaultdict is a dictionary which will return default values for missing
+        keys. When you create a defaultdict, you provide a factory function, which will
+        be called for returning the default value.::
+
+        >>> from collections import defaultdict
+        >>> d = defaultdict(lambda: 42)
+        >>> d[10]
+        42
+        >>> d[100]
+        42
+        >>> d
+        defaultdict(<function <lambda> at 0x7fc5616c8500>, {10: 42, 100: 42})
+        >>>
+
+**6. How would implement the defaultdict's behavior using the normal dict?**
+
+        By overriding the ``__missing__`` method of the class which inherits from
+        ``dict``.
+        :: 
+
+                >>> class Counter(dict):
+                ...     def __missing__(self, key):
+                ...         return 0
+                >>> c = Counter()
+                >>> c['red']
+                0
+                >>> c['red'] += 1
+                >>> c['red']
+                1
+
+
 Links
 =====
 http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
-
-Implementing a defaultdict like behaviour using __missing__
-===========================================================
-
-:: 
-
-        >>> class Counter(dict):
-        ...     def __missing__(self, key):
-        ...         return 0
-        >>> c = Counter()
-        >>> c['red']
-        0
-        >>> c['red'] += 1
-        >>> c['red']
-        1
 
 Note: Servers ought to be cautious about depending on URI lengths above 255
 bytes, because some older client or proxy implementations might not properly
