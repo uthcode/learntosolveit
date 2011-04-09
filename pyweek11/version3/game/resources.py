@@ -8,8 +8,10 @@ def center_image(image):
 pyglet.resource.path = ['../resources']
 pyglet.resource.reindex()
 
-cat_image = pyglet.resource.image('cat.jpg')
-rat_image = pyglet.resource.image('rat.jpg')
+cat_image = pyglet.resource.image('cat.png')
+rat_image = pyglet.resource.image('rat.png')
+barb_vertical = pyglet.resource.image('barb_vertical.png')
+barb_horizontal = pyglet.resource.image('barb_horizontal.png')
 
 center_image(cat_image)
 center_image(rat_image)

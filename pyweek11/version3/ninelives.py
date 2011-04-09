@@ -20,7 +20,14 @@ score_label = pyglet.text.Label(text="Score: 0", x = 10, y = 575,
 level_label = pyglet.text.Label(text="A Cat Has Nine Lives.", x = 400, y = 575,
         anchor_x = 'center', batch = main_batch)
 
+# Draw the Barb Fench
+barb_horizontal1 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=0, batch = main_batch)
+barb_horizontal2 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=540, batch = main_batch)
+barb_vertical1 = pyglet.sprite.Sprite(resources.barb_vertical,x=0,y=0, batch = main_batch)
+barb_vertical2 = pyglet.sprite.Sprite(resources.barb_vertical,x=740,y=0, batch = main_batch)
+
 cat_sprite = player.Player(x=300, y=400, batch=main_batch)
+
 
 lives = load.lives(3, cat_sprite.position, main_batch)
 
@@ -30,6 +37,9 @@ game_window.push_handlers(cat_sprite)
 game_window.push_handlers(cat_sprite.key_handler)
 
 def update(dt):
+    barb_horizontal1.draw()
+    barb_horizontal2.draw()
+    barb_vertical1.draw()
     for obj in game_objects:
         obj.update(dt)
 
