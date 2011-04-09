@@ -54,4 +54,3 @@ class Player(physicalobject.PhysicalObject):
 
     def delete(self):
         super(Player, self).delete()
-        sys.exit()

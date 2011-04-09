@@ -43,6 +43,12 @@ def congratulations():
             font_size=10, bold=True, x = 600, y = 535,
             color = (0, 0, 0, 100), anchor_x = 'center', batch = main_batch)
 
+def dashed():
+    global level_label
+    level_label.delete()
+    level_label = pyglet.text.Label(text=u"Oops. You hit the barb and lost. ",
+            font_size=10, bold=True, x = 600, y = 535,
+            color = (0, 0, 0, 100), anchor_x = 'center', batch = main_batch)
 
 # Draw the Barb Fench
 barb_horizontal1 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=0, batch = main_batch)
@@ -80,6 +86,13 @@ def update(dt):
     barb_vertical1.draw()
     barb_vertical2.draw()
     global items
+
+    try:
+        player = game_objects[0]
+        if not player.is_player:
+            dashed()
+    except Exception:
+        dashed()
 
     if len(game_objects) < 2:
         try:
