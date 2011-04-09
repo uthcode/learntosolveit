@@ -4,6 +4,7 @@
 # A cat has nine lives.
 
 import pyglet
+import sys
 from game import resources, load
 from game import player, rat, catfood, drycatfood, fish, goldfish, mice, milk, woolenball, tinfood
 
@@ -33,6 +34,15 @@ def update_score(items):
     score = "Lives Captured: %s" % str(items)
     score_label = pyglet.text.Label(text=score, font_size = 10, bold=True, x = 50, y = 535,
         color = (100,100,155,155), batch = main_batch)
+
+
+def congratulations():
+    global level_label
+    level_label.delete()
+    level_label = pyglet.text.Label(text=u"Congratulations! You survived. :o)",
+            font_size=10, bold=True, x = 600, y = 535,
+            color = (0, 0, 0, 100), anchor_x = 'center', batch = main_batch)
+
 
 # Draw the Barb Fench
 barb_horizontal1 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=0, batch = main_batch)
@@ -72,10 +82,12 @@ def update(dt):
     global items
 
     if len(game_objects) < 2:
-        game_objects.append(life_objects.pop(0))
-
-    #cat_sprite.update(dt)
-    #game_objects[0].update(dt)
+        try:
+            player_sprite = life_objects.pop(0)
+        except IndexError:
+            congratulations()
+        else:
+            game_objects.append(player_sprite)
 
     for obj in game_objects:
         obj.update(dt)
