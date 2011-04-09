@@ -4,9 +4,12 @@
 
 import pyglet
 from game import resources, load
+from game import player
 
 game_window = pyglet.window.Window(800, 600)
 main_batch = pyglet.graphics.Batch()
+
+player_ship = player.Player(x=400, y=300, batch = main_batch)
 
 score_label = pyglet.text.Label(text="Score: 0", x = 10, y = 575,
         batch = main_batch)
@@ -23,7 +26,9 @@ rat_sprite = pyglet.sprite.Sprite(resources.rat_image, x=100,y=100,
 
 lives = load.lives(3, cat_sprite.position, main_batch)
 
-game_objects = lives
+game_objects = [player_ship] + lives
+
+game_window.push_handlers(player_ship)
 
 def update(dt):
     for obj in game_objects:
