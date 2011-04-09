@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # A cat has nine lives.
 
@@ -15,17 +16,21 @@ pyglet.gl.glClearColor(1.0,1.0,1.0,1.0)
 
 main_batch = pyglet.graphics.Batch()
 
-score_label = pyglet.text.Label(text="Lives Captured: 0/9", font_size = 10,
+score_label = pyglet.text.Label(text="Lives Captured: 0", font_size = 10,
         bold=True, x = 50, y = 535,
         color = (100,100,155,155), batch = main_batch)
-level_label = pyglet.text.Label(text="A Cat has 9 Lives.", font_size=10,
-        bold=True, x = 400, y = 535,
+level_label1 = pyglet.text.Label(text=u"Capture (← ↑ ↓ → ) without hitting barb.", font_size=10,
+        bold=True, x = 50, y = 520,
+        color = (100, 100, 155, 155),batch = main_batch)
+
+level_label = pyglet.text.Label(text=u"A cat has nine lives. :o)", font_size=10,
+        bold=True, x = 650, y = 535,
         color = (0, 0, 0, 100), anchor_x = 'center', batch = main_batch)
 
 def update_score(items):
     global score_label
     score_label.delete()
-    score = "Lives Captured: %s/9" % str(items)
+    score = "Lives Captured: %s" % str(items)
     score_label = pyglet.text.Label(text=score, font_size = 10, bold=True, x = 50, y = 535,
         color = (100,100,155,155), batch = main_batch)
 
