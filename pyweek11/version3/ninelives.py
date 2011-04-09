@@ -7,7 +7,7 @@ from game import resources, load
 from game import player
 
 game_window = pyglet.window.Window(800, 600)
-game_window.set_caption("~- grizzly games -~")
+game_window.set_caption("~ Grizzly Games ~")
 
 # white color background.
 
@@ -17,7 +17,7 @@ main_batch = pyglet.graphics.Batch()
 
 score_label = pyglet.text.Label(text="Score: 0", x = 10, y = 575,
         batch = main_batch)
-level_label = pyglet.text.Label(text="A Cat Has Nine Lives.", x = 400, y = 575,
+level_label = pyglet.text.Label(text="9 Lives.", x = 400, y = 575,
         anchor_x = 'center', batch = main_batch)
 
 # Draw the Barb Fench
