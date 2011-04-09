@@ -14,7 +14,7 @@ class Player(physicalobject.PhysicalObject):
                 **kwargs)
         self.x = random.randint(60, 760)
         self.y = random.randint(60, 540)
-        pyglet.clock.schedule_interval_soft(self.randomize, 2)
+        pyglet.clock.schedule_interval_soft(self.randomize, 1)
 
     def update(self, dt):
         self.visible = True
