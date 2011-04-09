@@ -36,7 +36,7 @@ center_image(milk_image)
 center_image(woolenball_image)
 center_image(tinfood_image)
 
-game_music = pyglet.resource.media('music.ogg', streaming=True)
+game_music = pyglet.resource.media('music.ogg', streaming=False)
 
 list_of_lives = [rat_image, catfood_image, drycatfood_image, fish_image,
         goldfish_image, mice_image, milk_image, woolenball_image,

@@ -167,5 +167,8 @@ def on_draw():
 
 if __name__ == '__main__':
     pyglet.clock.schedule_interval(update, 1/120.0)
-    resources.game_music.play()
+    player = pyglet.media.Player()
+    for i in range(3):
+        player.queue(resources.game_music)
+    player.play()
     pyglet.app.run()
