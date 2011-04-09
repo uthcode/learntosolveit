@@ -23,6 +23,8 @@ def lives(num_lives, player_position, batch=None):
     return lives
 
 
+# Don't think we are using this.
+
 def player_lives(num_icons, batch=None):
     player_lives = []
     for i in range(num_icons):

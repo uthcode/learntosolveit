@@ -40,6 +40,8 @@ def update(dt):
     barb_horizontal1.draw()
     barb_horizontal2.draw()
     barb_vertical1.draw()
+    barb_vertical2.draw()
+
     for obj in game_objects:
         obj.update(dt)
 
