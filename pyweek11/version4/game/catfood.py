@@ -14,16 +14,17 @@ class Player(physicalobject.PhysicalObject):
                 **kwargs)
         self.thrust = 300.0
         self.rotate_speed = 200.0
-        self.velocity_x, self.velocity_y = 80, 80
+        self.velocity_x, self.velocity_y = 200, 200
         #self.x = random.randint(60, 760)
         #self.y = random.randint(60, 540)
-        #pyglet.clock.schedule_interval_soft(self.randomize, 2)
+        pyglet.clock.schedule_interval_soft(self.randomize, 2)
 
     def update(self, dt):
         self.visible = True
         super(Player, self).update(dt)
 
     def randomize(self, dt):
+        self.rotation = random.randint(0,360)
         self.x = random.randint(60, 760)
         self.y = random.randint(60, 540)
 

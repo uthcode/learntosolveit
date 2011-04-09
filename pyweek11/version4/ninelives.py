@@ -99,7 +99,14 @@ def update(dt):
         try:
             player_sprite = life_objects.pop(0)
         except IndexError:
-            congratulations()
+            try:
+                player = game_objects[0]
+            except Exception:
+                 dashed()
+            if player.is_player:
+                congratulations()
+            else:
+                dashed()
         else:
             game_objects.append(player_sprite)
 
