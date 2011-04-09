@@ -20,7 +20,7 @@ main_batch = pyglet.graphics.Batch()
 score_label = pyglet.text.Label(text="Lives Captured: 0", font_size = 10,
         bold=True, x = 50, y = 535,
         color = (100,100,155,155), batch = main_batch)
-level_label1 = pyglet.text.Label(text=u"Capture (← ↑ ↓ → ) without hitting barb.", font_size=10,
+level_label1 = pyglet.text.Label(text=u"Capture (← ↑ ↓ → ) without hitting barb in 1 min.", font_size=10,
         bold=True, x = 50, y = 520,
         color = (100, 100, 155, 155),batch = main_batch)
 
@@ -46,12 +46,35 @@ def congratulations():
 def dashed():
     global level_label
     level_label.delete()
-    level_label = pyglet.text.Label(text=u"Oops. You hit the barb and lost. Try again.",
+    level_label = pyglet.text.Label(text=u"Oops. You lost. Please try again.",
             font_size=10, bold=True, x = 580, y = 535,
             color = (0, 0, 0, 100), anchor_x = 'center', batch = main_batch)
     # pyglet.clock.schedule_once(pyglet.app.exit,5)
 
-# Draw the Barb Fench
+
+class Timer(object):
+    def __init__(self):
+        self.label = pyglet.text.Label('00:00', font_size=10, x = 600, y = 520, bold=True, batch = main_batch)
+        self.reset()
+
+    def reset(self):
+        self.time = 0
+        self.running = True
+        self.label.text = '00:00'
+        self.label.color = (0, 0, 0, 100)
+
+    def update(self, dt):
+        if self.running:
+            self.time += dt
+            m, s = divmod(self.time, 60)
+            self.label.text = '%02d:%02d' % (m, s)
+            if m >= 1:
+                self.label.delete()
+                self.label = pyglet.text.Label('Game Time Over!', font_size=10, x = 600, y = 520, bold=True, batch = main_batch)
+                self.label.color = (0, 0, 0, 100)
+                self.running = False
+
+# Draw the Barb Fence
 barb_horizontal1 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=0, batch = main_batch)
 barb_horizontal2 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=540, batch = main_batch)
 barb_vertical1 = pyglet.sprite.Sprite(resources.barb_vertical,x=0,y=0, batch = main_batch)
@@ -81,11 +104,15 @@ game_objects = [cat_sprite]
 
 items = 0
 
+timer = Timer()
+
 def update(dt):
     barb_horizontal1.draw()
     barb_horizontal2.draw()
     barb_vertical1.draw()
     barb_vertical2.draw()
+    timer.update(dt)
+
     global items
 
     try:
@@ -103,15 +130,20 @@ def update(dt):
                 player = game_objects[0]
             except Exception:
                  dashed()
-            if player.is_player:
-                congratulations()
             else:
-                dashed()
+                if player.is_player:
+                    congratulations()
+                else:
+                    dashed()
         else:
             game_objects.append(player_sprite)
 
     for obj in game_objects:
         obj.update(dt)
+
+    if not timer.running:
+        for obj in game_objects:
+            obj.dead = True
 
     for i in xrange(len(game_objects)):
         for j in xrange(i+1, len(game_objects)):
