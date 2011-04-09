@@ -46,9 +46,10 @@ def congratulations():
 def dashed():
     global level_label
     level_label.delete()
-    level_label = pyglet.text.Label(text=u"Oops. You hit the barb and lost. ",
-            font_size=10, bold=True, x = 600, y = 535,
+    level_label = pyglet.text.Label(text=u"Oops. You hit the barb and lost. Try again.",
+            font_size=10, bold=True, x = 580, y = 535,
             color = (0, 0, 0, 100), anchor_x = 'center', batch = main_batch)
+    # pyglet.clock.schedule_once(pyglet.app.exit,5)
 
 # Draw the Barb Fench
 barb_horizontal1 = pyglet.sprite.Sprite(resources.barb_horizontal,x=0,y=0, batch = main_batch)
@@ -110,7 +111,7 @@ def update(dt):
             obj_1 = game_objects[i]
             obj_2 = game_objects[j]
             if not obj_1.dead and not obj_2.dead:
-                if obj_1.collides_with(obj_2):
+                if obj_1.collides_with(obj_2) and (obj_1.is_player or obj_2.is_player):
                     obj_1.handle_collision_with(obj_2)
                     obj_2.handle_collision_with(obj_1)
                     items += 1
