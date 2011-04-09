@@ -12,9 +12,13 @@ class Player(physicalobject.PhysicalObject):
         self.rotate_speed = 200.0
         self.keys = dict(left=False,right=False,up=False)
         self.key_handler = key.KeyStateHandler()
+        self.is_player = True
 
     def update(self, dt):
         super(Player, self).update(dt)
+
+        if self.x <= 0 or self.y <=0 or self.x >=800 or self.y >=600:
+            self.dead = True
 
         if self.key_handler[key.LEFT]:
             self.rotation -= self.rotate_speed * dt

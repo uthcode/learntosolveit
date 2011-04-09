@@ -7,7 +7,7 @@ from game import resources, load
 from game import player
 
 game_window = pyglet.window.Window(800, 600)
-game_window.set_caption("9 lives")
+game_window.set_caption("~- grizzly games -~")
 
 # white color background.
 
@@ -29,7 +29,7 @@ barb_vertical2 = pyglet.sprite.Sprite(resources.barb_vertical,x=740,y=0, batch =
 cat_sprite = player.Player(x=300, y=400, batch=main_batch)
 
 
-lives = load.lives(3, cat_sprite.position, main_batch)
+lives = load.lives(9, cat_sprite.position, main_batch)
 
 game_objects = [cat_sprite] + lives
 

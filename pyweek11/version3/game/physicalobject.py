@@ -5,6 +5,7 @@ class PhysicalObject(pyglet.sprite.Sprite):
     def __init__(self, *args, **kwargs):
         super(PhysicalObject, self).__init__(*args, **kwargs)
         self.velocity_x, self.velocity_y = 0.0, 0.0
+        self.is_player = False
         self.dead = False
 
     def update(self, dt):
@@ -33,4 +34,11 @@ class PhysicalObject(pyglet.sprite.Sprite):
         return (actual_distance < collision_distance)
 
     def handle_collision_with(self, other_object):
-        self.dead = True
+        if self.__class__ == other_object.__class__:
+            self.dead = False
+        else:
+            # Is this all? I have a doubt.
+            if self.is_player:
+                self.dead = False
+            else:
+                self.dead = True
