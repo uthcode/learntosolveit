@@ -26,7 +26,7 @@ def on_draw():
     level_label.draw()
     cat_sprite.draw()
     rat_sprite.draw()
-    for life in lives():
+    for life in lives:
         life.draw()
 
 if __name__ == '__main__':

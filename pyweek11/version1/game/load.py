@@ -13,11 +13,11 @@ def lives(num_lives, player_position):
     lives = []
     for i in range(num_lives):
         rat_x, rat_y = player_position
-        while distance((asteroid_x, asteroid_y), player_position) < 100:
+        while distance((rat_x, rat_y), player_position) < 200:
             rat_x = random.randint(0, 800)
             rat_y = random.randint(0, 600)
-        new_playlist = pyglet.sprite.Sprite(img=resources.cat_image, x=rat_x, y=rat_y)
-        new_playlist.rotation = random.randint(0, 360)
-        lives.append(new_asteroid)
+        new_rat = pyglet.sprite.Sprite(img=resources.rat_image, x=rat_x, y=rat_y)
+        new_rat.rotation = random.randint(0, 360)
+        lives.append(new_rat)
     return lives
 
