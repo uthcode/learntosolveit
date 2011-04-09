@@ -21,7 +21,7 @@ class Player(physicalobject.PhysicalObject):
             self.dead = True
 
         if self.key_handler[key.LEFT]:
-            self.rotation -= self.rotate_speed * dt
+            #self.rotation -= self.rotate_speed * dt
             angle_radians = -math.radians(self.rotation)
             force_x = math.cos(angle_radians) * self.thrust * dt
             force_y = math.cos(angle_radians) * self.thrust * dt
@@ -29,8 +29,8 @@ class Player(physicalobject.PhysicalObject):
             self.velocity_y += force_y/10
 
         if self.key_handler[key.RIGHT]:
-            self.rotation += self.rotate_speed * dt
-            angle_radians = -math.radians(self.rotation)
+            #self.rotation += self.rotate_speed * dt
+            angle_radians = math.radians(self.rotation)
             force_x = math.cos(angle_radians) * self.thrust * dt
             force_y = math.cos(angle_radians) * self.thrust * dt
             self.velocity_x += force_x
@@ -40,14 +40,14 @@ class Player(physicalobject.PhysicalObject):
             angle_radians = -math.radians(self.rotation)
             force_x = math.cos(angle_radians) * self.thrust * dt
             force_y = math.cos(angle_radians) * self.thrust * dt
-            self.velocity_x += force_x
+            #self.velocity_x += force_x
             self.velocity_y += force_y
 
         if self.key_handler[key.DOWN]:
-            angle_radians = -math.radians(self.rotation)
+            angle_radians = math.radians(self.rotation)
             force_x = math.cos(angle_radians) * self.thrust * dt
             force_y = math.cos(angle_radians) * self.thrust * dt
-            self.velocity_x -= force_x
+            #self.velocity_x -= force_x
             self.velocity_y -= force_y
 
     def delete(self):
