@@ -7,6 +7,12 @@ from game import resources, load
 from game import player
 
 game_window = pyglet.window.Window(800, 600)
+game_window.set_caption("9 lives")
+
+# white color background.
+
+pyglet.gl.glClearColor(1.0,1.0,1.0,1.0)
+
 main_batch = pyglet.graphics.Batch()
 
 score_label = pyglet.text.Label(text="Score: 0", x = 10, y = 575,
