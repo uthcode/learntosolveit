@@ -9,7 +9,7 @@ pyglet.resource.path = ['../resources']
 pyglet.resource.reindex()
 
 cat_image = pyglet.resource.image('cat.png')
-rat_image = pyglet.resource.image('rat2.png')
+rat_image = pyglet.resource.image('rat.png')
 barb_vertical = pyglet.resource.image('barb_vertical.png')
 barb_horizontal = pyglet.resource.image('barb_horizontal.png')
 

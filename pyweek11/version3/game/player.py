@@ -17,7 +17,7 @@ class Player(physicalobject.PhysicalObject):
     def update(self, dt):
         super(Player, self).update(dt)
 
-        if self.x <= 0 or self.y <=0 or self.x >=800 or self.y >=600:
+        if self.x <= 40 or self.y <= 40 or self.x >= 740 or self.y >= 560:
             self.dead = True
 
         if self.key_handler[key.LEFT]:
