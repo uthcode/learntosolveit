@@ -605,159 +605,207 @@ build completely?**
         * Petri Net Model.
 
 
-Links
-=====
-http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
+**14. How would you represent unicode in python2?**
 
-Note: Servers ought to be cautious about depending on URI lengths above 255
-bytes, because some older client or proxy implementations might not properly
-support these lengths.
-
-
-Python Internals
-----------------
-
-1. Objects - When accessing the attribute of an object, the attribute is got from the namespace.
-2. There is a difference between dict proxy and a dict.
-
-WSGI
-----
-
-It is easy to build a web application framework in Python. WSGI is Python PEP
-333, the Web Server Gateway Interface. It's a a protocol for communicating with
-Python web applications. WSGI works by callbacks. 
-     
-The application provides a function which the server calls for each request:
-
-application(environ, start_response)
-
-environ is a Python dictionary containing the CGI-defined environment variables
-plus a few extras. One of the extras is "wsgi.input", the file object from
-which to read the POST variables. start_response is a callback by which the
-application returns the HTTP header.
-
-start_response(status, response_headers, exc_info=None)
-
-status is an HTTP status string (e.g., "200 OK"). response_headers is a list of
-2-tuples, the HTTP headers in key-value format. exc_info is used in exception
-handling; we won't cover it here.
-
-The application function then returns an iterable of body chunks. In the
-simplest case this can be:
-
-["<html>Hello, world!</html>"]
-
-Getting slightly more elaborate, here's the second-smallest WSGI application in
-the world:
-
-def app2(environ, start_response):
-    start_response("200 OK", [])
-    s = "<html>You requested <strong>%s</strong></html>"
-    s %= environ['PATH_INFO']
-    return [s]
-
-The protocol may look strange, but it's designed to meet the needs of the
-widest possible variety of existing and potential frameworks and servers. And
-middleware. Middleware are reusable components providing generic services
-normally handled by frameworks; e.g., a Session object, a Request object, error
-handling. They're implemented as wrapper functions; i.e., decorators. Inbound
-they can add keys to the dictionary (e.g., quixote.request for a Quixote-style
-Request object). Outbound they can modify HTTP headers or translate the body
-into Latin or Marklar. Here's a small middleware:
-
-:: 
-
-        class LowercaseMiddleware:
-            def __init__(self, application):
-                self.application = application   # A WSGI application callable.
-
-            def __call__(self, environ, start_response):
-                pass  # We could set an item in 'environ' or a local variable.
-                for chunk in self.application(environ, start_response):
-                    yield chunk.lower()
-
-Assuming we had a server constructor Server, we could do:
-
-app = LowercaseMiddleware(app2)
-server = Server(app)
-
-Since it's so easy to write a WSGI application, you may wonder, "Who needs a
-framework?" That's a legitimate question, although the answer is, "It's tedious
-without one." Your application is responsible for every URL under it; e.g., if
-it's installed as http://localhost:8080/, it would have to do something
-intelligent with http://localhost:8080/foo/bar/baz. Code to parse the URL and
-switch to an appropriate function is... a framework! So you may as well use an
-existing framework and save yourself the tedium.
-
-Writing a WSGI server interface is more complex. There's an example in PEP 333.
-I wrote an object-oriented one for Quixote (in wsgi_server.py). But the
-experience taught me it's more fun to write the application side.
-
-WSGI opens the way for a lot of interesting possibilities. Simple frameworks
-can be turned completely into middleware. Some frameworks might be able to run
-on top of other frameworks or even be emulated by them. Ideally, existing
-applications would run unchanged or with minimal changes. But this is also a
-time for framework developers to rethink how they're doing things and perhaps
-switch to more middleware-friendly APIs.
-
-Guido's approach to Web Framework in his blog post "Teach me Web Framework"
-
-Before I post this, let me attempt at a brief classification of the features
-that every web framework needs.
-
-* Independence from web server technology. You should be able to run the same
-application under Apache, as a CGI script, as a stand-alone server (e.g.
-BaseHTTPServer or Zope's or Twisted's built-in server), etc. (The Java Servlet
-API does this really well IMO -- I used it at Elemental.) This should include
-logging and basic error handling (an API to generate any HTTP error, as well as
-a try/except around application code that returns a 500 error code if the
-application code fails.
-
-* Templating with reuse. Every web application needs to mix computed data (in
-which category I include data retrieved from a database) with HTML mark-up, and
-often a lot of the HTML markup is common for many pages (e.g. global
-navigation).
-* Cookie handling. For authentication, preferences, sessions, etc.
-* Query parsing. The bread and butter of form handling.
-* URL dispatch. You've got to be flexible in how URL paths are mapped to
-callables. Zope's URL-to-object mapping is extremely flexible. Django's
-approach is nice too.
+        In python 2.x, the a string starting with u'' is a unicode object. It might
+        contain unicode code-point in the hexadecimal notation. If your terminal
+        supports it, then printing that unicode object will print the proper character.
+        `chr` - Gives the characters of length 1 from in the range 0 to 256. That is
+        \x00 to \xff. It should be known that It borders the ASCII and it is the
+        Latin-1 character set.It should also be known that \u00ff and \xff are both
+        same.
 
 
-PJE's response
+**15. What are the important properties of Python objects?**
 
-Guido, you'll probably find that web.py ( http://webpy.org/ ) best suits your
-style. It's a single module (~1000 lines) that does WSGI and an extremely
-simple O-R mapping, with Cheetah for (non-XML) templates. If you don't like it,
-I can't imagine which of the other dozens of frameworks out there you *would*
-like. It's a bit rough around the edges (I suspect that its SQL quoting is
-broken for some database quoting styles, for example), and it's nothing
-particularly fancy, and it's about as far away as possible from something I or
-Jim Fulton would write, so it shouldn't be the least bit scary. :)
+        All Python Objects have:
 
-With respect to WSGI, its original purpose wasn't to do "middleware"; it was
-just a way to connect an application to arbitrary web servers, so the same
-application can be run under mod_python, CGI, FastCGI, SCGI, in a Twisted or
-other Python HTTP server, etc. That was and is the main point of WSGI. The
-existence of middleware is just a natural side-effect of having a way to
-connect an app to a server, in the same way that proxy servers and caches are a
-side-effect of having HTTP.
+        * A Unique identifier (returned by id())
+        * A Type (returned by type())
+        * And a content.
 
-But just as it was a good idea to specify some of the allowed behaviors of
-proxies and caches in the HTTP spec, so too it was a good idea to address
-middleware in the WSGI spec. Basically, WSGI in itself is just a Python
-encoding of HTTP, nothing more.
+        The Identifier and the type of the object cannot be changed. Only under limited
+        circumstances, user defined types can be changed.
 
-Looking back at your post, I just realized you hadn't actually read the WSGI
-PEP, so I should probably mention that it it's basically a port of the Java
-servlet API, implemented in terms of simple callables and built-in data types
-rather than having an object/method interface. 
+        Some objects allow you to change their content, while some objects will not
+        allow you to change the content.  The type is represented by type object which
+        knows more obout the objects of this type, like how many memory they occupy,
+        what methods they have.
 
-Thus, any framework that's WSGI compliant support should give you the "server
-independence" you're looking for. You just need a WSGI "gateway" for the
-server, and find out how the framework exposes an "application" object to be
-run by the gateway.
+        * Objects have 0 or more methods.
+        * Objects have 0 or more names.
 
+        There is no variable in python. They are just names and that too within
+        namespaces. The names refer to a particular object on assignment.
+
+        Even if the objects have methods, you can never change its type or identity.
+        Things like attribute assignments and item references are just syntactic sugar.
+
+
+**16. Summarize PEP-8 Coding Style standards of Python.**
+
+        * One blank line between functions.
+        * Two blank lines between classes.
+        * Add a space after "," in dicts, lists, tuples, & argument lists, and after
+          ":" in dicts, but not before.
+        * Put spaces around assignments & comparisons (except in argument lists).
+        * No spaces just inside parentheses or just before argument lists.
+        * No spaces just inside docstrings.
+        * ``joined_lower`` for functions, methods, attributes
+        * ``joined_lower`` or ``ALL_CAPS`` for constants
+        * ``StudlyCaps`` for classes
+        * ``camelCase`` **only** to conform to pre-existing conventions
+        * Attributes: ``interface``, ``_internal``, ``__private``
+        * Keep lines below 80 characters in length.
+        * Use implied line continuation inside parentheses/brackets/braces::
+
+               def __init__(self, first, second, third,
+                            fourth, fifth, sixth):
+                   output = (first + second + third
+                             + fourth + fifth + sixth)
+
+        * Use backslashes as a last resort::
+
+               VeryLong.left_hand_side \
+                   = even_longer.right_hand_side()
+
+        * Backslashes are fragile; they must end the line they're on.  If you add a
+          space after the backslash, it won't work any more.  Also, they're ugly.
+
+**17. Why do named strings do not concatenate? **
+
+        named string objects **do not** concatenate::
+
+           >>> a = 'three'
+           >>> b = 'four'
+           >>> a b
+             File "<stdin>", line 1
+               a b
+                 ^
+           SyntaxError: invalid syntax
+
+        That's because this automatic concatenation is a feature of the Python
+        parser/compiler, not the interpreter.  You must use the "+" operator to
+        concatenate strings at run time.
+
+
+**18. Example of the dictionary's setdefault method.**
+
+        We have to initialize mutable dictionary values.  Each dictionary value will be
+        a list.  This is the naïve way.::
+
+            equities = {}
+            for (portfolio, equity) in data:
+                if portfolio in equities:
+                    equities[portfolio].append(equity)
+                else:
+                    equities[portfolio] = [equity]
+
+
+        ``dict.setdefault(key, default)`` does the job much more efficiently::
+
+               equities = {}
+               for (portfolio, equity) in data:
+                   equities.setdefault(portfolio, []).append(
+                                                        equity)
+
+        ``dict.setdefault()`` is equivalent to "get, or set & get".  Or "set if
+        necessary, then get".  It's especially efficient if your dictionary key is
+        expensive to compute or long to type.
+
+        The only problem with ``dict.setdefault()`` is that the default value is always
+        evaluated, whether needed or not.  That only matters if the default value is
+        expensive to compute.
+
+        If the default value **is** expensive to compute, you may want to use the
+        ``defaultdict`` class.
+
+
+**19. Example of constructing a dictionar from two lists of key and values.**
+
+        Here's a useful technique to build a dictionary from two lists (or sequences):
+        one list of keys, another list of values.::
+
+               given = ['John', 'Eric', 'Terry', 'Michael']
+               family = ['Cleese', 'Idle', 'Gilliam', 'Palin']
+               pythons = dict(zip(given, family))
+               >>> pprint.pprint(pythons)
+               {'John': 'Cleese',
+                'Michael': 'Palin',
+                'Eric': 'Idle',
+                'Terry': 'Gilliam'}
+
+        Note that the order of the results of .keys() and .values() is different from
+        the order of items when constructing the dictionary.  The order going in is
+        different from the order coming out.  This is because a dictionary is
+        inherently unordered.  However, the order is guaranteed to be consistent (in
+        other words, the order of keys will correspond to the order of values), as long
+        as the dictionary isn't changed between calls.
+
+
+**20. Example of enumerate function in Python.**
+
+        The ``enumerate`` function takes a list and returns (index, item)
+        pairs:
+
+        >>> print list(enumerate(items))
+        [(0, 'zero'), (1, 'one'), (2, 'two'), (3, 'three')]
+
+        We need use a ``list`` wrapper to print the result because ``enumerate`` is a
+        lazy function: it generates one item, a pair, at a time, only when required.  A
+        ``for`` loop is one place that requires one result at a time.  ``enumerate`` is
+        an example of a *generator*. ``print`` does not take one result at a time -- we
+        want the entire result, so we have to explicitly convert the generator into a
+        list when we print it.
+
+        An example showing how the ``enumerate`` function actually returns an iterator
+        (a generator is a kind of iterator).::
+
+           >>> enumerate(items)
+           <enumerate object at 0x011EA1C0>
+           >>> e = enumerate(items)
+           >>> e.next()
+           (0, 'zero')
+           >>> e.next()
+           (1, 'one')
+           >>> e.next()
+           (2, 'two')
+           >>> e.next()
+           (3, 'three')
+           >>> e.next()
+           Traceback (most recent call last):
+             File "<stdin>", line 1, in ?
+           StopIteration
+
+
+**21. What is special about variables in Python?**
+
+
+        In many other languages, assigning to a variable puts a value into a box.
+        Python has "names"
+
+        In Python, a "name" or "identifier" is like a parcel tag (or nametag) attached
+        to an object.
+
+        Here, an integer 1 object has a tag labelled "a".  If we reassign to "a", we
+        just move the tag to another object:
+
+        Now the name "a" is attached to an integer 2 object.
+
+        The original integer 1 object no longer has a tag "a".  It may live on, but we
+        can't get to it through the name "a".  (When an object has no more references
+        or tags, it is removed from memory.)
+
+        If we assign one name to another, we're just attaching another nametag to an
+        existing object:
+
+                   b = a
+
+        The name "b" is just a second tag bound to the same object as "a".
+
+        Although we commonly refer to "variables" even in Python (because it's common
+        terminology), we really mean "names" or "identifiers".  In Python, "variables"
+        are nametags for values, not labelled boxes.
 
 Bytes in API
 ------------
@@ -767,327 +815,6 @@ Bytes in API
 * PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
 * Issue4661
 
-
-Unicode Characters
-------------------
-
-In python 2.x, the a string starting with u'' is a unicode object. It might
-contain unicode code-point in the hexadecimal notation. If your terminal
-supports it, then printing that unicode object will print the proper character.
-
-chr - Gives the characters of length 1 from in the range 0 to 256. That is \x00
-to \xff. It should be known that It borders the ASCII and it is the Latin-1
-character set. 
-
-It should also be known that \u00ff and \xff are both same.
-
-Python Objects
---------------
-
-All Python Objects have:
-
-* A Unique identifier (returned by id())
-* A Type (returned by type())
-* And a content.
-
-The Identifier and the type of the object cannot be changed. Only under limited
-circumstances, user defined types can be changed.
-
-Some objects allow you to change their content, while some objects will not
-allow you to change the content.  The type is represented by type object which
-knows more obout the objects of this type, like how many memory they occupy,
-what methods they have.
-
-Objects have 0 or more methods.
-Objects have 0 or more names.
-
-There is no variable in python. They are just names and that too within
-namespaces. The names refer to a particular object on assignment.
-
-Even if the objects have methods, you can never change its type or identity.
-Things like attribute assignments and item references are just syntactic sugar.
-
-Here's another easter egg:
-
->>> from __future__ import braces
-    File "<stdin>", line 1
-SyntaxError: not a chance
-
-Coding Style: Readability Counts
-================================
-
-* One blank line between functions.
-* Two blank lines between classes.
-* Add a space after "," in dicts, lists, tuples, & argument lists, and after
-  ":" in dicts, but not before.
-* Put spaces around assignments & comparisons (except in argument lists).
-* No spaces just inside parentheses or just before argument lists.
-* No spaces just inside docstrings.
-* ``joined_lower`` for functions, methods, attributes
-* ``joined_lower`` or ``ALL_CAPS`` for constants
-* ``StudlyCaps`` for classes
-* ``camelCase`` **only** to conform to pre-existing conventions
-* Attributes: ``interface``, ``_internal``, ``__private``
-
-But try to avoid the ``__private`` form.  I never use it.
-
-Long Lines & Continuations
-==========================
-
-* Keep lines below 80 characters in length.
-* Use implied line continuation inside parentheses/brackets/braces::
-
-       def __init__(self, first, second, third,
-                    fourth, fifth, sixth):
-           output = (first + second + third
-                     + fourth + fifth + sixth)
-
-* Use backslashes as a last resort::
-
-       VeryLong.left_hand_side \
-           = even_longer.right_hand_side()
-
-* Backslashes are fragile; they must end the line they're on.  If you add a
-  space after the backslash, it won't work any more.  Also, they're ugly.
-
-Long Strings
-============
-
-* Note named string objects are **not** concatenated::
-
-   >>> a = 'three'
-   >>> b = 'four'
-   >>> a b
-     File "<stdin>", line 1
-       a b
-         ^
-   SyntaxError: invalid syntax
-
-* That's because this automatic concatenation is a feature of the Python
-  parser/compiler, not the interpreter.  You must use the "+" operator to
-  concatenate strings at run time.
-
-  text = ('Long strings can be made up '
-  'of several shorter strings.')
-
-* The parentheses allow implicit line continuation.
-* Multiline strings use triple quotes:
-   ::
-
-       """Triple
-       double
-       quotes"""
-
-   ::
-
-       '''\
-       Triple
-       single
-       quotes\
-       '''
-
-* In the last example above (triple single quotes), note how the backslashes
-  are used to escape the newlines.  This eliminates extra newlines, while
-  keeping the text and quotes nicely left-justified.  The backslashes must be
-  at the end of their lines.
-
-Compound Statements
-===================
-
-Good::
-
-    if foo == 'blah':
-        do_something()
-    do_one()
-    do_two()
-    do_three()
-
-Bad::
-
-    if foo == 'blah': do_something()
-    do_one(); do_two(); do_three()
-
-Dictionary ``setdefault`` Method (1)
-====================================
-
-.. container:: handout
-
-   Here we have to initialize mutable dictionary values.  Each
-   dictionary value will be a list.  This is the naïve way:
-
-Initializing mutable dictionary values::
-
-    equities = {}
-    for (portfolio, equity) in data:
-        if portfolio in equities:
-            equities[portfolio].append(equity)
-        else:
-            equities[portfolio] = [equity]
-
-.. class:: incremental
-
-   ``dict.setdefault(key, default)`` does the job much more
-   efficiently::
-
-       equities = {}
-       for (portfolio, equity) in data:
-           equities.setdefault(portfolio, []).append(
-                                                equity)
-
-.. container:: handout
-
-   ``dict.setdefault()`` is equivalent to "get, or set & get".  Or
-   "set if necessary, then get".  It's especially efficient if your
-   dictionary key is expensive to compute or long to type.
-
-   The only problem with ``dict.setdefault()`` is that the default
-   value is always evaluated, whether needed or not.  That only
-   matters if the default value is expensive to compute.
-
-   If the default value **is** expensive to compute, you may want to
-   use the ``defaultdict`` class, which we'll cover shortly.
-
-
-Dictionary ``setdefault`` Method (2)
-====================================
-
-.. container:: handout
-
-   Here we see that the ``setdefault`` dictionary method can also be
-   used as a stand-alone statement:
-
-``setdefault`` can also be used as a stand-alone statement::
-
-       navs = {}
-       for (portfolio, equity, position) in data:
-           navs.setdefault(portfolio, 0)
-           navs[portfolio] += position * prices[equity]
-
-.. container:: handout
-
-   The ``setdefault`` dictionary method returns the default value, but
-   we ignore it here.  We're taking advantage of ``setdefault``'s side
-   effect, that it sets the dictionary value only if there is no value
-   already.
-
-
-Building & Splitting Dictionaries
-=================================
-
-Here's a useful technique to build a dictionary from two lists (or sequences):
-one list of keys, another list of values.::
-
-       given = ['John', 'Eric', 'Terry', 'Michael']
-       family = ['Cleese', 'Idle', 'Gilliam', 'Palin']
-       pythons = dict(zip(given, family))
-       >>> pprint.pprint(pythons)
-       {'John': 'Cleese',
-        'Michael': 'Palin',
-        'Eric': 'Idle',
-        'Terry': 'Gilliam'}
-
-Note that the order of the results of .keys() and .values() is different from
-the order of items when constructing the dictionary.  The order going in is
-different from the order coming out.  This is because a dictionary is
-inherently unordered.  However, the order is guaranteed to be consistent (in
-other words, the order of keys will correspond to the order of values), as long
-as the dictionary isn't changed between calls.
-
-
-Truth Values
-============
-
-The ``True`` and ``False`` names are built-in instances of type ``bool``,
-Boolean values.  Like ``None``, there is only one instance of each.
-
-=================================  ================================
-False                              True
-=================================  ================================
-``False`` (== 0)                   ``True`` (== 1)
-
-``""`` (empty string)              any string but ``""`` (``" "``, 
-                                   ``"anything"``)
-
-``0``, ``0.0``                     any number but ``0`` (1, 0.1, -1, 3.14)
-
-``[]``, ``()``, ``{}``, ``set()``  any non-empty container
-                                   (``[0]``, ``(None,)``, ``['']``)
-
-``None``                           almost any object that's not
-                                   explicitly False
-=================================  ================================
-
-
-Index & Item (2): ``enumerate``
-===============================
-
-The ``enumerate`` function takes a list and returns (index, item)
-pairs:
-
->>> print list(enumerate(items))
-[(0, 'zero'), (1, 'one'), (2, 'two'), (3, 'three')]
-
-We need use a ``list`` wrapper to print the result because ``enumerate`` is a
-lazy function: it generates one item, a pair, at a time, only when required.  A
-``for`` loop is one place that requires one result at a time.  ``enumerate`` is
-an example of a *generator*. ``print`` does not take one result at a time -- we
-want the entire result, so we have to explicitly convert the generator into a
-list when we print it.
-
-An example showing how the ``enumerate`` function actually returns an iterator
-(a generator is a kind of iterator).::
-
-   >>> enumerate(items)
-   <enumerate object at 0x011EA1C0>
-   >>> e = enumerate(items)
-   >>> e.next()
-   (0, 'zero')
-   >>> e.next()
-   (1, 'one')
-   >>> e.next()
-   (2, 'two')
-   >>> e.next()
-   (3, 'three')
-   >>> e.next()
-   Traceback (most recent call last):
-     File "<stdin>", line 1, in ?
-   StopIteration
-
-
-Other languages have "variables"
-================================
-
-In many other languages, assigning to a variable puts a value into a box.
-
-Python has "names"
-==================
-
-In Python, a "name" or "identifier" is like a parcel tag (or nametag) attached
-to an object.
-
-Here, an integer 1 object has a tag labelled "a".  If we reassign to "a", we
-just move the tag to another object:
-
-Now the name "a" is attached to an integer 2 object.
-
-The original integer 1 object no longer has a tag "a".  It may live on, but we
-can't get to it through the name "a".  (When an object has no more references
-or tags, it is removed from memory.)
-
-If we assign one name to another, we're just attaching another nametag to an
-existing object:
-
-           b = a
-
-The name "b" is just a second tag bound to the same object as "a".
-
-Although we commonly refer to "variables" even in Python (because it's common
-terminology), we really mean "names" or "identifiers".  In Python, "variables"
-are nametags for values, not labelled boxes.
-
-If you get nothing else out of this tutorial, I hope you understand how Python
-names work.  A good understanding is certain to pay dividends, helping you to
-avoid cases like this:
 
 Default Parameter Values
 ========================
@@ -1539,6 +1266,162 @@ from package.subpackage.module2 import name
 In Python 2.5 we now have absolute and relative imports via a future import::
 
        from __future__ import absolute_import
+
+
+Links
+=====
+http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
+
+Note: Servers ought to be cautious about depending on URI lengths above 255
+bytes, because some older client or proxy implementations might not properly
+support these lengths.
+
+
+Python Internals
+----------------
+
+1. Objects - When accessing the attribute of an object, the attribute is got from the namespace.
+2. There is a difference between dict proxy and a dict.
+
+WSGI
+----
+
+It is easy to build a web application framework in Python. WSGI is Python PEP
+333, the Web Server Gateway Interface. It's a a protocol for communicating with
+Python web applications. WSGI works by callbacks. 
+     
+The application provides a function which the server calls for each request:
+
+application(environ, start_response)
+
+environ is a Python dictionary containing the CGI-defined environment variables
+plus a few extras. One of the extras is "wsgi.input", the file object from
+which to read the POST variables. start_response is a callback by which the
+application returns the HTTP header.
+
+start_response(status, response_headers, exc_info=None)
+
+status is an HTTP status string (e.g., "200 OK"). response_headers is a list of
+2-tuples, the HTTP headers in key-value format. exc_info is used in exception
+handling; we won't cover it here.
+
+The application function then returns an iterable of body chunks. In the
+simplest case this can be:
+
+["<html>Hello, world!</html>"]
+
+Getting slightly more elaborate, here's the second-smallest WSGI application in
+the world:
+
+def app2(environ, start_response):
+    start_response("200 OK", [])
+    s = "<html>You requested <strong>%s</strong></html>"
+    s %= environ['PATH_INFO']
+    return [s]
+
+The protocol may look strange, but it's designed to meet the needs of the
+widest possible variety of existing and potential frameworks and servers. And
+middleware. Middleware are reusable components providing generic services
+normally handled by frameworks; e.g., a Session object, a Request object, error
+handling. They're implemented as wrapper functions; i.e., decorators. Inbound
+they can add keys to the dictionary (e.g., quixote.request for a Quixote-style
+Request object). Outbound they can modify HTTP headers or translate the body
+into Latin or Marklar. Here's a small middleware:
+
+:: 
+
+        class LowercaseMiddleware:
+            def __init__(self, application):
+                self.application = application   # A WSGI application callable.
+
+            def __call__(self, environ, start_response):
+                pass  # We could set an item in 'environ' or a local variable.
+                for chunk in self.application(environ, start_response):
+                    yield chunk.lower()
+
+Assuming we had a server constructor Server, we could do:
+
+app = LowercaseMiddleware(app2)
+server = Server(app)
+
+Since it's so easy to write a WSGI application, you may wonder, "Who needs a
+framework?" That's a legitimate question, although the answer is, "It's tedious
+without one." Your application is responsible for every URL under it; e.g., if
+it's installed as http://localhost:8080/, it would have to do something
+intelligent with http://localhost:8080/foo/bar/baz. Code to parse the URL and
+switch to an appropriate function is... a framework! So you may as well use an
+existing framework and save yourself the tedium.
+
+Writing a WSGI server interface is more complex. There's an example in PEP 333.
+I wrote an object-oriented one for Quixote (in wsgi_server.py). But the
+experience taught me it's more fun to write the application side.
+
+WSGI opens the way for a lot of interesting possibilities. Simple frameworks
+can be turned completely into middleware. Some frameworks might be able to run
+on top of other frameworks or even be emulated by them. Ideally, existing
+applications would run unchanged or with minimal changes. But this is also a
+time for framework developers to rethink how they're doing things and perhaps
+switch to more middleware-friendly APIs.
+
+Guido's approach to Web Framework in his blog post "Teach me Web Framework"
+
+Before I post this, let me attempt at a brief classification of the features
+that every web framework needs.
+
+* Independence from web server technology. You should be able to run the same
+application under Apache, as a CGI script, as a stand-alone server (e.g.
+BaseHTTPServer or Zope's or Twisted's built-in server), etc. (The Java Servlet
+API does this really well IMO -- I used it at Elemental.) This should include
+logging and basic error handling (an API to generate any HTTP error, as well as
+a try/except around application code that returns a 500 error code if the
+application code fails.
+
+* Templating with reuse. Every web application needs to mix computed data (in
+which category I include data retrieved from a database) with HTML mark-up, and
+often a lot of the HTML markup is common for many pages (e.g. global
+navigation).
+* Cookie handling. For authentication, preferences, sessions, etc.
+* Query parsing. The bread and butter of form handling.
+* URL dispatch. You've got to be flexible in how URL paths are mapped to
+callables. Zope's URL-to-object mapping is extremely flexible. Django's
+approach is nice too.
+
+
+PJE's response
+
+Guido, you'll probably find that web.py ( http://webpy.org/ ) best suits your
+style. It's a single module (~1000 lines) that does WSGI and an extremely
+simple O-R mapping, with Cheetah for (non-XML) templates. If you don't like it,
+I can't imagine which of the other dozens of frameworks out there you *would*
+like. It's a bit rough around the edges (I suspect that its SQL quoting is
+broken for some database quoting styles, for example), and it's nothing
+particularly fancy, and it's about as far away as possible from something I or
+Jim Fulton would write, so it shouldn't be the least bit scary. :)
+
+With respect to WSGI, its original purpose wasn't to do "middleware"; it was
+just a way to connect an application to arbitrary web servers, so the same
+application can be run under mod_python, CGI, FastCGI, SCGI, in a Twisted or
+other Python HTTP server, etc. That was and is the main point of WSGI. The
+existence of middleware is just a natural side-effect of having a way to
+connect an app to a server, in the same way that proxy servers and caches are a
+side-effect of having HTTP.
+
+But just as it was a good idea to specify some of the allowed behaviors of
+proxies and caches in the HTTP spec, so too it was a good idea to address
+middleware in the WSGI spec. Basically, WSGI in itself is just a Python
+encoding of HTTP, nothing more.
+
+Looking back at your post, I just realized you hadn't actually read the WSGI
+PEP, so I should probably mention that it it's basically a port of the Java
+servlet API, implemented in terms of simple callables and built-in data types
+rather than having an object/method interface. 
+
+Thus, any framework that's WSGI compliant support should give you the "server
+independence" you're looking for. You just need a WSGI "gateway" for the
+server, and find out how the framework exposes an "application" object to be
+run by the gateway.
+
+
 
 Simple is Better Than Complex
 =============================
