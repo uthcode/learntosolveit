@@ -45,8 +45,6 @@ Discussion on Bugs
 * [issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
 * Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
----- 
-
 Notes from Python3 article
 ==========================
 
@@ -101,8 +99,6 @@ Notes from Python3 article
 
 * You can assign None to any variable, but you can not create other NoneType
   objects.
-
----- 
 
 Python Internals
 ================
@@ -429,9 +425,9 @@ Opcode looks like this.::
   is a class inheriting object and not changing anything, and yet I can’t do
   the same with a, an instance of that very same object?
 
-* Some wise crackers can say: b has a __dict__ and a doesn’t, and that’s true,
-  but how did this new (and totally non-trivial!) functionality come from if I
-  didn’t inherit it?!
+* Some wise crackers can say: b has a ``__dict__`` and a doesn’t, and that’s
+  true, but how did this new (and totally non-trivial!) functionality come from
+  if I didn’t inherit it?!
 
 
 Python Questions (With Answers)
