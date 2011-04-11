@@ -5,6 +5,14 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
+*updateuthcode.py* - On 10 Apr,2011.
+
+.. literalinclude:: ../python/updateuthcode.py
+   :linenos:
+   :tab-width: 4
+
+----
+
 *urllib2-1.py* - On 06 Apr,2011.
 
 .. literalinclude:: ../python/urllib2-1.py

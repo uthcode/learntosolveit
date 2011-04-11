@@ -672,9 +672,9 @@ build completely?**
         * Backslashes are fragile; they must end the line they're on.  If you add a
           space after the backslash, it won't work any more.  Also, they're ugly.
 
-**17. Why do named strings do not concatenate? **
+**17. Why do named strings do not concatenate?**
 
-        named string objects **do not** concatenate::
+        named string objects *do not* concatenate::
 
            >>> a = 'three'
            >>> b = 'four'
@@ -807,6 +807,1082 @@ build completely?**
         terminology), we really mean "names" or "identifiers".  In Python, "variables"
         are nametags for values, not labelled boxes.
 
+
+**22. Function parameters are evaluated at definition time. How does it affect
+in an unexpected manner during program evaluation?**
+
+        This is a common mistake that beginners often make.  Even more advanced
+        programmers make this mistake if they don't understand Python names.
+
+        ::
+
+            def bad_append(new_item, a_list=[]):
+                a_list.append(new_item)
+                return a_list
+
+
+        The problem here is that the default value of ``a_list``, an empty list, is
+        evaluated at function definition time.  So every time you call the function,
+        you get the **same** default value.  Try it several times:
+
+           ::
+
+               >>> print bad_append('one')
+               ['one']
+
+           ::
+
+               >>> print bad_append('two')
+               ['one', 'two']
+
+        Lists are a mutable objects; you can change their contents.  The correct way to
+        get a default list (or dictionary, or set) is to create it at run time instead,
+        **inside the function**.::
+
+               def good_append(new_item, a_list=None):
+                   if a_list is None:
+                       a_list = []
+                   a_list.append(new_item)
+                   return a_list
+
+
+**23. How do you use advanced string formatting features?**
+
+        By name with a dictionary::
+
+               values = {'name': name, 'messages': messages}
+               print ('Hello %(name)s, you have %(messages)i '
+                      'messages' % values)
+
+        Here we specify the names of interpolation values, which are looked up in the
+        supplied dictionary.
+
+        Notice any redundancy?  The names "name" and "messages" are already defined in
+        the local namespace.  We can take advantage of this.
+
+        By name using the local namespace::
+
+               print ('Hello %(name)s, you have %(messages)i '
+                      'messages' % locals())
+
+
+        The namespace of an object's instance attributes is just a dictionary,
+        ``self.__dict__``.
+
+        By name using the instance namespace::
+
+               print ("We found %(error_count)d errors"
+                      % self.__dict__)
+
+
+**24. What is list comprehension?**
+
+        List comprehensions are syntax shortcuts for construction of lists.
+
+        As a list comprehension::
+
+               new_list = [fn(item) for item in a_list
+                           if condition(item)]
+
+        Listcomps are clear & concise, up to a point.  You can have multiple
+        ``for``-loops and ``if``-conditions in a listcomp, but beyond two or three
+        total, or if the conditions are complex, I suggest that regular ``for`` loops
+        should be used.  Applying the Zen of Python, choose the more readable way.::
+
+           For example, a list of the squares of 0–9:
+
+           >>> [n ** 2 for n in range(10)]
+           [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+           A list of the squares of odd 0–9:
+
+           >>> [n ** 2 for n in range(10) if n % 2]
+           [1, 9, 25, 49, 81]
+
+
+**25. What is the difference between list comprehension and generator expression?**
+
+        Generator expressions ("genexps") are just like list comprehensions, except
+        that where listcomps are greedy, generator expressions are lazy.  Listcomps
+        compute the entire result list all at once, as a list.  Generator expressions
+        compute one value at a time, when needed, as individual values.  This is
+        especially useful for long sequences where the computed list is just an
+        intermediate step and not the final result.
+
+        For example, if we were summing the squares of several billion integers, we'd
+        run out of memory with list comprehensions, but generator expressions have no
+        problem.  This does take time, though!  
+
+        ::
+               total = sum(num * num
+                           for num in xrange(1, 1000000000))
+
+        The difference in syntax is that listcomps have square brackets, but generator
+        expressions don't.  Generator expressions sometimes do not require enclosing
+        parentheses though, so you should always use them.
+
+        Rule of thumb:
+
+        * Use a list comprehension when a computed list is the desired end result.
+        * Use a generator expression when the computed list is just an intermediate
+          step.
+
+
+**26. How Generators are different from Generator Expressions?**
+
+        We've already seen generator expressions.  We can devise our own arbitrarily
+        complex generators, as functions: ::
+
+            def my_range_generator(stop):
+                value = 0
+                while value < stop:
+                    yield value
+                    value += 1
+
+            for i in my_range_generator(10):
+                do_something(i)
+
+        The ``yield`` keyword turns a function into a generator.  When you call a
+        generator function, instead of running the code immediately Python returns a
+        generator object, which is an iterator; it has a ``next`` method.  ``for``
+        loops just call the ``next`` method on the iterator, until a ``StopIteration``
+        exception is raised.  You can raise ``StopIteration`` explicitly, or implicitly
+        by falling off the end of the generator code as above.
+
+        Generators can simplify sequence/iterator handling, because we don't need to
+        build concrete lists; just compute one value at a time.  The generator function
+        maintains state.
+
+        This is how a ``for`` loop really works.  Python looks at the sequence supplied
+        after the ``in`` keyword.  If it's a simple container (such as a list, tuple,
+        dictionary, set, or user-defined container) Python converts it into an
+        iterator.  If it's already an iterator, Python uses it directly.
+
+        Then Python repeatedly calls the iterator's ``next`` method, assigns the return
+        value to the loop counter (``i`` in this case), and executes the indented code.
+        This is repeated over and over, until ``StopIteration`` is raised, or a
+        ``break`` statement is executed in the code.
+
+        A ``for`` loop can have an ``else`` clause, whose code is executed after the
+        iterator runs dry, but **not** after a ``break`` statement is executed.  This
+        distinction allows for some elegant uses.  ``else`` clauses are not always or
+        often used on ``for`` loops, but they can come in handy.  Sometimes an ``else``
+        clause perfectly expresses the logic you need.
+
+        For example, if we need to check that a condition holds on some item, any item,
+        in a sequence::
+
+               for item in sequence:
+                   if condition(item):
+                       break
+               else:
+                   raise Exception('Condition not satisfied.')
+
+        Here is an example Generator to Filter out blank rows from a CSV reader (or
+        items from a list)::
+
+            def filter_rows(row_iterator):
+                for row in row_iterator:
+                    if row:
+                        yield row
+
+            data_file = open(path, 'rb')
+            irows = filter_rows(csv.reader(data_file))
+
+
+**27. Sorting a list in Python?**
+
+        ::
+
+            a_list.sort()
+
+        sort methods on a  list sorts it in-place. That is the original list is sorted,
+        and the ``sort`` method does **not** return the list or a copy.
+
+        But what if you have a list of data that you need to sort, but it doesn't sort
+        naturally (i.e., sort on the length of strings)?
+
+        ``sort`` method has an optional argument called "key", which specifies a
+        function of one argument that is used to compute a comparison key from each
+        list element.  For example: ::
+
+               def my_key(item):
+                   return (item[1], item[3])
+
+               to_sort.sort(key=my_key)
+
+        The function ``my_key`` will be called once for each item in the ``to_sort``
+        list.
+
+        You can make your own key function, or use any existing one-argument function
+        if applicable:
+
+           * ``str.lower`` to sort alphabetically regarless of case.
+           * ``len`` to sort on the length of the items (strings or containers).
+           * ``int`` or ``float`` to sort numerically, as with numeric strings
+             like "2", "123", "35".
+
+
+**28. What are the various different ways to import modules in Python?**
+
+
+        There is a wildcard ``*`` style module importing::
+
+                from module import *
+
+        The ``from module import *`` wild-card style leads to namespace pollution.
+        You'll get things in your local namespace that you didn't expect to get.  You
+        may see imported names obscuring module-defined local names.  You won't be able
+        to figure out where certain names come from.  Although a convenient shortcut,
+        this should not be in production code.
+
+        It's much better to:
+
+        * reference names through their module (fully qualified identifiers),
+        * import a long module using a shorter name (alias; recommended),
+        * or explicitly import just the names you need.
+
+
+        Namespace pollution alert!  ::
+
+               import module
+               module.name
+
+        Or import a long module using a shorter name (alias): ::
+
+               import long_module_name as mod
+               mod.name
+
+
+        Or explicitly import just the names you need: ::
+
+               from module import name
+               name
+
+
+        Note that this form doesn't lend itself to use in the interactive interpreter,
+        where you may want to edit and "reload()" a module.
+
+
+**29. How to make a Python module work as a script?**
+
+        To make a simultaneously importable module and executable script::
+
+            if __name__ == '__main__':
+                # script code here
+
+
+        When imported, a module's ``__name__`` attribute is set to the module's file
+        name, without ".py".  So the code guarded by the ``if`` statement above will
+        not run when imported.  When executed as a script though, the ``__name__``
+        attribute is set to "__main__", and the script code *will* run.
+
+        Except for special cases, you shouldn't put any major executable code at the
+        top-level.  Put code in functions, classes, methods, and guard it with ``if
+        __name__ == '__main__'``.
+
+
+**30. What is a good way to structure the python programs or modules and packages?**
+
+        This is how a module should be structured.::
+
+            """module docstring"""
+
+            # imports
+            # constants
+            # exception classes
+            # interface functions
+            # classes
+            # internal functions & classes
+
+            def main(...):
+                ...
+
+            if __name__ == '__main__':
+                status = main()
+                sys.exit(status)
+
+        This is how the packages should be structured
+
+        ::
+
+            package/
+                __init__.py
+                module1.py
+                subpackage/
+                    __init__.py
+                    module2.py
+
+
+        * Packages are used to organize your project.
+        * They Reduce the entries in load-path.
+        * They Reduce the import name conflicts.
+
+        Example::
+
+        import package.module1
+        from package.subpackage import module2
+        from package.subpackage.module2 import name
+
+
+**31. How would you transpose a Matrix in Python?**
+
+        ::
+
+                mat = [[1,2,3],
+                       [4,5,6],
+                       [7,8,9]
+                       ]
+
+
+        If we want to transpose the about matrix, that is change the rows into columns
+        and columns into rows, the result will be::
+
+                result = [[1,4,7],
+                          [2,5,8],
+                          [3,6,9]
+                          ]
+
+        Answer Is::
+
+                >>>zip(\*mat)
+
+
+Language Feature: Source code encoding
+--------------------------------------
+
+ * With that declaration, all characters in the source file will be treated as having the encoding *encoding*, and it will be possible to directly write Unicode string literals in the selected encoding.
+ * The list of possible encodings can be found in the Python Library Reference, in the section on 
+[http://docs.python.org/library/codecs.html#module-codecs codecs]
+* By using UTF-8, most languages in the world can be used simultaneously in string literals and the comments.
+
+
+Language Feature: Unicode
+-------------------------
+
+ * Starting with Python 2.0 a new data type for storing text data is available to the programmer: the Unicode object.  _>>> u'Hello World !'_
+ * Python unicode escape encoding: _>>> u'Hello\u0020World !'_
+ * built-in function unicode() , default encoding is ASCII
+ * To convert unicode to a 8-bit string using a specified encoding.
+
+::
+        >>> u"Ã¤Ã¶Ã¼".encode('utf-8')
+        '\xc3\xa4\xc3\xb6\xc3\xbc'
+
+
+ * From a data in a specific encoding to a unicode string.
+
+::
+        >>> unicode('\xc3\xa4\xc3\xb6\xc3\xbc', 'utf-8')
+        u'\xe4\xf6\xfc'
+
+
+Language Feature: Unicode
+
+* understanding unicode is easy, when we accept the need to explicitly convert
+  between the bytestring and unicode string.
+
+* More examples:
+
+   german_ae = unicode('\xc3\xa4','utf8')
+
+::
+        >>> german_ae = unicode("\xc3\xa4",'utf8')
+        >>> sentence = "this is a " + german_ae
+        >>> sentece2 = "Easy!"
+        >>> sentence2 = "Easy!"
+        >>> para = ".".join([sentence, sentence2])
+        >>> para
+        u'this is a \xe4.Easy!'
+        >>> print para
+        this is a ä.Easy!
+        >>> 
+
+* Without an encoding, the bytestring is essentially meaningless. 
+* The default encoding assumed by Python is ASCII
+
+
+Python Specialities: else clauses on loops 
+------------------------------------------
+
+* Loop statements may have an else clause; 
+* It is executed when the loop terminates through exhaustion of the list (with for).
+* Or when the condition becomes false (with while), 
+* But not when the loop is terminated by a break statement.
+
+::
+        >>> for n in range(2, 10):
+        ...     for x in range(2, n):
+        ...         if n % x == 0:
+        ...             print n, 'equals', x, '*', n/x
+        ...             break
+        ...     else:
+        ...         # loop fell through without finding a factor
+        ...         print n, 'is a prime number'
+        ...
+        2 is a prime number
+        3 is a prime number
+        4 equals 2 * 2
+        5 is a prime number
+        6 equals 2 * 3
+        7 is a prime number
+        8 equals 2 * 4
+        9 equals 3 * 3
+
+Control Flow: function execution
+--------------------------------
+
+The execution of a function introduces a new symbol table used for the local
+variables of the function. More precisely, all variable assignments in a
+function store the value in the local symbol table; whereas variable references
+first look in the local symbol table, then in the local symbol tables of
+enclosing functions, then in the global symbol table, and finally in the table
+of built-in names. Thus, global variables cannot be directly assigned a value
+within a function (unless named in a global statement), although they may be
+referenced.
+
+The actual parameters (arguments) to a function call are introduced in the
+local symbol table of the called function when it is called; thus, arguments
+are passed using call by value (where the value is always an object reference,
+not the value of the object). [1] When a function calls another function, a new
+local symbol table is created for that call.
+
+A function definition introduces the function name in the current symbol table.
+The value of the function name has a type that is recognized by the interpreter
+as a user-defined function. This value can be assigned to another name which
+can then also be used as a function.
+
+Control Flow: functions
+-----------------------
+
+* What is the output?
+
+:: 
+        i = 5
+
+        def f(arg=i):
+            print arg
+
+        i = 6
+        f()
+
+
+        def f(a, L=[]):
+            L.append(a)
+            return L
+
+        print f(1)
+        print f(2)
+        print f(3)
+
+* first one will print 5, because default values are evaluated at the point of
+  function definition in the defining scope.
+
+* The default value is evaluated only once. This makes a difference when the
+  default value is a mutatable object. In order to prevent argument sharing.
+
+::
+          def f(a, L=None):
+            if L is None:
+                L = []
+            L.append(a)
+            return L
+
+Data Structures: Functional Programming Tools 
+---------------------------------------------
+
+* There are three built-in functions that are very useful when used with lists:
+  filter(), map() and reduce()
+* filter(function, sequence)
+* map(function, sequence)
+* More than one sequence may be passed; the function must then have as many
+  arguments as there are sequences and is called with the corresponding item
+  from each sequence. 
+* reduce(function, sequence)
+* function in reduce is a binary function
+
+::
+
+        >>> def f(x): return x % 2 != 0 and x % 3 != 0
+        ...
+        >>> filter(f, range(2, 25))
+        [5, 7, 11, 13, 17, 19, 23]
+
+        >>> def cube(x): return x*x*x
+        ...
+        >>> map(cube, range(1, 11))
+        [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+
+        >>> seq = range(8)
+        >>> def add(x, y): return x+y
+        ...
+        >>> map(add, seq, seq)
+        [0, 2, 4, 6, 8, 10, 12, 14]
+
+        >>> def sum(seq):
+        ...     def add(x,y): return x+y
+        ...     return reduce(add, seq, 0)
+        ...
+        >>> sum(range(1, 11))
+        55
+        >>> sum([])
+        0
+
+Data Structures: List comprehensions 
+------------------------------------
+
+* Each list comprehension consists of an expression followed by a for clause, then zero or more for or if clauses.
+* If the expression would evaluate to a tuple, it must be parenthesized.
+
+
+::
+
+        >>> freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
+        >>> [weapon.strip() for weapon in freshfruit]
+        ['banana', 'loganberry', 'passion fruit']
+        >>> vec = [2, 4, 6]
+        >>> [3*x for x in vec]
+        [6, 12, 18]
+        >>> [3*x for x in vec if x > 3]
+        [12, 18]
+        >>> [3*x for x in vec if x < 2]
+        []
+        >>> [[x,x**2] for x in vec]
+        [[2, 4], [4, 16], [6, 36]]
+        >>> [x, x**2 for x in vec]  # error - parens required for tuples
+          File "<stdin>", line 1, in ?
+            [x, x**2 for x in vec]
+                       ^
+        SyntaxError: invalid syntax
+        >>> [(x, x**2) for x in vec]
+        [(2, 4), (4, 16), (6, 36)]
+        >>> vec1 = [2, 4, 6]
+        >>> vec2 = [4, 3, -9]
+        >>> [x*y for x in vec1 for y in vec2]
+        [8, 6, -18, 16, 12, -36, 24, 18, -54]
+        >>> [x+y for x in vec1 for y in vec2]
+        [6, 5, -7, 8, 7, -5, 10, 9, -3]
+        >>> [vec1[i]*vec2[i] for i in range(len(vec1))]
+        [8, 12, -54]
+        
+
+Comparing Sequences and Other Types 
+-----------------------------------
+
+* lexicographic comparision between the same types.
+* comparing objects of different types is legal.
+* types are ordered by their name ( list < string < tuple). *this must not be relied upon however*
+* mixed numeric types are compared according to numeric value.
+
+::
+        (1, 2, 3)              < (1, 2, 4)
+        [1, 2, 3]              < [1, 2, 4]
+        'ABC' < 'C' < 'Pascal' < 'Python'
+        (1, 2, 3, 4)           < (1, 2, 4)
+        (1, 2)                 < (1, 2, -1)
+        (1, 2, 3)             == (1.0, 2.0, 3.0)
+        (1, 2, ('aa', 'ab'))   < (1, 2, ('abc', 'a'), 4)
+
+
+
+Handling Exceptions
+-------------------
+
+* A try statement may have more than one except clause, to specify handlers for
+
+::
+
+  different exceptions.
+
+          ... except (RuntimeError, TypeError, NameError):
+
+          ...     pass
+
+* The last except clause may omit the exception name(s), to serve as a
+  wildcard. Use this with extreme caution, since it is easy to mask a real
+  programming error in this way! 
+
+*  It can also be used to print an error message and then re-raise the
+  exception (allowing a caller to handle the exception as well)
+
+* The try ... except statement has an optional else clause, executed when the
+  try clause does not raise an exception.
+
+::
+
+        for arg in sys.argv[1:]:
+            try:
+                f = open(arg, 'r')
+            except IOError:
+                print 'cannot open', arg
+            else:
+                print arg, 'has', len(f.readlines()), 'lines'
+                f.close()
+
+Defining Clean-up Actions 
+-------------------------
+
+* A finally clause is always executed before leaving the try statement, whether
+an exception has occurred or not.
+
+* In real world applications, the finally clause is useful for releasing
+  external resources (such as files or network connections), regardless of
+  whether the use of the resource was successful.
+
+Pre-defined Clean-up actions
+----------------------------
+
+* with statement
+
+* Some objects define standard clean-up actions to be undertaken when the
+  object is no longer needed, regardless of whether or not the operation using
+  the object succeeded or failed. 
+
+::
+
+        with open("myfile.txt") as f:
+            for line in f:
+                print line
+
+* After the statement is executed, the file f is always closed, even if a
+  problem was encountered while processing the lines. 
+
+Classes in Python 
+-----------------
+
+* In C++ terminology, all class members (including the data members) are
+  public, and all member functions are virtual. There are no special
+  constructors or destructors.  
+* Python Scopes and Namespaces
+* A namespace is a mapping from names to objects. Most namespaces are currently
+  implemented as Python dictionaries.
+
+Classs in Python
+----------------
+
+* When a class definition is entered, a new namespace is created, and used as
+  the local scope and thus, all assignments to local variables go into this new
+  namespace. In particular, function definitions bind the name of the new
+  function here.
+* When a class definition is left normally (via the end), a class object is
+  created. This is basically a wrapper around the contents of the namespace
+  created by the class definition;The original local scope (the one in effect
+  just before the class definition was entered) is reinstated, and the class
+  object is bound here to the class name given in the class definition header
+* Class Objects support attribute notation and instantiation.
+* Class instantiation creates instance objects.
+* Instance Objects supports attribute references, which are of two kinds data
+  attributes and methods.
+
+
+Inheritance in Python 
+---------------------
+
+* Old style classes it is depth first, left to right.
+* For new style classes to support super(), it follows a diamond inheritance.
+
+
+Iterators
+---------
+
+* The use of iterators pervades and unifies Python.
+* Behind the scenes, the iterator statement calls iter() on the container
+  object. 
+* The function returns an iterator object that defines the method next() which
+  accesses elements in the container one at a time.  
+* StopIterationException terminates
+* In your classes, define __iter__ which will return self and the next method.
+
+Generators
+----------
+
+* Just like regular function, but instead of return they use yield.
+* Generators are used to return iterators.
+* Generator expressions which are very similar to list comprehensions.
+
+ * Python Standard Library. 
+ * Explore!
+
+ 
+Explain Classmethods, Staticmethods and Decorators in Python.
+=============================================================
+
+In Object Oriented Programming, you can create a method which can get
+associated either with a class or with an instance of the class, namely an
+object. 
+
+And most often in our regular practice, we always create methods to be
+associated with an object. Those are called instance methods.
+
+For e.g.
+::
+
+        class Car:
+                def cartype(self):
+                        self.model = "Audi"
+
+        mycar = Car()
+        mycar.cartype()
+        print mycar.model
+
+Here cartype() is an instance method, it associates itself with an instance
+(mycar) of the class (Car) and that is defined by the first argument ('self').
+
+When you want a method not to be associated with an instance, you call that as
+a staticmethod.
+
+How can you do such a thing in Python?
+
+The following would never work:
+
+::
+
+        >>> class Car:
+        ... 	def getmodel():
+        ... 		return "Audi"
+        ... 	def type(self):
+        ... 		self.model = getmodel()
+
+Because, getmodel() is defined inside the class, Python binds it to the Class
+Object.  You cannot call it by the following way also, namely: Car.getmodel()
+or Car().getmodel() , because in this case we are passing it through an
+instance ( Class Object or a Instance Object) as one of the argument while our
+definition does not take any argument.
+
+As you can see, there is a conflict here and in effect the case is, It is an
+"unbound local **method**" inside the class.
+
+Now comes Staticmethod.
+
+Now, in order to call getmodel(), you can to change it to a static method.
+
+::
+
+        >>> class Car:
+        ... 	def getmodel():
+        ... 		return "Audi"
+        ...     getmodel = staticmethod(getmodel)
+        ... 	def cartype(self):
+        ... 		self.model = Car.getmodel()
+        ... 		
+        >>> mycar = Car()
+        >>> mycar.cartype()
+        >>> mycar.model
+        'Audi'
+
+Now, I have called it as Car.getmodel() even though my definition of getmodel
+did not take any argument. This is what staticmethod function did.  getmodel()
+is a method which does not need an instance now, but still you do it as
+Car.getmodel() because getmodel() is still bound to the Class object. 
+
+Decorators
+----------
+
+getmodel = staticmethod(getmodel)
+
+If you look at the previous code example, the function staticmethod took a
+function name as a argument and the return value was a function which we
+assigned to the same name.
+
+staticmethod() function thus wrapped our getmodel function with some extra
+features and this wrapping is called as Decorator.
+
+The same code can be written like this.
+
+::
+
+        >>> class Car:
+        ... 	@staticmethod
+        ... 	def getmodel():
+        ... 		return "Audi"
+        ... 	def cartype(self):
+        ... 		self.model = Car.getmodel()
+        ... 		
+        >>> mycar = Car()
+        >>> mycar.cartype()
+        >>> mycar.model
+        'Audi'
+
+For a better explaination on what is decorator:
+
+http://personalpages.tds.net/~kent37/kk/00001.html
+
+Please remember that this concept of Decorator is independent of staticmethod
+and classmethod.  Now, what is a difference between staticmethod and
+classmethod?
+
+In languages like Java,C++, both the terms denote the same :- methods for which
+we do not require instances. But there is a difference in Python. A class
+method receives the class it was called on as the first argument. This can be
+useful with subclasses.
+
+We can see the above example with the classmethod and a decorator as:
+
+::
+
+        >>>
+        >>> class Car:
+        ... 	@classmethod
+        ... 	def getmodel(cls):
+        ... 		return "Audi"
+        ... 	def gettype(self):
+        ... 		self.model = Car.getmodel()
+        ... 		
+        >>> mycar = Car()
+        >>> mycar.gettype()
+        >>> mycar.model
+        'Audi'
+
+
+The following are the references in order to understand further:
+1) Alex-Martelli explaining it with code: http://code.activestate.com/recipes/52304/
+2)  Decorators: http://personalpages.tds.net/~kent37/kk/00001.html
+
+Good Article on Decorators
+
+http://personalpages.tds.net/~kent37/kk/00001.html
+
+Static Methods and Class Methods
+--------------------------------
+
+A class method receives the class it was called on as the first
+argument. This can be useful with subclasses. A staticmethod doesn't get a
+class or instance argument. It is just a way to put a plain function into the
+scope of a class.
+
+And that's the definition of the difference in Python.
+In the wider world of OOP they are two names for the same concept.
+Smalltalk and Lisp etc used the term "class method" to mean a
+method that applied to the class as a whole.
+
+C++ introduced the term "static method" to reflect the fact that it
+was loaded in the static area of memory and thus could be called
+without instantiating an object. This meant it could effectively be
+used as a class method.
+
+[In C it is possible to prefix a normal function definition with
+the word static to get the compiler to load the function into
+static memory - this often gives a performance improvement.]
+
+Python started off implementing "static methods" then later
+developed the sligtly more powerful and flexible "class methods" and
+rather than lose backward compatibility called them classmethod.
+So in Python we have two ways of doing more or less the same
+(conceptual) thing.  // Alan
+
+Conceptually they are both ways of defining a method that
+applies at the class level and could be used to implement
+class wide behavior. Thats what I mean. If you want to build
+a method to determine how many instances are active at
+any time then you could use either a staticmethod or a
+classmethod to do it. Most languages only give you one
+way. Python, despite its mantra, actually gives 2 ways to
+do it in this case. // Alan
+
+http://code.activestate.com/recipes/52304/
+
+http://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod-in-python
+
+Method (Computer Science)
+
+In object-oriented programming, a method is a subroutine that is exclusively
+associated either with a class (called class methods or static methods) or with
+an object (called instance methods). Like a procedure in procedural programming
+languages, a method usually consists of a sequence of statements to perform an
+action, a set of input parameters to customize those actions, and possibly an
+output value (called the return value) of some kind. Methods can provide a
+mechanism for accessing (for both reading and writing) the encapsulated data
+stored in an object or a class.
+
+Instance methods are associated with a particular object, while class or static
+methods are associated with a class. In all typical implementations, instance
+methods are passed a hidden reference (e.g. this, self or Me) to the object
+(whether a class or class instance) they belong to, so that they can access the
+data associated with it. 
+
+For class/static methods this may or may not happen according to the language;
+A typical example of a class method would be one that keeps count of the number
+of created objects within a given class.
+
+A method may be declared as static, meaning that it acts at the class level
+rather than at the instance level. Therefore, a static method cannot refer to a
+specific instance of the class (i.e. it cannot refer to this, self, Me, etc.),
+unless such references are made through a parameter referencing an instance of
+the class, although in such cases they must be accessed through the parameter's
+identifier instead of this. An example of a static member and its consumption
+in C# code:
+
+::
+
+        public class ExampleClass
+        {
+          public static void StaticExample()
+          {
+             // static method code
+          }
+         
+          public void InstanceExample()
+          {
+             // instance method code here
+             // can use THIS
+          }   
+        }
+         
+        /// Consumer of the above class:
+         
+        // Static method is called -- no instance is involved
+        ExampleClass.StaticExample();
+         
+        // Instance method is called
+        ExampleClass objMyExample = new ExampleClass();
+        objMyExample.InstanceExample();
+
+
+Python method can create an instance of Dict or of any subclass of it, because
+it receives a reference to a class object as cls:
+
+::
+
+        class Dict:
+           @classmethod
+           def fromkeys(cls, iterable, value=None):
+               d = cls()
+               for key in iterable:
+                   d[key] = value
+               return d
+
+
+http://en.wikipedia.org/wiki/Method_(computer_science)
+
+What is the difference between process and a thread?
+
+Both threads and processes are methods of parallelizing an application.
+However, processes are independent execution units that contain their own state
+information, use their own address spaces, and only interact with each other
+via interprocess communication mechanisms (generally managed by the operating
+system). Applications are typically divided into processes during the design
+phase, and a master process explicitly spawns sub-processes when it makes sense
+to logically separate significant application functionality. Processes, in
+other words, are an architectural construct.
+
+By contrast, a thread is a coding construct that doesn't affect the
+architecture of an application. A single process might contains multiple
+threads; all threads within a process share the same state and same memory
+space, and can communicate with each other directly, because they share the
+same variables.
+
+Threads typically are spawned for a short-term benefit that is usually
+visualized as a serial task, but which doesn't have to be performed in a linear
+manner (such as performing a complex mathematical computation using
+parallelism, or initializing a large matrix), and then are absorbed when no
+longer required. The scope of a thread is within a specific code module—which
+is why we can bolt-on threading without affecting the broader application.
+
+Global Interpreter Lock:
+
+The GIL is a single lock inside of the Python interpreter, which effectively
+prevents multiple threads from being executed in parallel, even on multi-core
+or multi-CPU systems!
+
+* All threads within a single process share memory; this includes Python's
+  internal structures (such as reference counts for each variable).  Course
+  grained locking.
+* fine grained locking.
+* @synchronized decorator
+* technically speaking, threads have shared heaps but separate stacks.
+* Interpreter of a language is said to be stackless if the function calls in
+  the language do not use the C Stack. In effect, the entire interpretor has to
+  run as a giant loop.
+
+What is Global Interpretor Lock in Python?
+
+The Global Interpreter Lock (GIL) is used to protect Python objects from being
+modified from multiple threads at once. Only the thread that has the lock may
+safely access objects.
+
+To keep multiple threads running, the interpreter automatically releases and
+reacquires the lock at regular intervals (controlled by the
+sys.setcheckinterval function). It also does this around potentially slow or
+blocking low-level operations, such as file and network I/O.
+
+Indeed the GIL prevents the *interpreter* to run two threads of bytecodes
+concurrently.
+
+But it allows two or more threadsafe C library to run at the same time.
+
+The net effect of this brilliant design decision are:
+
+1. it makes the interpreter simpler and faster
+
+2. when speed does not matter (ie: bytecode is interpreted) there’s not too
+much to worry about threads.
+
+3. when speed does matter (ie: when C code is run) Python applications is not
+hampered by a brain dead VM that is so ’screwed’ up that it must pause
+to collect its garbage.
+
+4.21   How do you specify and enforce an interface spec in Python?
+
+An interface specification for a module as provided by languages such as C++
+and Java describes the prototypes for the methods and functions of the module.
+Many feel that compile-time enforcement of interface specifications helps in
+the construction of large programs.
+
+Python 2.6 adds an abc module that lets you define Abstract Base Classes (ABC).
+You can then use isinstance() and issubclass to check whether an instance or a
+class implements a particular ABC. The collections modules defines a set of
+useful ABC s such as Iterable, Container, and Mutablemapping.
+
+For Python, many of the advantages of interface specifications can be obtained
+by an appropriate test discipline for components. There is also a tool,
+PyChecker, which can be used to find problems due to subclassing.
+
+A good test suite for a module can both provide a regression test and serve as
+a module interface specification and a set of examples. Many Python modules can
+be run as a script to provide a simple "self test." Even modules which use
+complex external interfaces can often be tested in isolation using trivial
+"stub" emulations of the external interface. The doctest and unittest modules
+or third-party test frameworks can be used to construct exhaustive test suites
+that exercise every line of code in a module.
+
+An appropriate testing discipline can help build large complex applications in
+Python as well as having interface specifications would. In fact, it can be
+better because an interface specification cannot test certain properties of a
+program. For example, the append() method is expected to add new elements to
+the end of some internal list; an interface specification cannot test that your
+append() implementation will actually do this correctly, but it's trivial to
+check this property in a test suite.
+
+Writing test suites is very helpful, and you might want to design your code
+with an eye to making it easily tested. One increasingly popular technique,
+test-directed development, calls for writing parts of the test suite first,
+before you write any of the actual code. Of course Python allows you to be
+sloppy and not write test cases at all.
+
+
+Coroutines
+
+Coroutines are subroutines that allow multiple entry points for suspending and
+resuming execution at certain locations.  Subroutine are subprograms, methods,
+functions for performing a subtask and it is relatively independent of other
+task.  Coroutines are usful for implementing cooperative tasks, iterators,
+infinite lists and pipes.  Cooperative Tasks - Similar programs, CPU is yielded
+to each program coperatively.  Iterators - an object that allows the programmer
+to traverse all the elements of a collection.  Lazy Evaluation is the technique
+for delaying the computation till the result is required. Why Infite Lists and
+Lazy evaluation are given together?  Coroutines in which subsequent calls can
+be yield more results are called as generators.  Subroutines are implemented
+using stacks and coroutines are implemented using continuations.  continuation
+are an abstract representation of a control state, or the rest of the
+computation, or rest of the code to be executed.
+
+Multithreading
+
+Multithreading computers have hardware support to efficiently execute multiple
+threads.  Threads of program results from fork of a computer program into two
+or more concurrently running tasks.  In multi-threading the threads have to
+share a single core,cache and TLB unlike the multiprocessing machines.
+
 Bytes in API
 ------------
 
@@ -814,459 +1890,6 @@ Bytes in API
 * Non Decodable Bytes in System Character Interfaces.
 * PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
 * Issue4661
-
-
-Default Parameter Values
-========================
-
-This is a common mistake that beginners often make.  Even more advanced
-programmers make this mistake if they don't understand Python names.
-
-::
-
-    def bad_append(new_item, a_list=[]):
-        a_list.append(new_item)
-        return a_list
-
-
-The problem here is that the default value of ``a_list``, an empty list, is
-evaluated at function definition time.  So every time you call the function,
-you get the **same** default value.  Try it several times:
-
-   ::
-
-       >>> print bad_append('one')
-       ['one']
-
-   ::
-
-       >>> print bad_append('two')
-       ['one', 'two']
-
-Lists are a mutable objects; you can change their contents.  The correct way to
-get a default list (or dictionary, or set) is to create it at run time instead,
-**inside the function**.::
-
-       def good_append(new_item, a_list=None):
-           if a_list is None:
-               a_list = []
-           a_list.append(new_item)
-           return a_list
-
-
-Advanced % String Formatting
-============================
-
-What many people don't realize is that there are other, more flexible ways to
-do string formatting:
-
-By name with a dictionary::
-
-       values = {'name': name, 'messages': messages}
-       print ('Hello %(name)s, you have %(messages)i '
-              'messages' % values)
-
-Here we specify the names of interpolation values, which are looked up in the
-supplied dictionary.
-
-Notice any redundancy?  The names "name" and "messages" are already defined in
-the local namespace.  We can take advantage of this.
-
-By name using the local namespace::
-
-       print ('Hello %(name)s, you have %(messages)i '
-              'messages' % locals())
-
-
-The namespace of an object's instance attributes is just a dictionary,
-``self.__dict__``.
-
-By name using the instance namespace::
-
-       print ("We found %(error_count)d errors"
-              % self.__dict__)
-
-Equivalent to, but more flexible than::
-
-       print ("We found %d errors"
-              % self.error_count)
-
-List Comprehensions
-===================
-
-List comprehensions ("listcomps" for short) are syntax shortcuts for this
-general pattern.
-
-As a list comprehension::
-
-       new_list = [fn(item) for item in a_list
-                   if condition(item)]
-
-Listcomps are clear & concise, up to a point.  You can have multiple
-``for``-loops and ``if``-conditions in a listcomp, but beyond two or three
-total, or if the conditions are complex, I suggest that regular ``for`` loops
-should be used.  Applying the Zen of Python, choose the more readable way.::
-
-   For example, a list of the squares of 0–9:
-
-   >>> [n ** 2 for n in range(10)]
-   [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-
-   A list of the squares of odd 0–9:
-
-   >>> [n ** 2 for n in range(10) if n % 2]
-   [1, 9, 25, 49, 81]
-
-
-Generator Expressions
-=====================
-
-Let's sum the squares of the numbers up to 100:
-As a loop::
-
-       total = 0
-       for num in range(1, 101):
-           total += num * num
-
-We can use the ``sum`` function to quickly do the work for us, by building the
-appropriate sequence.
-
-As a list comprehension::
-
-       total = sum([num * num for num in range(1, 101)])
-
-As a generator expression::
-
-       total = sum(num * num for num in xrange(1, 101))
-
-
-Generator expressions ("genexps") are just like list comprehensions, except
-that where listcomps are greedy, generator expressions are lazy.  Listcomps
-compute the entire result list all at once, as a list.  Generator expressions
-compute one value at a time, when needed, as individual values.  This is
-especially useful for long sequences where the computed list is just an
-intermediate step and not the final result.
-
-In this case, we're only interested in the sum; we don't need the intermediate
-list of squares.  We use ``xrange`` for the same reason: it lazily produces
-values, one at a time.
-
-For example, if we were summing the squares of several billion integers, we'd
-run out of memory with list comprehensions, but generator expressions have no
-problem.  This does take time, though!  
-
-::
-       total = sum(num * num
-                   for num in xrange(1, 1000000000))
-
-The difference in syntax is that listcomps have square brackets, but generator
-expressions don't.  Generator expressions sometimes do require enclosing
-parentheses though, so you should always use them.
-
-Rule of thumb:
-
-* Use a list comprehension when a computed list is the desired end result.
-* Use a generator expression when the computed list is just an intermediate
-  step.
-
-
-We needed a dictionary mapping month numbers (both as string and as integers)
-to month codes for futures contracts.  It can be done in one logical line of
-code.
-
-The way this works is as follows:
-
-* The ``dict()`` built-in takes a list of key/value pairs (2-tuples).
-* We have a list of month codes (each month code is a single letter, and a
-  string is also just a list of letters).  We enumerate over this list to get
-  both the month code and the index.
-* The month numbers start at 1, but Python starts indexing at 0, so the month
-  number is one more than the index.
-* We want to look up months both as strings and as integers.  We can use the
-  ``int()`` and ``str()`` functions to do this for us, and loop over them.
-
-Recent example::
-
-        month_codes = dict((fn(i+1), code)
-            for i, code in enumerate('FGHJKMNQUVXZ')
-            for fn in (int, str))
-
-   ``month_codes`` result::
-
-       { 1:  'F',  2:  'G',  3:  'H',  4:  'J', ...
-        '1': 'F', '2': 'G', '3': 'H', '4': 'J', ...}
-
-
-Sorting
-=======
-
-::
-
-    a_list.sort()
-
-(Note that the list is sorted in-place: the original list is sorted, and the
-``sort`` method does **not** return the list or a copy.)
-
-But what if you have a list of data that you need to sort, but it doesn't sort
-naturally (i.e., sort on the first column, then the second column, etc.)?  You
-may need to sort on the second column first, then the fourth column.
-We can use list's built-in ``sort`` method with a custom function::
-
-       def custom_cmp(item1, item2):
-           return cmp((item1[1], item1[3]),
-                      (item2[1], item2[3]))
-
-       a_list.sort(custom_cmp)
-
-This works, but it's extremely slow for large lists.
-
-Sorting with DSU *
-==================
-
-DSU = Decorate-Sort-Undecorate
-
-\* Note: DSU is often no longer necessary.  See the next section,
-`Sorting With Keys`_ for the new approach.
-
-Instead of creating a custom comparison function, we create an auxiliary list
-that *will* sort naturally.::
-
-       # Decorate:
-       to_sort = [(item[1], item[3], item)
-                  for item in a_list]
-
-       # Sort:
-       to_sort.sort()
-
-       # Undecorate:
-       a_list = [item[-1] for item in to_sort]
-
-The first line creates a list containing tuples: copies of the sort terms in
-priority order, followed by the complete data record.The second line does a
-native Python sort, which is very fast and efficient. The third line retrieves
-the **last** value from the sorted list.  Remember, this last value is the
-complete data record.  We're throwing away the sort terms, which have done
-their job and are no longer needed. This is a tradeoff of space and complexity
-against time.  Much simpler and faster, but we do need to duplicate the
-original list.
-
-Sorting With Keys
-=================
-
-Python 2.4 introduced an optional argument to the ``sort`` list method, "key",
-which specifies a function of one argument that is used to compute a comparison
-key from each list element.  For example: ::
-
-       def my_key(item):
-           return (item[1], item[3])
-
-       to_sort.sort(key=my_key)
-
-The function ``my_key`` will be called once for each item in the ``to_sort``
-list.
-
-You can make your own key function, or use any existing one-argument function
-if applicable:
-
-   * ``str.lower`` to sort alphabetically regarless of case.
-   * ``len`` to sort on the length of the items (strings or containers).
-   * ``int`` or ``float`` to sort numerically, as with numeric strings
-     like "2", "123", "35".
-
-
-Generators
-==========
-
-We've already seen generator expressions.  We can devise our own arbitrarily
-complex generators, as functions: ::
-
-    def my_range_generator(stop):
-        value = 0
-        while value < stop:
-            yield value
-            value += 1
-
-    for i in my_range_generator(10):
-        do_something(i)
-
-The ``yield`` keyword turns a function into a generator.  When you call a
-generator function, instead of running the code immediately Python returns a
-generator object, which is an iterator; it has a ``next`` method.  ``for``
-loops just call the ``next`` method on the iterator, until a ``StopIteration``
-exception is raised.  You can raise ``StopIteration`` explicitly, or implicitly
-by falling off the end of the generator code as above.
-
-Generators can simplify sequence/iterator handling, because we don't need to
-build concrete lists; just compute one value at a time.  The generator function
-maintains state.
-
-This is how a ``for`` loop really works.  Python looks at the sequence supplied
-after the ``in`` keyword.  If it's a simple container (such as a list, tuple,
-dictionary, set, or user-defined container) Python converts it into an
-iterator.  If it's already an iterator, Python uses it directly.
-
-Then Python repeatedly calls the iterator's ``next`` method, assigns the return
-value to the loop counter (``i`` in this case), and executes the indented code.
-This is repeated over and over, until ``StopIteration`` is raised, or a
-``break`` statement is executed in the code.
-
-A ``for`` loop can have an ``else`` clause, whose code is executed after the
-iterator runs dry, but **not** after a ``break`` statement is executed.  This
-distinction allows for some elegant uses.  ``else`` clauses are not always or
-often used on ``for`` loops, but they can come in handy.  Sometimes an ``else``
-clause perfectly expresses the logic you need.
-
-For example, if we need to check that a condition holds on some item, any item,
-in a sequence::
-
-       for item in sequence:
-           if condition(item):
-               break
-       else:
-           raise Exception('Condition not satisfied.')
-
-Example Generator
-=================
-
-Filter out blank rows from a CSV reader (or items from a list)::
-
-    def filter_rows(row_iterator):
-        for row in row_iterator:
-            if row:
-                yield row
-
-    data_file = open(path, 'rb')
-    irows = filter_rows(csv.reader(data_file))
-
-
-Reading Lines From Text/Data Files
-==================================
-
-::
-
-    datafile = open('datafile')
-    for line in datafile:
-        do_something(line)
-
-This is possible because files support a ``next`` method, as do other
-iterators: lists, tuples, dictionaries (for their keys), generators.
-
-There is a caveat here: because of the way the buffering is done, you cannot
-mix ``.next`` & ``.read*`` methods unless you're using Python 2.5+.
-
-Importing
-=========
-
-::
-
-        from module import *
-
-You've probably seen this "wild card" form of the import statement.  You may
-even like it.  **Don't use it.**
-
-
-The ``from module import *`` wild-card style leads to namespace pollution.
-You'll get things in your local namespace that you didn't expect to get.  You
-may see imported names obscuring module-defined local names.  You won't be able
-to figure out where certain names come from.  Although a convenient shortcut,
-this should not be in production code.
-
-Moral: **don't use wild-card imports!**
-
-It's much better to:
-
-* reference names through their module (fully qualified identifiers),
-* import a long module using a shorter name (alias; recommended),
-* or explicitly import just the names you need.
-
-
-Namespace pollution alert!  ::
-
-       import module
-       module.name
-
-Or import a long module using a shorter name (alias): ::
-
-       import long_module_name as mod
-       mod.name
-
-
-Or explicitly import just the names you need: ::
-
-       from module import name
-       name
-
-
-Note that this form doesn't lend itself to use in the interactive interpreter,
-where you may want to edit and "reload()" a module.
-
-Modules & Scripts
-=================
-
-To make a simultaneously importable module and executable script::
-
-    if __name__ == '__main__':
-        # script code here
-
-
-When imported, a module's ``__name__`` attribute is set to the module's file
-name, without ".py".  So the code guarded by the ``if`` statement above will
-not run when imported.  When executed as a script though, the ``__name__``
-attribute is set to "__main__", and the script code *will* run.
-
-Except for special cases, you shouldn't put any major executable code at the
-top-level.  Put code in functions, classes, methods, and guard it with ``if
-__name__ == '__main__'``.
-
-
-Module Structure
-================
-
-This is how a module should be structured.::
-
-    """module docstring"""
-
-    # imports
-    # constants
-    # exception classes
-    # interface functions
-    # classes
-    # internal functions & classes
-
-    def main(...):
-        ...
-
-    if __name__ == '__main__':
-        status = main()
-        sys.exit(status)
-
-Packages
-========
-
-::
-
-    package/
-        __init__.py
-        module1.py
-        subpackage/
-            __init__.py
-            module2.py
-
-
-- Used to organize your project.
-- Reduces entries in load-path.
-- Reduces import name conflicts.
-
-Example::
-
-import package.module1
-from package.subpackage import module2
-from package.subpackage.module2 import name
-
-In Python 2.5 we now have absolute and relative imports via a future import::
-
-       from __future__ import absolute_import
-
 
 Links
 =====
@@ -1420,21 +2043,6 @@ Thus, any framework that's WSGI compliant support should give you the "server
 independence" you're looking for. You just need a WSGI "gateway" for the
 server, and find out how the framework exposes an "application" object to be
 run by the gateway.
-
-
-
-Simple is Better Than Complex
-=============================
-
-Debugging is twice as hard as writing the code in the first place.  Therefore,
-if you write the code as cleverly as possible, you are, by definition, not
-smart enough to debug it.
-
-    -- Brian W. Kernighan, co-author of *The C Programming Language*
-       and the "K" in "AWK"
-
-
-In other words, keep your programs simple!
 
 
 * "Python Objects", Fredrik Lundh,
@@ -2395,785 +3003,11 @@ For e.g:
 Add the information on headers
 Header set Author "Senthil"
 
-Language Feature: Source code encoding
---------------------------------------
-
- * With that declaration, all characters in the source file will be treated as having the encoding *encoding*, and it will be possible to directly write Unicode string literals in the selected encoding.
- * The list of possible encodings can be found in the Python Library Reference, in the section on 
-[http://docs.python.org/library/codecs.html#module-codecs codecs]
-* By using UTF-8, most languages in the world can be used simultaneously in string literals and the comments.
-
-
-Language Feature: Unicode
--------------------------
-
- * Starting with Python 2.0 a new data type for storing text data is available to the programmer: the Unicode object.  _>>> u'Hello World !'_
- * Python unicode escape encoding: _>>> u'Hello\u0020World !'_
- * built-in function unicode() , default encoding is ASCII
- * To convert unicode to a 8-bit string using a specified encoding.
-
-::
-        >>> u"Ã¤Ã¶Ã¼".encode('utf-8')
-        '\xc3\xa4\xc3\xb6\xc3\xbc'
-
-
- * From a data in a specific encoding to a unicode string.
-
-::
-        >>> unicode('\xc3\xa4\xc3\xb6\xc3\xbc', 'utf-8')
-        u'\xe4\xf6\xfc'
-
-
-Language Feature: Unicode
-
-* understanding unicode is easy, when we accept the need to explicitly convert
-  between the bytestring and unicode string.
-
-* More examples:
-
-   german_ae = unicode('\xc3\xa4','utf8')
-
-::
-        >>> german_ae = unicode("\xc3\xa4",'utf8')
-        >>> sentence = "this is a " + german_ae
-        >>> sentece2 = "Easy!"
-        >>> sentence2 = "Easy!"
-        >>> para = ".".join([sentence, sentence2])
-        >>> para
-        u'this is a \xe4.Easy!'
-        >>> print para
-        this is a ä.Easy!
-        >>> 
-
-* Without an encoding, the bytestring is essentially meaningless. 
-* The default encoding assumed by Python is ASCII
-
-
-Python Specialities: else clauses on loops 
-------------------------------------------
-
-* Loop statements may have an else clause; 
-* It is executed when the loop terminates through exhaustion of the list (with for).
-* Or when the condition becomes false (with while), 
-* But not when the loop is terminated by a break statement.
-
-::
-        >>> for n in range(2, 10):
-        ...     for x in range(2, n):
-        ...         if n % x == 0:
-        ...             print n, 'equals', x, '*', n/x
-        ...             break
-        ...     else:
-        ...         # loop fell through without finding a factor
-        ...         print n, 'is a prime number'
-        ...
-        2 is a prime number
-        3 is a prime number
-        4 equals 2 * 2
-        5 is a prime number
-        6 equals 2 * 3
-        7 is a prime number
-        8 equals 2 * 4
-        9 equals 3 * 3
-
-Control Flow: function execution
---------------------------------
-
-The execution of a function introduces a new symbol table used for the local
-variables of the function. More precisely, all variable assignments in a
-function store the value in the local symbol table; whereas variable references
-first look in the local symbol table, then in the local symbol tables of
-enclosing functions, then in the global symbol table, and finally in the table
-of built-in names. Thus, global variables cannot be directly assigned a value
-within a function (unless named in a global statement), although they may be
-referenced.
-
-The actual parameters (arguments) to a function call are introduced in the
-local symbol table of the called function when it is called; thus, arguments
-are passed using call by value (where the value is always an object reference,
-not the value of the object). [1] When a function calls another function, a new
-local symbol table is created for that call.
-
-A function definition introduces the function name in the current symbol table.
-The value of the function name has a type that is recognized by the interpreter
-as a user-defined function. This value can be assigned to another name which
-can then also be used as a function.
-
-Control Flow: functions
------------------------
-
-* What is the output?
-
-:: 
-        i = 5
-
-        def f(arg=i):
-            print arg
-
-        i = 6
-        f()
-
-
-        def f(a, L=[]):
-            L.append(a)
-            return L
-
-        print f(1)
-        print f(2)
-        print f(3)
-
-* first one will print 5, because default values are evaluated at the point of
-  function definition in the defining scope.
-
-* The default value is evaluated only once. This makes a difference when the
-  default value is a mutatable object. In order to prevent argument sharing.
-
-::
-          def f(a, L=None):
-            if L is None:
-                L = []
-            L.append(a)
-            return L
-
-Data Structures: Functional Programming Tools 
----------------------------------------------
-
-* There are three built-in functions that are very useful when used with lists:
-  filter(), map() and reduce()
-* filter(function, sequence)
-* map(function, sequence)
-* More than one sequence may be passed; the function must then have as many
-  arguments as there are sequences and is called with the corresponding item
-  from each sequence. 
-* reduce(function, sequence)
-* function in reduce is a binary function
-
-::
-
-        >>> def f(x): return x % 2 != 0 and x % 3 != 0
-        ...
-        >>> filter(f, range(2, 25))
-        [5, 7, 11, 13, 17, 19, 23]
-
-        >>> def cube(x): return x*x*x
-        ...
-        >>> map(cube, range(1, 11))
-        [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
-
-        >>> seq = range(8)
-        >>> def add(x, y): return x+y
-        ...
-        >>> map(add, seq, seq)
-        [0, 2, 4, 6, 8, 10, 12, 14]
-
-        >>> def sum(seq):
-        ...     def add(x,y): return x+y
-        ...     return reduce(add, seq, 0)
-        ...
-        >>> sum(range(1, 11))
-        55
-        >>> sum([])
-        0
-
-Data Structures: List comprehensions 
-------------------------------------
-
-* Each list comprehension consists of an expression followed by a for clause, then zero or more for or if clauses.
-* If the expression would evaluate to a tuple, it must be parenthesized.
-
-
-::
-
-        >>> freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
-        >>> [weapon.strip() for weapon in freshfruit]
-        ['banana', 'loganberry', 'passion fruit']
-        >>> vec = [2, 4, 6]
-        >>> [3*x for x in vec]
-        [6, 12, 18]
-        >>> [3*x for x in vec if x > 3]
-        [12, 18]
-        >>> [3*x for x in vec if x < 2]
-        []
-        >>> [[x,x**2] for x in vec]
-        [[2, 4], [4, 16], [6, 36]]
-        >>> [x, x**2 for x in vec]  # error - parens required for tuples
-          File "<stdin>", line 1, in ?
-            [x, x**2 for x in vec]
-                       ^
-        SyntaxError: invalid syntax
-        >>> [(x, x**2) for x in vec]
-        [(2, 4), (4, 16), (6, 36)]
-        >>> vec1 = [2, 4, 6]
-        >>> vec2 = [4, 3, -9]
-        >>> [x*y for x in vec1 for y in vec2]
-        [8, 6, -18, 16, 12, -36, 24, 18, -54]
-        >>> [x+y for x in vec1 for y in vec2]
-        [6, 5, -7, 8, 7, -5, 10, 9, -3]
-        >>> [vec1[i]*vec2[i] for i in range(len(vec1))]
-        [8, 12, -54]
-        
-Python IAQ
-----------
-
-::
-
-        mat = [[1,2,3],
-               [4,5,6],
-               [7,8,9]
-               ]
-
-How would you transpose the matrix?
-
-:: 
-        result = [[1,4,7],
-                  [2,5,8],
-                  [3,6,9]
-                  ]
-
-        Answer:
-        >>>zip(\*mat)
-
-
-
-Comparing Sequences and Other Types 
------------------------------------
-
-* lexicographic comparision between the same types.
-* comparing objects of different types is legal.
-* types are ordered by their name ( list < string < tuple). *this must not be relied upon however*
-* mixed numeric types are compared according to numeric value.
-
-::
-        (1, 2, 3)              < (1, 2, 4)
-        [1, 2, 3]              < [1, 2, 4]
-        'ABC' < 'C' < 'Pascal' < 'Python'
-        (1, 2, 3, 4)           < (1, 2, 4)
-        (1, 2)                 < (1, 2, -1)
-        (1, 2, 3)             == (1.0, 2.0, 3.0)
-        (1, 2, ('aa', 'ab'))   < (1, 2, ('abc', 'a'), 4)
-
-
-
-Handling Exceptions
--------------------
-
-* A try statement may have more than one except clause, to specify handlers for
-
-::
-
-  different exceptions.
-
-          ... except (RuntimeError, TypeError, NameError):
-
-          ...     pass
-
-* The last except clause may omit the exception name(s), to serve as a
-  wildcard. Use this with extreme caution, since it is easy to mask a real
-  programming error in this way! 
-
-*  It can also be used to print an error message and then re-raise the
-  exception (allowing a caller to handle the exception as well)
-
-* The try ... except statement has an optional else clause, executed when the
-  try clause does not raise an exception.
-
-::
-
-        for arg in sys.argv[1:]:
-            try:
-                f = open(arg, 'r')
-            except IOError:
-                print 'cannot open', arg
-            else:
-                print arg, 'has', len(f.readlines()), 'lines'
-                f.close()
-
-Defining Clean-up Actions 
--------------------------
-
-* A finally clause is always executed before leaving the try statement, whether
-an exception has occurred or not.
-
-* In real world applications, the finally clause is useful for releasing
-  external resources (such as files or network connections), regardless of
-  whether the use of the resource was successful.
-
-Pre-defined Clean-up actions
-----------------------------
-
-* with statement
-
-* Some objects define standard clean-up actions to be undertaken when the
-  object is no longer needed, regardless of whether or not the operation using
-  the object succeeded or failed. 
-
-::
-
-        with open("myfile.txt") as f:
-            for line in f:
-                print line
-
-* After the statement is executed, the file f is always closed, even if a
-  problem was encountered while processing the lines. 
-
-Classes in Python 
------------------
-
-* In C++ terminology, all class members (including the data members) are
-  public, and all member functions are virtual. There are no special
-  constructors or destructors.  
-* Python Scopes and Namespaces
-* A namespace is a mapping from names to objects. Most namespaces are currently
-  implemented as Python dictionaries.
-
-Classs in Python
-----------------
-
-* When a class definition is entered, a new namespace is created, and used as
-  the local scope and thus, all assignments to local variables go into this new
-  namespace. In particular, function definitions bind the name of the new
-  function here.
-* When a class definition is left normally (via the end), a class object is
-  created. This is basically a wrapper around the contents of the namespace
-  created by the class definition;The original local scope (the one in effect
-  just before the class definition was entered) is reinstated, and the class
-  object is bound here to the class name given in the class definition header
-* Class Objects support attribute notation and instantiation.
-* Class instantiation creates instance objects.
-* Instance Objects supports attribute references, which are of two kinds data
-  attributes and methods.
-
-
-Inheritance in Python 
----------------------
-
-* Old style classes it is depth first, left to right.
-* For new style classes to support super(), it follows a diamond inheritance.
-
-
-Iterators
----------
-
-* The use of iterators pervades and unifies Python.
-* Behind the scenes, the iterator statement calls iter() on the container
-  object. 
-* The function returns an iterator object that defines the method next() which
-  accesses elements in the container one at a time.  
-* StopIterationException terminates
-* In your classes, define __iter__ which will return self and the next method.
-
-Generators
-----------
-
-* Just like regular function, but instead of return they use yield.
-* Generators are used to return iterators.
-* Generator expressions which are very similar to list comprehensions.
-
- * Python Standard Library. 
- * Explore!
-
- 
-Explain Classmethods, Staticmethods and Decorators in Python.
-=============================================================
-
-In Object Oriented Programming, you can create a method which can get
-associated either with a class or with an instance of the class, namely an
-object. 
-
-And most often in our regular practice, we always create methods to be
-associated with an object. Those are called instance methods.
-
-For e.g.
-::
-
-        class Car:
-                def cartype(self):
-                        self.model = "Audi"
-
-        mycar = Car()
-        mycar.cartype()
-        print mycar.model
-
-Here cartype() is an instance method, it associates itself with an instance
-(mycar) of the class (Car) and that is defined by the first argument ('self').
-
-When you want a method not to be associated with an instance, you call that as
-a staticmethod.
-
-How can you do such a thing in Python?
-
-The following would never work:
-
-::
-
-        >>> class Car:
-        ... 	def getmodel():
-        ... 		return "Audi"
-        ... 	def type(self):
-        ... 		self.model = getmodel()
-
-Because, getmodel() is defined inside the class, Python binds it to the Class
-Object.  You cannot call it by the following way also, namely: Car.getmodel()
-or Car().getmodel() , because in this case we are passing it through an
-instance ( Class Object or a Instance Object) as one of the argument while our
-definition does not take any argument.
-
-As you can see, there is a conflict here and in effect the case is, It is an
-"unbound local **method**" inside the class.
-
-Now comes Staticmethod.
-
-Now, in order to call getmodel(), you can to change it to a static method.
-
-::
-
-        >>> class Car:
-        ... 	def getmodel():
-        ... 		return "Audi"
-        ...     getmodel = staticmethod(getmodel)
-        ... 	def cartype(self):
-        ... 		self.model = Car.getmodel()
-        ... 		
-        >>> mycar = Car()
-        >>> mycar.cartype()
-        >>> mycar.model
-        'Audi'
-
-Now, I have called it as Car.getmodel() even though my definition of getmodel
-did not take any argument. This is what staticmethod function did.  getmodel()
-is a method which does not need an instance now, but still you do it as
-Car.getmodel() because getmodel() is still bound to the Class object. 
-
-Decorators
-----------
-
-getmodel = staticmethod(getmodel)
-
-If you look at the previous code example, the function staticmethod took a
-function name as a argument and the return value was a function which we
-assigned to the same name.
-
-staticmethod() function thus wrapped our getmodel function with some extra
-features and this wrapping is called as Decorator.
-
-The same code can be written like this.
-
-::
-
-        >>> class Car:
-        ... 	@staticmethod
-        ... 	def getmodel():
-        ... 		return "Audi"
-        ... 	def cartype(self):
-        ... 		self.model = Car.getmodel()
-        ... 		
-        >>> mycar = Car()
-        >>> mycar.cartype()
-        >>> mycar.model
-        'Audi'
-
-For a better explaination on what is decorator:
-
-http://personalpages.tds.net/~kent37/kk/00001.html
-
-Please remember that this concept of Decorator is independent of staticmethod
-and classmethod.  Now, what is a difference between staticmethod and
-classmethod?
-
-In languages like Java,C++, both the terms denote the same :- methods for which
-we do not require instances. But there is a difference in Python. A class
-method receives the class it was called on as the first argument. This can be
-useful with subclasses.
-
-We can see the above example with the classmethod and a decorator as:
-
-::
-
-        >>>
-        >>> class Car:
-        ... 	@classmethod
-        ... 	def getmodel(cls):
-        ... 		return "Audi"
-        ... 	def gettype(self):
-        ... 		self.model = Car.getmodel()
-        ... 		
-        >>> mycar = Car()
-        >>> mycar.gettype()
-        >>> mycar.model
-        'Audi'
-
-
-The following are the references in order to understand further:
-1) Alex-Martelli explaining it with code: http://code.activestate.com/recipes/52304/
-2)  Decorators: http://personalpages.tds.net/~kent37/kk/00001.html
-
-Good Article on Decorators
-
-http://personalpages.tds.net/~kent37/kk/00001.html
-
-Static Methods and Class Methods
---------------------------------
-
-A class method receives the class it was called on as the first
-argument. This can be useful with subclasses. A staticmethod doesn't get a
-class or instance argument. It is just a way to put a plain function into the
-scope of a class.
-
-And that's the definition of the difference in Python.
-In the wider world of OOP they are two names for the same concept.
-Smalltalk and Lisp etc used the term "class method" to mean a
-method that applied to the class as a whole.
-
-C++ introduced the term "static method" to reflect the fact that it
-was loaded in the static area of memory and thus could be called
-without instantiating an object. This meant it could effectively be
-used as a class method.
-
-[In C it is possible to prefix a normal function definition with
-the word static to get the compiler to load the function into
-static memory - this often gives a performance improvement.]
-
-Python started off implementing "static methods" then later
-developed the sligtly more powerful and flexible "class methods" and
-rather than lose backward compatibility called them classmethod.
-So in Python we have two ways of doing more or less the same
-(conceptual) thing.  // Alan
-
-Conceptually they are both ways of defining a method that
-applies at the class level and could be used to implement
-class wide behavior. Thats what I mean. If you want to build
-a method to determine how many instances are active at
-any time then you could use either a staticmethod or a
-classmethod to do it. Most languages only give you one
-way. Python, despite its mantra, actually gives 2 ways to
-do it in this case. // Alan
-
-http://code.activestate.com/recipes/52304/
-
-http://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod-in-python
-
-Method (Computer Science)
-
-In object-oriented programming, a method is a subroutine that is exclusively
-associated either with a class (called class methods or static methods) or with
-an object (called instance methods). Like a procedure in procedural programming
-languages, a method usually consists of a sequence of statements to perform an
-action, a set of input parameters to customize those actions, and possibly an
-output value (called the return value) of some kind. Methods can provide a
-mechanism for accessing (for both reading and writing) the encapsulated data
-stored in an object or a class.
-
-Instance methods are associated with a particular object, while class or static
-methods are associated with a class. In all typical implementations, instance
-methods are passed a hidden reference (e.g. this, self or Me) to the object
-(whether a class or class instance) they belong to, so that they can access the
-data associated with it. 
-
-For class/static methods this may or may not happen according to the language;
-A typical example of a class method would be one that keeps count of the number
-of created objects within a given class.
-
-A method may be declared as static, meaning that it acts at the class level
-rather than at the instance level. Therefore, a static method cannot refer to a
-specific instance of the class (i.e. it cannot refer to this, self, Me, etc.),
-unless such references are made through a parameter referencing an instance of
-the class, although in such cases they must be accessed through the parameter's
-identifier instead of this. An example of a static member and its consumption
-in C# code:
-
-::
-
-        public class ExampleClass
-        {
-          public static void StaticExample()
-          {
-             // static method code
-          }
-         
-          public void InstanceExample()
-          {
-             // instance method code here
-             // can use THIS
-          }   
-        }
-         
-        /// Consumer of the above class:
-         
-        // Static method is called -- no instance is involved
-        ExampleClass.StaticExample();
-         
-        // Instance method is called
-        ExampleClass objMyExample = new ExampleClass();
-        objMyExample.InstanceExample();
-
-
-Python method can create an instance of Dict or of any subclass of it, because
-it receives a reference to a class object as cls:
-
-::
-
-        class Dict:
-           @classmethod
-           def fromkeys(cls, iterable, value=None):
-               d = cls()
-               for key in iterable:
-                   d[key] = value
-               return d
-
-
-http://en.wikipedia.org/wiki/Method_(computer_science)
-
-
 Question:
 What is metaclass attributes?
 Look a bit into property.
 Usage of Ellipses
 
-What is the difference between process and a thread?
-
-Both threads and processes are methods of parallelizing an application.
-However, processes are independent execution units that contain their own state
-information, use their own address spaces, and only interact with each other
-via interprocess communication mechanisms (generally managed by the operating
-system). Applications are typically divided into processes during the design
-phase, and a master process explicitly spawns sub-processes when it makes sense
-to logically separate significant application functionality. Processes, in
-other words, are an architectural construct.
-
-By contrast, a thread is a coding construct that doesn't affect the
-architecture of an application. A single process might contains multiple
-threads; all threads within a process share the same state and same memory
-space, and can communicate with each other directly, because they share the
-same variables.
-
-Threads typically are spawned for a short-term benefit that is usually
-visualized as a serial task, but which doesn't have to be performed in a linear
-manner (such as performing a complex mathematical computation using
-parallelism, or initializing a large matrix), and then are absorbed when no
-longer required. The scope of a thread is within a specific code module—which
-is why we can bolt-on threading without affecting the broader application.
-
-Global Interpreter Lock:
-
-The GIL is a single lock inside of the Python interpreter, which effectively
-prevents multiple threads from being executed in parallel, even on multi-core
-or multi-CPU systems!
-
-* All threads within a single process share memory; this includes Python's
-  internal structures (such as reference counts for each variable).  Course
-  grained locking.
-* fine grained locking.
-* @synchronized decorator
-* technically speaking, threads have shared heaps but separate stacks.
-* Interpreter of a language is said to be stackless if the function calls in
-  the language do not use the C Stack. In effect, the entire interpretor has to
-  run as a giant loop.
-
-What is Global Interpretor Lock in Python?
-
-The Global Interpreter Lock (GIL) is used to protect Python objects from being
-modified from multiple threads at once. Only the thread that has the lock may
-safely access objects.
-
-To keep multiple threads running, the interpreter automatically releases and
-reacquires the lock at regular intervals (controlled by the
-sys.setcheckinterval function). It also does this around potentially slow or
-blocking low-level operations, such as file and network I/O.
-
-Indeed the GIL prevents the *interpreter* to run two threads of bytecodes
-concurrently.
-
-But it allows two or more threadsafe C library to run at the same time.
-
-The net effect of this brilliant design decision are:
-
-1. it makes the interpreter simpler and faster
-
-2. when speed does not matter (ie: bytecode is interpreted) there’s not too
-much to worry about threads.
-
-3. when speed does matter (ie: when C code is run) Python applications is not
-hampered by a brain dead VM that is so ’screwed’ up that it must pause
-to collect its garbage.
-
-Python Standard Library
------------------------
-
-Python's standard library is very extensive, offering a wide range of
-facilities. The library contains built-in modules (written in C) that provide
-access to system functionality such as file I/O that would otherwise be
-inaccessible to Python programmers, as well as modules written in Python that
-provide standardized solutions for many problems that occur in everyday
-programming. Some of these modules are explicitly designed to encourage and
-enhance the portability of Python programs by abstracting away
-platform-specifics into platform-neutral APIS.
-
-In addition to the standard library, there is a growing collection of several
-thousand components (from individual programs and modules to packages and
-entire application development frameworks), available from the Python Package
-Index.
-
-4.21   How do you specify and enforce an interface spec in Python?
-
-An interface specification for a module as provided by languages such as C++
-and Java describes the prototypes for the methods and functions of the module.
-Many feel that compile-time enforcement of interface specifications helps in
-the construction of large programs.
-
-Python 2.6 adds an abc module that lets you define Abstract Base Classes (ABC).
-You can then use isinstance() and issubclass to check whether an instance or a
-class implements a particular ABC. The collections modules defines a set of
-useful ABC s such as Iterable, Container, and Mutablemapping.
-
-For Python, many of the advantages of interface specifications can be obtained
-by an appropriate test discipline for components. There is also a tool,
-PyChecker, which can be used to find problems due to subclassing.
-
-A good test suite for a module can both provide a regression test and serve as
-a module interface specification and a set of examples. Many Python modules can
-be run as a script to provide a simple "self test." Even modules which use
-complex external interfaces can often be tested in isolation using trivial
-"stub" emulations of the external interface. The doctest and unittest modules
-or third-party test frameworks can be used to construct exhaustive test suites
-that exercise every line of code in a module.
-
-An appropriate testing discipline can help build large complex applications in
-Python as well as having interface specifications would. In fact, it can be
-better because an interface specification cannot test certain properties of a
-program. For example, the append() method is expected to add new elements to
-the end of some internal list; an interface specification cannot test that your
-append() implementation will actually do this correctly, but it's trivial to
-check this property in a test suite.
-
-Writing test suites is very helpful, and you might want to design your code
-with an eye to making it easily tested. One increasingly popular technique,
-test-directed development, calls for writing parts of the test suite first,
-before you write any of the actual code. Of course Python allows you to be
-sloppy and not write test cases at all.
-
-
-Coroutines
-
-Coroutines are subroutines that allow multiple entry points for suspending and
-resuming execution at certain locations.  Subroutine are subprograms, methods,
-functions for performing a subtask and it is relatively independent of other
-task.  Coroutines are usful for implementing cooperative tasks, iterators,
-infinite lists and pipes.  Cooperative Tasks - Similar programs, CPU is yielded
-to each program coperatively.  Iterators - an object that allows the programmer
-to traverse all the elements of a collection.  Lazy Evaluation is the technique
-for delaying the computation till the result is required. Why Infite Lists and
-Lazy evaluation are given together?  Coroutines in which subsequent calls can
-be yield more results are called as generators.  Subroutines are implemented
-using stacks and coroutines are implemented using continuations.  continuation
-are an abstract representation of a control state, or the rest of the
-computation, or rest of the code to be executed.
-
-Multithreading
-
-Multithreading computers have hardware support to efficiently execute multiple
-threads.  Threads of program results from fork of a computer program into two
-or more concurrently running tasks.  In multi-threading the threads have to
-share a single core,cache and TLB unlike the multiprocessing machines.
 
 Twisted Framework
 
@@ -3423,10 +3257,6 @@ Essay:
 
 A programming language should equip us with structures that help us to reason more effectively.
 Smalltalk and Scheme have powerful influence on language designers.
-
-Caught an exception while rendering: The model BlogPost is already registered
-
-http://adil.2scomplement.com/2008/09/django-the-model-mymodel-is-already-registered/
 
 Object Oriented Programming
 ---------------------------
