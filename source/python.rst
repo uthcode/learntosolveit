@@ -521,10 +521,16 @@ build completely?**
 
 **9. What is difference between the terms iterable and iterator?**
 
+
         Iterator generally points to a single instance in a collection.
         Iterable implies that one may obtain an iterator from an object to traverse
         over its elements - and there's no need to iterate over a single instance,
         which is what an iterator represents.
+
+        Behind the scenes, the iterator statement calls iter() on the container object.
+        The function returns an iterator object that defines the method next() which
+        accesses elements in the container one at a time.  StopIterationException
+        terminates
 
         A collection is iterable. An iterator is not iterable because it's not a
         collection.::
@@ -781,11 +787,9 @@ build completely?**
 **21. What is special about variables in Python?**
 
 
-        In many other languages, assigning to a variable puts a value into a box.
-        Python has "names"
-
-        In Python, a "name" or "identifier" is like a parcel tag (or nametag) attached
-        to an object.
+        In many other languages, assigning to a variable puts a value into a
+        box.  Python has "names" In Python, a "name" or "identifier" is like a
+        parcel tag (or nametag) attached to an object.
 
         Here, an integer 1 object has a tag labelled "a".  If we reassign to "a", we
         just move the tag to another object:
@@ -1147,749 +1151,776 @@ in an unexpected manner during program evaluation?**
 
                 >>>zip(\*mat)
 
+**32. How would you write unicode strings in Python2?**
+
+        * Python2 supports Unicode by a special kind of string, called the Unicode object.  _>>> u'Hello World !'_
+        * You can have unicode by using the special python escape encoding: _>>> u'Hello\u0020World !'_
+        * built-in function unicode() , default encoding is ASCII
+        * To convert unicode to a 8-bit string using a specified encoding.
+
+        ::
+                >>> u"Ã¤Ã¶Ã¼".encode('utf-8')
+                '\xc3\xa4\xc3\xb6\xc3\xbc'
+
+
+        * From a data in a specific encoding to a unicode string.
+
+        ::
+                >>> unicode('\xc3\xa4\xc3\xb6\xc3\xbc', 'utf-8')
+                u'\xe4\xf6\xfc'
+
+
+        * Understanding unicode is easy, when we accept the need to explicitly convert
+          between the bytestring (which is a 8bit string) and unicode string.
+
+        * More examples:
+
+        ::
+                >>> german_ae = unicode("\xc3\xa4",'utf8')
+                >>> sentence = "this is a " + german_ae
+                >>> sentece2 = "Easy!"
+                >>> sentence2 = "Easy!"
+                >>> para = ".".join([sentence, sentence2])
+                >>> para
+                u'this is a \xe4.Easy!'
+                >>> print para
+                this is a ä.Easy!
+                >>> 
+
+        * Without an encoding, the bytestring is essentially meaningless. 
+
+        * The default encoding assumed by Python2 is ASCII and Python3 is UTF-8 For the
+          Python2, source code to have a encoding other than ascii, you need to declare
+          the encoding at the top of file, using a construct such as 
+          ``# -*- coding: utf-8 -*-`` this is many a times referred to as coding-cookie
+          as it denotes the type of encoding being used for the source file.  With that
+          declaration, all characters in the source file will be treated as having the
+          encoding *encoding*, and it will be possible to directly write Unicode string
+          literals in the selected encoding.  The list of possible encodings can be
+          found in the Python Library Reference, in the section on codecs.  By using
+          UTF-8, most languages in the world can be used simultaneously in string
+          literals and the comments.
+
+**33. How does else conditions on loops work in Python?**
+
+        Loop statements in Python may have an else clause. It is executed when the loop
+        terminates through exhaustion of the list (with for).  Or when the condition
+        becomes false (with while), But not when the loop is terminated by a break
+        statement.
+
+        ::
+                >>> for n in range(2, 10):
+                ...     for x in range(2, n):
+                ...         if n % x == 0:
+                ...             print n, 'equals', x, '*', n/x
+                ...             break
+                ...     else:
+                ...         # loop fell through without finding a factor
+                ...         print n, 'is a prime number'
+                ...
+                2 is a prime number
+                3 is a prime number
+                4 equals 2 * 2
+                5 is a prime number
+                6 equals 2 * 3
+                7 is a prime number
+                8 equals 2 * 4
+                9 equals 3 * 3
+
+**33. How does a function execution control flows in Python?**
+
+        The execution of a function introduces a new symbol table used for the local
+        variables of the function. More precisely, all variable assignments in a
+        function store the value in the local symbol table; whereas variable references
+        first look in the local symbol table, then in the local symbol tables of
+        enclosing functions, then in the global symbol table, and finally in the table
+        of built-in names. Thus, global variables cannot be directly assigned a value
+        within a function (unless named in a global statement), although they may be
+        referenced.
+
+        The actual parameters (arguments) to a function call are introduced in the
+        local symbol table of the called function when it is called; thus, arguments
+        are passed using call by value (where the value is always an object reference,
+        not the value of the object). When a function calls another function, a new
+        local symbol table is created for that call.
+
+        A function definition introduces the function name in the current symbol table.
+        The value of the function name has a type that is recognized by the interpreter
+        as a user-defined function. This value can be assigned to another name which
+        can then also be used as a function.
+
+        To illustrate the function execution control flow, have a look at this snippet.
+
+        :: 
+                i = 5
 
-Language Feature: Source code encoding
---------------------------------------
-
- * With that declaration, all characters in the source file will be treated as having the encoding *encoding*, and it will be possible to directly write Unicode string literals in the selected encoding.
- * The list of possible encodings can be found in the Python Library Reference, in the section on 
-[http://docs.python.org/library/codecs.html#module-codecs codecs]
-* By using UTF-8, most languages in the world can be used simultaneously in string literals and the comments.
-
-
-Language Feature: Unicode
--------------------------
-
- * Starting with Python 2.0 a new data type for storing text data is available to the programmer: the Unicode object.  _>>> u'Hello World !'_
- * Python unicode escape encoding: _>>> u'Hello\u0020World !'_
- * built-in function unicode() , default encoding is ASCII
- * To convert unicode to a 8-bit string using a specified encoding.
-
-::
-        >>> u"Ã¤Ã¶Ã¼".encode('utf-8')
-        '\xc3\xa4\xc3\xb6\xc3\xbc'
+                def f(arg=i):
+                    print arg
 
+                i = 6
+                f()
 
- * From a data in a specific encoding to a unicode string.
 
-::
-        >>> unicode('\xc3\xa4\xc3\xb6\xc3\xbc', 'utf-8')
-        u'\xe4\xf6\xfc'
+                def f(a, L=[]):
+                    L.append(a)
+                    return L
 
+                print f(1)
+                print f(2)
+                print f(3)
 
-Language Feature: Unicode
+        First one will print 5, because default values are evaluated at the point of
+        function definition in the defining scope.
 
-* understanding unicode is easy, when we accept the need to explicitly convert
-  between the bytestring and unicode string.
+        The default value is evaluated only once. This makes a difference when the
+        default value is a mutatable object. In order to prevent argument sharing.
 
-* More examples:
+        ::
+                  def f(a, L=None):
+                    if L is None:
+                        L = []
+                    L.append(a)
+                    return L
 
-   german_ae = unicode('\xc3\xa4','utf8')
 
-::
-        >>> german_ae = unicode("\xc3\xa4",'utf8')
-        >>> sentence = "this is a " + german_ae
-        >>> sentece2 = "Easy!"
-        >>> sentence2 = "Easy!"
-        >>> para = ".".join([sentence, sentence2])
-        >>> para
-        u'this is a \xe4.Easy!'
-        >>> print para
-        this is a ä.Easy!
-        >>> 
-
-* Without an encoding, the bytestring is essentially meaningless. 
-* The default encoding assumed by Python is ASCII
-
-
-Python Specialities: else clauses on loops 
-------------------------------------------
-
-* Loop statements may have an else clause; 
-* It is executed when the loop terminates through exhaustion of the list (with for).
-* Or when the condition becomes false (with while), 
-* But not when the loop is terminated by a break statement.
-
-::
-        >>> for n in range(2, 10):
-        ...     for x in range(2, n):
-        ...         if n % x == 0:
-        ...             print n, 'equals', x, '*', n/x
-        ...             break
-        ...     else:
-        ...         # loop fell through without finding a factor
-        ...         print n, 'is a prime number'
-        ...
-        2 is a prime number
-        3 is a prime number
-        4 equals 2 * 2
-        5 is a prime number
-        6 equals 2 * 3
-        7 is a prime number
-        8 equals 2 * 4
-        9 equals 3 * 3
-
-Control Flow: function execution
---------------------------------
-
-The execution of a function introduces a new symbol table used for the local
-variables of the function. More precisely, all variable assignments in a
-function store the value in the local symbol table; whereas variable references
-first look in the local symbol table, then in the local symbol tables of
-enclosing functions, then in the global symbol table, and finally in the table
-of built-in names. Thus, global variables cannot be directly assigned a value
-within a function (unless named in a global statement), although they may be
-referenced.
-
-The actual parameters (arguments) to a function call are introduced in the
-local symbol table of the called function when it is called; thus, arguments
-are passed using call by value (where the value is always an object reference,
-not the value of the object). [1] When a function calls another function, a new
-local symbol table is created for that call.
-
-A function definition introduces the function name in the current symbol table.
-The value of the function name has a type that is recognized by the interpreter
-as a user-defined function. This value can be assigned to another name which
-can then also be used as a function.
-
-Control Flow: functions
------------------------
-
-* What is the output?
-
-:: 
-        i = 5
-
-        def f(arg=i):
-            print arg
-
-        i = 6
-        f()
-
-
-        def f(a, L=[]):
-            L.append(a)
-            return L
-
-        print f(1)
-        print f(2)
-        print f(3)
-
-* first one will print 5, because default values are evaluated at the point of
-  function definition in the defining scope.
-
-* The default value is evaluated only once. This makes a difference when the
-  default value is a mutatable object. In order to prevent argument sharing.
-
-::
-          def f(a, L=None):
-            if L is None:
-                L = []
-            L.append(a)
-            return L
-
-Data Structures: Functional Programming Tools 
----------------------------------------------
-
-* There are three built-in functions that are very useful when used with lists:
-  filter(), map() and reduce()
-* filter(function, sequence)
-* map(function, sequence)
-* More than one sequence may be passed; the function must then have as many
-  arguments as there are sequences and is called with the corresponding item
-  from each sequence. 
-* reduce(function, sequence)
-* function in reduce is a binary function
-
-::
-
-        >>> def f(x): return x % 2 != 0 and x % 3 != 0
-        ...
-        >>> filter(f, range(2, 25))
-        [5, 7, 11, 13, 17, 19, 23]
-
-        >>> def cube(x): return x*x*x
-        ...
-        >>> map(cube, range(1, 11))
-        [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
-
-        >>> seq = range(8)
-        >>> def add(x, y): return x+y
-        ...
-        >>> map(add, seq, seq)
-        [0, 2, 4, 6, 8, 10, 12, 14]
-
-        >>> def sum(seq):
-        ...     def add(x,y): return x+y
-        ...     return reduce(add, seq, 0)
-        ...
-        >>> sum(range(1, 11))
-        55
-        >>> sum([])
-        0
-
-Data Structures: List comprehensions 
-------------------------------------
-
-* Each list comprehension consists of an expression followed by a for clause, then zero or more for or if clauses.
-* If the expression would evaluate to a tuple, it must be parenthesized.
-
-
-::
-
-        >>> freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
-        >>> [weapon.strip() for weapon in freshfruit]
-        ['banana', 'loganberry', 'passion fruit']
-        >>> vec = [2, 4, 6]
-        >>> [3*x for x in vec]
-        [6, 12, 18]
-        >>> [3*x for x in vec if x > 3]
-        [12, 18]
-        >>> [3*x for x in vec if x < 2]
-        []
-        >>> [[x,x**2] for x in vec]
-        [[2, 4], [4, 16], [6, 36]]
-        >>> [x, x**2 for x in vec]  # error - parens required for tuples
-          File "<stdin>", line 1, in ?
-            [x, x**2 for x in vec]
-                       ^
-        SyntaxError: invalid syntax
-        >>> [(x, x**2) for x in vec]
-        [(2, 4), (4, 16), (6, 36)]
-        >>> vec1 = [2, 4, 6]
-        >>> vec2 = [4, 3, -9]
-        >>> [x*y for x in vec1 for y in vec2]
-        [8, 6, -18, 16, 12, -36, 24, 18, -54]
-        >>> [x+y for x in vec1 for y in vec2]
-        [6, 5, -7, 8, 7, -5, 10, 9, -3]
-        >>> [vec1[i]*vec2[i] for i in range(len(vec1))]
-        [8, 12, -54]
-        
-
-Comparing Sequences and Other Types 
------------------------------------
-
-* lexicographic comparision between the same types.
-* comparing objects of different types is legal.
-* types are ordered by their name ( list < string < tuple). *this must not be relied upon however*
-* mixed numeric types are compared according to numeric value.
-
-::
-        (1, 2, 3)              < (1, 2, 4)
-        [1, 2, 3]              < [1, 2, 4]
-        'ABC' < 'C' < 'Pascal' < 'Python'
-        (1, 2, 3, 4)           < (1, 2, 4)
-        (1, 2)                 < (1, 2, -1)
-        (1, 2, 3)             == (1.0, 2.0, 3.0)
-        (1, 2, ('aa', 'ab'))   < (1, 2, ('abc', 'a'), 4)
-
-
-
-Handling Exceptions
--------------------
-
-* A try statement may have more than one except clause, to specify handlers for
-
-::
-
-  different exceptions.
-
-          ... except (RuntimeError, TypeError, NameError):
-
-          ...     pass
-
-* The last except clause may omit the exception name(s), to serve as a
-  wildcard. Use this with extreme caution, since it is easy to mask a real
-  programming error in this way! 
-
-*  It can also be used to print an error message and then re-raise the
-  exception (allowing a caller to handle the exception as well)
-
-* The try ... except statement has an optional else clause, executed when the
-  try clause does not raise an exception.
-
-::
-
-        for arg in sys.argv[1:]:
-            try:
-                f = open(arg, 'r')
-            except IOError:
-                print 'cannot open', arg
-            else:
-                print arg, 'has', len(f.readlines()), 'lines'
-                f.close()
-
-Defining Clean-up Actions 
--------------------------
-
-* A finally clause is always executed before leaving the try statement, whether
-an exception has occurred or not.
-
-* In real world applications, the finally clause is useful for releasing
-  external resources (such as files or network connections), regardless of
-  whether the use of the resource was successful.
-
-Pre-defined Clean-up actions
-----------------------------
-
-* with statement
-
-* Some objects define standard clean-up actions to be undertaken when the
-  object is no longer needed, regardless of whether or not the operation using
-  the object succeeded or failed. 
+**34. What are the different functional programming tools available in Python?**
 
-::
+        There are three built-in functions that are very useful when used with lists:
+        filter(), map() and reduce()
 
-        with open("myfile.txt") as f:
-            for line in f:
-                print line
+        * filter(function, sequence) - Takes the elements of the sequence and filters
+          them with the condition specified in the function.
+        * map(function, sequence) - sends each element to the function and returns the
+          result.More than one sequence may be passed; the function must then have as
+          many arguments as there are sequences and is called with the corresponding item
+          from each sequence. 
+        * reduce(function, sequence) -  function in reduce is a binary function
 
-* After the statement is executed, the file f is always closed, even if a
-  problem was encountered while processing the lines. 
-
-Classes in Python 
------------------
-
-* In C++ terminology, all class members (including the data members) are
-  public, and all member functions are virtual. There are no special
-  constructors or destructors.  
-* Python Scopes and Namespaces
-* A namespace is a mapping from names to objects. Most namespaces are currently
-  implemented as Python dictionaries.
+        ::
 
-Classs in Python
-----------------
+                >>> def f(x): return x % 2 != 0 and x % 3 != 0
+                ...
+                >>> filter(f, range(2, 25))
+                [5, 7, 11, 13, 17, 19, 23]
 
-* When a class definition is entered, a new namespace is created, and used as
-  the local scope and thus, all assignments to local variables go into this new
-  namespace. In particular, function definitions bind the name of the new
-  function here.
-* When a class definition is left normally (via the end), a class object is
-  created. This is basically a wrapper around the contents of the namespace
-  created by the class definition;The original local scope (the one in effect
-  just before the class definition was entered) is reinstated, and the class
-  object is bound here to the class name given in the class definition header
-* Class Objects support attribute notation and instantiation.
-* Class instantiation creates instance objects.
-* Instance Objects supports attribute references, which are of two kinds data
-  attributes and methods.
-
-
-Inheritance in Python 
----------------------
-
-* Old style classes it is depth first, left to right.
-* For new style classes to support super(), it follows a diamond inheritance.
-
-
-Iterators
----------
-
-* The use of iterators pervades and unifies Python.
-* Behind the scenes, the iterator statement calls iter() on the container
-  object. 
-* The function returns an iterator object that defines the method next() which
-  accesses elements in the container one at a time.  
-* StopIterationException terminates
-* In your classes, define __iter__ which will return self and the next method.
+                >>> def cube(x): return x*x*x
+                ...
+                >>> map(cube, range(1, 11))
+                [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
 
-Generators
-----------
+                >>> seq = range(8)
+                >>> def add(x, y): return x+y
+                ...
+                >>> map(add, seq, seq)
+                [0, 2, 4, 6, 8, 10, 12, 14]
 
-* Just like regular function, but instead of return they use yield.
-* Generators are used to return iterators.
-* Generator expressions which are very similar to list comprehensions.
-
- * Python Standard Library. 
- * Explore!
-
- 
-Explain Classmethods, Staticmethods and Decorators in Python.
-=============================================================
-
-In Object Oriented Programming, you can create a method which can get
-associated either with a class or with an instance of the class, namely an
-object. 
-
-And most often in our regular practice, we always create methods to be
-associated with an object. Those are called instance methods.
-
-For e.g.
-::
-
-        class Car:
-                def cartype(self):
-                        self.model = "Audi"
+                >>> def sum(seq):
+                ...     def add(x,y): return x+y
+                ...     return reduce(add, seq, 0)
+                ...
+                >>> sum(range(1, 11))
+                55
+                >>> sum([])
+                0
 
-        mycar = Car()
-        mycar.cartype()
-        print mycar.model
-
-Here cartype() is an instance method, it associates itself with an instance
-(mycar) of the class (Car) and that is defined by the first argument ('self').
-
-When you want a method not to be associated with an instance, you call that as
-a staticmethod.
-
-How can you do such a thing in Python?
-
-The following would never work:
-
-::
-
-        >>> class Car:
-        ... 	def getmodel():
-        ... 		return "Audi"
-        ... 	def type(self):
-        ... 		self.model = getmodel()
+**35. How do you handle Exceptions in Python2?**
 
-Because, getmodel() is defined inside the class, Python binds it to the Class
-Object.  You cannot call it by the following way also, namely: Car.getmodel()
-or Car().getmodel() , because in this case we are passing it through an
-instance ( Class Object or a Instance Object) as one of the argument while our
-definition does not take any argument.
-
-As you can see, there is a conflict here and in effect the case is, It is an
-"unbound local **method**" inside the class.
+        A try statement may have more than one except clause, to specify
+        handlers for different exceptions::
 
-Now comes Staticmethod.
-
-Now, in order to call getmodel(), you can to change it to a static method.
 
-::
-
-        >>> class Car:
-        ... 	def getmodel():
-        ... 		return "Audi"
-        ...     getmodel = staticmethod(getmodel)
-        ... 	def cartype(self):
-        ... 		self.model = Car.getmodel()
-        ... 		
-        >>> mycar = Car()
-        >>> mycar.cartype()
-        >>> mycar.model
-        'Audi'
-
-Now, I have called it as Car.getmodel() even though my definition of getmodel
-did not take any argument. This is what staticmethod function did.  getmodel()
-is a method which does not need an instance now, but still you do it as
-Car.getmodel() because getmodel() is still bound to the Class object. 
-
-Decorators
-----------
-
-getmodel = staticmethod(getmodel)
-
-If you look at the previous code example, the function staticmethod took a
-function name as a argument and the return value was a function which we
-assigned to the same name.
-
-staticmethod() function thus wrapped our getmodel function with some extra
-features and this wrapping is called as Decorator.
-
-The same code can be written like this.
-
-::
-
-        >>> class Car:
-        ... 	@staticmethod
-        ... 	def getmodel():
-        ... 		return "Audi"
-        ... 	def cartype(self):
-        ... 		self.model = Car.getmodel()
-        ... 		
-        >>> mycar = Car()
-        >>> mycar.cartype()
-        >>> mycar.model
-        'Audi'
-
-For a better explaination on what is decorator:
-
-http://personalpages.tds.net/~kent37/kk/00001.html
-
-Please remember that this concept of Decorator is independent of staticmethod
-and classmethod.  Now, what is a difference between staticmethod and
-classmethod?
-
-In languages like Java,C++, both the terms denote the same :- methods for which
-we do not require instances. But there is a difference in Python. A class
-method receives the class it was called on as the first argument. This can be
-useful with subclasses.
-
-We can see the above example with the classmethod and a decorator as:
-
-::
-
-        >>>
-        >>> class Car:
-        ... 	@classmethod
-        ... 	def getmodel(cls):
-        ... 		return "Audi"
-        ... 	def gettype(self):
-        ... 		self.model = Car.getmodel()
-        ... 		
-        >>> mycar = Car()
-        >>> mycar.gettype()
-        >>> mycar.model
-        'Audi'
-
-
-The following are the references in order to understand further:
-1) Alex-Martelli explaining it with code: http://code.activestate.com/recipes/52304/
-2)  Decorators: http://personalpages.tds.net/~kent37/kk/00001.html
-
-Good Article on Decorators
-
-http://personalpages.tds.net/~kent37/kk/00001.html
-
-Static Methods and Class Methods
---------------------------------
-
-A class method receives the class it was called on as the first
-argument. This can be useful with subclasses. A staticmethod doesn't get a
-class or instance argument. It is just a way to put a plain function into the
-scope of a class.
-
-And that's the definition of the difference in Python.
-In the wider world of OOP they are two names for the same concept.
-Smalltalk and Lisp etc used the term "class method" to mean a
-method that applied to the class as a whole.
-
-C++ introduced the term "static method" to reflect the fact that it
-was loaded in the static area of memory and thus could be called
-without instantiating an object. This meant it could effectively be
-used as a class method.
-
-[In C it is possible to prefix a normal function definition with
-the word static to get the compiler to load the function into
-static memory - this often gives a performance improvement.]
-
-Python started off implementing "static methods" then later
-developed the sligtly more powerful and flexible "class methods" and
-rather than lose backward compatibility called them classmethod.
-So in Python we have two ways of doing more or less the same
-(conceptual) thing.  // Alan
-
-Conceptually they are both ways of defining a method that
-applies at the class level and could be used to implement
-class wide behavior. Thats what I mean. If you want to build
-a method to determine how many instances are active at
-any time then you could use either a staticmethod or a
-classmethod to do it. Most languages only give you one
-way. Python, despite its mantra, actually gives 2 ways to
-do it in this case. // Alan
-
-http://code.activestate.com/recipes/52304/
-
-http://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod-in-python
-
-Method (Computer Science)
-
-In object-oriented programming, a method is a subroutine that is exclusively
-associated either with a class (called class methods or static methods) or with
-an object (called instance methods). Like a procedure in procedural programming
-languages, a method usually consists of a sequence of statements to perform an
-action, a set of input parameters to customize those actions, and possibly an
-output value (called the return value) of some kind. Methods can provide a
-mechanism for accessing (for both reading and writing) the encapsulated data
-stored in an object or a class.
-
-Instance methods are associated with a particular object, while class or static
-methods are associated with a class. In all typical implementations, instance
-methods are passed a hidden reference (e.g. this, self or Me) to the object
-(whether a class or class instance) they belong to, so that they can access the
-data associated with it. 
-
-For class/static methods this may or may not happen according to the language;
-A typical example of a class method would be one that keeps count of the number
-of created objects within a given class.
-
-A method may be declared as static, meaning that it acts at the class level
-rather than at the instance level. Therefore, a static method cannot refer to a
-specific instance of the class (i.e. it cannot refer to this, self, Me, etc.),
-unless such references are made through a parameter referencing an instance of
-the class, although in such cases they must be accessed through the parameter's
-identifier instead of this. An example of a static member and its consumption
-in C# code:
-
-::
-
-        public class ExampleClass
-        {
-          public static void StaticExample()
-          {
-             // static method code
-          }
-         
-          public void InstanceExample()
-          {
-             // instance method code here
-             // can use THIS
-          }   
-        }
-         
-        /// Consumer of the above class:
-         
-        // Static method is called -- no instance is involved
-        ExampleClass.StaticExample();
-         
-        // Instance method is called
-        ExampleClass objMyExample = new ExampleClass();
-        objMyExample.InstanceExample();
-
-
-Python method can create an instance of Dict or of any subclass of it, because
-it receives a reference to a class object as cls:
-
-::
-
-        class Dict:
-           @classmethod
-           def fromkeys(cls, iterable, value=None):
-               d = cls()
-               for key in iterable:
-                   d[key] = value
-               return d
-
-
-http://en.wikipedia.org/wiki/Method_(computer_science)
-
-What is the difference between process and a thread?
-
-Both threads and processes are methods of parallelizing an application.
-However, processes are independent execution units that contain their own state
-information, use their own address spaces, and only interact with each other
-via interprocess communication mechanisms (generally managed by the operating
-system). Applications are typically divided into processes during the design
-phase, and a master process explicitly spawns sub-processes when it makes sense
-to logically separate significant application functionality. Processes, in
-other words, are an architectural construct.
-
-By contrast, a thread is a coding construct that doesn't affect the
-architecture of an application. A single process might contains multiple
-threads; all threads within a process share the same state and same memory
-space, and can communicate with each other directly, because they share the
-same variables.
-
-Threads typically are spawned for a short-term benefit that is usually
-visualized as a serial task, but which doesn't have to be performed in a linear
-manner (such as performing a complex mathematical computation using
-parallelism, or initializing a large matrix), and then are absorbed when no
-longer required. The scope of a thread is within a specific code module—which
-is why we can bolt-on threading without affecting the broader application.
-
-Global Interpreter Lock:
-
-The GIL is a single lock inside of the Python interpreter, which effectively
-prevents multiple threads from being executed in parallel, even on multi-core
-or multi-CPU systems!
-
-* All threads within a single process share memory; this includes Python's
-  internal structures (such as reference counts for each variable).  Course
-  grained locking.
-* fine grained locking.
-* @synchronized decorator
-* technically speaking, threads have shared heaps but separate stacks.
-* Interpreter of a language is said to be stackless if the function calls in
-  the language do not use the C Stack. In effect, the entire interpretor has to
-  run as a giant loop.
-
-What is Global Interpretor Lock in Python?
-
-The Global Interpreter Lock (GIL) is used to protect Python objects from being
-modified from multiple threads at once. Only the thread that has the lock may
-safely access objects.
-
-To keep multiple threads running, the interpreter automatically releases and
-reacquires the lock at regular intervals (controlled by the
-sys.setcheckinterval function). It also does this around potentially slow or
-blocking low-level operations, such as file and network I/O.
-
-Indeed the GIL prevents the *interpreter* to run two threads of bytecodes
-concurrently.
-
-But it allows two or more threadsafe C library to run at the same time.
-
-The net effect of this brilliant design decision are:
-
-1. it makes the interpreter simpler and faster
-
-2. when speed does not matter (ie: bytecode is interpreted) there’s not too
-much to worry about threads.
-
-3. when speed does matter (ie: when C code is run) Python applications is not
-hampered by a brain dead VM that is so ’screwed’ up that it must pause
-to collect its garbage.
-
-4.21   How do you specify and enforce an interface spec in Python?
-
-An interface specification for a module as provided by languages such as C++
-and Java describes the prototypes for the methods and functions of the module.
-Many feel that compile-time enforcement of interface specifications helps in
-the construction of large programs.
-
-Python 2.6 adds an abc module that lets you define Abstract Base Classes (ABC).
-You can then use isinstance() and issubclass to check whether an instance or a
-class implements a particular ABC. The collections modules defines a set of
-useful ABC s such as Iterable, Container, and Mutablemapping.
-
-For Python, many of the advantages of interface specifications can be obtained
-by an appropriate test discipline for components. There is also a tool,
-PyChecker, which can be used to find problems due to subclassing.
-
-A good test suite for a module can both provide a regression test and serve as
-a module interface specification and a set of examples. Many Python modules can
-be run as a script to provide a simple "self test." Even modules which use
-complex external interfaces can often be tested in isolation using trivial
-"stub" emulations of the external interface. The doctest and unittest modules
-or third-party test frameworks can be used to construct exhaustive test suites
-that exercise every line of code in a module.
-
-An appropriate testing discipline can help build large complex applications in
-Python as well as having interface specifications would. In fact, it can be
-better because an interface specification cannot test certain properties of a
-program. For example, the append() method is expected to add new elements to
-the end of some internal list; an interface specification cannot test that your
-append() implementation will actually do this correctly, but it's trivial to
-check this property in a test suite.
-
-Writing test suites is very helpful, and you might want to design your code
-with an eye to making it easily tested. One increasingly popular technique,
-test-directed development, calls for writing parts of the test suite first,
-before you write any of the actual code. Of course Python allows you to be
-sloppy and not write test cases at all.
-
-
-Coroutines
-
-Coroutines are subroutines that allow multiple entry points for suspending and
-resuming execution at certain locations.  Subroutine are subprograms, methods,
-functions for performing a subtask and it is relatively independent of other
-task.  Coroutines are usful for implementing cooperative tasks, iterators,
-infinite lists and pipes.  Cooperative Tasks - Similar programs, CPU is yielded
-to each program coperatively.  Iterators - an object that allows the programmer
-to traverse all the elements of a collection.  Lazy Evaluation is the technique
-for delaying the computation till the result is required. Why Infite Lists and
-Lazy evaluation are given together?  Coroutines in which subsequent calls can
-be yield more results are called as generators.  Subroutines are implemented
-using stacks and coroutines are implemented using continuations.  continuation
-are an abstract representation of a control state, or the rest of the
-computation, or rest of the code to be executed.
-
-Multithreading
-
-Multithreading computers have hardware support to efficiently execute multiple
-threads.  Threads of program results from fork of a computer program into two
-or more concurrently running tasks.  In multi-threading the threads have to
-share a single core,cache and TLB unlike the multiprocessing machines.
+                  ... except (RuntimeError, TypeError, NameError):
+
+                  ...     pass
+
+        The last except clause may omit the exception name(s), to serve as a wildcard.
+        Use this with extreme caution, since it is easy to mask a real programming
+        error in this way! It can also be used to print an error message and then
+        re-raise the exception (allowing a caller to handle the exception as well)
+
+        The try ... except statement has an optional else clause, executed when the try
+        clause does not raise an exception.::
+
+                for arg in sys.argv[1:]:
+                    try:
+                        f = open(arg, 'r')
+                    except IOError:
+                        print 'cannot open', arg
+                    else:
+                        print arg, 'has', len(f.readlines()), 'lines'
+                        f.close()
+
+
+         A finally clause is available to handle cleaup actions in Python.  A
+         finally clause is always executed before leaving the try statement,
+         whether an exception has occurred or not. In real world applications,
+         the finally clause is useful for releasing external resources (such as
+         files or network connections), regardless of whether the use of the
+         resource was successful.
+
+**36. What is a with statement in Python?**
+
+        Some objects define standard clean-up actions to be undertaken when the object
+        is no longer needed, regardless of whether or not the operation using the
+        object succeeded or failed. 
+
+        ::
+
+                with open("myfile.txt") as f:
+                    for line in f:
+                        print line
+
+        After the statement is executed, the file f is always closed, even if a problem
+        was encountered while processing the lines. 
+
+**37. How does Python class statement works?**
+
+        When a class definition is entered, a new namespace is created, and used as the
+        local scope and thus, all assignments to local variables go into this new
+        namespace. In particular, function definitions bind the name of the new
+        function here. When a class definition is left normally, a class object is
+        created. This is basically a wrapper around the contents of the namespace
+        created by the class definition;The original local scope (the one in effect
+        just before the class definition was entered) is reinstated, and the class
+        object is bound here to the class name given in the class definition header
+
+        In C++ terminology, all class members (including the data members) are public,
+        and all member functions are virtual. There are no special constructors or
+        destructors.  Python Scopes and Namespaces A namespace is a mapping from names
+        to objects.  Most namespaces are currently implemented as Python dictionaries.
+
+        Class Objects support attribute notation and instantiation.  Class
+        instantiation creates instance objects. Instance Objects supports attribute
+        references, which are of two kinds data attributes and methods.
+
+        Old style classes support Inheritance in depth first, left to right.
+        New style classes to support super(), it follows a diamond inheritance.
+
+**38. Explain Classmethods, Staticmethods and Decorators in Python.**
+
+        In Object Oriented Programming, you can create a method which can get
+        associated either with a class or with an instance of the class, namely an
+        object. 
+
+        And most often in our regular practice, we always create methods to be
+        associated with an object. Those are called instance methods.
+
+        For e.g::
+
+                class Car:
+                        def cartype(self):
+                                self.model = "Audi"
+
+                mycar = Car()
+                mycar.cartype()
+                print mycar.model
+
+        Here cartype() is an instance method, it associates itself with an instance
+        (mycar) of the class (Car) and that is defined by the first argument ('self').
+
+        When you want a method not to be associated with an instance, you call that as
+        a staticmethod.
+
+        How can you do such a thing in Python?
+
+        The following would never work:
+
+        ::
+
+                >>> class Car:
+                ... 	def getmodel():
+                ... 		return "Audi"
+                ... 	def type(self):
+                ... 		self.model = getmodel()
+
+        Because, getmodel() is defined inside the class, Python binds it to the Class
+        Object.  You cannot call it by the following way also, namely: Car.getmodel()
+        or Car().getmodel() , because in this case we are passing it through an
+        instance ( Class Object or a Instance Object) as one of the argument while our
+        definition does not take any argument.
+
+        As you can see, there is a conflict here and in effect the case is, It is an
+        "**unbound local method**" inside the class.
+
+        Now comes Staticmethod.
+
+        Now, in order to call getmodel(), you can to change it to a static method.
+
+        ::
+
+                >>> class Car:
+                ... 	def getmodel():
+                ... 		return "Audi"
+                ...     getmodel = staticmethod(getmodel)
+                ... 	def cartype(self):
+                ... 		self.model = Car.getmodel()
+                ... 		
+                >>> mycar = Car()
+                >>> mycar.cartype()
+                >>> mycar.model
+                'Audi'
+
+        Now, I have called it as Car.getmodel() even though my definition of getmodel
+        did not take any argument. This is what staticmethod function did.  getmodel()
+        is a method which does not need an instance now, but still you do it as
+        Car.getmodel() because getmodel() is still bound to the Class object. 
+
+        **Decorators**
+
+        ``getmodel = staticmethod(getmodel)``
+
+        If you look at the previous code example, the function staticmethod took a
+        function name as a argument and the return value was a function which we
+        assigned to the same name.
+
+        staticmethod() function thus wrapped our getmodel function with some extra
+        features and this wrapping is called as Decorator.
+
+        The same code can be written like this.
+
+        ::
+
+                >>> class Car:
+                ... 	@staticmethod
+                ... 	def getmodel():
+                ... 		return "Audi"
+                ... 	def cartype(self):
+                ... 		self.model = Car.getmodel()
+                ... 		
+                >>> mycar = Car()
+                >>> mycar.cartype()
+                >>> mycar.model
+                'Audi'
+
+        Please remember that this concept of Decorator is independent of staticmethod
+        and classmethod.  Now, what is a difference between staticmethod and
+        classmethod?
+
+        In languages like Java,C++, both the terms denote the same :- methods for which
+        we do not require instances. But there is a difference in Python. A class
+        method receives the class it was called on as the first argument. This can be
+        useful with subclasses.
+
+        We can see the above example with the classmethod and a decorator as:
+
+        ::
+
+                >>>
+                >>> class Car:
+                ... 	@classmethod
+                ... 	def getmodel(cls):
+                ... 		return "Audi"
+                ... 	def gettype(self):
+                ... 		self.model = Car.getmodel()
+                ... 		
+                >>> mycar = Car()
+                >>> mycar.gettype()
+                >>> mycar.model
+                'Audi'
+
+
+**39. Explain the terms methods, staticmethods and classmethods in terms of general programming principles.**
+
+        In object-oriented programming, a method is a subroutine that is exclusively
+        associated either with a class (called class methods or static methods) or with
+        an object (called instance methods). Like a procedure in procedural programming
+        languages, a method usually consists of a sequence of statements to perform an
+        action, a set of input parameters to customize those actions, and possibly an
+        output value (called the return value) of some kind. Methods can provide a
+        mechanism for accessing (for both reading and writing) the encapsulated data
+        stored in an object or a class.
+
+        Instance methods are associated with a particular object, while class or static
+        methods are associated with a class. In all typical implementations, instance
+        methods are passed a hidden reference (e.g. this, self or Me) to the object
+        (whether a class or class instance) they belong to, so that they can access the
+        data associated with it. 
+
+        For class/static methods this may or may not happen according to the language;
+        A typical example of a class method would be one that keeps count of the number
+        of created objects within a given class.
+
+        A method may be declared as static, meaning that it acts at the class level
+        rather than at the instance level. Therefore, a static method cannot refer to a
+        specific instance of the class (i.e. it cannot refer to this, self, Me, etc.),
+        unless such references are made through a parameter referencing an instance of
+        the class, although in such cases they must be accessed through the parameter's
+        identifier instead of this. An example of a static member and its consumption
+        in C# code:
+
+        ::
+
+                public class ExampleClass
+                {
+                  public static void StaticExample()
+                  {
+                     // static method code
+                  }
+                 
+                  public void InstanceExample()
+                  {
+                     // instance method code here
+                     // can use THIS
+                  }   
+                }
+                 
+                /// Consumer of the above class:
+                 
+                // Static method is called -- no instance is involved
+                ExampleClass.StaticExample();
+                 
+                // Instance method is called
+                ExampleClass objMyExample = new ExampleClass();
+                objMyExample.InstanceExample();
+
+
+        Python method can create an instance of Dict or of any subclass of it, because
+        it receives a reference to a class object as cls:
+
+        ::
+
+                class Dict:
+                   @classmethod
+                   def fromkeys(cls, iterable, value=None):
+                       d = cls()
+                       for key in iterable:
+                           d[key] = value
+                       return d
+
+
+        A class method receives the class it was called on as the first argument. This
+        can be useful with subclasses. A staticmethod doesn't get a class or instance
+        argument. It is just a way to put a plain function into the scope of a class.
+        In the wider world of OOP they are two names for the same concept.  Smalltalk
+        and Lisp etc used the term "class method" to mean a method that applied to the
+        class as a whole.
+
+        C++ introduced the term "static method" to reflect the fact that it was loaded
+        in the static area of memory and thus could be called without instantiating an
+        object. This meant it could effectively be used as a class method.
+
+        In C it is possible to prefix a normal function definition with the word static
+        to get the compiler to load the function into static memory - this often gives
+        a performance improvement.
+
+        Python started off implementing "static methods" then later developed the
+        sligtly more powerful and flexible "class methods" and rather than lose
+        backward compatibility called them classmethod.  So in Python we have two ways
+        of doing more or less the same (conceptual) thing.
+
+        http://code.activestate.com/recipes/52304/ the recipe here shows a way to make
+        a funtion within a class as callable by using wrapping techniques. This was
+        later generalized to staticmethods.
+
+        Conceptually they are both ways of defining a method that applies at the class
+        level and could be used to implement class wide behavior. Thats what I mean. If
+        you want to build a method to determine how many instances are active at any
+        time then you could use either a staticmethod or a classmethod to do it. Most
+        languages only give you one way. Python, despite its mantra, actually gives 2
+        ways to do it in this case.
+
+
+**40. What is the difference between process and a thread?**
+
+        Both threads and processes are methods of parallelizing an application.
+        However, processes are independent execution units that contain their own state
+        information, use their own address spaces, and only interact with each other
+        via interprocess communication mechanisms (generally managed by the operating
+        system). Applications are typically divided into processes during the design
+        phase, and a master process explicitly spawns sub-processes when it makes sense
+        to logically separate significant application functionality. Processes, in
+        other words, are an architectural construct.
+
+        By contrast, a thread is a coding construct that doesn't affect the
+        architecture of an application. A single process might contains multiple
+        threads; all threads within a process share the same state and same memory
+        space, and can communicate with each other directly, because they share the
+        same variables.
+
+        Threads typically are spawned for a short-term benefit that is usually
+        visualized as a serial task, but which doesn't have to be performed in a linear
+        manner (such as performing a complex mathematical computation using
+        parallelism, or initializing a large matrix), and then are absorbed when no
+        longer required. The scope of a thread is within a specific code module—which
+        is why we can bolt-on threading without affecting the broader application.
+
+        Multithreading computers have hardware support to efficiently execute multiple
+        threads.  Threads of program results from fork of a computer program into two
+        or more concurrently running tasks.  In multi-threading the threads have to
+        share a single core,cache and TLB unlike the multiprocessing machines.
+
+        *Some History of Inter Process Communication*
+
+        By the early 60s computer control software had evolved from Monitor control
+        software, e.g., IBSYS, to Executive control software. Computers got "faster"
+        and computer time was still neither "cheap" nor fully used. It made
+        multiprogramming possible and necessary.
+
+        Multiprogramming means that several programs run "at the same time"
+        (concurrently). At first they ran on a single processor (i.e., uniprocessor)
+        and shared scarce resources. Multiprogramming is also basic form of
+        multiprocessing, a much broader term.
+
+        Programs consist of sequence of instruction for processor. Single processor can
+        run only one instruction at a time. Therefore it is impossible to run more
+        programs at the same time. Program might need some resource (input ...) which
+        has "big" delay. Program might start some slow operation (output to printer
+        ...). This all leads to processor being "idle" (unused). To use processor at
+        all time the execution of such program was halted. At that point, a second (or
+        nth) program was started or restarted. User perceived that programs run "at the
+        same time" (hence the term, concurrent).
+
+        Shortly thereafter, the notion of a 'program' was expanded to the notion of an
+        'executing program and its context'. The concept of a process was born.
+
+        This became necessary with the invention of re-entrant code.  Threads came
+        somewhat later. However, with the advent of time-sharing; computer networks;
+        multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
+        way to true multitasking, multiprocessing and, later, multithreading.
+
+**41. What are Coroutines?**
+
+        Coroutines are subroutines that allow multiple entry points for suspending and
+        resuming execution at certain locations.  Subroutine are subprograms, methods,
+        functions for performing a subtask and it is relatively independent of other
+        task.  Coroutines are usful for implementing cooperative tasks, iterators,
+        infinite lists and pipes.  Cooperative Tasks - Similar programs, CPU is yielded
+        to each program coperatively.  Iterators - an object that allows the programmer
+        to traverse all the elements of a collection.  Lazy Evaluation is the technique
+        for delaying the computation till the result is required. Why Infite Lists and
+        Lazy evaluation are given together?  Coroutines in which subsequent calls can
+        be yield more results are called as generators.  Subroutines are implemented
+        using stacks and coroutines are implemented using continuations.  continuation
+        are an abstract representation of a control state, or the rest of the
+        computation, or rest of the code to be executed.
+
+**41. What is a Global Interpreter Lock?**
+
+        The GIL is a single lock inside of the Python interpreter, which effectively
+        prevents multiple threads from being executed in parallel, even on multi-core
+        or multi-CPU systems!
+
+        * All threads within a single process share memory; this includes Python's
+          internal structures (such as reference counts for each variable).  Course
+          grained locking.
+        * fine grained locking.
+        * @synchronized decorator
+        * technically speaking, threads have shared heaps but separate stacks.
+        * Interpreter of a language is said to be stackless if the function calls in
+          the language do not use the C Stack. In effect, the entire interpretor has to
+          run as a giant loop.
+
+        The Global Interpreter Lock (GIL) is used to protect Python objects from being
+        modified from multiple threads at once. Only the thread that has the lock may
+        safely access objects.
+
+        To keep multiple threads running, the interpreter automatically releases and
+        reacquires the lock at regular intervals (controlled by the
+        sys.setcheckinterval function). It also does this around potentially slow or
+        blocking low-level operations, such as file and network I/O.
+
+        Indeed the GIL prevents the* **interpreter** to run two threads of bytecodes
+        concurrently.
+
+        But it allows two or more threadsafe C library to run at the same time.
+        The net effect of this brilliant design decision are:
+
+        1. It makes the interpreter simpler and faster
+        2. When speed does not matter (ie: bytecode is interpreted) there’s not too
+           much to worry about threads.
+        3. when speed does matter (ie: when C code is run) Python applications is not
+           hampered by a brain dead VM that is so ’screwed’ up that it must pause to
+           collect its garbage.
+
+**42. How do you specify and enforce an interface spec in Python?**
+
+        An interface specification for a module as provided by languages such as C++
+        and Java describes the prototypes for the methods and functions of the module.
+        Many feel that compile-time enforcement of interface specifications helps in
+        the construction of large programs. In Java World, interfaces form the
+        contract between the class and the outside world, and this contract is
+        enforced at the build time by the compiler.
+
+        Python 2.6 adds an abc module that lets you define Abstract Base Classes (ABC).
+        You can then use isinstance() and issubclass to check whether an instance or a
+        class implements a particular ABC. The collections modules defines a set of
+        useful ABC s such as Iterable, Container, and Mutablemapping.
+
+        For Python, many of the advantages of interface specifications can be obtained
+        by an appropriate test discipline for components. There is also a tool,
+        PyChecker, which can be used to find problems due to subclassing.
+
+        A good test suite for a module can both provide a regression test and serve as
+        a module interface specification and a set of examples. Many Python modules can
+        be run as a script to provide a simple "self test." Even modules which use
+        complex external interfaces can often be tested in isolation using trivial
+        "stub" emulations of the external interface. The doctest and unittest modules
+        or third-party test frameworks can be used to construct exhaustive test suites
+        that exercise every line of code in a module.
+
+        An appropriate testing discipline can help build large complex applications in
+        Python as well as having interface specifications would. In fact, it can be
+        better because an interface specification cannot test certain properties of a
+        program. For example, the append() method is expected to add new elements to
+        the end of some internal list; an interface specification cannot test that your
+        append() implementation will actually do this correctly, but it's trivial to
+        check this property in a test suite.
+
+        Writing test suites is very helpful, and you might want to design your code
+        with an eye to making it easily tested. One increasingly popular technique,
+        test-directed development, calls for writing parts of the test suite first,
+        before you write any of the actual code. Of course Python allows you to be
+        sloppy and not write test cases at all.
+
+**43. What is the difference between string, bytes and buffer from Python2 and Python3 perspective?**
+
+        In Python 2.0, the normal strings were of 8 bit characters and for representing
+        Characters from foreign languages, a special kind of class was provided, which
+        was called Unicode String.
+
+        The string object when they had to be stored or transfered over the wire, they
+        had to be encoded into bytes. As normal string character was 8 bits, they
+        directly corresponded to one byte and Python2.0 had an implicit ascii encoding
+        which conveniently encoded them to 8-bit bytes.  The Unicode object had to have
+        an encoding specified, which encoded the unicoded strings into sequence of
+        bytes.
+
+        Just as string object had an encode method, to convert to bytes, the bytes
+        object had a decode method, that takes a character encoding an returns a
+        string.
+
+        In Python 3.0, the normal string was made the Unicode String. However, the 8bit
+        character datatype was still retained and it was called as bytes.
+
+        In other words. Python2.6 supports both simple text and binary data in its
+        normal string type and provides an alternative string type for non-ASCII type
+        called the Unicode text. Whereas Python3.0 supports Unicode text in its normal
+        string type, with ASCII being treated a simple type of unicode and provides an
+        alternative string type for binary data called bytes.
+
+        Python3 comes with 3 types of string objects, one for textual data and two for
+        binary data.
+
+        * str - for representing Unicode text.
+        * bytes - for representing Binary data.
+        * bytearray - a mutable flavor of bytes type.
+
+        3.0 str type defined an immutable sequence of characters (not neccesarily
+        bytes), which may be either normal text such as ASCII or multi byte UTF-8.  A
+        new type called bytes was introduced to support truly binary data.
+
+        In 2.x; the general string type filled this binary data role, because strings
+        were just a sequence of bytes. In 3.0, the bytes type is defined as an
+        immutable sequence of 8-bit integers representing absolute byte values.  A 3.0
+        bytes object really is a sequence of small integers, each of which is in the
+        range 0 through 255; indexing a bytes returns int, slicing one returns another
+        bytes and running list() on one returns a list of integers, not characters.
+        While they were at it, the Python developers also added bytearray type in 3.0,
+        a variant of bytes, which is mutable and also supports in-place changes. The
+        bytearray type supports the usual string operations that str and bytes do, but
+        has inplace change operations also.
+
+        Because str and bytes are sharply differentiated by the language, the net
+        effect is that you must decide whether your data is text or binary in nature
+        and use 'str' or 'bytes' objects to represent its content in your script
+        respectively.
+
+        Image or audio file or packed data processed with the struct module is an
+        exmaple of bytes object. Python3.0 has a sharp distinction between text, binary
+        data and files.
+
+        ::
+                $ python
+                Python 2.6.2 (release26-maint, Apr 19 2009, 01:58:18) [GCC 4.3.3] on linux2
+                >>> import sys
+                >>> print sys.getdefaultencoding()
+                ascii
+                >>> 
+                07:56 PM:senthil@:~/uthcode/source
+                $ python3.1
+                Python 3.1a2+ (py3k:71811, Apr 22 2009, 20:47:22) [GCC 4.3.2] on linux2
+                >>> import sys
+                >>> print(sys.getdefaultencoding())
+                utf-8
+                >>> 
+
+        Ultimately, the mode in which you open a file will dictate which type of object
+        your script will use to represent its contents.
+
+        * bytes or binary mode files.
+        * bytearray to update data without making copies of it in memory.
+        * If you are processing something that is textual in nature, such as program
+          output, HTML, internationalized text, and CSV or XML files, you probably want
+          to use str or text mode files.
+
+**44. What is the bytearray class in Python3?**
+
+        A Byte is 8 bits and array is a sequence. A Bytearray object can be constructed
+        using integers only or text string along with an encoding or using another
+        bytes or bytearray or any other object implementing a buffer API. More
+        importantly, it is mutable.
+
+
+**45. How to do convert int to hex in Python?**
+
+        Q:Convert a Hexadecimal Strings ("FF","FFFF") to Decimal
+        A: int("FF",16) and int("FFFF",16)
+
+        Q: Represent 255 in Hexadecimal.
+        A: print '%X' % 255
+
+        If you want to encode a string in base16, base32 or base64 encoding, the python
+        standard library provides base64 module which is based on the RFC 3564.
+
+
+**46. What are the different XML parsers in Python?**
+
+There are two different kinds of XML parsing methods. SAX and DOM.
+
+SAX - Simple API for XML - serial access parser API for XML.  SAX provides a
+mechanism for reading data from an XML document. Its popular alternative is
+DOM.  Unlike DOM there is no formal specification of SAX. The Java
+implementation of SAX is considered to be normative, and implementations in
+other languages attempt to follow the rules laid down in that implementation,
+adjusting for differences in the language when necessary.
+
+Benefits of SAX - less memory, it is serial.  DOM requires to load the entire
+XML tree.  Drawbacks of XML include, Certain kind of XML validation requires to
+read the complete XML.
+
+xml.etree.ElementTree as DOM parser. First of all understand that Element Tree
+is a tree datastructure. It represents the XML document as a Tree. The XML
+Nodes are Elements. (Thus the name Element Tree)
+
+Now, if I were to structure an html document as a element tree.::
+
+                <html>
+                  |
+                <head> -------
+                /   \        |
+             <title> <meta> <body>
+                           /   |  \
+                        <h1>  <h2> <para>
+                                   /   \
+                                  <li> <li>
+
+
+The Element type is a flexible container object, designed to store hierarchical
+data structures in memory. The type can be described as a cross between a list
+and a dictionary.  The C implementation of xml.etree.ElementTree is available
+as xml.etree.cElementTree
 
 Bytes in API
 ------------
 
-* Is ASCII with surrogateescape OK?
-* Non Decodable Bytes in System Character Interfaces.
-* PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
-* Issue4661
+# Is ASCII with surrogateescape OK?
+# Non Decodable Bytes in System Character Interfaces.
+# PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
+# Issue4661
+# What is the difference between dict proxy and a dict.
+# What is the difference between linefeed and a newline?
+# newline is composed of Linefeed character. 
+
 
 Links
 =====
@@ -1899,12 +1930,6 @@ Note: Servers ought to be cautious about depending on URI lengths above 255
 bytes, because some older client or proxy implementations might not properly
 support these lengths.
 
-
-Python Internals
-----------------
-
-1. Objects - When accessing the attribute of an object, the attribute is got from the namespace.
-2. There is a difference between dict proxy and a dict.
 
 WSGI
 ----
@@ -2446,7 +2471,6 @@ HTTPSHandler.
 http_request method is called.
 
 ::
-
          HTTPHandler has http_request method which is
          AbstractHTTPHandler.do_request_ Now, for this issue we get to the
          do_request_ method and see that host is set in the do_request_ method
@@ -2522,110 +2546,6 @@ BaseHTTPRequestHandler implements do_GET, do_POST and send_head
 The send_head method when it is returning the body it is sending it properly.
 
 Why is that the response is getting trimmed to 49042?
-
-Strings, Bytes and Python 3
-===========================
-
-Q: Convert a Hexadecimal Strings ("FF","FFFF") to Decimal
-A: int("FF",16) and int("FFFF",16)
-
-Q: Represent 255 in Hexadecimal.
-A: print '%X' % 255
-
-If you want to encode a string in base16, base32 or base64 encoding, the python
-standard library provides base64 module which is based on the RFC 3564.
-
-What is the difference between string, bytes and buffer?
-
-In Python 2.0, the normal strings were of 8 bit characters and for representing
-Characters from foreign languages, a special kind of class was provided, which
-was called Unicode String.
-
-The string object when they had to be stored or transfered over the wire, they
-had to be encoded into bytes. As normal string character was 8 bits, they
-directly corresponded to one byte and Python2.0 had an implicit ascii encoding
-which conveniently encoded them to 8-bit bytes.  The Unicode object had to have
-an encoding specified, which encoded the unicoded strings into sequence of
-bytes.
-
-Just as string object had an encode method, to convert to bytes, the bytes
-object had a decode method, that takes a character encoding an returns a
-string.
-
-In Python 3.0, the normal string was made the Unicode String. However, the 8bit
-character datatype was still retained and it was called as bytes.
-
-In other words. Python2.6 supports both simple text and binary data in its
-normal string type and provides an alternative string type for non-ASCII type
-called the Unicode text. Whereas Python3.0 supports Unicode text in its normal
-string type, with ASCII being treated a simple type of unicode and provides an
-alternative string type for binary data called bytes.
-
-What is the difference between linefeed and a newline?
-newline is composed of Linefeed character. 
-
-What is class bytearray?
-
-A Byte is 8 bits and array is a sequence. A Bytearray object can be constructed
-using integers only or text string along with an encoding or using another
-bytes or bytearray or any other object implementing a buffer API. More
-importantly, it is mutable.
-
-Python3 comes with 3 types of string objects, one for textual data and two for
-binary data.
-
- * str - for representing Unicode text.
- * bytes - for representing Binary data.
- * bytearray - a mutable flavor of bytes type.
-
-3.0 str type defined an immutable sequence of characters (not neccesarily
-bytes), which may be either normal text such as ASCII or multi byte UTF-8.  A
-new type called bytes was introduced to support truly binary data.
-
-In 2.x; the general string type filled this binary data role, because strings
-were just a sequence of bytes. In 3.0, the bytes type is defined as an
-immutable sequence of 8-bit integers representing absolute byte values.  A 3.0
-bytes object really is a sequence of small integers, each of which is in the
-range 0 through 255; indexing a bytes returns int, slicing one returns another
-bytes and running list() on one returns a list of integers, not characters.
-While they were at it, the Python developers also added bytearray type in 3.0,
-a variant of bytes, which is mutable and also supports in-place changes. The
-bytearray type supports the usual string operations that str and bytes do, but
-has inplace change operations also.
-
-Because str and bytes are sharply differentiated by the language, the net
-effect is that you must decide whether your data is text or binary in nature
-and use 'str' or 'bytes' objects to represent its content in your script
-respectively.
-
-Image or audio file or packed data processed with the struct module is an
-exmaple of bytes object. Python3.0 has a sharp distinction between text, binary
-data and files.
-
-::
-        $ python
-        Python 2.6.2 (release26-maint, Apr 19 2009, 01:58:18) [GCC 4.3.3] on linux2
-        >>> import sys
-        >>> print sys.getdefaultencoding()
-        ascii
-        >>> 
-        07:56 PM:senthil@:~/uthcode/source
-        $ python3.1
-        Python 3.1a2+ (py3k:71811, Apr 22 2009, 20:47:22) [GCC 4.3.2] on linux2
-        >>> import sys
-        >>> print(sys.getdefaultencoding())
-        utf-8
-        >>> 
-
-Ultimately, the mode in which you open a file will dictate which type of object
-your script will use to represent its contents.
-
- * bytes or binary mode files.
- * bytearray to update data without making copies of it in memory.
- * If you are processing something that is textual in nature, such as program
-   output, HTML, internationalized text, and CSV or XML files, you probably
-   want to use str or text mode files.
-
 
 Unicode Notes
 =============
@@ -2884,58 +2804,6 @@ Typing Unicode and maths symbols on gnome-terminal
 Unicode code point chart:
 http://inamidst.com/stuff/unidata/
 
-Some History of Inter Process Communication
-===========================================
-
-By the early 60s computer control software had evolved from Monitor control
-software, e.g., IBSYS, to Executive control software. Computers got "faster"
-and computer time was still neither "cheap" nor fully used. It made
-multiprogramming possible and necessary.
-
-Multiprogramming means that several programs run "at the same time"
-(concurrently). At first they ran on a single processor (i.e., uniprocessor)
-and shared scarce resources. Multiprogramming is also basic form of
-multiprocessing, a much broader term.
-
-Programs consist of sequence of instruction for processor. Single processor can
-run only one instruction at a time. Therefore it is impossible to run more
-programs at the same time. Program might need some resource (input ...) which
-has "big" delay. Program might start some slow operation (output to printer
-...). This all leads to processor being "idle" (unused). To use processor at
-all time the execution of such program was halted. At that point, a second (or
-nth) program was started or restarted. User perceived that programs run "at the
-same time" (hence the term, concurrent).
-
-Shortly thereafter, the notion of a 'program' was expanded to the notion of an
-'executing program and its context'. The concept of a process was born.
-
-This became necessary with the invention of re-entrant code.  Threads came
-somewhat later. However, with the advent of time-sharing; computer networks;
-multiple-CPU, shared memory computers; etc., the old "multiprogramming" gave
-way to true multitasking, multiprocessing and, later, multithreading.
-
-Context Management Protocol support
-:: 
-        with bz2.BZ2File() as f:
-                f.something()
-
-Counter class in the collections module that behave like dictionary; but return
-0 instead of {{{KeyError}}}.  There is a namedtuple class in python.
-
-compileall module is a script which will compile all the .py files in the path
-to .pyc files.  py_compile is module which does the actual byte compilation.
-
-py_compile.compile(fullname, None, dfile, True)
-
-inspect module.
-
-turtle module is a good one to get started with Python. turtle modle is updated
-to 1.1 by Gregor Lingl. I promised to write a tutorial on turtle module. This
-is pending.
-
-How can we differentiate if an expression used is a general expression or a
-boolean expression.
-
 Having a construct like:
 
 ::
@@ -2991,8 +2859,6 @@ Thu, 01 Dec 1994 16:00:00 GMT
         elif obj1 < obj2:
         print dateexpired
 
-
-Now you can compare the headers for expiry in cache control.
 
 Header field definition:
 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
@@ -3248,15 +3114,6 @@ Tutorials
 * Alex Martellis Callback tutorial: http://www.youtube.com/watch?v=LCZRJStwkKM
 
 
-Interfaces
-
-* In Java World, interfaces form the contract between the class and the outside
-  world, and this contract is enforced at the build time by the compiler.
-
-Essay:
-
-A programming language should equip us with structures that help us to reason more effectively.
-Smalltalk and Scheme have powerful influence on language designers.
 
 Object Oriented Programming
 ---------------------------
@@ -3289,52 +3146,6 @@ References
 
 * [http://code.activestate.com/recipes/86900/ Factory Example]
 * [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
-
-* SAX - Simple API for XML - serial access parser API for XML.
-
-* SAX provides a mechanism for reading data from an XML document. Its popular
-  alternative is DOM.
-
-Unlike DOM there is no formal specification of SAX. The Java implementation of
-SAX is considered to be normative, and implementations in other languages
-attempt to follow the rules laid down in that implementation, adjusting for
-differences in the language when necessary.
-
-Benefits of SAX - less memory, it is serial.  DOM requires to load the entire
-XML tree.
-
-Drawbacks:
-
-Certain kind of XML validation requires to read the complete XML.
-
-I do not know how to use HTMLParser module in Python Standard Library. There is
-not a good example in the Python docs also.  HTMLParser implementation supports
-HTML 2.0 language as described in RFC 1866.
-
-xml.etree.ElementTree
-
-First of all understand that Element Tree is a tree datastructure. It
-represents the XML document as a Tree. The XML Nodes are Elements. (Thus Element Tree)
-Now, if I were to structure an html document as a element tree.
-
-::
-
-
-                <html>
-                  |
-                <head> -------
-                /   \        |
-             <title> <meta> <body>
-                           /   |  \
-                        <h1>  <h2> <para>
-                                   /   \
-                                  <li> <li>
-
-
-The Element type is a flexible container object, designed to store hierarchical
-data structures in memory. The type can be described as a cross between a list
-and a dictionary.  The C implementation of xml.etree.ElementTree is available
-as xml.etree.cElementTree
 
 
 .. _Joel's article on Unicode: http://www.joelonsoftware.com/articles/Unicode.html 
