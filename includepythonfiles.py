@@ -23,7 +23,6 @@ template_value = """
 *$filename* - $lastmodified
 
 .. literalinclude:: ../$fileloc
-   :linenos:
    :tab-width: 4
 
 ----
