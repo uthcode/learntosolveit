@@ -5,10 +5,20 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
+Python's mercurial process
+==========================
+
+* update all codelines using your script.
+* start working on 3.1 codeline and fix and commit and push. It will push it 3.2
+* hg pull -u ../3.1
+* hg merge 3.1
+* resolve any conflicts.
+* do the same for cpython
+* hg push will commit your changes.
+
 Discussion on Bugs
 ==================
 
-* FancyURLOpener is struct when trying to open a redirected url. 
 * ZipFile with encoded file name has some problems. 
 * peephole optimizer to reverse store/unstore instead of pack/unpack. 
 * Wrong powerpc defined in ceval. 
@@ -22,7 +32,7 @@ Discussion on Bugs
 * os.getpriority and os.setpriority ? 
 * When to use the PY_BEGIN_THREAD and PY_END_THREAD. 
 * parser should store the file name as unicode object. 
-* What is the difference between UTF-8 and unicode. 
+* What is the difference between UTF-8 and Unicode. 
 * test_concurrent futures was failing on FreeBSD, a reboot can help if it has
   old semaphores hanging around. 
 * print trace_back throws AttributeError when the exception is None. 
@@ -31,7 +41,7 @@ Discussion on Bugs
 * Add a new set of functions to the posixmodule, well written and quick for
   receiving comments and modifying the code. 
 * Decimal Module with some dot specific usage. 
-* There was problem when python3 was attempting to write to /dev/full and it
+* There was problem when python3 was attempting to write to /dev/null and it
   was being written. VS pointed out that it is fixed in 3.2. there were
   unclosed sockets from test_multiprocessing and Victor fixed them. 
 * There is  misbehavior in the ContentTooShort Exception from the
@@ -492,8 +502,7 @@ build completely?**
 **6. How would implement the defaultdict's behavior using the normal dict?**
 
         By overriding the ``__missing__`` method of the class which inherits from
-        ``dict``.
-        :: 
+        ``dict``:: 
 
                 >>> class Counter(dict):
                 ...     def __missing__(self, key):
@@ -562,9 +571,7 @@ build completely?**
 
 **11. How is the Python Private methods and Attributes handled?**
 
-        They are handled by name mangling.
-
-        ::
+        They are handled by name mangling::
 
                 >>> class Foo(object):
                 ...     def __init__(self):
@@ -1106,9 +1113,7 @@ in an unexpected manner during program evaluation?**
                 status = main()
                 sys.exit(status)
 
-        This is how the packages should be structured
-
-        ::
+        This is how the packages should be structured::
 
             package/
                 __init__.py
@@ -1124,9 +1129,9 @@ in an unexpected manner during program evaluation?**
 
         Example::
 
-        import package.module1
-        from package.subpackage import module2
-        from package.subpackage.module2 import name
+                import package.module1
+                from package.subpackage import module2
+                from package.subpackage.module2 import name
 
 
 **31. How would you transpose a Matrix in Python?**
@@ -1149,33 +1154,28 @@ in an unexpected manner during program evaluation?**
 
         Answer Is::
 
-                >>>zip(\*mat)
+                >>>zip(*mat)
 
 **32. How would you write unicode strings in Python2?**
 
         * Python2 supports Unicode by a special kind of string, called the Unicode object.  _>>> u'Hello World !'_
         * You can have unicode by using the special python escape encoding: _>>> u'Hello\u0020World !'_
         * built-in function unicode() , default encoding is ASCII
-        * To convert unicode to a 8-bit string using a specified encoding.
+        * To convert unicode to a 8-bit string using a specified encoding::
 
-        ::
-                >>> u"Ã¤Ã¶Ã¼".encode('utf-8')
+                >>> u"쎤쎶쎼".encode('utf-8')
                 '\xc3\xa4\xc3\xb6\xc3\xbc'
 
+        * From a data in a specific encoding to a unicode string::
 
-        * From a data in a specific encoding to a unicode string.
-
-        ::
                 >>> unicode('\xc3\xa4\xc3\xb6\xc3\xbc', 'utf-8')
                 u'\xe4\xf6\xfc'
-
 
         * Understanding unicode is easy, when we accept the need to explicitly convert
           between the bytestring (which is a 8bit string) and unicode string.
 
-        * More examples:
+        * More examples::
 
-        ::
                 >>> german_ae = unicode("\xc3\xa4",'utf8')
                 >>> sentence = "this is a " + german_ae
                 >>> sentece2 = "Easy!"
@@ -1206,9 +1206,8 @@ in an unexpected manner during program evaluation?**
         Loop statements in Python may have an else clause. It is executed when the loop
         terminates through exhaustion of the list (with for).  Or when the condition
         becomes false (with while), But not when the loop is terminated by a break
-        statement.
+        statement::
 
-        ::
                 >>> for n in range(2, 10):
                 ...     for x in range(2, n):
                 ...         if n % x == 0:
@@ -1249,9 +1248,9 @@ in an unexpected manner during program evaluation?**
         as a user-defined function. This value can be assigned to another name which
         can then also be used as a function.
 
-        To illustrate the function execution control flow, have a look at this snippet.
+        To illustrate the function execution control flow, have a look at this
+        snippet.:: 
 
-        :: 
                 i = 5
 
                 def f(arg=i):
@@ -1273,9 +1272,8 @@ in an unexpected manner during program evaluation?**
         function definition in the defining scope.
 
         The default value is evaluated only once. This makes a difference when the
-        default value is a mutatable object. In order to prevent argument sharing.
+        default value is a mutatable object. In order to prevent argument sharing.::
 
-        ::
                   def f(a, L=None):
                     if L is None:
                         L = []
@@ -1294,9 +1292,7 @@ in an unexpected manner during program evaluation?**
           result.More than one sequence may be passed; the function must then have as
           many arguments as there are sequences and is called with the corresponding item
           from each sequence. 
-        * reduce(function, sequence) -  function in reduce is a binary function
-
-        ::
+        * reduce(function, sequence) -  function in reduce is a binary function::
 
                 >>> def f(x): return x % 2 != 0 and x % 3 != 0
                 ...
@@ -1362,9 +1358,7 @@ in an unexpected manner during program evaluation?**
 
         Some objects define standard clean-up actions to be undertaken when the object
         is no longer needed, regardless of whether or not the operation using the
-        object succeeded or failed. 
-
-        ::
+        object succeeded or failed::
 
                 with open("myfile.txt") as f:
                     for line in f:
@@ -1423,9 +1417,7 @@ in an unexpected manner during program evaluation?**
 
         How can you do such a thing in Python?
 
-        The following would never work:
-
-        ::
+        The following would never work.::
 
                 >>> class Car:
                 ... 	def getmodel():
@@ -1444,9 +1436,7 @@ in an unexpected manner during program evaluation?**
 
         Now comes Staticmethod.
 
-        Now, in order to call getmodel(), you can to change it to a static method.
-
-        ::
+        Now, in order to call getmodel(), you can to change it to a static method::
 
                 >>> class Car:
                 ... 	def getmodel():
@@ -1476,9 +1466,7 @@ in an unexpected manner during program evaluation?**
         staticmethod() function thus wrapped our getmodel function with some extra
         features and this wrapping is called as Decorator.
 
-        The same code can be written like this.
-
-        ::
+        The same code can be written like this::
 
                 >>> class Car:
                 ... 	@staticmethod
@@ -1501,9 +1489,7 @@ in an unexpected manner during program evaluation?**
         method receives the class it was called on as the first argument. This can be
         useful with subclasses.
 
-        We can see the above example with the classmethod and a decorator as:
-
-        ::
+        We can see the above example with the classmethod and a decorator as.::
 
                 >>>
                 >>> class Car:
@@ -1546,9 +1532,7 @@ in an unexpected manner during program evaluation?**
         unless such references are made through a parameter referencing an instance of
         the class, although in such cases they must be accessed through the parameter's
         identifier instead of this. An example of a static member and its consumption
-        in C# code:
-
-        ::
+        in C# code.::
 
                 public class ExampleClass
                 {
@@ -1575,9 +1559,7 @@ in an unexpected manner during program evaluation?**
 
 
         Python method can create an instance of Dict or of any subclass of it, because
-        it receives a reference to a class object as cls:
-
-        ::
+        it receives a reference to a class object as cls.::
 
                 class Dict:
                    @classmethod
@@ -1827,9 +1809,8 @@ in an unexpected manner during program evaluation?**
 
         Image or audio file or packed data processed with the struct module is an
         exmaple of bytes object. Python3.0 has a sharp distinction between text, binary
-        data and files.
+        data and files.::
 
-        ::
                 $ python
                 Python 2.6.2 (release26-maint, Apr 19 2009, 01:58:18) [GCC 4.3.3] on linux2
                 >>> import sys
@@ -1875,108 +1856,129 @@ in an unexpected manner during program evaluation?**
 
 **46. What are the different XML parsers in Python?**
 
-There are two different kinds of XML parsing methods. SAX and DOM.
+        There are two different kinds of XML parsing methods. SAX and DOM.
 
-SAX - Simple API for XML - serial access parser API for XML.  SAX provides a
-mechanism for reading data from an XML document. Its popular alternative is
-DOM.  Unlike DOM there is no formal specification of SAX. The Java
-implementation of SAX is considered to be normative, and implementations in
-other languages attempt to follow the rules laid down in that implementation,
-adjusting for differences in the language when necessary.
+        SAX - Simple API for XML - serial access parser API for XML.  SAX provides a
+        mechanism for reading data from an XML document. Its popular alternative is
+        DOM.  Unlike DOM there is no formal specification of SAX. The Java
+        implementation of SAX is considered to be normative, and implementations in
+        other languages attempt to follow the rules laid down in that implementation,
+        adjusting for differences in the language when necessary.
 
-Benefits of SAX - less memory, it is serial.  DOM requires to load the entire
-XML tree.  Drawbacks of XML include, Certain kind of XML validation requires to
-read the complete XML.
+        Benefits of SAX - less memory, it is serial.  DOM requires to load the entire
+        XML tree.  Drawbacks of XML include, Certain kind of XML validation requires to
+        read the complete XML.
 
-xml.etree.ElementTree as DOM parser. First of all understand that Element Tree
-is a tree datastructure. It represents the XML document as a Tree. The XML
-Nodes are Elements. (Thus the name Element Tree)
+        xml.etree.ElementTree as DOM parser. First of all understand that Element Tree
+        is a tree datastructure. It represents the XML document as a Tree. The XML
+        Nodes are Elements. (Thus the name Element Tree)
 
-Now, if I were to structure an html document as a element tree.::
+        Now, if I were to structure an html document as a element tree.::
 
-                <html>
-                  |
-                <head> -------
-                /   \        |
-             <title> <meta> <body>
-                           /   |  \
-                        <h1>  <h2> <para>
-                                   /   \
-                                  <li> <li>
+                        <html>
+                          |
+                        <head> -------
+                        /   \        |
+                     <title> <meta> <body>
+                                   /   |  \
+                                <h1>  <h2> <para>
+                                           /   \
+                                          <li> <li>
 
 
-The Element type is a flexible container object, designed to store hierarchical
-data structures in memory. The type can be described as a cross between a list
-and a dictionary.  The C implementation of xml.etree.ElementTree is available
-as xml.etree.cElementTree
+        The Element type is a flexible container object, designed to store hierarchical
+        data structures in memory. The type can be described as a cross between a list
+        and a dictionary.  The C implementation of xml.etree.ElementTree is available
+        as xml.etree.cElementTree
+
+**47. What is a factory method design pattern?**
+
+        Factory method design pattern is used quite often in Python. It is a creational
+        pattern, dealing with creation of objects (products) without specifying the
+        exact class. The creational patterns abstract the concept of instantiating
+        objects.  and It handles this case by defining a separate method for creation
+        objects.
+
+        The subclasses of that method or object can override to specify the derived
+        type of the product that will be created. Factory method is used to refer to
+        any method whose main purpose is to create objects. 
+
+        The Factory pattern in c++ wraps the usual object creation syntax new
+        someclass() in a function or a method which can control the creation.
+        Advantages is that, code using the class no longer needs to know all the
+        details of creation. It may not even know the exact type of object created.
+
+        Abstract Factory provides additional indirection to let the type of object
+        which is created to vary.
+
+        Factory pattern is fundamental in python; while languages like C++ use
+        ClassName class; to create classes python uses function class syntax to create
+        objects. Even builtin types str, int provide factory pattern.
 
 Bytes in API
 ------------
 
 # Is ASCII with surrogateescape OK?
+
 # Non Decodable Bytes in System Character Interfaces.
+
 # PEP - 383 seems pretty cool. ( C-API allows reading of bytes whether it is a character or not).
+
 # Issue4661
+
 # What is the difference between dict proxy and a dict.
+
 # What is the difference between linefeed and a newline?
+
 # newline is composed of Linefeed character. 
 
 
-Links
-=====
-http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
+Web Services Gateway Interface
+------------------------------
 
-Note: Servers ought to be cautious about depending on URI lengths above 255
-bytes, because some older client or proxy implementations might not properly
-support these lengths.
-
-
-WSGI
-----
-
-It is easy to build a web application framework in Python. WSGI is Python PEP
-333, the Web Server Gateway Interface. It's a a protocol for communicating with
-Python web applications. WSGI works by callbacks. 
+It is easy to build **a web application framework in Python.** WSGI is Python
+PEP 333, the Web Server Gateway Interface. It's a protocol for communicating
+with Python web applications WSGI works by callbacks. 
      
-The application provides a function which the server calls for each request:
+The application provides a function which the server calls for each request::
 
-application(environ, start_response)
+        application(environ, start_response)
 
-environ is a Python dictionary containing the CGI-defined environment variables
-plus a few extras. One of the extras is "wsgi.input", the file object from
-which to read the POST variables. start_response is a callback by which the
-application returns the HTTP header.
+`environ` is a Python dictionary containing the CGI-defined environment
+variables plus a few extras. One of the extras is `wsgi.input`, the file object
+from which to read the POST variables. `start_response` is a callback by which
+the application returns the HTTP header::
 
-start_response(status, response_headers, exc_info=None)
+        start_response(status, response_headers, exc_info=None)
 
-status is an HTTP status string (e.g., "200 OK"). response_headers is a list of
-2-tuples, the HTTP headers in key-value format. exc_info is used in exception
-handling; we won't cover it here.
+`status` is an HTTP status string (e.g., "200 OK"). `response_headers` is a
+list of 2-tuples, the HTTP headers in key-value format. `exc_info` is used in
+exception handling; we won't cover it here.
 
 The application function then returns an iterable of body chunks. In the
-simplest case this can be:
+simplest case this can be::
 
-["<html>Hello, world!</html>"]
+        ["<html>Hello, world!</html>"]
 
 Getting slightly more elaborate, here's the second-smallest WSGI application in
-the world:
+the world::
 
-def app2(environ, start_response):
-    start_response("200 OK", [])
-    s = "<html>You requested <strong>%s</strong></html>"
-    s %= environ['PATH_INFO']
-    return [s]
+        def app2(environ, start_response):
+            start_response("200 OK", [])
+            s = "<html>You requested <strong>%s</strong></html>"
+            s %= environ['PATH_INFO']
+            return [s]
 
 The protocol may look strange, but it's designed to meet the needs of the
-widest possible variety of existing and potential frameworks and servers. And
-middleware. Middleware are reusable components providing generic services
-normally handled by frameworks; e.g., a Session object, a Request object, error
-handling. They're implemented as wrapper functions; i.e., decorators. Inbound
-they can add keys to the dictionary (e.g., quixote.request for a Quixote-style
-Request object). Outbound they can modify HTTP headers or translate the body
-into Latin or Marklar. Here's a small middleware:
+widest possible variety of existing and potential frameworks and servers and
+middleware. 
 
-:: 
+Middleware are reusable components providing generic services normally handled
+by frameworks; e.g., a Session object, a Request object, error handling.
+They're implemented as wrapper functions; i.e., decorators. Inbound they can
+add keys to the dictionary (e.g., quixote.request for a Quixote-style Request
+object). Outbound they can modify HTTP headers or translate the body into Latin
+or Marklar. Here's a small middleware.::
 
         class LowercaseMiddleware:
             def __init__(self, application):
@@ -1987,22 +1989,22 @@ into Latin or Marklar. Here's a small middleware:
                 for chunk in self.application(environ, start_response):
                     yield chunk.lower()
 
-Assuming we had a server constructor Server, we could do:
+Assuming we had a Server Constructor Server, we could do::
 
-app = LowercaseMiddleware(app2)
-server = Server(app)
+        app = LowercaseMiddleware(app2)
+        server = Server(app)
 
 Since it's so easy to write a WSGI application, you may wonder, "Who needs a
 framework?" That's a legitimate question, although the answer is, "It's tedious
-without one." Your application is responsible for every URL under it; e.g., if
-it's installed as http://localhost:8080/, it would have to do something
-intelligent with http://localhost:8080/foo/bar/baz. Code to parse the URL and
-switch to an appropriate function is... a framework! So you may as well use an
-existing framework and save yourself the tedium.
+without one." 
+
+Your application is responsible for every URL under it; e.g., if it's installed
+as http://localhost:8080/, it would have to do something intelligent with
+http://localhost:8080/foo/bar/baz. Code to parse the URL and switch to an
+appropriate function is... **a framework!** So you may as well use an existing
+framework and save yourself the tedium.
 
 Writing a WSGI server interface is more complex. There's an example in PEP 333.
-I wrote an object-oriented one for Quixote (in wsgi_server.py). But the
-experience taught me it's more fun to write the application side.
 
 WSGI opens the way for a lot of interesting possibilities. Simple frameworks
 can be turned completely into middleware. Some frameworks might be able to run
@@ -2011,99 +2013,463 @@ applications would run unchanged or with minimal changes. But this is also a
 time for framework developers to rethink how they're doing things and perhaps
 switch to more middleware-friendly APIs.
 
-Guido's approach to Web Framework in his blog post "Teach me Web Framework"
-
-Before I post this, let me attempt at a brief classification of the features
-that every web framework needs.
-
-* Independence from web server technology. You should be able to run the same
-application under Apache, as a CGI script, as a stand-alone server (e.g.
-BaseHTTPServer or Zope's or Twisted's built-in server), etc. (The Java Servlet
-API does this really well IMO -- I used it at Elemental.) This should include
-logging and basic error handling (an API to generate any HTTP error, as well as
-a try/except around application code that returns a 500 error code if the
-application code fails.
-
-* Templating with reuse. Every web application needs to mix computed data (in
-which category I include data retrieved from a database) with HTML mark-up, and
-often a lot of the HTML markup is common for many pages (e.g. global
-navigation).
-* Cookie handling. For authentication, preferences, sessions, etc.
-* Query parsing. The bread and butter of form handling.
-* URL dispatch. You've got to be flexible in how URL paths are mapped to
-callables. Zope's URL-to-object mapping is extremely flexible. Django's
-approach is nice too.
-
-
-PJE's response
-
-Guido, you'll probably find that web.py ( http://webpy.org/ ) best suits your
-style. It's a single module (~1000 lines) that does WSGI and an extremely
-simple O-R mapping, with Cheetah for (non-XML) templates. If you don't like it,
-I can't imagine which of the other dozens of frameworks out there you *would*
-like. It's a bit rough around the edges (I suspect that its SQL quoting is
-broken for some database quoting styles, for example), and it's nothing
-particularly fancy, and it's about as far away as possible from something I or
-Jim Fulton would write, so it shouldn't be the least bit scary. :)
+web.py ( http://webpy.org/ ) is a single module (~1000 lines) that does WSGI
+and an extremely simple O-R mapping, with Cheetah for (non-XML) templates. 
 
 With respect to WSGI, its original purpose wasn't to do "middleware"; it was
 just a way to connect an application to arbitrary web servers, so the same
 application can be run under mod_python, CGI, FastCGI, SCGI, in a Twisted or
-other Python HTTP server, etc. That was and is the main point of WSGI. The
-existence of middleware is just a natural side-effect of having a way to
+other Python HTTP server, etc. That was and is the main point of WSGI. 
+
+The existence of middleware is just a natural side-effect of having a way to
 connect an app to a server, in the same way that proxy servers and caches are a
 side-effect of having HTTP.
 
 But just as it was a good idea to specify some of the allowed behaviors of
 proxies and caches in the HTTP spec, so too it was a good idea to address
 middleware in the WSGI spec. Basically, WSGI in itself is just a Python
-encoding of HTTP, nothing more.
+encoding of HTTP and nothing more.
 
-Looking back at your post, I just realized you hadn't actually read the WSGI
-PEP, so I should probably mention that it it's basically a port of the Java
-servlet API, implemented in terms of simple callables and built-in data types
-rather than having an object/method interface. 
+WSGI PEP is basically a port of the Java servlet API, implemented in terms of
+simple callables and built-in data types rather than having an object/method
+interface. 
 
 Thus, any framework that's WSGI compliant support should give you the "server
 independence" you're looking for. You just need a WSGI "gateway" for the
 server, and find out how the framework exposes an "application" object to be
 run by the gateway.
 
+Twisted Framework
+-----------------
 
-* "Python Objects", Fredrik Lundh,
-  http://www.effbot.org/zone/python-objects.htm
+Twisted framework provides the facility to build an asynchronous, event-driven
+applications for Distributed Network Environment. You will understand all these
+terminologies if you just find reason to go ahead and build one.  Twisted is a
+platform for developing Internet applications.In the Twisted, internet term
+actually denotes internetworking.
 
-* "How to think like a Pythonista", Mark Hammond,
-  http://python.net/crew/mwh/hacks/objectthink.html
+At the core of Twisted Framework is its network layer, which can be used to
+integrate any existing  protocol as well as model new ones.  Twisted is a pure
+python framework. 
 
-* "Python main() functions", Guido van Rossum,
-  http://www.artima.com/weblogs/viewpost.jsp?thread=4829
+Twisted supports Asynchronous programming and deferred abstraction, which
+symbolizes a promised result and which can pass eventual result to  handler
+functions.  
 
-* "Python Idioms and Efficiency",
-  http://jaynes.colorado.edu/PythonIdioms.html
+A fundamental feature of Network Programming is waiting for data. The Normal
+Model when using twisted framework is by using Non-Blocking Calls.  When
+dealing with many connections in one thread, the scheduling is the
+responsiblity of the application, not the operating system, and is usually
+implemented by calling a registered function when each function is ready to go
+for reading or writing - commonly known as asynchronous, event based, callback
+based programming.  
 
-* "Python track: python idioms",
-  http://www.cs.caltech.edu/courses/cs11/material/python/misc/python_idioms.html
+In synchrnous programming, a function requests data, waits for the data, and
+then processes it. In asynchronous programming, a function requests the data,
+and lets the library call the callback function when the data is ready.
 
-* "Be Pythonic", Shalabh Chaturvedi,
-  http://shalabh.infogami.com/Be_Pythonic2
+It is the class of concurrency problems, non-computationally intensive tasks
+that involve an appreciable delay that deferreds are designed to help solve.
+They do this by giving a simple management interface for callbacks and
+applications.  blocking - means, if one tasks is waiting for data, the other
+task cannot get CPU but also waits until the first tasks finishes.  The typical
+asynchronous model to notify can application that some data is ready is called
+as callback.
 
-* "Python Is Not Java", Phillip J. Eby,
-  http://dirtsimple.org/2004/12/python-is-not-java.html
+Twisted uses Deferred objects to managed callback sequence.  Libraries know
+that they make their results available by using Deferred.callback and errors by
+Deferred.errback.  
 
-* "What is Pythonic?", Martijn Faassen,
-  http://faassen.n--tree.net/blog/view/weblog/2005/08/06/0
+How does the parent function or its controlling program know that connection
+does not exist and when it will know, when the connection becomes alive?
 
-* "Sorting Mini-HOWTO", Andrew Dalke,
-  http://wiki.python.org/moin/HowTo/Sorting
+Twisted has an object that signals this situation, it is called
+twisted.internet.defer.Deferred. Deferred has two purposes; first is saying
+that I am a signal, of whatever you wanted me to do is still pending; second
+you can ask differed to run things when the data arrives.  The way to tell the
+deffered what to do when the data arrives is by defining a callback - asking
+the deferred to call a function once the data arrives.  
 
-* "Python Idioms", http://www.gungfu.de/facts/wiki/Main/PythonIdioms
+Deferreds are an object which represent a promise of something; 
+Like getPage() returned a Deferred object, which means that when the getPage is
+called ( It may not be called sequentially, because it is  asynchronous); a
+callback may be attached to the defered object which will ask it do whatever
+with the data, in our case, the callback was to print the data.
+
+If nothing else is understood, please understand that you create a differed
+object, add a callback function to that object and add an errorback function to
+that object. Differed will get called after a particular period of time or some
+data is avaiable.Differeds are the signals for asynchronous functions to use to
+pass results onto the callbacks, but using them does not guarantee that you
+have asynchronous functions.What Differeds dont do: Make your code
+asynchronous!.
+
+twisted.internet.defer.Deferred is a promise that the function at some point in
+time will have a result.
+
+The Deferred mechanism, standardizes the application programmers inferface with
+all sort of blocking and delayed operations.
+
+It is possible to adapt, synchronous functions to return Deferred. Sometimes
+you want to be notified after several different events have all happened,
+rather than waiting for each one individually.
+
+You may want to wait for all connections in a list to close.
+
+Generating Deferreds is a Document introducing writing of Asynchronous
+functions generating deferreds.
+
+deferreds are not a non-blocking talisman; they are a signal for asynchronous
+functions to use to pass results to callback once the results are available.
+
+Returning Deferreds from synchronous functions; reasons :- API compatiblity
+with another function which returns deferred or making the function
+asynchronous in the future.
+
+Requesting method requests a data; and gets a Deferred object.
+Requesting method attaches callbacks to the Deferred object, 
+
+Twisted also provides facility to run the blocking function in a separate
+thread instead of blocking them.
+
+A Twisted Protocol handles code in an asynchronous manner. What this means is
+that the Protocol does not wait for an event, but rather handles the event as
+they arrive from network.In the Twisted client, an instance of the Protocol
+class will be instantiated when you connect to the Server and will go away when
+the connection is finished.
+
+Interface classes are a way of specifying what methods and attributes a
+Protocol provides.
+
+* event: Event Driven programming or Event Based Programming is where program
+  flow happens based on events like mouse movement or key press or signal from
+  another thread.
+
+* Event Driven Programming is paradigm, in which there is a main-loop, which
+  does event-detection and event-handling.
+
+* Reactor:  The reactor design pattern is a concurrent programming pattern, for
+  handling service requests delivered concurrently to a service handler by one
+  or more inputs.
+
+* The service handler then demultiplexes the incoming requests and dispatches
+  them synchronously to associated request handlers.
+
+The event loop almost always operates asynchronously with the message
+originator.  The event loop forms the central constuct flow of the program, is
+the highest level of control within the program. It is often termed as the
+main-loop or the main-event loop.
+
+The event loop is the specific implementation techniques of system which does
+message passing.
+
+Under Unix, everything is a file-paradigm naturally leads to a file based
+event-loop. select and poll system calls monitor a set of file-descriptors for
+events.
+
+One of few things in Unix that do not confirm to file descriptors are
+asynchronous events (signals); signals are received in signal handlers, small,
+limited piece of code that run while rest of the task is suspended. 
+
+Twisted project supports TCP, UDP, SSL/TLS and IP Multicast, Unix Domain
+Sockets, a large number of protocols such  as HTTP, XMPP, NNTP, IMAP, SSH, IRC,
+FTP.
+
+Network Programming
+-------------------
+
+In Computing, Network Programming is essentially identified as socket
+programming or client-server programming, involves writing computer programs
+that communicate with other programs across the Computer Network.  The program
+initiating the communication is called the client and the program waiting for
+the communication to get initiated is called the server.  The client and the
+server process together form the distributed system. The connection between the
+client and the server process may be connection oriented (TCP/IP or session) or
+connectionless (UDP)
+
+The program that can act both as server and client is based on peer-to-peer
+communication. Sockets are usually implemented by an API library such a
+Berkeley sockets, first introduced in 1983. The example functions provided by
+the API library include:
+
+* socket() - creates a new socket of certain type, identified by the integer
+  number and allocates system resources to it.
+* bind() is used at the server side; associates a socket with a socket adddress
+  structure, typically a IP Address and a Port number.
+* listen() is used again on the server side, causes a bound TCP socket to
+  listen to enter a listening state.
+* connect() is used on the client side; used to assign a free local port number
+  to the socket. It causes an attempt to establish a new TCP Connection.
+* accept() is used on the server side; It accepts a received incoming connect()
+  request and creates a new socket associated with the socket address pair for
+  this connection.
+* send(), recv(), write(), read() or recvfrom() and sendto() are used for
+  sending and receiving data.
+* close() is used to terminate the connection and release the resources
+  allocated to the socket. 
+
+Unicode Notes
+-------------
+
+A good introductory document for getting started with Unicode is, 
+`Joel's article on Unicode`_
+
+*Trivia: In ASCII when you press CNTL, you subtract 64 from the value of the
+next character.  So BELL is ASCII 7, which is CNTL+G, (CNTL is 64) and G is
+71.*
+
+IN ASCII, the Codes below 32 were called unprintable. The space was 32 and
+letter A was 65.  This could conveniently be stored in 7 bits.  Most computers
+in those days were using 8 bit bytes, so not only you could store all the ASCII
+characters, you had a whole bit to spare.  Because bytes have room for upto
+eight bits, lots of people got into thinking, "gosh, we can use codes 128-255
+for our own purposes." :) Eventually, this OEM free-for-all got codified in the
+ANSI standard.  In the ANSI standard, everyone agreed for bottom 128 but not
+the upper limits.  Asian alphabets have thousands of letters, which were never
+going to fit into 8 bits.  This was actually solved by a messy system called
+DBCS, the "double byte character set" in which some letters were stored in one
+byte and others took two bytes.It was easy to move forward in a string, but it
+was impossible to move backwards in the string.  Programmers were encouraged
+not to use s++ or s-- but instead rely on Windows' AnsiNext and AnsiPrev
+functions which knew how to deal with that mess.
+
+**Unicode**
+
+Unicode was a brave effort to create a single character set that included every
+reasonable writing system on the planet.  Some people are under the
+mis-conception that unicode is simply a 16-bit code where each character takes
+16 bits and therefore there are 65,536 possible characters, which is incorrect.
+
+In Unicode, every alphabet is assigned a magic number by the Unicode consortium
+which is written like this: U+0639. This number is called the code-point. The
+U+ means "Unicode" and the numbers are in hexadecimal notation. U+0639 is the
+arabic letter Ain (ع).
+
+There is no real limit on the number of letters that Unicode can define and in
+fact, they have gone beyond 65,536 so not every unicode letter can really be
+squeezed into two bytes. That was a myth anyways.
+
+OK, so we have a string: Hello which, in Unicode, corresponds to these five
+code-points: U+0048 U+0065 U+006C U+006C U+006F 
+
+It was U- before 3.0 and then it became U+. If you look at the release notes of
+Unicode 3.0, you might find the reason for the change.
+
+How do we store those numbers?  That is where encoding comes in.
+
+The earliest idea was, that to store the numbers in two bytes each:
+
+	00 48 00 65 00 6C 00 6C 00 6F.
+
+Why not it be stored like this:
+
+	48 00 65 00 6C 00 6C 00 6F 00
+
+Well, it could be stored in that way too. Early implementors wanted to store
+the numbers in either big-endian or little-endian, in whichever way their
+particular CPU  was fastest at. So, people came up with Byte Order Mark, where
+FEFF denoted Little Endian and FFFE denoted big endian.
+
+FEFF - Little Endian
+FFFE - Big Endian
+
+*nmemonic - Three F's together is BIG.*
+
+For a while, it seemed like that might be good enough, but programmers were
+complaining. "Look at all those zeros!", they said, since they were Americans
+and they were looking at English text which rarely used code points above
+U+OOFF.  People decided to ignore Unicode and things got worse.  And thus was
+invented the brilliant concept of UTF-8. (Read Rob Pike's mail)
+
+In UTF-8, every code point from 0-127 is stored in a single byte. Only code
+points 128 and above are stored using 2, 3, in fact upto 6 bytes.  This has the
+neat side-effect that English text looks exactly the same in UTF-8 as it did in
+ASCII, so Americans don't even notice anything wrong.  Specifically, Hello
+which was "0048, 0065, 006C, 006C and 006F" would simply be stored as
+48,65,6C,6C and 6F.
+
+So, here we have ways such as UCS-2 (UTF-16), which had its own UCS-2 little
+endian or UCS-2 big endian and then UTF-8 encoding method.  There are also a
+bunch of other ways of encoding Unicode. There is something called UTF-7, which
+is lot like UTF-8 but guarantees that the high bit will always be zero.  It was
+for systems which can recognize only 7 bits. UCS-4 which stores each code point
+in 4 bytes, which has a nice property that every single code point can be
+stored in same number of bytes. But that is memory hungry.
+
+There are hundreds of traditional encodings, which can only store some
+code-points correctly and change all other code points into question marks.
+Some popular encodings of the English text are, Windows 1252 and ISO-8859-1,
+aka Latin-1 (also useful for any western european languages). But try to store
+Russian, or Hebrew letters in those encodings and you will get a bunch of
+question marks. UTF 7, UTF 8, UTF 16 and UTF 32 all have the nice property of
+being able to store any code point correctly.
+
+If you have a string in memory, in a file, or in an email message, you have to
+know what encoding it is in or you cannot interpret it or display to your users
+correctly.  All the problems of ????, comes down to the fact that if you don't
+tell me whether a particular string is encoded using UTF-8 or ASCII or ISO
+8859-1 (Latin 1) or Western 1252 (Western European), you simply cannot display
+it correctly or even figure it out where it actually ends.  There are over 100
+encodings, and above code point 127, all the bets are off.
+
+How do we preserve this information about what encoding a string uses?  Email,
+Content-Type: text/plain; charset="UTF-8" For a web page, the original idea was
+that the web server would return a similar Content-Type http header along with
+the web page itself -- not in the HTML itself, but as one of the response
+headers that are sent before the HTML page.
+
+Relying on webserver to send Content-Type was problematic, because many
+different people could use the same web-server for different types of web
+pages.  It would be convenient, if you could put the Content-Type of the HTML
+file right in the HTML file itself, using some kind of a special tag.  All
+encoding uses same character between 32 and 127, so you could get to the point
+wherein you could read the <meta> header.
+
+The RFC which explains UTF-8::
+
+        http://www.ietf.org/rfc/rfc3629.txt
+
+        The most interesting part of the RFC, which is leading me to understand the
+        system better is explained here:
+
+           The table below summarizes the format of these different octet types.
+           The letter x indicates bits available for encoding bits of the
+           character number.
+
+           Char. number range  |        UTF-8 octet sequence
+              (hexadecimal)    |              (binary)
+           --------------------+---------------------------------------------
+           0000 0000-0000 007F | 0xxxxxxx
+           0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+           0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+           0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+
+           Encoding a character to UTF-8 proceeds as follows:
+
+           1.  Determine the number of octets required from the character number
+               and the first column of the table above.  It is important to note
+               that the rows of the table are mutually exclusive, i.e., there is
+               only one valid way to encode a given character.
+
+           2.  Prepare the high-order bits of the octets as per the second
+               column of the table.
+
+           3.  Fill in the bits marked x from the bits of the character number,
+               expressed in binary.  Start by putting the lowest-order bit of
+               the character number in the lowest-order position of the last
+               octet of the sequence, then put the next higher-order bit of the
+               character number in the next higher-order position of that octet,
+               etc.  When the x bits of the last octet are filled in, move on to
+               the next to last octet, then to the preceding one, etc. until all
+               x bits are filled in.
+
+           The definition of UTF-8 prohibits encoding character numbers between
+           U+D800 and U+DFFF, which are reserved for use with the UTF-16
+           encoding form (as surrogate pairs) and do not directly represent
+           characters.  When encoding in UTF-8 from UTF-16 data, it is necessary
+           to first decode the UTF-16 data to obtain character numbers, which
+           are then encoded in UTF-8 as described above.  This contrasts with
+           CESU-8 [CESU-8], which is a UTF-8-like encoding that is not meant for
+           use on the Internet.  CESU-8 operates similarly to UTF-8 but encodes
+           the UTF-16 code values (16-bit quantities) instead of the character
+           number (code point).  This leads to different results for character
+           numbers above 0xFFFF; the CESU-8 encoding of those characters is NOT
+           valid UTF-8.
+
+           Decoding a UTF-8 character proceeds as follows:
+
+           1.  Initialize a binary number with all bits set to 0.  Up to 21 bits
+               may be needed.
+
+           2.  Determine which bits encode the character number from the number
+               of octets in the sequence and the second column of the table
+               above (the bits marked x).
+
+           3.  Distribute the bits from the sequence to the binary number, first
+               the lower-order bits from the last octet of the sequence and
+               proceeding to the left until no x bits are left.  The binary
+               number is now equal to the character number.
+
+           Implementations of the decoding algorithm above MUST protect against
+           decoding invalid sequences.  For instance, a naive implementation may
+           decode the overlong UTF-8 sequence C0 80 into the character U+0000,
+           or the surrogate pair ED A1 8C ED BE B4 into U+233B4.  Decoding
+           invalid sequences may have security consequences or cause other
+           problems.  See Security Considerations (Section 10) below.
+
+        4.  Syntax of UTF-8 Byte Sequences
+
+           For the convenience of implementors using ABNF, a definition of UTF-8
+           in ABNF syntax is given here.
+
+           A UTF-8 string is a sequence of octets representing a sequence of UCS
+           characters.  An octet sequence is valid UTF-8 only if it matches the
+           following syntax, which is derived from the rules for encoding UTF-8
+           and is expressed in the ABNF of [RFC2234].
+
+           UTF8-octets = \*( UTF8-char )
+           UTF8-char   = UTF8-1 / UTF8-2 / UTF8-3 / UTF8-4
+           UTF8-1      = %x00-7F
+           UTF8-2      = %xC2-DF UTF8-tail
+           UTF8-3      = %xE0 %xA0-BF UTF8-tail / %xE1-EC 2( UTF8-tail )/ 
+                         %xED %x80-9F UTF8-tail / %xEE-EF 2( UTF8-tail )
+           UTF8-4      = %xF0 %x90-BF 2( UTF8-tail ) / %xF1-F3 3( UTF8-tail )/
+                         %xF4 %x80-8F 2( UTF8-tail )
+           UTF8-tail   = %x80-BF
+
+           NOTE -- The authoritative definition of UTF-8 is in [UNICODE].  This
+           grammar is believed to describe the same thing Unicode describes, but
+           does not claim to be authoritative.  Implementors are urged to rely
+           on the authoritative source, rather than on this ABNF.
+
+
+The official name of the encoding is UTF-8, where UTF stands for UCS
+Transformation Format 8.  Write it as UTF-8 only.  There is no limit on the
+number of the characters that Unicode could define.  and it has definiely
+exceeded beyond, 65536 characters.
+
+Exercise 1:
+
+Convert the following to Unicode:
+1) "Hello, World"
+2) नमसूऐर दुनयि॥
+
+Answer:
+
+1)"Hello, World" is present in 
+
+U0000 and U+0048 U+0065 U+006C U+006C U+006F U+002C U+0057 U+006F U+0072 U+006C
+U+0064
+
+2) नमसूऐर दुनयि॥
+
+Is the devnagari script that starts with U0900 U+0928 U+092E U+0938 U+0942
+U+0915 U+090 U+0930 U+0926 U+0941 U+0928 U+092F U+093F U+0965
+
+The above was just a bunch of code points. We have not said anything about how
+to store them in memory or represent them in email messages yet.
+
+Encodings
+
+English meaning of encoding is is wrapping it in a cipher code.  The earlier
+method was to store those codepoints which are 4 hexadecimal digits as 2 bytes.
+
+Convert Unicode to Hexadecimals::
+http://ln.hixie.ch/?start=1064324988&count=1
+
+Typing Unicode and maths symbols on gnome-terminal
+
+1) Hold CTRL+SHIFT + U + codepoint + SPACE
+2) For e.g. CTRL+SHIFT+U+2201+SPACE will give Unicode Maths Symbol 
+
+Unicode code point chart:
+http://inamidst.com/stuff/unidata/
 
 urllib 
-======
+------
 
-functions
----------
+**functions**
+
 * urlopen
 * install_opener
 * build_opener
@@ -2113,8 +2479,8 @@ functions
 * parse_keqv_list
 * parse_http_list
 
-class
------
+**class**
+
 * Request
 * OpenerDirector
 * BaseHandler
@@ -2155,8 +2521,7 @@ each class and handler -> OpenerDirector.open() method on the composite object.
 and protocol_response is called and returned. The handler is invoked in the
 specific order as specified by the Handler attribute.
 
-OpenerDirector
---------------
+**OpenerDirector**
 
 handlers is a list.
 handle_open is a dictionary.
@@ -2166,6 +2531,7 @@ process_response is a dictionary.
 
 When handlers are getting added, it should not have attribute called
 add_parent.
+
 For each handler don't add the methods redirect_request, do_open, proxy_open
 
 The methods which are like _error, _open, _request, _response are handled in a
@@ -2197,15 +2563,16 @@ What happens is, for any of these dictionaries, if it is an error, open,
 request or response, dictionary method's setdefault is called for that protocol
 
 There is a doubt when added=True comes in, handlers is list of all handlers is
-added.
-
-What's an add_unredirectedheader doing and what is it's purpose?  What is
-self._call_chain's behavior?  The redirect_cache was not setting in, because
+added. What's an add_unredirectedheader doing and what is it's purpose?  What
+is self._call_chain's behavior?  The redirect_cache was not setting in, because
 the object's parent method was calling and entirely new request, forgetting
 about the current request. When made a change that request object is carrying
 the information about the redirect, the cache hit was observed. Something along
 the same lines would be good.
 
+
+Apache setup and URL RFCs
+-------------------------
 
 In order to setup a password for your apache based site, in the
 /var/www/.htaccess file specify the username and password as senthil:senthil
@@ -2285,9 +2652,8 @@ hier-part = "//" authority path-abempty
 Many URI schemes include a hierarchical element for a naming
 authority so that governance of the name space defined by the
 remainder of the URI is delegated to that authority (which may, in
-turn, delegate it further).
+turn, delegate it further):: 
 
-:: 
         userinfo = *( unreserved / pct-encoded / sub-delims / ":" )
         host = IP-literal / IPv4address / reg-name
 
@@ -2295,9 +2661,8 @@ In order to disambiguate the syntax host between IPv4address and reg-name, we
 apply the "first-match-wins" algorithm. A host identified by an Internet
 Protocol literal address, version 6 [RFC3513] or later, is distinguished by
 enclosing the IP literal within square brackets ("[" and "]"). This is the only
-place where square bracket characters are allowed in the URI syntax.
+place where square bracket characters are allowed in the URI syntax::
 
-::
         IP-literal = "[" ( IPv6address / IPvFuture ) "]"
 
         IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
@@ -2336,9 +2701,7 @@ internationalized domain name intended for resolution via the DNS, the name
 must be transformed to the IDNA encoding [RFC3490] prior to name lookup.
 
 Section 3 was about sub-components and their structure and if they are
-represented in NON ASCII how to go about with encoding/decoding that.
-
-::
+represented in NON ASCII how to go about with encoding/decoding that::
 
         path = path-abempty ; begins with "/" or is empty
         / path-absolute ; begins with "/" but not "//"
@@ -2547,266 +2910,8 @@ The send_head method when it is returning the body it is sending it properly.
 
 Why is that the response is getting trimmed to 49042?
 
-Unicode Notes
-=============
 
-A good introductory document for getting started with Unicode is, 
-`Joel's article on Unicode`_
-
-Trivia:
-In ASCII when you press CNTL, you subtract 64 from the value of the next
-character.  So BELL is ASCII 7, which is CNTL+G, (CNTL is 64) and G is 71.
-
-IN ASCII, the Codes below 32 were called unprintable. The space was 32 and
-letter A was 65.  This could conveniently be stored in 7 bits.  Most computers
-in those days were using 8 bit bytes, so not only you could store all the ASCII
-characters, you had a whole bit to spare.  Because bytes have room for upto
-eight bits, lots of people got into thinking, "gosh, we can use codes 128-255
-for our own purposes." :) Eventually, this OEM free-for-all got codified in the
-ANSI standard.  In the ANSI standard, everyone agreed for bottom 128 but not
-the upper limits.  Asian alphabets have thousands of letters, which were never
-going to fit into 8 bits.  This was actually solved by a messy system called
-DBCS, the "double byte character set" in which some letters were stored in one
-byte and others took two bytes.It was easy to move forward in a string, but it
-was impossible to move backwards in the string.  Programmers were encouraged
-not to use s++ or s-- but instead rely on Windows' AnsiNext and AnsiPrev
-functions which knew how to deal with that mess.
-
-Unicode
-
-Unicode was a brave effort to create a single character set that included every
-reasonable writing system on the planet.  Some people are under the
-mis-conception that unicode is simply a 16-bit code where each character takes
-16 bits and therefore there are 65,536 possible characters, which is incorrect.
-
-In Unicode, every alphabet is assigned a magic number by the Unicode consortium
-which is written like this: U+0639. This number is called the code-point. The
-U+ means "Unicode" and the numbers are in hexadecimal notation. U+0639 is the
-arabic letter Ain (ع).
-
-There is no real limit on the number of letters that Unicode can define and in
-fact, they have gone beyond 65,536 so not every unicode letter can really be
-squeezed into two bytes. That was a myth anyways.
-
-OK, so we have a string: Hello which, in Unicode, corresponds to these five
-code-points: U+0048 U+0065 U+006C U+006C U+006F 
-
-It was U- before 3.0 and then it became U+. If you look at the release notes of
-Unicode 3.0, you might find the reason for the change.
-
-How do we store those numbers?  That is where encoding comes in.
-
-The earliest idea was, that to store the numbers in two bytes each:
-
-	00 48 00 65 00 6C 00 6C 00 6F.
-
-Why not it be stored like this:
-
-	48 00 65 00 6C 00 6C 00 6F 00
-
-Well, it could be stored in that way too. Early implementors wanted to store
-the numbers in either big-endian or little-endian, in whichever way their
-particular CPU  was fastest at...  So, people came up with Byte Order Mark,
-where FEFF denoted Little Endian and FFFE denoted big endian.
-
-FEFF - Little Endian
-FFFE - Big Endian
-
-Three F's together is BIG.
-
-For a while, it seemed like that might be good enough, but programmers were
-complaining. "Look at all those zeros!", they said, since they were Americans
-and they were looking at English text which rarely used code points above
-U+OOFF.  People decided to ignore Unicode and things got worse.  And thus was
-invented the brilliant concept of UTF-8. (Read Rob Pike's mail)
-
-In UTF-8, every code point from 0-127 is stored in a single byte. Only code
-points 128 and above are stored using 2, 3, in fact upto 6 bytes.  This has the
-neat side-effect that English text looks exactly the same in UTF-8 as it did in
-ASCII, so Americans don't even notice anything wrong.  Specifically, Hello
-which was "0048, 0065, 006C, 006C and 006F" would simply be stored as
-48,65,6C,6C and 6F.
-
-So, here we have ways such as UCS-2 (UTF-16), which had its own UCS-2 little
-endian or UCS-2 big endian and then UTF-8 encoding method.  There are also a
-bunch of other ways of encoding Unicode. There is something called UTF-7, which
-is lot like UTF-8 but guarantees that the high bit will always be zero.  It was
-for systems which can recognize only 7 bits. UCS-4 which stores each code point
-in 4 bytes, which has a nice property that every single code point can be
-stored in same number of bytes. But that is memory hungry.
-
-There are hundreds of traditional encodings, which can only store some
-code-points correctly and change all other code points into question marks.
-Some popular encodings of the English text are, Windows 1252 and ISO-8859-1,
-aka Latin-1 (also useful for any western european languages). But try to store
-Russian, or Hebrew letters in those encodings and you will get a bunch of
-question marks. UTF 7, UTF 8, UTF 16 and UTF 32 all have the nice property of
-being able to store any code point correctly.
-
-If you have a string in memory, in a file, or in an email message, you have to
-know what encoding it is in or you cannot interpret it or display to your users
-correctly.  All the problems of ????, comes down to the fact that if you don't
-tell me whether a particular string is encoded using UTF-8 or ASCII or ISO
-8859-1 (Latin 1) or Western 1252 (Western European), you simply cannot display
-it correctly or even figure it out where it actually ends.  There are over 100
-encodings, and above code point 127, all the bets are off.
-
-How do we preserve this information about what encoding a string uses?  Email,
-Content-Type: text/plain; charset="UTF-8" For a web page, the original idea was
-that the web server would return a similar Content-Type http header along with
-the web page itself -- not in the HTML itself, but as one of the response
-headers that are sent before the HTML page.
-
-Relying on webserver to send Content-Type was problematic, because many
-different people could use the same web-server for different types of web
-pages.  It would be convenient, if you could put the Content-Type of the HTML
-file right in the HTML file itself, using some kind of a special tag.  All
-encoding uses same character between 32 and 127, so you could get to the point
-wherein you could read the <meta> header.
-
-The RFC which explains UTF-8
-
-::
-        http://www.ietf.org/rfc/rfc3629.txt
-
-        The most interesting part of the RFC, which is leading me to understand the
-        system better is explained here:
-
-           The table below summarizes the format of these different octet types.
-           The letter x indicates bits available for encoding bits of the
-           character number.
-
-           Char. number range  |        UTF-8 octet sequence
-              (hexadecimal)    |              (binary)
-           --------------------+---------------------------------------------
-           0000 0000-0000 007F | 0xxxxxxx
-           0000 0080-0000 07FF | 110xxxxx 10xxxxxx
-           0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-           0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-
-           Encoding a character to UTF-8 proceeds as follows:
-
-           1.  Determine the number of octets required from the character number
-               and the first column of the table above.  It is important to note
-               that the rows of the table are mutually exclusive, i.e., there is
-               only one valid way to encode a given character.
-
-           2.  Prepare the high-order bits of the octets as per the second
-               column of the table.
-
-           3.  Fill in the bits marked x from the bits of the character number,
-               expressed in binary.  Start by putting the lowest-order bit of
-               the character number in the lowest-order position of the last
-               octet of the sequence, then put the next higher-order bit of the
-               character number in the next higher-order position of that octet,
-               etc.  When the x bits of the last octet are filled in, move on to
-               the next to last octet, then to the preceding one, etc. until all
-               x bits are filled in.
-
-           The definition of UTF-8 prohibits encoding character numbers between
-           U+D800 and U+DFFF, which are reserved for use with the UTF-16
-           encoding form (as surrogate pairs) and do not directly represent
-           characters.  When encoding in UTF-8 from UTF-16 data, it is necessary
-           to first decode the UTF-16 data to obtain character numbers, which
-           are then encoded in UTF-8 as described above.  This contrasts with
-           CESU-8 [CESU-8], which is a UTF-8-like encoding that is not meant for
-           use on the Internet.  CESU-8 operates similarly to UTF-8 but encodes
-           the UTF-16 code values (16-bit quantities) instead of the character
-           number (code point).  This leads to different results for character
-           numbers above 0xFFFF; the CESU-8 encoding of those characters is NOT
-           valid UTF-8.
-
-           Decoding a UTF-8 character proceeds as follows:
-
-           1.  Initialize a binary number with all bits set to 0.  Up to 21 bits
-               may be needed.
-
-           2.  Determine which bits encode the character number from the number
-               of octets in the sequence and the second column of the table
-               above (the bits marked x).
-
-           3.  Distribute the bits from the sequence to the binary number, first
-               the lower-order bits from the last octet of the sequence and
-               proceeding to the left until no x bits are left.  The binary
-               number is now equal to the character number.
-
-           Implementations of the decoding algorithm above MUST protect against
-           decoding invalid sequences.  For instance, a naive implementation may
-           decode the overlong UTF-8 sequence C0 80 into the character U+0000,
-           or the surrogate pair ED A1 8C ED BE B4 into U+233B4.  Decoding
-           invalid sequences may have security consequences or cause other
-           problems.  See Security Considerations (Section 10) below.
-
-        4.  Syntax of UTF-8 Byte Sequences
-
-           For the convenience of implementors using ABNF, a definition of UTF-8
-           in ABNF syntax is given here.
-
-           A UTF-8 string is a sequence of octets representing a sequence of UCS
-           characters.  An octet sequence is valid UTF-8 only if it matches the
-           following syntax, which is derived from the rules for encoding UTF-8
-           and is expressed in the ABNF of [RFC2234].
-
-           UTF8-octets = *( UTF8-char )
-           UTF8-char   = UTF8-1 / UTF8-2 / UTF8-3 / UTF8-4
-           UTF8-1      = %x00-7F
-           UTF8-2      = %xC2-DF UTF8-tail
-           UTF8-3      = %xE0 %xA0-BF UTF8-tail / %xE1-EC 2( UTF8-tail )/ 
-                         %xED %x80-9F UTF8-tail / %xEE-EF 2( UTF8-tail )
-           UTF8-4      = %xF0 %x90-BF 2( UTF8-tail ) / %xF1-F3 3( UTF8-tail )/
-                         %xF4 %x80-8F 2( UTF8-tail )
-           UTF8-tail   = %x80-BF
-
-           NOTE -- The authoritative definition of UTF-8 is in [UNICODE].  This
-           grammar is believed to describe the same thing Unicode describes, but
-           does not claim to be authoritative.  Implementors are urged to rely
-           on the authoritative source, rather than on this ABNF.
-
-
-The official name of the encoding is UTF-8, where UTF stands for UCS
-Transformation Format 8.  Write it as UTF-8 only.
-
-So there is no limit on the number of the characters that Unicode could define.
-So, it has definiely exceeded beyond, 65536 characters.
-
-Exercise 1:
-Convert the following to Unicode:
-1) "Hello, World"
-2) à¤¨à¤®à¤¸à¥à¤à¤¾à¤° à¤¦à¥à¤¨à¤¿à¤¯à¤¾ 
-
-Answer:
-1)"Hello, World" is present in U0000 and 
-U+0048 U+0065 U+006C U+006C U+006F U+002C U+0057 U+006F U+0072 U+006C U+0064
-
-2) à¤¨à¤®à¤¸à¥à¤à¤¾à¤° à¤¦à¥à¤¨à¤¿à¤¯à¤¾
-is the devnagari script that starts with U0900 
-U+0928 U+092E U+0938 U+0942 U+0915 U+090 U+0930 U+0926 U+0941 U+0928 U+092F U+093F U+0965
-
-The above was just a bunch of code points. We have not said anything about how
-to store them in memory or represent them in email messages yet.
-
-Encodings
-
-English meaning of encoding is is wrapping it in a cipher code.  The earlier
-method was to store those codepoints which are 4 hexadecimal digits as 2 bytes.
-1 hexa digit can be written in 4 bits, 2 hexa digits can be written in 8 bits
-which is 1 byte and so 4 hexa digits can be written in 2 bytes.
-
-Convert Unicode to Hexadecimals.
-Excellent tutorial.
-http://ln.hixie.ch/?start=1064324988&count=1
-
-Typing Unicode and maths symbols on gnome-terminal
-
-1) Hold CTRL+SHIFT + U + codepoint + SPACE
-2) For e.g. CTRL+SHIFT+U+2201+SPACE will give Unicode Maths Symbol 
-
-Unicode code point chart:
-http://inamidst.com/stuff/unidata/
-
-Having a construct like:
-
-::
+Having a construct like::
 
         def __init__(self, *args, **kwargs):
         BaseClass.__init__(self, *args, **kwargs)
@@ -2875,213 +2980,6 @@ Look a bit into property.
 Usage of Ellipses
 
 
-Twisted Framework
-
-Asynchronous, Event-Driven Applications for Distributed Network Environment.
-At the core of Twisted Framework is its Network Layer, which can used to
-integrate any existing  protocol as well as model new ones.  Twisted is a pure
-python framework.  As a platform, twisted should be focussed on integration.
-Twisted supports Asynchronous programming and deferred abstraction, which
-symbolizes a promised result and which can pass eventual result to  handler
-functions.  Document will give you a high-level overview of concurrent
-programming and Twisted's concurrency model: non-blocking code and asynchronous
-code.  Concurrent programming - Need. It is either computationally intensive;
-or it has to wait for the data to be available as a result.  A fundamental
-feature of Network Programming is waiting for data.  Not waiting on data:-
-handle each connection in a separate OS process; so that OS will take of
-letting other process run while one is waiting.  Handle each connection in a
-separate thread; threading framework takes care of the details.  Use
-non-blocking system calls to handle all connections in one thread.  The Normal
-Model when using twisted framework is by using Non-Blocking Calls.  When
-dealing with many connections in one thread, the scheduling is the
-responsiblity of the application, not the operating system, and is usually
-implemented by calling a registered function when each function is ready to go
-for reading or writing - commonly known as asynchronous, event based, callback
-based programming.  In synchrnous programming, a function requests data, waits
-for the data, and then processes it. In asynchronous programming, a function
-requests the data, and lets the library call the callback function when the
-data is ready.
-
-It is the second class of concurrency problems, non-computationally intensive
-tasks that involve an appreciable delay that deferreds are designed to help
-solve.  They do this by giving a simple management interface for callbacks and
-applications.  blocking - means, if one tasks is waiting for data, the other
-task cannot get CPU but also waits until the first tasks finishes.  The typical
-asynchronous model to notify can application that some data is ready is called
-as callback.  Twisted uses Deferred objects to managed callback sequence.
-Libraries know that they make their results available by using
-Deferred.callback and errors by Deferred.errback.  How does the parent function
-or its controlling program know that connection does not exist and when it will
-know, when the connection becomes alive?  Twisted has an object that signals
-this situation, it is called twisted.internet.defer.Deferred Deferred has two
-purposes; first is saying that I am a signal, of whatever you wanted me to do
-is still pending; second you can ask differed to run things when the data
-arrives.  the way to tell the deffered what to do when the data arrives is by
-defining a callback - asking the deferred to call a function once the data
-arrives.  28.  One Twisted library function that returns a Deferred is
-twisted.web.client.getPage.
-
-If nothing else is understood, please understand that you create a differed object, add a callback function to that object and add an errorback function to that object. Differed will get called after a particular period of time or some data is avaiable.
-30. Differed Objects are signals that the function that you have called does not have the data, you want available.
-31. What Differeds dont do: Make your code asynchronous!.
-32. Differeds are the signals for asynchronous functions to use to pass results onto the callbacks, but using them does not guarantee that you have asynchronous functions.
-33. Twisted provides a facility to run the blocking function in a separate thread instead of blocking them.
-34. Evolution of finger. By the end of this tutorial; the finger service will answer the TCP finger requests on port 1079 and will read data from the web.
-35. Install http://www.zope.org/Products/ZopeInterface before installing twisted from source. 
-36. What is a Factory design pattern? What is a Protocol when the term is used in Twisted?
-37. A Twisted Protocol handles code in an asynchronous manner. What this means is that the Protocol does not wait for an event, but rather handles the event as they arrive from network.
-38. In the Twisted client, an instance of the Protocol class will be instantiated with you connect to the Server and will go away when the connection is finished.
-39. Deferreds are an object which represent a promise of something; 
-40. Like getPage() returned a Deferred object, which means that when the getPage is called ( It may not be called sequentially, because it is  asynchronous); a callback may be attached to the defered object which will ask it do whatever with the data, in our case, the callback was to print the data.
-
-41. [http://pig.slug.org.au/talks/Twisted2/slides.html Good Tutorial]
-
-42. There is reactor.callLater(time,callback,value) and there is task.deferLater(reactor,time,func)
-
-43. twisted.internet.task.coiterate might be helpful to write a fibonacci series function in a asynchronous way.
-
-44. twisted multiprocessing using ampoule.
-
-45. spawning externally processes asynchrnously using twisted. twisted.internet.utils.getProcessValue('/usr/bin/sftp',['remote_machine','local_machine'])
-
-46. Why is the twisted package which essentially deals with asynchronous I/O and events named internet. It is confusing with the general and difficult to remember for the newbie. Documentation update might be desirable. The internet in this documentation means internetworking.
-
-47. Twisted is a platform for developing Internet applications.
-
-48. Deferred abstraction symbolises a promised result and which can pass on an eventual result to a handler functions.
-
-49. I dont get the howto/plugin.html page at all? How do I implement plugin for the IMaterial Interface?
-
-
-
-Callbacks
-=========
-* twisted.internet.defer.Deferred is a promise that the function at some point
-  in time will have a result.
-* The Deferred mechanism, standardizes the application programmers inferface
-  with all sort of blocking and delayed operations.
-* Understanding reactor.callLater(2, d.callback, x*3) // What is the purpose of
-  the second argument in this case?
-* considered the deferred returned by twisted.enterprise.adbapi
-* failure is typically an instance of twisted.python.failure.Failure instance.
-* You can typically get away by not adding errbacks and still get the errors logged.
-* Be careful though; if you keep a reference to the Deferred around, preventing
-  it from being garbage-collected. How do I?
-* It is possible to adapt, synchronous functions to return Deferred.
-* Sometimes you want to be notified after several different events have all
-  happened, rather than waiting for each one individually.
-* You may want to wait for all connections in a list to close.
-* Generating Deferreds is a Document introducing writing of Asynchronous
-  functions generating deferreds.
-* twisted.internet.defer.AlreadyCalledError 
-* deferreds are not a non-blocking talisman; they are a signal for asynchronous
-  functions to use to pass results to callback once the results are available.
-* Returning Deferreds from synchronous functions; reasons :- API compatiblity
-  with another function which returns deferred or making the function
-  asynchronous in the future.
-
-* Integrating blocking code with Twisted.
-
-twisted.internet.threads.deferToThread will setup a thread to run your blocking
-function, return a deferred and do the callback when the thread completes.
-
-Firing Deferreds more than once is impossible. You can only call
-Deferred.callback() or Deferred.errback() once.
-
-Event Loop, Message Dispatcher, Message Loop or Message Pump is an event
-construct that waits for and dispatches events in a program.
-
-* event: Event Driven programming or Event Based Programming is where program
-  flow happens based on events like mouse movement or key press or signal from
-  another thread.
-
-* Event Driven Programming is paradigm, in which there is a main-loop, which
-  does event-detection and event-handling.
-
-Comment: In the question I asked, everyone thought that my main requirement was
-event detection of new file arrival. 
-
-Whereas my main event is request for logs from data-source; and based on the
-data-source, I want to pass it to the event-handler.
-
-It works by polling an internal or external event provider which generally
-*blocks* until an event has arrived and then calls the relevant event handler
-in order to handle the event.
-
-The event loop may be used in conjuction with a reactor, if the event provider
-follows a file interface, which can be select(ed) or poll(ed).
-
-* reactor:  The reactor design pattern is a concurrent programming pattern, for
-  handling service requests delivered concurrently to a service handler by one
-  or more inputs.
-
-* The service handler then demultiplexes the incoming requests and dispatches
-  them synchronously to associated request handlers.
-
-The event loop almost always operates asynchronously with the message
-originator.  The event loop forms the central constuct flow of the program, is
-the highest level of control within the program. It is often termed as the
-main-loop or the main-event loop.
-
-The event loop is the specific implementation techniques of system which does
-message passing.
-
-Under Unix, everything is a file-paradigm naturally leads to a file based
-event-loop. select and poll system calls monitor a set of file-descriptors for
-events.
-
-Handling Signals:
-
-One of few things in Unix that do not confirm to file descriptors are
-asynchronous events (signals); signals are received in signal handlers, small,
-limited piece of code that run while rest of the task is suspended. 
-
-* In Computing, Network Programming is essentially identified as socket
-  programming or client-server programming, involves writing computer programs
-  that communicate with other programs across the Computer Network.  The
-  program initiating the communication is called the client and the program
-  waiting for the communication to get initiated is called the server.
-  The client and the server process together form the distributed system. The
-  connection between the client and the server process may be connection
-  oriented (TCP/IP or session) or connectionless (UDP)
-
-The program that can act both as server and client is based on peer-to-peer
-communication. Sockets are usually implemented by an API library such a
-Berkeley sockets, first introduced in 1983. The example functions provided by
-the API library include:
-
-* socket() - creates a new socket of certain type, identified by the integer
-  number and allocates system resources to it.
-* bind() is used at the server side; associates a socket with a socket adddress
-  structure, typically a IP Address and a Port number.
-* listen() is used again on the server side, causes a bound TCP socket to
-  listen to enter a listening state.
-* connect() is used on the client side; used to assign a free local port number
-  to the socket. It causes an attempt to establish a new TCP Connection.
-* accept() is used on the server side; It accepts a received incoming connect()
-  request and creates a new socket associated with the socket address pair for
-  this connection.
-* send(), recv(), write(), read() or recvfrom() and sendto() are used for
-  sending and receiving data.
-* close() is used to terminate the connection and release the resources
-  allocated to the socket. 
-
-Twisted project supports TCP, UDP, SSL/TLS and IP Multicast, Unix Domain
-Sockets, a large number of protocols such  as HTTP, XMPP, NNTP, IMAP, SSH, IRC,
-FTP.
-
-Deferred is a value which has not been computed yet; because it needs data from
-remote peer.
-
-Requesting method requests a data; and gets a Deferred object.
-Requesting method attaches callbacks to the Deferred object, 
-
-Interface classes are a way of specifying what methods and attributes an 
-
-* In the Twisted, internet term actually denotes internetworking.
-
-External Training Presentations 
-
 Alex Martelli's Tutorials
 -------------------------
 
@@ -3089,15 +2987,6 @@ Alex Martelli's Tutorials
 
 2) http://www.strakt.com/dev_talks.html
 
-Norman Matloff's Python Tutorials
----------------------------------
-
-1) http://heather.cs.ucdavis.edu/~matloff/python.html 
-
-Python Books
-------------
-
-http://www.rexx.com/~dkuhlman/python_book_01.html
 
 Python and Vim
 --------------
@@ -3106,46 +2995,34 @@ http://henry.precheur.org/2008/4/18/Indenting_Python_with_VIM.html
  
 http://blog.sontek.net/2008/05/11/python-with-a-modular-ide-vim/ 
 
-How is the Dictionary keys assigned in Python? 
-----------------------------------------------
-
-Tutorials
-
-* Alex Martellis Callback tutorial: http://www.youtube.com/watch?v=LCZRJStwkKM
-
-
-
-Object Oriented Programming
----------------------------
-
-Factory Method Pattern 
-----------------------
-
-* Object Oriented Design Pattern.
-* It is a creational pattern, dealing with creation of objects (products)
-  without specifying the exact class.
-* The creational patterns abstract the concept of instantiating objects.
-* It handles this case by defining a separate method for creation objects.
-* The subclasses of that method or object (??)can override to specify the
-  derived type of the product that will be created.
-* Factory method is used to refer to any method whose main purpose is to create
-  objects. 
-* The Factory pattern in c++ wraps the usual object creation syntax new
-  someclass() in a function or a method which can control the creation.
-* Advantages is that, code using the class no longer needs to know all the
-  details of creation. It may not even know the exact type of object
-  created.
-* Abstract Factory provides additional indirection to let the type of object
-  which is created to vary.
-* Factory pattern is fundamental in python; while languages like C++ use
-  ClassName class; to create classes python uses function class syntax to
-  create objects. Even builtin types str, int provide factory pattern.
-
 References
 ----------
 
 * [http://code.activestate.com/recipes/86900/ Factory Example]
 * [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
+
+Links
+=====
+http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
+
+* "Python Objects", Fredrik Lundh,
+  http://www.effbot.org/zone/python-objects.htm
+
+* "How to think like a Pythonista", Mark Hammond,
+  http://python.net/crew/mwh/hacks/objectthink.html
+
+* "Python main() functions", Guido van Rossum,
+  http://www.artima.com/weblogs/viewpost.jsp?thread=4829
+
+* "Python Is Not Java", Phillip J. Eby,
+  http://dirtsimple.org/2004/12/python-is-not-java.html
+
+* "What is Pythonic?", Martijn Faassen,
+  http://faassen.n--tree.net/blog/view/weblog/2005/08/06/0
+
+* "Sorting Mini-HOWTO", Andrew Dalke,
+  http://wiki.python.org/moin/HowTo/Sorting
+
 
 
 .. _Joel's article on Unicode: http://www.joelonsoftware.com/articles/Unicode.html 

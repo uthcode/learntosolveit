@@ -8,7 +8,6 @@ The following project page contains Python snippets useful for various tasks.
 *updateuthcode.py* - On 10 Apr,2011.
 
 .. literalinclude:: ../python/updateuthcode.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -16,7 +15,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-1.py* - On 06 Apr,2011.
 
 .. literalinclude:: ../python/urllib2-1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -24,7 +22,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib-1.py* - On 06 Apr,2011.
 
 .. literalinclude:: ../python/urllib-1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -32,7 +29,6 @@ The following project page contains Python snippets useful for various tasks.
 *PyObjectSize.py* - On 25 Mar,2011.
 
 .. literalinclude:: ../python/PyObjectSize.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -40,7 +36,6 @@ The following project page contains Python snippets useful for various tasks.
 *sizeofobj.py* - On 25 Mar,2011.
 
 .. literalinclude:: ../python/sizeofobj.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -48,7 +43,6 @@ The following project page contains Python snippets useful for various tasks.
 *constant1.py* - On 25 Mar,2011.
 
 .. literalinclude:: ../python/constant1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -56,7 +50,6 @@ The following project page contains Python snippets useful for various tasks.
 *closure1.py* - On 25 Mar,2011.
 
 .. literalinclude:: ../python/closure1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -64,7 +57,6 @@ The following project page contains Python snippets useful for various tasks.
 *twisted4.py* - On 23 Mar,2011.
 
 .. literalinclude:: ../python/twisted4.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -72,7 +64,6 @@ The following project page contains Python snippets useful for various tasks.
 *unicode1.py* - On 22 Mar,2011.
 
 .. literalinclude:: ../python/unicode1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -80,7 +71,6 @@ The following project page contains Python snippets useful for various tasks.
 *ftpurl1.py* - On 19 Mar,2011.
 
 .. literalinclude:: ../python/ftpurl1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -88,7 +78,6 @@ The following project page contains Python snippets useful for various tasks.
 *urlretrive.py* - On 19 Mar,2011.
 
 .. literalinclude:: ../python/urlretrive.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -96,7 +85,6 @@ The following project page contains Python snippets useful for various tasks.
 *python3-meta-ex1.py* - On 16 Mar,2011.
 
 .. literalinclude:: ../python/python3-meta-ex1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -104,7 +92,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-headers-eg-1.py* - On 12 Mar,2011.
 
 .. literalinclude:: ../python/urllib2-headers-eg-1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -112,7 +99,6 @@ The following project page contains Python snippets useful for various tasks.
 *caseinsensitivedict2.py* - On 07 Mar,2011.
 
 .. literalinclude:: ../python/caseinsensitivedict2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -120,7 +106,6 @@ The following project page contains Python snippets useful for various tasks.
 *binary_to_octal.py* - On 07 Mar,2011.
 
 .. literalinclude:: ../python/binary_to_octal.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -128,7 +113,6 @@ The following project page contains Python snippets useful for various tasks.
 *slice_ellipes.py* - On 03 Mar,2011.
 
 .. literalinclude:: ../python/slice_ellipes.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -136,7 +120,6 @@ The following project page contains Python snippets useful for various tasks.
 *generator.py* - On 03 Mar,2011.
 
 .. literalinclude:: ../python/generator.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -144,7 +127,6 @@ The following project page contains Python snippets useful for various tasks.
 *decorator.py* - On 03 Mar,2011.
 
 .. literalinclude:: ../python/decorator.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -152,7 +134,6 @@ The following project page contains Python snippets useful for various tasks.
 *udp2.py* - On 26 Feb,2011.
 
 .. literalinclude:: ../python/udp2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -160,7 +141,6 @@ The following project page contains Python snippets useful for various tasks.
 *udp1.py* - On 26 Feb,2011.
 
 .. literalinclude:: ../python/udp1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -168,7 +148,6 @@ The following project page contains Python snippets useful for various tasks.
 *test.py* - On 24 Feb,2011.
 
 .. literalinclude:: ../python/test.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -176,7 +155,6 @@ The following project page contains Python snippets useful for various tasks.
 *xmlrpcserver-eg.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/xmlrpcserver-eg.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -184,7 +162,6 @@ The following project page contains Python snippets useful for various tasks.
 *xmlrpcclient-eg.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/xmlrpcclient-eg.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -192,7 +169,6 @@ The following project page contains Python snippets useful for various tasks.
 *urlopen_passwd.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urlopen_passwd.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -200,7 +176,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2_auth_ex1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2_auth_ex1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -208,7 +183,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-test.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-test.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -216,7 +190,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-pycall1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-pycall1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -224,7 +197,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-digest1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-digest1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -232,7 +204,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-digest.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-digest.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -240,7 +211,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-debugheaders.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-debugheaders.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -248,7 +218,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-binary-upload.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-binary-upload.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -256,7 +225,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-basic3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -264,7 +232,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-basic2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -272,7 +239,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-basic1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -280,7 +246,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-basic-digest1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-basic-digest1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -288,7 +253,6 @@ The following project page contains Python snippets useful for various tasks.
 *urllib2-adddata.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/urllib2-adddata.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -296,7 +260,6 @@ The following project page contains Python snippets useful for various tasks.
 *udp-time.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/udp-time.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -304,7 +267,6 @@ The following project page contains Python snippets useful for various tasks.
 *twisted3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -312,7 +274,6 @@ The following project page contains Python snippets useful for various tasks.
 *twisted2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -320,7 +281,6 @@ The following project page contains Python snippets useful for various tasks.
 *twisted1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -328,7 +288,6 @@ The following project page contains Python snippets useful for various tasks.
 *twisted-parallel-2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted-parallel-2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -336,7 +295,6 @@ The following project page contains Python snippets useful for various tasks.
 *twisted-parallel-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/twisted-parallel-1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -344,7 +302,6 @@ The following project page contains Python snippets useful for various tasks.
 *try-except.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/try-except.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -352,7 +309,6 @@ The following project page contains Python snippets useful for various tasks.
 *trials3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trials3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -360,7 +316,6 @@ The following project page contains Python snippets useful for various tasks.
 *trials2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trials2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -368,7 +323,6 @@ The following project page contains Python snippets useful for various tasks.
 *trials.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trials.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -376,7 +330,6 @@ The following project page contains Python snippets useful for various tasks.
 *trackerlink.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/trackerlink.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -384,7 +337,6 @@ The following project page contains Python snippets useful for various tasks.
 *traceit.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/traceit.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -392,7 +344,6 @@ The following project page contains Python snippets useful for various tasks.
 *toss_coins.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/toss_coins.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -400,7 +351,6 @@ The following project page contains Python snippets useful for various tasks.
 *tkintertimer.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/tkintertimer.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -408,7 +358,6 @@ The following project page contains Python snippets useful for various tasks.
 *time_convertor.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/time_convertor.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -416,7 +365,6 @@ The following project page contains Python snippets useful for various tasks.
 *textreplace.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/textreplace.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -424,7 +372,6 @@ The following project page contains Python snippets useful for various tasks.
 *test_codec03.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/test_codec03.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -432,7 +379,6 @@ The following project page contains Python snippets useful for various tasks.
 *test_codec02.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/test_codec02.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -440,7 +386,6 @@ The following project page contains Python snippets useful for various tasks.
 *test_codec01.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/test_codec01.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -448,7 +393,6 @@ The following project page contains Python snippets useful for various tasks.
 *syllcount.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/syllcount.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -456,7 +400,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprocess_6.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_6.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -464,7 +407,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprocess_5.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_5.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -472,7 +414,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprocess_4.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_4.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -480,7 +421,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprocess_3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -488,7 +428,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprocess_2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -496,7 +435,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprocess_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprocess_1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -504,7 +442,6 @@ The following project page contains Python snippets useful for various tasks.
 *subprob1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subprob1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -512,7 +449,6 @@ The following project page contains Python snippets useful for various tasks.
 *subhex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/subhex.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -520,7 +456,6 @@ The following project page contains Python snippets useful for various tasks.
 *struct_calcsize.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/struct_calcsize.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -528,7 +463,6 @@ The following project page contains Python snippets useful for various tasks.
 *stringio-example1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/stringio-example1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -536,7 +470,6 @@ The following project page contains Python snippets useful for various tasks.
 *stackinspection.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/stackinspection.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -544,7 +477,6 @@ The following project page contains Python snippets useful for various tasks.
 *splitter2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/splitter2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -552,7 +484,6 @@ The following project page contains Python snippets useful for various tasks.
 *spelling.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/spelling.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -560,7 +491,6 @@ The following project page contains Python snippets useful for various tasks.
 *socket_example4.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example4.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -568,7 +498,6 @@ The following project page contains Python snippets useful for various tasks.
 *socket_example3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -576,7 +505,6 @@ The following project page contains Python snippets useful for various tasks.
 *socket_example2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -584,7 +512,6 @@ The following project page contains Python snippets useful for various tasks.
 *socket_example1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/socket_example1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -592,7 +519,6 @@ The following project page contains Python snippets useful for various tasks.
 *simple_threading1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/simple_threading1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -600,7 +526,6 @@ The following project page contains Python snippets useful for various tasks.
 *simple_subprocess.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/simple_subprocess.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -608,7 +533,6 @@ The following project page contains Python snippets useful for various tasks.
 *simple_http_processor.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/simple_http_processor.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -616,7 +540,6 @@ The following project page contains Python snippets useful for various tasks.
 *server.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/server.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -624,7 +547,6 @@ The following project page contains Python snippets useful for various tasks.
 *scrmable.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/scrmable.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -632,7 +554,6 @@ The following project page contains Python snippets useful for various tasks.
 *scan_web.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/scan_web.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -640,7 +561,6 @@ The following project page contains Python snippets useful for various tasks.
 *runningtime_intvsfloat.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/runningtime_intvsfloat.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -648,7 +568,6 @@ The following project page contains Python snippets useful for various tasks.
 *runningtime_intaddition.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/runningtime_intaddition.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -656,7 +575,6 @@ The following project page contains Python snippets useful for various tasks.
 *runningtime.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/runningtime.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -664,7 +582,6 @@ The following project page contains Python snippets useful for various tasks.
 *run_under_strace.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/run_under_strace.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -672,7 +589,6 @@ The following project page contains Python snippets useful for various tasks.
 *restricter_class.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/restricter_class.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -680,7 +596,6 @@ The following project page contains Python snippets useful for various tasks.
 *removeOldEggs.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/removeOldEggs.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -688,7 +603,6 @@ The following project page contains Python snippets useful for various tasks.
 *recipe-511490-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/recipe-511490-1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -696,7 +610,6 @@ The following project page contains Python snippets useful for various tasks.
 *quicksort.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/quicksort.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -704,7 +617,6 @@ The following project page contains Python snippets useful for various tasks.
 *quick_sort.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/quick_sort.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -712,7 +624,6 @@ The following project page contains Python snippets useful for various tasks.
 *python3k_json.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/python3k_json.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -720,7 +631,6 @@ The following project page contains Python snippets useful for various tasks.
 *python-objects-type.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/python-objects-type.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -728,7 +638,6 @@ The following project page contains Python snippets useful for various tasks.
 *pyrsa.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/pyrsa.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -736,7 +645,6 @@ The following project page contains Python snippets useful for various tasks.
 *pyex_multiprocessing.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/pyex_multiprocessing.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -744,7 +652,6 @@ The following project page contains Python snippets useful for various tasks.
 *pyex2_multiprocessing.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/pyex2_multiprocessing.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -752,7 +659,6 @@ The following project page contains Python snippets useful for various tasks.
 *py3rsa.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/py3rsa.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -760,7 +666,6 @@ The following project page contains Python snippets useful for various tasks.
 *py3AES.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/py3AES.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -768,7 +673,6 @@ The following project page contains Python snippets useful for various tasks.
 *provide_warnings.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/provide_warnings.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -776,7 +680,6 @@ The following project page contains Python snippets useful for various tasks.
 *peepholeoptimization.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/peepholeoptimization.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -784,7 +687,6 @@ The following project page contains Python snippets useful for various tasks.
 *os_exec1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/os_exec1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -792,7 +694,6 @@ The following project page contains Python snippets useful for various tasks.
 *optimization2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/optimization2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -800,7 +701,6 @@ The following project page contains Python snippets useful for various tasks.
 *oop1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/oop1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -808,7 +708,6 @@ The following project page contains Python snippets useful for various tasks.
 *object_size.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/object_size.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -816,7 +715,6 @@ The following project page contains Python snippets useful for various tasks.
 *number_sets.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/number_sets.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -824,7 +722,6 @@ The following project page contains Python snippets useful for various tasks.
 *mp3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/mp3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -832,7 +729,6 @@ The following project page contains Python snippets useful for various tasks.
 *maxsort.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/maxsort.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -840,7 +736,6 @@ The following project page contains Python snippets useful for various tasks.
 *logging5.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging5.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -848,7 +743,6 @@ The following project page contains Python snippets useful for various tasks.
 *logging4.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging4.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -856,7 +750,6 @@ The following project page contains Python snippets useful for various tasks.
 *logging3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -864,7 +757,6 @@ The following project page contains Python snippets useful for various tasks.
 *logging2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -872,7 +764,6 @@ The following project page contains Python snippets useful for various tasks.
 *logging1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/logging1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -880,7 +771,6 @@ The following project page contains Python snippets useful for various tasks.
 *locate.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/locate.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -888,7 +778,6 @@ The following project page contains Python snippets useful for various tasks.
 *lexical_analyzer_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/lexical_analyzer_1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -896,7 +785,6 @@ The following project page contains Python snippets useful for various tasks.
 *leibniz.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/leibniz.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -904,7 +792,6 @@ The following project page contains Python snippets useful for various tasks.
 *iterator_ex2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/iterator_ex2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -912,7 +799,6 @@ The following project page contains Python snippets useful for various tasks.
 *iterator_ex1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/iterator_ex1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -920,7 +806,6 @@ The following project page contains Python snippets useful for various tasks.
 *iscombination.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/iscombination.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -928,7 +813,6 @@ The following project page contains Python snippets useful for various tasks.
 *ipy.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ipy.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -936,7 +820,6 @@ The following project page contains Python snippets useful for various tasks.
 *int_to_roman.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/int_to_roman.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -944,7 +827,6 @@ The following project page contains Python snippets useful for various tasks.
 *httplib_head.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib_head.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -952,7 +834,6 @@ The following project page contains Python snippets useful for various tasks.
 *httplib-example-3.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib-example-3.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -960,7 +841,6 @@ The following project page contains Python snippets useful for various tasks.
 *httplib-example-2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib-example-2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -968,7 +848,6 @@ The following project page contains Python snippets useful for various tasks.
 *httplib-example-1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/httplib-example-1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -976,7 +855,6 @@ The following project page contains Python snippets useful for various tasks.
 *http_auth_header_code.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/http_auth_header_code.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -984,7 +862,6 @@ The following project page contains Python snippets useful for various tasks.
 *htmlwriter.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/htmlwriter.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -992,7 +869,6 @@ The following project page contains Python snippets useful for various tasks.
 *hexlify.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/hexlify.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1000,7 +876,6 @@ The following project page contains Python snippets useful for various tasks.
 *hanoi1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/hanoi1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1008,7 +883,6 @@ The following project page contains Python snippets useful for various tasks.
 *hanoi.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/hanoi.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1016,7 +890,6 @@ The following project page contains Python snippets useful for various tasks.
 *googlesearch.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/googlesearch.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1024,7 +897,6 @@ The following project page contains Python snippets useful for various tasks.
 *generator_follow.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_follow.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1032,7 +904,6 @@ The following project page contains Python snippets useful for various tasks.
 *generator_example1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_example1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1040,7 +911,6 @@ The following project page contains Python snippets useful for various tasks.
 *generator_countdown.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_countdown.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1048,7 +918,6 @@ The following project page contains Python snippets useful for various tasks.
 *generator_countdown-2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/generator_countdown-2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1056,7 +925,6 @@ The following project page contains Python snippets useful for various tasks.
 *gen2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/gen2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1064,7 +932,6 @@ The following project page contains Python snippets useful for various tasks.
 *gen1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/gen1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1072,7 +939,6 @@ The following project page contains Python snippets useful for various tasks.
 *fri_13.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fri_13.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1080,7 +946,6 @@ The following project page contains Python snippets useful for various tasks.
 *freev.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/freev.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1088,7 +953,6 @@ The following project page contains Python snippets useful for various tasks.
 *fortune-card.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fortune-card.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1096,7 +960,6 @@ The following project page contains Python snippets useful for various tasks.
 *fibo2.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fibo2.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1104,7 +967,6 @@ The following project page contains Python snippets useful for various tasks.
 *fibo.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fibo.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1112,7 +974,6 @@ The following project page contains Python snippets useful for various tasks.
 *fetchrfc.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fetchrfc.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1120,7 +981,6 @@ The following project page contains Python snippets useful for various tasks.
 *fcntl_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fcntl_1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1128,7 +988,6 @@ The following project page contains Python snippets useful for various tasks.
 *ex_iterable27.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ex_iterable27.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1136,7 +995,6 @@ The following project page contains Python snippets useful for various tasks.
 *ex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ex.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1144,7 +1002,6 @@ The following project page contains Python snippets useful for various tasks.
 *euclid.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/euclid.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1152,7 +1009,6 @@ The following project page contains Python snippets useful for various tasks.
 *encoding_unicode_xml_html.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/encoding_unicode_xml_html.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1160,7 +1016,6 @@ The following project page contains Python snippets useful for various tasks.
 *doctest_example.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/doctest_example.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1168,7 +1023,6 @@ The following project page contains Python snippets useful for various tasks.
 *dict_list.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/dict_list.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1176,7 +1030,6 @@ The following project page contains Python snippets useful for various tasks.
 *default-not-shared.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/default-not-shared.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1184,7 +1037,6 @@ The following project page contains Python snippets useful for various tasks.
 *curses_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/curses_1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1192,7 +1044,6 @@ The following project page contains Python snippets useful for various tasks.
 *createtempfiles.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/createtempfiles.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1200,7 +1051,6 @@ The following project page contains Python snippets useful for various tasks.
 *copy_files_unicode.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/copy_files_unicode.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1208,7 +1058,6 @@ The following project page contains Python snippets useful for various tasks.
 *contextmanager_ex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/contextmanager_ex.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1216,7 +1065,6 @@ The following project page contains Python snippets useful for various tasks.
 *context_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/context_1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1224,7 +1072,6 @@ The following project page contains Python snippets useful for various tasks.
 *combination.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/combination.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1232,7 +1079,6 @@ The following project page contains Python snippets useful for various tasks.
 *client.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/client.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1240,7 +1086,6 @@ The following project page contains Python snippets useful for various tasks.
 *checking_string_text_or_binary.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/checking_string_text_or_binary.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1248,7 +1093,6 @@ The following project page contains Python snippets useful for various tasks.
 *cgi_ex.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/cgi_ex.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1256,7 +1100,6 @@ The following project page contains Python snippets useful for various tasks.
 *cellauto.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/cellauto.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1264,7 +1107,6 @@ The following project page contains Python snippets useful for various tasks.
 *caseinsensitivedict.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/caseinsensitivedict.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1272,7 +1114,6 @@ The following project page contains Python snippets useful for various tasks.
 *bug_gethostbyname.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/bug_gethostbyname.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1280,7 +1121,6 @@ The following project page contains Python snippets useful for various tasks.
 *bipartite.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/bipartite.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1288,7 +1128,6 @@ The following project page contains Python snippets useful for various tasks.
 *binary_repre.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/binary_repre.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1296,7 +1135,6 @@ The following project page contains Python snippets useful for various tasks.
 *ast_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/ast_1.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1304,7 +1142,6 @@ The following project page contains Python snippets useful for various tasks.
 *args_kwargs.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/args_kwargs.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1312,7 +1149,6 @@ The following project page contains Python snippets useful for various tasks.
 *allipaddress.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/allipaddress.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1320,7 +1156,6 @@ The following project page contains Python snippets useful for various tasks.
 *allifaces.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/allifaces.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1328,7 +1163,6 @@ The following project page contains Python snippets useful for various tasks.
 *accessing_substrings.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/accessing_substrings.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1336,7 +1170,6 @@ The following project page contains Python snippets useful for various tasks.
 *PythonTwo.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/PythonTwo.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1344,7 +1177,6 @@ The following project page contains Python snippets useful for various tasks.
 *PythonOne.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/PythonOne.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1352,7 +1184,6 @@ The following project page contains Python snippets useful for various tasks.
 *MultipartPostHandler.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/MultipartPostHandler.py
-   :linenos:
    :tab-width: 4
 
 ----
@@ -1360,7 +1191,6 @@ The following project page contains Python snippets useful for various tasks.
 *JavaOne.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/JavaOne.py
-   :linenos:
    :tab-width: 4
 
 ----
