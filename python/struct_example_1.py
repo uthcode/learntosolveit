@@ -1,3 +1,18 @@
+#!/usr/bin/python
+"""
+$Id$
+
+Purpose:
+    Demonstrate the way the struct module works.
+
+Description:
+   One can access substrings of a string in a arbitrary manner while using the
+   struct module. This is mostly useful when dealing with byte level
+   programming required in embedded systems or while using sockets.
+
+Source:
+   Python cookbook perhaps.
+"""
 import struct
 theline = "The quick brown fox jumped over the lazy dog."
 # Get a 5-byte string, skip 3, get two 8-byte string, then all the rest:
