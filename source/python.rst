@@ -439,6 +439,696 @@ Opcode looks like this.::
   true, but how did this new (and totally non-trivial!) functionality come from
   if I didn’t inherit it?!
 
+* attributes of an object.
+
+* An object’s attributes are other objects related to it and accessible by invoking the . (dot) operator, like so: >>> my_object.attribute_name. 
+
+* A type can define one (or more) specially named methods that will customize
+  attribute access to its instances and they will be wired into the type’s
+  slots using fixup_slot_dispatchers when the type is created.
+
+* These methods simply store the attribute as a key/value pair (attribute
+  name/attribute value) in some object-specific dictionary when an attribute is
+  set and retrieve the attribute from that dictionary when an attribute is get
+  (or raise an AttributeError if the dictionary doesn’t have a key matching the
+  requested attribute’s name).
+
+* Here is an example snippet which presents a particularly surprising behavior of attribute access.::
+
+        >>> print(object.__dict__)
+        {'__ne__': <slot wrapper '__ne__' of 'object' objects>, ... , '__ge__': <slot wrapper '__ge__' of 'object' objects>}
+        >>> object.__ne__ is object.__dict__['__ne__']
+        True
+        >>> o = object()
+        >>> o.__class__
+        <class 'object'>
+        >>> o.a = 1
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AttributeError: 'object' object has no attribute 'a'
+        >>> o.__dict__
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AttributeError: 'object' object has no attribute '__dict__'
+        >>> class C:
+        ...     A = 1
+        ...
+        >>> C.__dict__['A']
+        1
+        >>> C.A
+        1
+        >>> o2 = C()
+        >>> o2.a = 1
+        >>> o2.__dict__
+        {'a': 1}
+        >>> o2.__dict__['a2'] = 2
+        >>> o2.a2
+        2
+        >>> C.__dict__['A2'] = 2
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        TypeError: 'dict_proxy' object does not support item assignment
+        >>> C.A2 = 2
+        >>> C.__dict__['A2'] is C.A2
+        True
+        >>> type(C.__dict__) is type(o2.__dict__)
+        False
+        >>> type(C.__dict__)
+        <class 'dict_proxy'>
+        >>> type(o2.__dict__)
+        <class 'dict'>
+        >>>
+
+* We can see that object (as in, the most basic built-in type which we’ve
+discussed before) has a private dictionary, and we see that stuff we access on
+object as an attribute is identical to what we find in object.__dict__.
+
+* instances of object (o, in the example) don’t support arbitrary attribute
+assignment and don’t have a __dict__ at all, though they do support some
+attribute access (try o.__class__, o.__hash__, etc; these do return things).
+
+* After that we created our own class, C, derived from object and adding an
+attribute A, and saw that A was accessible via C.A and C.__dict__['A'] just the
+same, as expected.
+
+* We then instantiated o2 from C, and demonstrated that as expected, attribute
+assignment on it indeed mutates its __dict__ and vice versa (i.e., mutations to
+its __dict__ are exposed as attributes).
+
+* We were then probably more surprised to learn that even though attribute
+assignment on the class (C.A2) worked fine, our class’ __dict__ is actually
+read-only. 
+
+* Finally, we saw that our class’ __dict__ is not of the same type as our
+object’s __dict__, but rather an unfamiliar beast called dict_proxy. And if all
+that wasn’t enough, recall the mystery from the end of Objects 101: if plain
+object instances like o have no __dict__, and C extends object without adding
+anything significant, why do instances of C like o2 suddenly do have a
+__dict__?
+
+* First, we shall look at the implementation of a type’s __dict__. Looking at
+the definition of PyObjectType (a zesty and highly recommended exercise), we
+see a slot called tp_dict, ready to accept a pointer to a dictionary. All types
+must have this slot, and all types have a dictionary placed there when
+./Objects/typeobject.c: PyType_Ready is called on them, either when the
+interpreter is first initialized (remember Py_Initialize? It invokes
+_Py_ReadyTypes which calls PyType_Ready on all known types) or when the type is
+created dynamically by the user (type_new calls PyType_Ready on the newborn
+type before returning). 
+
+* In fact, every name you bind within a class statement will turn up in the
+newly created type’s __dict__ (see ./Objects/typeobject.c: type_new:
+type->tp_dict = dict = PyDict_Copy(dict);). 
+
+* These functions use the dictionary each type has and pointed to by tp_dict to
+store/retrieve the attributes, that is, getting attributes on a type is
+directly wired to dictionary assignment for the type instance’s private
+dictionary pointed to by the type’s structure.
+
+* So far I hope it’s been rather simple, and explains types’ attribute
+retrieval.
+
+* Descriptors play a special role in instances’ attribute access.
+
+* An object is said to be a descriptor if it’s type has one or two slots
+(tp_descr_get and/or tp_descr_set) filled with non-NULL value. These slots are
+wired to the special method names __get__, __set__ and __delete__, when the
+type is defined in pure Python (i.e., if you create a class which has a __get__
+method it will be wired to its tp_descr_get slot, and if you instantiate an
+object from that class, the object is a descriptor).
+
+* An object is said to be a data descriptor if its type has a non-NULL
+tp_descr_set slot (there’s no particularly special term for a non-data
+descriptor). 
+
+* We’ve defined descriptors, and we know how types’ dictionaries and attribute access work.
+
+* Most objects aren’t types, that is to say, their type isn’t type, it’s something more mundane like int or dict or a user defined class.
+
+* All these rely on generic attribute access functions, which are either set on the type explicitly or inherited from the type’s base when the type is created.
+
+* The generic attribute-getting function (PyObject_GenericGetAttr) and its
+algorithm is like so: (a) search the accessed instance’s type’s dictionary, and
+then all the type’s bases’ dictionaries. If a data descriptor was found, invoke
+it’s tp_desr_get function and return the results. If something else is found,
+set it aside (we’ll call it X). (b) Now search the object’s dictionary, and if
+something is found, return it. (c) If nothing was found in the object’s
+dictionary, inspect X, if one was set aside at all; if X is a non-data
+descriptor, invoke it’s tp_descr_get function and return the result, and if
+it’s a plain object it returns it. (d) Finally, if nothing was found, it raise
+an AttributeError exception.
+
+* So we learn that descriptors can execute code when they’re accessed as an
+attribute (so when you do foo = o.a or o.a = foo, a runs code).  A powerful
+notion, that, and it’s used in several cases to implement some of Python’s more
+‘magical’ features. 
+
+* Data-descriptors are even more powerful, as they take precedence over
+instance attributes (if you have an object o of class C, class C has a foo
+data-descriptor and o has a foo instance attribute, when you do o.foo the
+descriptor will take precedence).
+
+* While descriptors are really important and you’re advised to take the time to
+understand them, for brevity and due to the well written resources I’ve just
+mentioned I will explain them no further, other than show you how they behave
+in the interpreter (super simple example!)::
+
+        >>> class ShoutingInteger(int):
+        ...     # __get__ implements the tp_descr_get slot
+        ...     def __get__(self, instance, owner):
+        ...             print('I was gotten from %s (instance of %s)'
+        ...                   % (instance, owner))
+        ...             return self
+        ...
+        >>> class Foo:
+        ...     Shouting42 = ShoutingInteger(42)
+        ...
+        >>> foo = Foo()
+        >>> 100 - foo.Shouting42
+        I was gotten from <__main__.Foo object at 0xb7583c8c> (instance of <class __main__.'foo'>)
+        58
+        # Remember: descriptors are only searched on types!
+        >>> foo.Silent666 = ShoutingInteger(666)
+        >>> 100 - foo.Silent666
+        -566
+        >>>
+
+* We now understand that accessing attribute A on object O instantiated from
+class C1 which inherits C2 which inherits C3 can return A either from O, C1, C2
+or C3, depending on something called the method resolution order 
+
+* This way of resolving attributes, when coupled with slot inheritance, is
+enough to explain most of Python’s inheritance functionality.
+
+* We’ve seen the definition of PyObject, and it most definitely didn’t have a
+pointer to a dictionary, so where is the reference the object’s dictionary
+stored?
+
+* If you look closely at the definition of PyTypeObject (it’s good clean and
+wholesome! read it every day!), you will see a field called tp_dictoffset.
+
+* This field provides a byte offset into the C-structure allocated for objects
+instantiated from this type; at this offset, a pointer to a regular Python
+dictionary should be found.
+
+* Under normal circumstances, when creating a new type, the size of the memory
+region necessary to allocate objects of that type will be calculated, and that
+size will be larger than the size of vanilla PyObject. 
+
+* The extra room will typically be used (among other things) to store the
+pointer to the dictionary (all this happens in ./Objects/typeobject.c:
+type_new, see may_add_dict = base->tp_dictoffset == 0; onwards).::
+
+        >>> class C: pass
+        ...
+        >>> o = C()
+        >>> o.foo = 'bar'
+        >>> o
+        <__main__.C object at 0x846b06c>
+        >>>
+        # break into GDB, see 'metablogging'->'tools' above
+        Program received signal SIGTRAP, Trace/breakpoint trap.
+        0x0012d422 in __kernel_vsyscall ()
+        (gdb) p ((PyObject *)(0x846b06c))->ob_type->tp_dictoffset
+        $1 = 16
+        (gdb) p *((PyObject **)(((char *)0x846b06c)+16))
+        $3 = {u'foo': u'bar'}
+        (gdb)
+
+* We have created a new class, instantiated an object from it and set some
+attribute on the object (o.foo = 'bar'), broke into gdb, dereferenced the
+object’s type (C) and checked its tp_dictoffset (it was 16), and then checked
+what’s to be found at the address pointed to by the pointer located at 16
+bytes’ offset from the object’s C-structure, and indeed we found there a
+dictionary object with the key foo pointing to the value bar. 
+
+* Of course, if you check tp_dictoffset on a type which doesn’t have a
+__dict__, like object, you will find that it is zero. You sure have a warm
+fuzzy feeling now, don’t you.
+
+* I define a class C inheriting object and doing nothing much else in Python,
+and then I instantiate o from that class, causing the extra memory for the
+dictionary pointer to be allocated at tp_dictoffset.
+
+* I then type in my interpreter o.__dict__, which byte-compiles to the
+LOAD_ATTR opcode, which causes the PyObject_GetAttr function to be called,
+which dereferences the type of o and finds the slot tp_getattro, which causes
+the default attribute searching mechanism described earlier in this post and
+implemented in PyObject_GenericGetAttr. 
+
+* So when all that happens, what returns my object’s dictionary? I know where
+the dictionary is stored, but I can see that __dict__ isn’t recursively inside
+itself, so there’s a chicken and egg problem here; who gives me my dictionary
+when I access __dict__ if it is not in my dictionary?
+
+* Someone who has precedence over the object’s dictionary – a descriptor. Check
+this out::
+
+        >>> class C: pass
+        ...
+        >>> o = C()
+        >>> o.__dict__
+        {}
+        >>> C.__dict__['__dict__']
+        <attribute '__dict__' of 'C' objects>
+        >>> type(C.__dict__['__dict__'])
+        <class 'getset_descriptor'>
+        >>> C.__dict__['__dict__'].__get__(o, C)
+        {}
+        >>> C.__dict__['__dict__'].__get__(o, C) is o.__dict__
+        True
+        >>>
+
+* Seems like there’s something called getset_descriptor (it’s in
+./Objects/typeobject.c), which are groups of functions implementing the
+descriptor protocol and meant to be attached to an object placed in type’s
+__dict__.
+
+* This descriptor will intercept all attribute access to o.__dict__ on
+instances of this type, and will return whatever it wants, in our case, a
+reference to the dictionary found at the tp_dictoffset of o. 
+
+* This is also the explanation of the dict_proxy business we’ve seen earlier.
+If in tp_dict there’s a pointer to a plain dictionary, what causes it to be
+returned wrapped in this read only proxy, and why? The __dict__ descriptor of
+the type’s type type does it.::
+
+        >>> type(C)
+        <class 'type'>
+        >>> type(C).__dict__['__dict__']
+        <attribute '__dict__' of 'type' objects>
+        >>> type(C).__dict__['__dict__'].__get__(C, type)
+        <dict_proxy object at 0xb767e494>
+
+* This descriptor is a function that wraps the dictionary in a simple object
+that mimics regular dictionaries’ behaviour but only allows read only access to
+the dictionary it wraps.
+
+* And why is it so important to prevent people from messing with a type’s
+__dict__? Because a type’s namespace might hold them specially named methods,
+like __sub__. 
+
+* When you create a type with these specially named methods or when you set
+them on the type as an attribute, the function update_one_slot will patch these
+methods into one of the type’s slots, as we’ve seen in 101 for the subtraction
+operation.
+
+* If you were to add these methods straight into the type’s __dict__, they
+won’t be wired to any slot, and you’ll have a type that looks like it has a
+certain behaviour (say, has __sub__ in its dictionary), but doesn’t behave that
+way.
+
+* __slots__ are important construct when dealing with attributes access.
+
+* As was originally (and correctly) written in the post, descriptors are
+objects whose type has their tp_descr_get and/or tp_descr_set slots set to
+non-NULL. However, I also wrote, incorrectly, that descriptors take precedence
+over regular instance attributes (i.e., attributes in the object’s __dict__).
+This is partly correct but misleading, as it doesn’t distinguish non-data
+descriptors from data-descriptors. An object is said to be a data descriptor if
+its type has its tp_descr_set slot implemented (there’s no particularly special
+term for a non-data descriptor). Only data descriptors override regular object
+attributes, non-data descriptors do not.
+
+* Look into the Interpreter State and the Thread State structures both
+  implemented in `./Python/pystate.c`
+
+* In many operating systems user-space code is executed by an abstraction
+  called threads that run inside another abstraction called processes.
+
+*  The kernel is in charge of setting up and tearing down these processes and
+  execution threads, as well as deciding which thread will run on which logical
+  CPU at any given time. 
+
+* When a process invokes Py_Initialize another abstraction comes into play, and
+  that is the interpreter.
+
+* Any Python code that runs in a process is tied to an interpreter, you can
+  think of the interpreter as the root of all other concepts we’ll discuss.
+
+* Python’s code base supports initializing two (or more) completely separate interpreters that share little state with one another. This is rather rarely done (never in the vanilla executable), because too much subtly shared state of the interpreter core and of C extensions exists between these ‘insulated’ interpreters. 
+
+* Anyhow, we said all execution of code occurs in a thread (or threads), and Python’s Virtual Machine is no exception. 
+
+* However, Python’s Virtual Machine itself is something which supports the notion of threading, so Python has its own abstraction to represent Python threads. This abstraction’s implementation is fully reliant on the kernel’s threading mechanisms, so both the kernel and Python are aware of each Python thread and Python threads execute as separate kernel-managed threads, running in parallel with all other threads in the system. Uhm, almost.
+
+* many aspects of Python’s CPython implementation are not thread safe. This is has some benefits, like simplifying the implementation of easy-to-screw-up pieces of code and guaranteed atomicity of many Python operations, but it also means that a mechanism must be put in place to prevent two (or more) Pythonic threads from executing in parallel, lest they corrupt each other’s data. 
+
+* The GIL is a process-wide lock which must be held by a thread if it wants to do anything Pythonic – effectively limiting all such work to a single thread running on a single logical CPU at a time. 
+
+* Threads in Python multitask cooperatively by relinquishing the GIL voluntarily so other threads can do Pythonic work; this cooperation is built-in to the evaluation loop, so ordinarily authors of Python code and some extensions don’t need to do something special to make cooperation work (from their point of view, they are preempted).
+
+* Do note that while a thread doesn’t use any of Python’s APIs it can (and many threads do) run in parallel to another Pythonic thread. 
+ 
+* With the concepts of a process (OS abstraction), interpreter(s) (Python abstraction) and threads (an OS abstraction and a Python abstraction) in mind, let’s go inside-out by zooming out from a single opcode outwards to the whole process. 
+
+* Let’s look again at the disassembly of the bytecode generated for the simple statement spam = eggs - 1::
+
+        # what's 'diss'? see 'tools' under 'metablogging' above!
+        >>> diss("spam = eggs - 1")
+          1           0 LOAD_NAME                0 (eggs)
+                      3 LOAD_CONST               0 (1)
+                      6 BINARY_SUBTRACT
+                      7 STORE_NAME               1 (spam)
+                     10 LOAD_CONST               1 (None)
+                     13 RETURN_VALUE
+        >>>
+
+* In addition to the actual ‘do work’ opcode BINARY_SUBTRACT, we see opcodes like LOAD_NAME (eggs) and STORE_NAME (spam).
+* It seems obvious that evaluating such opcodes requires some storage room: eggs has to be loaded from somewhere, spam has to be stored somewhere.
+* The inner-most data structures in which evaluation occurs are the frame object and the code object, and they point to this storage room.
+* When you’re “running” Python code, you’re actually evaluating frames (recall ceval.c: PyEval_EvalFrameEx). 
+*  In this code-structure-oriented post, the main thing we care about is the f_back field of the frame object (though many others exist). In frame n this field points to frame n-1, i.e., the frame that called us (the first frame that was called in any particular thread, the top frame, points to NULL).
+* This stack of frames is unique to every thread and is anchored to the thread-specific structure ./Include.h/pystate.h: PyThreadState, which includes a pointer to the currently executing frame in that thread (the most recently called frame, the bottom of the stack).
+* PyThreadState is allocated and initialized for every Python thread in a process by _PyThreadState_Prealloc just before new thread creation is actually requested from the underlying OS (see ./Modules/_threadmodule.c: thread_PyThread_start_new_thread and >>> from _thread import start_new_thread). 
+* Threads can be created which will not be under the interpreter’s control; these threads won’t have a PyThreadState structure and must never call a Python API.
+* This isn’t so common in a Python application but is more common when Python is embedded into another application. It is possible to ‘Pythonize’ such foreign threads that weren’t originally created by Python code in order to allow them to run Python code (PyThreadState will have to be allocated for them). 
+* Finally, a bit like all frames are tied together in a backward-going stack of
+previous-frame pointers, so are all thread states tied together in a linked
+list of PyThreadState \*next pointers.
+* The list of thread states is anchored to the interpreter state structure which owns these threads. The interpreter state structure is defined at ./Include.h/pystate.h: PyInterpreterState, and it is created when you call Py_Initialize to initialize the Python VM in a process or Py_NewInterpreter to create a new interpreter state for multi-interpreter processes.
+* Note carefully that Py_NewInterpreter does not return an interpreter state – it returns a (newly created) PyThreadState for the single automatically created thread of the newly created interpreter. 
+* There’s no sense in creating a new interpreter state without at least one thread in it, much like there’s no sense in creating a new process with no threads in it.
+* Similarly to the list of threads anchored to its interpreter, so does the interpreter structure have a next field which forms a list by linking the interpreters to one another.
+* This pretty much sums up our zooming out from the resolution of a single opcode to the whole process: opcodes belong to currently evaluating code objects (currently evaluating is specified as opposed to code objects which are just lying around as data, waiting for the opportunity to be called), which belong to currently evaluating frames, which belong to Pythonic threads, which belong to interpreters. 
+* The anchor which holds the root of this structure is the static variable ./Python/pystate.c: interp_head, which points to the first interpreter state (through that all interpreters are reachable, through each of them all thread states are reachable, and so fourth). 
+* The mutex head_mutex protects interp_head and the lists it points to so they won’t be corrupt by concurrent modifications from multiple threads (I want it to be clear that this lock is not the GIL, it’s just the mutex for interpreter and thread states). 
+* The macros HEAD_LOCK and HEAD_UNLOCK control this lock. interp_head is typically used when one wishes to add/remove interpreters or threads and for special purposes. That’s because accessing an interpreter or a thread through the head variable would get you an interpreter state rather than the interpreter state owning the currently running thread (just in case there’s more than one interpreter state).
+* A more useful variable similar to interp_head is ./Python/pystate.c: _PyThreadState_Current which points to the currently running thread state (important terms and conditions apply, see soon).
+* This is how code typically accesses the correct interpreter state for itself: first find its your own thread’s thread state, then dereference its interp field to get to your interpreter.
+* There are a couple of functions that let you access this variable (get its current value or swap it with a new one while retaining the old one) and they require that you hold the GIL to be used.
+* This is important, and serves as an example of CPython’s lack of thread safety (a rather simple one, others are hairier). If two threads are running and there was no GIL, to which thread would this variable point? “The thread that holds the GIL” is an easy answer, and indeed, the one that’s used. _
+*  _PyThreadState_Current is set during Python’s initialization or during a new thread’s creation to the thread state structure that was just created. When a Pythonic thread is bootstrapped and starts running for the very first time it can assume two things: (a) it holds the GIL and (b) it will find a correct value in _PyThreadState_Current. 
+* As of that moment the Pythonic thread should not relinquish the GIL and let other threads run without first storing _PyThreadState_Current somewhere, and should immediately re-acquire the GIL and restore _PyThreadState_Current to its old value when it wants to resume running Pythonic code.
+*  This behaviour is what keeps _PyThreadState_Current correct for GIL-holding threads and is so common that macros exist to do the save-release/acquire-restore idioms (Py_BEGIN_ALLOW_THREADS and Py_END_ALLOW_THREADS). 
+* There’s much more to say about the GIL and additional APIs to handle it and it’s probably also interesting to contrast it with other Python implementation (Jython and IronPython are thread safe and do run Pythonic threads concurrently). 
+* Diagram shows the relation between the state structures within a single process hosting Python as described so far. We have in this example two interpreters with two threads each, you can see each of these threads points to its own call stack of frames.
+
+.. image:: http://niltowrite.files.wordpress.com/2010/05/states4.png
+
+* Interpreter states contain several fields dealing with imported modules of that particular interpreter, so we can talk about that when we talk about importing.
+
+* In addition to managing imports they hold bunch of pointers related to handling Unicode codecs, a field to do with dynamic linking flags and a field to do with TSC usage for profiling.
+
+* Thread states have more fields but to me they were more easily understood.  Not too surprisingly, they have fields that deal with things that relate to the execution flow of a particular thread and are of too broad a scope to fit particular frame.
+
+* Take for example the fields recursion_depth, overflow and recursion_critical, which are meant to trap and raise a RuntimeError during overly deep recursions before the stack of the underlying platform is exhausted and the whole process crashes. 
+
+*  In addition to these fields, this structure accommodates fields related to profiling and tracing, exception handling (exceptions can be thrown across frames), a general purpose per-thread dictionary for extensions to store arbitrary stuff in and counters to do with deciding when a thread ran too much and should voluntarily relinquish the GIL to let other threads run.
+
+* Discuss naming, which is the ability to bind names to an object, like we can
+see in the statement a = 1 (in other words, this article is roughly about what
+many languages call variables). 
+
+* Naturally, naming is central to Python's behaviour and understanding both its semantics and mechanics are important precursors to our quickly approaching discussions of code evaluation, code objects and stack frames.
+
+* That said, it is also a delicate subject because anyone with some programming experience knows something about it, at least instinctively (you’ve done something like a = 1 before, now haven’t you?).
+
+* When we evaluate a = b = c = [], we create one list and give it three different names. In formal terms, we’d say that the newly instantiated list object is now bound to three identifiers that refer to it.
+
+* This distinction between names and the objects bound to them is important. If we evaluate a.append(1), we will see that b and c are also affected; we didn’t mutate a, we mutated its referent, so the mutation is uniformly visible via any name the object was referred to.
+
+* On the other hand, if we will now do a b = [], a and c will not change, since we didn’t actually change the object which b referred to but rather did a re-binding of the name b to a (newly created and empty) list object.
+
+* Also recall that binding is one of the ways to increase the referent’s reference count, this is worthy of noting even though reference counting isn’t our subject at the moment.
+
+* A name binding is commonly created by use of the assignment statement, which is a statement that has an ‘equals’ symbol (=) in the middle, “stuff to assign to” or targets on the left, and “stuff to be assigned” (an expression) on the right. 
+
+*  A target can be a name (more formally called an identifier) or a more complex construct, like a sequence of names, an attribute reference (primary_name.attribute) or a subscript (primary_name[subscript])
+
+* Name binding is undone with the deletion statement del, which is roughly “del followed by comma-separated targets to unbind” 
+
+* Finally, note that name binding can be done without an assignment as bindings are also created by def, class, import (and others), this is also of less importance to us now.
+
+* Scope is a term relating to the visibility of an identifier throughout a block, or a piece of Python code executed as a unit: a module, a function body and a class definition are blocks (control-blocks like those of if and while are not code blocks in Python).
+
+* A namespace is an abstract environment where the mapping between names and the objects they refer to is made (incidentally, in current CPython, this is indeed implemented with the dict mapping type).
+
+* The rules of scoping determine in which namespace will a name be sought after when it is used, or rather resolved. 
+
+* You probably know instinctively that a name bound in function foo isn’t visible in an unrelated function bar, this is because by default names created in a function will be stored in a namespace that will not be looked at when name resolution happens in another, unrelated function. 
+
+* Scope determines not just when a name will be visible as it is resolved or ‘read’ (i.e., if you do spam = eggs, where will eggs come from) but also as it is bound or ‘written’ (i.e., in the same example, where will spam go to). 
+
+* When a namespace will no longer be used (for example, the private namespace of a function which returns) all the names in it are unbound (this triggers reference count decrease and possibly deallocation, but this doesn’t concern us now).
+
+* Scoping rules change based on the lexical context in which code is compiled. For example, in simpler terms, code compiled as a plain function’s body will resolve names slightly differently when evaluated when compared with code compiled as part of a module’s initialization code (the module top-level code).
+
+* Special statements like global and nonlocal exist and can be applied to names thus that resolution rules for these names will change in the current code block, we’ll look into that later. 
+
+* when Python code is evaluated, it is evaluated within three namespaces: locals, globals and builtins. When we resolve a name, it will be sought after in the local scope, then the global scope, then the builtin scope (then a NameError will be raised).
+
+*  When we bind a name with a name binding statement (i.e., an assignment, an import, a def, etc) the name will be bound in the local scope, and hide any existing names in the global or builtin scope.
+
+* This hiding does not mean the hidden name was changed (formally: the hidden name was not re-bound), it just means it is no longer visible in the current block’s scope because the newly created binding in the local namespace overshadows it.
+
+*  We said scoping changes according to context, and one such case is when functions are lexically nested within one another (that is, a function defined inside the body of another function): resolution of a name from within a nested function will first search in that function’s scope, then in the local scopes of its outer function(s) and only then proceed normally (in the globals and builtins) scope.
+
+* Lexical scoping is an interesting behaviour, let’s look at it closely::
+
+        $ cat scoping.py ; python3.1
+        def outer():
+            a = 1
+            # creating a lexically nested function bar
+            def inner():
+                # a is visible from outer's locals
+                return a
+            b = 2 # b is here for an example later on
+            return inner
+
+        # inner_nonlexical will be called from within
+        #  outer_nonlexical but it is not lexically nested
+        def inner_nonlexical():
+            return a # a is not visible
+        def outer_nonlexical():
+            a = 1
+            inner = inner_nonlexical
+            b = 2 # b is here for an example later on
+            return inner_nonlexical
+        >>> from scoping import *
+        >>> outer()()
+        1
+        >>> outer_nonlexical()()
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "scoping.py", line 13, in inner_nonlexical
+            return a # a is not visible
+        >>>
+
+* As the example demonstrates, a is visible in the lexically nested inner but not in the call-stack nested but not lexically nested inner_nonlexical.
+
+* I mean, Python is dynamic, everything is runtime, how does inner_nonlexical fail if it has the same Python code and is called in a similar fashion from within a similar environment as the original inner was called? 
+
+* Further more, we can see that inner is actually called after outer has terminated: how can it use a value from a namespace that was already destroyed? 
+
+* Once again, let’s look at the bytecode emitted for the simple statement spam = eggs - 1::
+
+        >>> diss("spam = eggs - 1")
+          1           0 LOAD_NAME                0 (eggs)
+                      3 LOAD_CONST               0 (1)
+                      6 BINARY_SUBTRACT
+                      7 STORE_NAME               1 (spam)
+                     10 LOAD_CONST               1 (None)
+                     13 RETURN_VALUE
+        >>>
+
+* Recall that BINARY_SUBTRACT will pop two arguments from the value-stack and feed them to PyNumber_Subtract, which is a C function that accepts two PyObject * pointers and certainly doesn’t know anything about scoping.
+
+* What gets the arguments onto the stack are the LOAD_NAME and LOAD_CONST opcodes, and what will take the result out of the stack and into wherever it is heading is the STORE_NAME ocopde.
+
+* It is opcodes like this that implement the rules of naming and scoping, since the C code implementing them is what will actually look into the dictionaries representing the relevant namespaces trying to resolve the name and bring the resulting object unto the stack, or store whatever object is to be stored into the relevant namespace.
+
+* For example, take LOAD_CONST; this opcode loads a constant value unto the value stack, but it isn’t about scoping (constants don’t have a scope, by definition they aren’t variables and they’re never ‘hidden’).
+
+*  Fortunately for you, I’ve already grepped the sources for ‘suspect’ opcodes ($ egrep -o '(LOAD|STORE)(_[A-Z]+)+' Include/opcode.h | sort) and believe I’ve mapped out the opcodes that actually implement scoping, so we can concentrate on the ones that really implement scoping 
+
+* Note that among the list of opcodes I chose not to address are the ones that handles attribute reference and subscripting; I chose so since these opcodes rely on a different opcode to get the primary reference (the name before the dot or the square brackets) on the value stack and thus aren’t really about scoping. 
+
+* we should discuss four pairs of opcode::
+
+        LOAD_NAME and STORE_NAME
+        LOAD_FAST and STORE_FAST
+        LOAD_GLOBAL and STORE_GLOBAL
+        LOAD_DEREF and STORE_DEREF
+
+* I suggest we discuss each pair along with the situations in which the compiler chooses to emit an opcode of that pair in order to satisfy the semantics of scoping.
+
+* This is not necessarily an exhaustive listing of these opcodes’ uses (it might be, I’m not checking if it is or isn’t), but it should develop an understanding of these opcodes’ behaviour and allow us to figure out other cases where the compiler chooses the emit them on our own; so if you ever see any of these in a disassembly, you’ll be covered.
+
+* I’d like to begin with the obvious pair, \*_NAME; it is simple to understand (and I suspect it was the first to be implemented). Explaining the \*_NAME pair of opcodes is easiest by writing rough versions of them in Python-like psuedocode (you can and should read the actual implementation in ./Python/ceval.c: PyEval_EvalFrameEx)::
+
+        def LOAD_NAME(name):
+            try:
+                return current_stack_frame.locals[name]
+            except KeyError:
+                try:
+                    return current_stack_frame.globals[name]
+                except KeyError:
+                    try:
+                        return current_stack_frame.builtins[name]
+                    except KeyError:
+                        raise NameError('name %r is not defined'
+                                         % name)
+
+        def STORE_NAME(name, value):
+            current_stack_frame.locals[name] = value
+
+* While they are the ‘vanilla’ case, ``*_NAME``, in some cases they are not emitted at all as more specialized opcodes can achieve the same functionality in a faster manner. As we explore the other scoping-related opcodes, we will see why.
+
+* A commonly used pair of scoping related opcodes is the ``*_FAST`` pair, which were originally implemented a long time ago as a speed enhancement over the ``*_NAME`` pair. 
+
+* These opcodes are used in cases where compile time analysis can infer that a variable is used strictly in the local namespace.
+
+* This is possible when compiling code which is a part of a function, rather than, say, at the module level (some subtleties apply about the meaning of ‘function’ in this context, a class’ body may also use these opcodes under some circumstances, but this is of no interest to us at the moment; also see the comments below).
+
+* If we can decide at compile time which names are used in precisely one namespace, and that namespace is private to one code block, it may be easy to implement a namespace with cheaper machinery than dictionaries.
+
+*  Indeed, these opcodes rely on a local namespace implemented with a statically sized array, which is far faster than a dictionary lookup as in the global namespace and other namespaces.
+
+* In Python 2.x it was possible to confuse the compiler thus that it will not be able to use these opcodes in a particular function and have to revert to ``*_NAME``, this is no longer possible in Python 3.x (also see the comments).
+
+* Let’s look at the two ``*_GLOBAL`` opcodes. LOAD_GLOBAL (but not STORE_GLOBAL) is also generated when the compiler can infer that a name is resolved in a function’s body but was never bound inside that body. 
+
+* This behaviour is conceptually similar to the ability to decide when a name is both bound and resolved in a function’s body, causing the generation of the ``*_FAST`` opcodes as we’ve seen above::
+
+        >>> def func():
+        ...     a = 1
+        ...     a = b
+        ...     return a
+        ...
+        >>> diss(func)
+          2           0 LOAD_CONST               1 (1)
+                      3 STORE_FAST               0 (a)
+          3           6 LOAD_GLOBAL              0 (b)
+                      9 STORE_FAST               0 (a)
+          4          12 LOAD_FAST                0 (a)
+                     15 RETURN_VALUE
+        >>>
+
+* As described for ``*_FAST``, we can see that a was bound within the function, which places it in the local scope private to this function, which means the ``*_FAST`` opcodes can and are used for a. 
+
+*  On the other hand, we can see (and the compiler could also see…) that b was resolved before it was ever bound in the function. 
+
+* The compiler figured it must either exist elsewhere or not exist at all, which is exactly what LOAD_GLOBAL does: it bypasses the local namespace and searches only the global and builtin namespaces (and then raises a NameError).
+
+* This explanation leaves us with missing functionality: what if you’d like to re-bind a variable in the global scope?
+
+* Recall that binding a new name normally binds it locally, so if you have a module defining foo = 1, a function setting foo = 2 locally “hides” the global foo. 
+
+* But what if you want to re-bind the global foo? Note this is not to mutate object referred to by foo but rather to bind the name foo in the global scope to a different referent; if you’re not clear on the distinction between the two, skim back in this post until we’re on the same page.
+
+* To do so, we can use the global statement which we mentioned in passing before; this statement lets you tell the compiler to treat a name always as a global both for resolving and for binding within a particular code block, generating only ``*_GLOBAL`` opcodes for manipulation of that name. 
+
+* When binding is required, STORE_GLOBAL performs the new binding (or a re-binding) in the global namespace, thus allowing Python code to explicitly state which variables should be stored and manipulated in the global scope. 
+
+* What happens if you use a variable locally, and then use the global statement to make it global? Let’s look (slightly edited)::
+
+        >>> def func():
+        ...     a = 1
+        ...     global a
+        ...
+        <stdin>:3: SyntaxWarning: name 'a' is assigned to before global declaration
+        >>> diss(func)
+          2           0 LOAD_CONST               1 (1)
+                      3 STORE_GLOBAL             0 (a)
+          3           6 LOAD_CONST               0 (None)
+                      9 RETURN_VALUE
+        >>>
+
+* the compiler still treats the name as a global all through the code block, but warns you not to shoot yourself (and other maintainers of the code) in the foot. Sensible.
+
+* We are left only with LOAD_DEREF and STORE_DEREF. To explain these, we have to revisit the notion of lexical scoping, which is what started our inspection of the implementation.
+
+* Recall that we said that nested functions’ resolution of names tries the namespaces’ of all lexically enclosing functions (in order, innermost outwards) before it hits the global namespace, we also saw an example of that in code.
+
+* So how did inner return a value resolved from this no-longer-existing namespace of outer? When resolution of names is attempted in the global namespace (or in builtins), the name may or may not be there, but for sure we know that the scope is still there! How do we resolve a name in a scope which doesn’t exist?
+
+* The answer is quite nifty, and becomes apparent with a disassembly (slightly edited) of both functions::
+
+        # see the example above for the contents of scoping.py
+        >>> from scoping import *
+        # recursion added to 'diss'; you can see metablogging->tools above
+        >>> diss(outer, recurse=True)
+          2           0 LOAD_CONST               1 (1)
+                      3 STORE_DEREF              0 (a)
+          3           6 LOAD_CLOSURE             0 (a)
+                      9 BUILD_TUPLE              1
+                     12 LOAD_CONST               2 (<code object inner ...)
+                     15 MAKE_CLOSURE             0
+                     18 STORE_FAST               0 (inner)
+          5          21 LOAD_CONST               3 (2)
+                     24 STORE_FAST               1 (b)
+          6          27 LOAD_FAST                0 (inner)
+                     30 RETURN_VALUE
+         
+        recursing into <code object inner ...>:
+          4           0 LOAD_DEREF               0 (a)
+                      3 RETURN_VALUE
+        >>>
+
+*  We can see that outer (the outer function!) already treats a, the variable which will be used outside of its scope, differently than it treats b, a ‘simple’ variable in its local scope.
+
+* a is loaded and stored using the ``*_DEREF`` variants of the loading and storing opcodes, in both the outer and inner functions. The secret sauce here is that at compilation time, if a variable is seen to be resolved from a lexically nested function, it will not be stored and will not be accessed using the regular naming opcodes.
+
+* Instead, a special object called a cell is created to store the value of the object. When various code objects (the outer function, the inner function, etc) will access this variable, the use of the ``*_DEREF`` opcodes will cause the cell to be accessed rather than the namespace of the accessing code object.
+
+* Since the cell is actually accessed only after outer has finished executing, you could even define inner before a was defined, and it would still work just the same (!).
+
+* This is automagical for name resolution, but for outer scope rebinding the nonlocal statement exists. nonlocal was decreed by PEP 3014 and it is somewhat similar to the global statement
+
+*  nonlocal explicitly declares a variable to be used from an outer scope rather than locally, both for resolution and re-binding. It is illegal to use nonlocal outside of a lexically nested function, and it must be nested inside a function that defines the identifiers listed by nonlocal. 
+
+* There are several small gotchas about lexical scoping, but overall things behave as you would probably expect (for example, you can’t cause a name to be used locally and as a lexically nested name in the same code block, as the collapsed snippet below demonstrates)::
+
+        >>> def outer():
+        ...     a = 1
+        ...     def inner():
+        ...             b = a
+        ...             a = 1
+        ...             return a,b
+        ...     return inner
+        ...
+        >>> outer()()
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "<stdin>", line 4, in inner
+        UnboundLocalError: local variable 'a' referenced before assignment
+        >>>
+
+* This sums up the mechanics of naming and scoping. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Python Questions (With Answers)
 ===============================

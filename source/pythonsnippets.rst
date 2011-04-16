@@ -5,6 +5,34 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
+*fetchrfc.py* - On 14 Apr,2011.
+
+.. literalinclude:: ../python/fetchrfc.py
+   :tab-width: 4
+
+----
+
+*peepholeoptimization.py* - On 14 Apr,2011.
+
+.. literalinclude:: ../python/peepholeoptimization.py
+   :tab-width: 4
+
+----
+
+*struct_example_1.py* - On 14 Apr,2011.
+
+.. literalinclude:: ../python/struct_example_1.py
+   :tab-width: 4
+
+----
+
+*template.py* - On 14 Apr,2011.
+
+.. literalinclude:: ../python/template.py
+   :tab-width: 4
+
+----
+
 *updateuthcode.py* - On 10 Apr,2011.
 
 .. literalinclude:: ../python/updateuthcode.py
@@ -677,13 +705,6 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*peepholeoptimization.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/peepholeoptimization.py
-   :tab-width: 4
-
-----
-
 *os_exec1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/os_exec1.py
@@ -971,13 +992,6 @@ The following project page contains Python snippets useful for various tasks.
 
 ----
 
-*fetchrfc.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/fetchrfc.py
-   :tab-width: 4
-
-----
-
 *fcntl_1.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/fcntl_1.py
@@ -1156,13 +1170,6 @@ The following project page contains Python snippets useful for various tasks.
 *allifaces.py* - On 18 Feb,2011.
 
 .. literalinclude:: ../python/allifaces.py
-   :tab-width: 4
-
-----
-
-*accessing_substrings.py* - On 18 Feb,2011.
-
-.. literalinclude:: ../python/accessing_substrings.py
    :tab-width: 4
 
 ----
