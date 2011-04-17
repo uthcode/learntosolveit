@@ -16,6 +16,16 @@ Python's mercurial process
 * do the same for cpython
 * hg push will commit your changes.
 
+
+Bring your Repo in sync with main
+=================================
+
+* hg pull ../cpython (-u wont work)
+* hg merge
+* hg commit
+* hg push
+
+
 Discussion on Bugs
 ==================
 
@@ -341,7 +351,7 @@ Opcode looks like this.::
   functionality, like, say, the number-like slot ``nb_negative`` or the
   sequence-like slot ``sq_length``).  ``binary_op`` is an error-checking
   wrapper around ``binary_op1``, the real ‘do work’ function.
-  ``./Objects/abstract.c: binary_op1`` (an eye-opening read in itself) receives
+  ``./Objects/abstract.c: binary_op1`` receives
   ``BINARY_SUBTRACT‘s`` operands as v and w, and then tries to dereference
   ``v->ob_type->tp_as_number``, a structure pointing to many numeric slots
   which represents how v can be used as a number.
@@ -457,7 +467,8 @@ Opcode looks like this.::
 * Here is an example snippet which presents a particularly surprising behavior of attribute access.::
 
         >>> print(object.__dict__)
-        {'__ne__': <slot wrapper '__ne__' of 'object' objects>, ... , '__ge__': <slot wrapper '__ge__' of 'object' objects>}
+        {'__ne__': <slot wrapper '__ne__' of 'object' objects>, ... , 
+        '__ge__': <slot wrapper '__ge__' of 'object' objects>}
         >>> object.__ne__ is object.__dict__['__ne__']
         True
         >>> o = object()
@@ -573,24 +584,24 @@ Opcode looks like this.::
   the type explicitly or inherited from the type’s base when the type is
   created.
 
-* The generic attribute-getting function (PyObject_GenericGetAttr) and its
+* The generic attribute-getting function (``PyObject_GenericGetAttr``) and its
   algorithm is like so: (a) search the accessed instance’s type’s dictionary,
   and then all the type’s bases’ dictionaries. If a data descriptor was found,
-  invoke it’s tp_desr_get function and return the results. If something else is
+  invoke it’s ``tp_desr_get`` function and return the results. If something else is
   found, set it aside (we’ll call it X). (b) Now search the object’s
   dictionary, and if something is found, return it. (c) If nothing was found in
   the object’s dictionary, inspect X, if one was set aside at all; if X is a
-  non-data descriptor, invoke it’s tp_descr_get function and return the result,
+  non-data descriptor, invoke it’s ``tp_descr_get`` function and return the result,
   and if it’s a plain object it returns it. (d) Finally, if nothing was found,
-  it raise an AttributeError exception.  
+  it raise an ``AttributeError`` exception.  
   
 * So we learn that descriptors can execute code when they’re accessed as an
-  attribute (so when you do foo = o.a or o.a = foo, a runs code).  A powerful
+  attribute (so when you do ``foo = o.a or o.a = foo``, a runs code).  A powerful
   notion, that, and it’s used in several cases to implement some of Python’s
   more ‘magical’ features. 
 
 * Data-descriptors are even more powerful, as they take precedence over
-  instance attributes (if you have an object o of class C, class C has a foo
+  instance attributes (if you have an ``object o of class C``, class C has a foo
   data-descriptor and o has a foo instance attribute, when you do o.foo the
   descriptor will take precedence).
 
@@ -621,17 +632,17 @@ Opcode looks like this.::
 
 * We now understand that accessing attribute A on object O instantiated from
   class C1 which inherits C2 which inherits C3 can return A either from O, C1,
-  C2 or C3, depending on something called the method resolution order.
+  C2 or C3, depending on something called the ``method resolution order``.
 
 * This way of resolving attributes, when coupled with slot inheritance, is
   enough to explain most of Python’s inheritance functionality.
 
-* We’ve seen the definition of PyObject, and it most definitely didn’t have a
+* We’ve seen the definition of ``PyObject``, and it most definitely didn’t have a
   pointer to a dictionary, so where is the reference the object’s dictionary
   stored?
 
-* If you look closely at the definition of PyTypeObject (it’s good clean and
-  wholesome! read it every day!), you will see a field called tp_dictoffset.
+* If you look closely at the definition of ``PyTypeObject``, you will see a
+  field called ``tp_dictoffset``.
 
 * This field provides a byte offset into the C-structure allocated for objects
   instantiated from this type; at this offset, a pointer to a regular Python
@@ -639,11 +650,11 @@ Opcode looks like this.::
 
 * Under normal circumstances, when creating a new type, the size of the memory
   region necessary to allocate objects of that type will be calculated, and
-  that size will be larger than the size of vanilla PyObject. 
+  that size will be larger than the size of vanilla ``PyObject``. 
 
 * The extra room will typically be used (among other things) to store the
-  pointer to the dictionary (all this happens in ./Objects/typeobject.c:
-  type_new, see may_add_dict = base->tp_dictoffset == 0; onwards).::
+  pointer to the dictionary (all this happens in ``./Objects/typeobject.c``:
+  ``type_new, see may_add_dict = base->tp_dictoffset == 0``; onwards).::
 
         >>> class C: pass
         ...
@@ -663,24 +674,24 @@ Opcode looks like this.::
 
 * We have created a new class, instantiated an object from it and set some
   attribute on the object (o.foo = 'bar'), broke into gdb, dereferenced the
-  object’s type (C) and checked its tp_dictoffset (it was 16), and then checked
-  what’s to be found at the address pointed to by the pointer located at 16
-  bytes’ offset from the object’s C-structure, and indeed we found there a
-  dictionary object with the key foo pointing to the value bar.  
+  object’s type (C) and checked its ``tp_dictoffset`` (it was 16), and then
+  checked what’s to be found at the address pointed to by the pointer located
+  at 16 bytes’ offset from the object’s C-structure, and indeed we found there
+  a dictionary object with the key foo pointing to the value bar.  
 
-* Of course, if you check tp_dictoffset on a type which doesn’t have a
+* Of course, if you check ``tp_dictoffset`` on a type which doesn’t have a
   __dict__, like object, you will find that it is zero. You sure have a warm
   fuzzy feeling now, don’t you.
 
 * I define a class C inheriting object and doing nothing much else in Python,
   and then I instantiate o from that class, causing the extra memory for the
-  dictionary pointer to be allocated at tp_dictoffset.
+  dictionary pointer to be allocated at ``tp_dictoffset``.
 
-* I then type in my interpreter o.__dict__, which byte-compiles to the
-  LOAD_ATTR opcode, which causes the PyObject_GetAttr function to be called,
-  which dereferences the type of o and finds the slot tp_getattro, which causes
-  the default attribute searching mechanism described earlier in this post and
-  implemented in PyObject_GenericGetAttr. 
+* I then type in my interpreter ``o.__dict__``, which byte-compiles to the
+  ``LOAD_ATTR`` opcode, which causes the ``PyObject_GetAttr`` function to be
+  called, which dereferences the type of o and finds the ``slot tp_getattro``,
+  which causes the default attribute searching mechanism described earlier in
+  this post and implemented in ``PyObject_GenericGetAttr``.
 
 * So when all that happens, what returns my object’s dictionary? I know where
   the dictionary is stored, but I can see that __dict__ isn’t recursively
@@ -705,17 +716,17 @@ Opcode looks like this.::
         True
         >>>
 
-* Seems like there’s something called getset_descriptor (it’s in
-  ./Objects/typeobject.c), which are groups of functions implementing the
+* Seems like there’s something called ``getset_descriptor`` (it’s in
+  ``./Objects/typeobject.c``), which are groups of functions implementing the
   descriptor protocol and meant to be attached to an object placed in type’s
   __dict__.
 
-* This descriptor will intercept all attribute access to o.__dict__ on
+* This descriptor will intercept all attribute access to ``o.__dict__`` on
   instances of this type, and will return whatever it wants, in our case, a
-  reference to the dictionary found at the tp_dictoffset of o. 
+  reference to the dictionary found at the ``tp_dictoffset`` of o. 
 
 * This is also the explanation of the dict_proxy business we’ve seen earlier.
-  If in tp_dict there’s a pointer to a plain dictionary, what causes it to be
+  If in ``tp_dict`` there’s a pointer to a plain dictionary, what causes it to be
   returned wrapped in this read only proxy, and why? The __dict__ descriptor of
   the type’s type type does it.::
 
@@ -730,12 +741,12 @@ Opcode looks like this.::
   that mimics regular dictionaries’ behaviour but only allows read only access
   to the dictionary it wraps.
 
-* And why is it so important to prevent people from messing with a type’s
-  __dict__? Because a type’s namespace might hold them specially named methods,
-  like __sub__. 
+* And why is it so important to prevent people from messing with a ``type’s
+  __dict__``? Because a type’s namespace might hold them specially named
+  methods, like ``__sub__``. 
 
 * When you create a type with these specially named methods or when you set
-  them on the type as an attribute, the function update_one_slot will patch
+  them on the type as an attribute, the function ``update_one_slot`` will patch
   these methods into one of the type’s slots, as we’ve seen in 101 for the
   subtraction operation.
 
@@ -746,15 +757,14 @@ Opcode looks like this.::
 
 * ``__slots__`` are important construct when dealing with attributes access.
 
-* As was originally (and correctly) written in the post, descriptors are
-  objects whose type has their tp_descr_get and/or tp_descr_set slots set to
-  non-NULL. However, I also wrote, incorrectly, that descriptors take
-  precedence over regular instance attributes (i.e., attributes in the object’s
-  __dict__).  This is partly correct but misleading, as it doesn’t distinguish
-  non-data descriptors from data-descriptors. An object is said to be a data
-  descriptor if its type has its tp_descr_set slot implemented (there’s no
-  particularly special term for a non-data descriptor). Only data descriptors
-  override regular object attributes, non-data descriptors do not. 
+* descriptors are objects whose type has their tp_descr_get and/or tp_descr_set
+  slots set to non-NULL. However, I also wrote, incorrectly, that descriptors
+  take precedence over regular instance attributes (i.e., attributes in the
+  object’s __dict__).  This is partly correct but misleading, as it doesn’t
+  distinguish non-data descriptors from data-descriptors. An object is said to
+  be a data descriptor if its type has its tp_descr_set slot implemented
+  (there’s no particularly special term for a non-data descriptor). Only data
+  descriptors override regular object attributes, non-data descriptors do not. 
 
 * Look into the Interpreter State and the Thread State structures both
   implemented in `./Python/pystate.c`
@@ -788,7 +798,7 @@ Opcode looks like this.::
   thread and Python threads execute as separate kernel-managed threads, running
   in parallel with all other threads in the system. Uhm, almost.
 
-* many aspects of Python’s CPython implementation are not thread safe. This is
+* Many aspects of Python’s CPython implementation are not thread safe. This is
   has some benefits, like simplifying the implementation of easy-to-screw-up
   pieces of code and guaranteed atomicity of many Python operations, but it
   also means that a mechanism must be put in place to prevent two (or more)
@@ -839,23 +849,24 @@ Opcode looks like this.::
   ceval.c: PyEval_EvalFrameEx). 
 
 *  In this code-structure-oriented post, the main thing we care about is the
-  f_back field of the frame object (though many others exist). In frame n this
-  field points to frame n-1, i.e., the frame that called us (the first frame
-  that was called in any particular thread, the top frame, points to NULL).
+  ``f_back`` field of the frame object (though many others exist). In ``frame
+  n`` this field points to frame n-1, i.e., the frame that called us (the first
+  frame that was called in any particular thread, the top frame, points to
+  NULL).
 
 * This stack of frames is unique to every thread and is anchored to the
-  thread-specific structure ./Include.h/pystate.h: PyThreadState, which
+  thread-specific structure ``./Include.h/pystate.h: PyThreadState``, which
   includes a pointer to the currently executing frame in that thread (the most
   recently called frame, the bottom of the stack).
 
 * PyThreadState is allocated and initialized for every Python thread in a
-  process by _PyThreadState_Prealloc just before new thread creation is
-  actually requested from the underlying OS (see ./Modules/_threadmodule.c:
-  thread_PyThread_start_new_thread and >>> from _thread import
-  start_new_thread). 
+  process by ``_PyThreadState_Prealloc`` just before new thread creation is
+  actually requested from the underlying OS (see ``./Modules/_threadmodule.c:
+  thread_PyThread_start_new_thread`` and ``>>> from _thread import
+  start_new_thread``). 
 
 * Threads can be created which will not be under the interpreter’s control;
-  these threads won’t have a PyThreadState structure and must never call a
+  these threads won’t have a ``PyThreadState`` structure and must never call a
   Python API.
 
 * This isn’t so common in a Python application but is more common when Python
@@ -866,7 +877,7 @@ Opcode looks like this.::
 
 * Finally, a bit like all frames are tied together in a backward-going stack of
   previous-frame pointers, so are all thread states tied together in a linked
-  list of PyThreadState \*next pointers.
+  list of ``PyThreadState *next`` pointers.
 
 * The list of thread states is anchored to the interpreter state structure
   which owns these threads. The interpreter state structure is defined at
