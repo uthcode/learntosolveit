@@ -1097,6 +1097,544 @@ many languages call variables).
 
 * This sums up the mechanics of naming and scoping. 
 
+* The compilation of Python source code emits Python bytecode, which is evaluated at runtime to produce whatever behaviour the programmer implemented.
+
+* I guess you can think of bytecode as ‘machine code for the Python virtual
+  machine’, and indeed if you look at some binary x86 machine code (like this
+  one: 0x55 0x89 0xe5 0xb8 0x2a 0x0 0x0 0x0 0x5d) and some Python bytecode
+  (like that one: 0x64 0x1 0x0 0x53) they look more or less like the same sort
+  of gibberish. 
+
+
+* The bytecode and these fields are lumped together in an object called a code object, our subject for this article.
+
+* You might initially confuse function objects with code objects, but shouldn’t. Functions are higher level creatures that execute code by relying on a lower level primitive, the code object, but adding more functionality on top of that (in other words, every function has precisely one code object directly associated with it, this is the function’s __code__ attribute, or f_code in Python 2.x).
+
+* For example, among other things, a function keeps a reference to the global namespace (remember that?) in which it was originally defined, and knows the default values of arguments it receives. 
+
+* You can sometimes execute a code objects without a function (see eval and exec), but then you will have to provide it with a namespace or two to work in. 
+
+* Finally, just for accuracy’s sake, please note that tp_call of a function object isn’t exactly like exec or eval; the latter don’t pass in arguments or provide free argument binding (more below on these).
+
+* If this doesn’t sit well with you yet, don’t panic, it just means functions’ code objects won’t necessarily be executable using eval or exec. I hope we have that settled.
+
+* a piece of Python program text that is executed as a unit. The following are blocks: a module, a function body, and a class definition.
+
+* As usual, I don’t want to dig too deeply into compilation, but basically when a code block is encountered, it has to be successfully transformed into an AST (which requires mostly that its syntax will be correct), which is then passed to ./Python/compile.c: PyAST_Compile, the entry point into Python’s compilation machinary. 
+
+* You absolutely can’t run this code meaningfully without its constants, and indeed 42 is referred to by one of the extra fields of the code object. We will best see the interaction between the actual bytecode and the accompanying fields as we do a manual disassembly::
+
+        # the opcode module has a mapping of opcode
+        #  byte values to their symbolic names
+        >>> import opcode
+        >>> def return42(): return 42
+        ...
+        # this is the function's code object
+        >>> return42.__code__
+        <code object return42 ... >
+        # this is the actual bytecode
+        >>> return42.__code__.co_code
+        b'd\x01\x00S'
+        # this is the field holding constants
+        >>> return42.__code__.co_consts
+        (None, 42)
+        # the first opcode is LOAD_CONST
+        >>> opcode.opname[return42.__code__.co_code[0]]
+        'LOAD_CONST'
+        # LOAD_CONST has one word as an operand
+        #  let's get its value
+        >>> return42.__code__.co_code[1] + \
+        ... 256 * return42.__code__.co_code[2]
+        1
+        # and which constant can we find in offset 1?
+        >>> return42.__code__.co_consts[1]
+        42
+        # finally, the next opcode
+        >>> opcode.opname[return42.__code__.co_code[3]]
+        'RETURN_VALUE'
+        >>>
+
+
+* In addition to dis, the function show_code from the same module is useful to look at code objects::
+
+        >>> diss(return42)
+          1           0 LOAD_CONST               1 (42)
+                      3 RETURN_VALUE
+        >>> ssc(return42)
+        Name:              return42
+        Filename:          <stdin>
+        Argument count:    0
+        Kw-only arguments: 0
+        Number of locals:  0
+        Stack size:        1
+        Flags:             OPTIMIZED, NEWLOCALS, NOFREE
+        Constants:
+           0: None
+           1: 42
+        >>>
+
+* We see diss and ssc generally agree with our disassembly, though ssc further parsed all sorts of other fields of the code object which we didn’t handle so far (you can run dir on a code object to see them yourself).
+
+* Code objects are immutable and their fields don’t hold any references (directly or indirectly) to mutable objects.
+
+* This immutability is useful in simplifying many things, one of which is the handling of nested code blocks.
+
+* An example of a nested code block is a class with two methods: the class is built using a code block, and this code block nests two inner code blocks, one for each method. 
+
+* This situation is recursively handled by creating the innermost code objects first and treating them as constants for the enclosing code object (much like an integer or a string literal would be treated). 
+
+* Now that we have seen the relation between the bytecode and a code object field (co_consts), let’s take a look at the myriad of other fields in a code object.
+
+* Many of these fields are just integer counters or tuples of strings representing how many or which variables of various sorts are used in a code object. But looking to the horizon where ceval.c and frame object evaluation is waiting for us, I can tell you that we need an immediate and crisp understanding of all these fields and their exact meaning, subtleties included.
+
+* Identity or origin (strings)
+
+co_name
+        A name (a string) for this code object; for a function this would be the function’s name, for a class this would be the class’ name, etc. The compile builtin doesn’t let you specify this, so all code objects generated with it carry the name <module>.
+
+co_filename
+
+        The filename from which the code was compiled. Will be <stdin> for code entered in the interactive interpreter or whatever name is given as the second argument to compile for code objects created with compile.
+
+* Different types of names (string tuples)
+
+co_varnames
+        A tuple containing the names of the local variables (including arguments). To parse this tuple properly you need to look at co_flags and the counter fields listed below, so you’ll know which item in the tuple is what kind of variable. In the ‘richest’ case, co_varnames contains (in order): positional argument names (including optional ones), keyword only argument names (again, both required and optional), varargs argument name (i.e., ``*args``), kwds argument name (i.e., ``**kwargs``), and then any other local variable names. So you need to look at co_argcount, co_kwonlyargcount and co_flags to fully interpret this tuple.
+
+co_cellvars
+        A tuple containing the names of local variables that are stored in cells (discussed in the previous article) because they are referenced by lexically nested functions.
+
+co_freevars
+        A tuple containing the names of free variables. Generally, a free variable means a variable which is referenced by an expression but isn’t defined in it. In our case, it means a variable that is referenced in this code object but was defined and will be dereferenced to a cell in another code object (also see co_cellvars above and, again, the previous article).
+co_names
+        A tuple containing the names which aren’t covered by any of the other fields (they are not local variables, they are not free variables, etc) used by the bytecode. This includes names deemed to be in the global or builtin namespace as well as attributes (i.e., if you do foo.bar in a function, bar will be listed in its code object’s names).
+
+
+* Counters and indexes (integers)
+
+co_argcount
+        The number of positional arguments the code object expects to receive, including those with default values. For example, def foo(a, b, c=3): pass would have a code object with this value set to three. The code object of classes accept one argument which we will explore when we discuss class creation.
+co_kwonlyargcount
+        The number of keyword arguments the code object can receive.
+co_nlocals
+        The number of local variables used in the code object (including arguments).
+co_firstlineno
+        The line offset where the code object’s source code began, relative to the module it was defined in, starting from one. In this (and some but not all other regards), each input line typed in the interactive interpreter is a module of its own.
+co_stacksize
+        The maximum size required of the value stack when running this object. This size is statically computed by the compiler (./Python/compile.c: stackdepth when the code object is created, by looking at all possible flow paths searching for the one that requires the deepest value stack. To illustrate this, look at the diss and ssc outputs for a = 1 and a = [1,2,3]. The former has at most one value on the value stack at a time, the latter has three, because it needs to put all three integer literals on the stack before building the list.
+
+* Other stuff (various)
+
+co_code
+        A string representing the sequence of bytecode instructions, contains a stream of opcodes and their operands (or rather, indexes which are used with other code object fields to represent their operands, as we saw above).
+co_consts
+        A tuple containing the literals used by the bytecode. Remember everything in a code object must be immutable, running diss and ssc on the code snippets a=(1,2,3) versus [1,2,3] and yet again versus a=(1,2,3,[4,5,6]) recommended to dig this field.
+co_lnotab
+        A string encoding the mapping from bytecode offsets to line numbers. If you happen to really care how this is encoded you can either look at ./Python/compile.c or ./Lib/dis.py: findlinestarts.
+co_flags
+        An integer encoding a number of flags regarding the way this code object was created (which says something about how it should be evaluated). The list of possible flags is listed in ./Include/code.h, as a small example I can give CO_NESTED, which marks a code object which was compiled from a lexically nested function. Flags also have an important role in the implementation of the __future__ mechanism, which is still unused in Python 3.1 at the time of this writing, as no “future syntax” exists in Python 3.1. However, even when thinking in Python 3.x terms co_flags is still important as it facilitates the migration from the 2.x branch. In 2.x, __future__ is used when enabling Python 3.x like behaviour (i.e., from __future__ import print_function in Python 2.7 will disable the print statement and add a print function to the builtins module, just like in Python 3.x). If we come across flags from now on (in future posts), I’ll try to mention their relevance in the particular scenario.
+co_zombieframe
+        This field of the PyCodeObject struct is not exposed in the Python object; it (optionally) points to a stack frame object. This can aid performance by maintaining an association between a code object and a stack frame object, so as to avoid reallocation of frames by recycling the frame object used for a code object. There’s a detailed comment in ./Objects/frameobject.c explaining zombie frames and their reanimation, we may mention this issue again when we discuss stack frames.
+
+* The above codeobjects list is not exhaustive. More can be added based on need and usage.
+* This completes the codeobjects explaination, next will be frameobjects.
+* Core of Python’s Virtual Machine, the “actually do work function” ./Python/ceval.c: PyEval_EvalFrameEx
+* Last hurdle on our way there is to understand the three significant stack data structures used for CPython’s code evaluation: the call stack, the value stack and the block stack.
+
+* All three stacks are tightly coupled with the frame object, which will also be discussed today.
+
+* In computer science, a call stack is a stack data structure that stores information about the active subroutines of a computer program… A call stack is composed of stack frames (…). These are machine dependent data structures containing subroutine state information. Each stack frame corresponds to a call to a subroutine which has not yet terminated with a return.
+
+* Since CPython implements a virtual machine, its call stack and stack frames are dependant on this virtual machine, not on the physical machine it’s running on.
+
+* Python tends to do, this internal implementation detail is exposed to Python code, either via the C-API or pure Python, as frame objects (./Include/frameobject.h: PyFrameObject). 
+
+* We know that code execution in CPython is really the evaluation (interpretation) of a code object, so every frame represents a currently-being-evaluated code object. 
+
+* We’ll see (and already saw before) that frame objects are linked to one another, thus forming a call stack of frames. 
+
+* Finally, inside each frame object in the call stack there’s a reference to two frame-specific stacks (not directly related to the call stack), they are the value stack and the block stack.
+
+* The value stack (you may know this term as an ‘evaluation stack’) is where manipulation of objects happens when object-manipulating opcodes are evaluated
+
+* We have seen the value stack before on various occasions, like in the introduction and during our discussion of namespaces. 
+
+* Recalling an example we used before, BINARY_SUBTRACT is an opcode that effectively pops the two top objects in the value stack, performs PyNumber_Subtract on them and sets the new top of the value stack to the result. 
+
+* Namespace related opcodes, like LOAD_FAST or STORE_GLOBAL, load values from a namespace to the stack or store values from the stack to a namespace.
+
+* Each frame has a value stack of its own (this makes sense in several ways, possibly the most prominent is simplicity of implementation), we’ll see later where in the frame object the value stack is stored.
+
+* Python has a notion called a code block, which we have discussed in the article about code objects and which is also explained here. Completely unrelatedly, Python also has a notion of compound statements, which are statements that contain other statements (the language reference defines compound statements here). Compound statements consist of one or more clauses, each made of a header and a suite. Even if the terminology wasn’t known to you until now, I expect this is all instinctively clear to you if you have almost any Python experience: for, try and while are a few compound statements.
+
+*  In various places throughout the code, a block (sometimes “frame block”, sometimes “basic block”) is used as a loose synonym for a clause or a suite, making it easier to confuse suites and clauses with what’s actually a code block or vice versa. 
+
+* Both the compilation code (./Python/compile.c) and the evaluation code (./Python/ceval.c) are aware of various suites and have (ill-named) data structures to deal with them; but since we’re more interested in evaluation in this series, we won’t discuss the compilation-related details much (or at all). 
+
+* Whenever I’ll think wording might get confusing, I’ll mention the formal terms of clause or suite alongside whatever code term we’re discussing.
+
+* With all this terminology in mind we can look at what’s contained in a frame object. 
+
+* Looking at the declaration of ./Include/frameobject.h: PyFrameObject, we find (comments were trimmed and edited for your viewing pleasure)::
+
+        typedef struct _frame {
+           PyObject_VAR_HEAD
+           struct _frame *f_back;   /* previous frame, or NULL */
+           PyCodeObject *f_code;    /* code segment */
+           PyObject *f_builtins;    /* builtin symbol table */
+           PyObject *f_globals;     /* global symbol table */
+           PyObject *f_locals;      /* local symbol table */
+           PyObject **f_valuestack; /* points after the last local */
+           PyObject **f_stacktop;   /* current top of valuestack */
+           PyObject *f_trace;       /* trace function */
+         
+           /* used for swapping generator exceptions */
+           PyObject *f_exc_type, *f_exc_value, *f_exc_traceback;
+         
+           PyThreadState *f_tstate; /* call stack's thread state */
+           int f_lasti;             /* last instruction if called */
+           int f_lineno;            /* current line # (if tracing) */
+           int f_iblock;            /* index in f_blockstack */
+         
+           /* for try and loop blocks */
+           PyTryBlock f_blockstack[CO_MAXBLOCKS];
+         
+           /* dynamically: locals, free vars, cells and valuestack */
+           PyObject *f_localsplus[1]; /* dynamic portion */
+        } PyFrameObject;
+
+
+
+* We see various fields used to store the state of this invocation of the code object as well as maintain the call stack’s structure. 
+
+* Both in the C-API and in Python these fields are all prefixed by f_, though not all the fields of the C structure PyFrameObject are exposed in the pythonic representation.
+
+* We already mentioned the relation between frame and code objects, so the f_code field of every frame points to precisely one code object.
+
+*  Insofar as structure goes, frames point backwards thus that they create a stack (f_back) as well as point “root-wards” in the interpreter state/thread state/call stack structure by pointing to their thread state (f_tstate), as explained here. Finally, since you always execute Python code in the context of three namespaces (as discussed there), frames have the f_builtins, f_globals and f_locals fields to point to these namespaces. 
+
+* Before we dig into the other fields of a frame object, please notice frames are a variable size Python object (they are a PyObject_VAR_HEAD). 
+
+* The reason is that when a frame object is created it should be dynamically allocated to be large enough to contain references (pointers, really) to the locals, cells and free variables used by its code object, as well as the value stack needed by the code objects ‘deepest’ branch. 
+
+* Indeed, the last field of the frame object, f_localsplus (locals plus cells plus free variables plus value stack…) is a dynamic array where all these references are stored. 
+
+* PyFrame_New will show you exactly how the size of this array is computed.
+
+
+* co_nlocals, co_cellvars, co_freevars and co_stacksize – during evaluation, all these ‘dead’ parts of the inert code object come to ‘life’ in space allocated at the end of the frame
+
+* As we’ll probably see in the next article, when the frame is evaluated, these references at the end of the frame will be used to get (or set) “fast” local variables, free variables and cell variables, as well as to the variables on the value stack (“fast” locals was explained when we discussed namespaces). 
+
+* Looking back at the commented declaration above and given what I said here, I believe you should now understand f_valuestack, f_stacktop and f_localsplus.
+
+* As you can maybe imagine, compound statements sometimes require state to be evaluated.
+
+* If we’re in a loop, we need to know where to go in case of a break or a continue.
+
+*  If we’re raising an exception, we need to know where is the innermost enclosing handler (the suite of the closest except header, in more formal terms).
+
+* This state is stored in f_blockstack, a fixed size stack of PyTryBlock structures which keeps the current compound statement state for us (PyTryBlock is not just for try blocks; it has a b_type field to let it handle various types of compound statements’ suites). 
+
+* f_iblock is an offset to the last allocated PyTryBlock in the stack. 
+
+* If we need to bail out of the current “block” (that is, the current clause), we can pop the block stack and find the new offset in the bytecode from which we should resume evaluation in the popped PyTryBlock (look at its b_handler and b_level fields). 
+
+* A somewhat special case is a raised exception which exhausts the block stack without being caught, as you can imagine, in that case a handler will be sought in the block stack of the previous frames on the call stack.
+
+* All this should easily click into place now if you read three code snippets. First, look at this disassembly of a for statement (this would look strikingly similar for a try statement)::
+
+        >>> def f():
+        ...     for c in 'string':
+        ...             my_global_list.append(c)
+        ...
+        >>> diss(f)
+         2           0 SETUP_LOOP              27 (to 30)
+                     3 LOAD_CONST               1 ('string')
+                     6 GET_ITER
+               >>    7 FOR_ITER                19 (to 29)
+                    10 STORE_FAST               0 (c)
+         
+         3          13 LOAD_GLOBAL              0 (my_global_list)
+                    16 LOAD_ATTR                1 (append)
+                    19 LOAD_FAST                0 (c)
+                    22 CALL_FUNCTION            1
+                    25 POP_TOP
+                    26 JUMP_ABSOLUTE            7
+               >>   29 POP_BLOCK
+               >>   30 LOAD_CONST               0 (None)
+                    33 RETURN_VALUE
+        >>>
+
+*  look at how the opcodes SETUP_LOOP and POP_BLOCK are implemented in ./Python/ceval.c.
+
+* Notice that SETUP_LOOP and SETUP_EXCEPT or SETUP_FINALLY are rather similar, they all push a block matching the relevant suite unto the block stack, and they all utilize the same POP_BLOCK::
+
+        TARGET_WITH_IMPL(SETUP_LOOP, _setup_finally)
+        TARGET_WITH_IMPL(SETUP_EXCEPT, _setup_finally)
+        TARGET(SETUP_FINALLY)
+        _setup_finally:
+            PyFrame_BlockSetup(f, opcode, INSTR_OFFSET() + oparg,
+                       STACK_LEVEL());
+            DISPATCH();
+         
+        TARGET(POP_BLOCK)
+            {
+                PyTryBlock *b = PyFrame_BlockPop(f);
+                UNWIND_BLOCK(b);
+            }
+            DISPATCH();
+
+* Finally, look at the actual implementation of ./Object/frameobject.c: PyFrame_BlockSetup and ./Object/frameobject.c::
+
+        PyFrame_BlockPop:
+
+        void
+        PyFrame_BlockSetup(PyFrameObject *f, int type, int handler, int level)
+        {
+           PyTryBlock *b;
+           if (f->f_iblock >= CO_MAXBLOCKS)
+               Py_FatalError("XXX block stack overflow");
+           b = &f->f_blockstack[f->f_iblock++];
+           b->b_type = type;
+           b->b_level = level;
+           b->b_handler = handler;
+        }
+         
+        PyTryBlock *
+        PyFrame_BlockPop(PyFrameObject *f)
+        {
+           PyTryBlock *b;
+           if (f->f_iblock <= 0)
+               Py_FatalError("XXX block stack underflow");
+           b = &f->f_blockstack[--f->f_iblock];
+           return b;
+        }
+
+*  If you keep the terminology straight, f_blockstack turns out to be rather simple
+
+* We’re left with the rather esoteric fields, some simpler, some a bit more arcane. In the ‘simpler’ range we have f_lasti, an integer offset into the bytecode of the last instructions executed (initialized to -1, i.e., we didn’t execute any instruction yet).
+
+* This index lets us iterate over the opcodes in the bytecode stream. Heading towards the ‘more arcane’ area we see f_trace and f_lineno. f_trace is a pointer to a tracing function (see sys.settrace; think implementation of a tracer or a debugger). 
+
+* f_lineno contains the line number of the line which caused the generation of the current opcode; it is valid only when tracing (otherwise use PyCode_Addr2Line).
+
+* Last but not least, we have three exception fields (f_exc_type, f_exc_value and f_exc_traceback), which are rather particular to generators so we’ll discuss them when we discuss that beast (there’s a longer comment about these fields in ./Include/frameobject.h if you’re curious right now).
+
+* On a parting note, we can mention when frames are created. This happens in ./Objects/frameobject.c: PyFrame_New, usually called from ./Python/ceval.c: PyEval_EvalCodeEx (and ./Python/ceval.c: fast_function, a specialized optimization of PyEval_EvalCodeEx).
+
+* Frame creation occurs whenever a code object should be evaluated, which is to say when a function is called, when a module is imported (the module’s top-level code is executed), whenever a class is defined, for every discrete command entered in the interactive interpreter, when the builtins eval or exec are used and when the -c switch is used (I didn’t absolutely verify this is a 100% exhaustive list, but it think it’s rather complete).
+
+* Looking at the list in the previous paragraph, you probably realized frames are created very often, so two optimizations are implemented to make frame creation fast: first, code objects have a field (co_zombieframe) which allows them to remain associated with a ‘zombie’ (dead, unused) frame object even when they’re not evaluated. If a code object was already evaluated once, chances are it will have a zombie frame ready to be reanimated by PyFrame_New and returned instead of a newly allocated frame (trading some memory to reduce the number of allocations). 
+
+* Second, allocated and entirely unused stack frames are kept in a special free-list (./Objects/frameobject.c: free_list), frames from this list will be used if possible, instead of actually allocating a brand new frame. This is all kindly commented in ./Objects/frameobject.c.
+
+
+* ./Python/ceval.c: PyEval_EvalFrameEx is important function in the Python interpreter.
+
+*  Well, as I said, this switch can be found in the rather lengthy file ceval.c, in the rather lengthy function PyEval_EvalFrameEx, which takes more than half the file’s lines (it’s roughly 2,250 lines, the file is about 4,400). 
+
+* PyEval_EvalFrameEx implements CPython’s evaluation loop, which is to say that it’s a function that takes a frame object and iterates over each of the opcodes in its associated code object, evaluating (interpreting, executing) each opcode within the context of the given frame (this context is chiefly the associated namespaces and interpreter/thread states). 
+
+* There’s more to ceval.c than PyEval_EvalFrameEx, and we may discuss some of the other bits later in this post (or perhaps a follow-up post), but PyEval_EvalFrameEx is obviously the most important part of it.
+
+* Having described the evaluation loop in the previous paragraph, let’s see what it looks like in C (edited)::
+
+        PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
+        {
+            /* variable declaration and initialization stuff */
+            for (;;) {
+                /* do periodic housekeeping once in a few opcodes */
+                opcode = NEXTOP();
+                if (HAS_ARG(opcode)) oparg = NEXTARG();
+                switch (opcode) {
+                    case NOP:
+                        goto fast_next_opcode;
+                    /* lots of more complex opcode implementations */
+                    default:
+                        /* become rather unhappy */
+                }
+                /* handle exceptions or runtime errors, if any */
+            }
+            /* we are finished, pop the frame stack */
+            tstate->frame = f->f_back;
+            return retval;
+        }
+
+* As you can see, iteration over opcodes is infinite (forever: fetch next opcode, do stuff), breaking out of the loop must be done explicitly.
+
+*  CPython (reasonably) assumes that evaluated bytecode is correct in the sense that it terminates itself by raising an exception, returning a value, etc. Indeed, if you were to synthesize a code object without a RETURN_VALUE at its end and execute it (exercise to reader: how?1), you’re likely to execute rubbish, reach the default handler (raises a SystemError) or maybe even segfault the interpreter (I didn’t check this thoroughly, but it looks plausible).
+
+* In order for you to be able to get a feel for what more serious opcode implementations look like, here’s the (edited) implementation of three more opcodes, illustrating a few more principles::
+
+        case BINARY_SUBTRACT:
+            w = *--stack_pointer; /* value stack POP */
+            v = stack_pointer[-1];
+            x = PyNumber_Subtract(v, w);
+            stack_pointer[-1] = x; /* value stack SET_TOP */
+            if (x != NULL) continue;
+            break;
+        case LOAD_CONST:
+            x = PyTuple_GetItem(f->f_code->co_consts, oparg);
+            *stack_pointer++ = x; /* value stack PUSH */
+            goto fast_next_opcode;
+        case SETUP_LOOP:
+        case SETUP_EXCEPT:
+        case SETUP_FINALLY:
+            PyFrame_BlockSetup(f, opcode, INSTR_OFFSET() + oparg,
+                       STACK_LEVEL());
+            continue;
+
+* We see several things. First, we see a typical value manipulation opcode, BINARY_SUBTRACT. This opcode (and many others) works with values on the value stack as well as with a few temporary variables, using CPython’s C-API abstract object layer (in our case, a function from the number-like object abstraction) to replace the two top values on the value stack with the single value resulting from subtraction. 
+
+* As you can see, a small set of temporary variables, such as v, w and x are used (and reused, and reused…) as the registers of the CPython VM.
+
+* The variable stack_pointer represents the current bottom of the stack (the next free pointer in the stack). This variable is initialized at the beginning of the function like so: stack_pointer = f->f_stacktop;
+
+*  In essence, together with the room reserved in the frame object for that purpose, the value stack is this pointer. To make things simpler and more readable, the real (unedited by me) code of ceval.c defines several value stack manipulation/observation macros, like PUSH, TOP or EMPTY. 
+
+* Next, we see a very simple opcode that loads values from somewhere into the valuestack. I chose to quote LOAD_CONST because it’s very brief and simple, although it’s not really a namespace related opcode.
+
+* “Real” namespace opcodes load values into the value stack from a namespace and store values from the value stack into a namespace; LOAD_CONST loads constants, but doesn’t fetch them from a namespace and has no STORE_CONST counterpart (we explored all this at length in the article about namespaces).
+
+* The final opcode I chose to show is actually the single implementation of several different control-flow related opcodes (SETUP_LOOP, SETUP_EXCEPT and SETUP_FINALLY), which offload all details of their implementation to the block stack manipulation function PyFrame_BlockSetup; we discussed the block stack in our discussion of interpreter stacks.
+
+* Something we can observe looking at these implementations is that different opcodes exit the switch statement differently. Some simply break, and let the code after the switch resume. 
+
+* Some use continue to start the for loop from the beginning. Some goto various labels in the function. Each exit has different semantic meaning. 
+
+* If you break out of the switch (the ‘normal’ route), various checks will be made to see if some special behaviour should be performed – maybe a code block has ended, maybe an exception was raised, maybe we’re ready to return a value. 
+
+* Continuing the loop or going to a label lets certain opcodes take various shortcuts; no use checking for an exception after a NOP or a LOAD_CONST, for instance.
+
+* if you look at the code itself, you will see that none of the case expressions for the big switch are really there. The code for the NOP opcode is actually (remember this series is about Python 3.x unless noted otherwise, so this snippet is from Python 3.1.2)::
+
+        TARGET(NOP)
+            FAST_DISPATCH();
+
+* TARGET? FAST_DISPATCH? What are these? Let me explain. Things may become clearer if we’d look for a moment at the implementation of the NOP opcode in ceval.c of Python 2.x.
+
+* Over there the code for NOP looks more like the samples I’ve shown you so far, and it actually seems to me that the code of ceval.c gets simpler and simpler as we look backwards at older revisions of it.
+
+* The reason is that although I think PyEval_EvalFrameEx was originally written as a really exceptionally straightforward piece of code, over the years some necessary complexity crept into it as various optimizations and improvements were implemented (I’ll collectively call them ‘additions’ from now on, for lack of a better term).
+
+* To further complicate matters, many of these additions are compiled conditionally with preprocessor directives, so several things are implemented in more than one way in the same source file.
+
+* I can understand trading simplicity to optimize a tight loop which is used very often, and the evaluation loop is probably one of the more used loops in CPython (and probably as tight as its contributors could make it). So while this is all very warranted, it doesn’t help the readability of the code.
+
+* Anyway, I’d like to enumerate these additions here explicitly (some in more depth than others); this should aid future discussion of ceval.c, as well as prevent me from feeling like I’m hiding too many important things with my free spirited editing of quoted code.
+
+* Fortunately, most if not all these additions are very well commented -actually, some of the explanations below will be just summaries or even taken verbatim from these comments, as I believe that they’re accurate (eek!). So, as you read PyEval_EvalFrameEx (and indeed ceval.c in general), you’re likely to run into any of these
+
+* “Threaded Code” (Computed-GOTOs)
+
+* Let’s start with the addition that gave us TARGET, FAST_DISPATCH and a few other macros. The evaluation loop uses a “switch” statement, which decent compilers optimize as a single indirect branch instruction with a lookup table of addresses.
+
+* Alas, since we’re switching over rapidly changing opcodes (it’s uncommon to have the same opcode repeat), this would have an adverse effect on the success rate of CPU branch prediction. 
+
+* Fortunately gcc supports the use of C-goto labels as values, which you can generally pass around and place in an array (restrictions apply!). 
+
+* Using an array of adresses in memory obtained from labels, as you can see in ./Python/opcode_targets.h, we create an explicit jump table and place an explicit indirect jump instruction at the end of each opcode. 
+
+* This improves the success rate of CPU prediction and can yield as much as 20% boost in performance.
+
+* Thus, for example, the NOP opcode is implemented in the code like so::
+
+        TARGET(NOP)
+            FAST_DISPATCH();
+
+* In the simpler scenario, this would expand to a plain case statement and a goto, like so::
+
+        case NOP:
+            goto fast_next_opcode;
+
+* But when threaded code is in use, that snippet would expand to (I highlighted the lines where we actually move on to the next opcode, using the dispatch table of label-values)::
+
+        TARGET_NOP:
+            opcode = NOP;
+            if (HAS_ARG(NOP))
+                oparg = NEXTARG();
+        case NOP:
+            {
+                if (!_Py_TracingPossible) {
+                    f->f_lasti = INSTR_OFFSET();
+                    goto *opcode_targets[*next_instr++];
+                }
+                goto fast_next_opcode;
+            }
+
+
+* Same behaviour, somewhat more complicated implementation, up to 20% faster Python. Nifty.
+
+* Opcode Prediction
+
+* Some opcodes tend to come in pairs. For example, COMPARE_OP is often followed by JUMP_IF_FALSE or JUMP_IF_TRUE, themselves often followed by a POP_TOP. 
+
+* What’s more, there are situations where you can determine that a particular next-opcode can be run immediately after the execution of the current opcode, without going through the ‘outer’ (and expensive) parts of the evaluation loop.
+
+* PREDICT (and a few others) are a set of macros that explicitly peek at the next opcode and jump to it if possible, shortcutting most of the loop in this fashion (i.e., ``if (*next_instr == op) goto PRED_##op)``.
+
+* Note that there is no relation to real hardware here, these are simply hardcoded conditional jumps, not an exploitation of some mechanism in the underlying CPU (in particular, it has nothing to do with “Threaded Code” described above).
+
+* Low Level Tracing
+
+* An addition primarily geared towards those developing CPython (or suffering from a horrible, horrible bug)
+
+* Low Level Tracing is controlled by the LLTRACE preprocessor name, which is enabled by default on debug builds of CPython (see --with-pydebug). As explained in ./Misc/SpecialBuilds.txt: when this feature is compiled-in, PyEval_EvalFrameEx checks the frame’s global namespace for the variable __lltrace__. 
+
+* If such a variable is found, mounds of information about what the interpreter is doing are sprayed to stdout, such as every opcode and opcode argument and values pushed onto and popped off the value stack. Not useful very often, but very useful when needed.
+
+* This is the what the low level trace output looks like (slightly edited)::
+
+        >>> def f():
+        ...     global a
+        ...     return a - 5
+        ...
+        >>> dis(f)
+          3           0 LOAD_GLOBAL              0 (a)
+                      3 LOAD_CONST               1 (5)
+                      6 BINARY_SUBTRACT
+                      7 RETURN_VALUE
+        >>> exec(f.__code__, {'__lltrace__': 'foo', 'a': 10})
+        0: 116, 0
+        push 10
+        3: 100, 1
+        push 5
+        6: 24
+        pop 5
+        7: 83
+        pop 5
+        # trace of the end of exec() removed
+        >>>
+
+* As you can guess, you’re seeing a real-time disassembly of what’s going through the VM as well as stack operations. For example, the first line says: line 0, do opcode 116 (LOAD_GLOBAL) with the operand 0 (expands to the global variable a), and so on, and so forth. This is a bit like (well, little more than) adding a bunch of printf calls to the heart of VM.
+
+* Advanced Profiling
+
+* Under this heading I’d like to briefly discuss several profiling related additions. The first relies on the fact that some processors (notably Pentium descendants and at least some PowerPCs) have built-in wall time measurement capabilities which are cheap and precise (correct me if I’m wrong).
+
+* As an aid in the development of a high-performance CPython implementation, Python 2.4′s ceval.c was instrumented with the ability to collect per-opcode profiling statistics using these counters.
+
+* This instrumentation is controlled by the somewhat misnamed --with-tsc configuration flag (TSC is an Intel Pentium specific name, and this feature is more general than that). Calling sys.settscdump(True) on an instrumented interpreter will cause the function ./Python/ceval.c: dump_tsc to print these statistics every time the evaluation loop loops.
+
+* The second advanced profiling feature is Dynamic Execution Profiling. This is only available if Python was built with the DYNAMIC_EXECUTION_PROFILE preprocessor name. 
+
+* As ./Tools/scripts/analyze_dxp.py says, [this] will tell you which opcodes have been executed most frequently in the current process, and, if Python was also built with -DDXPAIRS, will tell you which instruction _pairs_ were executed most frequently, which may help in choosing new instructions. 
+
+* One last thing to add here is that enabling Dynamic Execution Profiling implicitly disables the “Threaded Code” addition.
+
+* The third and last addition in this category is function call profiling, controlled by the preprocessor name CALL_PROFILE. Quoting ./Misc/SpecialBuilds.txt again: When this name is defined, the ceval mainloop and helper functions count the number of function calls made. It keeps detailed statistics about what kind of object was called and whether the call hit any of the special fast paths in the code.
+
+* Extra Safety Valves
+
+* Two preprocessor names, USE_STACKCHECK and CHECKEXC include extra assertions. Testing an interpreter with these enabled may catch a subtle bug or regression, but they are usually disabled as they’re too expensive.
+
+* That's the end of how eval loop operates.
+
+
+
+
+
 
 
 
