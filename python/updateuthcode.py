@@ -1,4 +1,13 @@
 #!/usr/bin/python
+
+"""
+$Id$
+
+This code is useful to maintain uthcode.
+
+
+"""
+
 import os
 import subprocess
 import shutil
