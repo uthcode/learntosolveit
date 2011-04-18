@@ -79,7 +79,7 @@ for item in date_file_list:
 
 content = ''.join(content)
 
-with open('source/example.rst','w') as fobject:
+with open('source/pythonsnippets.rst','w') as fobject:
     fobject.write(page_header_value)
     fobject.write(content)
     fobject.write(footer_value)
