@@ -1,3 +1,18 @@
+#!/usr/bin/python
+# $Id$
+
+"""
+**Purpose**: The program gets all the ipaddress assigned to all the interfaces
+in your machine.
+
+**Description**: Get all the interfaces using SIOCGIFCONF ioctl call and then
+use SIOCGIFADDR to get its address.
+
+man networking says that      SIOCGIFADDR     Get interface address for
+protocol family.
+
+"""
+
 import socket
 import fcntl
 import struct

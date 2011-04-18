@@ -1,3 +1,28 @@
+#!/usr/bin/python
+# $Id$
+"""
+
+**Purpose**: This program  provides list of network interfaces available on
+your machine.
+
+**Description**: man netdevice provides the following information about
+SIOCGIFCONF which is used to retrieve the interfaces information.
+
+SIOCGIFCONF
+
+Return a list of interface (transport layer) addresses. This currently means
+only addresses of the AF_INET (IPv4) family for compatibility. The user passes
+a ifconf structure as argument to the ioctl. It contains a pointer to an array
+of ifreq structures in ifc_req and its length in bytes in ifc_len. The kernel
+fills the ifreqs with all current L3 interface addresses that are running:
+ifr_name contains the interface name (eth0:1 etc.), ifr_addr the address.  The
+kernel returns with the actual length in ifc_len. If ifc_len is equal to the
+original length the buffer probably has overflowed and you should retry with a
+bigger buffer to get all addresses. When no error occurs the ioctl returns 0;
+otherwise -1. Overflow is not an error.
+
+"""
+
 import socket
 import fcntl
 import struct
