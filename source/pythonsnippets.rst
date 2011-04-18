@@ -5,1199 +5,1798 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
-*template.py* - On 17 Apr,2011.
+**updateuthcode.py**
 
-.. literalinclude:: ../python/template.py
+
+$Id: updateuthcode.py 658 2011-04-18 08:36:12Z orsenthil $
+
+This code is useful to maintain uthcode.
+
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-ZnVojZ.py
    :tab-width: 4
 
 ----
+
+**template.py**
 
-*fetchrfc.py* - On 14 Apr,2011.
 
-.. literalinclude:: ../python/fetchrfc.py
+$Id: template.py 655 2011-04-18 07:46:31Z orsenthil $
+
+Purpose:
+    Purpose of this program. This can be a free format text and explains why I
+    initially wrote this program.
+
+Description:
+    Description of the solution. Sometimes the description can be null. The
+    script should take both the  purpose and description, format it properly
+    and display.
+
+Source:
+    If the source of the program is elsewhere, credit it here.
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-_LLpBT.py
    :tab-width: 4
 
 ----
 
-*peepholeoptimization.py* - On 14 Apr,2011.
+**allifaces.py**
 
-.. literalinclude:: ../python/peepholeoptimization.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/allifaces.py
    :tab-width: 4
 
 ----
+
+**euclid.py**
 
-*struct_example_1.py* - On 14 Apr,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/struct_example_1.py
+.. literalinclude:: //home/senthil/uthcode/python/euclid.py
    :tab-width: 4
 
 ----
 
-*updateuthcode.py* - On 10 Apr,2011.
+**fetchrfc.py**
 
-.. literalinclude:: ../python/updateuthcode.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/fetchrfc.py
    :tab-width: 4
 
 ----
+
+**peepholeoptimization.py**
 
-*urllib2-1.py* - On 06 Apr,2011.
+This is a comment
 
-.. literalinclude:: ../python/urllib2-1.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-70EK5u.py
    :tab-width: 4
 
 ----
+
+**struct_example_1.py**
+
+
+$Id: struct_example_1.py 648 2011-04-14 04:23:55Z orsenthil $
+
+Purpose:
+    Demonstrate the way the struct module works.
+
+Description:
+   One can access substrings of a string in a arbitrary manner while using the
+   struct module. This is mostly useful when dealing with byte level
+   programming required in embedded systems or while using sockets.
+
+Source:
+   Python cookbook perhaps.
 
-*urllib-1.py* - On 06 Apr,2011.
 
-.. literalinclude:: ../python/urllib-1.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-iaybAi.py
    :tab-width: 4
 
 ----
 
-*PyObjectSize.py* - On 25 Mar,2011.
+**urllib2-1.py**
 
-.. literalinclude:: ../python/PyObjectSize.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-1.py
    :tab-width: 4
 
 ----
+
+**urllib-1.py**
 
-*sizeofobj.py* - On 25 Mar,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/sizeofobj.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib-1.py
    :tab-width: 4
 
 ----
 
-*constant1.py* - On 25 Mar,2011.
+**PyObjectSize.py**
 
-.. literalinclude:: ../python/constant1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/PyObjectSize.py
    :tab-width: 4
 
 ----
+
+**sizeofobj.py**
 
-*closure1.py* - On 25 Mar,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/closure1.py
+.. literalinclude:: //home/senthil/uthcode/python/sizeofobj.py
    :tab-width: 4
 
 ----
 
-*twisted4.py* - On 23 Mar,2011.
+**constant1.py**
 
-.. literalinclude:: ../python/twisted4.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/constant1.py
    :tab-width: 4
 
 ----
+
+**closure1.py**
 
-*unicode1.py* - On 22 Mar,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/unicode1.py
+.. literalinclude:: //home/senthil/uthcode/python/closure1.py
    :tab-width: 4
 
 ----
 
-*ftpurl1.py* - On 19 Mar,2011.
+**twisted4.py**
 
-.. literalinclude:: ../python/ftpurl1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/twisted4.py
    :tab-width: 4
 
 ----
+
+**unicode1.py**
 
-*urlretrive.py* - On 19 Mar,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urlretrive.py
+.. literalinclude:: //home/senthil/uthcode/python/unicode1.py
    :tab-width: 4
 
 ----
 
-*python3-meta-ex1.py* - On 16 Mar,2011.
+**ftpurl1.py**
 
-.. literalinclude:: ../python/python3-meta-ex1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/ftpurl1.py
    :tab-width: 4
 
 ----
+
+**urlretrive.py**
 
-*urllib2-headers-eg-1.py* - On 12 Mar,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urllib2-headers-eg-1.py
+.. literalinclude:: //home/senthil/uthcode/python/urlretrive.py
    :tab-width: 4
 
 ----
 
-*caseinsensitivedict2.py* - On 07 Mar,2011.
+**python3-meta-ex1.py**
 
-.. literalinclude:: ../python/caseinsensitivedict2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/python3-meta-ex1.py
    :tab-width: 4
 
 ----
+
+**urllib2-headers-eg-1.py**
 
-*binary_to_octal.py* - On 07 Mar,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/binary_to_octal.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-headers-eg-1.py
    :tab-width: 4
 
 ----
 
-*slice_ellipes.py* - On 03 Mar,2011.
+**caseinsensitivedict2.py**
 
-.. literalinclude:: ../python/slice_ellipes.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/caseinsensitivedict2.py
    :tab-width: 4
 
 ----
+
+**binary_to_octal.py**
+
+
 
-*generator.py* - On 03 Mar,2011.
+    >>> b,o = binoct(42)
+    >>> b, o
+    ('101010', '52')
+    >>> b, o = binoct(242)
+    >>> b, o
+    ('11110010', '362')
+    >>> b, o = binoct(424)
+    >>> b, o
+    ('110101000', '650')
+    >>> b, o = binoct(1000000000)
+    >>> b, o
+    ('111011100110101100101000000000', '7346545000')
+    
 
-.. literalinclude:: ../python/generator.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-K3cxaJ.py
    :tab-width: 4
 
 ----
 
-*decorator.py* - On 03 Mar,2011.
+**slice_ellipes.py**
 
-.. literalinclude:: ../python/decorator.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/slice_ellipes.py
    :tab-width: 4
 
 ----
+
+**generator.py**
 
-*udp2.py* - On 26 Feb,2011.
+Yield 5 until something else is passed back via send()
 
-.. literalinclude:: ../python/udp2.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-YG6ZGV.py
    :tab-width: 4
 
 ----
 
-*udp1.py* - On 26 Feb,2011.
+**decorator.py**
 
-.. literalinclude:: ../python/udp1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/decorator.py
    :tab-width: 4
 
 ----
+
+**udp2.py**
 
-*test.py* - On 24 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/test.py
+.. literalinclude:: //home/senthil/uthcode/python/udp2.py
    :tab-width: 4
 
 ----
 
-*xmlrpcserver-eg.py* - On 18 Feb,2011.
+**udp1.py**
 
-.. literalinclude:: ../python/xmlrpcserver-eg.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/udp1.py
    :tab-width: 4
 
 ----
+
+**test.py**
 
-*xmlrpcclient-eg.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/xmlrpcclient-eg.py
+.. literalinclude:: //home/senthil/uthcode/python/test.py
    :tab-width: 4
 
 ----
 
-*urlopen_passwd.py* - On 18 Feb,2011.
+**xmlrpcserver-eg.py**
 
-.. literalinclude:: ../python/urlopen_passwd.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/xmlrpcserver-eg.py
    :tab-width: 4
 
 ----
+
+**xmlrpcclient-eg.py**
 
-*urllib2_auth_ex1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urllib2_auth_ex1.py
+.. literalinclude:: //home/senthil/uthcode/python/xmlrpcclient-eg.py
    :tab-width: 4
 
 ----
 
-*urllib2-test.py* - On 18 Feb,2011.
+**urlopen_passwd.py**
 
-.. literalinclude:: ../python/urllib2-test.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urlopen_passwd.py
    :tab-width: 4
 
 ----
+
+**urllib2_auth_ex1.py**
 
-*urllib2-pycall1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urllib2-pycall1.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib2_auth_ex1.py
    :tab-width: 4
 
 ----
 
-*urllib2-digest1.py* - On 18 Feb,2011.
+**urllib2-test.py**
 
-.. literalinclude:: ../python/urllib2-digest1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-test.py
    :tab-width: 4
 
 ----
+
+**urllib2-pycall1.py**
 
-*urllib2-digest.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urllib2-digest.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-pycall1.py
    :tab-width: 4
 
 ----
 
-*urllib2-debugheaders.py* - On 18 Feb,2011.
+**urllib2-digest1.py**
 
-.. literalinclude:: ../python/urllib2-debugheaders.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-digest1.py
    :tab-width: 4
 
 ----
+
+**urllib2-digest.py**
 
-*urllib2-binary-upload.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urllib2-binary-upload.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-digest.py
    :tab-width: 4
 
 ----
+
+**urllib2-debugheaders.py**
+
 
-*urllib2-basic3.py* - On 18 Feb,2011.
+s = opener.open(req)
+print cookiejar
+url = 'https://www.idcourts.us/repository/partySearch.do'
+req = urllib2.Request(url, None)
+s = opener.open(req)
+print cookiejar
+url = 'https://www.idcourts.us/repository/start.do'
+req = urllib2.Request(url, None)
+s = opener.open(req)
+print cookiejar
+url = 'https://www.idcourts.us/repository/partySearch.do'
+req = urllib2.Request(url, None)
+s = opener.open(req)
+print cookiejar
 
-.. literalinclude:: ../python/urllib2-basic3.py
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-ys_YI8.py
    :tab-width: 4
 
 ----
+
+**urllib2-binary-upload.py**
 
-*urllib2-basic2.py* - On 18 Feb,2011.
+Accumulate the data to be used when posting a form.
 
-.. literalinclude:: ../python/urllib2-basic2.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-1GXDmC.py
    :tab-width: 4
 
 ----
 
-*urllib2-basic1.py* - On 18 Feb,2011.
+**urllib2-basic3.py**
 
-.. literalinclude:: ../python/urllib2-basic1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-basic3.py
    :tab-width: 4
 
 ----
+
+**urllib2-basic2.py**
 
-*urllib2-basic-digest1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/urllib2-basic-digest1.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-basic2.py
    :tab-width: 4
 
 ----
 
-*urllib2-adddata.py* - On 18 Feb,2011.
+**urllib2-basic1.py**
 
-.. literalinclude:: ../python/urllib2-adddata.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-basic1.py
    :tab-width: 4
 
 ----
+
+**urllib2-basic-digest1.py**
 
-*udp-time.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/udp-time.py
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-basic-digest1.py
    :tab-width: 4
 
 ----
 
-*twisted3.py* - On 18 Feb,2011.
+**urllib2-adddata.py**
 
-.. literalinclude:: ../python/twisted3.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/urllib2-adddata.py
    :tab-width: 4
 
 ----
+
+**udp-time.py**
 
-*twisted2.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/twisted2.py
+.. literalinclude:: //home/senthil/uthcode/python/udp-time.py
    :tab-width: 4
 
 ----
 
-*twisted1.py* - On 18 Feb,2011.
+**twisted3.py**
 
-.. literalinclude:: ../python/twisted1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/twisted3.py
    :tab-width: 4
 
 ----
+
+**twisted2.py**
+
+
+How is the out value passed to the function1?
 
-*twisted-parallel-2.py* - On 18 Feb,2011.
+utils.getProcessOutput function is returning a deffered object.
+You attach a callback function to the deferred object.
+When the defered is ready with the result, the callback function is called with
+it. That is what is happening here.
 
-.. literalinclude:: ../python/twisted-parallel-2.py
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-awDhdA.py
    :tab-width: 4
 
 ----
 
-*twisted-parallel-1.py* - On 18 Feb,2011.
+**twisted1.py**
 
-.. literalinclude:: ../python/twisted-parallel-1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/twisted1.py
    :tab-width: 4
 
 ----
+
+**twisted-parallel-2.py**
 
-*try-except.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/try-except.py
+.. literalinclude:: //home/senthil/uthcode/python/twisted-parallel-2.py
    :tab-width: 4
 
 ----
 
-*trials3.py* - On 18 Feb,2011.
+**twisted-parallel-1.py**
 
-.. literalinclude:: ../python/trials3.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/twisted-parallel-1.py
    :tab-width: 4
 
 ----
+
+**try-except.py**
 
-*trials2.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/trials2.py
+.. literalinclude:: //home/senthil/uthcode/python/try-except.py
    :tab-width: 4
 
 ----
+
+**trials3.py**
+
 
-*trials.py* - On 18 Feb,2011.
+    dict1 = {'abcd':[(1,[('a','b','c','d')]),
+                     (3,[('a','b','cd'),('ab','c','d')])
+                     (2,[('abc','d'),('a','bcd')])]
+            }
 
-.. literalinclude:: ../python/trials.py
+    Step 1, aim for:
+
+        store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
+    
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-Zm7Dge.py
    :tab-width: 4
 
 ----
+
+**trials2.py**
+
 
-*trackerlink.py* - On 18 Feb,2011.
+    dict1 = {'abcd':[(1,[('a','b','c','d')]),
+                     (3,[('a','b','cd'),('ab','c','d')])
+                     (2,[('abc','d'),('a','bcd')])]
+            }
 
-.. literalinclude:: ../python/trackerlink.py
+    Step 1, aim for:
+
+        store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
+    
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-rwxenu.py
    :tab-width: 4
 
 ----
+
+**trials.py**
+
 
-*traceit.py* - On 18 Feb,2011.
+dict1 = {'abcd':[(1,[('a','b','c','d')]),
+                 (3,[('a','b','cd'),('ab','c','d')])
+                 (2,[('abc','d'),('a','bcd')])]
+        }
 
-.. literalinclude:: ../python/traceit.py
+Step 1, aim for:
+
+    store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-TUtfJ7.py
    :tab-width: 4
 
 ----
+
+**trackerlink.py**
 
-*toss_coins.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/toss_coins.py
+.. literalinclude:: //home/senthil/uthcode/python/trackerlink.py
    :tab-width: 4
 
 ----
 
-*tkintertimer.py* - On 18 Feb,2011.
+**traceit.py**
 
-.. literalinclude:: ../python/tkintertimer.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/traceit.py
    :tab-width: 4
 
 ----
+
+**toss_coins.py**
 
-*time_convertor.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/time_convertor.py
+.. literalinclude:: //home/senthil/uthcode/python/toss_coins.py
    :tab-width: 4
 
 ----
 
-*textreplace.py* - On 18 Feb,2011.
+**tkintertimer.py**
 
-.. literalinclude:: ../python/textreplace.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/tkintertimer.py
    :tab-width: 4
 
 ----
+
+**time_convertor.py**
 
-*test_codec03.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/test_codec03.py
+.. literalinclude:: //home/senthil/uthcode/python/time_convertor.py
    :tab-width: 4
 
 ----
 
-*test_codec02.py* - On 18 Feb,2011.
+**textreplace.py**
 
-.. literalinclude:: ../python/test_codec02.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/textreplace.py
    :tab-width: 4
 
 ----
+
+**test_codec03.py**
 
-*test_codec01.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/test_codec01.py
+.. literalinclude:: //home/senthil/uthcode/python/test_codec03.py
    :tab-width: 4
 
 ----
 
-*syllcount.py* - On 18 Feb,2011.
+**test_codec02.py**
 
-.. literalinclude:: ../python/syllcount.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/test_codec02.py
    :tab-width: 4
 
 ----
+
+**test_codec01.py**
 
-*subprocess_6.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/subprocess_6.py
+.. literalinclude:: //home/senthil/uthcode/python/test_codec01.py
    :tab-width: 4
 
 ----
 
-*subprocess_5.py* - On 18 Feb,2011.
+**syllcount.py**
 
-.. literalinclude:: ../python/subprocess_5.py
+This function counts the number of characters in a tamil string
+        This is done by ignoring the vowel additions. If one uses the len
+        function, the sample string has a length of 17 - but there are actually
+        only 11 characters
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-KYB33v.py
    :tab-width: 4
 
 ----
+
+**subprocess_6.py**
+
+
+if errcode:
+    with open('error.out') as ef:
+        pass
+    #errmess = p.stderr.read()
+with open('data.out') as f:
+    pass
 
-*subprocess_4.py* - On 18 Feb,2011.
 
-.. literalinclude:: ../python/subprocess_4.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-S1Sv0X.py
    :tab-width: 4
 
 ----
 
-*subprocess_3.py* - On 18 Feb,2011.
+**subprocess_5.py**
 
-.. literalinclude:: ../python/subprocess_3.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/subprocess_5.py
    :tab-width: 4
 
 ----
+
+**subprocess_4.py**
 
-*subprocess_2.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/subprocess_2.py
+.. literalinclude:: //home/senthil/uthcode/python/subprocess_4.py
    :tab-width: 4
 
 ----
 
-*subprocess_1.py* - On 18 Feb,2011.
+**subprocess_3.py**
 
-.. literalinclude:: ../python/subprocess_1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/subprocess_3.py
    :tab-width: 4
 
 ----
+
+**subprocess_2.py**
 
-*subprob1.py* - On 18 Feb,2011.
 
-.. literalinclude:: ../python/subprob1.py
+Finding 'class' in every file python file in the directory.
+'out' and 'err' are string objects containing the standard output and,
+eventually, the error output.
+
+find -iname *.py|xargs grep class
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-qdPJog.py
    :tab-width: 4
 
 ----
 
-*subhex.py* - On 18 Feb,2011.
+**subprocess_1.py**
 
-.. literalinclude:: ../python/subhex.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/subprocess_1.py
    :tab-width: 4
 
 ----
+
+**subprob1.py**
 
-*struct_calcsize.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/struct_calcsize.py
+.. literalinclude:: //home/senthil/uthcode/python/subprob1.py
    :tab-width: 4
 
 ----
 
-*stringio-example1.py* - On 18 Feb,2011.
+**subhex.py**
 
-.. literalinclude:: ../python/stringio-example1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/subhex.py
    :tab-width: 4
 
 ----
+
+**struct_calcsize.py**
 
-*stackinspection.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/stackinspection.py
+.. literalinclude:: //home/senthil/uthcode/python/struct_calcsize.py
    :tab-width: 4
 
 ----
 
-*splitter2.py* - On 18 Feb,2011.
+**stringio-example1.py**
 
-.. literalinclude:: ../python/splitter2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/stringio-example1.py
    :tab-width: 4
 
 ----
+
+**stackinspection.py**
 
-*spelling.py* - On 18 Feb,2011.
+blah
 
-.. literalinclude:: ../python/spelling.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-Z3Gr7h.py
    :tab-width: 4
 
 ----
 
-*socket_example4.py* - On 18 Feb,2011.
+**splitter2.py**
 
-.. literalinclude:: ../python/socket_example4.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/splitter2.py
    :tab-width: 4
 
 ----
+
+**spelling.py**
 
-*socket_example3.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/socket_example3.py
+.. literalinclude:: //home/senthil/uthcode/python/spelling.py
    :tab-width: 4
 
 ----
 
-*socket_example2.py* - On 18 Feb,2011.
+**socket_example4.py**
 
-.. literalinclude:: ../python/socket_example2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/socket_example4.py
    :tab-width: 4
 
 ----
+
+**socket_example3.py**
 
-*socket_example1.py* - On 18 Feb,2011.
+Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: ../python/socket_example1.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-Bpv3GR.py
    :tab-width: 4
 
 ----
 
-*simple_threading1.py* - On 18 Feb,2011.
+**socket_example2.py**
 
-.. literalinclude:: ../python/simple_threading1.py
+Create a dictionary mapping socket module constants to their names.
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-umYpkw.py
    :tab-width: 4
 
 ----
+
+**socket_example1.py**
 
-*simple_subprocess.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/simple_subprocess.py
+.. literalinclude:: //home/senthil/uthcode/python/socket_example1.py
    :tab-width: 4
 
 ----
 
-*simple_http_processor.py* - On 18 Feb,2011.
+**simple_threading1.py**
 
-.. literalinclude:: ../python/simple_http_processor.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/simple_threading1.py
    :tab-width: 4
 
 ----
+
+**simple_subprocess.py**
 
-*server.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/server.py
+.. literalinclude:: //home/senthil/uthcode/python/simple_subprocess.py
    :tab-width: 4
 
 ----
 
-*scrmable.py* - On 18 Feb,2011.
+**simple_http_processor.py**
 
-.. literalinclude:: ../python/scrmable.py
+Track HTTP Requests and responses with this custom handlers. Be sure to
+    add it your build_opener call, or use: handler_order = 900 
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-ExJcGl.py
    :tab-width: 4
 
 ----
+
+**server.py**
 
-*scan_web.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/scan_web.py
+.. literalinclude:: //home/senthil/uthcode/python/server.py
    :tab-width: 4
 
 ----
 
-*runningtime_intvsfloat.py* - On 18 Feb,2011.
+**scrmable.py**
 
-.. literalinclude:: ../python/runningtime_intvsfloat.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/scrmable.py
    :tab-width: 4
 
 ----
+
+**scan_web.py**
 
-*runningtime_intaddition.py* - On 18 Feb,2011.
+Print the first several URL references in the given URL
 
-.. literalinclude:: ../python/runningtime_intaddition.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-tklWD0.py
    :tab-width: 4
 
 ----
+
+**runningtime_intvsfloat.py**
+
 
-*runningtime.py* - On 18 Feb,2011.
+Book: The Essentials of Computer Architecture.
+Chapter: 4
+Problem: Write a Computer Program that measures the difference in execution
+times between the integer division and floating point division. Execute the operation
+100,000 times and compare the difference in the running time. 
 
-.. literalinclude:: ../python/runningtime.py
+Interesting Observation:
+    * Integer Division is taking more time.
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-WueJQc.py
    :tab-width: 4
 
 ----
+
+**runningtime_intaddition.py**
+
+
+Book: The Essentials of Computer Architecture.
+Chapter: 4
+Problem: Write a Computer Program that measures the difference in execution
+times between the integer addition and integer division. Execute the operation
+100,000 times and compare the difference in the running time. 
+
+Extend the Program to compare between 16 bit, 32 bit and 64 bit integer
+addition.
+
+Tip: Python 2.7 has bit_length() for int objects. 
 
-*run_under_strace.py* - On 18 Feb,2011.
+Interesting Observation:
+    For 16 bit ints, the operations take more time than 32 bit numbers.
 
-.. literalinclude:: ../python/run_under_strace.py
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-0Hhq2g.py
    :tab-width: 4
 
 ----
+
+**runningtime.py**
+
 
-*restricter_class.py* - On 18 Feb,2011.
+Book: The Essentials of Computer Architecture.
+Chapter: 4
+Problem: Write a Computer Program that measures the difference in execution
+times between the integer addition and integer division. Execute the operation
+100,000 times and compare the difference in the running time. 
 
-.. literalinclude:: ../python/restricter_class.py
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-qsy6xs.py
    :tab-width: 4
 
 ----
+
+**run_under_strace.py**
 
-*removeOldEggs.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/removeOldEggs.py
+.. literalinclude:: //home/senthil/uthcode/python/run_under_strace.py
    :tab-width: 4
 
 ----
 
-*recipe-511490-1.py* - On 18 Feb,2011.
+**restricter_class.py**
 
-.. literalinclude:: ../python/recipe-511490-1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/restricter_class.py
    :tab-width: 4
 
 ----
+
+**removeOldEggs.py**
 
-*quicksort.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/quicksort.py
+.. literalinclude:: //home/senthil/uthcode/python/removeOldEggs.py
    :tab-width: 4
 
 ----
 
-*quick_sort.py* - On 18 Feb,2011.
+**recipe-511490-1.py**
 
-.. literalinclude:: ../python/quick_sort.py
+An implementation of the token bucket algorithm.
+    
+    >>> bucket = TokenBucket(80, 0.5)
+    >>> print bucket.consume(10)
+    True
+    >>> print bucket.consume(90)
+    False
+    
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-W6Lw4h.py
    :tab-width: 4
 
 ----
+
+**quicksort.py**
 
-*python3k_json.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/python3k_json.py
+.. literalinclude:: //home/senthil/uthcode/python/quicksort.py
    :tab-width: 4
 
 ----
 
-*python-objects-type.py* - On 18 Feb,2011.
+**quick_sort.py**
 
-.. literalinclude:: ../python/python-objects-type.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/quick_sort.py
    :tab-width: 4
 
 ----
+
+**python3k_json.py**
 
-*pyrsa.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/pyrsa.py
+.. literalinclude:: //home/senthil/uthcode/python/python3k_json.py
    :tab-width: 4
 
 ----
 
-*pyex_multiprocessing.py* - On 18 Feb,2011.
+**python-objects-type.py**
 
-.. literalinclude:: ../python/pyex_multiprocessing.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/python-objects-type.py
    :tab-width: 4
 
 ----
+
+**pyrsa.py**
 
-*pyex2_multiprocessing.py* - On 18 Feb,2011.
+ The Greatest Common Divisor, returns
+            the largest positive integer that divides
+            u with v without a remainder.
+        
 
-.. literalinclude:: ../python/pyex2_multiprocessing.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-PCgYr3.py
    :tab-width: 4
 
 ----
 
-*py3rsa.py* - On 18 Feb,2011.
+**pyex_multiprocessing.py**
 
-.. literalinclude:: ../python/py3rsa.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/pyex_multiprocessing.py
    :tab-width: 4
 
 ----
+
+**pyex2_multiprocessing.py**
 
-*py3AES.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/py3AES.py
+.. literalinclude:: //home/senthil/uthcode/python/pyex2_multiprocessing.py
    :tab-width: 4
 
 ----
 
-*provide_warnings.py* - On 18 Feb,2011.
+**py3rsa.py**
 
-.. literalinclude:: ../python/provide_warnings.py
+ The Greatest Common Divisor, returns
+        the largest positive integer that divides
+        u with v without a remainder.
+    
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-b4TuDX.py
    :tab-width: 4
 
 ----
+
+**py3AES.py**
 
-*os_exec1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/os_exec1.py
+.. literalinclude:: //home/senthil/uthcode/python/py3AES.py
    :tab-width: 4
 
 ----
 
-*optimization2.py* - On 18 Feb,2011.
+**provide_warnings.py**
 
-.. literalinclude:: ../python/optimization2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/provide_warnings.py
    :tab-width: 4
 
 ----
+
+**os_exec1.py**
 
-*oop1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/oop1.py
+.. literalinclude:: //home/senthil/uthcode/python/os_exec1.py
    :tab-width: 4
 
 ----
 
-*object_size.py* - On 18 Feb,2011.
+**optimization2.py**
 
-.. literalinclude:: ../python/object_size.py
+This is a comment
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-VT34fh.py
    :tab-width: 4
 
 ----
+
+**oop1.py**
 
-*number_sets.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/number_sets.py
+.. literalinclude:: //home/senthil/uthcode/python/oop1.py
    :tab-width: 4
 
 ----
 
-*mp3.py* - On 18 Feb,2011.
+**object_size.py**
 
-.. literalinclude:: ../python/mp3.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/object_size.py
    :tab-width: 4
 
 ----
+
+**number_sets.py**
 
-*maxsort.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/maxsort.py
+.. literalinclude:: //home/senthil/uthcode/python/number_sets.py
    :tab-width: 4
 
 ----
 
-*logging5.py* - On 18 Feb,2011.
+**mp3.py**
 
-.. literalinclude:: ../python/logging5.py
+
+usage: %(progname)s [args]
+ 
+   --cat [files]  -- categorize a bunch of files
+
+      mp3info(filename)
+        - reads the mp3 header and returns a dictionary containing
+          these fields:
+
+          VERSION
+          MM - number of minutes
+          SS - number of seconds
+          STEREO - 0-mono, 1-stereo
+          LAYER - MPEG layer 2 or 3
+          MODE 
+          COPYRIGHT
+          BITRATE 
+          FREQUENCY
+
+      get_mp3tag(filename)
+        - finds the id3 tag of the mp3 and returns a dictionary
+          containing these fields: TITLE, ARTIST, ALBUM, YEAR, COMMENT
+
+      get_xing_header(filename)
+        - returns the XING header (flags, frames, bytes) of the mp3 or
+          None.
+
+      Categorize(fn)
+        - creates a directory called 'cats' with three subdirectories
+          'GENRE_ARTIST', 'GENRE', and 'ARTIST'.  It reads the ID3 tag
+          off of the mp3 and creates a three symlinks in this
+          directory structure.  All files without ID3 tags will have a
+          genre and artist of 'Unknown'.
+
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-lg0fSC.py
    :tab-width: 4
 
 ----
 
-*logging4.py* - On 18 Feb,2011.
+**maxsort.py**
 
-.. literalinclude:: ../python/logging4.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/maxsort.py
    :tab-width: 4
 
 ----
+
+**logging5.py**
 
-*logging3.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/logging3.py
+.. literalinclude:: //home/senthil/uthcode/python/logging5.py
    :tab-width: 4
 
 ----
 
-*logging2.py* - On 18 Feb,2011.
+**logging4.py**
 
-.. literalinclude:: ../python/logging2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/logging4.py
    :tab-width: 4
 
 ----
+
+**logging3.py**
 
-*logging1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/logging1.py
+.. literalinclude:: //home/senthil/uthcode/python/logging3.py
    :tab-width: 4
 
 ----
 
-*locate.py* - On 18 Feb,2011.
+**logging2.py**
 
-.. literalinclude:: ../python/locate.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/logging2.py
    :tab-width: 4
 
 ----
+
+**logging1.py**
 
-*lexical_analyzer_1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/lexical_analyzer_1.py
+.. literalinclude:: //home/senthil/uthcode/python/logging1.py
    :tab-width: 4
 
 ----
 
-*leibniz.py* - On 18 Feb,2011.
+**locate.py**
 
-.. literalinclude:: ../python/leibniz.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/locate.py
    :tab-width: 4
 
 ----
+
+**lexical_analyzer_1.py**
 
-*iterator_ex2.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/iterator_ex2.py
+.. literalinclude:: //home/senthil/uthcode/python/lexical_analyzer_1.py
    :tab-width: 4
 
 ----
 
-*iterator_ex1.py* - On 18 Feb,2011.
+**leibniz.py**
 
-.. literalinclude:: ../python/iterator_ex1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/leibniz.py
    :tab-width: 4
 
 ----
+
+**iterator_ex2.py**
 
-*iscombination.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/iscombination.py
+.. literalinclude:: //home/senthil/uthcode/python/iterator_ex2.py
    :tab-width: 4
 
 ----
 
-*ipy.py* - On 18 Feb,2011.
+**iterator_ex1.py**
 
-.. literalinclude:: ../python/ipy.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/iterator_ex1.py
    :tab-width: 4
 
 ----
+
+**iscombination.py**
 
-*int_to_roman.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/int_to_roman.py
+.. literalinclude:: //home/senthil/uthcode/python/iscombination.py
    :tab-width: 4
 
 ----
 
-*httplib_head.py* - On 18 Feb,2011.
+**ipy.py**
 
-.. literalinclude:: ../python/httplib_head.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/ipy.py
    :tab-width: 4
 
 ----
+
+**int_to_roman.py**
 
-*httplib-example-3.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/httplib-example-3.py
+.. literalinclude:: //home/senthil/uthcode/python/int_to_roman.py
    :tab-width: 4
 
 ----
 
-*httplib-example-2.py* - On 18 Feb,2011.
+**httplib_head.py**
 
-.. literalinclude:: ../python/httplib-example-2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/httplib_head.py
    :tab-width: 4
 
 ----
+
+**httplib-example-3.py**
 
-*httplib-example-1.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/httplib-example-1.py
+.. literalinclude:: //home/senthil/uthcode/python/httplib-example-3.py
    :tab-width: 4
 
 ----
 
-*http_auth_header_code.py* - On 18 Feb,2011.
+**httplib-example-2.py**
 
-.. literalinclude:: ../python/http_auth_header_code.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/httplib-example-2.py
    :tab-width: 4
 
 ----
+
+**httplib-example-1.py**
 
-*htmlwriter.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/htmlwriter.py
+.. literalinclude:: //home/senthil/uthcode/python/httplib-example-1.py
    :tab-width: 4
 
 ----
 
-*hexlify.py* - On 18 Feb,2011.
+**http_auth_header_code.py**
 
-.. literalinclude:: ../python/hexlify.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/http_auth_header_code.py
    :tab-width: 4
 
 ----
+
+**htmlwriter.py**
+
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.  See <http://www.fsf.org/copyleft/gpl.txt>.
 
-*hanoi1.py* - On 18 Feb,2011.
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
 
-.. literalinclude:: ../python/hanoi1.py
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-Kh89zG.py
    :tab-width: 4
 
 ----
+
+**hexlify.py**
 
-*hanoi.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/hanoi.py
+.. literalinclude:: //home/senthil/uthcode/python/hexlify.py
    :tab-width: 4
 
 ----
 
-*googlesearch.py* - On 18 Feb,2011.
+**hanoi1.py**
 
-.. literalinclude:: ../python/googlesearch.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/hanoi1.py
    :tab-width: 4
 
 ----
+
+**hanoi.py**
 
-*generator_follow.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/generator_follow.py
+.. literalinclude:: //home/senthil/uthcode/python/hanoi.py
    :tab-width: 4
 
 ----
 
-*generator_example1.py* - On 18 Feb,2011.
+**googlesearch.py**
 
-.. literalinclude:: ../python/generator_example1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/googlesearch.py
    :tab-width: 4
 
 ----
+
+**generator_follow.py**
 
-*generator_countdown.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/generator_countdown.py
+.. literalinclude:: //home/senthil/uthcode/python/generator_follow.py
    :tab-width: 4
 
 ----
 
-*generator_countdown-2.py* - On 18 Feb,2011.
+**generator_example1.py**
 
-.. literalinclude:: ../python/generator_countdown-2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/generator_example1.py
    :tab-width: 4
 
 ----
+
+**generator_countdown.py**
 
-*gen2.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/gen2.py
+.. literalinclude:: //home/senthil/uthcode/python/generator_countdown.py
    :tab-width: 4
 
 ----
 
-*gen1.py* - On 18 Feb,2011.
+**generator_countdown-2.py**
 
-.. literalinclude:: ../python/gen1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/generator_countdown-2.py
    :tab-width: 4
 
 ----
+
+**gen2.py**
 
-*fri_13.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/fri_13.py
+.. literalinclude:: //home/senthil/uthcode/python/gen2.py
    :tab-width: 4
 
 ----
 
-*freev.py* - On 18 Feb,2011.
+**gen1.py**
 
-.. literalinclude:: ../python/freev.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/gen1.py
    :tab-width: 4
 
 ----
+
+**fri_13.py**
 
-*fortune-card.py* - On 18 Feb,2011.
 
-.. literalinclude:: ../python/fortune-card.py
+Calculate the number of Friday the 13th from 1900 to 2009.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-_9PSsG.py
    :tab-width: 4
 
 ----
 
-*fibo2.py* - On 18 Feb,2011.
+**freev.py**
 
-.. literalinclude:: ../python/fibo2.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/freev.py
    :tab-width: 4
 
 ----
+
+**fortune-card.py**
 
-*fibo.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/fibo.py
+.. literalinclude:: //home/senthil/uthcode/python/fortune-card.py
    :tab-width: 4
 
 ----
 
-*fcntl_1.py* - On 18 Feb,2011.
+**fibo2.py**
 
-.. literalinclude:: ../python/fcntl_1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/fibo2.py
    :tab-width: 4
 
 ----
+
+**fibo.py**
 
-*ex_iterable27.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/ex_iterable27.py
+.. literalinclude:: //home/senthil/uthcode/python/fibo.py
    :tab-width: 4
 
 ----
 
-*ex.py* - On 18 Feb,2011.
+**fcntl_1.py**
 
-.. literalinclude:: ../python/ex.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/fcntl_1.py
    :tab-width: 4
 
 ----
+
+**ex_iterable27.py**
 
-*euclid.py* - On 18 Feb,2011.
+A Simple example of object iteration in Python.
 
-.. literalinclude:: ../python/euclid.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-XSc2Dm.py
    :tab-width: 4
 
 ----
 
-*encoding_unicode_xml_html.py* - On 18 Feb,2011.
+**ex.py**
 
-.. literalinclude:: ../python/encoding_unicode_xml_html.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/ex.py
    :tab-width: 4
 
 ----
+
+**encoding_unicode_xml_html.py**
 
-*doctest_example.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/doctest_example.py
+.. literalinclude:: //home/senthil/uthcode/python/encoding_unicode_xml_html.py
    :tab-width: 4
 
 ----
+
+**doctest_example.py**
+
 
-*dict_list.py* - On 18 Feb,2011.
+This is the "example" module.
 
-.. literalinclude:: ../python/dict_list.py
+The example module supplies one function, factorial(). For example,
+
+>>> factorial(5)
+120
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-pWhvAX.py
    :tab-width: 4
 
 ----
+
+**dict_list.py**
 
-*default-not-shared.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/default-not-shared.py
+.. literalinclude:: //home/senthil/uthcode/python/dict_list.py
    :tab-width: 4
 
 ----
 
-*curses_1.py* - On 18 Feb,2011.
+**default-not-shared.py**
 
-.. literalinclude:: ../python/curses_1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/default-not-shared.py
    :tab-width: 4
 
 ----
+
+**curses_1.py**
 
-*createtempfiles.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/createtempfiles.py
+.. literalinclude:: //home/senthil/uthcode/python/curses_1.py
    :tab-width: 4
 
 ----
 
-*copy_files_unicode.py* - On 18 Feb,2011.
+**createtempfiles.py**
 
-.. literalinclude:: ../python/copy_files_unicode.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/createtempfiles.py
    :tab-width: 4
 
 ----
+
+**copy_files_unicode.py**
 
-*contextmanager_ex.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/contextmanager_ex.py
+.. literalinclude:: //home/senthil/uthcode/python/copy_files_unicode.py
    :tab-width: 4
 
 ----
 
-*context_1.py* - On 18 Feb,2011.
+**contextmanager_ex.py**
 
-.. literalinclude:: ../python/context_1.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/contextmanager_ex.py
    :tab-width: 4
 
 ----
+
+**context_1.py**
 
-*combination.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/combination.py
+.. literalinclude:: //home/senthil/uthcode/python/context_1.py
    :tab-width: 4
 
 ----
+
+**combination.py**
+
 
-*client.py* - On 18 Feb,2011.
+for i in range(len(atomic_words)-1):
+    for j in range(i+1,len(atomic_words)):
+        if len(atomic_words[j]) > len(atomic_words[i]):
+            atomic_words[i],atomic_words[j] = atomic_words[j],atomic_words[i]
 
-.. literalinclude:: ../python/client.py
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-6lUwo0.py
    :tab-width: 4
 
 ----
+
+**client.py**
 
-*checking_string_text_or_binary.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/checking_string_text_or_binary.py
+.. literalinclude:: //home/senthil/uthcode/python/client.py
    :tab-width: 4
 
 ----
 
-*cgi_ex.py* - On 18 Feb,2011.
+**checking_string_text_or_binary.py**
 
-.. literalinclude:: ../python/cgi_ex.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/checking_string_text_or_binary.py
    :tab-width: 4
 
 ----
+
+**cgi_ex.py**
 
-*cellauto.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/cellauto.py
+.. literalinclude:: //home/senthil/uthcode/python/cgi_ex.py
    :tab-width: 4
 
 ----
 
-*caseinsensitivedict.py* - On 18 Feb,2011.
+**cellauto.py**
 
-.. literalinclude:: ../python/caseinsensitivedict.py
+
+ CellularAutomata.py: Wolfram-style cellular automata in Python
+
+ Options:
+ -h #  Use a screen of height # for the simulation
+ -w #  Use a screen of width # for the simulation
+ -r      Use a random initial row (rather than the standard single 1 in the middle)
+ -R #  Use rule # for the simulation
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-GFgbnd.py
    :tab-width: 4
 
 ----
+
+**caseinsensitivedict.py**
 
-*bug_gethostbyname.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/bug_gethostbyname.py
+.. literalinclude:: //home/senthil/uthcode/python/caseinsensitivedict.py
    :tab-width: 4
 
 ----
 
-*bipartite.py* - On 18 Feb,2011.
+**bug_gethostbyname.py**
 
-.. literalinclude:: ../python/bipartite.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/bug_gethostbyname.py
    :tab-width: 4
 
 ----
+
+**bipartite.py**
 
-*binary_repre.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/binary_repre.py
+.. literalinclude:: //home/senthil/uthcode/python/bipartite.py
    :tab-width: 4
 
 ----
 
-*ast_1.py* - On 18 Feb,2011.
+**binary_repre.py**
 
-.. literalinclude:: ../python/ast_1.py
+
+Find out if the machine is storing it in the one's complement or two's
+complement.
+1 is stored as 0000 0001
+-1 in 1's complement is 1111 1110
+-1 in 2's complement is 1111 1111
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-NsNzZy.py
    :tab-width: 4
 
 ----
+
+**ast_1.py**
 
-*args_kwargs.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/args_kwargs.py
+.. literalinclude:: //home/senthil/uthcode/python/ast_1.py
    :tab-width: 4
 
 ----
 
-*allipaddress.py* - On 18 Feb,2011.
+**args_kwargs.py**
 
-.. literalinclude:: ../python/allipaddress.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/args_kwargs.py
    :tab-width: 4
 
 ----
+
+**allipaddress.py**
 
-*allifaces.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/allifaces.py
+.. literalinclude:: //home/senthil/uthcode/python/allipaddress.py
    :tab-width: 4
 
 ----
 
-*PythonTwo.py* - On 18 Feb,2011.
+**PythonTwo.py**
 
-.. literalinclude:: ../python/PythonTwo.py
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/PythonTwo.py
    :tab-width: 4
 
 ----
+
+**PythonOne.py**
 
-*PythonOne.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/PythonOne.py
+.. literalinclude:: //home/senthil/uthcode/python/PythonOne.py
    :tab-width: 4
 
 ----
 
-*MultipartPostHandler.py* - On 18 Feb,2011.
+**MultipartPostHandler.py**
 
-.. literalinclude:: ../python/MultipartPostHandler.py
+
+Usage:
+  Enables the use of multipart/form-data for posting forms
+
+Inspirations:
+  Upload files in python:
+    http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/146306
+  urllib2_file:
+    Fabien Seisen: <fabien@seisen.org>
+
+Example:
+  import MultipartPostHandler, urllib2, cookielib
+
+  cookies = cookielib.CookieJar()
+  opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
+                                MultipartPostHandler.MultipartPostHandler)
+  params = { "username" : "bob", "password" : "riviera",
+             "file" : open("filename", "rb") }
+  opener.open("http://wwww.bobsite.com/upload/", params)
+
+Further Example:
+  The main function of this file is a sample which downloads a page and
+  then uploads it to the W3C validator.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-lZlHcK.py
    :tab-width: 4
 
 ----
+
+**JavaOne.py**
 
-*JavaOne.py* - On 18 Feb,2011.
+Purpose: - An Example Snippet
 
-.. literalinclude:: ../python/JavaOne.py
+.. literalinclude:: //home/senthil/uthcode/python/JavaOne.py
    :tab-width: 4
 
 ----
