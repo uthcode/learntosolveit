@@ -5,6 +5,13 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
+*template.py* - On 17 Apr,2011.
+
+.. literalinclude:: ../python/template.py
+   :tab-width: 4
+
+----
+
 *fetchrfc.py* - On 14 Apr,2011.
 
 .. literalinclude:: ../python/fetchrfc.py
@@ -22,13 +29,6 @@ The following project page contains Python snippets useful for various tasks.
 *struct_example_1.py* - On 14 Apr,2011.
 
 .. literalinclude:: ../python/struct_example_1.py
-   :tab-width: 4
-
-----
-
-*template.py* - On 14 Apr,2011.
-
-.. literalinclude:: ../python/template.py
    :tab-width: 4
 
 ----
