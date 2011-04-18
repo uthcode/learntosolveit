@@ -1,3 +1,9 @@
+#!/usr/bin/python
+#!$Id$
+"""
+Program to do binary representation of various interesting ints.
+"""
+
 def convert_to_binary(n):
     binary = []
     while n:

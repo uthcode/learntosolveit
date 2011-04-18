@@ -1,3 +1,10 @@
+#!/usr/bin/python
+#$Id$
+"""
+Generate a random domain name and see if it actually exists by doing a
+gethostbyname call.
+"""
+
 from socket import *
 import sys
 

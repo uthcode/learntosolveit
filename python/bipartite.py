@@ -1,5 +1,12 @@
-# Hopcroft-Karp bipartite max-cardinality matching and max independent set
-# David Eppstein, UC Irvine, 27 Apr 2002
+#!/usr/bin/python
+#$Id$
+
+"""
+Program to find the bipartite match.
+
+Hopcroft-Karp bipartite max-cardinality matching and max independent set
+David Eppstein, UC Irvine, 27 Apr 2002
+"""
 
 def bipartiteMatch(graph):
 	'''Find maximum cardinality matching of a bipartite graph (U,V,E).
@@ -9,7 +16,7 @@ def bipartiteMatch(graph):
 	of the maximum independent set in U, and B is the part of the MIS in V.
 	The same object may occur in both U and V, and is treated as two
 	distinct vertices if this happens.'''
-	
+
 	# initialize greedy matching (redundant, but faster than full search)
 	matching = {}
 	for u in graph:
@@ -17,7 +24,7 @@ def bipartiteMatch(graph):
 			if v not in matching:
 				matching[v] = u
 				break
-	
+
 	while 1:
 		# structure residual graph into layers
 		# pred[u] gives the neighbor in the previous layer for u in U
@@ -30,7 +37,6 @@ def bipartiteMatch(graph):
 		for v in matching:
 			del pred[matching[v]]
 		layer = list(pred)
-		
 		# repeatedly extend layering structure by another pair of layers
 		while layer and not unmatched:
 			newLayer = {}
@@ -46,7 +52,6 @@ def bipartiteMatch(graph):
 					pred[matching[v]] = v
 				else:
 					unmatched.append(v)
-		
 		# did we finish layering without finding any alternating paths?
 		if not unmatched:
 			unlayered = {}
