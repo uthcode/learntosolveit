@@ -1,3 +1,12 @@
+#!/usr/bin/python
+# $Id$
+
+"""
+Case Insenstive Dictionary Lookup.  Dictionary keys are case sensitive. However
+you might want some facilities to do a case-insenstive dictiionary lookup at
+times.  This provides the facility for the same.
+"""
+
 class CaseInsensitiveDict(dict):
     def __init__(self, *args, **kwargs):
         self._keystore = {}

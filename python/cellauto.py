@@ -8,6 +8,13 @@
  -r      Use a random initial row (rather than the standard single 1 in the middle)
  -R #  Use rule # for the simulation
 
+Requires python-image (PIL package) installed.
+Fills up an initial cell and runs a particular rule of Cellular Automata.
+
+.. image:: https://lh4.googleusercontent.com/_ny1HYbb2lDw/Tazon5TsgXI/AAAAAAAAKgU/ud6v_XhcHB0/s288/bs.png
+
+*I can't remember the source, if you claim/know, please inform.*
+
 """
 
 import getopt,sys
@@ -22,7 +29,7 @@ def ca_data(height,width,dorandom,rulenum):
         first_row[width/2] = 1
     results = [first_row]
 
-    # Convert the rule number to a list of outcomes. 
+    # Convert the rule number to a list of outcomes.
     rule = [(rulenum/pow(2,i)) % 2 for i in range(8)]
 
     for i in range(height-1):

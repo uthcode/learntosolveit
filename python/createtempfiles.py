@@ -1,3 +1,12 @@
+"""
+This program creates temporary files with content in them.  This serves as
+useful utility if you want to fill a directory full of temporary files with
+some content.  The content is Zen of Python.
+
+Capturing output with module evaluation by tempeorary redirection of stdout is
+shown here. Control the mkstemp call according to your requirements.
+
+"""
 import tempfile
 import random
 import os

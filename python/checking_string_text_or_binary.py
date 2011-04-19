@@ -1,5 +1,7 @@
-# to check if the string is a text or binary
-
+"""
+This  program checks if a string is a text or binary.
+This snippet is from Python Cookbook.
+"""
 from __future__ import division # ensure / does not truncate
 import string
 text_characters = "".join(map(chr, range(32, 127))) + "\n\r\t\b"

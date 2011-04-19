@@ -1,3 +1,9 @@
+"""
+This is a simple socket client. It connects to a host and port and creates a
+fileobject using makefile and prints the content of it.
+I don't remember when or why I wrote this.
+"""
+
 import socket
 import sys
 

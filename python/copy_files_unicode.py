@@ -1,5 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+"""
+The copyfiles function from source to destination, if the source and
+destination was unicode filenames. Remember to declaring the encoding used by
+the program if using Python2.
+"""
+
 
 import os
 import shutil
