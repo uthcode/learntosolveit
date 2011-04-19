@@ -5,25 +5,203 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
-**updateuthcode.py**
+**cgi_ex.py**
 
 
-$Id: updateuthcode.py 658 2011-04-18 08:36:12Z orsenthil $
+An Example CGI Program in Python.
 
-This code is useful to maintain uthcode.
+Important modules are cgitb - cgitraceback for traceback details when something
+fails.
+
+You will have to setup your environment properly for this to work.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-Eti21h.py
+   :tab-width: 4
+
+----
+
+**cellauto.py**
+
+
+ CellularAutomata.py: Wolfram-style cellular automata in Python
+
+ Options:
+ -h #  Use a screen of height # for the simulation
+ -w #  Use a screen of width # for the simulation
+ -r      Use a random initial row (rather than the standard single 1 in the middle)
+ -R #  Use rule # for the simulation
+
+Requires python-image (PIL package) installed.
+Fills up an initial cell and runs a particular rule of Cellular Automata.
+
+.. image:: https://lh4.googleusercontent.com/_ny1HYbb2lDw/Tazon5TsgXI/AAAAAAAAKgU/ud6v_XhcHB0/s288/bs.png
+
+*I can't remember the source, if you claim/know, please inform.*
 
 
 
+.. literalinclude:: //home/senthil/uthcode/temp/python-jIbazN.py
+   :tab-width: 4
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-ZnVojZ.py
+----
+
+**caseinsensitivedict.py**
+
+
+Case Insenstive Dictionary Lookup.  Dictionary keys are case sensitive. However
+you might want some facilities to do a case-insenstive dictiionary lookup at
+times.  This provides the facility for the same.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-TGl2gK.py
+   :tab-width: 4
+
+----
+
+**bipartite.py**
+
+
+Program to find the bipartite match.
+
+Hopcroft-Karp bipartite max-cardinality matching and max independent set
+David Eppstein, UC Irvine, 27 Apr 2002
+
+Explaination: TODO
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-S68i5R.py
+   :tab-width: 4
+
+----
+
+**bug_gethostbyname.py**
+
+
+Generate a random domain name and see if it actually exists by doing a
+gethostbyname call.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-r5aCtn.py
+   :tab-width: 4
+
+----
+
+**binary_to_octal.py**
+
+
+Given an integer, covert to binary and convert to octal.
+
+>>> b,o = binoct(42)
+>>> b, o
+('101010', '52')
+>>> b, o = binoct(242)
+>>> b, o
+('11110010', '362')
+>>> b, o = binoct(424)
+>>> b, o
+('110101000', '650')
+>>> b, o = binoct(1000000000)
+>>> b, o
+('111011100110101100101000000000', '7346545000')
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-RAt3jd.py
+   :tab-width: 4
+
+----
+
+**binary_repre.py**
+
+
+Program to do binary representation of various interesting ints.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-TCu4d0.py
+   :tab-width: 4
+
+----
+
+**ast_example1.py**
+
+
+This program is directly executing it a Abstract Syntax Tree Level.
+This is just doing xy*3.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-tupPMV.py
+   :tab-width: 4
+
+----
+
+**args_kwargs.py**
+
+
+Good example for args and kwargs in a function.
+It prints
+a: a
+b: b
+args: ('c', 'd', 'e', 'f') # Note it's a tuple.
+kwargs: {'i': 'i', 'h': 'h', 'j': 'j', 'g': 'g'}
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-wj7z57.py
+   :tab-width: 4
+
+----
+
+**allipaddress.py**
+
+
+**Purpose**: The program gets all the ipaddress assigned to all the interfaces
+in your machine.
+
+**Description**: Get all the interfaces using SIOCGIFCONF ioctl call and then
+use SIOCGIFADDR to get its address.
+
+man networking says that      SIOCGIFADDR     Get interface address for
+protocol family.
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-sjCUzF.py
+   :tab-width: 4
+
+----
+
+**allifaces.py**
+
+
+
+**Purpose**: This program  provides list of network interfaces available on
+your machine.
+
+**Description**: man netdevice provides the following information about
+SIOCGIFCONF which is used to retrieve the interfaces information.
+
+SIOCGIFCONF
+
+Return a list of interface (transport layer) addresses. This currently means
+only addresses of the AF_INET (IPv4) family for compatibility. The user passes
+a ifconf structure as argument to the ioctl. It contains a pointer to an array
+of ifreq structures in ifc_req and its length in bytes in ifc_len. The kernel
+fills the ifreqs with all current L3 interface addresses that are running:
+ifr_name contains the interface name (eth0:1 etc.), ifr_addr the address.  The
+kernel returns with the actual length in ifc_len. If ifc_len is equal to the
+original length the buffer probably has overflowed and you should retry with a
+bigger buffer to get all addresses. When no error occurs the ioctl returns 0;
+otherwise -1. Overflow is not an error.
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-3LpSac.py
    :tab-width: 4
 
 ----
 
 **template.py**
 
-
-$Id: template.py 655 2011-04-18 07:46:31Z orsenthil $
 
 Purpose:
     Purpose of this program. This can be a free format text and explains why I
@@ -39,16 +217,22 @@ Source:
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-_LLpBT.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-m36Mky.py
    :tab-width: 4
 
 ----
 
-**allifaces.py**
+**updateuthcode.py**
 
-Purpose: - An Example Snippet
 
-.. literalinclude:: //home/senthil/uthcode/python/allifaces.py
+$Id: updateuthcode.py 658 2011-04-18 08:36:12Z orsenthil $
+
+This code is useful to maintain uthcode.
+
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-t26RiA.py
    :tab-width: 4
 
 ----
@@ -75,7 +259,7 @@ Purpose: - An Example Snippet
 
 This is a comment
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-70EK5u.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-wDha7H.py
    :tab-width: 4
 
 ----
@@ -97,7 +281,7 @@ Source:
    Python cookbook perhaps.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-iaybAi.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-9osu6U.py
    :tab-width: 4
 
 ----
@@ -210,38 +394,6 @@ Purpose: - An Example Snippet
 
 ----
 
-**caseinsensitivedict2.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/caseinsensitivedict2.py
-   :tab-width: 4
-
-----
-
-**binary_to_octal.py**
-
-
-
-    >>> b,o = binoct(42)
-    >>> b, o
-    ('101010', '52')
-    >>> b, o = binoct(242)
-    >>> b, o
-    ('11110010', '362')
-    >>> b, o = binoct(424)
-    >>> b, o
-    ('110101000', '650')
-    >>> b, o = binoct(1000000000)
-    >>> b, o
-    ('111011100110101100101000000000', '7346545000')
-    
-
-.. literalinclude:: //home/senthil/uthcode/temp/python-K3cxaJ.py
-   :tab-width: 4
-
-----
-
 **slice_ellipes.py**
 
 Purpose: - An Example Snippet
@@ -255,7 +407,7 @@ Purpose: - An Example Snippet
 
 Yield 5 until something else is passed back via send()
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-YG6ZGV.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-UVtdBH.py
    :tab-width: 4
 
 ----
@@ -387,7 +539,7 @@ s = opener.open(req)
 print cookiejar
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-ys_YI8.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-IPHD53.py
    :tab-width: 4
 
 ----
@@ -396,7 +548,7 @@ print cookiejar
 
 Accumulate the data to be used when posting a form.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-1GXDmC.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-edSpQf.py
    :tab-width: 4
 
 ----
@@ -476,7 +628,7 @@ it. That is what is happening here.
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-awDhdA.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-kZm7Wb.py
    :tab-width: 4
 
 ----
@@ -530,7 +682,7 @@ Purpose: - An Example Snippet
         store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Zm7Dge.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-FwoBiH.py
    :tab-width: 4
 
 ----
@@ -548,7 +700,7 @@ Purpose: - An Example Snippet
         store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-rwxenu.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-fv6PIo.py
    :tab-width: 4
 
 ----
@@ -566,7 +718,7 @@ Step 1, aim for:
     store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-TUtfJ7.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-BZ_XzM.py
    :tab-width: 4
 
 ----
@@ -659,7 +811,7 @@ This function counts the number of characters in a tamil string
         function, the sample string has a length of 17 - but there are actually
         only 11 characters
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-KYB33v.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-AUBKqu.py
    :tab-width: 4
 
 ----
@@ -675,7 +827,7 @@ with open('data.out') as f:
     pass
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-S1Sv0X.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-Fw8ncU.py
    :tab-width: 4
 
 ----
@@ -718,7 +870,7 @@ find -iname *.py|xargs grep class
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-qdPJog.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-PIrLru.py
    :tab-width: 4
 
 ----
@@ -772,7 +924,7 @@ Purpose: - An Example Snippet
 
 blah
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Z3Gr7h.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-001ayt.py
    :tab-width: 4
 
 ----
@@ -808,7 +960,7 @@ Purpose: - An Example Snippet
 
 Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Bpv3GR.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-ppr7ZM.py
    :tab-width: 4
 
 ----
@@ -817,7 +969,7 @@ Create a dictionary mapping socket module constants to their names.
 
 Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-umYpkw.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-cxzHmS.py
    :tab-width: 4
 
 ----
@@ -854,7 +1006,7 @@ Purpose: - An Example Snippet
 Track HTTP Requests and responses with this custom handlers. Be sure to
     add it your build_opener call, or use: handler_order = 900 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-ExJcGl.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-NAe5cn.py
    :tab-width: 4
 
 ----
@@ -881,7 +1033,7 @@ Purpose: - An Example Snippet
 
 Print the first several URL references in the given URL
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-tklWD0.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-XXB34a.py
    :tab-width: 4
 
 ----
@@ -900,7 +1052,7 @@ Interesting Observation:
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-WueJQc.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-7xBvxn.py
    :tab-width: 4
 
 ----
@@ -924,7 +1076,7 @@ Interesting Observation:
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-0Hhq2g.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-LXSkkg.py
    :tab-width: 4
 
 ----
@@ -939,7 +1091,7 @@ times between the integer addition and integer division. Execute the operation
 100,000 times and compare the difference in the running time. 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-qsy6xs.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-JBrOYk.py
    :tab-width: 4
 
 ----
@@ -982,7 +1134,7 @@ An implementation of the token bucket algorithm.
     False
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-W6Lw4h.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-JS2hAv.py
    :tab-width: 4
 
 ----
@@ -1030,7 +1182,7 @@ Purpose: - An Example Snippet
             u with v without a remainder.
         
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-PCgYr3.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-Y3VwnS.py
    :tab-width: 4
 
 ----
@@ -1060,7 +1212,7 @@ Purpose: - An Example Snippet
         u with v without a remainder.
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-b4TuDX.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-iQ2bro.py
    :tab-width: 4
 
 ----
@@ -1096,7 +1248,7 @@ Purpose: - An Example Snippet
 
 This is a comment
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-VT34fh.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-1p6Kx4.py
    :tab-width: 4
 
 ----
@@ -1167,7 +1319,7 @@ usage: %(progname)s [args]
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-lg0fSC.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-gcrcUH.py
    :tab-width: 4
 
 ----
@@ -1357,7 +1509,7 @@ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Kh89zG.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-oHEsdW.py
    :tab-width: 4
 
 ----
@@ -1458,7 +1610,7 @@ Purpose: - An Example Snippet
 Calculate the number of Friday the 13th from 1900 to 2009.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-_9PSsG.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-LLPIUI.py
    :tab-width: 4
 
 ----
@@ -1512,7 +1664,7 @@ Purpose: - An Example Snippet
 
 A Simple example of object iteration in Python.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-XSc2Dm.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-M3Jre7.py
    :tab-width: 4
 
 ----
@@ -1546,7 +1698,7 @@ The example module supplies one function, factorial(). For example,
 120
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-pWhvAX.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-gE88RT.py
    :tab-width: 4
 
 ----
@@ -1623,7 +1775,7 @@ for i in range(len(atomic_words)-1):
             atomic_words[i],atomic_words[j] = atomic_words[j],atomic_words[i]
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-6lUwo0.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-XXJgF0.py
    :tab-width: 4
 
 ----
@@ -1642,102 +1794,6 @@ Purpose: - An Example Snippet
 Purpose: - An Example Snippet
 
 .. literalinclude:: //home/senthil/uthcode/python/checking_string_text_or_binary.py
-   :tab-width: 4
-
-----
-
-**cgi_ex.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/cgi_ex.py
-   :tab-width: 4
-
-----
-
-**cellauto.py**
-
-
- CellularAutomata.py: Wolfram-style cellular automata in Python
-
- Options:
- -h #  Use a screen of height # for the simulation
- -w #  Use a screen of width # for the simulation
- -r      Use a random initial row (rather than the standard single 1 in the middle)
- -R #  Use rule # for the simulation
-
-
-
-.. literalinclude:: //home/senthil/uthcode/temp/python-GFgbnd.py
-   :tab-width: 4
-
-----
-
-**caseinsensitivedict.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/caseinsensitivedict.py
-   :tab-width: 4
-
-----
-
-**bug_gethostbyname.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/bug_gethostbyname.py
-   :tab-width: 4
-
-----
-
-**bipartite.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/bipartite.py
-   :tab-width: 4
-
-----
-
-**binary_repre.py**
-
-
-Find out if the machine is storing it in the one's complement or two's
-complement.
-1 is stored as 0000 0001
--1 in 1's complement is 1111 1110
--1 in 2's complement is 1111 1111
-
-
-.. literalinclude:: //home/senthil/uthcode/temp/python-NsNzZy.py
-   :tab-width: 4
-
-----
-
-**ast_1.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/ast_1.py
-   :tab-width: 4
-
-----
-
-**args_kwargs.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/args_kwargs.py
-   :tab-width: 4
-
-----
-
-**allipaddress.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/allipaddress.py
    :tab-width: 4
 
 ----
@@ -1787,16 +1843,7 @@ Further Example:
   then uploads it to the W3C validator.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-lZlHcK.py
-   :tab-width: 4
-
-----
-
-**JavaOne.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/JavaOne.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-RDsO_Q.py
    :tab-width: 4
 
 ----

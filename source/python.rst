@@ -51,9 +51,6 @@ Discussion on Bugs
 * Add a new set of functions to the posixmodule, well written and quick for
   receiving comments and modifying the code. 
 * Decimal Module with some dot specific usage. 
-* There was problem when python3 was attempting to write to /dev/null and it
-  was being written. VS pointed out that it is fixed in 3.2. there were
-  unclosed sockets from test_multiprocessing and Victor fixed them. 
 * There is  misbehavior in the ContentTooShort Exception from the
   urllib.request. I had assigned it to myself.
 * There is cleaning up of pydoc module, a patch by Ron Adam is in the tracker.  
@@ -146,16 +143,14 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
 
 * Among other things, it creates two very important Python data-structures: the
   interpreter state and thread state. It also creates the built-in module sys
-  and the module which hosts all builtins. At a later post(s) we will cover all
-  these in depth.
+  and the module which hosts all builtins. 
 
 * It will execute a single string, since we invoked it with -c. To execute this
-  single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called. This
-  function creates the ``__main__`` namespace, which is ‘where’ our string will be
-  executed (if you run ``$python -c 'a=1; print(a)'``, where is a stored? in this
-  namespace). After the namespace is created, the string is executed in it (or
-  rather, interpreted or evaluated in it). To do that, you must first transform
-  the string into something that machine can work on.
+  single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called.
+  This function creates the ``__main__`` namespace, which is ‘where’ our string
+  will be executed. After the namespace is created, the string is executed in
+  it (or rather, interpreted or evaluated in it). To do that, you must first
+  transform the string into something that machine can work on.
 
 * The parser/compiler stage of ``PyRun_SimpleStringFlags`` goes largely like
   this: tokenize and create a Concrete Syntax Tree (CST) from the code,
@@ -166,8 +161,8 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
   ‘machinary’ can operate on – so now we’re ready to do interpretation (again,
   evaluation in Python’s parlance).
 
-* We have an (almost) empty ``__main__``, we have a code object, we want to
-  evaluate it. Now what? Now this line: ``Python/pythonrun.c: run_mod, v =
+* We have an empty ``__main__``, we have a code object, we want to evaluate it.
+  Now what? Now this line: ``Python/pythonrun.c: run_mod, v =
   PyEval_EvalCode(co, globals, locals);`` does the trick. It receives a code
   object and a namespace for globals and for locals (in this case, both of them
   will be the newly created ``__main__`` namespace), creates a frame object
@@ -182,12 +177,11 @@ http://tech.blog.aknin.name/category/my-projects/pythons-innards/
   means of the (rather lengthy) ``./Python/ceval.c: PyEval_EvalFrameEx``.
 
 * ``PyEval_EvalFrameEx`` takes the frame, extracts opcode (and operands, if
-  any, we’ll get to that) after opcode, and executes a short piece of C code
-  matching the opcode. 
+  any,) after opcode, and executes a short piece of C code matching the opcode. 
 
 Opcode looks like this.::
 
-        >>> from dis import dis # ooh! a handy disassembly function!
+        >>> from dis import dis
         >>> co = compile("spam = eggs - 1", "<string>", "exec")
         >>> dis(co)
           1           0 LOAD_NAME                0 (eggs)
@@ -199,10 +193,10 @@ Opcode looks like this.::
         >>>
 
 
-* You “load” the name eggs (where do you load it from? where do you load it to?
-  soon), and also load a constant value (1), then you do a ``“binary
-  subtract”`` (what do you mean ‘binary’ in this context? between which
-  operands?), and so on and so forth.
+* You “load” the name eggs (where do you load it from? where do you load it
+  to?), and also load a constant value (1), then you do a ``“binary subtract”``
+  (what do you mean ‘binary’ in this context? between which operands?), and so
+  on and so forth.
 
 * As you might have guessed, the names are “loaded” from the globals and locals
   namespaces we’ve seen earlier, and they’re loaded onto an operand stack (not
@@ -225,13 +219,11 @@ Opcode looks like this.::
             break;
 
 * After the frame is executed and ``PyRun_SimpleStringFlags`` returns, the main
-  function does some cleanup (notably, Py_Finalize, which we’ll discuss), the
-  standard C library deinitialization stuff is done (atexit, et al), and the
-  process exits.
+  function does some cleanup (notably, ``Py_Finalize``), the standard C library
+  deinitialization stuff is done (``atexit``), and the process exits.
 
-* Objects are fundamental to the innards of python.
-
-* Objects are not very tightly coupled with anything else in Python.
+* Objects are fundamental to the innards of python and Objects are not very
+  tightly coupled with anything else in Python.
 
 * Look at the implementation of objects as if they’re unrelated to the ‘rest’,
   as if they’re a general purpose C API for creating an object subsystem. 
@@ -1791,7 +1783,7 @@ co_zombieframe
 * We see various fields used to store the state of this invocation of the code
   object as well as maintain the call stack’s structure. 
 
-* Both in the C-API and in Python these fields are all prefixed by f_, though
+* Both in the C-API and in Python these fields are all prefixed by ``f_``, though
   not all the fields of the C structure PyFrameObject are exposed in the
   pythonic representation.
 
@@ -2600,7 +2592,7 @@ build completely?**
         ``defaultdict`` class.
 
 
-**19. Example of constructing a dictionar from two lists of key and values.**
+**19. Example of constructing a dictionary from two lists of key and values.**
 
         Here's a useful technique to build a dictionary from two lists (or sequences):
         one list of keys, another list of values.::
