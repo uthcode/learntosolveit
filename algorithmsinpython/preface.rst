@@ -13,8 +13,9 @@ algorithm and measure it's performance.
 The intention of this book would be to simplify things for understanding the
 nature of the algorithms involved in the products.  I would not mind removing
 the term 'algorithm' to something else, in order to convey the message that
-this really is not a heavy subject or a subject which people with hubris will
-talk about. It is about games and it is about fun.
+this really is not a heavy subject or a subject which non-ordinary people will
+talk about. It is about games and it is about fun. It should be simple and it
+should be enjoyable.
 
 Let's see how far we go. Both in Python and in err.. having fun.
 
