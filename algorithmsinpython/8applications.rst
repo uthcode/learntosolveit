@@ -70,6 +70,12 @@ position.
 .. literalinclude:: source/8applications-insersion-1.py
 
  
+.. raw:: html
+
+        <iframe title="YouTube video player" width="480" height="390"
+        src="http://www.youtube.com/embed/c4BRHC7kTaQ" frameborder="0"
+        allowfullscreen></iframe>
+
 Here is Insertion Sort's asymptotic analysis
 
 +----------------------+------------------------------+

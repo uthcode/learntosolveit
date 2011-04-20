@@ -20,7 +20,8 @@ Life
   stage of adventure.
 * "Now, Now", cried the Queen, "Faster,Faster".  - Alice in Wonderland. 
 * Being entirely honest with oneself is a good exercise. --Sigmund Freud 
-* When you have eliminated the impossible, whatever remains, however                                                     improbable, must be the truth. --Sherlock Holmes  
+* When you have eliminated the impossible, whatever remains, however
+  improbable, must be the truth. --Sherlock Holmes  
 * What Linux myths or misconceptions do you find particularly galling?.
   Torvalds responds.
 

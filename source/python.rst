@@ -915,7 +915,6 @@ Opcode looks like this.::
 
 * A more useful variable similar to interp_head is ./Python/pystate.c:
   _PyThreadState_Current which points to the currently running thread state
-  (important terms and conditions apply, see soon).
 
 * This is how code typically accesses the correct interpreter state for itself:
   first find its your own thread’s thread state, then dereference its interp
