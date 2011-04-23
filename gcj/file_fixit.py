@@ -1,3 +1,14 @@
+"""
+Problem Statement: http://code.google.com/codejam/contest/dashboard?c=635101
+
+This is an interesting problem, try to construct a tree of directories and then
+count many of those levels exist, after removing the already existing
+directories. The first thing was constructing the tree as a dict for each level
+and having the key of the dict as the level number. After constructing this,
+the problem is easy to solve.
+
+"""
+
 T = int(raw_input())
 for tc in range(1,T+1):
     n_already, n_required = map(int,raw_input().split())
