@@ -5,6 +5,13 @@ Problem Statement:
 Tip - During the first read of the problem statement, it is helpful to
 understand the problem using the TestCases which are provided.
 
+This is an easy problem to solve. Just getting the correct method to solving
+using the example input/output relationship was good enough.
+
+For the unequal sets of R and B. Choose the minimum in both sets are reversed
+sorted. Combine them and the deduct the joining length, which is nothing but
+total number of loops in both.
+
 """
 N = int(raw_input())
 for tc in range(1,N+1):
