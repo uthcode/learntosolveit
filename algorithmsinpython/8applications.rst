@@ -133,6 +133,23 @@ This is quicksort's algorithm analysis.
 Implementation
 --------------
 
+**Stable Sorting**
+
+Stable sorting is a concept in which, during the sort if two or more elements
+sort equal, then their relative order of occurance in the original list is
+preserved. Python's sort method on lists and sorted function provide stable sorting.
+
+Here is an example of the snippet which demonstrates the concept of stable sorting.::
+
+        >>> from operator import itemgetter
+        >>> data = [('red', 1), ('blue', 1), ('red', 2), ('blue', 2)]
+        >>> sorted(data, key=itemgetter(0))
+        [('blue', 1), ('blue', 2), ('red', 1), ('red', 2)]
+
+Notice how the two records for 'blue' retain their original order so that
+('blue', 1) is guaranteed to precede ('blue', 2).
+
+
 Issues
 ------
 
