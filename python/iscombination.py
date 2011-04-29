@@ -13,5 +13,3 @@ def combination(compword, wordlist):
 
 
 print combination('madmadmanhatter',wordlist)
-
-

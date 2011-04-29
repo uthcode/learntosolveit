@@ -12,6 +12,10 @@ import os
 import subprocess
 import shutil
 
+# build algorithmsinpython
+os.chdir('/home/senthil/uthcode/algorithmsinpython')
+subprocess.call(["/usr/bin/make","html"])
+
 os.chdir('/home/senthil/uthcode')
 
 subprocess.call(["/usr/bin/python","includecfiles.py"])
@@ -25,6 +29,7 @@ with open('/home/senthil/.ssh/password') as fh:
 
 shutil.rmtree('/home/senthil/projects/googleappengine/python/bloggart/docs/')
 shutil.move('/home/senthil/uthcode/build/html','/home/senthil/projects/googleappengine/python/bloggart/docs/')
+shutil.move('/home/senthil/uthcode/algorithmsinpython/_build/html','/home/senthil/projects/googleappengine/python/bloggart/docs/algorithmsinpython')
 
 os.chdir('/home/senthil/projects/googleappengine/python')
 
