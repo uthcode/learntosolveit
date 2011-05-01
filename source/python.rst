@@ -26,6 +26,16 @@ Bring your Repo in sync with main
 * hg push
 
 
+distutils
+=========
+Was the mechanism to to distribute python packages and extensions since Python 1.6.
+Introduce new version control comparision algorithm in distutil.
+PEP-376 standardize the egg-info directories and provide APIs
+PEP-345 PKG-INFO content.
+
+http://distutils2.notmyidea.org/
+
+
 Discussion on Bugs
 ==================
 
@@ -672,8 +682,7 @@ Opcode looks like this.::
   a dictionary object with the key foo pointing to the value bar.  
 
 * Of course, if you check ``tp_dictoffset`` on a type which doesn’t have a
-  __dict__, like object, you will find that it is zero. You sure have a warm
-  fuzzy feeling now, don’t you.
+  __dict__, like object, you will find that it is zero.
 
 * I define a class C inheriting object and doing nothing much else in Python,
   and then I instantiate o from that class, causing the extra memory for the
@@ -4844,14 +4853,6 @@ Alex Martelli's Tutorials
 
 2) http://www.strakt.com/dev_talks.html
 
-
-Python and Vim
---------------
-
-http://henry.precheur.org/2008/4/18/Indenting_Python_with_VIM.html
- 
-http://blog.sontek.net/2008/05/11/python-with-a-modular-ide-vim/ 
-
 References
 ----------
 
@@ -4870,5 +4871,8 @@ http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
 
 * "Sorting Mini-HOWTO", Andrew Dalke,
   http://wiki.python.org/moin/HowTo/Sorting
+
+* Unicode objects by Fredrik Lundh
+  http://effbot.org/zone/unicode-objects.htm
 
 .. _Joel's article on Unicode: http://www.joelonsoftware.com/articles/Unicode.html 

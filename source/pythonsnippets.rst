@@ -5,6 +5,129 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
+**caseinsensitivedict.py**
+
+
+Case Insenstive Dictionary Lookup.  Dictionary keys are case sensitive. However
+you might want some facilities to do a case-insenstive dictiionary lookup at
+times.  This provides the facility for the same.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-tZAMqo.py
+   :tab-width: 4
+
+----
+
+**updateuthcode.py**
+
+
+$Id: updateuthcode.py 678 2011-04-29 10:01:35Z orsenthil $
+
+This code is useful to maintain uthcode.
+
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-Xa4ezf.py
+   :tab-width: 4
+
+----
+
+**twitter-phidget.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/twitter-phidget.py
+   :tab-width: 4
+
+----
+
+**threading_2.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/threading_2.py
+   :tab-width: 4
+
+----
+
+**sorting_ex1.py**
+
+
+**Multi-level sorting in Python.**
+
+Problem:
+    Suppose you have student tuple with elements name, age and grade. You got to
+    sort them by age first and then by their grade.
+
+Solution:
+    It is easily accomplished by multi-level sorting using the *key* attribute
+    of the sort function and using operator modules itemgetter function which
+    can take multiple values.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-rxuM9A.py
+   :tab-width: 4
+
+----
+
+**1.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/1.py
+   :tab-width: 4
+
+----
+
+**iscombination.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/iscombination.py
+   :tab-width: 4
+
+----
+
+**gbm.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: //home/senthil/uthcode/python/gbm.py
+   :tab-width: 4
+
+----
+
+**total_ordering_ex1.py**
+
+
+
+http://en.wikipedia.org/wiki/Total_order
+
+For pair of items from a set,  (that's the total)
+if  a <= b  and  b <= c  then  a <= c  (part of the order)
+if  a <= b  and  b <= a  then  a compares the same as b, a == b, (the
+other part of the order)
+
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-4KXqT7.py
+   :tab-width: 4
+
+----
+
+**prime-1.py**
+
+
+This is a simple program which prints first 100 primes.
+Guido had used this example in 1993 paper while explaining python language.
+
+
+.. literalinclude:: //home/senthil/uthcode/temp/python-ueqzTB.py
+   :tab-width: 4
+
+----
+
 **cgi_ex.py**
 
 
@@ -16,20 +139,7 @@ fails.
 You will have to setup your environment properly for this to work.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-5BPrFU.py
-   :tab-width: 4
-
-----
-
-**caseinsensitivedict.py**
-
-
-Case Insenstive Dictionary Lookup.  Dictionary keys are case sensitive. However
-you might want some facilities to do a case-insenstive dictiionary lookup at
-times.  This provides the facility for the same.
-
-
-.. literalinclude:: //home/senthil/uthcode/temp/python-KQMRbS.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-0qxO77.py
    :tab-width: 4
 
 ----
@@ -46,7 +156,7 @@ Explaination: TODO
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-kSWWSK.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-1ZrHtQ.py
    :tab-width: 4
 
 ----
@@ -63,7 +173,7 @@ shown here. Control the mkstemp call according to your requirements.
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-UheqoT.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-aQaOzg.py
    :tab-width: 4
 
 ----
@@ -76,7 +186,7 @@ destination was unicode filenames. Remember to declaring the encoding used by
 the program if using Python2.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-yx24jw.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-rpGXkd.py
    :tab-width: 4
 
 ----
@@ -97,7 +207,7 @@ This outputs:
      </h1>
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-NabBuP.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-mKF7Mv.py
    :tab-width: 4
 
 ----
@@ -121,7 +231,7 @@ passed the value and calling the inner function from within, it is not required
 to send the value.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-4GklDB.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-FkFEbS.py
    :tab-width: 4
 
 ----
@@ -134,7 +244,7 @@ fileobject using makefile and prints the content of it.
 I don't remember when or why I wrote this.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-hk0eYN.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-z5vXnt.py
    :tab-width: 4
 
 ----
@@ -146,7 +256,7 @@ This  program checks if a string is a text or binary.
 This snippet is from Python Cookbook.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-hphx2W.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-NDUa30.py
    :tab-width: 4
 
 ----
@@ -171,7 +281,7 @@ Fills up an initial cell and runs a particular rule of Cellular Automata.
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-SnSgCL.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-FA7Zq9.py
    :tab-width: 4
 
 ----
@@ -183,7 +293,7 @@ Generate a random domain name and see if it actually exists by doing a
 gethostbyname call.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-7qJ_ln.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-yGV0pV.py
    :tab-width: 4
 
 ----
@@ -207,7 +317,7 @@ Given an integer, covert to binary and convert to octal.
 ('111011100110101100101000000000', '7346545000')
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-475sta.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-nOiD0H.py
    :tab-width: 4
 
 ----
@@ -218,7 +328,7 @@ Given an integer, covert to binary and convert to octal.
 Program to do binary representation of various interesting ints.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-KFnDRz.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-lFGXoI.py
    :tab-width: 4
 
 ----
@@ -230,7 +340,7 @@ This program is directly executing it a Abstract Syntax Tree Level.
 This is just doing xy*3.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-59rI3A.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-UXYrdF.py
    :tab-width: 4
 
 ----
@@ -246,7 +356,7 @@ args: ('c', 'd', 'e', 'f') # Note it's a tuple.
 kwargs: {'i': 'i', 'h': 'h', 'j': 'j', 'g': 'g'}
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-FUiD3x.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-ANqHX0.py
    :tab-width: 4
 
 ----
@@ -265,7 +375,7 @@ protocol family.
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-14gCV7.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-qVvDgQ.py
    :tab-width: 4
 
 ----
@@ -295,7 +405,7 @@ otherwise -1. Overflow is not an error.
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Eo8rIN.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-CrzNLi.py
    :tab-width: 4
 
 ----
@@ -317,22 +427,7 @@ Source:
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-uZbSNr.py
-   :tab-width: 4
-
-----
-
-**updateuthcode.py**
-
-
-$Id: updateuthcode.py 658 2011-04-18 08:36:12Z orsenthil $
-
-This code is useful to maintain uthcode.
-
-
-
-
-.. literalinclude:: //home/senthil/uthcode/temp/python-7021QG.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-9gM5cD.py
    :tab-width: 4
 
 ----
@@ -359,7 +454,7 @@ Purpose: - An Example Snippet
 
 This is a comment
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-9fvgIT.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-OLu3dt.py
    :tab-width: 4
 
 ----
@@ -381,7 +476,7 @@ Source:
    Python cookbook perhaps.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-ieiE_e.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-pTjTYC.py
    :tab-width: 4
 
 ----
@@ -489,7 +584,7 @@ Purpose: - An Example Snippet
 
 Yield 5 until something else is passed back via send()
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-5m8V21.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-aj38CK.py
    :tab-width: 4
 
 ----
@@ -621,7 +716,7 @@ s = opener.open(req)
 print cookiejar
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-8uM7GU.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-I5NerG.py
    :tab-width: 4
 
 ----
@@ -630,7 +725,7 @@ print cookiejar
 
 Accumulate the data to be used when posting a form.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-IOY5mL.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-diwGii.py
    :tab-width: 4
 
 ----
@@ -710,7 +805,7 @@ it. That is what is happening here.
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-R3sAPB.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-zfhhrF.py
    :tab-width: 4
 
 ----
@@ -764,7 +859,7 @@ Purpose: - An Example Snippet
         store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-8G_JtS.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-trJBoD.py
    :tab-width: 4
 
 ----
@@ -782,7 +877,7 @@ Purpose: - An Example Snippet
         store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-GJuILh.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-gK0jqK.py
    :tab-width: 4
 
 ----
@@ -800,7 +895,7 @@ Step 1, aim for:
     store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-JcFAfN.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-8cG1NG.py
    :tab-width: 4
 
 ----
@@ -893,7 +988,7 @@ This function counts the number of characters in a tamil string
         function, the sample string has a length of 17 - but there are actually
         only 11 characters
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Hcq3Ef.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-eevb72.py
    :tab-width: 4
 
 ----
@@ -909,7 +1004,7 @@ with open('data.out') as f:
     pass
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Zo5ufv.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-EDwbll.py
    :tab-width: 4
 
 ----
@@ -952,7 +1047,7 @@ find -iname *.py|xargs grep class
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-sHK0u3.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-3pNoi8.py
    :tab-width: 4
 
 ----
@@ -1006,7 +1101,7 @@ Purpose: - An Example Snippet
 
 blah
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-B3she6.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-I166Dk.py
    :tab-width: 4
 
 ----
@@ -1042,7 +1137,7 @@ Purpose: - An Example Snippet
 
 Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-PKfvXy.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-16ZrXl.py
    :tab-width: 4
 
 ----
@@ -1051,7 +1146,7 @@ Create a dictionary mapping socket module constants to their names.
 
 Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-_kCOdh.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-bveBHO.py
    :tab-width: 4
 
 ----
@@ -1088,7 +1183,7 @@ Purpose: - An Example Snippet
 Track HTTP Requests and responses with this custom handlers. Be sure to
     add it your build_opener call, or use: handler_order = 900 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-L0eJnE.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-22Lp_J.py
    :tab-width: 4
 
 ----
@@ -1115,7 +1210,7 @@ Purpose: - An Example Snippet
 
 Print the first several URL references in the given URL
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-mCqHu0.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-0hcS2W.py
    :tab-width: 4
 
 ----
@@ -1134,7 +1229,7 @@ Interesting Observation:
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-OtLJek.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-9ZOlc7.py
    :tab-width: 4
 
 ----
@@ -1158,7 +1253,7 @@ Interesting Observation:
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-Sy7wTF.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-yBUpNj.py
    :tab-width: 4
 
 ----
@@ -1173,7 +1268,7 @@ times between the integer addition and integer division. Execute the operation
 100,000 times and compare the difference in the running time. 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-G1xAfg.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-tGzaFC.py
    :tab-width: 4
 
 ----
@@ -1216,7 +1311,7 @@ An implementation of the token bucket algorithm.
     False
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-s_3Z0o.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-bbY0uJ.py
    :tab-width: 4
 
 ----
@@ -1264,7 +1359,7 @@ Purpose: - An Example Snippet
             u with v without a remainder.
         
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-NfKz63.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-CAhNS2.py
    :tab-width: 4
 
 ----
@@ -1294,7 +1389,7 @@ Purpose: - An Example Snippet
         u with v without a remainder.
     
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-2xtfDc.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-eHEHc8.py
    :tab-width: 4
 
 ----
@@ -1330,7 +1425,7 @@ Purpose: - An Example Snippet
 
 This is a comment
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-sWILnM.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-RK1Rwo.py
    :tab-width: 4
 
 ----
@@ -1401,7 +1496,7 @@ usage: %(progname)s [args]
 
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-xmyQ8W.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-8eNPx4.py
    :tab-width: 4
 
 ----
@@ -1505,15 +1600,6 @@ Purpose: - An Example Snippet
 
 ----
 
-**iscombination.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: //home/senthil/uthcode/python/iscombination.py
-   :tab-width: 4
-
-----
-
 **ipy.py**
 
 Purpose: - An Example Snippet
@@ -1591,7 +1677,7 @@ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-pnqonl.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-0nXRZH.py
    :tab-width: 4
 
 ----
@@ -1692,7 +1778,7 @@ Purpose: - An Example Snippet
 Calculate the number of Friday the 13th from 1900 to 2009.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-8x6n4d.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-5v87ZW.py
    :tab-width: 4
 
 ----
@@ -1746,7 +1832,7 @@ Purpose: - An Example Snippet
 
 A Simple example of object iteration in Python.
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-HNxfOG.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-eO5VTS.py
    :tab-width: 4
 
 ----
@@ -1780,7 +1866,7 @@ The example module supplies one function, factorial(). For example,
 120
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-d6KJwL.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-gQZ6IA.py
    :tab-width: 4
 
 ----
@@ -1821,7 +1907,7 @@ for i in range(len(atomic_words)-1):
             atomic_words[i],atomic_words[j] = atomic_words[j],atomic_words[i]
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-9wQ4ax.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-f7h5R3.py
    :tab-width: 4
 
 ----
@@ -1871,7 +1957,7 @@ Further Example:
   then uploads it to the W3C validator.
 
 
-.. literalinclude:: //home/senthil/uthcode/temp/python-n297vJ.py
+.. literalinclude:: //home/senthil/uthcode/temp/python-PHGN1e.py
    :tab-width: 4
 
 ----

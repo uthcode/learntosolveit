@@ -1,0 +1,58 @@
+PyCon Australia
+===============
+
+Title of the Talk:  Networking Libraries in Python.
+
+Name of the Presenter: O.R.Senthil Kumaran
+
+Description of the Talk:
+
+This talk will explore the core networking libraries available in Python.
+
+This will be 30 minute talk with the overview of the capabilities of 4 major networking library.
+
+1. Python Standard Library. http and urllib package (Python3 and Python2)
+2. Capabilities of other 3rd party networking libraries - pycurl and httplib2. When to use them and why they exist.
+3. Asychronous Network IO using Twisted Matrix Framework.
+4. Tornado framework capablities - Generic overview.
+
+In this talk, I intend to go in-depth with design and capablities of Python
+Standard Library and explain the other packages/ libraries as an Overview.
+
+Revelant points would be mentioned about usage scenarios of each networking
+library, their strong points and weakness so that audience at the end can gain
+a knowledge about each of them and should be able to make as informed decision
+about choosing the networking library for the application.
+
+Detailed explaination would be given on Asychrnouos libraries which would need
+the audience to understand Reactor pattern.
+
+Reference Materials
+===================
+
+* http://docs.python.org/dev
+* http://www.twistedmatmatrix.com
+
+Category tag
+============
+python
+python3
+networking
+twisted
+httplib
+
+Difficulty Level
+================
+Intermediate
+
+Permission to Record the talk
+=============================
+
+Yes
+
+Personal Details of the Presenter
+=================================
+
+Senthil Kumaran is a Python Core developer and maintainer of Internet protocol
+related libraries in Python Stadard Library. http://www.uthcode.com is his
+programming website.

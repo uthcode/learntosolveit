@@ -4,11 +4,12 @@ Vim Editor
 
 Links
 
-* [http://vimrc-dissection.blogspot.com/ vim relatd blog]
+* http://vimrc-dissection.blogspot.com/
+* http://docs.freebsd.org/44doc/usd/12.vi/paper.html
+* http://dancingpenguinsoflight.com/2009/02/python-and-vim-make-your-own-ide/
+* Python Indentation while using vim - http://henry.precheur.org/vim/python 
+* Seven habits of effective text editing http://www.moolenaar.net/habits.html
 
-* [http://docs.freebsd.org/44doc/usd/12.vi/paper.html An Introduction to Display Editing with Vi] 
-
-* [http://dancingpenguinsoflight.com/2009/02/python-and-vim-make-your-own-ide/ Notes on scripts that might be useful]
 Notes to accompany the Tutorial "Introduction To Display Editing using vi" by William Joy and Mark Horton.
 
 Bill Joy's "Introduction to Display editing using vi" is a great tutorial to
@@ -212,7 +213,6 @@ backspace over end of line.
 * An appendix of all the characters is presented.
 * :vimtutor
 
-Seven habits of effective text editing http://www.moolenaar.net/habits.html
 
 Vim site www.vim.org 
 

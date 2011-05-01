@@ -8,5 +8,3 @@ animal_desc = []
 animals = int(raw_input())
 for _ in range(animals):
     animal_desc.append(raw_input())
-
-
