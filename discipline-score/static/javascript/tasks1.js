@@ -4,20 +4,12 @@
         this.j = null;
         this.ea = 0;
         if (!window.RegExp) return;
-        var a = [f.OPERA, f.IE, f.CHROME, f.SAFARI, f.FIREFOX, f.NETSCAPE, f.MOZILLA],
+        var a = [f.OPERA, f.IE, f.SAFARI, f.FIREFOX, f.NETSCAPE, f.MOZILLA],
             b = navigator.userAgent.toLowerCase();
         for (var e = 0; e < a.length; e++) {
             var c = a[e];
             if (b.indexOf(c) != -1) {
                 this.j = c;
-		// I don't know what's wrong with CHROME.
-		if ( c == f.CHROME || c == f.SAFARI)
-		{
-		alert(c);
-		this.j = f.FIREFOX;
-		this.ea = 10.0;
-		break;
-		}
                 var d = new RegExp(c + "[ /]?([0-9]+(.[0-9]+)?)");
                 if (d.exec(b) != null) this.ea = parseFloat(RegExp.$1);
                 break
@@ -44,11 +36,10 @@
         return this.j == f.IE
     };
 
-    // j should have been instantiated at this point.
     function i() {
         j.addListener(window, "resize", k(this, this.q));
-        j.addListener(window, "scroll", k(this, this.q));
-    };
+        j.addListener(window, "scroll", k(this, this.q))
+    }
     i.instance = function () {
         if (!i.f) i.f = new i;
         return i.f
@@ -420,7 +411,7 @@
         this.aa = a;
         this.g = b;
         this.k = e;
-        this.G = c;
+        this.G = c
     }
     E.prototype.key = function () {
         return this.g
@@ -462,7 +453,6 @@
         this.d = this.b("div", s);
         this.d.style.position = "relative";
         this.u();
-	// z is being instantiated here?
         var o = new z(b, true);
         j.addListener(o, "dragstart", k(this, this.M));
         j.addListener(o, "dragend", k(this, this.L));
@@ -519,26 +509,19 @@
         }
     };
     E.prototype.r = function () {
-	//alert("I come here in prototype.r");
-	var parentnode = this.i.parentNode;
-        parentnode.removeChild(this.i);
-        //this.i.parentNode.removeChild(this.i);
+        this.i.parentNode.removeChild(this.i);
         this.i = null;
         this.d.style.display = "";
         q(this.a)
     };
     E.prototype.v = function () {
-	// some modification here?
         var a = this.i.value != this.k;
-	//alert("a is " + a.toString());
         if (a) {
             this.k = this.i.value;
             this.u()
         }
         this.r();
-        if (a) this.save();
-	// my write
-	this.save();
+        if (a) this.save()
     };
     E.prototype.u = function () {
         this.d.innerHTML = "&nbsp;";
@@ -638,8 +621,7 @@
             e = true;
             break
         }
-	// I am disabling this
-        //if (!e) return;
+        if (!e) return;
         this.T = a;
         var d = "tasks=" + encodeURIComponent(a.join(","));
         C("/settaskpositions.do", null, {
