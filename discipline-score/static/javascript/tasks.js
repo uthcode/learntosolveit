@@ -13,7 +13,6 @@
 		// I don't know what's wrong with CHROME.
 		if ( c == f.CHROME || c == f.SAFARI)
 		{
-		alert(c);
 		this.j = f.FIREFOX;
 		this.ea = 10.0;
 		break;
