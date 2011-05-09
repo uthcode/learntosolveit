@@ -1,58 +1,35 @@
 """
-0-1 divide into three parts
-
-(1-0) / 3 = 1/3
-
-0+1/3 = 1/3
-1/3+1/3 = 2/3
-2/3+1/3 = 3/3
-
-(3/3-2/3) / 3 = 1/9
-
-2/3+1/9 = 7/9
-7/9+1/9 = 8/9
-8/9+1/9 = 9/9
-
-
-(1/3-0)/3 = 1/9
-
-0+1/9 = 1/9
-1/9+1/9 = 2/9
-2/9+1/9 = 3/9
+Some of reverse thinking is required.
+Find numbers between 1/3 to 2/3 and return first.
+Othewise, if the number is less than 1/3, multiple the number by 3 and see if
+it falls between 1/3 to 2/3. Give the index of how many times you multiply.
+For upper limit do, (number - upper) * 3 and see how many times you want to do.
+If it does not fall,return a very high number.
 
 """
 import decimal
+import sys
 
-order = {1:(1.0/3,2.0/3),
-         2:(1.0/9,2.0/9),
-         3:(7.0/9,8.0/9)
-        }
+def orderit(n):
+    lower = decimal.Decimal(1)/3
+    upper = decimal.Decimal(2)/3
+    for i in range(100):
+        if lower <= n <= upper:
+            return i
+        elif n < lower:
+            n *= 3
+        else:
+            n = (n - upper) * 3
+    return sys.maxint
 
-levels = [0,1.0/9,2.0/9,1.0/3,2.0/3,7.0/9,8.0/9,1]
 T = int(raw_input())
 for tc in range(1,T+1):
     print 'Case #%d:' % tc
     N = int(raw_input())
     numbers = []
     for n in range(N):
-        numbers.append(decimal.Decimal(raw_input()))
-    group1 = []
-    group2 = []
-    group3 = []
-    for number in numbers:
-        if ((float(number) >= (1.0/9) and float(number) <= (2.0/9)) or
-              (float(number) >= (7.0/9) and float(number) <= (8.0/9))):
-            print 'group2', number
-            group2.append(number)
-        elif (1.0/3 <= float(number) <= 2.0/3):
-            print 'group1', number
-            group1.append(number)
-        else:
-            print 'group3',number
-            group3.append(number)
-    group1.sort()
-    group2.sort()
-    group3.sort()
-    result = group1 + group2 + group3
-    for each in result:
-        print each
+        num = decimal.Decimal(raw_input())
+        numbers.append((orderit(num),num))
+    numbers.sort()
+    for order,num in numbers:
+        print num
