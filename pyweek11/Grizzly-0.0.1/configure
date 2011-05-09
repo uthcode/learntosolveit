@@ -1,0 +1,4 @@
+#fake configure for pywebsite, to support the common
+# ./configure;make;make install
+
+#python config.py -auto
