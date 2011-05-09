@@ -70,7 +70,6 @@ Discussion on Bugs
 * Wrapping TextIOWrapper around gzip files
 * subprocess.getoutput fails on win32.
 * [issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
-* Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
 Notes from Python3 article
 ==========================
