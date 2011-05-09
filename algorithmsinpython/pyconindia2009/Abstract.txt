@@ -1,0 +1,24 @@
+This talk will feature a number of useful and basic Computer Science Algorithms
+written in Python. The following topics will be covered as part of the talk. 
+
+* Understanding Algorithm Analysis. 
+* Prime number generation and Primality Testing.
+* Sorting Algorithms:
+* Bubble
+* Shell
+* Insert
+* Merge 
+* Quick 
+
+* Graph Data Structure.
+
+How to Represent graphs in Python. Graph traversal in python. * Search
+algorithms. This talk is aimed towards undergraduate/graduate students and
+programmers. Algorithms written in Python would also reveal Python's
+expressiveness and show how the language does not come in your way of thinking
+and writing the actual code. Python 3.1 would be used for all example snippets.
+Examples in Python 2.6 would be available as a reference.
+
+In order to analyze how much time and space, a given algorithm requires,
+computer scientists express the time and space required to solve the problem as
+a function of the input.
