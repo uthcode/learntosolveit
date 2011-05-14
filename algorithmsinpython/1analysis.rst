@@ -77,6 +77,14 @@ terms of a simpler function.
 
 3. For everything in between these 2 ranges, it is called as Phi notation.
 
+The following video gives a good overview of the time-complexity.
+
+.. raw:: html
+
+        <iframe title="Uthcode Algorithms" width="480" height="390"
+        src="http://www.youtube.com/embed/6Ol2JbwoJp0" frameborder="0"
+        allowfullscreen></iframe>
+
 O notation
 ----------
 
@@ -93,4 +101,151 @@ Applying O() to memory/space complexity
 ---------------------------------------
 
 Time Complexity of Various Python bultin-in Operations - Dicts and Lists
-------------------------------------------------------------------------
+========================================================================
+
+Take for example, 'n' is the number of elements currently in the container. 'k'
+is either the value of a parameter or the number of elements in the parameter.
+
+list
+----
+
+The Average Case assumes parameters generated uniformly at random.
+
+Internally, a list is represented as an array; the largest costs come from
+growing beyond the current allocation size (because everything must move), or
+from inserting or deleting somewhere near the beginning (because everything
+after that must move). If you need to add/remove at both ends, consider using a
+collections.deque instead
+
+Operation               Average Case          Amortized Worst Case
+
+Copy                        O(n)                       O(n)
+
+Append[1]                   O(1)                       O(1)
+
+Insert                      O(n)                       O(n)
+
+Get Item                    O(1)                       O(1)
+
+Set Item                    O(1)                       O(1)
+
+Delete Item                 O(n)                       O(n)
+
+Iteration                   O(n)                       O(n)
+
+Get Slice                   O(k)                       O(k)
+
+Del Slice                   O(n)                       O(n)
+
+Set Slice                   O(k+n)                     O(k+n)
+
+Extend[1]                   O(k)                       O(k)
+
+Sort                        O(n log n)                 O(n log n)
+
+Multiply                    O(nk)                      O(nk)
+
+x in s                      O(n)
+
+min(s), max(s)              O(n)
+
+Get Length                  O(1)                       O(1)
+
+Collections.deque
+-----------------
+
+It is mostly useful when doing at the end operations. Even looking at the middle element is costly.
+
+
+Operation Average Case Amortized Worst Case
+
+Copy O(n) O(n)
+
+append O(1) O(1)
+
+appendleft O(1) O(1)
+
+pop O(1) O(1)
+
+popleft O(1) O(1)
+
+extend O(k) O(k)extendleft O(k) O(k)
+
+rotate O(k) O(k)
+
+remove O(n) O(n)
+
+set
+
+See dict -- the implementation is intentionally very similar.
+
+Operation Average case Worst Case
+
+x in s O(1) O(n)
+
+Union s|t O(len(s)+len(t))
+
+Intersection s&t O(min(len(s), len(t)) O(len(s) * len(t))
+
+Difference s-t O(len(s))
+
+s.difference_update(t) O(len(t))
+
+Symmetric Difference s^t ?
+
+
+
+As seen in the source code the complexities for set difference s-t or s.difference(t)
+
+(set_difference()) and in-place set difference s.difference_update(t)
+
+(set_difference_update_internal()) are different! The first one is O(len(s)) (for every
+
+element in s add it to the new set, if not in t). The second one is O(len(t)) (for every element in t
+
+remove it from s). So care must be taken as to which is preferred, depending on which one is
+
+the longest set and whether a new set is needed.
+
+To perform set operations like s-t, both s and t need to be sets. However you can do the
+
+method equivalents even if t is any iterable, for example s.difference(l), where l is a list.
+
+dict
+
+
+The Average Case times listed for dict objects assume that the hash function for the objects is
+
+sufficiently robust to make collisions uncommon. The Average Case assumes the keys used in
+
+parameters are selected uniformly at random from the set of all keys.
+
+Note that there is a fast-path for dicts that (in practice) only deal with str keys; this doesn't affect the
+
+algorithmic complexity, but it can significantly affect the constant factors: how quickly a typical
+
+program finishes.
+
+Operation Average Case Amortized Worst Case
+
+Copy[2] O(n) O(n)TimeComplexity (last edited 2010-12-23 10:27:59 by 228-228-19-190)
+
+Get Item O(1) O(n)
+
+Set Item[1] O(1)
+
+Delete Item O(1) O(n)
+
+Iteration[2] O(n) O(n)
+
+Notes
+
+[1] = These operations rely on the "Amortized" part of "Amortized Worst Case". Individual actions
+
+may take surprisingly long, depending on the history of the container.
+
+[2] = For these operations, the worst case n is the maximum size the container ever achieved, rather
+
+than just the current size. For example, if N objects are added to a dictionary, then N-1 are deleted,
+
+the dictionary will still be sized for N objects (at least) until another insertion is made
