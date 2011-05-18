@@ -1,6 +1,6 @@
 import urllib2
 
-URL = 'http://localhost/basic.html' 
+URL = 'http://localhost/basic.html'
 passwd = '550charpass50charpass50charpass50charpass50charpass0charpass'
 #passwd = 'senthil'
 ah = urllib2.HTTPBasicAuthHandler()
