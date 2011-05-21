@@ -1,24 +1,18 @@
+"""
+Make sure to read the contest analysis for this problem.
+http://code.google.com/codejam/contest/dashboard?c=975485#s=p3&a=3
+"""
+
 import math
-import pudb
-pudb.set_trace()
-def gorosort(n):
-    if n == 2:
-        return 2
-    else:
-        return math.factorial(n/2) + gorosort(n/2+1)
 
 T = int(raw_input())
 for tc in range(1, T+1):
     _n = raw_input()
     N = map(int, raw_input().split())
-    sortedn = sorted(N)
-    n = 0
-    for x,y in zip(sortedn,N):
-        if x == y:
-            n+= 1
-    tosort = len(N) - n
-    if tosort > 2:
-        print gorosort(tosort-1) + 2
-    else:
-        print gorosort(tosort)
-
+    # how many are not in it's correct position?
+    sorted_n = sorted(N)
+    hits = 0
+    for required,actual in zip(sorted_n,N):
+        if required != actual:
+            hits += 1
+    print 'Case #%d: %0.6f' % (tc, hits)
