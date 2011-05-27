@@ -395,8 +395,6 @@ Video Lecture 2: Closure and Non-Determinism
 ACM Meeting
 ===========
 
-* http://people.freebsd.org/~jkoshy/ Koshi Joseph FreeBSD Committer working from his village in India.
-* http://en.wikipedia.org/wiki/Barbara_Liskov Barbara Liskov won the 2008 Turing prize for her contributions to OOP.
 * Assertion Checking Problem - It is not solvable.
 * YOGI reaches the close points by Static Verification.
 * Basic block profiling, Edge Profiling and Tracing.
@@ -409,7 +407,6 @@ ACM Meeting
 * QBF - Valid or Not Valid - Area for Research - Quantified Boolean Formula Satisfiablity.
 * www.qbflib.org  
 * Complexity Analysis of Concurrent Data Structures - Area for research again.
-* It was a good talk by *Sriram K. Rajamani* of MSR India.
 * When asked about the advice for pursing a PhD, he suggested the path of MS and PhD.
 * I could also sense or felt, that if I want something, I should know how to get it. 
 
@@ -1113,5 +1110,3 @@ William Stallings
 * Operating Systems Problems and Solutions.
 * There is problem which asks to calculate the maximum number of writes in one
   sec. Could not understand that.
-* 
-

@@ -133,6 +133,8 @@ hg diff
 hg com -m "undo a thing from the past"
 hg push.
 
+hg annotate is similar to svn blame
+
 --
 
 Wondering what just arrived?

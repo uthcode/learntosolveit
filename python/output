@@ -1,8 +1,11 @@
-<?xml version='1.0'?>
-<chum>
-  <vers>0002</vers>
-  <rgin>0001</rgin>
-  <skin>0001</skin>
-  <part>1000</part>
-  <camp>0002</camp>
-</chum>
+<radio found='1' tuned='0' station='107.70' stereo='0' signal='69' signal_max='256' seek_threshold='0' seek_threshold_max='255' spacing='200' start='87.50' stop='108.00' band='us' >
+    <station freq="88.30"/>
+    <station freq="89.70"/>
+    <station freq="90.70"/>
+    <station freq="90.90"/>
+    <station freq="91.30"/>
+    <station freq="99.30"/>
+    <station freq="99.50"/>
+    <station freq="100.30"/>
+    <station freq="105.10"/>
+</radio>

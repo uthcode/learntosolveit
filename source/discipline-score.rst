@@ -10,7 +10,7 @@ concentrate on that activity for that many hours. Repeat the same continously,
 till you complete the activity.
 
 * If thoughts are properly handled, then you can study more and be tired less
-  too - 8th Aug.
+  too - 8th Aug 2009.
 
 * If you keep a problem prolonged without doing something about it, you might
   keep missing it and it might 'tend' to become harder than it was initially.

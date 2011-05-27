@@ -2,6 +2,11 @@
 Ubuntu
 ======
 
+ssh 
+---
+In order to prevent the SSH RSA key verification,  you can use the following option with ssh.
+`-o StrictHostKeyChecking=no`
+
 phoe6: In xterm, I can change the size of fonts and windows by doing Control +
 Right Click and Selecting Huge from the VT Font menu. Can I have this setting
 in the .Xresources file? I am not able to find out what I should do.

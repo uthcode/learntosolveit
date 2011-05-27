@@ -25,7 +25,6 @@ Bring your Repo in sync with main
 * hg commit
 * hg push
 
-
 distutils
 =========
 Was the mechanism to to distribute python packages and extensions since Python 1.6.
@@ -70,6 +69,7 @@ Discussion on Bugs
 * Wrapping TextIOWrapper around gzip files
 * subprocess.getoutput fails on win32.
 * [issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
+* Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
 Notes from Python3 article
 ==========================
@@ -91,8 +91,6 @@ Notes from Python3 article
 
 * The int() function truncates negative numbers towards 0. It’s a true truncate
   function, not a floor function.
-
-* Floating point numbers are accurate to 15 decimal places.
 
 * For lists in python, a better analogy would be the ArrayList class, which can
   hold arbitrary objects and can expand dynamically as new items are added.
@@ -4856,6 +4854,8 @@ References
 ----------
 
 * [http://code.activestate.com/recipes/86900/ Factory Example]
+* [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
+
 * [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
 
 Links

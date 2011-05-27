@@ -1,5 +1,48 @@
 This file contains the design plan for uthcode.
 
+Sat May 14 08:13:31 SGT 2011
+----------------------------
+
+* Have Programming Languages Section
+   1. C
+   2. Python
+   3. C++
+   4. Java
+   5. Javascript.
+   6. Go
+
+* Each of these will contain well defined full programs for learning and resuing.
+
+* Have a section for contests.
+ 
+   1. CodeJam
+   2. TopCoder
+
+These will contain full programs for learning and resusing.
+
+Projects
+  1. Repo of all projects with Sources.
+
+Articles
+
+  1. 100 Questions in Python. Theoretical learning
+  2. Design of CPython Interpreter. Theoretical Learning.
+
+Books
+
+  1. Algorithms in Python.
+
+Presentations
+  1. Archive of the presentations so far.
+
+Foundational
+
+  1. Translation of Khan Academy Videos.
+
+
+Quote and Advice for self.
+ - The point is in execution.
+
 Tue Dec  1 21:31:10 IST 2009
 ----------------------------
 Presentations

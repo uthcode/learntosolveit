@@ -9,4 +9,4 @@ print dir(xmlcontent)
 #root = xmlcontent.getroot()
 #print root
 for elem in xmlcontent.getchildren():
-    print elem.tag
+    print elem.get("freq")
