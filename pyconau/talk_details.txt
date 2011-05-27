@@ -1,0 +1,41 @@
+Included with Python:
+
+urllib - seems to me that I should use urllib2 instead. urllib has no cookie
+support, HTTP/FTP/local files only (no SSL)
+
+urllib2 - complete HTTP/FTP client, supports most needed things like cookies,
+does not support all HTTP verbs (only GET and POST, no TRACE, etc.)
+
+mechanize - can use/save Firefox/IE cookies, take actions like follow second
+link, EDIT: GOOD NEWS: updated several times, latest is Oct 28, 2010 (0.2.4)
+
+Full featured but not updated in a year or more:
+
+PycURL - supports everything curl does (FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET,
+DICT, FILE and LDAP)
+
+bad news: not updated since Sep 9, 2008 (7.19.0)
+
+New possibilities:
+
+urllib3 - supports connection re-using/pooling and file posting
+Deprecated (a.k.a. use urllib/urllib2 instead):
+
+httplib - HTTP/HTTPS only (no FTP)
+httplib2 - HTTP/HTTPS only (no FTP)
+
+The first thing that strikes me is that urllib/urllib2/PycURL/mechanize are all
+pretty mature solutions that work well. mechanize and PycURL ship with a number
+of Linux distributions (e.g. Fedora 13) and BSDs so installation is a non issue
+typically (so that's good).
+
+urllib2 looks good but I'm wondering why PycURL and mechanize both seem very
+popular, is there something I am missing (i.e. if I use urllib2 will I paint
+myself in to a corner at some point?). I'd really like some feedback on the
+pros/cons of these things so I can make the best choice for myself.
+
+urllib2 is found in every Python install everywhere, so is a good base upon which to start.
+PycURL is useful for people already used to using libcurl, exposes more of the
+low-level details of HTTP, plus it gains any fixes or improvements applied to
+libcurl.
+mechanize is used to persistently drive a connection much like a browser would.
