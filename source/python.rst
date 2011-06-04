@@ -27,6 +27,7 @@ Bring your Repo in sync with main
 
 distutils
 =========
+
 Was the mechanism to distribute python packages and extensions since Python
 1.6.  Introduced new version control comparision algorithm in distutil.  PEP-376
 standardize the egg-info directories and provide APIs PEP-345 PKG-INFO content.
@@ -227,60 +228,52 @@ Python Objects
 --------------
 
 Objects are fundamental to the innards of python and Objects are not very
-tightly coupled with anything else in Python.
+tightly coupled with anything else in Python. Look at the implementation of
+objects as if they’re unrelated to the ‘rest’, as if they’re a general purpose
+C API for creating an object subsystem. Objects are just a bunch of structures
+and some functions to manipulate them.
 
-* Look at the implementation of objects as if they’re unrelated to the ‘rest’,
-  as if they’re a general purpose C API for creating an object subsystem. 
+Mostly everything in Python is an object, from integer to dictionaries, from
+user defined classes to built-in ones, from stack frames to code objects. 
 
-* Maybe you will benefit from that line of thought, too: remember these are
-  just a bunch of structures and some functions to manipulate them.
-
-* Mostly everything in Python is an object, from integer to dictionaries, from
-  user defined classes to built-in ones, from stack frames to code objects. 
-
-* Given a pointer to a piece of memory, the very least you must expect of it to
-  treat it as an object are just a couple of fields defined in a C structure
-  called ``./Objects/object.h: PyObject.``::
+Given a pointer to a piece of memory, the very least you must expect of it to
+treat it as an object are just a couple of fields defined in a C structure
+called ``./Objects/object.h: PyObject.``::
 
         typedef struct _object {
             Py_ssize_t ob_refcnt;
             struct _typeobject *ob_type;
         } PyObject;
 
-* Many objects extend this structure to accommodate other variables required to
-  represent the object’s value, but these two fields must always exist: a
-  reference count and type (in special debug builds, a couple other esoteric
-  fields are added to track references).
+Many objects extend this structure to accommodate other variables required to
+represent the object’s value, but these two fields must always exist: *a
+reference count* and *type* (in special debug builds, a couple other esoteric
+fields are added to track references).
 
-* The reference count is an integer which counts how many times the object is
-  referenced. ``>>> a = b = c = object()`` instantiates an empty object and
-  binds it to three different names: a, b and c.
+The reference count is an integer which counts how many times the object is
+referenced. ``>>> a = b = c = object()`` instantiates an empty object and binds
+it to three different names: a, b and c. Each of these names creates another
+reference to it even though the object is allocated only once. Binding the
+object to yet another name or adding the object to a list will create another
+reference – but will not create another object!
 
-* Each of these names creates another reference to it even though the object is
-  allocated only once. Binding the object to yet another name or adding the
-  object to a list will create another reference – but will not create another
-  object!
+There is much more to say about reference counting, but that’s less central to
+the overall object system and more related to Garbage Collection. 
 
-* There is much more to say about reference counting, but that’s less central
-  to the overall object system and more related to Garbage Collection. 
+We can now better understand the ``./Objects/object.h: Py_DECREF`` macro we’ve
+seen used in the introduction and didn’t know how to explain: It simply
+decrements ``ob_refcnt`` (and initiates deallocation, if ``ob_refcnt`` hit
+zero).  That’s all we’ll say about reference counting for now.
 
-* We can now better understand the ``./Objects/object.h: Py_DECREF`` macro
-  we’ve seen used in the introduction and didn’t know how to explain: It simply
-  decrements ``ob_refcnt`` (and initiates deallocation, if ``ob_refcnt`` hit
-  zero).  That’s all we’ll say about reference counting for now.
+``ob_type``, a pointer to an object’s type, a central piece of Python’s object
+model. Every object has exactly one type, which never changes during the
+lifetime of the object. Most importantly, the type of an object (and only the
+type of an object) determines what can be done with an object. 
 
-* ``ob_type``, a pointer to an object’s type, a central piece of Python’s
-  object model.
-
-* Every object has exactly one type, which never changes during the lifetime of the object.
-
-* Possibly most importantly, the type of an object (and only the type of an
-  object) determines what can be done with an object.
-
-* When the interpreter evaluates the subtraction opcode, a single C function
-  ``(PyNumber_Subtract)`` will be called regardless of whether its operands are
-  an integer and an integer, an integer and a float or even something
-  nonsensical (subtract an exception from a dictionary).::
+When the interpreter evaluates the subtraction opcode, a single C function
+``(PyNumber_Subtract)`` will be called regardless of whether its operands are
+an integer and an integer, an integer and a float or even something nonsensical
+(subtract an exception from a dictionary).::
 
         # n2w: the type, not the instance, determines what can be done with an instance
         >>> class Foo(object):
@@ -309,122 +302,99 @@ tightly coupled with anything else in Python.
         42
         >>>
 
-* How can a single C function be used to handle any kind of object that is
-  thrown at it? 
+How can a single C function be used to handle any kind of object that is thrown
+at it? It can receive a ``void * pointer`` (actually it receives a ``PyObject
+*`` pointer, which is also opaque insofar as the object’s data is concerned),
+but how will it know how to manipulate the object it is given?  In the object’s
+type lies the answer. A type is in itself a Python object (it also has a
+reference count and a type of its own, the type of almost all types is type),
+but in addition to the refcount and the type of the type, there are many more
+fields in the C structure describing type objects.
 
-* It can receive a ``void * pointer`` (actually it receives a ``PyObject *``
-  pointer, which is also opaque insofar as the object’s data is concerned), but
-  how will it know how to manipulate the object it is given? 
+``./Include/object.h: PyTypeObject`` has the information about types as well as
+type's structure's definition. Many of the fields a type object has are called
+slots and they point to functions (or to structures that point to a bunch of
+related functions). These functions are what will actually be called when
+Python C-API functions are invoked to operate on an object instantiated from
+that type. So while you think you’re calling ``PyNumber_Subtract`` on both a,
+say, ``int and a float``, in reality what happens is that the types of it
+operands are ``dereferenced`` and the type-specific subtraction function in the
+‘subtraction’ slot is used. So we see that the C-API functions aren’t generic,
+but rather rely on types to abstract the details away and appear as if they can
+work on anything (valid work is also just to raise a TypeError).
 
-* In the object’s type lies the answer. A type is in itself a Python object (it
-  also has a reference count and a type of its own, the type of almost all
-  types is type), but in addition to the refcount and the type of the type,
-  there are many more fields in the C structure describing type objects.
+``PyNumber_Subtract`` calls a generic two-argument function called
+``./Object/abstract.c: binary_op``, and tells it to operate on the number-like
+``slot nb_subtract`` (similar slots exists for other functionality, like, say,
+the number-like slot ``nb_negative`` or the sequence-like slot ``sq_length``).
+``binary_op`` is an error-checking wrapper around ``binary_op1``, the real ‘do
+work’ function.  ``./Objects/abstract.c: binary_op1`` receives
+``BINARY_SUBTRACT‘s`` operands as v and w, and then tries to dereference
+``v->ob_type->tp_as_number``, a structure pointing to many numeric slots which
+represents how v can be used as a number. ``binary_op1`` will expect to find at
+``tp_as_number->nb_subtract`` a C function that will either do the subtraction
+or return the special value ``Py_NotImplemented``, to signal that these
+operands are ‘insubtracticable’ in relation to one another (this will cause a
+TypeError exception to be raised).
 
-* This page has some information about types as well as type‘s structure’s
-  definition, which you can also find it at ``./Include/object.h:
-  PyTypeObject``, I suggest you refer to the definition occasionally as you
-  read this post.
+If you want to change how objects behave, you can write an extension in C which
+will statically define its own ``PyObjectType`` structure in code and fill the
+slots away as you see fit.  But when we create our own types in Python ( class
+and type are the same thing), we don’t manually allocate a C structure and we
+don’t fill up its slots. 
 
-* Many of the fields a type object has are called slots and they point to
-  functions (or to structures that point to a bunch of related functions).
+How come these types behave just like built-in types? The answer is
+inheritance, where typing plays a significant role. See, Python arrives with
+some built-in types, like ``list or dict``. As we said, these types have a
+certain set of functions populating their slots and thus objects instantiated
+from them behave in a certain way, like a mutable sequence of values or like a
+mapping of keys to values. When you define a new type in Python, a new C
+structure for that type is dynamically allocated on the ``heap`` (like any
+other object) and its slots are filled from whichever type it is inheriting,
+which is also called its base
 
-* These functions are what will actually be called when Python C-API functions
-  are invoked to operate on an object instantiated from that type.
+Since the slots are copied over, the newly created sub-type has mostly
+identical functionality to its base. Python also arrives with a featureless
+base object type called object (``PyBaseObject_Type`` in C), which has mostly
+null slots and which you can extend without inheriting any particular
+functionality. You never really ‘create’ a type in pure Python, you always
+inherit one (if you define a class without inheriting anything explicitly, you
+will implicitly inherit object; in Python 2.x, not inheriting anything
+explicitly leads to the creation of a so called ‘classic class’, which is out
+of our scope).
 
-* So while you think you’re calling ``PyNumber_Subtract`` on both a, say, ``int
-  and a float``, in reality what happens is that the types of it operands are
-  ``dereferenced`` and the type-specific subtraction function in the
-  ‘subtraction’ slot is used. 
+Of course, you don’t have to inherit everything. You can, obviously, mutate the
+behaviour of a type created in pure Python, as I’ve demonstrated in the code
+snippet earlier in this post. By setting the special method ``__call__`` on our
+class Bar, I made instances of that class callable. Someone, sometime during
+the creation of our class, noticed this ``__call__`` method exists and wired it
+into our newly created type’s ``tp_call`` slot. ``./Objects/typeobject.c:
+type_new``, an elaborate and central function, is that function. 
 
-* So we see that the C-API functions aren’t generic, but rather rely on types
-  to abstract the details away and appear as if they can work on anything
-  (valid work is also just to raise a TypeError).
+Let’s look at a small line right at the end after the new type has been fully
+created and just before returning ``fixup_slot_dispatchers(type);``. This
+function iterates over the correctly named methods defined for the newly
+created type and wires them to the correct slots in the type’s structure, based
+on their particular name.
 
-* ``PyNumber_Subtract`` calls a generic two-argument function called
-  ``./Object/abstract.c: binary_op``, and tells it to operate on the
-  number-like ``slot nb_subtract`` (similar slots exists for other
-  functionality, like, say, the number-like slot ``nb_negative`` or the
-  sequence-like slot ``sq_length``).  ``binary_op`` is an error-checking
-  wrapper around ``binary_op1``, the real ‘do work’ function.
-  ``./Objects/abstract.c: binary_op1`` receives
-  ``BINARY_SUBTRACT‘s`` operands as v and w, and then tries to dereference
-  ``v->ob_type->tp_as_number``, a structure pointing to many numeric slots
-  which represents how v can be used as a number.
+Another thing remains unanswered in the sea of small details: we’ve
+demonstrated already that setting the method ``__call__`` on a type after it’s
+created will also make objects instantiated from that type callable (even
+objects already instantiated from that type). Recall that a type is an object,
+and that the type of a type is type (if your head is spinning, try: 
+``>>> class Foo(list): pass ; type(Foo))``. 
 
-* ``binary_op1`` will expect to find at ``tp_as_number->nb_subtract`` a C
-  function that will either do the subtraction or return the special value
-  ``Py_NotImplemented``, to signal that these operands are ‘insubtracticable’ in
-  relation to one another (this will cause a TypeError exception to be raised).
+So when we do stuff to a class, like calling a class, or subtracting a class,
+or, indeed, setting an attribute on a class, what happens is that the ``class’
+object’s ob_type`` member is dereferenced, finding that the class’ type is
+type. Then the ``type->tp_setattro`` slot is used to do the actual attribute
+setting.  So a class, like an integer or a list can have its own
+attribute-setting function. And the type-specific attribute-setting function
+(``./Objects/typeobject.c: type_setattro``) calls the very same function that
+``fixup_slot_dispatchers`` uses to actually do the fixup work (update_one_slot)
+after it has set a new attribute on a class. 
 
-* If you want to change how objects behave, you can write an extension in C
-  which will statically define its own ``PyObjectType`` structure in code and
-  fill the slots away as you see fit. 
-
-* But when we create our own types in Python (make no mistake, ``>>> class
-  Foo(list): pass`` creates a new type, class and type are the same thing), we
-  don’t manually allocate a C structure and we don’t fill up its slots. 
-
-* How come these types behave just like built-in types? The answer is
-  inheritance, where typing plays a significant role. See, Python arrives with
-  some built-in types, like ``list or dict``. As we said, these types have a
-  certain set of functions populating their slots and thus objects instantiated
-  from them behave in a certain way, like a mutable sequence of values or like
-  a mapping of keys to values.
-
-* When you define a new type in Python, a new C structure for that type is
-  dynamically allocated on the ``heap`` (like any other object) and its slots
-  are filled from whichever type it is inheriting, which is also called its
-  base
-
-* Since the slots are copied over, the newly created sub-type has mostly
-  identical functionality to its base. Python also arrives with a featureless
-  base object type called object (``PyBaseObject_Type`` in C), which has mostly
-  null slots and which you can extend without inheriting any particular
-  functionality.
-
-* You never really ‘create’ a type in pure Python, you always inherit one (if
-  you define a class without inheriting anything explicitly, you will
-  implicitly inherit object; in Python 2.x, not inheriting anything explicitly
-  leads to the creation of a so called ‘classic class’, which is out of our
-  scope).
-
-* Of course, you don’t have to inherit everything. You can, obviously, mutate
-  the behaviour of a type created in pure Python, as I’ve demonstrated in the
-  code snippet earlier in this post. By setting the special method ``__call__``
-  on our class Bar, I made instances of that class callable. Someone, sometime
-  during the creation of our class, noticed this ``__call__`` method exists and
-  wired it into our newly created type’s ``tp_call`` slot.
-
-* ``./Objects/typeobject.c: type_new``, an elaborate and central function, is that
-  function. Let’s look at a small line right at the end after the new type has
-  been fully created and just before returning ``fixup_slot_dispatchers(type);``. 
- 
-* This function iterates over the correctly named methods defined for the newly
-  created type and wires them to the correct slots in the type’s structure,
-  based on their particular name.
-
-* Another thing remains unanswered in the sea of small details: we’ve
-  demonstrated already that setting the method ``__call__`` on a type after
-  it’s created will also make objects instantiated from that type callable
-  (even objects already instantiated from that type)
-
-* Recall that a type is an object, and that the type of a type is type (if your
-  head is spinning, try: ``>>> class Foo(list): pass ; type(Foo))``. 
-
-* So when we do stuff to a class, like calling a class, or subtracting a class,
-  or, indeed, setting an attribute on a class, what happens is that the ``class’
-  object’s ob_type`` member is dereferenced, finding that the class’ type is
-  type. 
-
-* Then the ``type->tp_setattro`` slot is used to do the actual attribute
-  setting.  So a class, like an integer or a list can have its own
-  attribute-setting function. And the type-specific attribute-setting function
-  (``./Objects/typeobject.c: type_setattro``) calls the very same function that
-  ``fixup_slot_dispatchers`` uses to actually do the fixup work
-  (update_one_slot) after it has set a new attribute on a class. 
-
-* How does this code work?::
+What is happening here?::
 
         >>> a = object()
         >>> class C(object): pass
@@ -437,30 +407,29 @@ tightly coupled with anything else in Python.
         >>> b.foo = 5
         >>>
 
-* How I can set an arbitrary attribute to b, which is an instance of C, which
-  is a class inheriting object and not changing anything, and yet I can’t do
-  the same with a, an instance of that very same object?
+How I can set an arbitrary attribute to b, which is an instance of C, which is
+a class inheriting object and not changing anything, and yet I can’t do the
+same with a, an instance of that very same object? Some wise crackers can say:
+*b* has a ``__dict__`` and *a* doesn’t, and that’s true, but how did this new
+(and totally non-trivial!) functionality come from if I didn’t inherit it?!
 
-* Some wise crackers can say: b has a ``__dict__`` and a doesn’t, and that’s
-  true, but how did this new (and totally non-trivial!) functionality come from
-  if I didn’t inherit it?!
+Attributes of an object
+-----------------------
 
-* attributes of an object.
+An object’s attributes are other objects related to it and accessible by
+invoking the . (dot) operator, like so: ``>>> my_object.attribute_name``.  A
+type can define one (or more) specially named methods that will customize
+attribute access to its instances and they will be wired into the type’s slots
+using ``fixup_slot_dispatchers`` when the type is created.
 
-* An object’s attributes are other objects related to it and accessible by
-  invoking the . (dot) operator, like so: ``>>> my_object.attribute_name``. 
+These methods simply store the attribute as a key/value pair (attribute
+name/attribute value) in some object-specific dictionary when an attribute is
+set and retrieve the attribute from that dictionary when an attribute is get
+(or raise an AttributeError if the dictionary doesn’t have a key matching the
+requested attribute’s name).
 
-* A type can define one (or more) specially named methods that will customize
-  attribute access to its instances and they will be wired into the type’s
-  slots using ``fixup_slot_dispatchers`` when the type is created.
-
-* These methods simply store the attribute as a key/value pair (attribute
-  name/attribute value) in some object-specific dictionary when an attribute is
-  set and retrieve the attribute from that dictionary when an attribute is get
-  (or raise an AttributeError if the dictionary doesn’t have a key matching the
-  requested attribute’s name).
-
-* Here is an example snippet which presents a particularly surprising behavior of attribute access.::
+Here is an example snippet which presents a particularly surprising behavior of
+attribute access.::
 
         >>> print(object.__dict__)
         {'__ne__': <slot wrapper '__ne__' of 'object' objects>, ... , 
@@ -507,104 +476,97 @@ tightly coupled with anything else in Python.
         <class 'dict'>
         >>>
 
-* We can see that object (as in, the most basic built-in type which we’ve
-  discussed before) has a private dictionary, and we see that stuff we access
-  on object as an attribute is identical to what we find in
-  ``object.__dict__``.
+We can see that object (as in, the most basic built-in type which we’ve
+discussed before) has a private dictionary, and we see that stuff we access on
+object as an attribute is identical to what we find in ``object.__dict__``.
+Instances of object (o, in the example) don’t support arbitrary attribute
+assignment and don’t have a __dict__ at all, though they do support some
+attribute access (try ``o.__class__, o.__hash__``, etc; these do return
+things).
 
-* Instances of object (o, in the example) don’t support arbitrary attribute
-  assignment and don’t have a __dict__ at all, though they do support some
-  attribute access (try ``o.__class__, o.__hash__``, etc; these do return things).
+After that we created our own class, C, derived from object and adding an
+attribute A, and saw that A was accessible via ``C.A`` and ``C.__dict__['A']``
+just the same, as expected.
 
-* After that we created our own class, C, derived from object and adding an
-  attribute A, and saw that A was accessible via ``C.A`` and ``C.__dict__['A']`` just
-  the same, as expected.
+We then instantiated o2 from C, and demonstrated that as expected, attribute
+assignment on it indeed mutates its __dict__ and vice versa (i.e., mutations to
+its __dict__ are exposed as attributes). We were then probably more surprised
+to learn that even though attribute assignment on the class (C.A2) worked fine,
+our class’ __dict__ is actually read-only. Finally, we saw that our ``class
+__dict__`` is not of the same type as our object’s ``__dict__``, but rather an
+unfamiliar beast called dict_proxy. And if all that wasn’t enough, recall the
+mystery from the end of Objects 101: if plain object instances like o have no
+__dict__, and C extends object without adding anything significant, why do
+instances of C like o2 suddenly do have a ``__dict__``?
 
-* We then instantiated o2 from C, and demonstrated that as expected, attribute
-  assignment on it indeed mutates its __dict__ and vice versa (i.e., mutations
-  to its __dict__ are exposed as attributes).
-
-* We were then probably more surprised to learn that even though attribute
-  assignment on the class (C.A2) worked fine, our class’ __dict__ is actually
-  read-only. 
-
-* Finally, we saw that our class __dict__ is not of the same type as our
-  object’s ``__dict__``, but rather an unfamiliar beast called dict_proxy. And if
-  all that wasn’t enough, recall the mystery from the end of Objects 101: if
-  plain object instances like o have no __dict__, and C extends object without
-  adding anything significant, why do instances of C like o2 suddenly do have a
-  ``__dict__``?
-
-* First, we shall look at the implementation of a ``type’s __dict__``. Looking
-  at the definition of ``PyObjectType`` (a zesty and highly recommended
-  exercise), we see a slot called ``tp_dict``, ready to accept a pointer to a
-  dictionary. All types must have this slot, and all types have a dictionary
-  placed there when ``./Objects/typeobject.c: PyType_Ready`` is called on them,
-  either when the interpreter is first initialized (remember ``Py_Initialize``?
-  It invokes ``_Py_ReadyTypes`` which calls ``PyType_Ready`` on all known
-  types) or when the type is created dynamically by the user (``type_new``
-  calls ``PyType_Ready`` on the newborn type before returning).  
+First, we shall look at the implementation of a ``type’s __dict__``. Looking at
+the definition of ``PyObjectType`` (a zesty and highly recommended exercise),
+we see a slot called ``tp_dict``, ready to accept a pointer to a dictionary.
+All types must have this slot, and all types have a dictionary placed there
+when ``./Objects/typeobject.c: PyType_Ready`` is called on them, either when
+the interpreter is first initialized (remember ``Py_Initialize``?  It invokes
+``_Py_ReadyTypes`` which calls ``PyType_Ready`` on all known types) or when the
+type is created dynamically by the user (``type_new`` calls ``PyType_Ready`` on
+the newborn type before returning).  
   
-* In fact, every name you bind within a class statement will turn up in the
-  newly created type’s __dict__ (see ``./Objects/typeobject.c: type_new:
-  type->tp_dict = dict = PyDict_Copy(dict);``). 
+In fact, every name you bind within a class statement will turn up in the newly
+created type’s __dict__ (see ``./Objects/typeobject.c: type_new: type->tp_dict
+= dict = PyDict_Copy(dict);``). These functions use the dictionary each type
+has and pointed to by ``tp_dict`` to store/retrieve the attributes, that is,
+getting attributes on a type is directly wired to dictionary assignment for the
+type instance’s private dictionary pointed to by the type’s structure. So far I
+hope it’s been rather simple, and explains types’ attribute retrieval.
 
-* These functions use the dictionary each type has and pointed to by tp_dict to
-  store/retrieve the attributes, that is, getting attributes on a type is
-  directly wired to dictionary assignment for the type instance’s private
-  dictionary pointed to by the type’s structure.
+Descriptors
+-----------
 
-* So far I hope it’s been rather simple, and explains types’ attribute
-  retrieval.
+Descriptors play a special role in instances’ attribute access.  An object is
+said to be a descriptor if it’s type has one or two slots (tp_descr_get and/or
+tp_descr_set) filled with non-NULL value. These slots are wired to the special
+method names __get__, __set__ and __delete__, when the type is defined in pure
+Python (i.e., if you create a class which has a __get__ method it will be wired
+to its *tp_descr_get* slot, and if you instantiate an object from that class, the
+object is a descriptor).  
 
-* Descriptors play a special role in instances’ attribute access.
+An object is said to be a data descriptor if its type has a non-NULL
+tp_descr_set slot (there’s no particularly special term for a non-data
+descriptor). We’ve defined descriptors, and we know how types’ dictionaries and
+attribute access work. Most objects aren’t types, that is to say, their type
+isn’t type, it’s something more mundane like int or dict or a user defined
+class. All these rely on generic attribute access functions, which are either
+set on the type explicitly or inherited from the type’s base when the type is
+created.
 
-* An object is said to be a descriptor if it’s type has one or two slots
-  (tp_descr_get and/or tp_descr_set) filled with non-NULL value. These slots
-  are wired to the special method names __get__, __set__ and __delete__, when
-  the type is defined in pure Python (i.e., if you create a class which has a
-  __get__ method it will be wired to its tp_descr_get slot, and if you
-  instantiate an object from that class, the object is a descriptor).  
+The generic attribute-getting function (``PyObject_GenericGetAttr``) and its
+algorithm is like so: 
 
-* An object is said to be a data descriptor if its type has a non-NULL
-  tp_descr_set slot (there’s no particularly special term for a non-data
-  descriptor). 
+(a) Search the accessed instance’s type’s dictionary, and then all the type’s
+bases’ dictionaries. If a data descriptor was found, invoke it’s
+``tp_desr_get`` function and return the results. If something else is found,
+set it aside (we’ll call it X).
 
-* We’ve defined descriptors, and we know how types’ dictionaries and attribute
-  access work.
+(b) Now search the object’s dictionary, and if something is found, return it. 
 
-* Most objects aren’t types, that is to say, their type isn’t type, it’s
-  something more mundane like int or dict or a user defined class.
+(c) If nothing was found in the object’s dictionary, inspect X, if one was set
+aside at all; if X is a non-data descriptor, invoke it’s ``tp_descr_get``
+function and return the result, and if it’s a plain object it returns it. 
 
-* All these rely on generic attribute access functions, which are either set on
-  the type explicitly or inherited from the type’s base when the type is
-  created.
-
-* The generic attribute-getting function (``PyObject_GenericGetAttr``) and its
-  algorithm is like so: (a) search the accessed instance’s type’s dictionary,
-  and then all the type’s bases’ dictionaries. If a data descriptor was found,
-  invoke it’s ``tp_desr_get`` function and return the results. If something else is
-  found, set it aside (we’ll call it X). (b) Now search the object’s
-  dictionary, and if something is found, return it. (c) If nothing was found in
-  the object’s dictionary, inspect X, if one was set aside at all; if X is a
-  non-data descriptor, invoke it’s ``tp_descr_get`` function and return the result,
-  and if it’s a plain object it returns it. (d) Finally, if nothing was found,
-  it raise an ``AttributeError`` exception.  
+(d) Finally, if nothing was found, it raise an ``AttributeError`` exception.  
   
-* So we learn that descriptors can execute code when they’re accessed as an
-  attribute (so when you do ``foo = o.a or o.a = foo``, a runs code).  A powerful
-  notion, that, and it’s used in several cases to implement some of Python’s
-  more ‘magical’ features. 
+So we learn that descriptors can execute code when they’re accessed as an
+attribute (so when you do ``foo = o.a or o.a = foo``, a runs code).  A powerful
+notion, that, and it’s used in several cases to implement some of Python’s more
+‘magical’ features. 
 
-* Data-descriptors are even more powerful, as they take precedence over
-  instance attributes (if you have an ``object o of class C``, class C has a foo
-  data-descriptor and o has a foo instance attribute, when you do o.foo the
-  descriptor will take precedence).
+Data-descriptors are even more powerful, as they take precedence over instance
+attributes (if you have an ``object o of class C``, *class C* has a foo
+data-descriptor and *o* has a foo instance attribute, when you do o.foo the
+descriptor will take precedence).
 
-* While descriptors are really important and you’re advised to take the time to
-  understand them, for brevity and due to the well written resources I’ve just
-  mentioned I will explain them no further, other than show you how they behave
-  in the interpreter (super simple example!)::
+While descriptors are really important and you’re advised to take the time to
+understand them, for brevity and due to the well written resources I’ve just
+mentioned I will explain them no further, other than show you how they behave
+in the interpreter (super simple example!)::
 
         >>> class ShoutingInteger(int):
         ...     # __get__ implements the tp_descr_get slot
@@ -626,31 +588,25 @@ tightly coupled with anything else in Python.
         -566
         >>>
 
-* We now understand that accessing attribute A on object O instantiated from
-  class C1 which inherits C2 which inherits C3 can return A either from O, C1,
-  C2 or C3, depending on something called the ``method resolution order``.
+We now understand that accessing attribute A on object O instantiated from
+class C1 which inherits C2 which inherits C3 can return A either from O, C1, C2
+or C3, depending on something called the ``method resolution order``. This way
+of resolving attributes, when coupled with slot inheritance, is enough to
+explain most of Python’s inheritance functionality.
 
-* This way of resolving attributes, when coupled with slot inheritance, is
-  enough to explain most of Python’s inheritance functionality.
+We’ve seen the definition of ``PyObject``, and it most definitely didn’t have a
+pointer to a dictionary, so where is the reference the object’s dictionary
+stored?  If you look closely at the definition of ``PyTypeObject``, you will
+see a field called ``tp_dictoffset``. This field provides a byte offset into
+the C-structure allocated for objects instantiated from this type; at this
+offset, a pointer to a regular Python dictionary should be found.
 
-* We’ve seen the definition of ``PyObject``, and it most definitely didn’t have a
-  pointer to a dictionary, so where is the reference the object’s dictionary
-  stored?
-
-* If you look closely at the definition of ``PyTypeObject``, you will see a
-  field called ``tp_dictoffset``.
-
-* This field provides a byte offset into the C-structure allocated for objects
-  instantiated from this type; at this offset, a pointer to a regular Python
-  dictionary should be found.
-
-* Under normal circumstances, when creating a new type, the size of the memory
-  region necessary to allocate objects of that type will be calculated, and
-  that size will be larger than the size of vanilla ``PyObject``. 
-
-* The extra room will typically be used (among other things) to store the
-  pointer to the dictionary (all this happens in ``./Objects/typeobject.c``:
-  ``type_new, see may_add_dict = base->tp_dictoffset == 0``; onwards).::
+Under normal circumstances, when creating a new type, the size of the memory
+region necessary to allocate objects of that type will be calculated, and that
+size will be larger than the size of vanilla ``PyObject``. The extra room will
+typically be used (among other things) to store the pointer to the dictionary
+(all this happens in ``./Objects/typeobject.c`` : ``type_new, see may_add_dict
+= base->tp_dictoffset == 0``; onwards).::
 
         >>> class C: pass
         ...
@@ -668,33 +624,32 @@ tightly coupled with anything else in Python.
         $3 = {u'foo': u'bar'}
         (gdb)
 
-* We have created a new class, instantiated an object from it and set some
-  attribute on the object (o.foo = 'bar'), broke into gdb, dereferenced the
-  object’s type (C) and checked its ``tp_dictoffset`` (it was 16), and then
-  checked what’s to be found at the address pointed to by the pointer located
-  at 16 bytes’ offset from the object’s C-structure, and indeed we found there
-  a dictionary object with the key foo pointing to the value bar.  
+We have created a new class, instantiated an object from it and set some
+attribute on the object (o.foo = 'bar'), broke into gdb, dereferenced the
+object’s type (C) and checked its ``tp_dictoffset`` (it was 16), and then
+checked what’s to be found at the address pointed to by the pointer located at
+16 bytes’ offset from the object’s C-structure, and indeed we found there a
+dictionary object with the key foo pointing to the value bar.  
 
-* Of course, if you check ``tp_dictoffset`` on a type which doesn’t have a
-  __dict__, like object, you will find that it is zero.
+Of course, if you check ``tp_dictoffset`` on a type which doesn’t have a
+__dict__, like object, you will find that it is zero. I define a class C
+inheriting object and doing nothing much else in Python, and then I instantiate
+o from that class, causing the extra memory for the dictionary pointer to be
+allocated at ``tp_dictoffset``.
 
-* I define a class C inheriting object and doing nothing much else in Python,
-  and then I instantiate o from that class, causing the extra memory for the
-  dictionary pointer to be allocated at ``tp_dictoffset``.
+I then type in my interpreter ``o.__dict__``, which byte-compiles to the
+``LOAD_ATTR`` opcode, which causes the ``PyObject_GetAttr`` function to be
+called, which dereferences the type of *o* and finds the ``slot tp_getattro``,
+which causes the default attribute searching mechanism described earlier in
+this post and implemented in ``PyObject_GenericGetAttr``.
 
-* I then type in my interpreter ``o.__dict__``, which byte-compiles to the
-  ``LOAD_ATTR`` opcode, which causes the ``PyObject_GetAttr`` function to be
-  called, which dereferences the type of o and finds the ``slot tp_getattro``,
-  which causes the default attribute searching mechanism described earlier in
-  this post and implemented in ``PyObject_GenericGetAttr``.
+So when all that happens, what returns my object’s dictionary? I know where the
+dictionary is stored, but I can see that __dict__ isn’t recursively inside
+itself, so there’s a chicken and egg problem here; who gives me my dictionary
+when I access __dict__ if it is not in my dictionary?
 
-* So when all that happens, what returns my object’s dictionary? I know where
-  the dictionary is stored, but I can see that __dict__ isn’t recursively
-  inside itself, so there’s a chicken and egg problem here; who gives me my
-  dictionary when I access __dict__ if it is not in my dictionary?
-
-* Someone who has precedence over the object’s dictionary – a descriptor. Check
-  this out::
+Someone who has precedence over the object’s dictionary – a descriptor. Check
+this out::
 
         >>> class C: pass
         ...
@@ -711,19 +666,19 @@ tightly coupled with anything else in Python.
         True
         >>>
 
-* Seems like there’s something called ``getset_descriptor`` (it’s in
-  ``./Objects/typeobject.c``), which are groups of functions implementing the
-  descriptor protocol and meant to be attached to an object placed in type’s
-  __dict__.
+Seems like there’s something called ``getset_descriptor`` (it’s in
+``./Objects/typeobject.c``), which are groups of functions implementing the
+descriptor protocol and meant to be attached to an object placed in type’s
+__dict__.
 
-* This descriptor will intercept all attribute access to ``o.__dict__`` on
-  instances of this type, and will return whatever it wants, in our case, a
-  reference to the dictionary found at the ``tp_dictoffset`` of o. 
+This descriptor will intercept all attribute access to ``o.__dict__`` on
+instances of this type, and will return whatever it wants, in our case, a
+reference to the dictionary found at the ``tp_dictoffset`` of o. 
 
-* This is also the explanation of the dict_proxy business we’ve seen earlier.
-  If in ``tp_dict`` there’s a pointer to a plain dictionary, what causes it to be
-  returned wrapped in this read only proxy, and why? The __dict__ descriptor of
-  the type’s type type does it.::
+This is also the explanation of the dict_proxy business we’ve seen earlier.  If
+in ``tp_dict`` there’s a pointer to a plain dictionary, what causes it to be
+returned wrapped in this read only proxy, and why? The __dict__ descriptor of
+the type’s type type does it.::
 
         >>> type(C)
         <class 'type'>
@@ -732,96 +687,81 @@ tightly coupled with anything else in Python.
         >>> type(C).__dict__['__dict__'].__get__(C, type)
         <dict_proxy object at 0xb767e494>
 
-* This descriptor is a function that wraps the dictionary in a simple object
-  that mimics regular dictionaries’ behaviour but only allows read only access
-  to the dictionary it wraps.
+This descriptor is a function that wraps the dictionary in a simple object that
+mimics regular dictionaries’ behaviour but only allows read only access to the
+dictionary it wraps.  And why is it so important to prevent people from messing
+with a ``type’s __dict__``? Because a type’s namespace might hold them
+specially named methods, like ``__sub__``. 
 
-* And why is it so important to prevent people from messing with a ``type’s
-  __dict__``? Because a type’s namespace might hold them specially named
-  methods, like ``__sub__``. 
+When you create a type with these specially named methods or when you set them
+on the type as an attribute, the function ``update_one_slot`` will patch these
+methods into one of the type’s slots, as we’ve seen in 101 for the subtraction
+operation. If you were to add these methods straight into the type’s __dict__,
+they won’t be wired to any slot, and you’ll have a type that looks like it has
+a certain behaviour (say, has __sub__ in its dictionary), but doesn’t behave
+that way. ``__slots__`` are important construct when dealing with attributes
+access.
 
-* When you create a type with these specially named methods or when you set
-  them on the type as an attribute, the function ``update_one_slot`` will patch
-  these methods into one of the type’s slots, as we’ve seen in 101 for the
-  subtraction operation.
+descriptors are objects whose type has their tp_descr_get and/or tp_descr_set
+slots set to non-NULL. However, I also wrote, incorrectly, that descriptors
+take precedence over regular instance attributes (i.e., attributes in the
+object’s __dict__).  This is partly correct but misleading, as it doesn’t
+distinguish non-data descriptors from data-descriptors. An object is said to be
+a data descriptor if its type has its tp_descr_set slot implemented (there’s no
+particularly special term for a non-data descriptor). Only data descriptors
+override regular object attributes, non-data descriptors do not. 
 
-* If you were to add these methods straight into the type’s __dict__, they
-  won’t be wired to any slot, and you’ll have a type that looks like it has a
-  certain behaviour (say, has __sub__ in its dictionary), but doesn’t behave
-  that way.
+Interpreter Threads
+-------------------
 
-* ``__slots__`` are important construct when dealing with attributes access.
+Look into the Interpreter State and the Thread State structures both
+implemented in `./Python/pystate.c` In many operating systems user-space code
+is executed by an abstraction called threads that run inside another
+abstraction called processes. The kernel is in charge of setting up and tearing
+down these processes and execution threads, as well as deciding which thread
+will run on which logical CPU at any given time. 
 
-* descriptors are objects whose type has their tp_descr_get and/or tp_descr_set
-  slots set to non-NULL. However, I also wrote, incorrectly, that descriptors
-  take precedence over regular instance attributes (i.e., attributes in the
-  object’s __dict__).  This is partly correct but misleading, as it doesn’t
-  distinguish non-data descriptors from data-descriptors. An object is said to
-  be a data descriptor if its type has its tp_descr_set slot implemented
-  (there’s no particularly special term for a non-data descriptor). Only data
-  descriptors override regular object attributes, non-data descriptors do not. 
+When a process invokes Py_Initialize another abstraction comes into play, and
+that is the interpreter. Any Python code that runs in a process is tied to an
+interpreter, you can think of the interpreter as the root of all other concepts
+we’ll discuss. Python’s code base supports initializing two (or more)
+completely separate interpreters that share little state with one another. This
+is rather rarely done (never in the vanilla executable), because too much
+subtly shared state of the interpreter core and of C extensions exists between
+these ‘insulated’ interpreters. 
 
-* Look into the Interpreter State and the Thread State structures both
-  implemented in `./Python/pystate.c`
+Anyhow, we said all execution of code occurs in a thread (or threads), and
+Python’s Virtual Machine is no exception. However, Python’s Virtual Machine
+itself is something which supports the notion of threading, so Python has its
+own abstraction to represent Python threads. This abstraction’s implementation
+is fully reliant on the kernel’s threading mechanisms, so both the kernel and
+Python are aware of each Python thread and Python threads execute as separate
+kernel-managed threads, running in parallel with all other threads in the
+system. Uhm, almost.
 
-* In many operating systems user-space code is executed by an abstraction
-  called threads that run inside another abstraction called processes.
+Many aspects of Python’s CPython implementation are not thread safe. This is
+has some benefits, like simplifying the implementation of easy-to-screw-up
+pieces of code and guaranteed atomicity of many Python operations, but it also
+means that a mechanism must be put in place to prevent two (or more) Pythonic
+The GIL is a process-wide lock which must be held by a thread if it wants to do
+anything Pythonic – effectively limiting all such work to a single thread
+running on a single logical CPU at a time. Threads in Python multitask
+cooperatively by relinquishing the GIL voluntarily so other threads can do
+Pythonic work; this cooperation is built-in to the evaluation loop, so
+ordinarily authors of Python code and some extensions don’t need to do
+something special to make cooperation work (from their point of view, they are
+preempted).
 
-* The kernel is in charge of setting up and tearing down these processes and
-  execution threads, as well as deciding which thread will run on which logical
-  CPU at any given time. 
+Do note that while a thread doesn’t use any of Python’s APIs it can (and many
+threads do) run in parallel to another Pythonic thread. With the concepts of a
+process (OS abstraction), interpreter(s) (Python abstraction) and threads (an
+OS abstraction and a Python abstraction) in mind, let’s go inside-out by
+zooming out from a single opcode outwards to the whole process. 
 
-* When a process invokes Py_Initialize another abstraction comes into play, and
-  that is the interpreter.
+Let’s look again at the disassembly of the bytecode generated for the simple
+statement ``spam = eggs - 1``::
 
-* Any Python code that runs in a process is tied to an interpreter, you can
-  think of the interpreter as the root of all other concepts we’ll discuss.
-
-* Python’s code base supports initializing two (or more) completely separate
-  interpreters that share little state with one another. This is rather rarely
-  done (never in the vanilla executable), because too much subtly shared state
-  of the interpreter core and of C extensions exists between these ‘insulated’
-  interpreters. 
-
-* Anyhow, we said all execution of code occurs in a thread (or threads), and
-  Python’s Virtual Machine is no exception. 
-
-* However, Python’s Virtual Machine itself is something which supports the
-  notion of threading, so Python has its own abstraction to represent Python
-  threads. This abstraction’s implementation is fully reliant on the kernel’s
-  threading mechanisms, so both the kernel and Python are aware of each Python
-  thread and Python threads execute as separate kernel-managed threads, running
-  in parallel with all other threads in the system. Uhm, almost.
-
-* Many aspects of Python’s CPython implementation are not thread safe. This is
-  has some benefits, like simplifying the implementation of easy-to-screw-up
-  pieces of code and guaranteed atomicity of many Python operations, but it
-  also means that a mechanism must be put in place to prevent two (or more)
-  Pythonic threads from executing in parallel, lest they corrupt each other’s
-  data. 
-
-* The GIL is a process-wide lock which must be held by a thread if it wants to
-  do anything Pythonic – effectively limiting all such work to a single thread
-  running on a single logical CPU at a time. 
-
-* Threads in Python multitask cooperatively by relinquishing the GIL
-  voluntarily so other threads can do Pythonic work; this cooperation is
-  built-in to the evaluation loop, so ordinarily authors of Python code and
-  some extensions don’t need to do something special to make cooperation work
-  (from their point of view, they are preempted).
-
-* Do note that while a thread doesn’t use any of Python’s APIs it can (and many
-  threads do) run in parallel to another Pythonic thread. 
- 
-* With the concepts of a process (OS abstraction), interpreter(s) (Python
-  abstraction) and threads (an OS abstraction and a Python abstraction) in
-  mind, let’s go inside-out by zooming out from a single opcode outwards to the
-  whole process. 
-
-* Let’s look again at the disassembly of the bytecode generated for the simple
-  statement spam = eggs - 1::
-
-        # what's 'diss'? see 'tools' under 'metablogging' above!
+        # uses 'diss'? tool.
         >>> diss("spam = eggs - 1")
           1           0 LOAD_NAME                0 (eggs)
                       3 LOAD_CONST               0 (1)
@@ -831,17 +771,15 @@ tightly coupled with anything else in Python.
                      13 RETURN_VALUE
         >>>
 
-* In addition to the actual ‘do work’ opcode BINARY_SUBTRACT, we see opcodes
-  like LOAD_NAME (eggs) and STORE_NAME (spam).
+In addition to the actual ‘do work’ opcode BINARY_SUBTRACT, we see opcodes like
+LOAD_NAME (eggs) and STORE_NAME (spam). It seems obvious that evaluating such
+opcodes requires some storage room: eggs has to be loaded from somewhere, spam
+has to be stored somewhere.
 
-* It seems obvious that evaluating such opcodes requires some storage room:
-  eggs has to be loaded from somewhere, spam has to be stored somewhere.
-
-* The inner-most data structures in which evaluation occurs are the frame
-  object and the code object, and they point to this storage room.
-
-* When you’re “running” Python code, you’re actually evaluating frames (recall
-  ceval.c: PyEval_EvalFrameEx). 
+The inner-most data structures in which evaluation occurs are the frame object
+and the code object, and they point to this storage room. When you’re “running”
+Python code, you’re actually evaluating frames (recall ceval.c:
+PyEval_EvalFrameEx). 
 
 *  In this code-structure-oriented post, the main thing we care about is the
   ``f_back`` field of the frame object (though many others exist). In ``frame
