@@ -27,10 +27,9 @@ Bring your Repo in sync with main
 
 distutils
 =========
-Was the mechanism to to distribute python packages and extensions since Python 1.6.
-Introduce new version control comparision algorithm in distutil.
-PEP-376 standardize the egg-info directories and provide APIs
-PEP-345 PKG-INFO content.
+Was the mechanism to distribute python packages and extensions since Python
+1.6.  Introduced new version control comparision algorithm in distutil.  PEP-376
+standardize the egg-info directories and provide APIs PEP-345 PKG-INFO content.
 
 http://distutils2.notmyidea.org/
 
@@ -127,64 +126,62 @@ Notes from Python3 article
 Python Internals
 ================
 
-Notes from the documentation at
-http://tech.blog.aknin.name/category/my-projects/pythons-innards/
+This is a single page, python design notes from Yaniv Aknin's Python-Innards_
+Docs and other resources. I collected and wrote them for me to understand and
+grasp the design principles.
 
-* Trying to explain Python's bytecode evaluation.
+.. _Python-Innards: http://tech.blog.aknin.name/category/my-projects/pythons-innards/
 
-* What happens when you do ``python -c "print('hello,world')"``
+Overview
+--------
 
-* Python’s binary is executed, the standard C library initialization which
-  pretty much any process does happens and then the main function starts
-  executing (see its source, ``./Modules/python.c: main``, which soon calls
-  ``./Modules/main.c: Py_Main``
+Explains the Python's byte-code evaluation. For e.g, what happen's when you do
 
-* After some mundane initialization stuff (parse arguments, see if environment
-  variables should affect behaviour, assess the situation of the standard
-  streams and act accordingly, etc), ``./Python/pythonrun.c: Py_Initialize`` is
-  called.
+::
+	python -c "python('hello,world')
 
-* In many ways, this function is what ‘builds’ and assembles together the
-  pieces needed to run the CPython machine and makes ‘a process’ into ‘a
-  process with a Python interpreter in it’. 
+Python’s binary is executed, the standard C library initialization happens and
+then the main function starts executing from ``./Modules/python.c: main``,
+which soon calls ``./Modules/main.c: Py_Main`` and after some initialization
+stuff like parse arguments, see if environment variables should affect
+behaviour, assess the situation of the standard streams and act accordingly,
+etc, ``./Python/pythonrun.c: Py_Initialize`` is called.
 
-* Among other things, it creates two very important Python data-structures: the
-  interpreter state and thread state. It also creates the built-in module sys
-  and the module which hosts all builtins. 
+In many ways, ``Py_Initialize`` function is what ‘builds’ and assembles
+together the pieces needed to run the CPython machine and makes ‘a process’
+into ‘a process with a Python interpreter in it’. Among other things, it
+creates two very important Python data-structures: the *interpreter state* and
+*thread state*. It also creates the built-in module *sys* and the module which
+hosts all builtins. 
 
-* It will execute a single string, since we invoked it with -c. To execute this
-  single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called.
-  This function creates the ``__main__`` namespace, which is ‘where’ our string
-  will be executed. After the namespace is created, the string is executed in
-  it (or rather, interpreted or evaluated in it). To do that, you must first
-  transform the string into something that machine can work on.
+It will execute a single string, since we invoked it with *-c*. To execute this
+single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called.
+This function creates the ``__main__`` namespace 'where’ our string will be
+executed. After the namespace is created, the string is executed in it To do
+that, you must first transform the string into something that machine can work
+on.
 
-* The parser/compiler stage of ``PyRun_SimpleStringFlags`` goes largely like
-  this: tokenize and create a Concrete Syntax Tree (CST) from the code,
-  transform the CST into an Abstract Syntax Tree (AST) and finally compile the
-  AST into a code object using ``./Python/ast.c: PyAST_FromNode``.
+The parser/compiler stage of ``PyRun_SimpleStringFlags`` goes largely like
+this: tokenize and create a Concrete Syntax Tree (CST) from the code, transform
+the CST into an Abstract Syntax Tree (AST) and finally compile the AST into a
+code object using ``./Python/ast.c: PyAST_FromNode``. The code object as a
+binary string of machine code that Python VM’s ‘machinary’ can operate on – so
+now we’re ready to do interpretation (again, evaluation in Python’s parlance).
 
-* The code object as a binary string of machine code that Python VM’s
-  ‘machinary’ can operate on – so now we’re ready to do interpretation (again,
-  evaluation in Python’s parlance).
+We have an empty ``__main__``, we have a code object, we want to evaluate it.
+Now what? Now this line: ``Python/pythonrun.c: run_mod, v = PyEval_EvalCode(co, globals, locals);`` 
+does the trick. It receives a code object and a namespace for globals and for
+locals (in this case, both of them will be the newly created ``__main__``
+namespace), creates a frame object from these and executes it.
 
-* We have an empty ``__main__``, we have a code object, we want to evaluate it.
-  Now what? Now this line: ``Python/pythonrun.c: run_mod, v =
-  PyEval_EvalCode(co, globals, locals);`` does the trick. It receives a code
-  object and a namespace for globals and for locals (in this case, both of them
-  will be the newly created ``__main__`` namespace), creates a frame object
-  from these and executes it.
-
-* You remember previously that I mentioned that ``Py_Initialize`` creates a
-  thread state, and that we’ll talk about it later? Well, back to that for a
-  bit: each Python thread is represented by its own thread state, which (among
-  other things) points to the stack of currently executing frames. After the
-  frame object is created and placed at the top of the thread state stack, it
-  (or rather, the byte code pointed by it) is evaluated, opcode by opcode, by
-  means of the (rather lengthy) ``./Python/ceval.c: PyEval_EvalFrameEx``.
-
-* ``PyEval_EvalFrameEx`` takes the frame, extracts opcode (and operands, if
-  any,) after opcode, and executes a short piece of C code matching the opcode. 
+We know that ``Py_Initialize`` creates a thread state. Get back to that, each
+Python thread is represented by its own thread state, which among other things
+points to the stack of currently executing frames. After the frame object is
+created and placed at the top of the thread state stack, the byte code pointed
+by it is evaluated, opcode by opcode, by means of the
+``./Python/ceval.c: PyEval_EvalFrameEx``. ``PyEval_EvalFrameEx`` function takes
+the frame, extracts opcode after opcode, and corresponding operands, if any and
+executes a short piece of C code matching the opcode. 
 
 Opcode looks like this.::
 
@@ -200,20 +197,17 @@ Opcode looks like this.::
         >>>
 
 
-* You “load” the name eggs (where do you load it from? where do you load it
-  to?), and also load a constant value (1), then you do a ``“binary subtract”``
-  (what do you mean ‘binary’ in this context? between which operands?), and so
-  on and so forth.
+You “load” the name eggs (where do you load it from? where do you load it to?),
+and also load a constant value (1), then you do a ``“binary subtract”`` (what
+do you mean ‘binary’ in this context? between which operands?), and so on and
+so forth.  The names are “loaded” from the globals and locals namespaces we’ve
+seen earlier, and they’re loaded onto an *operand stack* (not to be confused
+with the stack of running frames), which is exactly where the binary subtract
+will pop them from, subtract one from the other, and put the result back on
+that stack. 
 
-* As you might have guessed, the names are “loaded” from the globals and locals
-  namespaces we’ve seen earlier, and they’re loaded onto an operand stack (not
-  to be confused with the stack of running frames), which is exactly where the
-  binary subtract will pop them from, subtract one from the other, and put the
-  result back on that stack. 
-
-* Look at ``PyEval_EvalFrameEx at ./Python/ceval.c``
-
-* The following piece of code is run when BINARY_SUBTRACT opcode is found.::
+Look at ``PyEval_EvalFrameEx at ./Python/ceval.c``. The following piece of code
+is run when BINARY_SUBTRACT opcode is found.::
 
         TARGET(BINARY_SUBTRACT)
             w = POP();
@@ -225,12 +219,15 @@ Opcode looks like this.::
             if (x != NULL) DISPATCH();
             break;
 
-* After the frame is executed and ``PyRun_SimpleStringFlags`` returns, the main
-  function does some cleanup (notably, ``Py_Finalize``), the standard C library
-  deinitialization stuff is done (``atexit``), and the process exits.
+After the frame is executed and ``PyRun_SimpleStringFlags`` returns, the main
+function does some cleanup (notably, ``Py_Finalize``), the standard C library
+deinitialization stuff is done (``atexit``), and the process exits.
 
-* Objects are fundamental to the innards of python and Objects are not very
-  tightly coupled with anything else in Python.
+Python Objects
+--------------
+
+Objects are fundamental to the innards of python and Objects are not very
+tightly coupled with anything else in Python.
 
 * Look at the implementation of objects as if they’re unrelated to the ‘rest’,
   as if they’re a general purpose C API for creating an object subsystem. 
