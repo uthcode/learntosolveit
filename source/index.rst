@@ -31,6 +31,7 @@ Articles
    pythonstart
    beingagooddeveloper
    python
+   pythondesign
    pycon2009
    computerscience
    quotes
