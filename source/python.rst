@@ -778,253 +778,217 @@ has to be stored somewhere.
 
 The inner-most data structures in which evaluation occurs are the frame object
 and the code object, and they point to this storage room. When you’re “running”
-Python code, you’re actually evaluating frames (recall ceval.c:
-PyEval_EvalFrameEx). 
+Python code, you’re actually evaluating frames (recall ``ceval.c:
+PyEval_EvalFrameEx``). 
 
-*  In this code-structure-oriented post, the main thing we care about is the
-  ``f_back`` field of the frame object (though many others exist). In ``frame
-  n`` this field points to frame n-1, i.e., the frame that called us (the first
-  frame that was called in any particular thread, the top frame, points to
-  NULL).
+In this code-structure-oriented post, the main thing we care about is the
+``f_back`` field of the frame object (though many others exist). In ``frame n``
+this field points to frame n-1, i.e., the frame that called us (the first frame
+that was called in any particular thread, the top frame, points to NULL).
+This stack of frames is unique to every thread and is anchored to the
+thread-specific structure ``./Include.h/pystate.h: PyThreadState``, which
+includes a pointer to the currently executing frame in that thread (the most
+recently called frame, the bottom of the stack).
 
-* This stack of frames is unique to every thread and is anchored to the
-  thread-specific structure ``./Include.h/pystate.h: PyThreadState``, which
-  includes a pointer to the currently executing frame in that thread (the most
-  recently called frame, the bottom of the stack).
+PyThreadState is allocated and initialized for every Python thread in a process
+by ``_PyThreadState_Prealloc`` just before new thread creation is actually
+requested from the underlying OS (see ``./Modules/_threadmodule.c:
+thread_PyThread_start_new_thread`` and ``>>> from _thread import
+start_new_thread``). Threads can be created which will not be under the
+interpreter’s control; these threads won’t have a ``PyThreadState`` structure
+and must never call a Python API. This isn’t so common in a Python application
+but is more common when Python is embedded into another application. It is
+possible to ‘Pythonize’ such foreign threads that weren’t originally created by
+Python code in order to allow them to run Python code (PyThreadState will have
+to be allocated for them). Finally, a bit like all frames are tied together in
+a backward-going stack of previous-frame pointers, so are all thread states
+tied together in a linked list of ``PyThreadState *next`` pointers.
 
-* PyThreadState is allocated and initialized for every Python thread in a
-  process by ``_PyThreadState_Prealloc`` just before new thread creation is
-  actually requested from the underlying OS (see ``./Modules/_threadmodule.c:
-  thread_PyThread_start_new_thread`` and ``>>> from _thread import
-  start_new_thread``). 
+The list of thread states is anchored to the interpreter state structure which
+owns these threads. The interpreter state structure is defined at
+``./Include.h/pystate.h: PyInterpreterState``, and it is created when you call
+``Py_Initialize`` to initialize the Python VM in a process or
+``Py_NewInterpreter`` to create a new interpreter state for multi-interpreter
+processes. Note carefully that ``Py_NewInterpreter`` does not return an
+interpreter state – it returns a (newly created) ``PyThreadState`` for the
+single automatically created thread of the newly created interpreter. 
 
-* Threads can be created which will not be under the interpreter’s control;
-  these threads won’t have a ``PyThreadState`` structure and must never call a
-  Python API.
+There’s no sense in creating a new interpreter state without at least one
+thread in it, much like there’s no sense in creating a new process with no
+threads in it.
 
-* This isn’t so common in a Python application but is more common when Python
-  is embedded into another application. It is possible to ‘Pythonize’ such
-  foreign threads that weren’t originally created by Python code in order to
-  allow them to run Python code (PyThreadState will have to be allocated for
-  them). 
+Similarly to the list of threads anchored to its interpreter, so does the
+interpreter structure have a next field which forms a list by linking the
+interpreters to one another.This pretty much sums up our zooming out from the
+resolution of a single opcode to the whole process: opcodes belong to currently
+evaluating code objects (currently evaluating is specified as opposed to code
+objects which are just lying around as data, waiting for the opportunity to be
+called), which belong to currently evaluating frames, which belong to Pythonic
+threads, which belong to interpreters. The anchor which holds the root of this
+structure is the static variable ``./Python/pystate.c: interp_head``, which
+points to the first interpreter state (through that all interpreters are
+reachable, through each of them all thread states are reachable, and so
+fourth). 
 
-* Finally, a bit like all frames are tied together in a backward-going stack of
-  previous-frame pointers, so are all thread states tied together in a linked
-  list of ``PyThreadState *next`` pointers.
+The mutex ``head_mutex`` protects ``interp_head`` and the lists it points to so
+they won’t be corrupt by concurrent modifications from multiple threads (I want
+it to be clear that this lock is not the GIL, it’s just the mutex for
+interpreter and thread states). The macros ``HEAD_LOCK`` and ``HEAD_UNLOCK``
+control this lock. ``interp_head`` is typically used when one wishes to
+add/remove interpreters or threads and for special purposes. That’s because
+accessing an interpreter or a thread through the head variable would get you an
+interpreter state rather than the interpreter state owning the currently
+running thread (just in case there’s more than one interpreter state).
 
-* The list of thread states is anchored to the interpreter state structure
-  which owns these threads. The interpreter state structure is defined at
-  ./Include.h/pystate.h: PyInterpreterState, and it is created when you call
-  Py_Initialize to initialize the Python VM in a process or Py_NewInterpreter
-  to create a new interpreter state for multi-interpreter processes.
+A more useful variable similar to interp_head is ``./Python/pystate.c:
+_PyThreadState_Current`` which points to the currently running thread state
+This is how code typically accesses the correct interpreter state for itself:
+first find its your own thread’s thread state, then dereference its interp
+field to get to your interpreter.
 
-* Note carefully that Py_NewInterpreter does not return an interpreter state –
-  it returns a (newly created) PyThreadState for the single automatically
-  created thread of the newly created interpreter. 
+There are a couple of functions that let you access this variable (get its
+current value or swap it with a new one while retaining the old one) and they
+require that you hold the GIL to be used. This is important, and serves as an
+example of CPython’s lack of thread safety (a rather simple one, others are
+hairier). If two threads are running and there was no GIL, to which thread
+would this variable point? “The thread that holds the GIL” is an easy answer,
+and indeed, the one that’s used. ``_PyThreadState_Current`` is set during
+Python’s initialization or during a new thread’s creation to the thread state
+structure that was just created. When a Pythonic thread is bootstrapped and
+starts running for the very first time it can assume two things: 
 
-* There’s no sense in creating a new interpreter state without at least one
-  thread in it, much like there’s no sense in creating a new process with no
-  threads in it.
+* It holds the GIL and 
+* It will find a correct value in _PyThreadState_Current. 
 
-* Similarly to the list of threads anchored to its interpreter, so does the
-  interpreter structure have a next field which forms a list by linking the
-  interpreters to one another.
+As of that moment the Pythonic thread should not relinquish the GIL and let
+other threads run without first storing ``_PyThreadState_Current`` somewhere,
+and should immediately re-acquire the GIL and restore
+``_PyThreadState_Current`` to its old value when it wants to resume running
+Pythonic code. This behaviour is what keeps ``_PyThreadState_Current`` correct
+for GIL-holding threads and is so common that macros exist to do the
+save-release/acquire-restore idioms (``Py_BEGIN_ALLOW_THREADS`` and
+``Py_END_ALLOW_THREADS``). There’s much more to say about the GIL and
+additional APIs to handle it and it’s probably also interesting to contrast it
+with other Python implementation (Jython and IronPython are thread safe and do
+run Pythonic threads concurrently). 
 
-* This pretty much sums up our zooming out from the resolution of a single
-  opcode to the whole process: opcodes belong to currently evaluating code
-  objects (currently evaluating is specified as opposed to code objects which
-  are just lying around as data, waiting for the opportunity to be called),
-  which belong to currently evaluating frames, which belong to Pythonic
-  threads, which belong to interpreters. 
-
-* The anchor which holds the root of this structure is the static variable
-  ./Python/pystate.c: interp_head, which points to the first interpreter state
-  (through that all interpreters are reachable, through each of them all thread
-  states are reachable, and so fourth). 
-
-* The mutex head_mutex protects interp_head and the lists it points to so they
-  won’t be corrupt by concurrent modifications from multiple threads (I want it
-  to be clear that this lock is not the GIL, it’s just the mutex for
-  interpreter and thread states). 
-
-* The macros HEAD_LOCK and HEAD_UNLOCK control this lock. interp_head is
-  typically used when one wishes to add/remove interpreters or threads and for
-  special purposes. That’s because accessing an interpreter or a thread through
-  the head variable would get you an interpreter state rather than the
-  interpreter state owning the currently running thread (just in case there’s
-  more than one interpreter state).
-
-* A more useful variable similar to interp_head is ./Python/pystate.c:
-  _PyThreadState_Current which points to the currently running thread state
-
-* This is how code typically accesses the correct interpreter state for itself:
-  first find its your own thread’s thread state, then dereference its interp
-  field to get to your interpreter.
-
-* There are a couple of functions that let you access this variable (get its
-  current value or swap it with a new one while retaining the old one) and they
-  require that you hold the GIL to be used.
-
-* This is important, and serves as an example of CPython’s lack of thread
-  safety (a rather simple one, others are hairier). If two threads are running
-  and there was no GIL, to which thread would this variable point? “The thread
-  that holds the GIL” is an easy answer, and indeed, the one that’s used. _
-
-*  _PyThreadState_Current is set during Python’s initialization or during a new
-  thread’s creation to the thread state structure that was just created. When a
-  Pythonic thread is bootstrapped and starts running for the very first time it
-  can assume two things: (a) it holds the GIL and (b) it will find a correct
-  value in _PyThreadState_Current. 
-
-* As of that moment the Pythonic thread should not relinquish the GIL and let
-  other threads run without first storing _PyThreadState_Current somewhere, and
-  should immediately re-acquire the GIL and restore _PyThreadState_Current to
-  its old value when it wants to resume running Pythonic code.
-
-* This behaviour is what keeps _PyThreadState_Current correct for GIL-holding
-  threads and is so common that macros exist to do the
-  save-release/acquire-restore idioms (Py_BEGIN_ALLOW_THREADS and
-  Py_END_ALLOW_THREADS). 
-
-* There’s much more to say about the GIL and additional APIs to handle it and
-  it’s probably also interesting to contrast it with other Python
-  implementation (Jython and IronPython are thread safe and do run Pythonic
-  threads concurrently). 
-
-* Diagram shows the relation between the state structures within a single
-  process hosting Python as described so far. We have in this example two
-  interpreters with two threads each, you can see each of these threads points
-  to its own call stack of frames.
+Diagram shows the relation between the state structures within a single process
+hosting Python as described so far. We have in this example two interpreters
+with two threads each, you can see each of these threads points to its own call
+stack of frames.
 
 .. image:: http://niltowrite.files.wordpress.com/2010/05/states4.png?w=440&h=314
 
-* Interpreter states contain several fields dealing with imported modules of
-  that particular interpreter, so we can talk about that when we talk about
-  importing.
+Interpreter states contain several fields dealing with imported modules of that
+particular interpreter, so we can talk about that when we talk about importing.
 
-* In addition to managing imports they hold bunch of pointers related to
-  handling Unicode codecs, a field to do with dynamic linking flags and a field
-  to do with TSC usage for profiling.
+In addition to managing imports they hold bunch of pointers related to handling
+Unicode codecs, a field to do with dynamic linking flags and a field to do with
+TSC usage for profiling. Thread states have more fields but to me they were
+more easily understood.  Not too surprisingly, they have fields that deal with
+things that relate to the execution flow of a particular thread and are of too
+broad a scope to fit particular frame.
 
-* Thread states have more fields but to me they were more easily understood.
-  Not too surprisingly, they have fields that deal with things that relate to
-  the execution flow of a particular thread and are of too broad a scope to fit
-  particular frame.
+Take for example the fields recursion_depth, overflow and recursion_critical,
+which are meant to trap and raise a RuntimeError during overly deep recursions
+before the stack of the underlying platform is exhausted and the whole process
+crashes. In addition to these fields, this structure accommodates fields
+related to profiling and tracing, exception handling (exceptions can be thrown
+across frames), a general purpose per-thread dictionary for extensions to store
+arbitrary stuff in and counters to do with deciding when a thread ran too much
+and should voluntarily relinquish the GIL to let other threads run.
 
-* Take for example the fields recursion_depth, overflow and recursion_critical,
-  which are meant to trap and raise a RuntimeError during overly deep
-  recursions before the stack of the underlying platform is exhausted and the
-  whole process crashes. 
+Naming
+------
 
-* In addition to these fields, this structure accommodates fields related to
-  profiling and tracing, exception handling (exceptions can be thrown across
-  frames), a general purpose per-thread dictionary for extensions to store
-  arbitrary stuff in and counters to do with deciding when a thread ran too
-  much and should voluntarily relinquish the GIL to let other threads run.
+Discuss naming, which is the ability to bind names to an object, like we can
+see in the statement ``a = 1`` (in other words, this article is roughly about what
+many languages call variables). Naturally, naming is central to Python's
+behaviour and understanding both its semantics and mechanics are important
+precursors to our quickly approaching discussions of code evaluation, code
+objects and stack frames.
 
-* Discuss naming, which is the ability to bind names to an object, like we can
-  see in the statement a = 1 (in other words, this article is roughly about
-  what many languages call variables). 
+That said, it is also a delicate subject because anyone with some programming
+experience knows something about it, at least instinctively (you’ve done
+something like a = 1 before, now haven’t you?).When we evaluate a = b = c = [],
+we create one list and give it three different names. In formal terms, we’d say
+that the newly instantiated list object is now bound to three identifiers that
+refer to it. This distinction between names and the objects bound to them is
+important. If we evaluate a.append(1), we will see that b and c are also
+affected; we didn’t mutate a, we mutated its referent, so the mutation is
+uniformly visible via any name the object was referred to.
 
-* Naturally, naming is central to Python's behaviour and understanding both its
-  semantics and mechanics are important precursors to our quickly approaching
-  discussions of code evaluation, code objects and stack frames.
+On the other hand, if we will now do a ``b = []``, a and c will not change,
+since we didn’t actually change the object which b referred to but rather did a
+re-binding of the name b to a (newly created and empty) list object. Also
+recall that binding is one of the ways to increase the referent’s reference
+count, this is worthy of noting even though reference counting isn’t our
+subject at the moment.
 
-* That said, it is also a delicate subject because anyone with some programming
-  experience knows something about it, at least instinctively (you’ve done
-  something like a = 1 before, now haven’t you?).
+A name binding is commonly created by use of the assignment statement, which is
+a statement that has an ‘equals’ symbol (=) in the middle, “stuff to assign to”
+or targets on the left, and “stuff to be assigned” (an expression) on the
+right. A target can be a name (more formally called an identifier) or a more
+complex construct, like a sequence of names, an attribute reference
+(primary_name.attribute) or a subscript (primary_name[subscript])
 
-* When we evaluate a = b = c = [], we create one list and give it three
-  different names. In formal terms, we’d say that the newly instantiated list
-  object is now bound to three identifiers that refer to it.
+Name binding is undone with the deletion statement del, which is roughly “del
+followed by comma-separated targets to unbind” 
 
-* This distinction between names and the objects bound to them is important. If
-  we evaluate a.append(1), we will see that b and c are also affected; we
-  didn’t mutate a, we mutated its referent, so the mutation is uniformly
-  visible via any name the object was referred to.
+Finally, note that name binding can be done without an assignment as bindings
+are also created by ``def, class, import (and others)``, this is also of less
+importance to us now.
 
-* On the other hand, if we will now do a b = [], a and c will not change, since
-  we didn’t actually change the object which b referred to but rather did a
-  re-binding of the name b to a (newly created and empty) list object.
+Scope is a term relating to the visibility of an identifier throughout a block,
+or a piece of Python code executed as a unit: a module, a function body and a
+class definition are blocks (control-blocks like those of if and while are not
+code blocks in Python). A namespace is an abstract environment where the
+mapping between names and the objects they refer to is made (incidentally, in
+current CPython, this is indeed implemented with the dict mapping type).
+The rules of scoping determine in which namespace will a name be sought after
+when it is used, or rather resolved. 
 
-* Also recall that binding is one of the ways to increase the referent’s
-  reference count, this is worthy of noting even though reference counting
-  isn’t our subject at the moment.
+You probably know instinctively that a name bound in function foo isn’t visible
+in an unrelated function bar, this is because by default names created in a
+function will be stored in a namespace that will not be looked at when name
+resolution happens in another, unrelated function. 
 
-* A name binding is commonly created by use of the assignment statement, which
-  is a statement that has an ‘equals’ symbol (=) in the middle, “stuff to
-  assign to” or targets on the left, and “stuff to be assigned” (an expression)
-  on the right. 
+Scope determines not just when a name will be visible as it is resolved or
+‘read’ (i.e., if you do spam = eggs, where will eggs come from) but also as it
+is bound or ‘written’ (i.e., in the same example, where will spam go to). When
+a namespace will no longer be used (for example, the private namespace of a
+function which returns) all the names in it are unbound (this triggers
+reference count decrease and possibly deallocation, but this doesn’t concern us
+now).
 
-* A target can be a name (more formally called an identifier) or a more complex
-  construct, like a sequence of names, an attribute reference
-  (primary_name.attribute) or a subscript (primary_name[subscript])
+Scoping rules change based on the lexical context in which code is compiled.
+For example, in simpler terms, code compiled as a plain function’s body will
+resolve names slightly differently when evaluated when compared with code
+compiled as part of a module’s initialization code (the module top-level code).
+Special statements like global and nonlocal exist and can be applied to names
+thus that resolution rules for these names will change in the current code
+block, we’ll look into that later. 
 
-* Name binding is undone with the deletion statement del, which is roughly “del
-  followed by comma-separated targets to unbind” 
+When Python code is evaluated, it is evaluated within three namespaces: locals,
+globals and builtins. When we resolve a name, it will be sought after in the
+local scope, then the global scope, then the builtin scope (then a NameError
+will be raised). When we bind a name with a name binding statement (i.e., an
+assignment, an import, a def, etc) the name will be bound in the local scope,
+and hide any existing names in the global or builtin scope.
 
-* Finally, note that name binding can be done without an assignment as bindings
-  are also created by def, class, import (and others), this is also of less
-  importance to us now.
+This hiding does not mean the hidden name was changed (formally: the hidden
+name was not re-bound), it just means it is no longer visible in the current
+block’s scope because the newly created binding in the local namespace
+overshadows it.
 
-* Scope is a term relating to the visibility of an identifier throughout a
-  block, or a piece of Python code executed as a unit: a module, a function
-  body and a class definition are blocks (control-blocks like those of if and
-  while are not code blocks in Python).
+We said scoping changes according to context, and one such case is when
+functions are lexically nested within one another (that is, a function defined
+inside the body of another function): resolution of a name from within a nested
+function will first search in that function’s scope, then in the local scopes
+of its outer function(s) and only then proceed normally (in the globals and
+builtins) scope.
 
-* A namespace is an abstract environment where the mapping between names and
-  the objects they refer to is made (incidentally, in current CPython, this is
-  indeed implemented with the dict mapping type).
-
-* The rules of scoping determine in which namespace will a name be sought after
-  when it is used, or rather resolved. 
-
-* You probably know instinctively that a name bound in function foo isn’t
-  visible in an unrelated function bar, this is because by default names
-  created in a function will be stored in a namespace that will not be looked
-  at when name resolution happens in another, unrelated function. 
-
-* Scope determines not just when a name will be visible as it is resolved or
-  ‘read’ (i.e., if you do spam = eggs, where will eggs come from) but also as
-  it is bound or ‘written’ (i.e., in the same example, where will spam go to). 
-
-* When a namespace will no longer be used (for example, the private namespace
-  of a function which returns) all the names in it are unbound (this triggers
-  reference count decrease and possibly deallocation, but this doesn’t concern
-  us now).
-
-* Scoping rules change based on the lexical context in which code is compiled.
-  For example, in simpler terms, code compiled as a plain function’s body will
-  resolve names slightly differently when evaluated when compared with code
-  compiled as part of a module’s initialization code (the module top-level
-  code).
-
-* Special statements like global and nonlocal exist and can be applied to names
-  thus that resolution rules for these names will change in the current code
-  block, we’ll look into that later. 
-
-* When Python code is evaluated, it is evaluated within three namespaces:
-  locals, globals and builtins. When we resolve a name, it will be sought after
-  in the local scope, then the global scope, then the builtin scope (then a
-  NameError will be raised).
-
-* When we bind a name with a name binding statement (i.e., an assignment, an
-  import, a def, etc) the name will be bound in the local scope, and hide any
-  existing names in the global or builtin scope.
-
-* This hiding does not mean the hidden name was changed (formally: the hidden
-  name was not re-bound), it just means it is no longer visible in the current
-  block’s scope because the newly created binding in the local namespace
-  overshadows it.
-
-* We said scoping changes according to context, and one such case is when
-  functions are lexically nested within one another (that is, a function
-  defined inside the body of another function): resolution of a name from
-  within a nested function will first search in that function’s scope, then in
-  the local scopes of its outer function(s) and only then proceed normally (in
-  the globals and builtins) scope.
-
-* Lexical scoping is an interesting behaviour, let’s look at it closely::
+Lexical scoping is an interesting behaviour, let’s look at it closely::
 
         $ cat scoping.py ; python3.1
         def outer():
@@ -1055,19 +1019,17 @@ PyEval_EvalFrameEx).
             return a # a is not visible
         >>>
 
-* As the example demonstrates, a is visible in the lexically nested inner but
-  not in the call-stack nested but not lexically nested inner_nonlexical.
+As the example demonstrates, a is visible in the lexically nested inner but not
+in the call-stack nested but not lexically nested inner_nonlexical. I mean,
+Python is dynamic, everything is runtime, how does inner_nonlexical fail if it
+has the same Python code and is called in a similar fashion from within a
+similar environment as the original inner was called? 
 
-* I mean, Python is dynamic, everything is runtime, how does inner_nonlexical
-  fail if it has the same Python code and is called in a similar fashion from
-  within a similar environment as the original inner was called? 
+Further more, we can see that ``inner`` is actually called after ``outer`` has
+terminated: how can it use a value from a namespace that was already destroyed? 
 
-* Further more, we can see that inner is actually called after outer has
-  terminated: how can it use a value from a namespace that was already
-  destroyed? 
-
-* Once again, let’s look at the bytecode emitted for the simple statement spam
-  = eggs - 1::
+Once again, let’s look at the bytecode emitted for the simple statement
+``spam = eggs - 1``::
 
         >>> diss("spam = eggs - 1")
           1           0 LOAD_NAME                0 (eggs)
@@ -1078,34 +1040,30 @@ PyEval_EvalFrameEx).
                      13 RETURN_VALUE
         >>>
 
-* Recall that BINARY_SUBTRACT will pop two arguments from the value-stack and
-  feed them to PyNumber_Subtract, which is a C function that accepts two
-  PyObject * pointers and certainly doesn’t know anything about scoping.
+Recall that BINARY_SUBTRACT will pop two arguments from the value-stack and
+feed them to ``PyNumber_Subtract``, which is a C function that accepts two
+``PyObject * pointers`` and certainly doesn’t know anything about scoping.
 
-* What gets the arguments onto the stack are the LOAD_NAME and LOAD_CONST
-  opcodes, and what will take the result out of the stack and into wherever it
-  is heading is the STORE_NAME ocopde.
+What gets the arguments onto the stack are the ``LOAD_NAME`` and ``LOAD_CONST``
+opcodes, and what will take the result out of the stack and into wherever it is
+heading is the ``STORE_NAME`` ocopde. It is opcodes like this that implement
+the rules of naming and scoping, since the C code implementing them is what
+will actually look into the dictionaries representing the relevant namespaces
+trying to resolve the name and bring the resulting object unto the stack, or
+store whatever object is to be stored into the relevant namespace.
 
-* It is opcodes like this that implement the rules of naming and scoping, since
-  the C code implementing them is what will actually look into the dictionaries
-  representing the relevant namespaces trying to resolve the name and bring the
-  resulting object unto the stack, or store whatever object is to be stored
-  into the relevant namespace.
+For example, take ``LOAD_CONST``; this opcode loads a constant value unto the
+value stack, but it isn’t about scoping (constants don’t have a scope, by
+definition they aren’t variables and they’re never ‘hidden’).
 
-* For example, take LOAD_CONST; this opcode loads a constant value unto the
-  value stack, but it isn’t about scoping (constants don’t have a scope, by
-  definition they aren’t variables and they’re never ‘hidden’).
-
-* Fortunately for you, I’ve already grepped the sources for ‘suspect’ opcodes
-  ($ egrep -o '(LOAD|STORE)(_[A-Z]+)+' Include/opcode.h | sort) and believe
-  I’ve mapped out the opcodes that actually implement scoping, so we can
-  concentrate on the ones that really implement scoping 
-
-* Note that among the list of opcodes I chose not to address are the ones that
-  handles attribute reference and subscripting; I chose so since these opcodes
-  rely on a different opcode to get the primary reference (the name before the
-  dot or the square brackets) on the value stack and thus aren’t really about
-  scoping. 
+Fortunately for you, I’ve already grepped the sources for ‘suspect’ opcodes ($
+egrep -o '(LOAD|STORE)(_[A-Z]+)+' Include/opcode.h | sort) and believe I’ve
+mapped out the opcodes that actually implement scoping, so we can concentrate
+on the ones that really implement scoping. Note that among the list of opcodes
+I chose not to address are the ones that handles attribute reference and
+subscripting; I chose so since these opcodes rely on a different opcode to get
+the primary reference (the name before the dot or the square brackets) on the
+value stack and thus aren’t really about scoping. 
 
 * We should discuss four pairs of opcode::
 
@@ -1114,21 +1072,21 @@ PyEval_EvalFrameEx).
         LOAD_GLOBAL and STORE_GLOBAL
         LOAD_DEREF and STORE_DEREF
 
-* I suggest we discuss each pair along with the situations in which the
-  compiler chooses to emit an opcode of that pair in order to satisfy the
-  semantics of scoping.
+I suggest we discuss each pair along with the situations in which the compiler
+chooses to emit an opcode of that pair in order to satisfy the semantics of
+scoping.
 
-* This is not necessarily an exhaustive listing of these opcodes’ uses (it
-  might be, I’m not checking if it is or isn’t), but it should develop an
-  understanding of these opcodes’ behaviour and allow us to figure out other
-  cases where the compiler chooses the emit them on our own; so if you ever see
-  any of these in a disassembly, you’ll be covered.
+This is not necessarily an exhaustive listing of these opcodes’ uses (it might
+be, I’m not checking if it is or isn’t), but it should develop an understanding
+of these opcodes’ behaviour and allow us to figure out other cases where the
+compiler chooses the emit them on our own; so if you ever see any of these in a
+disassembly, you’ll be covered.
 
-* I’d like to begin with the obvious pair, ``*_NAME``; it is simple to understand
-  (and I suspect it was the first to be implemented). Explaining the ``*_NAME``
-  pair of opcodes is easiest by writing rough versions of them in Python-like
-  psuedocode (you can and should read the actual implementation in
-  ``./Python/ceval.c: PyEval_EvalFrameEx``)::
+I’d like to begin with the obvious pair, ``*_NAME``; it is simple to understand
+(and I suspect it was the first to be implemented). Explaining the ``*_NAME``
+pair of opcodes is easiest by writing rough versions of them in Python-like
+psuedocode (you can and should read the actual implementation in
+``./Python/ceval.c: PyEval_EvalFrameEx``)::
 
         def LOAD_NAME(name):
             try:
@@ -1146,43 +1104,38 @@ PyEval_EvalFrameEx).
         def STORE_NAME(name, value):
             current_stack_frame.locals[name] = value
 
-* While they are the ‘vanilla’ case, ``*_NAME``, in some cases they are not
-  emitted at all as more specialized opcodes can achieve the same functionality
-  in a faster manner. As we explore the other scoping-related opcodes, we will
-  see why.
+While they are the ‘vanilla’ case, ``*_NAME``, in some cases they are not
+emitted at all as more specialized opcodes can achieve the same functionality
+in a faster manner. As we explore the other scoping-related opcodes, we will
+see why. A commonly used pair of scoping related opcodes is the ``*_FAST``
+pair, which were originally implemented a long time ago as a speed enhancement
+over the ``*_NAME`` pair. 
 
-* A commonly used pair of scoping related opcodes is the ``*_FAST`` pair, which
-  were originally implemented a long time ago as a speed enhancement over the
-  ``*_NAME`` pair. 
+These opcodes are used in cases where compile time analysis can infer that a
+variable is used strictly in the local namespace. This is possible when
+compiling code which is a part of a function, rather than, say, at the module
+level (some subtleties apply about the meaning of ‘function’ in this context, a
+class’ body may also use these opcodes under some circumstances, but this is of
+no interest to us at the moment; also see the comments below).
 
-* These opcodes are used in cases where compile time analysis can infer that a
-  variable is used strictly in the local namespace.
+If we can decide at compile time which names are used in precisely one
+namespace, and that namespace is private to one code block, it may be easy to
+implement a namespace with cheaper machinery than dictionaries. Indeed, these
+opcodes rely on a local namespace implemented with a statically sized array,
+which is far faster than a dictionary lookup as in the global namespace and
+other namespaces.
 
-* This is possible when compiling code which is a part of a function, rather
-  than, say, at the module level (some subtleties apply about the meaning of
-  ‘function’ in this context, a class’ body may also use these opcodes under
-  some circumstances, but this is of no interest to us at the moment; also see
-  the comments below).
+In Python 2.x it was possible to confuse the compiler thus that it will not be
+able to use these opcodes in a particular function and have to revert to
+``*_NAME``, this is no longer possible in Python 3.x (also see the comments).
 
-* If we can decide at compile time which names are used in precisely one
-  namespace, and that namespace is private to one code block, it may be easy to
-  implement a namespace with cheaper machinery than dictionaries.
+Let’s look at the two ``*_GLOBAL`` opcodes. LOAD_GLOBAL (but not STORE_GLOBAL)
+is also generated when the compiler can infer that a name is resolved in a
+function’s body but was never bound inside that body. 
 
-* Indeed, these opcodes rely on a local namespace implemented with a statically
-  sized array, which is far faster than a dictionary lookup as in the global
-  namespace and other namespaces.
-
-* In Python 2.x it was possible to confuse the compiler thus that it will not
-  be able to use these opcodes in a particular function and have to revert to
-  ``*_NAME``, this is no longer possible in Python 3.x (also see the comments).
-
-* Let’s look at the two ``*_GLOBAL`` opcodes. LOAD_GLOBAL (but not
-  STORE_GLOBAL) is also generated when the compiler can infer that a name is
-  resolved in a function’s body but was never bound inside that body. 
-
-* This behaviour is conceptually similar to the ability to decide when a name
-  is both bound and resolved in a function’s body, causing the generation of
-  the ``*_FAST`` opcodes as we’ve seen above::
+This behaviour is conceptually similar to the ability to decide when a name is
+both bound and resolved in a function’s body, causing the generation of the
+``*_FAST`` opcodes as we’ve seen above::
 
         >>> def func():
         ...     a = 1
@@ -1198,41 +1151,37 @@ PyEval_EvalFrameEx).
                      15 RETURN_VALUE
         >>>
 
-* As described for ``*_FAST``, we can see that a was bound within the function,
-  which places it in the local scope private to this function, which means the
-  ``*_FAST`` opcodes can and are used for a. 
+As described for ``*_FAST``, we can see that *a* was bound within the function,
+which places it in the local scope private to this function, which means the
+``*_FAST`` opcodes can and are used for *a*. On the other hand, we can see (and
+the compiler could also see…) that *b* was resolved before it was ever bound in
+the function. 
 
-* On the other hand, we can see (and the compiler could also see…) that b was
-  resolved before it was ever bound in the function. 
+The compiler figured it must either exist elsewhere or not exist at all, which
+is exactly what ``LOAD_GLOBAL`` does: it bypasses the local namespace and
+searches only the ``global`` and ``builtin`` namespaces (and then raises a
+``NameError``).
 
-* The compiler figured it must either exist elsewhere or not exist at all,
-  which is exactly what LOAD_GLOBAL does: it bypasses the local namespace and
-  searches only the global and builtin namespaces (and then raises a
-  NameError).
+This explanation leaves us with missing functionality: what if you’d like to
+re-bind a variable in the global scope? Recall that binding a new name normally
+binds it locally, so if you have a module defining foo = 1, a function setting
+foo = 2 locally “hides” the global foo. 
 
-* This explanation leaves us with missing functionality: what if you’d like to
-  re-bind a variable in the global scope?
+But what if you want to re-bind the global foo? Note this is not to mutate
+object referred to by foo but rather to bind the name foo in the global scope
+to a different referent; if you’re not clear on the distinction between the
+two, skim back in this post until we’re on the same page.
 
-* Recall that binding a new name normally binds it locally, so if you have a
-  module defining foo = 1, a function setting foo = 2 locally “hides” the
-  global foo. 
+To do so, we can use the global statement which we mentioned in passing before;
+this statement lets you tell the compiler to treat a name always as a global
+both for resolving and for binding within a particular code block, generating
+only ``*_GLOBAL`` opcodes for manipulation of that name. 
 
-* But what if you want to re-bind the global foo? Note this is not to mutate
-  object referred to by foo but rather to bind the name foo in the global scope
-  to a different referent; if you’re not clear on the distinction between the
-  two, skim back in this post until we’re on the same page.
-
-* To do so, we can use the global statement which we mentioned in passing
-  before; this statement lets you tell the compiler to treat a name always as a
-  global both for resolving and for binding within a particular code block,
-  generating only ``*_GLOBAL`` opcodes for manipulation of that name. 
-
-* When binding is required, STORE_GLOBAL performs the new binding (or a
-  re-binding) in the global namespace, thus allowing Python code to explicitly
-  state which variables should be stored and manipulated in the global scope. 
-
-* What happens if you use a variable locally, and then use the global statement
-  to make it global? Let’s look (slightly edited)::
+When binding is required, ``STORE_GLOBAL`` performs the new binding (or a
+re-binding) in the global namespace, thus allowing Python code to explicitly
+state which variables should be stored and manipulated in the global scope.
+What happens if you use a variable locally, and then use the global statement
+to make it global? Let’s look (slightly edited)::
 
         >>> def func():
         ...     a = 1
@@ -1246,27 +1195,24 @@ PyEval_EvalFrameEx).
                       9 RETURN_VALUE
         >>>
 
-* The compiler still treats the name as a global all through the code block,
-  but warns you not to shoot yourself (and other maintainers of the code) in
-  the foot. Sensible.
+The compiler still treats the name as a global all through the code block, but
+warns you not to shoot yourself (and other maintainers of the code) in the
+foot. Sensible.
 
-* We are left only with LOAD_DEREF and STORE_DEREF. To explain these, we have
-  to revisit the notion of lexical scoping, which is what started our
-  inspection of the implementation.
+We are left only with ``LOAD_DEREF`` and ``STORE_DEREF``. To explain these, we
+have to revisit the notion of lexical scoping, which is what started our
+inspection of the implementation. Recall that we said that nested functions’
+resolution of names tries the namespaces’ of all lexically enclosing functions
+(in order, innermost outwards) before it hits the global namespace, we also saw
+an example of that in code.
 
-* Recall that we said that nested functions’ resolution of names tries the
-  namespaces’ of all lexically enclosing functions (in order, innermost
-  outwards) before it hits the global namespace, we also saw an example of that
-  in code.
+So how did inner return a value resolved from this no-longer-existing namespace
+of outer? When resolution of names is attempted in the global namespace (or in
+builtins), the name may or may not be there, but for sure we know that the
+scope is still there! How do we resolve a name in a scope which doesn’t exist?
 
-* So how did inner return a value resolved from this no-longer-existing
-  namespace of outer? When resolution of names is attempted in the global
-  namespace (or in builtins), the name may or may not be there, but for sure we
-  know that the scope is still there! How do we resolve a name in a scope which
-  doesn’t exist?
-
-* The answer is quite nifty, and becomes apparent with a disassembly (slightly
-  edited) of both functions::
+The answer is quite nifty, and becomes apparent with a disassembly (slightly
+edited) of both functions::
 
         # see the example above for the contents of scoping.py
         >>> from scoping import *
@@ -1289,39 +1235,35 @@ PyEval_EvalFrameEx).
                       3 RETURN_VALUE
         >>>
 
-* We can see that outer (the outer function!) already treats a, the variable
-  which will be used outside of its scope, differently than it treats b, a
-  ‘simple’ variable in its local scope.
+We can see that outer (the outer function!) already treats a, the variable
+which will be used outside of its scope, differently than it treats b, a
+‘simple’ variable in its local scope.
 
-* ``a`` is loaded and stored using the ``*_DEREF`` variants of the loading and
-  storing opcodes, in both the outer and inner functions. The secret sauce here
-  is that at compilation time, if a variable is seen to be resolved from a
-  lexically nested function, it will not be stored and will not be accessed
-  using the regular naming opcodes.
+``a`` is loaded and stored using the ``*_DEREF`` variants of the loading and
+storing opcodes, in both the outer and inner functions. The secret sauce here
+is that at compilation time, if a variable is seen to be resolved from a
+lexically nested function, it will not be stored and will not be accessed using
+the regular naming opcodes. Instead, a special object called a cell is created
+to store the value of the object. When various code objects (the outer
+function, the inner function, etc) will access this variable, the use of the
+``*_DEREF`` opcodes will cause the cell to be accessed rather than the
+namespace of the accessing code object. Since the cell is actually accessed
+only after outer has finished executing, you could even define inner before a
+was defined, and it would still work just the same (!).
 
-* Instead, a special object called a cell is created to store the value of the
-  object. When various code objects (the outer function, the inner function,
-  etc) will access this variable, the use of the ``*_DEREF`` opcodes will cause
-  the cell to be accessed rather than the namespace of the accessing code
-  object.
+This is automagical for name resolution, but for outer scope rebinding the
+nonlocal statement exists. nonlocal was decreed by PEP 3014 and it is somewhat
+similar to the global statement
 
-* Since the cell is actually accessed only after outer has finished executing,
-  you could even define inner before a was defined, and it would still work
-  just the same (!).
+``nonlocal`` explicitly declares a variable to be used from an outer scope
+rather than locally, both for resolution and re-binding. It is illegal to use
+nonlocal outside of a lexically nested function, and it must be nested inside a
+function that defines the identifiers listed by nonlocal. 
 
-* This is automagical for name resolution, but for outer scope rebinding the
-  nonlocal statement exists. nonlocal was decreed by PEP 3014 and it is
-  somewhat similar to the global statement
-
-* ``nonlocal`` explicitly declares a variable to be used from an outer scope
-  rather than locally, both for resolution and re-binding. It is illegal to use
-  nonlocal outside of a lexically nested function, and it must be nested inside
-  a function that defines the identifiers listed by nonlocal. 
-
-* There are several small gotchas about lexical scoping, but overall things
-  behave as you would probably expect (for example, you can’t cause a name to
-  be used locally and as a lexically nested name in the same code block, as the
-  collapsed snippet below demonstrates)::
+There are several small gotchas about lexical scoping, but overall things
+behave as you would probably expect (for example, you can’t cause a name to be
+used locally and as a lexically nested name in the same code block, as the
+collapsed snippet below demonstrates)::
 
         >>> def outer():
         ...     a = 1
@@ -1338,57 +1280,55 @@ PyEval_EvalFrameEx).
         UnboundLocalError: local variable 'a' referenced before assignment
         >>>
 
-* This sums up the mechanics of naming and scoping. 
+This sums up the mechanics of naming and scoping. 
 
-* The compilation of Python source code emits Python bytecode, which is
-  evaluated at runtime to produce whatever behaviour the programmer
-  implemented.
+Byte Code
+---------
 
-* I guess you can think of bytecode as ‘machine code for the Python virtual
-  machine’, and indeed if you look at some binary x86 machine code (like this
-  one: 0x55 0x89 0xe5 0xb8 0x2a 0x0 0x0 0x0 0x5d) and some Python bytecode
-  (like that one: 0x64 0x1 0x0 0x53) they look more or less like the same sort
-  of gibberish. 
+The compilation of Python source code emits Python bytecode, which is evaluated
+at runtime to produce whatever behaviour the programmer implemented. I guess
+you can think of bytecode as ‘machine code for the Python virtual machine’, and
+indeed if you look at some binary x86 machine code (like this one: 0x55 0x89
+0xe5 0xb8 0x2a 0x0 0x0 0x0 0x5d) and some Python bytecode (like that one: 0x64
+0x1 0x0 0x53) they look more or less like the same sort of gibberish. 
 
-* The bytecode and these fields are lumped together in an object called a code
-  object, our subject for this article.
+The bytecode and these fields are lumped together in an object called a code
+object, our subject for this article.
 
-* You might initially confuse function objects with code objects, but
-  shouldn’t. Functions are higher level creatures that execute code by relying
-  on a lower level primitive, the code object, but adding more functionality on
-  top of that (in other words, every function has precisely one code object
-  directly associated with it, this is the function’s __code__ attribute, or
-  f_code in Python 2.x).
+You might initially confuse function objects with code objects, but shouldn’t.
+Functions are higher level creatures that execute code by relying on a lower
+level primitive, the code object, but adding more functionality on top of that
+(in other words, every function has precisely one code object directly
+associated with it, this is the function’s ``__code__`` attribute, or
+``f_code`` in Python 2.x).
 
-* For example, among other things, a function keeps a reference to the global
-  namespace (remember that?) in which it was originally defined, and knows the
-  default values of arguments it receives. 
+For example, among other things, a function keeps a reference to the global
+namespace (remember that?) in which it was originally defined, and knows the
+default values of arguments it receives. You can sometimes execute a code
+objects without a function (see eval and exec), but then you will have to
+provide it with a namespace or two to work in. 
 
-* You can sometimes execute a code objects without a function (see eval and
-  exec), but then you will have to provide it with a namespace or two to work
-  in. 
+Finally, just for accuracy’s sake, please note that ``tp_call`` of a function
+object isn’t exactly like ``exec`` or ``eval``; the latter don’t pass in
+arguments or provide free argument binding (more below on these).
 
-* Finally, just for accuracy’s sake, please note that tp_call of a function
-  object isn’t exactly like exec or eval; the latter don’t pass in arguments or
-  provide free argument binding (more below on these).
+If this doesn’t sit well with you yet, don’t panic, it just means functions’
+code objects won’t necessarily be executable using eval or exec. I hope we have
+that settled.
 
-* If this doesn’t sit well with you yet, don’t panic, it just means functions’
-  code objects won’t necessarily be executable using eval or exec. I hope we
-  have that settled.
+A piece of Python program text that is executed as a unit. The following are
+blocks: ``a module, a function body, and a class definition``.
 
-* A piece of Python program text that is executed as a unit. The following are
-  blocks: a module, a function body, and a class definition.
+As usual, I don’t want to dig too deeply into compilation, but basically when a
+code block is encountered, it has to be successfully transformed into an AST
+(which requires mostly that its syntax will be correct), which is then passed
+to ``./Python/compile.c: PyAST_Compile``, the entry point into Python’s
+compilation machinary. 
 
-* As usual, I don’t want to dig too deeply into compilation, but basically when
-  a code block is encountered, it has to be successfully transformed into an
-  AST (which requires mostly that its syntax will be correct), which is then
-  passed to ./Python/compile.c: PyAST_Compile, the entry point into Python’s
-  compilation machinary. 
-
-* You absolutely can’t run this code meaningfully without its constants, and
-  indeed 42 is referred to by one of the extra fields of the code object. We
-  will best see the interaction between the actual bytecode and the
-  accompanying fields as we do a manual disassembly::
+You absolutely can’t run this code meaningfully without its constants, and
+indeed 42 is referred to by one of the extra fields of the code object. We will
+best see the interaction between the actual bytecode and the accompanying
+fields as we do a manual disassembly::
 
         # the opcode module has a mapping of opcode
         #  byte values to their symbolic names
@@ -1420,8 +1360,8 @@ PyEval_EvalFrameEx).
         'RETURN_VALUE'
         >>>
 
-* In addition to dis, the function show_code from the same module is useful to
-  look at code objects::
+In addition to dis, the function show_code from the same module is useful to
+look at code objects::
 
         >>> diss(return42)
           1           0 LOAD_CONST               1 (42)
@@ -1439,34 +1379,27 @@ PyEval_EvalFrameEx).
            1: 42
         >>>
 
-* We see diss and ssc generally agree with our disassembly, though ssc further
-  parsed all sorts of other fields of the code object which we didn’t handle so
-  far (you can run dir on a code object to see them yourself).
+We see diss and ssc generally agree with our disassembly, though ssc further
+parsed all sorts of other fields of the code object which we didn’t handle so
+far (you can run dir on a code object to see them yourself). Code objects are
+immutable and their fields don’t hold any references (directly or indirectly)
+to mutable objects. This immutability is useful in simplifying many things, one
+of which is the handling of nested code blocks.
 
-* Code objects are immutable and their fields don’t hold any references
-  (directly or indirectly) to mutable objects.
+An example of a nested code block is a class with two methods: the class is
+built using a code block, and this code block nests two inner code blocks, one
+for each method. 
 
-* This immutability is useful in simplifying many things, one of which is the
-  handling of nested code blocks.
-
-* An example of a nested code block is a class with two methods: the class is
-  built using a code block, and this code block nests two inner code blocks,
-  one for each method. 
-
-* This situation is recursively handled by creating the innermost code objects
-  first and treating them as constants for the enclosing code object (much like
-  an integer or a string literal would be treated). 
-
-* Now that we have seen the relation between the bytecode and a code object
-  field (co_consts), let’s take a look at the myriad of other fields in a code
-  object.
-
-* Many of these fields are just integer counters or tuples of strings
-  representing how many or which variables of various sorts are used in a code
-  object. But looking to the horizon where ceval.c and frame object evaluation
-  is waiting for us, I can tell you that we need an immediate and crisp
-  understanding of all these fields and their exact meaning, subtleties
-  included.
+This situation is recursively handled by creating the innermost code objects
+first and treating them as constants for the enclosing code object (much like
+an integer or a string literal would be treated). Now that we have seen the
+relation between the bytecode and a code object field (co_consts), let’s take a
+look at the myriad of other fields in a code object. Many of these fields are
+just integer counters or tuples of strings representing how many or which
+variables of various sorts are used in a code object. But looking to the
+horizon where ceval.c and frame object evaluation is waiting for us, I can tell
+you that we need an immediate and crisp understanding of all these fields and
+their exact meaning, subtleties included.
 
 * Identity or origin (strings)
 
@@ -1603,94 +1536,80 @@ co_zombieframe
         ./Objects/frameobject.c explaining zombie frames and their reanimation,
         we may mention this issue again when we discuss stack frames.
 
-* The above codeobjects list is not exhaustive. More can be added based on need
-  and usage.
+The above codeobjects list is not exhaustive. More can be added based on need
+and usage.  This completes the codeobjects explaination, next will be frameobjects.
 
-* This completes the codeobjects explaination, next will be frameobjects.
+Core of Python’s Virtual Machine, the “actually do work function”
+``./Python/ceval.c: PyEval_EvalFrameEx``
 
-* Core of Python’s Virtual Machine, the “actually do work function”
-  ./Python/ceval.c: PyEval_EvalFrameEx
+Last hurdle on our way there is to understand the three significant stack data
+structures used for CPython’s code evaluation: the call stack, the value stack
+and the block stack. All three stacks are tightly coupled with the frame
+object, which will also be discussed today.
 
-* Last hurdle on our way there is to understand the three significant stack
-  data structures used for CPython’s code evaluation: the call stack, the value
-  stack and the block stack.
+In computer science, a call stack is a stack data structure that stores
+information about the active subroutines of a computer program… A call stack is
+composed of stack frames (…). These are machine dependent data structures
+containing subroutine state information. Each stack frame corresponds to a call
+to a subroutine which has not yet terminated with a return.
 
-* All three stacks are tightly coupled with the frame object, which will also
-  be discussed today.
+Since CPython implements a virtual machine, its call stack and stack frames are
+dependant on this virtual machine, not on the physical machine it’s running on.
 
-* In computer science, a call stack is a stack data structure that stores
-  information about the active subroutines of a computer program… A call stack
-  is composed of stack frames (…). These are machine dependent data structures
-  containing subroutine state information. Each stack frame corresponds to a
-  call to a subroutine which has not yet terminated with a return.
+Python tends to do, this internal implementation detail is exposed to Python
+code, either via the C-API or pure Python, as frame objects
+(``./Include/frameobject.h: PyFrameObject``). 
 
-* Since CPython implements a virtual machine, its call stack and stack frames
-  are dependant on this virtual machine, not on the physical machine it’s
-  running on.
+We know that code execution in CPython is really the evaluation
+(interpretation) of a code object, so every frame represents a
+currently-being-evaluated code object. We’ll see (and already saw before) that
+frame objects are linked to one another, thus forming a call stack of frames.
+Finally, inside each frame object in the call stack there’s a reference to two
+frame-specific stacks (not directly related to the call stack), they are the
+value stack and the block stack.
 
-* Python tends to do, this internal implementation detail is exposed to Python
-  code, either via the C-API or pure Python, as frame objects
-  (./Include/frameobject.h: PyFrameObject). 
+The value stack (you may know this term as an ‘evaluation stack’) is where
+manipulation of objects happens when object-manipulating opcodes are evaluated
 
-* We know that code execution in CPython is really the evaluation
-  (interpretation) of a code object, so every frame represents a
-  currently-being-evaluated code object. 
+We have seen the value stack before on various occasions, like in the
+introduction and during our discussion of namespaces. 
 
-* We’ll see (and already saw before) that frame objects are linked to one
-  another, thus forming a call stack of frames. 
+Recalling an example we used before, ``BINARY_SUBTRACT`` is an opcode that
+effectively pops the two top objects in the value stack, performs
+``PyNumber_Subtract`` on them and sets the new top of the value stack to the
+result. 
 
-* Finally, inside each frame object in the call stack there’s a reference to
-  two frame-specific stacks (not directly related to the call stack), they are
-  the value stack and the block stack.
+Namespace related opcodes, like ``LOAD_FAST`` or ``STORE_GLOBAL``, load values
+from a namespace to the stack or store values from the stack to a namespace.
+Each frame has a value stack of its own (this makes sense in several ways,
+possibly the most prominent is simplicity of implementation), we’ll see later
+where in the frame object the value stack is stored.
 
-* The value stack (you may know this term as an ‘evaluation stack’) is where
-  manipulation of objects happens when object-manipulating opcodes are
-  evaluated
+Python has a notion called a code block, which we have discussed in the article
+about code objects and which is also explained here. Completely unrelatedly,
+Python also has a notion of compound statements, which are statements that
+contain other statements (the language reference defines compound statements
+here). Compound statements consist of one or more clauses, each made of a
+header and a suite. Even if the terminology wasn’t known to you until now, I
+expect this is all instinctively clear to you if you have almost any Python
+experience: for, try and while are a few compound statements.
 
-* We have seen the value stack before on various occasions, like in the
-  introduction and during our discussion of namespaces. 
+In various places throughout the code, a block (sometimes “frame block”,
+sometimes “basic block”) is used as a loose synonym for a clause or a suite,
+making it easier to confuse suites and clauses with what’s actually a code
+block or vice versa. 
 
-* Recalling an example we used before, BINARY_SUBTRACT is an opcode that
-  effectively pops the two top objects in the value stack, performs
-  PyNumber_Subtract on them and sets the new top of the value stack to the
-  result. 
+Both the compilation code (./Python/compile.c) and the evaluation code
+(./Python/ceval.c) are aware of various suites and have (ill-named) data
+structures to deal with them; but since we’re more interested in evaluation in
+this series, we won’t discuss the compilation-related details much (or at all). 
 
-* Namespace related opcodes, like LOAD_FAST or STORE_GLOBAL, load values from a
-  namespace to the stack or store values from the stack to a namespace.
+Whenever I’ll think wording might get confusing, I’ll mention the formal terms
+of clause or suite alongside whatever code term we’re discussing. With all this
+terminology in mind we can look at what’s contained in a frame object. 
 
-* Each frame has a value stack of its own (this makes sense in several ways,
-  possibly the most prominent is simplicity of implementation), we’ll see later
-  where in the frame object the value stack is stored.
-
-* Python has a notion called a code block, which we have discussed in the
-  article about code objects and which is also explained here. Completely
-  unrelatedly, Python also has a notion of compound statements, which are
-  statements that contain other statements (the language reference defines
-  compound statements here). Compound statements consist of one or more
-  clauses, each made of a header and a suite. Even if the terminology wasn’t
-  known to you until now, I expect this is all instinctively clear to you if
-  you have almost any Python experience: for, try and while are a few compound
-  statements.
-
-* In various places throughout the code, a block (sometimes “frame block”,
-  sometimes “basic block”) is used as a loose synonym for a clause or a suite,
-  making it easier to confuse suites and clauses with what’s actually a code
-  block or vice versa. 
-
-* Both the compilation code (./Python/compile.c) and the evaluation code
-  (./Python/ceval.c) are aware of various suites and have (ill-named) data
-  structures to deal with them; but since we’re more interested in evaluation
-  in this series, we won’t discuss the compilation-related details much (or at
-  all). 
-
-* Whenever I’ll think wording might get confusing, I’ll mention the formal
-  terms of clause or suite alongside whatever code term we’re discussing.
-
-* With all this terminology in mind we can look at what’s contained in a frame
-  object. 
-
-* Looking at the declaration of ./Include/frameobject.h: PyFrameObject, we find
-  (comments were trimmed and edited for your viewing pleasure)::
+Looking at the declaration of ``./Include/frameobject.h: PyFrameObject``, we
+find (comments were trimmed and edited for your viewing pleasure)::
 
         typedef struct _frame {
            PyObject_VAR_HEAD
@@ -1718,80 +1637,68 @@ co_zombieframe
            PyObject *f_localsplus[1]; /* dynamic portion */
         } PyFrameObject;
 
+We see various fields used to store the state of this invocation of the code
+object as well as maintain the call stack’s structure. Both in the C-API and in
+Python these fields are all prefixed by ``f_``, though not all the fields of
+the C structure PyFrameObject are exposed in the pythonic representation.
 
+We already mentioned the relation between frame and code objects, so the f_code
+field of every frame points to precisely one code object.
 
-* We see various fields used to store the state of this invocation of the code
-  object as well as maintain the call stack’s structure. 
+Insofar as structure goes, frames point backwards thus that they create a stack
+(f_back) as well as point “root-wards” in the interpreter state/thread
+state/call stack structure by pointing to their thread state (f_tstate), as
+explained here. Finally, since you always execute Python code in the context of
+three namespaces (as discussed there), frames have the f_builtins, f_globals
+and f_locals fields to point to these namespaces. 
 
-* Both in the C-API and in Python these fields are all prefixed by ``f_``, though
-  not all the fields of the C structure PyFrameObject are exposed in the
-  pythonic representation.
+Before we dig into the other fields of a frame object, please notice frames are
+a variable size Python object (they are a PyObject_VAR_HEAD). 
 
-* We already mentioned the relation between frame and code objects, so the
-  f_code field of every frame points to precisely one code object.
+The reason is that when a frame object is created it should be dynamically
+allocated to be large enough to contain references (pointers, really) to the
+locals, cells and free variables used by its code object, as well as the value
+stack needed by the code objects ‘deepest’ branch. 
 
-* Insofar as structure goes, frames point backwards thus that they create a
-  stack (f_back) as well as point “root-wards” in the interpreter state/thread
-  state/call stack structure by pointing to their thread state (f_tstate), as
-  explained here. Finally, since you always execute Python code in the context
-  of three namespaces (as discussed there), frames have the f_builtins,
-  f_globals and f_locals fields to point to these namespaces. 
+Indeed, the last field of the frame object, f_localsplus (locals plus cells
+plus free variables plus value stack…) is a dynamic array where all these
+references are stored. ``PyFrame_New`` will show you exactly how the size of
+this array is computed.
 
-* Before we dig into the other fields of a frame object, please notice frames
-  are a variable size Python object (they are a PyObject_VAR_HEAD). 
+``co_nlocals``, ``co_cellvars``, ``co_freevars`` and ``co_stacksize`` – during
+evaluation, all these ‘dead’ parts of the inert code object come to ‘life’ in
+space allocated at the end of the frame. As we’ll probably see in the next
+article, when the frame is evaluated, these references at the end of the frame
+will be used to get (or set) “fast” local variables, free variables and cell
+variables, as well as to the variables on the value stack (“fast” locals was
+explained when we discussed namespaces). 
 
-* The reason is that when a frame object is created it should be dynamically
-  allocated to be large enough to contain references (pointers, really) to the
-  locals, cells and free variables used by its code object, as well as the
-  value stack needed by the code objects ‘deepest’ branch. 
+Looking back at the commented declaration above and given what I said here, I
+believe you should now understand ``f_valuestack``, ``f_stacktop`` and
+``f_localsplus``.
 
-* Indeed, the last field of the frame object, f_localsplus (locals plus cells
-  plus free variables plus value stack…) is a dynamic array where all these
-  references are stored. 
+As you can maybe imagine, compound statements sometimes require state to be
+evaluated. If we’re in a loop, we need to know where to go in case of a break
+or a continue. If we’re raising an exception, we need to know where is the
+innermost enclosing handler (the suite of the closest except header, in more
+formal terms).
 
-* PyFrame_New will show you exactly how the size of this array is computed.
+This state is stored in ``f_blockstack``, a fixed size stack of ``PyTryBlock
+structures`` which keeps the current compound statement state for us
+(``PyTryBlock`` is not just for try blocks; it has a ``b_type`` field to let it
+handle various types of compound statements’ suites). ``f_iblock`` is an offset
+to the last allocated PyTryBlock in the stack. If we need to bail out of the
+current “block” (that is, the current clause), we can pop the block stack and
+find the new offset in the bytecode from which we should resume evaluation in
+the popped ``PyTryBlock`` (look at its b_handler and b_level fields). 
 
-* co_nlocals, co_cellvars, co_freevars and co_stacksize – during evaluation,
-  all these ‘dead’ parts of the inert code object come to ‘life’ in space
-  allocated at the end of the frame
+A somewhat special case is a raised exception which exhausts the block stack
+without being caught, as you can imagine, in that case a handler will be sought
+in the block stack of the previous frames on the call stack.
 
-* As we’ll probably see in the next article, when the frame is evaluated, these
-  references at the end of the frame will be used to get (or set) “fast” local
-  variables, free variables and cell variables, as well as to the variables on
-  the value stack (“fast” locals was explained when we discussed namespaces). 
-
-* Looking back at the commented declaration above and given what I said here, I
-  believe you should now understand f_valuestack, f_stacktop and f_localsplus.
-
-* As you can maybe imagine, compound statements sometimes require state to be
-  evaluated.
-
-* If we’re in a loop, we need to know where to go in case of a break or a
-  continue.
-
-* If we’re raising an exception, we need to know where is the innermost
-  enclosing handler (the suite of the closest except header, in more formal
-  terms).
-
-* This state is stored in f_blockstack, a fixed size stack of PyTryBlock
-  structures which keeps the current compound statement state for us
-  (PyTryBlock is not just for try blocks; it has a b_type field to let it
-  handle various types of compound statements’ suites). 
-
-* f_iblock is an offset to the last allocated PyTryBlock in the stack. 
-
-* If we need to bail out of the current “block” (that is, the current clause),
-  we can pop the block stack and find the new offset in the bytecode from which
-  we should resume evaluation in the popped PyTryBlock (look at its b_handler
-  and b_level fields). 
-
-* A somewhat special case is a raised exception which exhausts the block stack
-  without being caught, as you can imagine, in that case a handler will be
-  sought in the block stack of the previous frames on the call stack.
-
-* All this should easily click into place now if you read three code snippets.
-  First, look at this disassembly of a for statement (this would look
-  strikingly similar for a try statement)::
+All this should easily click into place now if you read three code snippets.
+First, look at this disassembly of a for statement (this would look strikingly
+similar for a try statement)::
 
         >>> def f():
         ...     for c in 'string':
@@ -1815,12 +1722,12 @@ co_zombieframe
                     33 RETURN_VALUE
         >>>
 
-* look at how the opcodes SETUP_LOOP and POP_BLOCK are implemented in
-  ./Python/ceval.c.
+Look at how the opcodes ``SETUP_LOOP`` and ``POP_BLOCK`` are implemented in
+``./Python/ceval.c``.
 
-* Notice that SETUP_LOOP and SETUP_EXCEPT or SETUP_FINALLY are rather similar,
-  they all push a block matching the relevant suite unto the block stack, and
-  they all utilize the same POP_BLOCK::
+Notice that ``SETUP_LOOP`` and ``SETUP_EXCEPT`` or ``SETUP_FINALLY`` are rather
+similar, they all push a block matching the relevant suite unto the block
+stack, and they all utilize the same ``POP_BLOCK``::
 
         TARGET_WITH_IMPL(SETUP_LOOP, _setup_finally)
         TARGET_WITH_IMPL(SETUP_EXCEPT, _setup_finally)
@@ -1837,8 +1744,8 @@ co_zombieframe
             }
             DISPATCH();
 
-* Finally, look at the actual implementation of ./Object/frameobject.c:
-  PyFrame_BlockSetup and ./Object/frameobject.c::
+Finally, look at the actual implementation of ``./Object/frameobject.c:
+PyFrame_BlockSetup`` and ``./Object/frameobject.c``::
 
         PyFrame_BlockPop:
 
@@ -1864,73 +1771,67 @@ co_zombieframe
            return b;
         }
 
-* If you keep the terminology straight, f_blockstack turns out to be rather
-  simple.
+If you keep the terminology straight, ``f_blockstack`` turns out to be rather
+simple. We’re left with the rather esoteric fields, some simpler, some a bit
+more arcane. In the ‘simpler’ range we have f_lasti, an integer offset into the
+bytecode of the last instructions executed (initialized to -1, i.e., we didn’t
+execute any instruction yet).
 
-* We’re left with the rather esoteric fields, some simpler, some a bit more
-  arcane. In the ‘simpler’ range we have f_lasti, an integer offset into the
-  bytecode of the last instructions executed (initialized to -1, i.e., we
-  didn’t execute any instruction yet).
+This index lets us iterate over the opcodes in the bytecode stream. Heading
+towards the ‘more arcane’ area we see f_trace and f_lineno. f_trace is a
+pointer to a tracing function (see sys.settrace; think implementation of a
+tracer or a debugger). ``f_lineno`` contains the line number of the line which
+caused the generation of the current opcode; it is valid only when tracing
+(otherwise use ``PyCode_Addr2Line``).
 
-* This index lets us iterate over the opcodes in the bytecode stream. Heading
-  towards the ‘more arcane’ area we see f_trace and f_lineno. f_trace is a
-  pointer to a tracing function (see sys.settrace; think implementation of a
-  tracer or a debugger). 
+Last but not least, we have three exception fields (f_exc_type, f_exc_value and
+f_exc_traceback), which are rather particular to generators so we’ll discuss
+them when we discuss that beast (there’s a longer comment about these fields in
+./Include/frameobject.h if you’re curious right now). On a parting note, we can
+mention when frames are created. This happens in ./Objects/frameobject.c:
+PyFrame_New, usually called from ./Python/ceval.c: PyEval_EvalCodeEx (and
+./Python/ceval.c: fast_function, a specialized optimization of
+PyEval_EvalCodeEx).
 
-* f_lineno contains the line number of the line which caused the generation of
-  the current opcode; it is valid only when tracing (otherwise use
-  PyCode_Addr2Line).
+Frame creation occurs whenever a code object should be evaluated, which is to
+say when a function is called, when a module is imported (the module’s
+top-level code is executed), whenever a class is defined, for every discrete
+command entered in the interactive interpreter, when the builtins eval or exec
+are used and when the -c switch is used (I didn’t absolutely verify this is a
+100% exhaustive list, but it think it’s rather complete).
 
-* Last but not least, we have three exception fields (f_exc_type, f_exc_value
-  and f_exc_traceback), which are rather particular to generators so we’ll
-  discuss them when we discuss that beast (there’s a longer comment about these
-  fields in ./Include/frameobject.h if you’re curious right now).
+Looking at the list in the previous paragraph, you probably realized frames are
+created very often, so two optimizations are implemented to make frame creation
+fast: first, code objects have a field (co_zombieframe) which allows them to
+remain associated with a ‘zombie’ (dead, unused) frame object even when they’re
+not evaluated. If a code object was already evaluated once, chances are it will
+have a zombie frame ready to be reanimated by PyFrame_New and returned instead
+of a newly allocated frame (trading some memory to reduce the number of
+allocations). 
 
-* On a parting note, we can mention when frames are created. This happens in
-  ./Objects/frameobject.c: PyFrame_New, usually called from ./Python/ceval.c:
-  PyEval_EvalCodeEx (and ./Python/ceval.c: fast_function, a specialized
-  optimization of PyEval_EvalCodeEx).
+Second, allocated and entirely unused stack frames are kept in a special
+free-list (./Objects/frameobject.c: free_list), frames from this list will be
+used if possible, instead of actually allocating a brand new frame. This is all
+kindly commented in ./Objects/frameobject.c.
 
-* Frame creation occurs whenever a code object should be evaluated, which is to
-  say when a function is called, when a module is imported (the module’s
-  top-level code is executed), whenever a class is defined, for every discrete
-  command entered in the interactive interpreter, when the builtins eval or
-  exec are used and when the -c switch is used (I didn’t absolutely verify this
-  is a 100% exhaustive list, but it think it’s rather complete).
+./Python/ceval.c: PyEval_EvalFrameEx is important function in the Python
+interpreter.
 
-* Looking at the list in the previous paragraph, you probably realized frames
-  are created very often, so two optimizations are implemented to make frame
-  creation fast: first, code objects have a field (co_zombieframe) which allows
-  them to remain associated with a ‘zombie’ (dead, unused) frame object even
-  when they’re not evaluated. If a code object was already evaluated once,
-  chances are it will have a zombie frame ready to be reanimated by PyFrame_New
-  and returned instead of a newly allocated frame (trading some memory to
-  reduce the number of allocations). 
+Well, as I said, this switch can be found in the rather lengthy file ceval.c,
+in the rather lengthy function PyEval_EvalFrameEx, which takes more than half
+the file’s lines (it’s roughly 2,250 lines, the file is about 4,400). 
 
-* Second, allocated and entirely unused stack frames are kept in a special
-  free-list (./Objects/frameobject.c: free_list), frames from this list will be
-  used if possible, instead of actually allocating a brand new frame. This is
-  all kindly commented in ./Objects/frameobject.c.
+PyEval_EvalFrameEx implements CPython’s evaluation loop, which is to say that
+it’s a function that takes a frame object and iterates over each of the opcodes
+in its associated code object, evaluating (interpreting, executing) each opcode
+within the context of the given frame (this context is chiefly the associated
+namespaces and interpreter/thread states). There’s more to ceval.c than
+PyEval_EvalFrameEx, and we may discuss some of the other bits later in this
+post (or perhaps a follow-up post), but PyEval_EvalFrameEx is obviously the
+most important part of it.
 
-* ./Python/ceval.c: PyEval_EvalFrameEx is important function in the Python
-  interpreter.
-
-* Well, as I said, this switch can be found in the rather lengthy file ceval.c,
-  in the rather lengthy function PyEval_EvalFrameEx, which takes more than half
-  the file’s lines (it’s roughly 2,250 lines, the file is about 4,400). 
-
-* PyEval_EvalFrameEx implements CPython’s evaluation loop, which is to say that
-  it’s a function that takes a frame object and iterates over each of the
-  opcodes in its associated code object, evaluating (interpreting, executing)
-  each opcode within the context of the given frame (this context is chiefly
-  the associated namespaces and interpreter/thread states). 
-
-* There’s more to ceval.c than PyEval_EvalFrameEx, and we may discuss some of
-  the other bits later in this post (or perhaps a follow-up post), but
-  PyEval_EvalFrameEx is obviously the most important part of it.
-
-* Having described the evaluation loop in the previous paragraph, let’s see
-  what it looks like in C (edited)::
+Having described the evaluation loop in the previous paragraph, let’s see what
+it looks like in C (edited)::
 
         PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
         {
@@ -1953,20 +1854,20 @@ co_zombieframe
             return retval;
         }
 
-* As you can see, iteration over opcodes is infinite (forever: fetch next
-  opcode, do stuff), breaking out of the loop must be done explicitly.
+As you can see, iteration over opcodes is infinite (forever: fetch next opcode,
+do stuff), breaking out of the loop must be done explicitly.
 
-* CPython (reasonably) assumes that evaluated bytecode is correct in the sense
-  that it terminates itself by raising an exception, returning a value, etc.
-  Indeed, if you were to synthesize a code object without a RETURN_VALUE at its
-  end and execute it (exercise to reader: how?1), you’re likely to execute
-  rubbish, reach the default handler (raises a SystemError) or maybe even
-  segfault the interpreter (I didn’t check this thoroughly, but it looks
-  plausible).
+CPython (reasonably) assumes that evaluated bytecode is correct in the sense
+that it terminates itself by raising an exception, returning a value, etc.
+Indeed, if you were to synthesize a code object without a RETURN_VALUE at its
+end and execute it (exercise to reader: how?1), you’re likely to execute
+rubbish, reach the default handler (raises a SystemError) or maybe even
+segfault the interpreter (I didn’t check this thoroughly, but it looks
+plausible).
 
-* In order for you to be able to get a feel for what more serious opcode
-  implementations look like, here’s the (edited) implementation of three more
-  opcodes, illustrating a few more principles::
+In order for you to be able to get a feel for what more serious opcode
+implementations look like, here’s the (edited) implementation of three more
+opcodes, illustrating a few more principles::
 
         case BINARY_SUBTRACT:
             w = *--stack_pointer; /* value stack POP */
@@ -1986,132 +1887,124 @@ co_zombieframe
                        STACK_LEVEL());
             continue;
 
-* We see several things. First, we see a typical value manipulation opcode,
-  BINARY_SUBTRACT. This opcode (and many others) works with values on the value
-  stack as well as with a few temporary variables, using CPython’s C-API
-  abstract object layer (in our case, a function from the number-like object
-  abstraction) to replace the two top values on the value stack with the single
-  value resulting from subtraction. 
+We see several things. First, we see a typical value manipulation opcode,
+BINARY_SUBTRACT. This opcode (and many others) works with values on the value
+stack as well as with a few temporary variables, using CPython’s C-API abstract
+object layer (in our case, a function from the number-like object abstraction)
+to replace the two top values on the value stack with the single value
+resulting from subtraction. 
 
-* As you can see, a small set of temporary variables, such as v, w and x are
-  used (and reused, and reused…) as the registers of the CPython VM.
+As you can see, a small set of temporary variables, such as v, w and x are used
+(and reused, and reused…) as the registers of the CPython VM.
 
-* The variable stack_pointer represents the current bottom of the stack (the
-  next free pointer in the stack). This variable is initialized at the
-  beginning of the function like so: stack_pointer = f->f_stacktop;
+The variable stack_pointer represents the current bottom of the stack (the next
+free pointer in the stack). This variable is initialized at the beginning of
+the function like so: stack_pointer = f->f_stacktop;
 
-* In essence, together with the room reserved in the frame object for that
-  purpose, the value stack is this pointer. To make things simpler and more
-  readable, the real (unedited by me) code of ceval.c defines several value
-  stack manipulation/observation macros, like PUSH, TOP or EMPTY. 
+In essence, together with the room reserved in the frame object for that
+purpose, the value stack is this pointer. To make things simpler and more
+readable, the real (unedited by me) code of ceval.c defines several value stack
+manipulation/observation macros, like PUSH, TOP or EMPTY. 
 
-* Next, we see a very simple opcode that loads values from somewhere into the
-  valuestack. I chose to quote LOAD_CONST because it’s very brief and simple,
-  although it’s not really a namespace related opcode.
+Next, we see a very simple opcode that loads values from somewhere into the
+valuestack. I chose to quote LOAD_CONST because it’s very brief and simple,
+although it’s not really a namespace related opcode.
 
-* “Real” namespace opcodes load values into the value stack from a namespace
-  and store values from the value stack into a namespace; LOAD_CONST loads
-  constants, but doesn’t fetch them from a namespace and has no STORE_CONST
-  counterpart (we explored all this at length in the article about namespaces).
+“Real” namespace opcodes load values into the value stack from a namespace and
+store values from the value stack into a namespace; LOAD_CONST loads constants,
+but doesn’t fetch them from a namespace and has no STORE_CONST counterpart (we
+explored all this at length in the article about namespaces).
 
-* The final opcode I chose to show is actually the single implementation of
-  several different control-flow related opcodes (SETUP_LOOP, SETUP_EXCEPT and
-  SETUP_FINALLY), which offload all details of their implementation to the
-  block stack manipulation function PyFrame_BlockSetup; we discussed the block
-  stack in our discussion of interpreter stacks.
+The final opcode I chose to show is actually the single implementation of
+several different control-flow related opcodes (SETUP_LOOP, SETUP_EXCEPT and
+SETUP_FINALLY), which offload all details of their implementation to the block
+stack manipulation function PyFrame_BlockSetup; we discussed the block stack in
+our discussion of interpreter stacks.
 
-* Something we can observe looking at these implementations is that different
-  opcodes exit the switch statement differently. Some simply break, and let the
-  code after the switch resume. 
+Something we can observe looking at these implementations is that different
+opcodes exit the switch statement differently. Some simply break, and let the
+code after the switch resume. 
 
-* Some use continue to start the for loop from the beginning. Some goto various
-  labels in the function. Each exit has different semantic meaning. 
+Some use continue to start the for loop from the beginning. Some goto various
+labels in the function. Each exit has different semantic meaning. 
 
-* If you break out of the switch (the ‘normal’ route), various checks will be
-  made to see if some special behaviour should be performed – maybe a code
-  block has ended, maybe an exception was raised, maybe we’re ready to return a
-  value. 
+If you break out of the switch (the ‘normal’ route), various checks will be
+made to see if some special behaviour should be performed – maybe a code block
+has ended, maybe an exception was raised, maybe we’re ready to return a value. 
+Continuing the loop or going to a label lets certain opcodes take various
+shortcuts; no use checking for an exception after a NOP or a LOAD_CONST, for
+instance.
 
-* Continuing the loop or going to a label lets certain opcodes take various
-  shortcuts; no use checking for an exception after a NOP or a LOAD_CONST, for
-  instance.
-
-* If you look at the code itself, you will see that none of the case
-  expressions for the big switch are really there. The code for the NOP opcode
-  is actually (remember this series is about Python 3.x unless noted otherwise,
-  so this snippet is from Python 3.1.2)::
+If you look at the code itself, you will see that none of the case expressions
+for the big switch are really there. The code for the NOP opcode is actually
+(remember this series is about Python 3.x unless noted otherwise, so this
+snippet is from Python 3.1.2)::
 
         TARGET(NOP)
             FAST_DISPATCH();
 
-* TARGET? FAST_DISPATCH? What are these? Let me explain. Things may become
-  clearer if we’d look for a moment at the implementation of the NOP opcode in
-  ceval.c of Python 2.x.
+TARGET? FAST_DISPATCH? What are these? Let me explain. Things may become
+clearer if we’d look for a moment at the implementation of the NOP opcode in
+ceval.c of Python 2.x. Over there the code for NOP looks more like the samples
+I’ve shown you so far, and it actually seems to me that the code of ceval.c
+gets simpler and simpler as we look backwards at older revisions of it.
 
-* Over there the code for NOP looks more like the samples I’ve shown you so
-  far, and it actually seems to me that the code of ceval.c gets simpler and
-  simpler as we look backwards at older revisions of it.
+The reason is that although I think PyEval_EvalFrameEx was originally written
+as a really exceptionally straightforward piece of code, over the years some
+necessary complexity crept into it as various optimizations and improvements
+were implemented (I’ll collectively call them ‘additions’ from now on, for lack
+of a better term).
 
-* The reason is that although I think PyEval_EvalFrameEx was originally written
-  as a really exceptionally straightforward piece of code, over the years some
-  necessary complexity crept into it as various optimizations and improvements
-  were implemented (I’ll collectively call them ‘additions’ from now on, for
-  lack of a better term).
+To further complicate matters, many of these additions are compiled
+conditionally with preprocessor directives, so several things are implemented
+in more than one way in the same source file. I can understand trading
+simplicity to optimize a tight loop which is used very often, and the
+evaluation loop is probably one of the more used loops in CPython (and probably
+as tight as its contributors could make it). So while this is all very
+warranted, it doesn’t help the readability of the code. Anyway, I’d like to
+enumerate these additions here explicitly (some in more depth than others);
+this should aid future discussion of ceval.c, as well as prevent me from
+feeling like I’m hiding too many important things with my free spirited editing
+of quoted code.
 
-* To further complicate matters, many of these additions are compiled
-  conditionally with preprocessor directives, so several things are implemented
-  in more than one way in the same source file.
+Fortunately, most if not all these additions are very well commented -actually,
+some of the explanations below will be just summaries or even taken verbatim
+from these comments, as I believe that they’re accurate (eek!). So, as you read
+``PyEval_EvalFrameEx`` (and indeed ceval.c in general), you’re likely to run
+into any of these
 
-* I can understand trading simplicity to optimize a tight loop which is used
-  very often, and the evaluation loop is probably one of the more used loops in
-  CPython (and probably as tight as its contributors could make it). So while
-  this is all very warranted, it doesn’t help the readability of the code.
+“Threaded Code” (Computed-GOTOs)
+--------------------------------
 
-* Anyway, I’d like to enumerate these additions here explicitly (some in more
-  depth than others); this should aid future discussion of ceval.c, as well as
-  prevent me from feeling like I’m hiding too many important things with my
-  free spirited editing of quoted code.
+Let’s start with the addition that gave us TARGET, FAST_DISPATCH and a few
+other macros. The evaluation loop uses a “switch” statement, which decent
+compilers optimize as a single indirect branch instruction with a lookup table
+of addresses. Alas, since we’re switching over rapidly changing opcodes (it’s
+uncommon to have the same opcode repeat), this would have an adverse effect on
+the success rate of CPU branch prediction. 
 
-* Fortunately, most if not all these additions are very well commented
-  -actually, some of the explanations below will be just summaries or even
-  taken verbatim from these comments, as I believe that they’re accurate
-  (eek!). So, as you read PyEval_EvalFrameEx (and indeed ceval.c in general),
-  you’re likely to run into any of these
+Fortunately gcc supports the use of C-goto labels as values, which you can
+generally pass around and place in an array (restrictions apply!). Using an
+array of adresses in memory obtained from labels, as you can see in
+./Python/opcode_targets.h, we create an explicit jump table and place an
+explicit indirect jump instruction at the end of each opcode. This improves the
+success rate of CPU prediction and can yield as much as 20% boost in
+performance.
 
-* “Threaded Code” (Computed-GOTOs)
-
-* Let’s start with the addition that gave us TARGET, FAST_DISPATCH and a few
-  other macros. The evaluation loop uses a “switch” statement, which decent
-  compilers optimize as a single indirect branch instruction with a lookup
-  table of addresses.
-
-* Alas, since we’re switching over rapidly changing opcodes (it’s uncommon to
-  have the same opcode repeat), this would have an adverse effect on the
-  success rate of CPU branch prediction. 
-
-* Fortunately gcc supports the use of C-goto labels as values, which you can
-  generally pass around and place in an array (restrictions apply!). 
-
-* Using an array of adresses in memory obtained from labels, as you can see in
-  ./Python/opcode_targets.h, we create an explicit jump table and place an
-  explicit indirect jump instruction at the end of each opcode. 
-
-* This improves the success rate of CPU prediction and can yield as much as 20%
-  boost in performance.
-
-* Thus, for example, the NOP opcode is implemented in the code like so::
+Thus, for example, the NOP opcode is implemented in the code like so::
 
         TARGET(NOP)
             FAST_DISPATCH();
 
-* In the simpler scenario, this would expand to a plain case statement and a goto, like so::
+In the simpler scenario, this would expand to a plain case statement and a
+goto, like so::
 
         case NOP:
             goto fast_next_opcode;
 
-* But when threaded code is in use, that snippet would expand to (I highlighted
-  the lines where we actually move on to the next opcode, using the dispatch
-  table of label-values)::
+But when threaded code is in use, that snippet would expand to (I highlighted
+the lines where we actually move on to the next opcode, using the dispatch
+table of label-values)::
 
         TARGET_NOP:
             opcode = NOP;
@@ -2127,45 +2020,44 @@ co_zombieframe
             }
 
 
-* Same behaviour, somewhat more complicated implementation, up to 20% faster
-  Python. Nifty.
+Same behaviour, somewhat more complicated implementation, up to 20% faster
+Python. Nifty.
 
-* Opcode Prediction
+Opcode Prediction
+-----------------
 
-* Some opcodes tend to come in pairs. For example, COMPARE_OP is often followed
-  by JUMP_IF_FALSE or JUMP_IF_TRUE, themselves often followed by a POP_TOP. 
+Some opcodes tend to come in pairs. For example, COMPARE_OP is often followed
+by JUMP_IF_FALSE or JUMP_IF_TRUE, themselves often followed by a POP_TOP. 
 
-* What’s more, there are situations where you can determine that a particular
-  next-opcode can be run immediately after the execution of the current opcode,
-  without going through the ‘outer’ (and expensive) parts of the evaluation
-  loop.
+What’s more, there are situations where you can determine that a particular
+next-opcode can be run immediately after the execution of the current opcode,
+without going through the ‘outer’ (and expensive) parts of the evaluation loop.
 
-* PREDICT (and a few others) are a set of macros that explicitly peek at the
-  next opcode and jump to it if possible, shortcutting most of the loop in this
-  fashion (i.e., ``if (*next_instr == op) goto PRED_##op)``.
+``PREDICT`` (and a few others) are a set of macros that explicitly peek at the
+next opcode and jump to it if possible, shortcutting most of the loop in this
+fashion (i.e., ``if (*next_instr == op) goto PRED_##op)``.
 
-* Note that there is no relation to real hardware here, these are simply
-  hardcoded conditional jumps, not an exploitation of some mechanism in the
-  underlying CPU (in particular, it has nothing to do with “Threaded Code”
-  described above).
+Note that there is no relation to real hardware here, these are simply
+hardcoded conditional jumps, not an exploitation of some mechanism in the
+underlying CPU (in particular, it has nothing to do with “Threaded Code”
+described above).
 
-* Low Level Tracing
+Low Level Tracing
+-----------------
 
-* An addition primarily geared towards those developing CPython (or suffering
-  from a horrible, horrible bug)
+An addition primarily geared towards those developing CPython (or suffering
+from a horrible, horrible bug), Low Level Tracing is controlled by the LLTRACE
+preprocessor name, which is enabled by default on debug builds of CPython (see
+--with-pydebug). As explained in ./Misc/SpecialBuilds.txt: when this feature is
+compiled-in, PyEval_EvalFrameEx checks the frame’s global namespace for the
+variable __lltrace__. 
 
-* Low Level Tracing is controlled by the LLTRACE preprocessor name, which is
-  enabled by default on debug builds of CPython (see --with-pydebug). As
-  explained in ./Misc/SpecialBuilds.txt: when this feature is compiled-in,
-  PyEval_EvalFrameEx checks the frame’s global namespace for the variable
-  __lltrace__. 
+If such a variable is found, mounds of information about what the interpreter
+is doing are sprayed to stdout, such as every opcode and opcode argument and
+values pushed onto and popped off the value stack. Not useful very often, but
+very useful when needed.
 
-* If such a variable is found, mounds of information about what the interpreter
-  is doing are sprayed to stdout, such as every opcode and opcode argument and
-  values pushed onto and popped off the value stack. Not useful very often, but
-  very useful when needed.
-
-* This is the what the low level trace output looks like (slightly edited)::
+This is the what the low level trace output looks like (slightly edited)::
 
         >>> def f():
         ...     global a
@@ -2188,55 +2080,54 @@ co_zombieframe
         # trace of the end of exec() removed
         >>>
 
-* As you can guess, you’re seeing a real-time disassembly of what’s going
-  through the VM as well as stack operations. For example, the first line says:
-  line 0, do opcode 116 (LOAD_GLOBAL) with the operand 0 (expands to the global
-  variable a), and so on, and so forth. This is a bit like (well, little more
-  than) adding a bunch of printf calls to the heart of VM.
+As you can guess, you’re seeing a real-time disassembly of what’s going through
+the VM as well as stack operations. For example, the first line says: line 0,
+do opcode 116 (LOAD_GLOBAL) with the operand 0 (expands to the global variable
+a), and so on, and so forth. This is a bit like (well, little more than) adding
+a bunch of printf calls to the heart of VM.
 
-* Advanced Profiling
+Advanced Profiling
+------------------
 
-* Under this heading I’d like to briefly discuss several profiling related
-  additions. The first relies on the fact that some processors (notably Pentium
-  descendants and at least some PowerPCs) have built-in wall time measurement
-  capabilities which are cheap and precise (correct me if I’m wrong).
+Under this heading I’d like to briefly discuss several profiling related
+additions. The first relies on the fact that some processors (notably Pentium
+descendants and at least some PowerPCs) have built-in wall time measurement
+capabilities which are cheap and precise (correct me if I’m wrong).
 
-* As an aid in the development of a high-performance CPython implementation,
-  Python 2.4′s ceval.c was instrumented with the ability to collect per-opcode
-  profiling statistics using these counters.
+As an aid in the development of a high-performance CPython implementation,
+Python 2.4′s ceval.c was instrumented with the ability to collect per-opcode
+profiling statistics using these counters.
 
-* This instrumentation is controlled by the somewhat misnamed --with-tsc
-  configuration flag (TSC is an Intel Pentium specific name, and this feature
-  is more general than that). Calling sys.settscdump(True) on an instrumented
-  interpreter will cause the function ./Python/ceval.c: dump_tsc to print these
-  statistics every time the evaluation loop loops.
+This instrumentation is controlled by the somewhat misnamed --with-tsc
+configuration flag (TSC is an Intel Pentium specific name, and this feature is
+more general than that). Calling sys.settscdump(True) on an instrumented
+interpreter will cause the function ./Python/ceval.c: dump_tsc to print these
+statistics every time the evaluation loop loops.
 
-* The second advanced profiling feature is Dynamic Execution Profiling. This is
-  only available if Python was built with the DYNAMIC_EXECUTION_PROFILE
-  preprocessor name. 
+The second advanced profiling feature is Dynamic Execution Profiling. This is
+only available if Python was built with the DYNAMIC_EXECUTION_PROFILE
+preprocessor name. 
 
-* As ./Tools/scripts/analyze_dxp.py says, [this] will tell you which opcodes
-  have been executed most frequently in the current process, and, if Python was
-  also built with -DDXPAIRS, will tell you which instruction _pairs_ were
-  executed most frequently, which may help in choosing new instructions. 
+As ./Tools/scripts/analyze_dxp.py says, [this] will tell you which opcodes have
+been executed most frequently in the current process, and, if Python was also
+built with -DDXPAIRS, will tell you which instruction _pairs_ were executed
+most frequently, which may help in choosing new instructions. 
 
-* One last thing to add here is that enabling Dynamic Execution Profiling
-  implicitly disables the “Threaded Code” addition.
+One last thing to add here is that enabling Dynamic Execution Profiling
+implicitly disables the “Threaded Code” addition.
 
-* The third and last addition in this category is function call profiling,
-  controlled by the preprocessor name CALL_PROFILE. Quoting
-  ./Misc/SpecialBuilds.txt again: When this name is defined, the ceval mainloop
-  and helper functions count the number of function calls made. It keeps
-  detailed statistics about what kind of object was called and whether the call
-  hit any of the special fast paths in the code.
+The third and last addition in this category is function call profiling,
+controlled by the preprocessor name CALL_PROFILE. Quoting
+./Misc/SpecialBuilds.txt again: When this name is defined, the ceval mainloop
+and helper functions count the number of function calls made. It keeps detailed
+statistics about what kind of object was called and whether the call hit any of
+the special fast paths in the code.
 
-* Extra Safety Valves
+Two preprocessor names, USE_STACKCHECK and CHECKEXC include extra assertions.
+Testing an interpreter with these enabled may catch a subtle bug or regression,
+but they are usually disabled as they’re too expensive.
 
-* Two preprocessor names, USE_STACKCHECK and CHECKEXC include extra assertions.
-  Testing an interpreter with these enabled may catch a subtle bug or
-  regression, but they are usually disabled as they’re too expensive.
-
-* That's the end of how eval loop operates.
+That's the end of how eval loop operates.
 
 Python Questions (With Answers)
 ===============================
