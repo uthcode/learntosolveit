@@ -1,0 +1,200 @@
+.. -*- coding: utf-8 -*-
+.. include:: <s5defs.txt>
+.. |==>| unicode:: U+02794 .. thick rightwards arrow
+
+=================
+Python 3 Tutorial
+=================
+
+.. class:: center large
+
+   | `APAC PyCon 2011`_
+
+.. class:: center small
+
+   | Senthil Kumaran
+
+
+.. _APAC PyCon 2011: http://apac.pycon.org
+
+
+Python 3.2 Release Schedule
+===========================
+
+* 3.2 beta 1: December 4, 2010. (Feature Freeze)
+* 3.2 final: February 19, 2011  (Release Date)
+* 3.2 Release Manager: Georg Brandl
+* Binaries/Installers: Windows (Martin v. Loewis) and Mac (Ronald Oussoren)
+
+Python Language Moratorium
+==========================
+
+* Python 3.1 was released on June 27, 2009
+* Disallows changes to syntax, semantics, and built-ins
+* Language Moratorium to allow non-CPython implmentations to
+  catchup.
+* Help ease the adoption of Python 3.x and provide a more stable base.
+
+Defining a Stable ABI
+=====================
+
+* Python Extension modules were required to be rebuilt for each feature release
+* Now, Extension modules can limit themselves to a limited APIs **Py_LIMITED_API**
+* During the compilation of applications, the preprocessor macro Py_LIMITED_API
+  must be defined. 
+* There are list of GLOBALS, Functions available which fall under stable ABI. A definition file is made available.
+* There is a converter module, which C source can use to convert itself to ABI compatible way.
+
+import argparse
+===============
+
+* There is an argparse command line parsing module included in stdlib.
+* That makes it 3. getopt,optparse and argparse. It was quite a discussion.
+* argparse will be the future and optparse will slowly be deprecated.
+* Support for positional args, sub-commands, **'required options'**, pattern for specifying and validating options.
+* argparse has the ability to define subparsers, each with their own argument patterns and help displays:
+
+logging module - Configuration Dictionary.
+==========================================
+
+* The logging documentation has been augmented by a basic tutorial, an advanced tutorial, and a cookbook of logging recipes.
+* **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
+
+from concurrent import futures
+==============================
+
+* Code for creating and managing concurrency is being collected in a new top-level namespace, concurrent
+* first package is **futures** high level interface for managing threads and processes.
+* Inspired by java.utils.concurrent and Future Object.
+* status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions
+
+pyc directories
+===============
+* Multiple implementations can refer to their own .pyc files.
+* mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
+* pyc files are now collected in a **__pycache__** directory stored under the package directory
+* Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported
+* tag that is unique to each interpreter is accessible from the **imp** module
+
+ABI version tagged .so 
+======================
+
+* shared object files by giving them a common directory and distinct names for each version
+* common directory is “pyshared” and the file names are made distinct by identifying the Python implementation
+* **/usr/share/pyshared/foo.cpython-32m.so**
+
+WSGI 1.0.1
+==========
+
+* Well Intentioned Upgrade for WSGI to support Python3.
+* Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
+
+String formatting sub-language
+==============================
+
+* Old string formatting had '#' type specifiers. It is included in the format sublanguage for compatiblity.
+
+New string formatting methods
+=============================
+
+* **str.format_map** 
+* It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
+
+Some environment Variables
+==========================
+
+* Warnings are now easier to control using the **PYTHONWARNINGS** environment variable as an alternative to using -W.
+* **ResourceWarning**, has been added. It is emitted when potential issues with resource consumption or cleanup are detected.
+
+New methods on range
+====================
+
+* Part of an effort to make more objects fully implement the **collections.Sequence** abstract base class
+
+Unicode handling improvements
+=============================
+
+* Python’s import mechanism can now load modules installed in directories with non-ASCII characters in the path name.
+
+stdlib - 1
+==========
+
+* **email** package, **mailcap** package, **nntplib** packages work properly with bytes/text model in Python 3. 
+* Throughout stdlib there has been a careful attention to encodings and text versus bytes issues
+* Better support for SSL connections and security certificates in Internet Protocol related modules.
+* More classes now implement a context manager to support convenient and reliable resource clean-up using a with statement.
+
+stdlib improvements -2
+======================
+
+* The xml.etree.ElementTree package and its xml.etree.cElementTree counterpart have been updated to version 1.3.
+* The datetime module has a new type **timezone** that implements the tzinfo interface by returning a fixed UTC offset and timezone name.
+* Many more ...
+  
+functools
+=========
+
+* The functools module includes a new decorator for caching function calls.
+  **functools.lru_cache()** can save repeated queries to an external resource
+  whenever the results are expected to be the same.
+
+functools
+=========
+
+* We have cache stats
+* OMG! Way to get unwrapped function.
+
+functools
+=========
+
+* functools.total_ordering - rich comparison methods, a new decorator functools.total_ordering() will use a existing equality and inequality methods to fill in the remaining methods.
+* Magic happens.
+
+
+itertools
+=========
+
+collections
+===========
+
+* The collections.Counter class now has two forms of in-place subtraction, the existing -= operator for saturating subtraction and the new subtract() method for regular subtraction
+
+* http://en.wikipedia.org/wiki/Saturation_arithmetic
+
+
+collections
+===========
+
+threading
+=========
+
+* The threading module has a new Barrier synchronization class for making multiple threads wait until all of them have reached a common barrier point. 
+
+ast module
+==========
+
+* The ast.literal_eval() function serves as a secure alternative to the builtin eval() function which is easily abused.
+
+unicode - os module
+===================
+
+* The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.
+
+
+unittest
+========
+
+* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
+* Interactivity!
+    
+urllib
+======
+
+* The urlparse() function now supports IPv6 addresses as described in RFC 2732:
+* urlopen can take POST which can be an iterable. 
+* http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
+
+There is more
+=============
+
+* Thanks!
