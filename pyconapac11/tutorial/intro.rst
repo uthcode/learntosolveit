@@ -1,5 +1,5 @@
-Python3
--------
+Introduction
+------------
 
 Python3 is notable because it intentionally breaks backwards compatiblity.  You
 must have heard that it breaks even on beginner level print statement too.  And
@@ -7,9 +7,6 @@ there are many more changes that no automatic conversion program can help you
 to migrate. This tutorial will help you to decide on Python3 for yourself and
 help you plan your migration strategy, plan and understand the changes in
 Python3. This tutorial will help you write Python3 code.
-
-C Programming Roots
--------------------
 
 C programming language is a one of the foremost influencers of Python's basic
 design, including the fundamental operators, identifiers and keywords.
@@ -53,49 +50,36 @@ Number of C like features are still present in Python.
 * os module providing all the posix functions.
 * sockets, signals, fcntl, memory mapped files etc are all reflecting it's C past.
 
-Some of it's blemishs
----------------------
+Python3 - New Stuff
+-------------------
 
-* Truncation of integer diviion is confusing to beginners and leads to unintended errors.
-* Byte Oriented I/O is a source of confusion when handling Unicode characters.
-
-
-Python3 - Breaking free from it's past
---------------------------------------
-
-* One of the major changes in Python3, is it's change in focus from C/Unix oriented language.
+* One of the major changes in Python3, is it's change in focus from C/Unix oriented language. This is influenced by the change that currently the language used for developing complex frameworks and powerful programming environments.
 * Fixes a number of subtle design problems associated with Original implementation.
+* Python 3 fully embraces Unicode text, a change that affects almost every part of the language and library. For instance, all text strings are now Unicode, as is Python source code.
+* File I/O, which is similar to Java
 
-Python3 does not break backwards compatibility on a whim, but there were
-certain warts in the language, which Guido wanted to correct.
+::
+	>>> f = open(“foo”)
+	>>> f
+	<io.TextIOWrapper object at 0x383950>
 
-Also, it does not give you a picture, that Python 3 exists because "Guido
-wanted it that way or want to fix some mistakes". People throwing this argument
-will definitely not be able to convince many folks to use Python 3. Instead it
-portrays in a nice way as how the old python had its strong roots in C, and as
-Python matured as a language, useful for writing frameworks and being used by
-framework authors for various different purposes, it needs some good features
-and needs to adopt from other major languages such as Java or C#.
+* FileIO -> BufferedReader -> TextIOWrapper object.
+* String Formatting which is similar to .Net's.
 
-Here are some important points from that.
+There are no “old-style” classes, string exceptions, or features that have
+plagued Python developers since its very beginning, but which could not be
+removed because of backwards compatibility concerns.
 
-1. Change in print stmt is acknowledged. (I have got used to writing print() as of 2011)
-2. Layered IO. Explains how it mimics Java's IO to certain extent.
-3. String formatting features. I really did not know that it was inspired from .Net framework. News to me.
-4. Function annotations - And a way to write contract style programming using
-function annotations and decorators. I shall write an example in the next post.
-5. metaclass using metaclass keyword and does its processing before the class
-definition execution as opposed later.
-6. Unicode handling - Yes, the 'bite of python3'.
+Python 3 builds upon list comprehension idea and adds support for set and
+dictionary comprehensions. 
 
-The article mentions that handling of Unicode is forced upon the programmer who
-never had to deal with it so far. This is true. I hope when major frameworks
-start using Python3, this gets abstracted away or rather we learn as how Java
-crowd does it without any fuss.
+With new and improved, Metaclasses changes, Python 3 adds the ability to carry
+out processing before any part of the class body is processed and to
+incrementally perform work as each method is defined
 
-As it was written during 3.0 release, it had written about IO layer being slow
-as major drawback, this is no longer a case, where 3.1 had IO written in C and
-is fast again.
-
-On whole, it is really a good one to give a comprehensive and an objective
-'Introduction to Python3'.
+The most significant aspect of Python 3 is that it sheds a huge number of
+deprecated features and programming idioms in order to lay the groundwork for a
+whole new class of advanced programming techniques. Python 3 is that the entire
+language is more logically consistent, entirely customizable, and filled with
+advanced features that provide an almost mind-boggling amount of power to
+framework builders.
