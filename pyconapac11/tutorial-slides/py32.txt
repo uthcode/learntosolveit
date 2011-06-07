@@ -18,13 +18,481 @@ Python 3 Tutorial
 .. _APAC PyCon 2011: http://apac.pycon.org
 
 
-Python 3.2 Release Schedule
-===========================
+Python Release Schedule
+=======================
 
-* 3.2 beta 1: December 4, 2010. (Feature Freeze)
-* 3.2 final: February 19, 2011  (Release Date)
-* 3.2 Release Manager: Georg Brandl
-* Binaries/Installers: Windows (Martin v. Loewis) and Mac (Ronald Oussoren)
+* 3.3   - Under Development at http://hg.python.org/cpython
+* 3.2.1 - Mid June, 2011 - Georg Brandl
+* 2.7.2 - Mid June, 2011 - Benjamin Peterson
+* 3.1.4 - Mid June, 2011 - Benjamin Peterson
+* 2.6.7 - 3 - June, 2011 - Barry Warsaw
+* Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.
+
+Python3
+=======
+
+* Breaking from it's roots.
+* Moving away from it's C Background.
+* Modern Frameworks and Advanced Applications.
+* Taking good points from Java and others.
+* Fixing a lot of Language warts.
+
+
+Numbers
+=======
+
+Python 2 had separate types for int and long. The int datatype was limited by
+sys.maxint, which varied by platform but was usually 232-1. 
+
+Python 3 has just one integer type, which behaves mostly like the old long type
+from Python 2.
+
+
+Integer Division
+================
+
+::
+
+	>>> 11 / 2      
+	5.5
+	>>> 11 // 2  
+	5
+
+In Python 2, the / operator usually meant integer division.
+
+Python 3, the / operator always means floating point division. 
+
+
+Sets
+====
+
+Creating a set is easy.
+
+::
+
+	>>> a_set = {1}
+	>>> a_set
+	{1}
+
+	# Empty set
+
+	>>> not_sure = {}
+	>>> type(not_sure)
+	<class 'dict'>
+
+Due to historical quirks carried over from Python 2, you can not create an
+empty set with two curly brackets. This actually creates an empty dictionary,
+not an empty set.
+
+Empty Set
+=========
+
+Correct way is create a set object. Because `{}` is taking up for creating dict in python2.
+
+::
+
+	>>> a_set = set()
+	>>> a_set
+	set()
+	>>> type(a_set)
+	<class 'set'>
+	>>> len(a_set)
+	0
+
+
+Dictionary Comprehensions
+=========================
+
+A dictionary comprehension is like a list comprehension, but it constructs a
+dictionary instead of a list.
+
+::
+
+	>>> metadata_dict = {f:os.stat(f) for f in glob.glob('*test*.py')}
+	>>> type(metadata_dict) 
+	<class 'dict'>
+	>>> list(metadata_dict.keys())
+
+Dict Comprehensions - 2
+=======================
+
+Like list comprehensions, you can include an if clause in a dictionary
+comprehension to filter the input sequence based on an expression which is
+evaluated with each item.
+
+::
+
+	>>> humansize_dict = >>> {os.path.splitext(f)[0]:humansize.approximate_size(meta.st_size) \     
+	...                   for f, meta in metadata_dict.items() 
+	...		      if meta.st_size > 6000}   
+
+
+Set Comprehensions
+==================
+
+Not to be left out, sets have their own comprehension syntax as well.
+
+::
+
+	>>> {x ** 2 for x in a_set}
+	{0, 1, 4, 81, 64, 9, 16, 49, 25, 36}
+	>>> {x for x in a_set if x % 2 == 0}
+	{0, 8, 2, 4, 6}
+	>>> {2**x for x in range(10)}
+	{32, 1, 2, 4, 8, 64, 128, 256, 16, 512}
+
+Strings
+=======
+
+We think, Text == characters and symbols on the computer screen.
+Computer Thinks, Text == Bits and Bytes.
+
+Every piece of text you’ve ever seen on a computer screen is actually stored in
+a particular character encoding.
+
+Strings
+=======
+
+Whenever someone gives you a sequence of bytes — a file, a web page, whatever —
+and claims it’s “text,” you need to know what character encoding they used so
+you can decode the bytes into characters.
+
+
+Unicode
+=======
+
+Unicode is a system designed to represent every character from every language.
+Unicode represents each letter, character, or ideograph as a 4-byte number.
+Each number represents a unique character used in at least one of the world’s
+languages.
+
+There is a Unicode encoding that uses four bytes per character. It’s called
+UTF-32, because 32 bits = 4 bytes. UTF-32 is a straightforward encoding; it
+takes each Unicode character (a 4-byte number) and represents the character
+with that same number. 
+
+Unicode
+=======
+
+But there are also non-obvious disadvantages to both UTF-32 and UTF-16.
+Different computer systems store individual bytes in different ways. That means
+that the character U+4E2D could be stored in UTF-16 as either 4E 2D or 2D 4E,
+depending on whether the system is big-endian or little-endian
+
+To solve this problem, the multi-byte Unicode encodings define a “Byte Order
+Mark,” which is a special non-printable character that you can include at the
+beginning of your document to indicate what order your bytes are in.
+
+UTF-8
+=====
+
+UTF-8 is a variable-length encoding system for Unicode.
+That is, different characters take up a different number of bytes.
+
+For ascii characters (A-Z) utf-8 uses just one byte per character. In fact, it
+uses the exact same bytes; the first 128 characters (0–127) in utf-8 are
+indistinguishable from ascii.
+
+Because of bit twiddling, there are no byte-ordering issues. A document encoded
+in utf-8 uses the exact same stream of bytes on any computer.
+
+Unicode Example
+===============
+
+::
+
+	>>> s = '深入 Python'
+	>>> len(s)
+	9
+	>>> s[0] 
+	'深'
+	>>> s + ' 3'  
+	'深入 Python 3'
+
+Formatting
+==========
+
+::
+
+	>>> "{0},{1}".format('hello', 'world') 
+
+* There’s a lot going on here. 
+* First, that’s a method call on a string literal.
+* Second, the whole expression evaluates to a string. 
+* Third, {0} and {1} are replacement fields are replaced with correct values.
+
+Formatting
+==========
+
+* A lot is possible
+
+::
+	>>> si_suffixes
+	['KB', 'MB', 'GB']
+	>>> '1000{0[0]} = 1{0[1]}'.format(si_suffixes)
+	'1000KB = 1MB'
+
+
+Formatting
+==========
+
+* Passing a list, and accessing an item of the list by index (as in the previous example)
+* Passing a dictionary, and accessing a value of the dictionary by key
+* Passing a module, and accessing its variables and functions by name
+* Passing a class instance, and accessing its properties and methods by name
+* Any combination of the above
+
+Strings vs Bytes
+================
+
+Bytes are bytes; characters are an abstraction. An immutable sequence of
+Unicode characters is called a string. An immutable sequence of
+numbers-between-0-and-255 is called a bytes object.
+
+::
+
+	>>> by = b'abcd\x65'
+	>>> by
+	b'abcde'
+	>>> type(by)  
+	<class 'bytes'>
+
+Bytes
+=====
+
+::
+	>>> len(by)
+	5
+	>>> by += b'\xff'
+	>>> by
+	b'abcde\xff'
+	>>> len(by)     
+	6
+	>>> by[0]      
+	97
+
+Bytes
+=====
+::
+
+	>>> by[0] = 102
+	...
+	TypeError: 'bytes' object does not support item assignment.
+
+A bytes object is immutable; you can not assign individual bytes. If you need
+to change individual bytes, you can either use string slicing and concatenation
+operators (which work the same as strings), or you can convert the bytes object
+into a bytearray object.
+
+ByteArray
+=========
+
+::
+
+	>>> by = b'abcd\x65'
+	>>> barr = bytearray(by)
+	>>> barr
+	bytearray(b'abcde')
+	>>> len(barr)
+	5
+	>>> barr[0] = 102
+
+	>>> barr
+	bytearray(b'fbcde')
+
+
+Mixing Bytes with Strings
+=========================
+
+* The one thing you can never do is mix bytes and strings.
+* Try it!
+
+
+Bytes and Strings
+=================
+
+And here is the link between strings and bytes: bytes objects have a decode()
+method that takes a character encoding and returns a string, and strings have
+an encode() method that takes a character encoding and returns a bytes object.
+
+Files Opening
+=============
+
+* We need to know in what encoding the bytes represented by the file are stored.
+* We pass it to open function.
+
+::
+	a_file = open('examples/chinese.txt', encoding='utf-8')
+
+Syntax and Library
+==================
+
+Changes to Language Syntax and Library Reorganization.
+
+Unicode String Literals
+=======================
+
+*Python 2*
+
+* u'PapayaWhip' 
+* ur'PapayaWhip\foo'
+
+**Python 3**
+
+* 'PapayaWhip'
+* r'PapayaWhip\foo'
+
+Unicode global function
+=======================
+
+*python2*
+
+* unicode(anything)
+
+**Python3**
+
+* str(anything)
+
+
+Unifying Long Integers and Integers
+===================================
+
+In Python 3, there is only one integer type, called int, which mostly behaves
+like the long type in Python 2.
+
+Python 2		Python 3
+x = 1000000000000L	x = 1000000000000
+x = 0xFFFFFFFFFFFFL	x = 0xFFFFFFFFFFFF
+long(x)			int(x)
+type(x) is long		type(x) is int
+isinstance(x, long)	isinstance(x, int)
+
+Comparision
+===========
+
+Python 2	Python 3
+
+if x <> y:	if x != y:
+if x <> y <> z:	if x != y != z:
+
+
+has_key dict
+============
+
+In Python 2, dictionaries had a has_key() method to test whether the dictionary
+had a certain key. In Python 3, this method no longer exists. Instead, you need
+to use the in operator.
+
+
+Python 2				Python 3
+
+a_dictionary.has_key('PapayaWhip')	'PapayaWhip' in a_dictionary
+a_dictionary.has_key(x) or a_dictionary.has_key(y)	x in a_dictionary or y in a_dictionary
+a_dictionary.has_key(x or y)		(x or y) in a_dictionary
+a_dictionary.has_key(x + y)		(x + y) in a_dictionary
+x + a_dictionary.has_key(y)		x + (y in a_dictionary)
+
+
+Dictionary methods
+==================
+
+* In Python 2, many dictionary methods returned lists. The most frequently used methods were keys(), items(), and values(). In Python 3, all of these methods return dynamic views.
+
+
+Python 2	Python 3
+a_dictionary.keys()	list(a_dictionary.keys())
+a_dictionary.items()	list(a_dictionary.items())
+a_dictionary.iterkeys()	iter(a_dictionary.keys())
+[i for i in a_dictionary.iterkeys()]	[i for i in a_dictionary.keys()]
+min(a_dictionary.keys())	no change
+
+
+Modules reorganized
+===================
+
+http
+====
+
+Notes	Python 2	Python 3
+import httplib	import http.client
+import Cookie	import http.cookies
+import cookielib	import http.cookiejar
+import BaseHTTPServer import SimpleHTTPServer import CGIHttpServer import http.server
+
+
+urllib
+======
+
+import urllib	import urllib.request, urllib.parse, urllib.error
+import urllib2	import urllib.request, urllib.error
+import urlparse	import urllib.parse
+import robotparser	import urllib.robotparser
+from urllib import FancyURLopener from urllib.request import FancyURLopener
+from urllib import urlencode from urllib.parse import urlencode
+from urllib2 import Request from urllib.request import Request
+from urllib2 import HTTPError from urllib.error import HTTPError
+
+dbm
+===
+
+Python 2	Python 3
+import dbm	import dbm.ndbm
+import gdbm	import dbm.gnu
+import dbhash	import dbm.bsd
+import dumbdbm	import dbm.dumb
+import anydbm
+import whichdb
+import dbm
+
+
+xmlrpc
+======
+
+Python 2	Python 3
+import xmlrpclib	import xmlrpc.client
+import DocXMLRPCServer
+import SimpleXMLRPCServer
+import xmlrpc.server
+
+io
+==
+
+python2
+-------
+
+try:
+    import cStringIO as StringIO
+except ImportError:
+    import StringIO
+
+python3
+-------
+import io
+
+pickle
+======
+
+python2
+-------
+
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+
+python3
+-------
+import pickle
+
+
+Extra
+=====
+
+Extra
+=====
+
+Extra
+=====
 
 Python Language Moratorium
 ==========================
