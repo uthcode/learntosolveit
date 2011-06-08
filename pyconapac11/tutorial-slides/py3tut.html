@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>Python 3 Tutorial</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 6253 2010-03-02 00:24:53Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: left }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="ui/s5uthcode/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/s5uthcode/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/s5uthcode/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/s5uthcode/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/s5uthcode/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>Python 3 Tutorial</h1>
+
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">Python 3 Tutorial</h1>
+
+<!-- -*- coding: utf-8 -*- -->
+<!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
+<!-- This data file has been placed in the public domain. -->
+<!-- Colours
+======= -->
+<!-- Text Sizes
+========== -->
+<!-- Display in Slides (Presentation Mode) Only
+========================================== -->
+<!-- Display in Outline Mode Only
+============================ -->
+<!-- Display in Print Only
+===================== -->
+<!-- Display in Handout Mode Only
+============================ -->
+<!-- Incremental Display
+=================== -->
+<div class="center large line-block">
+<div class="line"><a class="reference external" href="http://apac.pycon.org">APAC PyCon 2011</a></div>
+</div>
+<div class="center small line-block">
+<div class="line">Senthil Kumaran</div>
+</div>
+
+</div>
+<div class="slide" id="python-release-schedule">
+<h1>Python Release Schedule</h1>
+<ul class="simple">
+<li>3.3   - Under Development at <a class="reference external" href="http://hg.python.org/cpython">http://hg.python.org/cpython</a></li>
+<li>3.2.1 - Mid June, 2011 - Georg Brandl</li>
+<li>2.7.2 - Mid June, 2011 - Benjamin Peterson</li>
+<li>3.1.4 - Mid June, 2011 - Benjamin Peterson</li>
+<li>2.6.7 - 3 - June, 2011 - Barry Warsaw</li>
+<li>Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.</li>
+</ul>
+</div>
+<div class="slide" id="python3">
+<h1>Python3</h1>
+<ul class="simple">
+<li>Breaking from it's roots.</li>
+<li>Moving away from it's C Background.</li>
+<li>Modern Frameworks and Advanced Applications.</li>
+<li>Taking good points from Java and others.</li>
+<li>Fixing a lot of Language warts.</li>
+</ul>
+</div>
+<div class="slide" id="numbers">
+<h1>Numbers</h1>
+<p>Python 2 had separate types for int and long. The int datatype was limited by
+sys.maxint, which varied by platform but was usually 232-1.</p>
+<p>Python 3 has just one integer type, which behaves mostly like the old long type
+from Python 2.</p>
+</div>
+<div class="slide" id="integer-division">
+<h1>Integer Division</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; 11 / 2
+5.5
+&gt;&gt;&gt; 11 // 2
+5
+</pre>
+<p>In Python 2, the / operator usually meant integer division.</p>
+<p>Python 3, the / operator always means floating point division.</p>
+</div>
+<div class="slide" id="sets">
+<h1>Sets</h1>
+<p>Creating a set is easy.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; a_set = {1}
+&gt;&gt;&gt; a_set
+{1}
+
+# Empty set
+
+&gt;&gt;&gt; not_sure = {}
+&gt;&gt;&gt; type(not_sure)
+&lt;class 'dict'&gt;
+</pre>
+<p>Due to historical quirks carried over from Python 2, you can not create an
+empty set with two curly brackets. This actually creates an empty dictionary,
+not an empty set.</p>
+</div>
+<div class="slide" id="empty-set">
+<h1>Empty Set</h1>
+<p>Correct way is create a set object. Because <span class="incremental">{}</span> is taking up for creating dict in python2.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; a_set = set()
+&gt;&gt;&gt; a_set
+set()
+&gt;&gt;&gt; type(a_set)
+&lt;class 'set'&gt;
+&gt;&gt;&gt; len(a_set)
+0
+</pre>
+</div>
+<div class="slide" id="dictionary-comprehensions">
+<h1>Dictionary Comprehensions</h1>
+<p>A dictionary comprehension is like a list comprehension, but it constructs a
+dictionary instead of a list.</p>
+<pre class="small literal-block">
+&gt;&gt;&gt; metadata_dict = {f:os.stat(f for f in glob.glob('*test*.py')}
+&gt;&gt;&gt; type(metadata_dict)
+&lt;class 'dict'&gt;
+&gt;&gt;&gt; list(metadata_dict.keys())
+</pre>
+</div>
+<div class="slide" id="dict-comprehensions-2">
+<h1>Dict Comprehensions - 2</h1>
+<p>Like list comprehensions, you can include an if clause in a dictionary
+comprehension to filter the input sequence based on an expression which is
+evaluated with each item.</p>
+<pre class="small literal-block">
+&gt;&gt;&gt; humansize_dict = &gt;&gt;&gt; {os.path.splitext(f)[0]:humansize.approximate_size(meta.st_size) \
+...                   for f, meta in metadata_dict.items()
+...                   if meta.st_size &gt; 6000}
+</pre>
+</div>
+<div class="slide" id="set-comprehensions">
+<h1>Set Comprehensions</h1>
+<p>Not to be left out, sets have their own comprehension syntax as well.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; {x ** 2 for x in a_set}
+{0, 1, 4, 81, 64, 9, 16, 49, 25, 36}
+&gt;&gt;&gt; {x for x in a_set if x % 2 == 0}
+{0, 8, 2, 4, 6}
+&gt;&gt;&gt; {2**x for x in range(10)}
+{32, 1, 2, 4, 8, 64, 128, 256, 16, 512}
+</pre>
+</div>
+<div class="slide" id="strings">
+<h1>Strings</h1>
+<ul class="simple">
+<li>We think, Text == characters and symbols on the computer screen.</li>
+<li>Computer Thinks, Text == Bits and Bytes.</li>
+</ul>
+<p>Every piece of text you’ve ever seen on a computer screen is actually stored in
+a particular character encoding.</p>
+</div>
+<div class="slide" id="id1">
+<h1>Strings</h1>
+<p>Whenever someone gives you a sequence of bytes — a file, a web page, whatever —
+and claims it’s “text,” you need to know what character encoding they used so
+you can decode the bytes into characters.</p>
+</div>
+<div class="slide" id="enter-unicode">
+<h1>Enter Unicode</h1>
+<p>Unicode is a system designed to represent every character from every language.
+Unicode represents each letter, character, or ideograph as a 4-byte number.
+Each number represents a unique character used in at least one of the world’s
+languages.</p>
+<p>There is a Unicode encoding that uses four bytes per character. It’s called
+UTF-32, because 32 bits = 4 bytes. UTF-32 is a straightforward encoding; it
+takes each Unicode character (a 4-byte number) and represents the character
+with that same number.</p>
+</div>
+<div class="slide" id="unicode">
+<h1>Unicode</h1>
+<ul class="simple">
+<li>Non-obvious disadvantages to both UTF-32 and UTF-16.</li>
+<li>Different computer systems store individual bytes in different ways.</li>
+<li>Character U+4E2D could be stored in UTF-16 as either 4E 2D (big endian) or 2D 4E (little-endian).</li>
+<li>BOM - &quot;Byte Order Mark&quot;</li>
+</ul>
+</div>
+<div class="slide" id="utf-8">
+<h1>UTF-8</h1>
+<p>UTF-8 is a variable-length encoding system for Unicode.
+That is, different characters take up a different number of bytes.</p>
+<p>For ascii characters (A-Z) utf-8 uses just one byte per character. In fact, it
+uses the exact same bytes; the first 128 characters (0–127) in utf-8 are
+indistinguishable from ascii.</p>
+<p>Because of bit twiddling, there are no byte-ordering issues. A document encoded
+in utf-8 uses the exact same stream of bytes on any computer.</p>
+</div>
+<div class="slide" id="unicode-example">
+<h1>Unicode Example</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; s = '深入 Python'
+&gt;&gt;&gt; len(s)
+9
+&gt;&gt;&gt; s[0]
+'深'
+&gt;&gt;&gt; s + ' 3'
+'深入 Python 3'
+</pre>
+</div>
+<div class="slide" id="formatting">
+<h1>Formatting</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; &quot;{0},{1}&quot;.format('hello', 'world')
+</pre>
+<ul class="simple">
+<li>There’s a lot going on here.</li>
+<li>First, that’s a method call on a string literal.</li>
+<li>Second, the whole expression evaluates to a string.</li>
+<li>Third, {0} and {1} are replacement fields are replaced with correct values.</li>
+</ul>
+</div>
+<div class="slide" id="id2">
+<h1>Formatting</h1>
+<ul class="simple">
+<li>A lot is possible</li>
+</ul>
+<pre class="literal-block">
+&gt;&gt;&gt; si_suffixes
+['KB', 'MB', 'GB']
+&gt;&gt;&gt; '1000{0[0]} = 1{0[1]}'.format(si_suffixes)
+'1000KB = 1MB'
+</pre>
+</div>
+<div class="slide" id="id3">
+<h1>Formatting</h1>
+<ul class="simple">
+<li>Passing a list, and accessing an item of the list by index (as in the previous example)</li>
+<li>Passing a dictionary, and accessing a value of the dictionary by key</li>
+<li>Passing a module, and accessing its variables and functions by name</li>
+<li>Passing a class instance, and accessing its properties and methods by name</li>
+<li>Any combination of the above</li>
+</ul>
+</div>
+<div class="slide" id="strings-vs-bytes">
+<h1>Strings vs Bytes</h1>
+<p>Bytes are bytes; characters are an abstraction. An immutable sequence of
+Unicode characters is called a string. An immutable sequence of
+numbers-between-0-and-255 is called a bytes object.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; by = b'abcd\x65'
+&gt;&gt;&gt; by
+b'abcde'
+&gt;&gt;&gt; type(by)
+&lt;class 'bytes'&gt;
+</pre>
+</div>
+<div class="slide" id="bytes">
+<h1>Bytes</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; len(by)
+5
+&gt;&gt;&gt; by += b'\xff'
+&gt;&gt;&gt; by
+b'abcde\xff'
+&gt;&gt;&gt; len(by)
+6
+&gt;&gt;&gt; by[0]
+97
+</pre>
+</div>
+<div class="slide" id="id4">
+<h1>Bytes</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; by[0] = 102
+...
+TypeError: 'bytes' object does not support item assignment.
+</pre>
+<p>A bytes object is <strong>immutable</strong>; you can not assign individual bytes. If you
+need to change individual bytes, you can either use string slicing and
+concatenation operators (which work the same as strings), or you can convert
+the bytes object into a bytearray object.</p>
+</div>
+<div class="slide" id="bytearray">
+<h1>ByteArray</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; by = b'abcd\x65'
+&gt;&gt;&gt; barr = bytearray(by)
+&gt;&gt;&gt; barr
+bytearray(b'abcde')
+&gt;&gt;&gt; len(barr)
+5
+&gt;&gt;&gt; barr[0] = 102
+
+&gt;&gt;&gt; barr
+bytearray(b'fbcde')
+</pre>
+</div>
+<div class="slide" id="mixing-bytes-with-strings">
+<h1>Mixing Bytes with Strings</h1>
+<ul class="simple">
+<li>The one thing you can never do is mix bytes and strings.</li>
+<li>Try it!</li>
+</ul>
+</div>
+<div class="slide" id="bytes-and-strings">
+<h1>Bytes and Strings</h1>
+<p>And here is the link between strings and bytes: bytes objects have a decode()
+method that takes a character encoding and returns a string, and strings have
+an encode() method that takes a character encoding and returns a bytes object.</p>
+</div>
+<div class="slide" id="files-opening">
+<h1>Files Opening</h1>
+<ul class="simple">
+<li>We need to know in what encoding the bytes represented by the file are stored.</li>
+<li>We pass it to open function.</li>
+</ul>
+<pre class="literal-block">
+a_file = open('examples/chinese.txt', encoding='utf-8')
+</pre>
+</div>
+<div class="slide" id="syntax-and-library">
+<h1>Syntax and Library</h1>
+<ul class="simple">
+<li>Standard Library Re-organization.</li>
+</ul>
+</div>
+<div class="slide" id="unicode-string-literals">
+<h1>Unicode String Literals</h1>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>u'PapayaWhip'</li>
+<li>ur'PapayaWhipfoo'</li>
+</ul>
+<p><strong>python3</strong></p>
+<ul class="simple">
+<li>'PapayaWhip'</li>
+<li>r'PapayaWhipfoo'</li>
+</ul>
+</div>
+<div class="slide" id="unicode-global-function">
+<h1>Unicode global function</h1>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>unicode(anything)</li>
+</ul>
+<p><strong>Python3</strong></p>
+<ul class="simple">
+<li>str(anything)</li>
+</ul>
+</div>
+<div class="slide" id="unifying-long-integers-and-integers">
+<h1>Unifying Long Integers and Integers</h1>
+<p>In Python 3, there is only one integer type, called int, which mostly behaves
+like the long type in Python 2.</p>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>x = 1000000000000L</li>
+<li>x = 0xFFFFFFFFFFFFL</li>
+<li>long(x)</li>
+<li>type(x) is long</li>
+<li>isinstance(x, long)</li>
+</ul>
+</div>
+<div class="slide" id="id5">
+<h1>Unifying Long Integers and Integers</h1>
+<p><strong>Python 3</strong></p>
+<ul class="simple">
+<li>x = 1000000000000</li>
+<li>x = 0xFFFFFFFFFFFF</li>
+<li>int(x)</li>
+<li>type(x) is int</li>
+<li>isinstance(x, int)</li>
+</ul>
+</div>
+<div class="slide" id="comparision">
+<h1>Comparision</h1>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>if x &lt;&gt; y:</li>
+<li>if x &lt;&gt; y &lt;&gt; z:</li>
+</ul>
+<p><strong>python3</strong></p>
+<ul class="simple">
+<li>if x != y:</li>
+<li>if x != y != z:</li>
+</ul>
+</div>
+<div class="slide" id="has-key-dict">
+<h1>has_key dict</h1>
+<ul class="simple">
+<li>Use 'in' operator instead of 'has_key' method.</li>
+</ul>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>a_dictionary.has_key('PapayaWhip')</li>
+<li>a_dictionary.has_key(x) or a_dictionary.has_key(y)</li>
+<li>a_dictionary.has_key(x or y)</li>
+<li>a_dictionary.has_key(x + y)</li>
+<li>x + a_dictionary.has_key(y)</li>
+</ul>
+</div>
+<div class="slide" id="in-operator">
+<h1>in operator</h1>
+<p><strong>Python3</strong></p>
+<ul class="simple">
+<li>'PapayaWhip' in a_dictionary</li>
+<li>x in a_dictionary or y in a_dictionary</li>
+<li>(x or y) in a_dictionary</li>
+<li>(x + y) in a_dictionary</li>
+<li>x + (y in a_dictionary)</li>
+</ul>
+</div>
+<div class="slide" id="dictionary-methods">
+<h1>Dictionary methods</h1>
+<ul class="simple">
+<li>Many diction methods such as keys(), items(), and values() return dynamic views.</li>
+</ul>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>a_dictionary.keys()</li>
+<li>a_dictionary.items()</li>
+<li>a_dictionary.iterkeys()</li>
+<li>[i for i in a_dictionary.iter(a_dictionary.keys())</li>
+<li>min(a_dictionary.keys())</li>
+</ul>
+</div>
+<div class="slide" id="id6">
+<h1>Dictionary methods</h1>
+<p><strong>python3</strong></p>
+<ul class="simple">
+<li>list(a_dictionary.keys())</li>
+<li>list(a_dictionary.items())</li>
+<li>iter(a_dictionary.keys())</li>
+<li>[i for i in a_dictionary.keys()]</li>
+<li>min(a_dictionary.keys()) # no change</li>
+</ul>
+</div>
+<div class="slide" id="http">
+<h1>http</h1>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>import httplib</li>
+<li>import Cookie</li>
+<li>import cookielib</li>
+<li>import BaseHTTPSimport, import SimpleHTTPServer, import CGIHttpServer</li>
+</ul>
+<p><strong>python3</strong></p>
+<ul class="simple">
+<li>import http.cookies</li>
+<li>import http.cookiejar</li>
+<li>import http.server</li>
+</ul>
+</div>
+<div class="slide" id="urllib">
+<h1>urllib</h1>
+<p><em>python2</em></p>
+<ul class="simple">
+<li>import urllib</li>
+<li>import urllib2</li>
+<li>import urlparse</li>
+<li>import robotparser</li>
+<li>from urllib import FancyURLopener</li>
+<li>from urllib import urlencode</li>
+<li>from urllib2 import Request</li>
+<li>from urllib2 import HTTPError</li>
+</ul>
+</div>
+<div class="slide" id="id7">
+<h1>urllib</h1>
+<p><strong>python3</strong></p>
+<ul class="simple">
+<li>import urllib.request, urllib.parse, urllib.error</li>
+<li>from urllib.parse import urlencode</li>
+<li>from urllib.error import HTTPError</li>
+<li>import urllib.robotparser</li>
+<li>import urllib.request import FancyURLopener</li>
+<li>import urllib.request import urlencode</li>
+<li>import urllib.request import Request</li>
+<li>import urllib.error import HTTPError</li>
+</ul>
+</div>
+<div class="slide" id="dbm">
+<h1>dbm</h1>
+<p><strong>Python 3</strong></p>
+<ul class="simple">
+<li>import dbm.ndbm</li>
+<li>import dbm.gnu</li>
+<li>import dbm.bsd</li>
+<li>import dbm.dumb</li>
+</ul>
+</div>
+<div class="slide" id="xmlrpc">
+<h1>xmlrpc</h1>
+<p><em>Python 2</em></p>
+<ul class="simple">
+<li>import xmlrpclib</li>
+<li>import DocXMLRPCServer</li>
+<li>import SimpleXMLRPCServer</li>
+<li>import xmlrpc.server</li>
+</ul>
+<p><strong>python3</strong></p>
+<p>import xmlrpc.client</p>
+</div>
+<div class="slide" id="io-module">
+<h1>io module</h1>
+<p><em>python2</em></p>
+<dl class="docutils">
+<dt>try:</dt>
+<dd>import cStringIO as StringIO</dd>
+<dt>except ImportError:</dt>
+<dd>import StringIO</dd>
+</dl>
+<p><strong>python3</strong></p>
+<p>import io</p>
+</div>
+<div class="slide" id="pickle">
+<h1>pickle</h1>
+<p><em>python2</em></p>
+<dl class="docutils">
+<dt>try:</dt>
+<dd>import cPickle as pickle</dd>
+<dt>except ImportError:</dt>
+<dd>import pickle</dd>
+</dl>
+<p><strong>python3</strong></p>
+<p>import pickle</p>
+</div>
+<div class="slide" id="modules">
+<h1>modules</h1>
+<p><em>python2</em> ➔ <strong>python3</strong></p>
+<ul class="simple">
+<li>import __builtin__    ➔ import builtins</li>
+<li>import copy_reg       ➔ import copyreg</li>
+<li>import Queue          ➔ import queue</li>
+<li>import SocketServer   ➔ import socketserver</li>
+<li>import ConfigParser   ➔ import configparser</li>
+<li>import repr           ➔ import reprlib</li>
+<li>import commands       ➔ import subprocess</li>
+</ul>
+</div>
+<div class="slide" id="next-iterator-method">
+<h1>next iterator method</h1>
+<ul class="simple">
+<li>Python3 has a global next function which takes iterator methods</li>
+<li>anIterator.next()     ➔ next(anIterator)</li>
+<li>a_function_that_returns_an_iterator().next()  ➔ next(a_function_that_returns_an_iterator())</li>
+</ul>
+</div>
+<div class="slide" id="filter-global-function">
+<h1>filter global function</h1>
+<ul class="simple">
+<li>In Python 3, the filter() function returns an iterator, not a list.</li>
+<li>filter(a_function, a_sequence) ➔ list(filter(a_function, a_sequence))</li>
+</ul>
+</div>
+<div class="slide" id="map-returns-iterator">
+<h1>map returns iterator</h1>
+<ul class="simple">
+<li>filter(), the map() function now returns an iterator. (In Python 2, it returned a list.)</li>
+<li>map(a_function, 'PapayaWhip') ➔ list(map(a_function, 'PapayaWhip'))</li>
+</ul>
+</div>
+<div class="slide" id="functools-reduce">
+<h1>functools.reduce</h1>
+<ul class="simple">
+<li>The reduce() function has been removed from the global namespace and placed in the functools module.</li>
+</ul>
+<pre class="literal-block">
+from functools import reduce
+reduce(a, b, c)
+</pre>
+</div>
+<div class="slide" id="apply-function">
+<h1>apply function</h1>
+<ul class="simple">
+<li>the apply() function no longer exists; you must use the asterisk notation.</li>
+</ul>
+<p><em>python2</em></p>
+<pre class="literal-block">
+apply(a_function, a_list_of_args)
+</pre>
+<p><strong>python3</strong></p>
+<pre class="literal-block">
+a_function(*a_list_of_args)
+</pre>
+</div>
+<div class="slide" id="exception-catching-syntax">
+<h1>Exception Catching Syntax</h1>
+<ul class="simple">
+<li><tt class="docutils literal">except CatchSomeException as expobj:</tt></li>
+</ul>
+<pre class="literal-block">
+try:
+    import mymodule
+except ImportError as e:
+    pass
+</pre>
+</div>
+<div class="slide" id="type-module">
+<h1>Type module</h1>
+<ul class="simple">
+<li>The types module contained a variety of constants to help you determine the type of an object.</li>
+<li>In Python 2, it contained constants for all primitive types like dict and int.</li>
+<li>In Python 3, these constants have been eliminated; just use the primitive type name instead.</li>
+</ul>
+</div>
+<div class="slide" id="iterator-related">
+<h1>Iterator related</h1>
+<ul class="simple">
+<li>No xrange, it is just range</li>
+<li>No xreadlines, just loop over file object</li>
+<li>No <tt class="docutils literal">from itertools import izip, imap</tt> builtins would return iterators.</li>
+</ul>
+</div>
+<div class="slide" id="metaclass-syntax">
+<h1>Metaclass syntax</h1>
+<p><em>Python2</em></p>
+<dl class="docutils">
+<dt>class Whip:</dt>
+<dd>__metaclass__ = PapayaMeta</dd>
+</dl>
+<p><strong>python3</strong></p>
+<dl class="docutils">
+<dt>class Whip(metaclass=PapayaMeta):</dt>
+<dd>pass</dd>
+</dl>
+</div>
+<div class="slide" id="memory-view-object">
+<h1>memory view object</h1>
+<p>Python objects implemented in C can export a “buffer interface,” which allows
+other Python code to directly read and write a block of memory.</p>
+<p>In Python 3, buffer() has been renamed to memoryview(). Representation of
+object in memory.</p>
+</div>
+<div class="slide" id="change-to-super-syntax">
+<h1>Change to Super Syntax</h1>
+<p><em>python2</em></p>
+<pre class="literal-block">
+class Child(SomeBaseClass):
+    def __init__(self):
+        super(Child, self).__init__()
+</pre>
+<p><strong>python3</strong></p>
+<pre class="literal-block">
+class Child(SomeBaseClass):
+      def __init__(self):
+          super().__init__()
+</pre>
+</div>
+<div class="slide" id="relative-imports">
+<h1>Relative imports</h1>
+<ul class="simple">
+<li>All imports are absolute in Python3 (PEP 328)</li>
+<li>In order to refer to modules with the same package use relative import.</li>
+</ul>
+<pre class="literal-block">
+from . import module_from_this_package
+from .. import module_from_parent
+from .currentmodule import Class
+from ..parentmodule import ParentClass
+</pre>
+</div>
+<div class="slide" id="print-function">
+<h1>print function</h1>
+<p><tt class="docutils literal">python &quot;Thank you&quot;</tt></p>
+<p>SyntaxError: print..</p>
+<p><tt class="docutils literal"><span class="pre">print(&quot;Thank</span> you&quot;)</tt></p>
+</div>
+<div class="slide" id="interesting-modules-collections">
+<h1>Interesting Modules - Collections</h1>
+<ul class="simple">
+<li>collections module provides a high performance container datatype.</li>
+<li>The specialized containers provided in this module provide alternatives to Python's general purpose built-in containers, <span class="incremental">dict</span>, <span class="incremental">list</span>, <span class="incremental">set</span>, and <span class="incremental">tuple</span>.</li>
+<li>In addition to containers, the collections module provides some ABCs (abstract base classes) that can be used to test whether a class provides a particular interface, for example, whether it is hashable or a mapping.</li>
+</ul>
+</div>
+<div class="slide" id="collections-counter">
+<h1>collections.Counter</h1>
+<p>A counter tool is provided to support convenient and rapid tallies.
+For example:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; # Tally occurrences of words in a list
+&gt;&gt;&gt; cnt = Counter()
+&gt;&gt;&gt; for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
+...     cnt[word] += 1
+&gt;&gt;&gt; cnt
+Counter({'blue': 3, 'red': 2, 'green': 1})
+</pre>
+</div>
+<div class="slide" id="id8">
+<h1>collections.Counter</h1>
+<ul class="simple">
+<li>Finding the most common words in Hamlet</li>
+</ul>
+<pre class="literal-block">
+&gt;&gt;&gt; import re
+&gt;&gt;&gt; words = re.findall('\w+', open('hamlet.txt').read().lower())
+&gt;&gt;&gt; Counter(words).most_common(10)
+[('the', 1143), ('and', 966), ('to', 762), ('of', 669), ('i', 631),
+ ('you', 554),  ('a', 546), ('my', 514), ('hamlet', 471), ('in', 451)]
+</pre>
+</div>
+<div class="slide" id="namedtuple">
+<h1>Namedtuple</h1>
+<p>named tuples assign meaning to each position in a tuple and allow for more
+readable, self-documenting code.  They can be used wherever regular tuples are
+used, and they add the ability to access fields by name instead of position
+index.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; from collections import namedtuple
+&gt;&gt;&gt; Point = namedtuple('Point', 'x y', verbose=True)
+&gt;&gt;&gt; pp = Point(10,20)
+&gt;&gt;&gt; print(pp.x, pp.y)
+</pre>
+</div>
+<div class="slide" id="network-programming">
+<h1>Network Programming</h1>
+<ul class="simple">
+<li>A minor diversion into network programming.</li>
+<li>socket_irclogger.py</li>
+</ul>
+</div>
+<div class="slide" id="extending-string-formating">
+<h1>Extending string formating</h1>
+<p>Python strings have a <tt class="docutils literal">__format__</tt> magic method. There are ways to extend it
+and have a desirable formatting of strings based on certain identifiers.</p>
+<ul class="simple">
+<li>Look at extend_string.py</li>
+</ul>
+</div>
+<div class="slide" id="total-ordering">
+<h1>total ordering</h1>
+<ul class="simple">
+<li>total_ordering.py</li>
+</ul>
+</div>
+<div class="slide" id="instant-dynamic-programming">
+<h1>Instant Dynamic Programming</h1>
+<pre class="literal-block">
+&#64;lru_cache(maxsize=None)
+def fib(n):
+    if n &lt; 2:
+        return n
+    return fib(n-1) + fib(n-2)
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; print([fib(n) for n in range(16)])
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; print(fib.cache_info())
+CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)
+</pre>
+</div>
+<div class="slide" id="to3">
+<h1>2to3</h1>
+<ul class="simple">
+<li>Run ./2to3 to convert stdin (-), files or directories given as arguments.</li>
+<li>2to3 must be run with at least Python 2.6.</li>
+<li>The intended path for migrating to Python 3.x is to first migrate to 2.6 (in order to take advantage of Python 2.6’s runtime compatibility checks).</li>
+</ul>
+</div>
+<div class="slide" id="migration-strategies">
+<h1>Migration Strategies</h1>
+<ul class="simple">
+<li>Separate Branch for 3 and 2.</li>
+<li>Coding with tricks and lot of spaghetti.</li>
+<li>Using distribute and disutils effectively.</li>
+<li>Using 2 and 3 compatible code.</li>
+</ul>
+</div>
+<div class="slide" id="case-study-chardet">
+<h1>Case Study - chardet</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://chardet.feedparser.org/">http://chardet.feedparser.org/</a></li>
+<li>Encoding Detector package.</li>
+</ul>
+</div>
+<div class="slide" id="case-study-urwid">
+<h1>Case Study - urwid</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://excess.org/urwid/">http://excess.org/urwid/</a> - Console User Interface Library</li>
+<li>py3k conversion using <a class="reference external" href="http://pypi.python.org/pypi/distribute">distribute</a></li>
+</ul>
+</div>
+<div class="slide" id="general-points">
+<h1>General Points</h1>
+<ul class="simple">
+<li>Python3 is going to Stay.</li>
+<li>Easy to migrate your own code.</li>
+<li>Performance improvements are guarenteed.</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

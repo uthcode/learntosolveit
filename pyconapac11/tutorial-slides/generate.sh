@@ -1,1 +1,1 @@
-rst2s5.py --theme=s5uthcode py32.txt py32.html
+rst2s5.py --theme=s5uthcode py3tut.txt py3tut.html

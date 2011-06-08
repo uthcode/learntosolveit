@@ -672,6 +672,20 @@ Change to Super Syntax
 	      def __init__(self):
 		  super().__init__()
 
+Relative imports
+================
+
+* All imports are absolute in Python3 (PEP 328)
+* In order to refer to modules with the same package use relative import.
+
+::
+
+   from . import module_from_this_package
+   from .. import module_from_parent
+   from .currentmodule import Class
+   from ..parentmodule import ParentClass
+
+
 print function
 ==============
 
@@ -681,3 +695,132 @@ SyntaxError: print..
 
 ``print("Thank you")``
 
+
+Interesting Modules - Collections
+=================================
+
+* collections module provides a high performance container datatype.
+
+* The specialized containers provided in this module provide alternatives to Python's general purpose built-in containers, `dict`, `list`, `set`, and `tuple`. 
+ 
+* In addition to containers, the collections module provides some ABCs (abstract base classes) that can be used to test whether a class provides a particular interface, for example, whether it is hashable or a mapping.
+
+
+collections.Counter
+===================
+
+A counter tool is provided to support convenient and rapid tallies.
+For example::
+
+    >>> # Tally occurrences of words in a list
+    >>> cnt = Counter()
+    >>> for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
+    ...     cnt[word] += 1
+    >>> cnt
+    Counter({'blue': 3, 'red': 2, 'green': 1})
+
+collections.Counter
+===================
+
+* Finding the most common words in Hamlet
+
+::
+
+    >>> import re
+    >>> words = re.findall('\w+', open('hamlet.txt').read().lower())
+    >>> Counter(words).most_common(10)
+    [('the', 1143), ('and', 966), ('to', 762), ('of', 669), ('i', 631),
+     ('you', 554),  ('a', 546), ('my', 514), ('hamlet', 471), ('in', 451)]
+
+
+Namedtuple
+==========
+
+named tuples assign meaning to each position in a tuple and allow for more
+readable, self-documenting code.  They can be used wherever regular tuples are
+used, and they add the ability to access fields by name instead of position
+index.
+
+::
+
+>>> from collections import namedtuple
+>>> Point = namedtuple('Point', 'x y', verbose=True)
+>>> pp = Point(10,20)
+>>> print(pp.x, pp.y)
+
+Network Programming
+===================
+
+* A minor diversion into network programming.
+* socket_irclogger.py
+
+Extending string formating
+==========================
+
+Python strings have a ``__format__`` magic method. There are ways to extend it
+and have a desirable formatting of strings based on certain identifiers.
+
+* Look at extend_string.py
+
+
+total ordering
+==============
+
+* total_ordering.py
+
+Instant Dynamic Programming
+===========================
+
+::
+
+	@lru_cache(maxsize=None)
+	def fib(n):
+	    if n < 2:
+		return n
+	    return fib(n-1) + fib(n-2)
+
+>>> print([fib(n) for n in range(16)])
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+
+>>> print(fib.cache_info())
+CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)
+
+2to3
+====
+
+* Run ./2to3 to convert stdin (-), files or directories given as arguments.
+
+* 2to3 must be run with at least Python 2.6. 
+
+* The intended path for migrating to Python 3.x is to first migrate to 2.6 (in order to take advantage of Python 2.6’s runtime compatibility checks).
+
+
+Migration Strategies
+====================
+
+* Separate Branch for 3 and 2.
+* Coding with tricks and lot of spaghetti.
+* Using distribute and disutils effectively.
+* Using 2 and 3 compatible code.
+
+Case Study - chardet
+====================
+
+* http://chardet.feedparser.org/
+* Encoding Detector package.
+
+Case Study - urwid
+==================
+
+* http://excess.org/urwid/ - Console User Interface Library
+
+* py3k conversion using `distribute`_
+
+.. _distribute: http://pypi.python.org/pypi/distribute
+
+General Points
+==============
+
+* Python3 is going to Stay.
+* Easy to migrate your own code.
+* Performance improvements are guarenteed.
