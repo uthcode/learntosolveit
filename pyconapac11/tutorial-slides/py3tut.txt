@@ -794,6 +794,7 @@ CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)
 
 * The intended path for migrating to Python 3.x is to first migrate to 2.6 (in order to take advantage of Python 2.6’s runtime compatibility checks).
 
+* Use example.py to try 2to3
 
 Migration Strategies
 ====================
