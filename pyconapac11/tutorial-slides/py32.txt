@@ -514,8 +514,8 @@ xmlrpc
 
 import xmlrpc.client
 
-* io module
-===========
+io module
+=========
 
 *python2*
 
@@ -619,8 +619,7 @@ Exception Catching Syntax
 Type module
 ===========
 
-* The types module contained a variety of constants to help you determine the type
-of an object. 
+* The types module contained a variety of constants to help you determine the type of an object. 
 * In Python 2, it contained constants for all primitive types like dict and int. 
 * In Python 3, these constants have been eliminated; just use the primitive type name instead.
 
