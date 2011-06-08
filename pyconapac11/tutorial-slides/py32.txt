@@ -106,9 +106,11 @@ Dictionary Comprehensions
 A dictionary comprehension is like a list comprehension, but it constructs a
 dictionary instead of a list.
 
+.. class:: small
+
 ::
 
-	>>> metadata_dict = {f:os.stat(f) for f in glob.glob('*test*.py')}
+	>>> metadata_dict = {f:os.stat(f for f in glob.glob('*test*.py')}
 	>>> type(metadata_dict) 
 	<class 'dict'>
 	>>> list(metadata_dict.keys())
@@ -119,6 +121,8 @@ Dict Comprehensions - 2
 Like list comprehensions, you can include an if clause in a dictionary
 comprehension to filter the input sequence based on an expression which is
 evaluated with each item.
+
+.. class:: small
 
 ::
 
@@ -144,8 +148,8 @@ Not to be left out, sets have their own comprehension syntax as well.
 Strings
 =======
 
-We think, Text == characters and symbols on the computer screen.
-Computer Thinks, Text == Bits and Bytes.
+* We think, Text == characters and symbols on the computer screen.
+* Computer Thinks, Text == Bits and Bytes.
 
 Every piece of text you’ve ever seen on a computer screen is actually stored in
 a particular character encoding.
@@ -158,8 +162,8 @@ and claims it’s “text,” you need to know what character encoding they used
 you can decode the bytes into characters.
 
 
-Unicode
-=======
+Enter Unicode
+=============
 
 Unicode is a system designed to represent every character from every language.
 Unicode represents each letter, character, or ideograph as a 4-byte number.
@@ -174,14 +178,10 @@ with that same number.
 Unicode
 =======
 
-But there are also non-obvious disadvantages to both UTF-32 and UTF-16.
-Different computer systems store individual bytes in different ways. That means
-that the character U+4E2D could be stored in UTF-16 as either 4E 2D or 2D 4E,
-depending on whether the system is big-endian or little-endian
-
-To solve this problem, the multi-byte Unicode encodings define a “Byte Order
-Mark,” which is a special non-printable character that you can include at the
-beginning of your document to indicate what order your bytes are in.
+* Non-obvious disadvantages to both UTF-32 and UTF-16.
+* Different computer systems store individual bytes in different ways. 
+* Character U+4E2D could be stored in UTF-16 as either 4E 2D (big endian) or 2D 4E (little-endian).
+* BOM - "Byte Order Mark"
 
 UTF-8
 =====
@@ -227,6 +227,7 @@ Formatting
 * A lot is possible
 
 ::
+
 	>>> si_suffixes
 	['KB', 'MB', 'GB']
 	>>> '1000{0[0]} = 1{0[1]}'.format(si_suffixes)
@@ -259,8 +260,8 @@ numbers-between-0-and-255 is called a bytes object.
 
 Bytes
 =====
-
 ::
+
 	>>> len(by)
 	5
 	>>> by += b'\xff'
@@ -279,10 +280,10 @@ Bytes
 	...
 	TypeError: 'bytes' object does not support item assignment.
 
-A bytes object is immutable; you can not assign individual bytes. If you need
-to change individual bytes, you can either use string slicing and concatenation
-operators (which work the same as strings), or you can convert the bytes object
-into a bytearray object.
+A bytes object is **immutable**; you can not assign individual bytes. If you
+need to change individual bytes, you can either use string slicing and
+concatenation operators (which work the same as strings), or you can convert
+the bytes object into a bytearray object.
 
 ByteArray
 =========
@@ -322,22 +323,23 @@ Files Opening
 * We pass it to open function.
 
 ::
+
 	a_file = open('examples/chinese.txt', encoding='utf-8')
 
 Syntax and Library
 ==================
 
-Changes to Language Syntax and Library Reorganization.
+* Standard Library Re-organization.
 
 Unicode String Literals
 =======================
 
-*Python 2*
+*python2*
 
 * u'PapayaWhip' 
 * ur'PapayaWhip\foo'
 
-**Python 3**
+**python3**
 
 * 'PapayaWhip'
 * r'PapayaWhip\foo'
@@ -360,309 +362,323 @@ Unifying Long Integers and Integers
 In Python 3, there is only one integer type, called int, which mostly behaves
 like the long type in Python 2.
 
-Python 2		Python 3
-x = 1000000000000L	x = 1000000000000
-x = 0xFFFFFFFFFFFFL	x = 0xFFFFFFFFFFFF
-long(x)			int(x)
-type(x) is long		type(x) is int
-isinstance(x, long)	isinstance(x, int)
+*python2*
+
+* x = 1000000000000L	
+* x = 0xFFFFFFFFFFFFL	
+* long(x)			
+* type(x) is long		
+* isinstance(x, long)	
+
+Unifying Long Integers and Integers
+===================================
+
+**Python 3**
+
+* x = 1000000000000
+* x = 0xFFFFFFFFFFFF
+* int(x)
+* type(x) is int
+* isinstance(x, int)
 
 Comparision
 ===========
 
-Python 2	Python 3
+*python2*
 
-if x <> y:	if x != y:
-if x <> y <> z:	if x != y != z:
+* if x <> y:	
+* if x <> y <> z:	
+
+**python3**
+
+* if x != y:
+* if x != y != z:
 
 
 has_key dict
 ============
 
-In Python 2, dictionaries had a has_key() method to test whether the dictionary
-had a certain key. In Python 3, this method no longer exists. Instead, you need
-to use the in operator.
+* Use 'in' operator instead of 'has_key' method.
 
+*python2*
 
-Python 2				Python 3
+* a_dictionary.has_key('PapayaWhip')	
+* a_dictionary.has_key(x) or a_dictionary.has_key(y)
+* a_dictionary.has_key(x or y)		
+* a_dictionary.has_key(x + y)		
+* x + a_dictionary.has_key(y)
 
-a_dictionary.has_key('PapayaWhip')	'PapayaWhip' in a_dictionary
-a_dictionary.has_key(x) or a_dictionary.has_key(y)	x in a_dictionary or y in a_dictionary
-a_dictionary.has_key(x or y)		(x or y) in a_dictionary
-a_dictionary.has_key(x + y)		(x + y) in a_dictionary
-x + a_dictionary.has_key(y)		x + (y in a_dictionary)
+in operator
+===========
+
+**Python3**
+
+* 'PapayaWhip' in a_dictionary
+* x in a_dictionary or y in a_dictionary
+* (x or y) in a_dictionary
+* (x + y) in a_dictionary
+* x + (y in a_dictionary)
 
 
 Dictionary methods
 ==================
 
-* In Python 2, many dictionary methods returned lists. The most frequently used methods were keys(), items(), and values(). In Python 3, all of these methods return dynamic views.
+* Many diction methods such as keys(), items(), and values() return dynamic views.
 
+*python2*
 
-Python 2	Python 3
-a_dictionary.keys()	list(a_dictionary.keys())
-a_dictionary.items()	list(a_dictionary.items())
-a_dictionary.iterkeys()	iter(a_dictionary.keys())
-[i for i in a_dictionary.iterkeys()]	[i for i in a_dictionary.keys()]
-min(a_dictionary.keys())	no change
+* a_dictionary.keys()	
+* a_dictionary.items()	
+* a_dictionary.iterkeys()	
+* [i for i in a_dictionary.iter(a_dictionary.keys())
+* min(a_dictionary.keys())
 
+Dictionary methods
+==================
 
-Modules reorganized
-===================
+**python3**
+
+* list(a_dictionary.keys())
+* list(a_dictionary.items())
+* iter(a_dictionary.keys())
+* [i for i in a_dictionary.keys()]
+* min(a_dictionary.keys()) # no change
 
 http
 ====
 
-Notes	Python 2	Python 3
-import httplib	import http.client
-import Cookie	import http.cookies
-import cookielib	import http.cookiejar
-import BaseHTTPServer import SimpleHTTPServer import CGIHttpServer import http.server
+*python2*
+
+* import httplib	
+* import Cookie	
+* import cookielib
+* import BaseHTTPSimport, import SimpleHTTPServer, import CGIHttpServer
+
+**python3**
+
+* import http.cookies
+* import http.cookiejar
+* import http.server
 
 
 urllib
 ======
 
-import urllib	import urllib.request, urllib.parse, urllib.error
-import urllib2	import urllib.request, urllib.error
-import urlparse	import urllib.parse
-import robotparser	import urllib.robotparser
-from urllib import FancyURLopener from urllib.request import FancyURLopener
-from urllib import urlencode from urllib.parse import urlencode
-from urllib2 import Request from urllib.request import Request
-from urllib2 import HTTPError from urllib.error import HTTPError
+*python2*
+
+* import urllib
+* import urllib2
+* import urlparse
+* import robotparser
+* from urllib import FancyURLopener
+* from urllib import urlencode
+* from urllib2 import Request
+* from urllib2 import HTTPError
+
+urllib
+======
+
+**python3**
+
+* import urllib.request, urllib.parse, urllib.error
+* from urllib.parse import urlencode
+* from urllib.error import HTTPError
+* import urllib.robotparser
+* import urllib.request import FancyURLopener
+* import urllib.request import urlencode
+* import urllib.request import Request
+* import urllib.error import HTTPError
+
 
 dbm
 ===
 
-Python 2	Python 3
-import dbm	import dbm.ndbm
-import gdbm	import dbm.gnu
-import dbhash	import dbm.bsd
-import dumbdbm	import dbm.dumb
-import anydbm
-import whichdb
-import dbm
+**Python 3**
 
+* import dbm.ndbm
+* import dbm.gnu
+* import dbm.bsd
+* import dbm.dumb
 
 xmlrpc
 ======
 
-Python 2	Python 3
-import xmlrpclib	import xmlrpc.client
-import DocXMLRPCServer
-import SimpleXMLRPCServer
-import xmlrpc.server
+*Python 2*
 
-io
-==
+* import xmlrpclib
+* import DocXMLRPCServer
+* import SimpleXMLRPCServer
+* import xmlrpc.server
 
-python2
--------
+**python3**
+
+import xmlrpc.client
+
+* io module
+===========
+
+*python2*
 
 try:
     import cStringIO as StringIO
 except ImportError:
     import StringIO
 
-python3
--------
+**python3**
+
 import io
 
 pickle
 ======
 
-python2
--------
+*python2*
 
 try:
     import cPickle as pickle
 except ImportError:
     import pickle
 
-python3
--------
+**python3**
+
 import pickle
 
+modules
+=======
 
-Extra
-=====
+*python2* |==>| **python3**
 
-Extra
-=====
+* import __builtin__	|==>| import builtins
+* import copy_reg	|==>| import copyreg
+* import Queue		|==>| import queue
+* import SocketServer	|==>| import socketserver
+* import ConfigParser	|==>| import configparser
+* import repr		|==>| import reprlib
+* import commands	|==>| import subprocess
 
-Extra
-=====
-
-Python Language Moratorium
-==========================
-
-* Python 3.1 was released on June 27, 2009
-* Disallows changes to syntax, semantics, and built-ins
-* Language Moratorium to allow non-CPython implmentations to
-  catchup.
-* Help ease the adoption of Python 3.x and provide a more stable base.
-
-Defining a Stable ABI
-=====================
-
-* Python Extension modules were required to be rebuilt for each feature release
-* Now, Extension modules can limit themselves to a limited APIs **Py_LIMITED_API**
-* During the compilation of applications, the preprocessor macro Py_LIMITED_API
-  must be defined. 
-* There are list of GLOBALS, Functions available which fall under stable ABI. A definition file is made available.
-* There is a converter module, which C source can use to convert itself to ABI compatible way.
-
-import argparse
-===============
-
-* There is an argparse command line parsing module included in stdlib.
-* That makes it 3. getopt,optparse and argparse. It was quite a discussion.
-* argparse will be the future and optparse will slowly be deprecated.
-* Support for positional args, sub-commands, **'required options'**, pattern for specifying and validating options.
-* argparse has the ability to define subparsers, each with their own argument patterns and help displays:
-
-logging module - Configuration Dictionary.
-==========================================
-
-* The logging documentation has been augmented by a basic tutorial, an advanced tutorial, and a cookbook of logging recipes.
-* **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
-
-from concurrent import futures
-==============================
-
-* Code for creating and managing concurrency is being collected in a new top-level namespace, concurrent
-* first package is **futures** high level interface for managing threads and processes.
-* Inspired by java.utils.concurrent and Future Object.
-* status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions
-
-pyc directories
-===============
-* Multiple implementations can refer to their own .pyc files.
-* mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
-* pyc files are now collected in a **__pycache__** directory stored under the package directory
-* Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported
-* tag that is unique to each interpreter is accessible from the **imp** module
-
-ABI version tagged .so 
-======================
-
-* shared object files by giving them a common directory and distinct names for each version
-* common directory is “pyshared” and the file names are made distinct by identifying the Python implementation
-* **/usr/share/pyshared/foo.cpython-32m.so**
-
-WSGI 1.0.1
-==========
-
-* Well Intentioned Upgrade for WSGI to support Python3.
-* Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
-
-String formatting sub-language
-==============================
-
-* Old string formatting had '#' type specifiers. It is included in the format sublanguage for compatiblity.
-
-New string formatting methods
-=============================
-
-* **str.format_map** 
-* It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
-
-Some environment Variables
-==========================
-
-* Warnings are now easier to control using the **PYTHONWARNINGS** environment variable as an alternative to using -W.
-* **ResourceWarning**, has been added. It is emitted when potential issues with resource consumption or cleanup are detected.
-
-New methods on range
+next iterator method
 ====================
 
-* Part of an effort to make more objects fully implement the **collections.Sequence** abstract base class
+* Python3 has a global next function which takes iterator methods
 
-Unicode handling improvements
-=============================
+* anIterator.next()	|==>| next(anIterator)
+* a_function_that_returns_an_iterator().next()	|==>| next(a_function_that_returns_an_iterator())
 
-* Python’s import mechanism can now load modules installed in directories with non-ASCII characters in the path name.
-
-stdlib - 1
-==========
-
-* **email** package, **mailcap** package, **nntplib** packages work properly with bytes/text model in Python 3. 
-* Throughout stdlib there has been a careful attention to encodings and text versus bytes issues
-* Better support for SSL connections and security certificates in Internet Protocol related modules.
-* More classes now implement a context manager to support convenient and reliable resource clean-up using a with statement.
-
-stdlib improvements -2
+filter global function
 ======================
 
-* The xml.etree.ElementTree package and its xml.etree.cElementTree counterpart have been updated to version 1.3.
-* The datetime module has a new type **timezone** that implements the tzinfo interface by returning a fixed UTC offset and timezone name.
-* Many more ...
-  
-functools
-=========
+*  In Python 3, the filter() function returns an iterator, not a list.
 
-* The functools module includes a new decorator for caching function calls.
-  **functools.lru_cache()** can save repeated queries to an external resource
-  whenever the results are expected to be the same.
+* filter(a_function, a_sequence) |==>| list(filter(a_function, a_sequence))
 
-functools
-=========
+map returns iterator
+====================
 
-* We have cache stats
-* OMG! Way to get unwrapped function.
-
-functools
-=========
-
-* functools.total_ordering - rich comparison methods, a new decorator functools.total_ordering() will use a existing equality and inequality methods to fill in the remaining methods.
-* Magic happens.
+*  filter(), the map() function now returns an iterator. (In Python 2, it returned a list.)
+* map(a_function, 'PapayaWhip')	|==>| list(map(a_function, 'PapayaWhip'))
 
 
-itertools
-=========
+functools.reduce
+================
 
-collections
+* The reduce() function has been removed from the global namespace and placed in the functools module.
+
+::
+
+	from functools import reduce
+	reduce(a, b, c)
+
+apply function
+==============
+
+* the apply() function no longer exists; you must use the asterisk notation.
+
+*python2*
+
+::
+
+	apply(a_function, a_list_of_args)
+
+**python3**
+
+::
+
+	a_function(*a_list_of_args)
+
+Exception Catching Syntax
+=========================
+
+* ``except CatchSomeException as expobj:``
+
+::
+
+	try:
+	    import mymodule
+	except ImportError as e:
+	    pass
+
+Type module
 ===========
 
-* The collections.Counter class now has two forms of in-place subtraction, the existing -= operator for saturating subtraction and the new subtract() method for regular subtraction
-
-* http://en.wikipedia.org/wiki/Saturation_arithmetic
-
-
-collections
-===========
-
-threading
-=========
-
-* The threading module has a new Barrier synchronization class for making multiple threads wait until all of them have reached a common barrier point. 
-
-ast module
-==========
-
-* The ast.literal_eval() function serves as a secure alternative to the builtin eval() function which is easily abused.
-
-unicode - os module
-===================
-
-* The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.
+* The types module contained a variety of constants to help you determine the type
+of an object. 
+* In Python 2, it contained constants for all primitive types like dict and int. 
+* In Python 3, these constants have been eliminated; just use the primitive type name instead.
 
 
-unittest
-========
+Iterator related
+================
 
-* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
-* Interactivity!
-    
-urllib
-======
+* No xrange, it is just range
+* No xreadlines, just loop over file object
+* No ``from itertools import izip, imap`` builtins would return iterators.
 
-* The urlparse() function now supports IPv6 addresses as described in RFC 2732:
-* urlopen can take POST which can be an iterable. 
-* http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
+Metaclass syntax
+================
 
-There is more
-=============
+*Python2*
 
-* Thanks!
+class Whip:
+    __metaclass__ = PapayaMeta
+
+**python3**
+
+class Whip(metaclass=PapayaMeta):
+    pass
+
+memory view object
+==================
+
+Python objects implemented in C can export a “buffer interface,” which allows
+other Python code to directly read and write a block of memory. 
+
+In Python 3, buffer() has been renamed to memoryview(). Representation of
+object in memory.
+
+Change to Super Syntax
+======================
+
+*python2*
+
+::
+
+	class Child(SomeBaseClass):
+	    def __init__(self):
+		super(Child, self).__init__()
+
+**python3**
+
+::
+
+	class Child(SomeBaseClass):
+	      def __init__(self):
+		  super().__init__()
+
+print function
+==============
+
+``python "Thank you"``
+
+SyntaxError: print..
+
+``print("Thank you")``
+
