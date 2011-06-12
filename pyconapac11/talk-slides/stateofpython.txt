@@ -2,9 +2,9 @@
 .. include:: <s5defs.txt>
 .. |==>| unicode:: U+02794 .. thick rightwards arrow
 
-=================
-Python 3 Tutorial
-=================
+================
+Python Ecosystem
+================
 
 .. class:: center large
 
@@ -13,188 +13,277 @@ Python 3 Tutorial
 .. class:: center small
 
    | Senthil Kumaran
+   | - CPython Core Developer 
+   | - Engineer at Lucasfilm, Singapore.
 
 
 .. _APAC PyCon 2011: http://apac.pycon.org
 
 
-Python 3.2 Release Schedule
-===========================
-
-* 3.2 beta 1: December 4, 2010. (Feature Freeze)
-* 3.2 final: February 19, 2011  (Release Date)
-* 3.2 Release Manager: Georg Brandl
-* Binaries/Installers: Windows (Martin v. Loewis) and Mac (Ronald Oussoren)
-
-Python Language Moratorium
-==========================
-
-* Python 3.1 was released on June 27, 2009
-* Disallows changes to syntax, semantics, and built-ins
-* Language Moratorium to allow non-CPython implmentations to
-  catchup.
-* Help ease the adoption of Python 3.x and provide a more stable base.
-
-Defining a Stable ABI
-=====================
-
-* Python Extension modules were required to be rebuilt for each feature release
-* Now, Extension modules can limit themselves to a limited APIs **Py_LIMITED_API**
-* During the compilation of applications, the preprocessor macro Py_LIMITED_API
-  must be defined. 
-* There are list of GLOBALS, Functions available which fall under stable ABI. A definition file is made available.
-* There is a converter module, which C source can use to convert itself to ABI compatible way.
-
-import argparse
-===============
-
-* There is an argparse command line parsing module included in stdlib.
-* That makes it 3. getopt,optparse and argparse. It was quite a discussion.
-* argparse will be the future and optparse will slowly be deprecated.
-* Support for positional args, sub-commands, **'required options'**, pattern for specifying and validating options.
-* argparse has the ability to define subparsers, each with their own argument patterns and help displays:
-
-logging module - Configuration Dictionary.
-==========================================
-
-* The logging documentation has been augmented by a basic tutorial, an advanced tutorial, and a cookbook of logging recipes.
-* **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
-
-from concurrent import futures
-==============================
-
-* Code for creating and managing concurrency is being collected in a new top-level namespace, concurrent
-* first package is **futures** high level interface for managing threads and processes.
-* Inspired by java.utils.concurrent and Future Object.
-* status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions
-
-pyc directories
-===============
-* Multiple implementations can refer to their own .pyc files.
-* mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
-* pyc files are now collected in a **__pycache__** directory stored under the package directory
-* Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported
-* tag that is unique to each interpreter is accessible from the **imp** module
-
-ABI version tagged .so 
-======================
-
-* shared object files by giving them a common directory and distinct names for each version
-* common directory is “pyshared” and the file names are made distinct by identifying the Python implementation
-* **/usr/share/pyshared/foo.cpython-32m.so**
-
-WSGI 1.0.1
-==========
-
-* Well Intentioned Upgrade for WSGI to support Python3.
-* Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
-
-String formatting sub-language
-==============================
-
-* Old string formatting had '#' type specifiers. It is included in the format sublanguage for compatiblity.
-
-New string formatting methods
-=============================
-
-* **str.format_map** 
-* It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
-
-Some environment Variables
-==========================
-
-* Warnings are now easier to control using the **PYTHONWARNINGS** environment variable as an alternative to using -W.
-* **ResourceWarning**, has been added. It is emitted when potential issues with resource consumption or cleanup are detected.
-
-New methods on range
-====================
-
-* Part of an effort to make more objects fully implement the **collections.Sequence** abstract base class
-
-Unicode handling improvements
-=============================
-
-* Python’s import mechanism can now load modules installed in directories with non-ASCII characters in the path name.
-
-stdlib - 1
-==========
-
-* **email** package, **mailcap** package, **nntplib** packages work properly with bytes/text model in Python 3. 
-* Throughout stdlib there has been a careful attention to encodings and text versus bytes issues
-* Better support for SSL connections and security certificates in Internet Protocol related modules.
-* More classes now implement a context manager to support convenient and reliable resource clean-up using a with statement.
-
-stdlib improvements -2
-======================
-
-* The xml.etree.ElementTree package and its xml.etree.cElementTree counterpart have been updated to version 1.3.
-* The datetime module has a new type **timezone** that implements the tzinfo interface by returning a fixed UTC offset and timezone name.
-* Many more ...
-  
-functools
-=========
-
-* The functools module includes a new decorator for caching function calls.
-  **functools.lru_cache()** can save repeated queries to an external resource
-  whenever the results are expected to be the same.
-
-functools
-=========
-
-* We have cache stats
-* OMG! Way to get unwrapped function.
-
-functools
-=========
-
-* functools.total_ordering - rich comparison methods, a new decorator functools.total_ordering() will use a existing equality and inequality methods to fill in the remaining methods.
-* Magic happens.
-
-
-itertools
-=========
-
-collections
-===========
-
-* The collections.Counter class now has two forms of in-place subtraction, the existing -= operator for saturating subtraction and the new subtract() method for regular subtraction
-
-* http://en.wikipedia.org/wiki/Saturation_arithmetic
-
-
-collections
-===========
-
-threading
-=========
-
-* The threading module has a new Barrier synchronization class for making multiple threads wait until all of them have reached a common barrier point. 
-
-ast module
-==========
-
-* The ast.literal_eval() function serves as a secure alternative to the builtin eval() function which is easily abused.
-
-unicode - os module
-===================
-
-* The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.
-
-
-unittest
-========
-
-* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
-* Interactivity!
-    
-urllib
+Python
 ======
 
-* The urlparse() function now supports IPv6 addresses as described in RFC 2732:
-* urlopen can take POST which can be an iterable. 
-* http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
+Seeing Python as a language reference.
 
-There is more
-=============
+``CPython is only one of the implementation``
+``So is PyPy, Jython, IronPython, CLPython``
+``And some language implementation that you can write too``
 
-* Thanks!
+
+Python Reference Implementation
+===============================
+
+* It is called ``CPython``
+* Also known as Python, naturally.
+
+CPython Release Schedule
+========================
+
+* 3.3   - Under Development at http://hg.python.org/cpython
+* 3.2.1 - Mid June, 2011 - Georg Brandl
+* 2.7.2 - Mid June, 2011 - Benjamin Peterson
+* 3.1.4 - Mid June, 2011 - Benjamin Peterson
+* 2.6.7 - 3 - June, 2011 - Barry Warsaw
+* Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.
+
+Python3
+=======
+
+* Breaking from it's roots.
+* Moving away from it's C Background.
+* Modern Frameworks and Advanced Applications.
+* Taking good points from Java and others.
+* Fixing a lot of Language warts.
+
+
+Python3 Progress
+================
+
+* http://py3ksupport.appspot.com/
+
+
+Framework Supports
+==================
+
+* Numpy Supports
+* Support not fast in WebFramework world because of the need to sort out WSGI spec.
+* Support is steady and moving forward. 
+* People use it (and ask questions at various forums)
+
+Jython
+======
+
+.. image:: jython.png
+
+* Jython is implementation of the Python programming language written in Java.
+* The language syntax and semantics will be same as Python.
+
+Java and Jython
+===============
+
+* Import and use any Java class. 
+* Except for some standard modules, Jython programs use Java classes instead of Python modules
+
+Why Jython
+==========
+
+* You are from the Java world and do not want to feel away from home.
+* Dynamic compilation to Java bytecodes.
+* Ability to extend existing Java classes in Jython.
+* Optional static compilation - Applets, Servlets and beans
+
+Jython's features
+=================
+
+* Prototyping (using Java semantics)
+* Java investigation of classes.
+* Glues together libraries already written in Java.
+* Runs on any JVM above 1.1
+* Truly multi-threaded (no GIL) and Java garbage collected.
+
+Java Introspection
+==================
+
+::
+
+	>>> from java.util import Date
+	>>> d = Date()
+	>>> print d
+	Fri Jun 10 09:08:58 SGT 2011
+	>>> import sys
+	>>> sys.path
+
+        # [..,'__classpath__', ... ]
+
+
+Subclassing java
+================
+
+::
+
+	from java import awt
+
+	class SpamListener(awt.event.ActionListener):
+	    def actionPerformed(self,event):
+		if event.getActionCommand() == "Spam":
+		    print 'Spam and eggs!'
+
+	f = awt.Frame("Subclassing Example")
+	b = awt.Button("Spam")
+	b.addActionListener(SpamListener())
+	f.add(b, "Center")
+	f.pack()
+	f.setVisible(1)
+
+
+How is Jython doing?
+====================
+
+* Current Jython is compatible with CPython reference implementation 2.5.2
+* Supports Popular Python frameworks such as Django, Pylons, or SQLAlchemy.
+* Scripting support in IBM WebLogic and Websphere application server.
+* ZK Java Ajax Framework Support.
+* virtualenv, easy_install
+
+Jython Platform Support
+=======================
+
+* apt-get install jython
+* Or Download and java -jar jython-2.5.2.jar
+* On All platforms which support Java Standard Edition.
+* Not Java Mobile Edition, so not for Android.
+
+Performance
+===========
+
+Performance to CPython is comparable to slower in general.
+Multi-threaded applications can be faster.
+
+The good news is, it is not just an extension language, but complete programming language suitable for application development.
+
+IronPython
+==========
+
+IronPython is an implementation of the Python programming language targeting the .NET Framework and Mono.
+
+Features
+========
+
+* IronPython can use the .NET Framework and Python libraries, and other .NET languages can use Python code just as easily.
+* Release 2.7 was released on March 12, 2011 and it targets CPython 2.7.
+
+Installation
+============
+
+* IronPython 2.7 installer available for Windows Platform, as Desktop and Server Apps.
+* Pre-requisite include .NET 4.0 or Silverlight 4.
+* Also supports Browser apps development via Silverlight - Browser App for Mac and Windows.
+* via Mono - desktop app for Linux and Mac.  
+* via Moonlight plugin - as browser app for Linux.
+
+
+Why should you be interested?
+=============================
+
+* Corporate credibility, when company uses .Net technologies.
+* No GlobalInterpreterLock - IronPython has no GIL and multi-threaded code can use multi core processors
+* The .NET framework library is very big. Windows Forms support.
+* Easier to extend than CPython (C# is memory managed and C# types can be used directly in IronPython with no wrapping)
+* An extensibility layer to application frameworks written in a .NET language. 
+* Silverlight!
+
+
+Example code
+============
+
+::
+
+	import clr
+	clr.AddReference("System.Windows.Forms")
+	 
+	from System.Windows.Forms import MessageBox
+	MessageBox.Show("Hello World")
+
+
+FrameWork Support
+=================
+
+* Numpy, and Scipy support via IronClad_
+* Django_ on only with lot of hacks
+
+
+.. _IronClad: http://code.google.com/p/ironclad/
+.. _Django: https://bitbucket.org/jdhardy/django-ironpython/wiki/Run_the_Test_Suite
+
+Example Applications
+====================
+
+* http://www.silverlight.net/learn/dynamic-languages/#example_applications
+* http://ironpython.net/try
+
+Also supported in:
+
+* The Microsoft Robotics Kit
+* XNA: 3D and Games Programming Framework
+
+PyPy
+====
+
+PyPy is a Python Interpreter written in Python and it is a JIT Compiler. It focusses on Speed, Efficiency and 100% CPython compatibility.
+
+
+How will you code in PyPy
+=========================
+
+* It is just your normal pure python code!
+* Just run it against pypy interpreter.
+
+PyPy Architecture
+=================
+
+.. image:: pypy1.jpg
+
+PyPy Architecture
+=================
+
+.. image:: pypy2.png
+
+PyPy Architecture
+=================
+
+.. image:: pypy3.png
+
+Release
+=======
+
+* CPython 2.7.1 compatible. It runs on 32- and 64-bit Intel x86 architecture and includes a JIT compiler.
+
+
+Framework Compatiblity
+======================
+
+* A plenty. Pylons, Pyglet, Nevow and Django.
+* Almost anything that does not involve ctypes module.
+* Tkinter and IDLE with PyPy
+* Numpy integration is in progress.
+
+
+Performance
+===========
+
+.. image:: pypy4.png
+
+Speed,Speed,Speed
+=================
+
+* It's all about Speed.
+
+http://speed.pypy.org/
+
+The Future
+==========
+
+* It's Python Language!
+* Choose the implementation which suits you most
+* Work alongside other languages and frameworks.
+

@@ -1,1 +1,1 @@
-rst2s5.py --theme=s5uthcode stateofpython.txt stateofpython.html
+rst2s5 --theme=s5uthcode stateofpython.txt stateofpython.html
