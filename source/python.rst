@@ -2681,7 +2681,8 @@ References
 
 Links
 =====
-http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
+
+* http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
 
 * "Python Objects", Fredrik Lundh,
   http://www.effbot.org/zone/python-objects.htm
