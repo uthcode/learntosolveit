@@ -712,7 +712,7 @@ in an unexpected manner during program evaluation?**
         You can make your own key function, or use any existing one-argument function
         if applicable:
 
-           * ``str.lower`` to sort alphabetically regarless of case.
+           * ``str.lower`` to sort alphabetically regardless of case.
            * ``len`` to sort on the length of the items (strings or containers).
            * ``int`` or ``float`` to sort numerically, as with numeric strings
              like "2", "123", "35".
@@ -862,7 +862,6 @@ in an unexpected manner during program evaluation?**
 
                 >>> german_ae = unicode("\xc3\xa4",'utf8')
                 >>> sentence = "this is a " + german_ae
-                >>> sentece2 = "Easy!"
                 >>> sentence2 = "Easy!"
                 >>> para = ".".join([sentence, sentence2])
                 >>> para
@@ -1275,7 +1274,7 @@ in an unexpected manner during program evaluation?**
         of doing more or less the same (conceptual) thing.
 
         http://code.activestate.com/recipes/52304/ the recipe here shows a way to make
-        a funtion within a class as callable by using wrapping techniques. This was
+        a function within a class as callable by using wrapping techniques. This was
         later generalized to staticmethods.
 
         Conceptually they are both ways of defining a method that applies at the class
@@ -1349,7 +1348,7 @@ in an unexpected manner during program evaluation?**
         Coroutines are subroutines that allow multiple entry points for suspending and
         resuming execution at certain locations.  Subroutine are subprograms, methods,
         functions for performing a subtask and it is relatively independent of other
-        task.  Coroutines are usful for implementing cooperative tasks, iterators,
+        task.  Coroutines are useful for implementing cooperative tasks, iterators,
         infinite lists and pipes.  Cooperative Tasks - Similar programs, CPU is yielded
         to each program coperatively.  Iterators - an object that allows the programmer
         to traverse all the elements of a collection.  Lazy Evaluation is the technique
@@ -2675,8 +2674,6 @@ References
 ----------
 
 * [http://code.activestate.com/recipes/86900/ Factory Example]
-* [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
-
 * [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
 
 Links
