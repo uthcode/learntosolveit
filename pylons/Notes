@@ -1,4 +1,4 @@
-Here are some cons of writing CGI scripts
+Here are some problems with writing CGI scripts
 
 * Every script in the site needs the same code to load the config file and to
   handle the errors.
@@ -21,8 +21,8 @@ Here are some cons of writing CGI scripts
 
 Solution
 
-        * A Model View Controller (MVC) architecture
-        * Convention over configuration
+* A Model View Controller (MVC) architecture
+* Convention over configuration
 
 Pylons also puts particular emphasis on loose coupling and clean separation.
 You’ll learn about each of these ideas in the following sections.
