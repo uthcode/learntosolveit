@@ -1,3 +1,6 @@
+Pylons
+======
+
 Here are some problems with writing CGI scripts
 
 * Every script in the site needs the same code to load the config file and to
@@ -25,9 +28,9 @@ Solution
 * Convention over configuration
 
 Pylons also puts particular emphasis on loose coupling and clean separation.
-You’ll learn about each of these ideas in the following sections.
 
-The Model View Controller architecture is a result of the recognition that, at their heart, most web applications:
+The Model View Controller architecture is a result of the recognition that, at
+their heart, most web applications:
 
 * Store and retrieve data in a way that is natural to the programming language involved (the model)
 * Represent the data in various ways, most commonly as HTML pages (the view)
@@ -61,16 +64,22 @@ Exploring Pylons
 
 Beaker is used for caching
 
-
-Paste is used for project setup, testing, and deployment. Using the common INI configuration format, Paste allows for multiple "profiles", so that developers can run development and deployment setups from the same codebase without revealing sensitive parts of Pylons, such as the interactive debugger, to production users.
+Paste is used for project setup, testing, and deployment. Using the common INI
+configuration format, Paste allows for multiple "profiles", so that developers
+can run development and deployment setups from the same codebase without
+revealing sensitive parts of Pylons, such as the interactive debugger, to
+production users.
 
 URL Dispatching
 
-Currently the only widely used URL dispatcher for Pylons is Routes, a Python reimplementation of Ruby on Rails' URL dispatching, although any WSGI-compatible URL dispatcher can be used. While Routes is a separate library, it was developed for use in Pylons and its development remains closely in sync with Pylons.
+Currently the only widely used URL dispatcher for Pylons is Routes, a Python
+reimplementation of Ruby on Rails' URL dispatching, although any
+WSGI-compatible URL dispatcher can be used. While Routes is a separate library,
+it was developed for use in Pylons and its development remains closely in sync
+with Pylons.
 
 Templating Language, Mako is text-based (as opposed to XML-based), and support
 includes, inheritance and embedding arbitrary Python code.
-
 
 Pylons has no default database library. Both SQLObject and SQLAlchemy  are
 known to be used.
@@ -108,8 +117,10 @@ These utilities are part of the Paste project, but form their own packages and
 have their own version numbers. They include:
 
 * WebOb is a wrapper around the WSGI environment.
-* Paste Deploy is a system for finding and configuring WSGI applications and servers.
-* Paste Script, WebTest, ScriptType, INITools, Tempita, WaitForIt, WPHP, WSGIFilter, and WSGIProxy are other notable bundles.
+* Paste Deploy is a system for finding and configuring WSGI applications and
+  servers.
+* Paste Script, WebTest, ScriptType, INITools, Tempita, WaitForIt, WPHP,
+  WSGIFilter, and WSGIProxy are other notable bundles.
 
-Mako is significantly more powerful than Django, with arbitrary expressions, defs, template inheritance (beyond layouts).
-
+Mako is significantly more powerful than Django, with arbitrary expressions,
+defs, template inheritance (beyond layouts).
