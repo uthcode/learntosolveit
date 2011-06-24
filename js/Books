@@ -1,0 +1,42 @@
+http://eloquentjavascript.net/
+http://jqfundamentals.com/book/
+https://developer.mozilla.org/en/a_re-introduction_to_javascript
+
+Introduction to Javascript.
+
+JavaScript is an object oriented dynamic language; it has types and operators,
+core objects, and methods. Its syntax comes from the Java and C languages, so
+many structures from those languages apply to JavaScript as well. One of the
+key differences is that JavaScript does not have classes; instead, the class
+functionality is accomplished by object prototypes. The other main difference
+is that functions are objects, giving functions the capacity to hold executable
+code and be passed around like any other object.
+
+Let's start off by looking at the building block of any language: the types.
+JavaScript programs manipulate values, and those values all belong to a type.
+JavaScript's types are:
+
+	* Numbers
+	* Strings
+	* Booleans
+	* Functions
+	* Objects
+
+Oh, and Undefined and Null, which are slightly odd. And Arrays, which are a
+special kind of object. And Dates  and Regular Expressions, which are objects
+that you get for free. And to be technically accurate, functions are just a
+special type of object. So the type diagram looks more like this:
+
+    * Number
+    * String
+    * Boolean
+    * Object
+          o Function
+          o Array
+          o Date
+          o RegExp
+    * Null
+    * Undefined
+
+And there are some built in Error types as well. Things are a lot easier if we
+stick with the first diagram, though.
