@@ -9,9 +9,9 @@ Python's mercurial process
 ==========================
 
 * update all codelines using your script.
-* start working on 3.1 codeline and fix and commit and push. It will push it 3.2
-* hg pull -u ../3.1
-* hg merge 3.1
+* start working on 3.2 codeline and fix and commit and push. It will push it cpython
+* hg pull -u ../3.2
+* hg merge 3.2
 * resolve any conflicts.
 * do the same for cpython
 * hg push will commit your changes.

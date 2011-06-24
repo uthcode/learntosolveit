@@ -1,3 +1,5 @@
-import urllib.request, urllib.parse, urllib.error
-import pudb;pudb.set_trace()
-urllib.request.urlopen('http://www.google.com')
+import urllib2
+
+with urllib2.urlopen('http://www.google.com') as req:
+    res = req.read()
+print res
