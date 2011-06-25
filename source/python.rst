@@ -25,6 +25,99 @@ Bring your Repo in sync with main
 * hg commit
 * hg push
 
+Some Hg notes (from Ezio's presentation)
+
+HG Terms and Concepts
+=====================
+
+Repository (repo)
+The dir named .hg in the repository root dir that contains the history of the project.
+Clone
+A copy of a repository.
+Committing
+Saving local changes to the repository.
+Updating
+Applying changes from the repo to the local copy.
+Changeset (cset)
+An atomic collection of changes to files in a repository.
+Pushing/Pulling
+Exchanging changesets from a repo to another.
+
+HG is a DVCS
+------------
+* distributed
+* peer-to-peer
+* doesn't require a network for most of the operation
+
+SVN is a VCS
+------------
+
+* centralized
+* client-server
+* requires a network for most of the operation
+* Two different tools, two different approaches
+* check hginit for an SVN re-education: http://hginit.com/00.html
+
+HG Basic Usage
+--------------
+
+Basic usage
+
+* hg init creates a new repository ...but you won't need this
+* hg clone creates a copy of an existing repo:
+        hg clone http://hg.python.org/cpython or
+        hg clone ssh://hg@hg.python.org/cpython (for committers)
+* hg branches to see the list of branches
+* hg branch to see the current branch
+* hg up <branchname> to change branch.
+* hg pull to get the latest changesets in the local repo
+* hg up to apply them to the working copy
+* hg pull -u to do both at once
+* hg stat to see the changed file in the working copy
+* hg diff to see the changed code in the working copy
+* hg ci -m 'message' to save local changes in the repo
+* hg push to send the committed cset to another repo
+ 
+
+Running the Test Suite
+----------------------
+
+Run the tests with regrtest
+Runner of the Python test suite. Lives in Lib/test/regrtest.py.
+Examples:
+./python -m test.regrtest to run the test suite
+./python -m test.regrtest -uall to run all the tests
+./python -m test.regrtest -j4 to run the tests in 4 processes
+./python -m test.regrtest test_foo to run test_foo
+./python -m test.regrtest -R 3:2 to check for refleaks
+./python -m test.regrtest --help to see all the options
+
+
+Creating and Applying Patches
+-----------------------------
+
+Create a patch:
+Run make patchcheck before creating it.
+hg diff > issue1234.diff
+Apply it:
+patch -p1 < issue4321.diff, or
+hg import --no-commit < issue4321.diff
+
+
+
+
+Python C-API
+============
+
+The Python API is incorporated in a C source file by including the header
+"Python.h"
+
+Do note that if your use case is calling C library functions or system calls,
+you should consider using the ctypes module rather than writing custom C code.
+Not only does ctypes let you write Python code to interface with C code, but it
+is more portable between implementations of Python than writing and compiling
+an extension module which typically ties you to CPython.
+
 distutils
 =========
 
