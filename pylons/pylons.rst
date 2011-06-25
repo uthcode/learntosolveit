@@ -32,9 +32,13 @@ Pylons also puts particular emphasis on loose coupling and clean separation.
 The Model View Controller architecture is a result of the recognition that, at
 their heart, most web applications:
 
-* Store and retrieve data in a way that is natural to the programming language involved (the model)
+* Store and retrieve data in a way that is natural to the programming language
+  involved (the model)
+
 * Represent the data in various ways, most commonly as HTML pages (the view)
-* Execute logic code to manipulate the data and control how it is interacted with (the controllers)
+
+* Execute logic code to manipulate the data and control how it is interacted
+  with (the controllers)
 
 Requests are dispatched to a controller, which is an ordinary Python class with
 methods called actions that handle the application logic. The controller then
@@ -128,4 +132,3 @@ defs, template inheritance (beyond layouts).
 
 Pylons applications are usually given a package name in CamelCase, but the
 application directory itself is the lowercase version of the package name. 
-
