@@ -1,5 +1,0 @@
-Programs that demonstrate the use of the audio device on the SGI 4D/25.
-These require the built-in module 'audio'.
-
-play           Read a sound sample from a file and play it through the
-               speaker.  Options to set volume, sampling rate etc.
