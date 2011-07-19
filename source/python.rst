@@ -16,7 +16,6 @@ Python's mercurial process
 * do the same for cpython
 * hg push will commit your changes.
 
-
 Bring your Repo in sync with main
 =================================
 
@@ -104,8 +103,6 @@ patch -p1 < issue4321.diff, or
 hg import --no-commit < issue4321.diff
 
 
-
-
 Python C-API
 ============
 
@@ -127,6 +124,8 @@ standardize the egg-info directories and provide APIs PEP-345 PKG-INFO content.
 
 http://distutils2.notmyidea.org/
 
+http://mail.python.org/pipermail/python-dev/2010-November/105772.html
+
 
 Discussion on Bugs
 ==================
@@ -139,7 +138,6 @@ Discussion on Bugs
 * Unknown charset for headers in email module. 
 * zipfile.py end of central directory detection not robust.
 * test_threadsignals was failing on freebsd old version.
-* REMOTE_USER collision in wsgiref, the bug was withdrawn. 
 * What is a _weakref.proxy?  
 * os.getpriority and os.setpriority ? 
 * When to use the PY_BEGIN_THREAD and PY_END_THREAD. 
@@ -1672,7 +1670,7 @@ in an unexpected manner during program evaluation?**
         Factory method design pattern is used quite often in Python. It is a creational
         pattern, dealing with creation of objects (products) without specifying the
         exact class. The creational patterns abstract the concept of instantiating
-        objects.  and It handles this case by defining a separate method for creation
+        objects and It handles this case by defining a separate method for creation
         objects.
 
         The subclasses of that method or object can override to specify the derived
@@ -1840,7 +1838,7 @@ implemented by calling a registered function when each function is ready to go
 for reading or writing - commonly known as asynchronous, event based, callback
 based programming.  
 
-In synchrnous programming, a function requests data, waits for the data, and
+In synchronous programming, a function requests data, waits for the data, and
 then processes it. In asynchronous programming, a function requests the data,
 and lets the library call the callback function when the data is ready.
 
@@ -1990,9 +1988,9 @@ Unicode Notes
 A good introductory document for getting started with Unicode is, 
 `Joel's article on Unicode`_
 
-*Trivia: In ASCII when you press CNTL, you subtract 64 from the value of the
+Trivia: In ASCII when you press CNTL, you subtract 64 from the value of the
 next character.  So BELL is ASCII 7, which is CNTL+G, (CNTL is 64) and G is
-71.*
+71.
 
 IN ASCII, the Codes below 32 were called unprintable. The space was 32 and
 letter A was 65.  This could conveniently be stored in 7 bits.  Most computers

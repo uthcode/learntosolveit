@@ -16,23 +16,37 @@ Java Script
 * The mechanism of closures in Javascript is by Inner Functions.
 * Javascript uses prototypes instead of classes for defining object properties.
 * functions are same as methods
-* Run time environment. Javascript typically relies on the run-time environment (e.g. in a web browser) to provide objects and methods by which. For e.g. Javascript needs to be run inside of the {{{<script> }}} HTML tag.
-* An indefinite number of parameters can be passed to a function, it can either access them through formal parameters or as the local argument.
-* Like many scripting languages, arrays and objects can each be created with an succient shortcut syntax.
-* The primary use of Javascript is to write functions that are embedded in or included from HTML pages and interact with the Document Object Model (DOM) of the page. 
+* Run time environment. Javascript typically relies on the run-time environment
+  (e.g. in a web browser) to provide objects and methods by which. For e.g.
+  Javascript needs to be run inside of the {{{<script> }}} HTML tag.
+* An indefinite number of parameters can be passed to a function, it can either
+  access them through formal parameters or as the local argument.
+* Like many scripting languages, arrays and objects can each be created with an
+  succient shortcut syntax.
+* The primary use of Javascript is to write functions that are embedded in or
+  included from HTML pages and interact with the Document Object Model (DOM) of
+  the page. 
 * Opening or popping up a new window with programmatic.
 * Javascript dispatches the requests for information to the server.
-* The Javascript engine (the interpretor) was codenamed Spidermonkey this was written in C by Brenden Eich.
+* The Javascript engine (the interpretor) was codenamed Spidermonkey this was
+  written in C by Brenden Eich.
 * Rhino, another Javascript engine was written in Java by Norris Boyd.
-* Webbrowser by far is the most common host environment for Java Script. Web browsers typically use the publick API to "create host objects" responsible for reflecting the DOM into Javascript.
-* In simple terms, DOM is the way Javascript sees the containing HTML page and the browser state.
+* Webbrowser by far is the most common host environment for Java Script. Web
+  browsers typically use the public API to "create host objects" responsible
+  for reflecting the DOM into Javascript.
+* In simple terms, DOM is the way Javascript sees the containing HTML page and
+  the browser state.
 * Security related aspects: Scripts are run in a sandbox.
 * Scripts are restricted to a same origin policy.
-* Action Script  programming language in Adobe flash is another implementation of ECMAScript.
-* Java programming language, version 6, introduced javax.script package, including a Java Script implementation based on Mozilla Rhino.
+* Action Script  programming language in Adobe flash is another implementation
+  of ECMAScript.
+* Java programming language, version 6, introduced javax.script package,
+  including a Java Script implementation based on Mozilla Rhino.
 * Web applications within firefox can be debugged using the firebug on.
-* JSON, or Java Script Object Notation is a general purpose data interchange format, that is defined as a subset of Java Script.
-* Javascript can be considered a functional programming language, similar to scheme or OCAML because it has closures and supports higher order functions.
+* JSON, or Java Script Object Notation is a general purpose data interchange
+  format, that is defined as a subset of Java Script.
+* Javascript can be considered a functional programming language, similar to
+  scheme or OCAML because it has closures and supports higher order functions.
 * The current javascript version is 1.9
 
 Online Material
@@ -40,8 +54,13 @@ Online Material
 
 https://developer.mozilla.org/en/A_re-introduction_to_JavaScript
 
-* Unlike most programming languages, javascript has no concept of input or output. It is designed to run as a scripting language in a host environment, it is upto the host environment to provide mechanisms to communicate with the external world.
-* The most common host environment is the browser, but the Javascript interpretor can also be found in Adobe Acrobat, Photoshop, Yahoo! Widget Engine.
+* Unlike most programming languages, javascript has no concept of input or
+  output. It is designed to run as a scripting language in a host environment,
+  it is upto the host environment to provide mechanisms to communicate with the
+  external world.
+* The most common host environment is the browser, but the Javascript
+  interpretor can also be found in Adobe Acrobat, Photoshop, Yahoo! Widget
+  Engine.
 
 types
 =====
@@ -59,14 +78,18 @@ types in javascript are
  * Undefined
  * Null
 
-
  * There is no such thing as integers in Javascript.
- * The standard numeric operators are supported, addition, subtraction and modulus ( WTF, modulus on float ?)
+ * The standard numeric operators are supported, addition, subtraction and
+   modulus (modulus on float ?)
  * math object is available for advanced operations.
- * Strings in Javascripts are sequence of characters, more importantly they are sequence of unicode characters.
- * Javascript distinguishes between null object, which is an object of type 'object' that indicates a delibrate non-value and undefined which is an object of type undefined that indicates an unintialized value.
+ * Strings in Javascripts are sequence of characters, more importantly they are
+   sequence of unicode characters.
+ * Javascript distinguishes between null object, which is an object of type
+   'object' that indicates a delibrate non-value and undefined which is an
+   object of type undefined that indicates an unintialized value.
  * New variables in JavaScript are declared using the var keyword.
- * If you add string to a number (or other value), everything is converted in to a string first.
+ * If you add string to a number (or other value), everything is converted in
+   to a string first.
 
 :: 
   > "3" + 4 + 5
@@ -79,9 +102,13 @@ types in javascript are
  * Javascript also has bitwise operations, if you want to use them, they are there.
  * var name = o && o.getName()  What will this be set to?
  * You can have expressions in both the switch and the case parts.
- * var obj = {}; this method of creating objects is called object literal syntax. It was not present in the initial version of javascript.
- * obj.name = "Simon" and obj["name"] = "Simon" are the two ways to access the object. The second method has an advantage that the name of the property which is provided as string can be calculated at run-time.
- * obj.for will result in an error because for is a reserved keyword; while obj["for"] will work fine.
+ * var obj = {}; this method of creating objects is called object literal
+   syntax. It was not present in the initial version of javascript.
+ * obj.name = "Simon" and obj["name"] = "Simon" are the two ways to access the
+   object. The second method has an advantage that the name of the property
+   which is provided as string can be calculated at run-time.
+ * obj.for will result in an error because for is a reserved keyword; while
+   obj["for"] will work fine.
  * Object literal syntax can be used to initialize the object in entirety.
 
 :: 
@@ -111,10 +138,13 @@ types in javascript are
  * array.length is one more than the highest index of the array.
  * splice method on a array lets you modify an array by deleting a section and replacing it with more items.
  * unshift prepends items to the start of the array.
- * javascript allows you to call functions recursively. It is useful for dealing with tree structures, such as you get in browser DOM.
- * For nameless functions, recursive call can be done using arguments.callee method which points to the current function. 
+ * Javascript allows you to call functions recursively. It is useful for
+   dealing with tree structures, such as you get in browser DOM.
+ * For nameless functions, recursive call can be done using arguments.callee
+   method which points to the current function. 
  * Since arguments.callee is the current function and all functions are
-   objects, you can use arguments.callee to save information across multiple calls to the same function.
+   objects, you can use arguments.callee to save information across multiple
+   calls to the same function.
  
 ::
 
@@ -130,10 +160,14 @@ types in javascript are
             return this.last + ', ' + this.first;
         }
 
- * Person.prototype is an object shared by all instances of Person. It forms part of a lookup chain (that has a special name, "prototype chain"): any time you attempt to access the property of Person that isn't set, JavaScript will check Person.prototype to see if that property exists there instead.
+ * Person.prototype is an object shared by all instances of Person. It forms
+   part of a lookup chain (that has a special name, "prototype chain"): any
+   time you attempt to access the property of Person that isn't set, JavaScript
+   will check Person.prototype to see if that property exists there instead.
+
  * This is an incredibly powerful tool. JavaScript lets you modify something's
-  prototype at any time in your program, which means you can add extra methods
-  to existing objects at runtime.
+   prototype at any time in your program, which means you can add extra methods
+   to existing objects at runtime.
 
 :: 
 

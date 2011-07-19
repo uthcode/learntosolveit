@@ -189,9 +189,9 @@ O.R.Senthil Kumaran
 .. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
 .. _PyCon 2009 Conference: http://us.pycon.org/2009/tutorials/schedule/2PM6/
 .. _PyCon 2010 Conference: http://us.pycon.org/2010/tutorials/kumaran_python201/
-.. _Patent Application- July 2006: http://linkmenow.org/patent1
-.. _Patent Application- September 2006: http://linkmenow.org/orsenthilpatent2
-.. _Patent Application- August 2008: http://linkmenow.org/orsenthilpatent3
+.. _Patent Application- July 2006: 
+.. _Patent Application- September 2006: 
+.. _Patent Application- August 2008:
 .. _Power Solutions - 2004: www.dell.com/downloads/global/power/ps4q04-20040115-Kumaran.pdf
 .. _Power Solutions - 2007: http://www.dell.com/downloads/global/power/ps2q07-20070309-Senthil-OE.pdf
 .. _Libsmbios: http://linux.dell.com/libsmbios/main/index.html 
@@ -202,3 +202,9 @@ O.R.Senthil Kumaran
 .. _ngwallpaper: http://ngwallpaper.googlecode.com 
 .. _pyljvim: http://www.vim.org/scripts/script.php?script_id=1724
 .. _pygame07: http://www.pyweek.org/e/v4victory/
+
+
+http://www.google.com/patents?id=N6usAAAAEBAJ  
+http://www.google.com/patents?id=oAOdAAAAEBAJ
+http://www.google.com/patents?id=PLCYAAAAEBAJ
+http://www.google.com/patents?id=HJnVAAAAEBAJ
