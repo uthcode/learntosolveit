@@ -40,3 +40,5 @@ special type of object. So the type diagram looks more like this:
 
 And there are some built in Error types as well. Things are a lot easier if we
 stick with the first diagram, though.
+
+
