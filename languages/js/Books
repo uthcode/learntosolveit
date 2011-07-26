@@ -42,3 +42,14 @@ And there are some built in Error types as well. Things are a lot easier if we
 stick with the first diagram, though.
 
 
+JQuery
+------
+
+There are any number of articles and blog posts out there that address some
+aspect of jQuery. Some are phenomenal; some are downright wrong. When you read
+an article about jQuery, be sure it's talking about the same version as you're
+using, and resist the urge to just copy and paste — take the time to understand
+the code in the article. 
+
+
+=======

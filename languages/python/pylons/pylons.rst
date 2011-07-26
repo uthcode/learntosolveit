@@ -129,6 +129,5 @@ have their own version numbers. They include:
 Mako is significantly more powerful than Django, with arbitrary expressions,
 defs, template inheritance (beyond layouts).
 
-
 Pylons applications are usually given a package name in CamelCase, but the
 application directory itself is the lowercase version of the package name. 
