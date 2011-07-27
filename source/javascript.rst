@@ -8,14 +8,18 @@ Java Script
   not present, and behaviour reuse is performed via a process of cloning
   existing objects that serve as prototypes.
 * Originally developed by Brenden Eich of Netscape.
-* The key design principles of javascript are inherited from Self and Scheme programming languages.
-* Initially many programmers denigrated the language because its target audience was 'web authors'.
-* The advent of AJAX returned Javascript to attention and brought more professional programming attention.
+* The key design principles of Javascript are inherited from Self and Scheme
+  programming languages.
+* Initially many programmers denigrated the language because its target
+  audience was 'web authors'.
+* The advent of AJAX returned Javascript to attention and brought more
+  professional programming attention.
 * The result was proliferation of frameworks and libraries and server side javascript too.
-* Javascript supports all the structed programming syntax in C (if statements, while loops, switch statements etc)
+* Javascript supports all the structed programming syntax in C (if statements,
+  while loops, switch statements etc)
 * The mechanism of closures in Javascript is by Inner Functions.
 * Javascript uses prototypes instead of classes for defining object properties.
-* functions are same as methods
+  Functions are same as methods
 * Run time environment. Javascript typically relies on the run-time environment
   (e.g. in a web browser) to provide objects and methods by which. For e.g.
   Javascript needs to be run inside of the {{{<script> }}} HTML tag.
@@ -65,16 +69,22 @@ https://developer.mozilla.org/en/A_re-introduction_to_JavaScript
 types
 =====
 
+Javascript is an object oriented language. It has types and operators, core
+objects and methods. It is C and Java, but with the key difference that it does
+not have classes.  The class functionality is accomplished by Object
+prototypes. Functions are objects too. You can toss around function as an
+argument to another function.
+
 types in javascript are 
 
  * Numbers
  * Strings
  * Boolean
  * Objects
- * functions
- * Arrays
- * Dates
- * Regular Expression.
+    * functions
+    * Arrays
+    * Dates
+    * Regular Expression.
  * Undefined
  * Null
 
@@ -90,6 +100,9 @@ types in javascript are
  * New variables in JavaScript are declared using the var keyword.
  * If you add string to a number (or other value), everything is converted in
    to a string first.
+
+Numbers are double precision 64-bit format IEEE 754 values.
+
 
 :: 
   > "3" + 4 + 5
@@ -229,3 +242,81 @@ Java Script Tutorial
 
  * DOM is a platform and a language neutral interface that allows programs and scripts to dynamically access and update the content, structure and the style of the document.
  * This Model describes each webpage element, which of its properties can be changed and how to do it. DOM provides an object oriented programming interface between HTML/CSS and JavaScript.
+   zR
+
+Mako
+----
+
+mako for people in hurry. The Mako template library deals with 'view' portion
+of the Pylons framework. It generates (X)HTML code, CSS and javascript that is
+sent to the browser.
+
+Base.mako template
+
+# -*- coding: utf-8 -*-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    ${self.head_tags()}
+  </head>
+  <body>
+    ${self.body()}
+  </body>
+</html>
+
+
+- Expressions wrapped in ${...} are evaluated by Mako and returned as text.
+- ${ and } may span several lines but closing brace should not be a line by itself.
+- Functions that are part of the self namespace are defined in the Mako
+templates !! (I don't understand this).
+
+
+Create another file in myapp/templates called my_action.mako and enter the following.
+
+# -*- coding: utf-8 -*-
+<%inherit file="/base.mako" />
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+<h1>My Controller</h1>
+<p>Lorum ipsum dolor yadda yadda</p>
+
+- The inherit tag specifies a parent file to pass the program flow to.
+- Mako defines functions with <% def name="function_name()">...</%def>. The
+contents of the tag is returned.
+- Anything left after the Mako tags are parsed is automatically put into the
+body() function.
+
+
+Rendering the Mako template as a controller.
+
+In the controller - use the following as return value.
+return render('my_action.mako')
+
+Passing variables to Mako from the controller.
+
+- The c object is passed to Mako from the controller.
+- c.title = "Mr John Lives"
+- <title>${c.title}</title>
+- There is a webhelper function. link tag to the css or js. cool.
+- Write python code in the mako by including it within <% and %>.
+
+Output from python in mako is via template context.
+%if %end, %for %endfor, %while %endwhile are the flow elements.
+
+
+
+
+
+
+
+
+Questions
+=========
+
+$('.task-edit .parent-entity-fields input').removeAttr('disabled');
+
+- What is happening here? .task-edit, .parent-entity-fields??
+- jquery?
+
