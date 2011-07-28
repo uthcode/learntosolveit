@@ -475,3 +475,23 @@ These are all classes which are searched from left to right.
 - What is happening here? .task-edit, .parent-entity-fields??
 - jquery?
 
+
+SlickGrid
+=========
+
+https://github.com/mleibman/SlickGrid/wiki
+
+DOM Nodes are continously being created and removed. It does a few other things
+to maximize performance, such as dynamically generating and updating CSS rules,
+so that resize.
+
+SlickGrid in the simplest scenario, it accesses data through an array
+interface. Using the dataitem to get an item at a given position and
+"data.length" to determine the number of items, but the API is structured in
+such a way that it is very easy to make the grid react to any possible changes
+to the underlying data.
+
+
+
+
+
