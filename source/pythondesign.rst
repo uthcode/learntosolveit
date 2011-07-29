@@ -22,7 +22,7 @@ Overview
 Explains the Python's byte-code evaluation. For e.g, what happen's when you do
 
 ::
-	python -c "python('hello,world')
+	python -c "print('hello,world')"
 
 Python’s binary is executed, the standard C library initialization happens and
 then the main function starts executing from ``./Modules/python.c: main``,
@@ -41,7 +41,7 @@ hosts all builtins.
 It will execute a single string, since we invoked it with *-c*. To execute this
 single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called.
 This function creates the ``__main__`` namespace 'where’ our string will be
-executed. After the namespace is created, the string is executed in it To do
+executed. After the namespace is created, the string is executed in it. To do
 that, you must first transform the string into something that machine can work
 on.
 
@@ -929,7 +929,7 @@ feed them to ``PyNumber_Subtract``, which is a C function that accepts two
 
 What gets the arguments onto the stack are the ``LOAD_NAME`` and ``LOAD_CONST``
 opcodes, and what will take the result out of the stack and into wherever it is
-heading is the ``STORE_NAME`` ocopde. It is opcodes like this that implement
+heading is the ``STORE_NAME`` opcode. It is opcodes like this that implement
 the rules of naming and scoping, since the C code implementing them is what
 will actually look into the dictionaries representing the relevant namespaces
 trying to resolve the name and bring the resulting object unto the stack, or
