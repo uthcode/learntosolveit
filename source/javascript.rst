@@ -283,7 +283,7 @@ a.sort(cmpfn), a.splice(start, delcount, [item]...), a.unshift([item]..)
 Along with objects, functions are the core components in understanding JavaScript.
 
 Functions have access to additional variable inside their body called
-arguments, whichi is an array like object holding all the values passed to the
+arguments, which is an array like object holding all the values passed to the
 function.
 
 The nameless functions are useful and clever because it allows you to put a
@@ -323,6 +323,7 @@ Every object in Javascript is an instance of the object Object and therefore
 inherits it's properties and methods.
 
 jQuery
+------
 
 jQuery's syntax is designed to make it easier to navigate a document, select
 DOM elements, create animations, handle events, and develop Ajax applications.
@@ -335,7 +336,8 @@ creation of powerful and dynamic web pages and web applications.
 
 jQuery contains the following features:
 
-* DOM element selections using the cross-browser open source selector engine Sizzle, a spin-off out of the jQuery project.
+* DOM element selections using the cross-browser open source selector engine
+  Sizzle, a spin-off out of the jQuery project.
 * DOM traversal and modification (including support for CSS 1-3)
 * Events
 * CSS manipulation
@@ -348,7 +350,7 @@ jQuery contains the following features:
 The jQuery library is a single JavaScript file, containing all of its common
 DOM, event, effects, and Ajax functions. It can be included within a web page
 by linking to a local copy, or to one of the many copies available from public
-servers (such as Google [10]  or Microsoft CDN).
+servers such as Google or Microsoft CDN.
 
 <script type="text/javascript" src="jquery.js"></script>
 
@@ -367,8 +369,11 @@ $(function() {
 jQuery has two usage styles:
 
 * via the $ function, which is a factory method for the jQuery object. These
-functions, often called commands, are chainable; they all return jQuery objects
-* via $.-prefixed functions. These are utility functions which do not work on the jQuery object per se.
+  functions, often called commands, are chainable; they all return jQuery
+  objects
+
+* via $.-prefixed functions. These are utility functions which do not work on
+  the jQuery object per se.
 
 Typically, access to and manipulation of multiple DOM nodes begins with the $
 function being called with a CSS selector string, which results in a jQuery
@@ -447,7 +452,6 @@ contents of the tag is returned.
 - Anything left after the Mako tags are parsed is automatically put into the
 body() function.
 
-
 Rendering the Mako template as a controller.
 
 In the controller - use the following as return value.
@@ -463,7 +467,6 @@ Passing variables to Mako from the controller.
 
 Output from python in mako is via template context.
 %if %end, %for %endfor, %while %endwhile are the flow elements.
-
 
 Questions
 =========
@@ -490,8 +493,4 @@ interface. Using the dataitem to get an item at a given position and
 "data.length" to determine the number of items, but the API is structured in
 such a way that it is very easy to make the grid react to any possible changes
 to the underlying data.
-
-
-
-
 
