@@ -76,6 +76,8 @@ Basic usage
 * hg diff to see the changed code in the working copy
 * hg ci -m 'message' to save local changes in the repo
 * hg push to send the committed cset to another repo
+* hg log -p -r hgchangesetid 
+* hg diff -p -r hgchangesetid
  
 
 Running the Test Suite
@@ -90,6 +92,8 @@ Examples:
 ./python -m test.regrtest test_foo to run test_foo
 ./python -m test.regrtest -R 3:2 to check for refleaks
 ./python -m test.regrtest --help to see all the options
+./python -m test -m testSourceAddress -Fv -j3 test_smtplib                                                                                          
+                                                              
 
 
 Creating and Applying Patches
@@ -117,6 +121,13 @@ an extension module which typically ties you to CPython.
 
 distutils
 =========
+
+Was the mechanism to distribute python packages and extensions since Python
+1.6.  Introduced new version control comparision algorithm in distutil.  PEP-376
+standardize the egg-info directories and provide APIs PEP-345 PKG-INFO content.
+
+http://distutils2.notmyidea.org/
+
 
 Was the mechanism to distribute python packages and extensions since Python
 1.6.  Introduced new version control comparision algorithm in distutil.  PEP-376
@@ -3148,13 +3159,6 @@ to_url = "http://example.com/b.html"
 
 h = urllib2.HTTPRedirectHandler()
 o = h.parent = MockOpener()
-
-req = Request(from_url)
-def cached301redirect(h, req, url=to_url):
-	h.http_error_301(req, MockFile(), 301, "Blah", MockHeaders({"location":url}))
-
-# Why is Request object taking two parameters?
-
 req = Request(from_url, origin_req_host="example.com")
 count = 0
 try:
