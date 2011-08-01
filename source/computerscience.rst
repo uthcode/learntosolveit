@@ -31,6 +31,15 @@ Unix Operating System Documents
 
 http://docs.freebsd.org/44doc/
 
+
+Assignments
+===========
+
+http://nifty.stanford.edu/
+
+Assignments help in learning new stuff. This page provides some.
+
+
 C++ Questions
 =============
 
