@@ -78,29 +78,29 @@ argument to another function.
 
 types in javascript are 
 
- * Numbers
- * Strings
- * Boolean
- * Objects
-    * Functions
-    * Arrays
-    * Dates
-    * Regular Expression.
- * Undefined
- * Null
+* Numbers
+* Strings
+* Boolean
+* Objects
+   * Functions
+   * Arrays
+   * Dates
+   * Regular Expression.
+* Undefined
+* Null
 
- * There is no such thing as integers in Javascript.
- * The standard numeric operators are supported, addition, subtraction and
-   modulus (modulus on float ?)
- * math object is available for advanced operations.
- * Strings in Javascripts are sequence of characters, more importantly they are
-   sequence of unicode characters.
- * Javascript distinguishes between null object, which is an object of type
-   'object' that indicates a delibrate non-value and undefined which is an
-   object of type undefined that indicates an unintialized value.
- * New variables in JavaScript are declared using the var keyword.
- * If you add string to a number (or other value), everything is converted in
-   to a string first.
+* There is no such thing as integers in Javascript.
+* The standard numeric operators are supported, addition, subtraction and
+  modulus (modulus on float ?)
+* math object is available for advanced operations.
+* Strings in Javascripts are sequence of characters, more importantly they are
+  sequence of unicode characters.
+* Javascript distinguishes between null object, which is an object of type
+  'object' that indicates a delibrate non-value and undefined which is an
+  object of type undefined that indicates an unintialized value.
+* New variables in JavaScript are declared using the var keyword.
+* If you add string to a number (or other value), everything is converted in
+  to a string first.
 
 Numbers are double precision 64-bit format IEEE 754 values.
 
@@ -111,19 +111,19 @@ Numbers are double precision 64-bit format IEEE 754 values.
   > 3 + 4 + "5"
    75
 
- * Adding an empty string to something is a useful way of converting it.
- * {{{ == performs type coercion, while === }}} does not perform type coercion.
- * Javascript also has bitwise operations, if you want to use them, they are there.
- * var name = o && o.getName()  What will this be set to?
- * You can have expressions in both the switch and the case parts.
- * var obj = {}; this method of creating objects is called object literal
-   syntax. It was not present in the initial version of javascript.
- * obj.name = "Simon" and obj["name"] = "Simon" are the two ways to access the
-   object. The second method has an advantage that the name of the property
-   which is provided as string can be calculated at run-time.
- * obj.for will result in an error because for is a reserved keyword; while
-   obj["for"] will work fine.
- * Object literal syntax can be used to initialize the object in entirety.
+* Adding an empty string to something is a useful way of converting it.
+*  == performs type coercion, while ===  does not perform type coercion.
+* Javascript also has bitwise operations, if you want to use them, they are there.
+* var name = o && o.getName()  What will this be set to?
+* You can have expressions in both the switch and the case parts.
+* var obj = {}; this method of creating objects is called object literal
+  syntax. It was not present in the initial version of javascript.
+* obj.name = "Simon" and obj["name"] = "Simon" are the two ways to access the
+  object. The second method has an advantage that the name of the property
+  which is provided as string can be calculated at run-time.
+* obj.for will result in an error because for is a reserved keyword; while
+  obj["for"] will work fine.
+* Object literal syntax can be used to initialize the object in entirety.
 
 :: 
 
@@ -137,7 +137,7 @@ Numbers are double precision 64-bit format IEEE 754 values.
         }
 
 
- * Attribute access can be chained together.
+* Attribute access can be chained together.
 
 
 :: 
@@ -148,42 +148,40 @@ Numbers are double precision 64-bit format IEEE 754 values.
         12
 
 
- * Leaving a trailing comma at the end of the array literal is incosistent
-   across browsers, so don't do it.
- * array.length is one more than the highest index of the array.
- * splice method on a array lets you modify an array by deleting a section and
-   replacing it with more items.
- * unshift prepends items to the start of the array.
- * Javascript allows you to call functions recursively. It is useful for
-   dealing with tree structures, such as you get in browser DOM.
- * For nameless functions, recursive call can be done using arguments.callee
-   method which points to the current function. 
- * Since arguments.callee is the current function and all functions are
-   objects, you can use arguments.callee to save information across multiple
-   calls to the same function.
+* Leaving a trailing comma at the end of the array literal is incosistent
+  across browsers, so don't do it.
+* array.length is one more than the highest index of the array.
+* splice method on a array lets you modify an array by deleting a section and
+  replacing it with more items.
+* unshift prepends items to the start of the array.
+* Javascript allows you to call functions recursively. It is useful for
+  dealing with tree structures, such as you get in browser DOM.
+* For nameless functions, recursive call can be done using arguments.callee
+  method which points to the current function. 
+* Since arguments.callee is the current function and all functions are
+  objects, you can use arguments.callee to save information across multiple
+  calls to the same function.
  
-::
+        ::
+                function Person(first, last) {
+                    this.first = first;
+                    this.last = last;
+                }
+                Person.prototype.fullName = function() {
+                    return this.first + ' ' + this.last;
+                }
+                Person.prototype.fullNameReversed = function() {
+                    return this.last + ', ' + this.first;
+                }
 
+* Person.prototype is an object shared by all instances of Person. It forms
+  part of a lookup chain (that has a special name, "prototype chain"): any
+  time you attempt to access the property of Person that isn't set, JavaScript
+  will check Person.prototype to see if that property exists there instead.
 
-        function Person(first, last) {
-            this.first = first;
-            this.last = last;
-        }
-        Person.prototype.fullName = function() {
-            return this.first + ' ' + this.last;
-        }
-        Person.prototype.fullNameReversed = function() {
-            return this.last + ', ' + this.first;
-        }
-
- * Person.prototype is an object shared by all instances of Person. It forms
-   part of a lookup chain (that has a special name, "prototype chain"): any
-   time you attempt to access the property of Person that isn't set, JavaScript
-   will check Person.prototype to see if that property exists there instead.
-
- * This is an incredibly powerful tool. JavaScript lets you modify something's
-   prototype at any time in your program, which means you can add extra methods
-   to existing objects at runtime.
+* This is an incredibly powerful tool. JavaScript lets you modify something's
+  prototype at any time in your program, which means you can add extra methods
+  to existing objects at runtime.
 
 :: 
 
@@ -215,18 +213,17 @@ Numbers are double precision 64-bit format IEEE 754 values.
         > s.reversed()
         nomiS
 
- * And this works on string literals too. Wow.
+* And this works on string literals too. Wow.
 
 Java Script Tutorial
 ====================
 
- * Javascript can put dynamic text into HTML pages.
- * How to handle simple browsers? Browsers that do not support javascript will
-   display the javascript as page contents. To prevent them from doing this and
-   as part of the javascript standard, the HTML comment tag should be used to
-   hide the javascript.
+* Javascript can put dynamic text into HTML pages.
+* How to handle simple browsers? Browsers that do not support javascript will
+  display the javascript as page contents. To prevent them from doing this and
+  as part of the javascript standard, the HTML comment tag should be used to
+  hide the javascript.
  
-
 :: 
 
         <html>
@@ -239,22 +236,21 @@ Java Script Tutorial
         </body>
         </html>
 
- * // is the javascript comment tag. it prevents javascript from executing the
-   --> tag.
- * Javascripts in the body section will be executed while the page loads.
- * Javascripts in the head section will be executed when the page is called.
- * It is normal to add semi-colon ';' to end of the javascript statement, but
-   it is completely optional.
- * Variable names in JavaScript is case sensitive.
- * In Javascript you dont need to import Math objects, it is always available
-   to you.
- * DOM is a platform and a language neutral interface that allows programs and
-   scripts to dynamically access and update the content, structure and the
-   style of the document.
- * This Model describes each webpage element, which of its properties can be
-   changed and how to do it. DOM provides an object oriented programming
-   interface between HTML/CSS and JavaScript.
-
+* // is the javascript comment tag. it prevents javascript from executing the
+  --> tag.
+* Javascripts in the body section will be executed while the page loads.
+* Javascripts in the head section will be executed when the page is called.
+* It is normal to add semi-colon ';' to end of the javascript statement, but
+  it is completely optional.
+* Variable names in JavaScript is case sensitive.
+* In Javascript you dont need to import Math objects, it is always available
+  to you.
+* DOM is a platform and a language neutral interface that allows programs and
+  scripts to dynamically access and update the content, structure and the
+  style of the document.
+* This Model describes each webpage element, which of its properties can be
+  changed and how to do it. DOM provides an object oriented programming
+  interface between HTML/CSS and JavaScript.
 
 If you are unsure about Boolean use explicit Boolean function.
 
@@ -272,7 +268,6 @@ called object's properties.
 * Hash Tables in C and C++
 * HashMaps in Java
 * Associative arrays in PHP
-
 
 // Arrays come with a number of methods.
 
@@ -305,9 +300,8 @@ function makePerson(first, last) {
 }
 
 functions attached to parent function is part of the lookup chain. The special
-name for it is "prototype chain".
-
-I don't understand the call method of the javascript object.
+name for it is "prototype chain". I don't understand the call method of the
+javascript object.
 
 DOM is api for HTML and XML. It provides a structural representation of the
 Document, enabling you to modify the content and visual presentation. It is a
@@ -431,9 +425,9 @@ Base.mako template
 </html>
 
 
-- Expressions wrapped in ${...} are evaluated by Mako and returned as text.
-- ${ and } may span several lines but closing brace should not be a line by itself.
-- Functions that are part of the self namespace are defined in the Mako
+* Expressions wrapped in ${...} are evaluated by Mako and returned as text.
+* ${ and } may span several lines but closing brace should not be a line by itself.
+* Functions that are part of the self namespace are defined in the Mako
 templates !! (I don't understand this).
 
 Create another file in myapp/templates called my_action.mako and enter the following.
@@ -446,11 +440,11 @@ Create another file in myapp/templates called my_action.mako and enter the follo
 <h1>My Controller</h1>
 <p>Lorum ipsum dolor yadda yadda</p>
 
-- The inherit tag specifies a parent file to pass the program flow to.
-- Mako defines functions with <% def name="function_name()">...</%def>. The
-contents of the tag is returned.
-- Anything left after the Mako tags are parsed is automatically put into the
-body() function.
+* The inherit tag specifies a parent file to pass the program flow to.
+* Mako defines functions with <% def name="function_name()">...</%def>. The
+  contents of the tag is returned.
+* Anything left after the Mako tags are parsed is automatically put into the
+  body() function.
 
 Rendering the Mako template as a controller.
 
@@ -459,16 +453,16 @@ return render('my_action.mako')
 
 Passing variables to Mako from the controller.
 
-- The c object is passed to Mako from the controller.
-- c.title = "Mr John Lives"
-- <title>${c.title}</title>
-- There is a webhelper function. link tag to the css or js. cool.
-- Write python code in the mako by including it within <% and %>.
+* The c object is passed to Mako from the controller.
+* c.title = "Mr John Lives"
+* <title>${c.title}</title>
+* There is a webhelper function. link tag to the css or js. cool.
+* Write python code in the mako by including it within <% and %>.
 
 Output from python in mako is via template context.
 %if %end, %for %endfor, %while %endwhile are the flow elements.
 
-- Debug javascript using firebug. The console.debug and console.dir would help
+* Debug javascript using firebug. The console.debug and console.dir would help
   you do introspection.
 
 
@@ -479,8 +473,8 @@ $('.task-edit .parent-entity-fields input').removeAttr('disabled');
 
 These are all classes which are searched from left to right.
 
-- What is happening here? .task-edit, .parent-entity-fields??
-- jquery?
+* What is happening here? .task-edit, .parent-entity-fields??
+* jquery?
 
 
 SlickGrid
@@ -497,4 +491,3 @@ interface. Using the dataitem to get an item at a given position and
 "data.length" to determine the number of items, but the API is structured in
 such a way that it is very easy to make the grid react to any possible changes
 to the underlying data.
-
