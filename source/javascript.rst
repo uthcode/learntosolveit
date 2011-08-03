@@ -468,6 +468,10 @@ Passing variables to Mako from the controller.
 Output from python in mako is via template context.
 %if %end, %for %endfor, %while %endwhile are the flow elements.
 
+- Debug javascript using firebug. The console.debug and console.dir would help
+  you do introspection.
+
+
 Questions
 =========
 
