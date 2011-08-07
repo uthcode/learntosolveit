@@ -30,7 +30,7 @@ HG Terms and Concepts
 =====================
 
 Repository (repo)
-The dir named .hg in the repository root dir that contains the history of the project.
+The dir named .hg in the repository root dir that contains the history f the project.
 Clone
 A copy of a repository.
 Committing
@@ -94,8 +94,6 @@ Examples:
 ./python -m test.regrtest --help to see all the options
 ./python -m test -m testSourceAddress -Fv -j3 test_smtplib                                                                                          
                                                               
-
-
 Creating and Applying Patches
 -----------------------------
 
@@ -111,13 +109,11 @@ Python C-API
 ============
 
 The Python API is incorporated in a C source file by including the header
-"Python.h"
-
-Do note that if your use case is calling C library functions or system calls,
-you should consider using the ctypes module rather than writing custom C code.
-Not only does ctypes let you write Python code to interface with C code, but it
-is more portable between implementations of Python than writing and compiling
-an extension module which typically ties you to CPython.
+"Python.h" . Do note that if your use case is calling C library functions or
+system calls, you should consider using the ctypes module rather than writing
+custom C code.  Not only does ctypes let you write Python code to interface
+with C code, but it is more portable between implementations of Python than
+writing and compiling an extension module which typically ties you to CPython.
 
 distutils
 =========
@@ -128,48 +124,23 @@ standardize the egg-info directories and provide APIs PEP-345 PKG-INFO content.
 
 http://distutils2.notmyidea.org/
 
-
 Was the mechanism to distribute python packages and extensions since Python
-1.6.  Introduced new version control comparision algorithm in distutil.  PEP-376
-standardize the egg-info directories and provide APIs PEP-345 PKG-INFO content.
+1.6.  Introduced new version control comparision algorithm in distutil.
+PEP-376 standardize the egg-info directories and provide APIs PEP-345 PKG-INFO
+content.
 
 http://distutils2.notmyidea.org/
 
 http://mail.python.org/pipermail/python-dev/2010-November/105772.html
 
-
 Discussion on Bugs
 ==================
 
-* ZipFile with encoded file name has some problems. 
-* peephole optimizer to reverse store/unstore instead of pack/unpack. 
-* Wrong powerpc defined in ceval. 
-* unittest should have assertChanges context manager. 
-* shutil behaves improperly on Windows, changing the case of the folder, deletes the old folder. 
-* Unknown charset for headers in email module. 
-* zipfile.py end of central directory detection not robust.
-* test_threadsignals was failing on freebsd old version.
 * What is a _weakref.proxy?  
-* os.getpriority and os.setpriority ? 
 * When to use the PY_BEGIN_THREAD and PY_END_THREAD. 
-* parser should store the file name as unicode object. 
 * What is the difference between UTF-8 and Unicode. 
-* test_concurrent futures was failing on FreeBSD, a reboot can help if it has
-  old semaphores hanging around. 
-* print trace_back throws AttributeError when the exception is None. 
-* Subprocess fds when they are closed throw an error. 
-* complex builtin help wrongly says that it support NaN and InF. 
-* Add a new set of functions to the posixmodule, well written and quick for
-  receiving comments and modifying the code. 
-* Decimal Module with some dot specific usage. 
-* There is  misbehavior in the ContentTooShort Exception from the
-  urllib.request. I had assigned it to myself.
-* There is cleaning up of pydoc module, a patch by Ron Adam is in the tracker.  
-* The filesystem check can be done using os.rename itself.
+* There is  misbehavior in the ContentTooShort Exception from the urllib.request. I had assigned it to myself.
 * Import dbm module http://bugs.python.org/issue9523
-* zlib crc32 and alder32 fix in Python27 http://bugs.python.org/issue10276
-* Wrapping TextIOWrapper around gzip files
-* subprocess.getoutput fails on win32.
 * [issue11109] socketserver.ForkingMixIn leaves zombies, also fails to reap all zombies in one pass 
 * Get on with this getpass.getpass issue quickly. Fix it in all versions.
 
@@ -177,7 +148,7 @@ Notes from Python3 article
 ==========================
 
 * Python uses carriage returns to separate statements and a colon and
-  indentation to separate code blocks. c++ and Java use semicolons to separate
+  indentation to separate code blocks. C++ and Java use semicolons to separate
   statements and curly braces to separate code blocks.
 
 * Python uses try...except blocks to handle exceptions, and the raise statement
@@ -306,7 +277,25 @@ build completely?**
         ``and`` returns the right operand if the left is true. 
         ``or`` returns the right operand if the left is false.
         Otherwise they both return the left operand. They are said to coalesce
+        One way to remember is to consider the binary truth tables:                                                                                          
+        A and B
+        0 0 -> 0
+        0 1 -> 0
+        1 0 -> 0
+        1 1 -> 1
 
+        So, when A is False, the value of B is irrelevant, so Python skips it
+        completely. Otherwise, Python has to evaluate B to find out the overall 
+        value of the expression.                                                                                                                                   
+        A or B
+        0 0 -> 0
+        0 1 -> 1
+        1 0 -> 1
+        1 1 -> 1
+
+        Here, the truth table shows clearly that B is now irrelevant when A is
+        *True*, so that is the case that short circuits. Only if A is False
+        does the value of B matter.
 
 **8. What is the difference between a bytes string and a unicode?**
 
@@ -2903,18 +2892,6 @@ Section 6 was on Normalization of URIs for comparision and various
 normalization practices that are used.
 
 
-========================================================================
-Python playground:
-
->>> if -1:
-...     print True
-...
-True
->>> if 0:
-...     print True
-...
->>>
-
 Use of namedtuple in py3k branch for urlparse.
 
 ========================================================================
@@ -3015,67 +2992,6 @@ considered best available current guidance:
 
 One of the important changes when adhering to RFC3986 is parsing of IPv6
 addresses.
-
-===============================================================================
-1) Bug issue1285086: urllib2.quote is too slow
-
-For the short-circuit path, the regexp can make quote 10x as fast in
-exceptional cases, even comparing to the faster version in trunk. The
-average win for short-circuit seems to be twice as fast as the map in my
-timings. This sounds good.
-
-For the normal path, the overhead can make quote 50% slower. This IMHO
-makes it unfit for quote replacement. Perhaps good for a cookbook recipe?
-
-Regarding the OP's use case, I believe either adding a string cache to
-quote or flagging stored strings as "safe" or "must quote" would result
-in a much greater impact on performance.
-
-Attaching patch against trunk. Web framework developers should be
-interested in testing this and could provide the use cases/data needed
-for settling this issue.
-
-Index: urllib.py
-===================================================================
---- urllib.py	(revision 62222)
-+++ urllib.py	(working copy)
-@@ -27,6 +27,7 @@
- import os
- import time
- import sys
-+import re
- from urlparse import urljoin as basejoin
- 
- __all__ = ["urlopen", "URLopener", "FancyURLopener", "urlretrieve",
-@@ -1175,6 +1176,7 @@
-                'abcdefghijklmnopqrstuvwxyz'
-                '0123456789' '_.-')
- _safemaps = {}
-+_must_quote = {}
- 
- def quote(s, safe = '/'):
-     """quote('abc def') -> 'abc%20def'
-@@ -1200,8 +1202,11 @@
-     cachekey = (safe, always_safe)
-     try:
-         safe_map = _safemaps[cachekey]
-+        if not _must_quote[cachekey].search(s):
-+            return s
-     except KeyError:
-         safe += always_safe
-+        _must_quote[cachekey] = re.compile(r'[^%s]' % safe)
-         safe_map = {}
-         for i in range(256):
-             c = chr(i)
-
-
-----------------------------------------------------------------------
-What does this construct imply?
-
-x = lambda: None
-
-----------------------------------------------------------------------
-How can we differentiate if an expression used is a general expression or a boolean expression.
 
 ----------------------------------------------------------------------
 Having a construct like:
