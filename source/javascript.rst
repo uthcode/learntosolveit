@@ -491,3 +491,11 @@ interface. Using the dataitem to get an item at a given position and
 "data.length" to determine the number of items, but the API is structured in
 such a way that it is very easy to make the grid react to any possible changes
 to the underlying data.
+
+Statements in Javascript
+
+A compilation unit contains a set of executable statements. In web browsers,
+each <script> tag delivers a compilation unit that is compiled and immediately
+executed. Lacking a linker, javascript throws them all together in a common
+global namespace.
+
