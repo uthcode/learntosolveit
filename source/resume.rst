@@ -4,27 +4,55 @@ O.R.Senthil Kumaran
 
 :Email: orsenthil@gmail.com 
 
-:Phone: **+6582047206**
+:Phone: **+6591816829**
+
+:Website: **http://www.uthcode.com**
 
 ---- 
 
-
 .. topic:: OBJECTIVE
         
-        Seeking an Senior Engineering Role where I can utilize my skills in
-        Software Development, Object Oriented Programming, Design and
-        Architecture in a creative and a challenging Software Development
-        Environment.
+        Programmer willing to tackle hard problems and design beautiful
+        solutions. I like to design and implement solutions which are useful
+        and make our lives easy.
 
 .. topic:: SKILLS AND TECHNICAL PROFICIENCY
 
         * **Python Core Developer** - Active contributer to the Python Programming Language.
-        * Programming Laguages Known - **C++, Python, C, Perl**
+        * Programming Laguages Known - **Python, C++, C, Perl**
         * Revision Control Systems - **CVS, SVN, Perforce, git and Mercurial**
         * Profeciency in writing **System Software using C++ for Linux and Windows.**
         * Expertise in **Internet Programming, Cloud Computing and Distributed Systems.**
         * **OpenSSL** based Secure Programming System.
         * Expertise in Designing **Test Automation and Unittest Frameworks**.
+
+
+.. topic:: WORK EXPERIENCE
+
+        **Total Experience: 10 Years**
+
+        +--------------------+----------------------------+------------------+
+        | Organization       | Role                       |   Period         |
+        +====================+============================+==================+
+        | Lucasfilm Singapore| Senior Software Engineer   |  May 2011        |
+        |                    |                            |                  |
+        | Akamai Technologies| Senior Software Engineer   |  2008 - 2011     |
+        |                    |                            |                  |
+        | Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
+        +--------------------+----------------------------+------------------+
+
+.. topic:: EDUCATION
+
+        +-----------------------------+-----------+------------------------+
+        | School                      | Period    | Major                  |
+        +=============================+===========+========================+
+        | National Engineering College| 1998-2002 | Bachelor of Enginering |
+        |  Tamil Nadu, India          |           | Computer Science       |
+        |                             |           |                        |
+        | Indian Institute of Science | 2007      | Certificate Courses in |
+        |                             |           | Cryptography and AI    |
+        +-----------------------------+-----------+------------------------+
+
 
 .. topic:: PROJECT DETAILS
 
@@ -119,30 +147,6 @@ O.R.Senthil Kumaran
           Website: pygame07_
 
 
-.. topic:: WORK EXPERIENCE
-
-        **Total Experience: 7 Years**
-
-        +--------------------+----------------------------+------------------+
-        | Organization       | Role                       |   Period         |
-        +====================+============================+==================+
-        | Akamai Technologies| Senior Software Engineer   |  2008 - Till Date|
-        |                    |                            |                  |
-        | Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
-        +--------------------+----------------------------+------------------+
-
-.. topic:: EDUCATION
-
-        +-----------------------------+-----------+------------------------+--------+
-        | School                      | Period    | Major                  | Grade  |
-        +=============================+===========+========================+========+
-        | National Engineering College| 1998-2002 | Bachelor of Enginering | 77.3%  |
-        |  Tamil Nadu, India          |           | Computer Science       |        |
-        |                             |           |                        |        |
-        | Indian Institute of Science | 2007      | Certificate Courses in | A, D   |
-        |                             |           | Cryptography and AI    |        |
-        +-----------------------------+-----------+------------------------+--------+
-
 .. topic:: AWARDS AND RECOGNITIONS
 
         * Co-Inventor of year 2007, Dell India R&D.
@@ -162,7 +166,7 @@ O.R.Senthil Kumaran
         * Obtaining User Input for Including in System Management Logs. `Patent Application- July 2006`_
         * XML Syndication and Aggregation for printers `Patent Application- September 2006`_
         * Content Search in Blu-Ray disk using Video sub title indexing and frame weight algorithm.  `Patent Application- August 2008`_
-        * Fast Download mechanisms in Blu Ray disk. Patent Application:May 2008
+        * Fast Download mechanisms in Blu Ray disk. `Patent Application- May 2008`_
 
 .. topic:: INDUSTRY PUBLICATIONS
 
@@ -189,9 +193,10 @@ O.R.Senthil Kumaran
 .. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
 .. _PyCon 2009 Conference: http://us.pycon.org/2009/tutorials/schedule/2PM6/
 .. _PyCon 2010 Conference: http://us.pycon.org/2010/tutorials/kumaran_python201/
-.. _Patent Application- July 2006: 
-.. _Patent Application- September 2006: 
-.. _Patent Application- August 2008:
+.. _Patent Application- July 2006: http://www.google.com/patents?id=N6usAAAAEBAJ  
+.. _Patent Application- September 2006: http://www.google.com/patents?id=oAOdAAAAEBAJ
+.. _Patent Application- August 2008: http://www.google.com/patents?id=PLCYAAAAEBAJ
+.. _Patent Application- May 2008: http://www.google.com/patents?id=HJnVAAAAEBAJ
 .. _Power Solutions - 2004: www.dell.com/downloads/global/power/ps4q04-20040115-Kumaran.pdf
 .. _Power Solutions - 2007: http://www.dell.com/downloads/global/power/ps2q07-20070309-Senthil-OE.pdf
 .. _Libsmbios: http://linux.dell.com/libsmbios/main/index.html 
@@ -204,7 +209,3 @@ O.R.Senthil Kumaran
 .. _pygame07: http://www.pyweek.org/e/v4victory/
 
 
-http://www.google.com/patents?id=N6usAAAAEBAJ  
-http://www.google.com/patents?id=oAOdAAAAEBAJ
-http://www.google.com/patents?id=PLCYAAAAEBAJ
-http://www.google.com/patents?id=HJnVAAAAEBAJ
