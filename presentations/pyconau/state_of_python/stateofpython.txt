@@ -8,16 +8,15 @@ Python Ecosystem
 
 .. class:: center large
 
-   | `APAC PyCon 2011`_
+   | `PyCon Australia 2011`_
 
 .. class:: center small
 
    | Senthil Kumaran
    | - CPython Core Developer 
-   | - Engineer at Lucasfilm, Singapore.
 
 
-.. _APAC PyCon 2011: http://apac.pycon.org
+.. _PyCon Australia 2011: http://pycon-au.org
 
 
 Python
