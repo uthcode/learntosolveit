@@ -6,7 +6,7 @@ O.R.Senthil Kumaran
 
 :Phone: **+6591816829**
 
-:Website: **http://www.uthcode.com**
+:Website: http://www.uthcode.com
 
 ---- 
 
@@ -34,7 +34,7 @@ O.R.Senthil Kumaran
         +--------------------+----------------------------+------------------+
         | Organization       | Role                       |   Period         |
         +====================+============================+==================+
-        | Lucasfilm Singapore| Senior Software Engineer   |  May 2011        |
+        | Lucasfilm Singapore| Senior Software Engineer   | Current Employer |
         |                    |                            |                  |
         | Akamai Technologies| Senior Software Engineer   |  2008 - 2011     |
         |                    |                            |                  |
@@ -207,5 +207,3 @@ O.R.Senthil Kumaran
 .. _ngwallpaper: http://ngwallpaper.googlecode.com 
 .. _pyljvim: http://www.vim.org/scripts/script.php?script_id=1724
 .. _pygame07: http://www.pyweek.org/e/v4victory/
-
-
