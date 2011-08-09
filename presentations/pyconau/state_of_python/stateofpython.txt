@@ -61,6 +61,22 @@ Python3 Progress
 * http://py3ksupport.appspot.com/
 
 
+Interesting Updates
+===================
+
+*
+*
+*
+
+Python Launcher for Windows
+===========================
+
+
+Faulthandler module
+===================
+
+
+
 Framework Supports
 ==================
 
