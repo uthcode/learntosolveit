@@ -40,6 +40,12 @@ http://nifty.stanford.edu/
 Assignments help in learning new stuff. This page provides some.
 
 
+Algorithms
+==========
+
+http://ace.delos.com/usacogate
+
+
 C++ Questions
 =============
 
