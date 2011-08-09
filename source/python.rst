@@ -26,6 +26,27 @@ Bring your Repo in sync with main
 
 Some Hg notes (from Ezio's presentation)
 
+Python Tracing Tools
+--------------------
+
+# python -m trace --trace programname.py
+# vim with pycscope
+# pychecker (bug detection)
+# PyMetrics (identify complexity)
+# pylint
+# cProfile and Hotspot.
+# Cyclops
+# UML Diagram with PyNSource
+# Pyut
+# gaphor
+# ddd 
+# pudb
+# Refactoring - Rope IDE
+# Bicycle Repair man
+# Python Call Graph
+# Pydoc and pydoctor
+# Leo (Literate Programming Tool)
+
 HG Terms and Concepts
 =====================
 
