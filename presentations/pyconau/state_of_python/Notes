@@ -1,0 +1,158 @@
+Details of CPython
+------------------
+1. Browse through NEWS and get some interesting add ons.
+2. Get the Latest PEPs
+3. FaultHandler in Python3.3
+
+Python Launcher for Windows
+---------------------------
+
+FaultHandler Module in 3.3
+--------------------------
+
+What is a Just in Time Compiler
+-------------------------------
+
+In the beginning, a compiler was responsible for turning a high-level language
+(defined as higher level than assembler) into object code (machine
+instructions), which would then be linked (by a linker) into an executable.
+
+At one point in the evolution of languages, compilers would compile a
+high-level language into pseudo-code, which would then be interpreted (by an
+interpreter) to run your program. This eliminated the object code and
+executables, and allowed these languages to be portable to multiple operating
+systems and hardware platforms. Pascal (which compiled to P-Code) was one of
+the first; Java and C# are more recent examples. Eventually the term P-Code was
+replaced with bytecode, since most of the pseudo-operations are a byte long.
+
+A Just-In-Time (JIT) compiler is a feature of the run-time interpreter, that
+instead of interpreting bytecode every time a method is invoked, will compile
+the bytecode into the machine code instructions of the running machine, and
+then invoke this object code instead. Ideally the efficiency of running object
+code will overcome the inefficiency of recompiling the program every time it
+runs.
+
+Details of PyPy
+---------------
+
+Pypy includes a RPython translation toolchain, which translates RPython code to
+C code.PyPy is a framework for generating dynamic language implementations.
+PyPy is, in a sense, a toolbox for the creation of just-in-time compilers for
+dynamic languages; Python is just the start - but it's an interesting start.
+
+PyPy is ready for prime time; it implements the (Python 2.x) language
+faithfully, and it is **fast**.
+
+Pypy is an implementation of the Python 2.5 interpreter which is, itself,
+written in Python. One might thus expect it to be more elegant in its code than
+the standard, C-implemented interpreter (usually called CPython), but rather
+slower in its execution. If one runs PyPy under CPython, the result is indeed
+somewhat slow, but that is not how things are meant to be done. When running in
+its native mode, PyPy can be surprising.
+
+PyPy is actually written in a subset of Python called RPython ("restricted
+Python"). Many of the features and data types of Python are available, but
+there are rules. Variables are restricted to data of one type. Only built-in
+types can be used in for loops. There is no creation of classes or functions at
+run time, and the generator feature is not supported. And so on. The result is
+a version of the language which, while still clearly Python, looks a bit more
+like C.
+
+Running the RPython-based interpreter in CPython is supported; it is fully
+functional, if a bit slow. Running in this mode can be good for debugging. But
+the production version of PyPy is created in a rather different way: the PyPy
+hackers have created a multi-step compiler which is able to translate an
+RPython program into a lower-level language. That language might be C, in which
+case the result can be compiled and linked in the usual way. But the target
+language is not fixed; the translator is able to output code for the .NET or
+Java virtual machines as well. That means that the PyPy interpreter can be
+easily targeted to whatever runtime environment works best.
+
+It only runs on 32-bit x86 systems, it is described as "memory-hungry," and
+Python 3 support seems to be a relatively distant goal.
+
+There are some other interesting features as well. There is a stackless Python
+mode which supports microthreaded, highly-concurrent applications. There is a
+sandboxed mode which intercepts all external library calls and hands them over
+to a separate policy daemon for authorization.
+
+What really catches your editor's eye, though, is the concept of PyPy as a
+generalized compiler for the creation of JITs for high-level languages. The
+translation process is flexible, to the point that it can easily accommodate
+stackless mode, interesting optimizations, or experimentation with different
+language features. The object model can be (and has been) tweaked to support
+tainting and tracing features. And the system as a whole is not limited to the
+creation of JIT compilers for Python; projects are underway to implement a
+number of other languages, including Prolog, SmallTalk, and JavaScript.
+
+GIL is present in PyPy too.
+
+Modules built with cython (such as the excellent LXML bindings to libxml2)
+don't work with pypy.
+
+
+PyPy consists of a standard interpreter and a translator.
+
+The interpreter implements the full Python language in a restricted subset,
+called RPython (Restricted Python). Unlike standard Python, RPython is
+statically typed, to allow efficient compilation.[2]
+
+The translator is a tool chain that analyzes RPython code and translates it to
+a lower-level language, such as C, Java bytecode or Common Intermediate
+Language. It also allows for pluggable Garbage collectors as well as optionally
+enabling Stackless. Finally it includes a JIT generator which builds a
+just-in-time compiler into the interpreter, given a few annotations in the
+interpreter source code. The generated JIT compiler is a tracing JIT
+
+Supported backends
+
+C - the RPython code can be translated to C and run as a native program, and this is the standard operation mode;
+CLI - Common Language Interface;
+JVM - Java Virtual Machine;
+Python (programming language) - the PyPy interpreter can also be run on a Python interpreter, though extremely slowly, and this possibility is useful for debugging.
+As of 2010, PyPy has abandoned its JavaScript backend.
+
+
+https://bitbucket.org/pypy/compatibility/wiki/Home
+http://lwn.net/Articles/442268/ (General Introduction at the latest)
+http://wiki.python.org/moin/PyPy
+
+PyPy Website
+------------
+
+PyPy is a fast, compliant alternative implementation of the Python language
+(2.7.1). It has several advantages and distinct features:
+
+Speed: thanks to its Just-in-Time compiler, Python programs often run faster on
+PyPy. (What is a JIT compiler?)
+Memory usage: large, memory-hungry Python programs might end up taking less
+space than they do in CPython.
+Compatibility: PyPy is highly compatible with existing python code. It supports
+ctypes and can run popular python libraries like twisted and django.
+Sandboxing: PyPy provides the ability to run untrusted code in a fully secure way.
+Stackless: PyPy can be configured to run in stackless mode, providing
+micro-threads for massive concurrency.
+As well as other features.
+Download and try out the PyPy release 1.5!
+
+PyPy aims to provide a common translation and support framework for producing
+implementations of dynamic languages, emphasizing a clean separation between
+language specification and implementation aspects. It also aims to provide a
+compliant, flexible and fast implementation of the Python programming language
+using the above framework to enable new advanced features without having to
+encode low level details into it.
+
+
+
+Details of JPython
+------------------
+
+Relevant Stack Overflow questions
+
+
+Relevant BlogPosts and Papers.
+
+http://amix.dk/blog/post/19460
+
+Write a bit about Cython
+------------------------
