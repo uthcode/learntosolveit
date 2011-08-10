@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
 <meta name="version" content="S5 1.1" />
-<title>Python Ecosystem</title>
+<title>State of Python</title>
 <style type="text/css">
 
 /*
@@ -335,13 +335,13 @@ ul.auto-toc {
 
 </div>
 <div id="footer">
-<h1>Python Ecosystem</h1>
+<h1>State of Python</h1>
 
 </div>
 </div>
 <div class="presentation">
 <div class="slide" id="slide0">
-<h1 class="title">Python Ecosystem</h1>
+<h1 class="title">State of Python</h1>
 
 <!-- -*- coding: utf-8 -*- -->
 <!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
@@ -360,13 +360,15 @@ ul.auto-toc {
 ============================ -->
 <!-- Incremental Display
 =================== -->
-<div class="center large line-block">
-<div class="line"><a class="reference external" href="http://apac.pycon.org">APAC PyCon 2011</a></div>
+<blockquote>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://pycon-au.org">PyCon Australia 2011</a></div>
+<div class="line">=======================</div>
 </div>
+</blockquote>
 <div class="center small line-block">
-<div class="line">Senthil Kumaran</div>
+<div class="line">- Senthil Kumaran</div>
 <div class="line">- CPython Core Developer</div>
-<div class="line">- Engineer at Lucasfilm, Singapore.</div>
 </div>
 
 </div>
@@ -410,6 +412,23 @@ ul.auto-toc {
 <ul class="simple">
 <li><a class="reference external" href="http://py3ksupport.appspot.com/">http://py3ksupport.appspot.com/</a></li>
 </ul>
+</div>
+<div class="slide" id="interesting-updates">
+<h1>Interesting Updates</h1>
+<ul class="simple">
+<li>CLPython</li>
+<li>Stackless Python</li>
+<li></li>
+</ul>
+</div>
+<div class="slide" id="python-launcher-for-windows">
+<h1>Python Launcher for Windows</h1>
+</div>
+<div class="slide" id="faulthandler-module">
+<h1>Faulthandler module</h1>
+</div>
+<div class="slide" id="debugging-support">
+<h1>Debugging Support</h1>
 </div>
 <div class="slide" id="framework-supports">
 <h1>Framework Supports</h1>
@@ -620,6 +639,12 @@ MessageBox.Show(&quot;Hello World&quot;)
 </ul>
 <p><a class="reference external" href="http://speed.pypy.org/">http://speed.pypy.org/</a></p>
 </div>
+<div class="slide" id="gil">
+<h1>GIL</h1>
+<ul class="simple">
+<li>Removing GIL using Software Transactional Memory.</li>
+</ul>
+</div>
 <div class="slide" id="the-future">
 <h1>The Future</h1>
 <ul class="simple">
@@ -627,6 +652,20 @@ MessageBox.Show(&quot;Hello World&quot;)
 <li>Choose the implementation which suits you most</li>
 <li>Work alongside other languages and frameworks.</li>
 </ul>
+</div>
+<div class="slide" id="anecdotes">
+<h1>Anecdotes</h1>
+<div class="section" id="on-stm">
+<h2>On STM</h2>
+<p>Personally, I'm not holding my breath, because STM in other areas has
+so far captured many imaginations without bringing practical results
+(I keep hearing about it as this promising theory that needs more work
+to implement, sort-of like String Theory in theoretical physics).</p>
+<p>But I'm also not denying that Armin Rigo has a brain the size of the
+planet, and PyPy <em>has</em> already made much real, practical progress.</p>
+<p>--
+--Guido van Rossum (python.org/~guido)</p>
+</div>
 </div>
 </div>
 </body>
