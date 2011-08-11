@@ -516,4 +516,8 @@ While one of the goals of jQuery is to abstract away the DOM, knowing DOM
 properties can be extremely useful. One can utlize the awesome power of JQuery
 to access the properties of an element.
 
+Simple Jquery example for selecting a Radio.
+
+http://jsfiddle.net/ndJFD/13/
+
 
