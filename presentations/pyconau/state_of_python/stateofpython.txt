@@ -114,7 +114,9 @@ Jython's features
 * Glues together libraries already written in Java.
 * Runs on any JVM above 1.1
 * Truly multi-threaded (no GIL) and Java garbage collected.
-
+* It is all about concurrency.  Its dicts are
+  built on top of Java's ConcurrentHashMap.
+                                                          
 Java Introspection
 ==================
 
