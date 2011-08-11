@@ -499,3 +499,21 @@ each <script> tag delivers a compilation unit that is compiled and immediately
 executed. Lacking a linker, javascript throws them all together in a common
 global namespace.
 
+JQuery
+------
+
+Jquery is a cross browser javascript library that provides abstractions for DOM
+traversals, event handling, animation and Ajax interactions for rapid web
+development.
+
+Provides abstractions for common client side tasks such as DOM traversal, event
+handling, animation and Ajax. It also provides platform for creation of plugins
+that extend JQuery capabilities beyond those provided by the core.
+
+Know your DOM properties and Functions.
+
+While one of the goals of jQuery is to abstract away the DOM, knowing DOM
+properties can be extremely useful. One can utlize the awesome power of JQuery
+to access the properties of an element.
+
+

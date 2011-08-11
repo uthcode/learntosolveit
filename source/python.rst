@@ -5,24 +5,23 @@ Python Notes
 .. warning:: 
         Rough Notes.
 
-Python's mercurial process
-==========================
+What are the steps involved while using hg.python.org?
 
-* update all codelines using your script.
-* start working on 3.2 codeline and fix and commit and push. It will push it cpython
-* hg pull -u ../3.2
-* hg merge 3.2
-* resolve any conflicts.
-* do the same for cpython
-* hg push will commit your changes.
+# update all codelines.
+# Start working on 3.2 codeline and fix and commit and push. It will push it
+  cpython
+# hg pull -u ../3.2
+# hg merge 3.2
+# resolve any conflicts.
+# do the same for cpython
+# hg push will commit your changes.
 
-Bring your Repo in sync with main
-=================================
+How to bring your sandbox repo upto sync with main line?
 
-* hg pull ../cpython (-u wont work)
-* hg merge
-* hg commit
-* hg push
+# hg pull ../cpython (-u wont work)
+# hg merge
+# hg commit
+# hg push
 
 Some Hg notes (from Ezio's presentation)
 
