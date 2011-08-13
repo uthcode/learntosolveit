@@ -56,15 +56,15 @@ CPython Release Schedule
 
 .. class:: small
 
-========== ==========  =================
-Release     Date         RM
-========== ==========  =================
-3.3         
-3.2.1      June, 2011  Georg Brandl
-2.7.2      June, 2011  Benjamin Peterson
-3.1.4      June, 2011  Benjamin Peterson
-2.6.7      June, 2011  Barry Warsaw
-========== ==========  =================
+========== =============  =================
+Release     Date           RM
+========== =============  =================
+3.3        Mar-Aug, 2012  Georg Brandl
+3.2.2      Aug,  2011     Georg Brandl
+2.7.2      June, 2011     Benjamin Peterson
+3.1.4      June, 2011     Benjamin Peterson
+2.6.7      June, 2011     Barry Warsaw
+========== =============  =================
 
 .. class:: small
 
