@@ -70,39 +70,35 @@ Release     Date           RM
 
 * Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.
 
-Python3
-=======
-
-* Breaking from it's roots.
-* Moving away from it's C Background.
-* Modern Frameworks and Advanced Applications.
-* Taking good points from Java and others.
-* Fixing a lot of Language warts.
-
-
 Python3 Progress
 ================
 
 * http://py3ksupport.appspot.com/
 
+.. container:: handout
 
-Interesting Updates
-===================
-
-* CLPython
-* Stackless Python
-*
+        * Breaking from it's roots.
+        * Moving away from it's C Background.
+        * Modern Frameworks and Advanced Applications.
+        * Taking good points from Java and others.
+        * Fixing a lot of Language warts.
 
 Python Launcher for Windows
 ===========================
+
+* Proposal by Mark Hammond and Implemented by Vinay Sajip.
 
 
 Faulthandler module
 ===================
 
+* Implemented by Victor Stinner
+
 
 Debugging Support
 =================
+
+* Implemented by David.
 
 
 Framework Supports
@@ -117,6 +113,7 @@ Jython
 ======
 
 .. image:: jython.png
+   align:: center
 
 * Jython is implementation of the Python programming language written in Java.
 * The language syntax and semantics will be same as Python.
@@ -338,19 +335,24 @@ The Future
 * Work alongside other languages and frameworks.
 
 
-Anecdotes
-=========
+.. container:: handout
 
-On STM
-------
+    This presentation gives overview of State of Python Language and it's
+    reference implementation as of August, 2011.
 
-Personally, I'm not holding my breath, because STM in other areas has                                                                                 
-so far captured many imaginations without bringing practical results                                                                                  
-(I keep hearing about it as this promising theory that needs more work                                                                                
-to implement, sort-of like String Theory in theoretical physics).                                                                                     
-                                                                                                                                                      
-But I'm also not denying that Armin Rigo has a brain the size of the                                                                                  
-planet, and PyPy *has* already made much real, practical progress.                                                                                    
-                                                                                                                                                      
---                                                                                                                                                    
---Guido van Rossum (python.org/~guido)     
+    "Personally, I'm not holding my breath, because STM in other areas has
+    so far captured many imaginations without bringing practical results
+    (I keep hearing about it as this promising theory that needs more work
+    to implement, sort-of like String Theory in theoretical physics).
+    But I'm also not denying that Armin Rigo has a brain the size of the
+    planet, and PyPy *has* already made much real, practical progress.  "
+    --Guido van Rossum (python.org/~guido)     
+
+Interesting Updates
+===================
+
+* CLPython
+* Stackless Python
+*
+
+
