@@ -6,39 +6,68 @@
 State of Python
 ===============
 
+.. class:: center
+
    | `PyCon Australia 2011`_
 
-.. class:: center small
+.. class:: right small
 
    | - Senthil Kumaran
-   | - CPython Core Developer 
+   | - CPython Core Developer
+
+.. This document has been placed in the public domain.
+
+.. container:: handout
+
+    This presentation gives overview of State of Python Language and it's
+    reference implementation as of August, 2011.
+
+.. contents::
+   :class: handout
 
 .. _PyCon Australia 2011: http://pycon-au.org
+
+.. footer:: PyCon Australia 2011
 
 Python
 ======
 
-Seeing Python as a language reference.
+* Python as a language reference separate from implementation.
+* CPython is only one of the implementation
+* PyPy, Jython, IronPython, CLPython.
+* Implementation in another language that you can write.
 
-``CPython is only one of the implementation``
-``So is PyPy, Jython, IronPython, CLPython``
-``And some language implementation that you can write too``
+Reference Implementation
+========================
 
-
-Python Reference Implementation
-===============================
-
-* It is called ``CPython``
-* Also known as Python, naturally.
+* **CPython** implemented in C.
+* Widely known as **Python**
+* BDFL overlooks the development and process.
+* Mercurial Repository - http://hg.python.org
 
 CPython Release Schedule
 ========================
 
-* 3.3   - Under Development at http://hg.python.org/cpython
-* 3.2.1 - Mid June, 2011 - Georg Brandl
-* 2.7.2 - Mid June, 2011 - Benjamin Peterson
-* 3.1.4 - Mid June, 2011 - Benjamin Peterson
-* 2.6.7 - 3 - June, 2011 - Barry Warsaw
+.. class:: tiny
+
+.. sidebar:: Process
+
+   alphas, betas, rc1, rc2 and release!
+
+.. class:: small
+
+========== ==========  =================
+Release     Date         RM
+========== ==========  =================
+3.3         
+3.2.1      June, 2011  Georg Brandl
+2.7.2      June, 2011  Benjamin Peterson
+3.1.4      June, 2011  Benjamin Peterson
+2.6.7      June, 2011  Barry Warsaw
+========== ==========  =================
+
+.. class:: small
+
 * Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.
 
 Python3
