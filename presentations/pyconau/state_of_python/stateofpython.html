@@ -378,7 +378,7 @@ reference implementation as of August, 2011.</div>
 <li><a class="reference internal" href="#reference-implementation" id="id5">Reference Implementation</a></li>
 <li><a class="reference internal" href="#cpython-release-schedule" id="id6">CPython Release Schedule</a></li>
 <li><a class="reference internal" href="#python3-progress" id="id7">Python3 Progress</a></li>
-<li><a class="reference internal" href="#python-launcher-for-windows" id="id8">Python Launcher for Windows</a></li>
+<li><a class="reference internal" href="#python-launcher-for-windows-pep-397" id="id8">Python Launcher for Windows (PEP 397)</a></li>
 <li><a class="reference internal" href="#faulthandler-module" id="id9">Faulthandler module</a></li>
 <li><a class="reference internal" href="#debugging-support" id="id10">Debugging Support</a></li>
 <li><a class="reference internal" href="#framework-supports" id="id11">Framework Supports</a></li>
@@ -482,6 +482,8 @@ reference implementation as of August, 2011.</div>
 <ul class="simple">
 <li><a class="reference external" href="http://py3ksupport.appspot.com/">http://py3ksupport.appspot.com/</a></li>
 </ul>
+<img alt="http://dev.pocoo.org/~gbrandl/py3pkgs.png" class="align-right" src="http://dev.pocoo.org/~gbrandl/py3pkgs.png" style="width: 1600px; height: 800px;" />
+<img alt="http://pypi.python.org/python-3.png" class="align-left" src="http://pypi.python.org/python-3.png" style="width: 500px; height: 300px;" />
 <div class="handout container">
 <ul class="simple">
 <li>Breaking from it's roots.</li>
@@ -492,11 +494,21 @@ reference implementation as of August, 2011.</div>
 </ul>
 </div>
 </div>
-<div class="slide" id="python-launcher-for-windows">
-<h1>Python Launcher for Windows</h1>
+<div class="slide" id="python-launcher-for-windows-pep-397">
+<h1>Python Launcher for Windows (PEP 397)</h1>
 <ul class="simple">
 <li>Proposal by Mark Hammond and Implemented by Vinay Sajip.</li>
+<li>Python scripts (.py and .pyw files) get associted with Python2/3.</li>
+<li>&quot;shebang&quot; line on Windows.</li>
+<li>Will be distributed with Windows Installers.</li>
+<li>Download - <a class="reference external" href="https://bitbucket.org/vinay.sajip/pylauncher/">https://bitbucket.org/vinay.sajip/pylauncher/</a></li>
 </ul>
+<div class="handout container">
+<ul class="simple">
+<li>The shebang concept is decribed in man 2 execve</li>
+<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0397/">http://www.python.org/dev/peps/pep-0397/</a></li>
+</ul>
+</div>
 </div>
 <div class="slide" id="faulthandler-module">
 <h1>Faulthandler module</h1>

@@ -75,6 +75,16 @@ Python3 Progress
 
 * http://py3ksupport.appspot.com/
 
+.. image:: http://dev.pocoo.org/~gbrandl/py3pkgs.png
+   :height: 800
+   :width: 1600
+   :align: right
+
+.. image:: http://pypi.python.org/python-3.png
+   :align: left
+   :height: 300
+   :width:  500
+
 .. container:: handout
 
         * Breaking from it's roots.
@@ -83,11 +93,20 @@ Python3 Progress
         * Taking good points from Java and others.
         * Fixing a lot of Language warts.
 
-Python Launcher for Windows
-===========================
+Python Launcher for Windows (PEP 397)
+=====================================
 
 * Proposal by Mark Hammond and Implemented by Vinay Sajip.
+* Python scripts (.py and .pyw files) get associted with Python2/3.
+* "shebang" line on Windows.
+* Will be distributed with Windows Installers.
+* Download - https://bitbucket.org/vinay.sajip/pylauncher/
 
+
+.. container:: handout
+
+    * The shebang concept is decribed in man 2 execve
+    * http://www.python.org/dev/peps/pep-0397/
 
 Faulthandler module
 ===================
