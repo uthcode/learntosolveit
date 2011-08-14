@@ -128,23 +128,33 @@ Framework Supports
 
 * Numpy Supports
 * Support not fast in WebFramework world because of the need to sort out WSGI spec.
-* Support is steady and moving forward. 
-* People use it (and ask questions at various forums)
+* Closing the gap of 2.7 and 3.x will help migrate faster.
+* Distribute (fork of setuptools) has support. 
+* For many cases, the migration will be easy with on the fly 3 coversion with `use2to3=True` flag.
+* Support is steady and moving forward and will target 3.2 or 3.3.
 
 Jython
 ======
 
 .. image:: jython.png
-   align:: center
+   :align: center
+   :height: 300px
+   :width: 400px
 
-* Jython is implementation of the Python programming language written in Java.
+* Implementation written in Java.
 * The language syntax and semantics will be same as Python.
+* http://hg.python.org/jython/
 
 Java and Jython
 ===============
 
-* Import and use any Java class. 
-* Except for some standard modules, Jython programs use Java classes instead of Python modules
+* Seamlessly integrated with Java and import and use any Java class. 
+* Except for some standard modules, Jython programs use Java classes instead of Python modules.
+
+.. class:: tiny
+
+        >>> from java.lang import System
+        >>> props = System.getProperties()
 
 Why Jython
 ==========
@@ -153,6 +163,10 @@ Why Jython
 * Dynamic compilation to Java bytecodes.
 * Ability to extend existing Java classes in Jython.
 * Optional static compilation - Applets, Servlets and beans
+
+.. class:: handout
+
+    * http://wiki.python.org/jython/LearningJython
 
 Jython's features
 =================
