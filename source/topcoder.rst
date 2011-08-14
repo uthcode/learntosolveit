@@ -6,11 +6,16 @@ Resources for Solving Topcoder Problems
 =======================================
 
 * `TopCoder C++ for C Programmers`_
-* `Programming Bookmarks`_
 
 .. _TopCoder C++ for C Programmers: http://www.topcoder.com/pl/?&module=Static&d1=gicj05&d2=cpp 
-.. _Programming Bookmarks: http://delicious.com/orsenthil/Programming
 
+C++ Notes
+---------
+
+To use the string in a function that expects a char*, use the c_str() method.
+
+string s = "Hello";
+printf("%s", s.c_str()); //outputs "Hello"
 
 Rough Data on Execution Times
 -----------------------------
