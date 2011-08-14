@@ -112,13 +112,16 @@ Faulthandler module
 ===================
 
 * Implemented by Victor Stinner
+* Functions to dump Python Traceback explictly, fault, user signal or timeout.
+* Can be Enabled for **SIGSEGV, SIGFPE, SIGABRT, SIGBUS and SIGILL**
+* **PYTHONFAULTHANDLER** or using **-X faulthandler**
+* Implemented in C, tracebacks can be dumped on a crash or when Python is deadlocked.
 
-
-Debugging Support
-=================
-
-* Implemented by David.
-
+.. container:: handout
+    
+    * http://docs.python.org/dev/library/faulthandler.html
+    * Compatible with Apport or Windows Default Fault Handler.
+    * Use alternative stacks, if signalstack() is available to dump traceback even on StackOverflow.
 
 Framework Supports
 ==================
@@ -372,6 +375,8 @@ Interesting Updates
 
 * CLPython
 * Stackless Python
-*
 
+GCC Python Plugin
+=================
 
+* Implemented by David Malcolm.
