@@ -1,4 +1,6 @@
 
+Revised, Reworked, Reinterpreted, Structured Text.
+
 Because uthcode uses restructured text a lot, it is good to have some handy
 points on the format so that I don't have to refer to that often.
 
@@ -27,6 +29,24 @@ Slide Title
 * Point 3
 * Point 4
 * Point 5
+
+
+Section Header
+==============
+
+Sub Section Header
+------------------
+
+
+#) Enumerated List
+#) Second Point
+
+.. image:: /path/to/image.png
+
+Links_
+
+_ Links: http://www.example.org
+
 
 
 
