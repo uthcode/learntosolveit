@@ -153,10 +153,9 @@ Python Programming
     It helps in tracing the python program or function execution. It helps in
     determining the coverage of code.  Like trace through the program execution
     details, determine how many times a particular line was visited, etc.  The
-    usage is simple, do python trace.py --trace hello.py
+    usage is simple, do python ``trace.py --trace hello.py``
 
-#) **If I want to build python from source in Ubuntu, what packages will make
-it build completely?**
+#) **If I want to build python from source in Ubuntu, what packages will make it build completely?**
 
     These are the packages which will help you build python completely, that is
     dependencies satisfied for all the modules.:: 
@@ -205,7 +204,6 @@ it build completely?**
             >>> c['red']
             1
 
-
 #) **What is special with and and or operators in python?.**
 
     ``and`` returns the right operand if the left is true. 
@@ -234,9 +232,8 @@ it build completely?**
 
 #) **What is the difference between a bytes string and a unicode?**
 
-Byte string is the 8 bit string. Unicode is not a 8 bit string. Unicode
-strings are a new generation of strings in themselves.
-
+    Byte string is the 8 bit string. Unicode is not a 8 bit string. Unicode
+    strings are a new generation of strings in themselves.
 
 #) **What is difference between the terms iterable and iterator?**
 
@@ -345,22 +342,22 @@ strings are a new generation of strings in themselves.
     * A Type (returned by type())
     * And a content.
 
-    The Identifier and the type of the object cannot be changed. Only under limited
-    circumstances, user defined types can be changed.
+    The Identifier and the type of the object cannot be changed. Only under
+    limited circumstances, user defined types can be changed.
 
     Some objects allow you to change their content, while some objects will not
-    allow you to change the content.  The type is represented by type object which
-    knows more obout the objects of this type, like how many memory they occupy,
-    what methods they have.
+    allow you to change the content.  The type is represented by type object
+    which knows more obout the objects of this type, like how many memory they
+    occupy, what methods they have.
 
     * Objects have 0 or more methods.
     * Objects have 0 or more names.
 
     There is no variable in python. They are just names and that too within
-    namespaces. The names refer to a particular object on assignment.
-
-    Even if the objects have methods, you can never change its type or identity.
-    Things like attribute assignments and item references are just syntactic sugar.
+    namespaces. The names refer to a particular object on assignment. Even if
+    the objects have methods, you can never change its type or identity.
+    Things like attribute assignments and item references are just syntactic
+    sugar.
 
 
 #) **Summarize PEP-8 Coding Style standards of Python.**
@@ -521,8 +518,8 @@ strings are a new generation of strings in themselves.
     "variables" are nametags for values, not labelled boxes.
 
 
-#) **Function parameters are evaluated at definition time. How does it affect
-in an unexpected manner during program evaluation?**
+    Function parameters are evaluated at definition time. How does it affect in
+    an unexpected manner during program evaluation?
 
     This is a common mistake that beginners often make.  Even more advanced
     programmers make this mistake if they don't understand Python names.::
@@ -2477,9 +2474,7 @@ The authority part in turn can be split into the sections:
 user, passwd, host, port = authority
 
 The following line is the regular expression for breaking-down a
-well-formed URI reference into its components.
-
-:: 
+well-formed URI reference into its components:: 
 
         ^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?
         12 3 4 5 6 7 8 9
@@ -2490,9 +2485,8 @@ well-formed URI reference into its components.
         query = $7
         fragment = $9
 
-
-The urlsplit functionality in the urllib can be moved to new regular
-expression based parsing mechanism.
+The urlsplit functionality in the urllib can be moved to new regular expression
+based parsing mechanism.
 
 From man uri, which confirms to rfc2396 and HTML 4.0 specs.
 
