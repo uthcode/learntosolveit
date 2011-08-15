@@ -23,9 +23,60 @@ b) pull
 A command similar to svn init
 git remote -v
 
----------------
-Mercurial Notes
----------------
+HG Terms and Concepts
+=====================
+
+Repository (repo)
+The dir named .hg in the repository root dir that contains the history f the project.
+Clone
+A copy of a repository.
+Committing
+Saving local changes to the repository.
+Updating
+Applying changes from the repo to the local copy.
+Changeset (cset)
+An atomic collection of changes to files in a repository.
+Pushing/Pulling
+Exchanging changesets from a repo to another.
+
+HG is a DVCS
+------------
+* distributed
+* peer-to-peer
+* doesn't require a network for most of the operation
+
+SVN is a VCS
+------------
+
+* centralized
+* client-server
+* requires a network for most of the operation
+* Two different tools, two different approaches
+* check hginit for an SVN re-education: http://hginit.com/00.html
+
+HG Basic Usage
+--------------
+
+Basic usage
+
+* hg init creates a new repository ...but you won't need this
+* hg clone creates a copy of an existing repo:
+        hg clone http://hg.python.org/cpython or
+        hg clone ssh://hg@hg.python.org/cpython (for committers)
+* hg branches to see the list of branches
+* hg branch to see the current branch
+* hg up <branchname> to change branch.
+* hg pull to get the latest changesets in the local repo
+* hg up to apply them to the working copy
+* hg pull -u to do both at once
+* hg stat to see the changed file in the working copy
+* hg diff to see the changed code in the working copy
+* hg ci -m 'message' to save local changes in the repo
+* hg push to send the committed cset to another repo
+* hg log -p -r hgchangesetid 
+* hg diff -p -r hgchangesetid
+ 
+
 
 phoe6: I use separate folders for different branches. I did  push in 2.5 and when I go to 2.6 and do a hg update 2.6 and hg merge 2.5, it says abort: merging with a working directory ancestor has no effect
 phoe6: hg incoming has the commit tough
