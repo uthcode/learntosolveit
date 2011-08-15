@@ -435,17 +435,23 @@ Tidbits
   you do introspection.
 
 Questions
----------
+=========
 
 var name = o && o.getName()  What will this be set to?
+------------------------------------------------------
 
-Q: ``$('.task-edit .parent-entity-fields input').removeAttr('disabled');`` What
-is happening here with .task-edit, .parent-entity-fields??
+How is the below expression evaluated?
+--------------------------------------
 
-A: These are all classes which are searched from left to right.
+``$('.task-edit .parent-entity-fields input').removeAttr('disabled');`` What is happening here with .task-edit, .parent-entity-fields??
+
+These are all classes which are searched from left to right.
+
+How do you implement namespaces in Javascript?
+----------------------------------------------
 
 References
-----------
+==========
 
 * `A Re-Introduction to Javascript`_
 * `Introduction to Object Oriented Javascript`_
