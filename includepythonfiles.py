@@ -37,7 +37,7 @@ re_rest = re.compile('"""(.*?)"""(.*)',re.DOTALL)
 
 date_file_list = []
 
-cfiles = glob.glob('python/*.py')
+cfiles = glob.glob('languages/python/*.py')
 
 for each in cfiles:
     stats = os.stat(each)
