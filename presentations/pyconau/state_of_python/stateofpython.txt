@@ -416,7 +416,7 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         sandboxed mode which intercepts all external library calls and hands them over
         to a separate policy daemon for authorization.
 
-        What really catches your editor's eye, though, is the concept of PyPy as a
+        What really catches your eye, though, is the concept of PyPy as a
         generalized compiler for the creation of JITs for high-level languages. The
         translation process is flexible, to the point that it can easily accommodate
         stackless mode, interesting optimizations, or experimentation with different
@@ -429,7 +429,6 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
 
         Modules built with cython (such as the excellent LXML bindings to libxml2)
         don't work with pypy.
-
 
         PyPy consists of a standard interpreter and a translator.
 
@@ -549,23 +548,19 @@ The Future
 * Choose the implementation which suits you most
 * Work alongside other languages and frameworks.
 
-Interesting Updates
-===================
-
-* CLPython
-* Stackless Python
-
-GCC Python Plugin
-=================
-
-* Implemented by David Malcolm.
-
 
 .. container:: handout
 
     This presentation gives overview of State of Python Language and it's
     reference implementation as of August, 2011.
 
+
+    GCC Python Plugin
+
+    * Implemented by David Malcolm.
+
+    PyPy and STL
+    
     "Personally, I'm not holding my breath, because STM in other areas has
     so far captured many imaginations without bringing practical results
     (I keep hearing about it as this promising theory that needs more work
@@ -574,73 +569,75 @@ GCC Python Plugin
     planet, and PyPy *has* already made much real, practical progress.  "
     --Guido van Rossum (python.org/~guido)     
 
-    Write a bit about Cython
+    Cython
 
-        Cython is a pretty cool tool in itself, well worth learning, and is
-        surprisingly close to the Python syntax. If you do any scientific computing
-        with Numpy, then Cython is the way to go because it integrates with Numpy for
-        fast matrix operations.
 
-        Cython is a superset of Python language. You can throw any valid Python file at
-        it, and it will spit out a valid C program. In this case, Cython will just map
-        the Python calls to the underlying CPython API. This results in perhaps a 50%
-        speedup because your code is no longer interpreted.
+    Cython is a pretty cool tool in itself, well worth learning, and is
+    surprisingly close to the Python syntax. If you do any scientific computing
+    with Numpy, then Cython is the way to go because it integrates with Numpy
+    for fast matrix operations.
 
-        To get some optimizations, you have to start telling Cython additional facts
-        about your code, such as type declarations. If you tell it enough, it can boil
-        the code down to pure C. That is, a for loop in Python becomes a for loop in C.
-        Here you will see massive speed gains. You can also link to external C programs
-        here.
+    Cython is a superset of Python language. You can throw any valid Python
+    file at it, and it will spit out a valid C program. In this case, Cython
+    will just map the Python calls to the underlying CPython API. This results
+    in perhaps a 50% speedup because your code is no longer interpreted.
 
-        Using Cython code is also incredibly easy. I thought the manual makes it sound
-        difficult. You literally just do:
+    To get some optimizations, you have to start telling Cython additional
+    facts about your code, such as type declarations. If you tell it enough, it
+    can boil the code down to pure C. That is, a for loop in Python becomes a
+    for loop in C.  Here you will see massive speed gains. You can also link to
+    external C programs here.
 
-        $ cython mymodule.pyx
-        $ gcc [some arguments here] mymodule.c -o mymodule.so
+    Using Cython code is also incredibly easy. I thought the manual makes it
+    sound difficult. You literally just do:
 
-        and then you can import mymodule in your Python code and forget entirely that
-        it compiles down to C.
+    $ cython mymodule.pyx
+    $ gcc [some arguments here] mymodule.c -o mymodule.so
 
-        In any case, because Cython is so easy to setup and start using, I suggest
-        trying it to see if it suits your needs. It won't be a waste if it turns out
-        not to be the tool you're looking for.
+    and then you can import mymodule in your Python code and forget entirely
+    that it compiles down to C.
 
-        http://docs.cython.org/src/userguide/limitations.html
-            
+    In any case, because Cython is so easy to setup and start using, I suggest
+    trying it to see if it suits your needs. It won't be a waste if it turns
+    out not to be the tool you're looking for.
 
-        I almost always recommend Cython over ctypes. The reason is that it has a much
-        smoother upgrade path. If you use ctypes, many things will be simple at first,
-        and it's certainly cool to write your FFI code in plain Python, without
-        compilation, build dependencies and all that. However, at some point, you will
-        almost certainly find that you have to call into your C library a lot, either
-        in a loop or in a longer series of interdependent calls, and you would like to
-        speed that up. That's the point where you'll notice that you can't do that with
-        ctypes. Or, when you need callback functions and you find that your Python
-        callback code becomes a bottleneck, you'd like to speed it up and/or move it
-        down into C as well. Again, you cannot do that with ctypes. So you have to
-        switch languages at that point and start rewriting parts of your code,
-        potentially reverse engineering your Python/ctypes code into plain C, thus
-        spoiling the whole benefit of writing your code in plain Python in the first
-        place.
+    http://docs.cython.org/src/userguide/limitations.html
+        
+    I almost always recommend Cython over ctypes. The reason is that it has a
+    much smoother upgrade path. If you use ctypes, many things will be simple
+    at first, and it's certainly cool to write your FFI code in plain Python,
+    without compilation, build dependencies and all that. However, at some
+    point, you will almost certainly find that you have to call into your C
+    library a lot, either in a loop or in a longer series of interdependent
+    calls, and you would like to speed that up. That's the point where you'll
+    notice that you can't do that with ctypes. Or, when you need callback
+    functions and you find that your Python callback code becomes a bottleneck,
+    you'd like to speed it up and/or move it down into C as well. Again, you
+    cannot do that with ctypes. So you have to switch languages at that point
+    and start rewriting parts of your code, potentially reverse engineering
+    your Python/ctypes code into plain C, thus spoiling the whole benefit of
+    writing your code in plain Python in the first place.
 
-        With Cython, OTOH, you're completely free to make the wrapping and calling code
-        as thin or thick as you want. You can start with simple calls into your C code
-        from regular Python code, and Cython will translate them into native C calls,
-        without any additional calling overhead, and with an extremely low conversion
-        overhead for Python parameters. When you notice that you need even more
-        performance at some point where you are making too many expensive calls into
-        your C library, you can start annotating your surrounding Python code with
-        static types and let Cython optimise it straight down into C for you. Or, you
-        can start rewriting parts of your C code in Cython in order to avoid calls and
-        to specialise and tighten your loops algorithmically. And if you need a fast
-        callback, just write a function with the appropriate signature and pass it into
-        the C callback registry directly. Again, no overhead, and it gives you plain C
-        calling performance. And in the much less likely case that you really cannot
-        get your code fast enough in Cython, you can still consider rewriting the truly
-        critical parts of it in C (or C++ or Fortran) and call it from your Cython code
-        naturally and natively. But then, this really becomes the last resort instead
-        of the only option.
+    With Cython, OTOH, you're completely free to make the wrapping and calling
+    code as thin or thick as you want. You can start with simple calls into
+    your C code from regular Python code, and Cython will translate them into
+    native C calls, without any additional calling overhead, and with an
+    extremely low conversion overhead for Python parameters. When you notice
+    that you need even more performance at some point where you are making too
+    many expensive calls into your C library, you can start annotating your
+    surrounding Python code with static types and let Cython optimise it
+    straight down into C for you. Or, you can start rewriting parts of your C
+    code in Cython in order to avoid calls and to specialise and tighten your
+    loops algorithmically. And if you need a fast callback, just write a
+    function with the appropriate signature and pass it into the C callback
+    registry directly. Again, no overhead, and it gives you plain C calling
+    performance. And in the much less likely case that you really cannot get
+    your code fast enough in Cython, you can still consider rewriting the truly
+    critical parts of it in C (or C++ or Fortran) and call it from your Cython
+    code naturally and natively. But then, this really becomes the last resort
+    instead of the only option.
 
-        So, ctypes is nice to do simple things and to quickly get something running.
-        However, as soon as things start to grow, you'll most likely come to the point
-        where you notice that you'd better used Cython right from the start.
+    So, ctypes is nice to do simple things and to quickly get something
+    running.  However, as soon as things start to grow, you'll most likely come
+    to the point where you notice that you'd better used Cython right from the
+    start.
