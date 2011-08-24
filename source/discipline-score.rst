@@ -1,5 +1,6 @@
+============================
 Discipline Score Application
-----------------------------
+============================
 
 Consider few things. You have 24 hours in a day and you have to sleep everyday
 to be fresh the next day. Having a daily routine helps to play the game of the

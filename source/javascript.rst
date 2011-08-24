@@ -423,6 +423,10 @@ interface. Using the dataitem to get an item at a given position and
 such a way that it is very easy to make the grid react to any possible changes
 to the underlying data.
 
+Node
+====
+
+
 Tidbits
 -------
 
@@ -449,6 +453,7 @@ These are all classes which are searched from left to right.
 
 How do you implement namespaces in Javascript?
 ----------------------------------------------
+
 
 References
 ==========

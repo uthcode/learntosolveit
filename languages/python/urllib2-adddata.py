@@ -1,6 +1,6 @@
 import urllib2
 
-URL = 'http://localhost/allowed.html' 
+URL = 'http://localhost/allowed.html'
 
 ah = urllib2.HTTPDigestAuthHandler()
 ah.add_password('Realm','http://localhost/','senthil','kumaran')

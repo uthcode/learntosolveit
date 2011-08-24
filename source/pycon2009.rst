@@ -2,14 +2,18 @@
 Pycon 2009
 ==========
 
-I presented a tutorial on "A Tour of Python Standard Library" at [http://us.pycon.org/2009/ Pycon 2009].
+I presented a tutorial on "A Tour of Python Standard Library" at `Pycon 2009`_.
+
+.. _Pycon 2009: http://us.pycon.org/2009/
 
 Here is some information on the same.
 
 Link to the Tutorial
 ====================
 
-* [http://us.pycon.org/2009/tutorials/schedule/2PM6/ Tutorial Information]
+* `Tutorial Information`_
+
+.. _Tutorial Information: http://us.pycon.org/2009/tutorials/schedule/2PM6/
 
 Proposal submitted for review
 =============================
@@ -97,12 +101,12 @@ Proposal submitted for review
 Presentation Materials
 ======================
 
- * [http://uthcode.googlecode.com/files/PyCon2009-ATourofPythonStandardLibrary.pdf Tutorial Material]
- * [http://uthcode.googlecode.com/files/code_atour_pycon09_tut.zip Tutorial Code]
+* [http://uthcode.googlecode.com/files/PyCon2009-ATourofPythonStandardLibrary.pdf Tutorial Material]
+* [http://uthcode.googlecode.com/files/code_atour_pycon09_tut.zip Tutorial Code]
 
 Videos from the Tutorial
 ========================
 
- * [http://blip.tv/play/AfyEbpWmLQ Part 1]
- * [http://blip.tv/play/AfyDZ5WmLQ Part 2]
- * [http://blip.tv/play/AfyFDJWmLQ Part 3] 
+* [http://blip.tv/play/AfyEbpWmLQ Part 1]
+* [http://blip.tv/play/AfyDZ5WmLQ Part 2]
+* [http://blip.tv/play/AfyFDJWmLQ Part 3] 

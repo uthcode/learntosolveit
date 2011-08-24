@@ -11,7 +11,7 @@ Physical Science Monologues
 This is the list of twelve best physical sciences monologue of the 20th century
 according to American Scientist.
 
-Found this at `TAOCP<http://www-cs-faculty.stanford.edu/%7Euno/taocp.html>`_ page.
+Found this at TAOCP_ page.
 
 * Dirac on Quantum 
 * Einstein on relativity
@@ -26,11 +26,12 @@ Found this at `TAOCP<http://www-cs-faculty.stanford.edu/%7Euno/taocp.html>`_ pag
 * Einstein's collected papers.
 * Knuth's The Art of Computer Programming
 
+.. _TAOCP: http://www-cs-faculty.stanford.edu/%7Euno/taocp.html
+
 Unix Operating System Documents
 ===============================
 
 http://docs.freebsd.org/44doc/
-
 
 Assignments
 ===========
@@ -39,19 +40,10 @@ http://nifty.stanford.edu/
 
 Assignments help in learning new stuff. This page provides some.
 
-
 Algorithms
 ==========
 
 http://ace.delos.com/usacogate
-
-
-C++ Questions
-=============
-
-What are Virtual Tables?
-
-What is const-correctness?
 
 Theory of Computation
 =====================
@@ -168,7 +160,9 @@ So for 2 x 2 set.
 1.4 Description
 ---------------
 
-1.4 Examine the following formal descriptions of sets so that you understand which members they contain . Write a short informal English description for each set. 
+1.4 Examine the following formal descriptions of sets so that you understand
+which members they contain . Write a short informal English description for
+each set. 
 
 a. { 1, 3, 5, 7 ...}
 
@@ -215,7 +209,9 @@ Actually it is 2^n^. I have to find the proof for this.
 1.6 Transistion Functions
 -------------------------
 
-Let X be the set{1,2,3,4,5} and Y be the set {6,7,8,9,10}. The unary function f: X -> Y  and the binary function g: X x Y -> Y are described in the following tables.
+Let X be the set{1,2,3,4,5} and Y be the set {6,7,8,9,10}. The unary function
+f: X -> Y  and the binary function g: X x Y -> Y are described in the following
+tables.
 
 ::
 
@@ -428,22 +424,34 @@ ACM Meeting
 Pumping Lemma
 -------------
 
-* How to minimize the finite state machine in O(nlgn) times. Aho, Ullman Paper. Fun programming problem.
+* How to minimize the finite state machine in O(nlgn) times. Aho, Ullman Paper.
+  Fun programming problem.
 * Pumping Lemma - to prove that a set is not acceptable by the FSM.
-* Regular Set -> ( Implies) Pumping property; ~ Pumping Property (Implies) -> ~ Regular Set.
-* If L is a regular set, it has a string long enough that is longer than the number states in the set, then it has a symbol that loops, then looping that symbol results in the string in the same set (recognizable by the language).
+* Regular Set -> ( Implies) Pumping property; ~ Pumping Property (Implies) -> ~
+  Regular Set.
+* If L is a regular set, it has a string long enough that is longer than the
+  number states in the set, then it has a symbol that loops, then looping that
+  symbol results in the string in the same set (recognizable by the language).
 * The four quantifiers represent the pumping property.
 * How to show that it is not true? 
-* If you push not sign through quantifiers, it changes universal to existential and vice versa.
-* Not of pumping property. For any n, there exists z in L such that |z| >= n, there exists v,w,x such that z=vwx and |vw| <= n and |w| >= 1 and there exists i >0 vw^i^x is not in L.
-* Converse of Point 3 is not true. A set having pumping property does not mean that the set is a regular set. It is not a iff property. 
+* If you push not sign through quantifiers, it changes universal to existential
+  and vice versa.
+* Not of pumping property. For any n, there exists z in L such that |z| >= n,
+  there exists v,w,x such that z=vwx and |vw| <= n and |w| >= 1 and there
+  exists i >0 vw^i^x is not in L.
+* Converse of Point 3 is not true. A set having pumping property does not mean
+  that the set is a regular set. It is not a iff property. 
 * A set of Palindromes, dont satisfy the pumping property. 
 * Palindrome - Latin for running backwards.
-* In the pumping lemma proof for palindrome, for sets = K, chosing 0^K^10^K^ forces the opponent to choose the looping in 0, because of the property that |vw| <= K. :) Palindromes are not a regular set.
-* While a bad choice of z = 0^K/2^1^K/2^ would make the loop to be in 1 and it would result in a palindromes. 
+* In the pumping lemma proof for palindrome, for sets = K, chosing 0^K^10^K^
+  forces the opponent to choose the looping in 0, because of the property that
+  |vw| <= K. :) Palindromes are not a regular set.
+* While a bad choice of z = 0^K/2^1^K/2^ would make the loop to be in 1 and it
+  would result in a palindromes. 
 * Palindromes cannot be described by regular expressions.
 * 0^k\^2\^^ is not a regular set, because k can be 0.
-* 0^k^ k = composite. Pick up z=0^2n^. z = vwx. It has a pumping property but it is not regular.
+* 0^k^ k = composite. Pick up z=0^2n^. z = vwx. It has a pumping property but
+  it is not regular.
 * 0^p^ p = prime is not regular.  These are complements of one another.
 * That is the idea of closure.
 * Diagnolization - Have you known it yet?
@@ -465,14 +473,28 @@ Pumping Lemma
 Big O Notation
 ==============
 
-* Big O denotes a limiting behavior of function when the argument tends towards a particular value or infinity, usually in terms of a simpler function.
-* Big O notation allows its users to simplify functions in order to concentrate on their growth rate. Different functions with same growth rate may be represented with the same big O notation.
-* Description of a function in terms of big O notation usually only provides an upper bound on the growth rate of the function; associated with big O are several related symbols o, Ω, ω, and Θ to describe other kinds of bounds on the asymptotic growth rate.
+* Big O denotes a limiting behavior of function when the argument tends towards
+  a particular value or infinity, usually in terms of a simpler function.
+* Big O notation allows its users to simplify functions in order to concentrate
+  on their growth rate. Different functions with same growth rate may be
+  represented with the same big O notation.
+* Description of a function in terms of big O notation usually only provides an
+  upper bound on the growth rate of the function; associated with big O are
+  several related symbols o, Ω, ω, and Θ to describe other kinds of bounds on
+  the asymptotic growth rate.
 * Formal Description:
    f(x) = O(g(x)) as x -> ∞ 
 * T(n)  ∊ O(n^2^) - That is T(n) has n^2^ time complexity.
-* O(n^c^) and O(c^n^) are very different. The latter grows much, much faster, no matter how big the constant c is (as long as it is greater than one).
-* Changing units may or may not affect the order of the resulting algorithm. Changing units is equivalent to multiplying the appropriate variable by a constant wherever it appears. For example, if an algorithm runs in the order of n^2^, replacing n by cn means the algorithm runs in the order of c^2^n^2^, and the big O notation ignores the constant c^2^. This can be written as c^2^n^2^ ∊ O(n^2^) . If, however, an algorithm runs in the order of 2^n^, replacing n with cn gives 2^cn^ = (2^c^)^n^. This is not equivalent to 2^n^ in general.
+* O(n^c^) and O(c^n^) are very different. The latter grows much, much faster,
+  no matter how big the constant c is (as long as it is greater than one).
+* Changing units may or may not affect the order of the resulting algorithm.
+  Changing units is equivalent to multiplying the appropriate variable by a
+  constant wherever it appears. For example, if an algorithm runs in the order
+  of n^2^, replacing n by cn means the algorithm runs in the order of c^2^n^2^,
+  and the big O notation ignores the constant c^2^. This can be written as
+  c^2^n^2^ ∊ O(n^2^) . If, however, an algorithm runs in the order of 2^n^,
+  replacing n with cn gives 2^cn^ = (2^c^)^n^. This is not equivalent to 2^n^
+  in general.
 
 What is Amortized time?
 
@@ -508,7 +530,6 @@ Make a list of 10 general-purpose processors including the details like clock sp
         ||Crusoe TM 5800 || 933 Mega Hz || 64 bit || Transmeta||
 
 
-
 The number of bits a CPU can process at once; word size is usually the same as
 the width of the CPU's external data bus, but sometimes is smaller.
 Justify that CPU in personal computer is a general purpose processor.
@@ -533,7 +554,8 @@ Minimizing Finite State Machines
 * Draw a Matrix and X each pair of states which are distinguishable.
 * Proceed on 0,1 and on each pair and note the dependency and mark them for backtracking.
 * The amount of backtracking, determines the size of the string that distinguishes it.
-* Based on the number of X, which are number of states which are indistinguishable from one-another, we can collapse them to one state.
+* Based on the number of X, which are number of states which are
+  indistinguishable from one-another, we can collapse them to one state.
 * That is the basis of equivalence relation.
 * In the matrix, seperate the distinguishable states into sets.  (AFDC) and (BE).
 * That is kind of Non Determinisitic Machine.
@@ -552,7 +574,8 @@ Minimizing Finite State Machines
   Diagonalization involves backtracking. But that the worst case of
   backtracking for going to every single state for every single value is never
   going to happen. Because in each loop we go about cancel symbols.
-* Different way of doing it by a student. Do you stay in the same group (ABCD) and or different group (EF).
+* Different way of doing it by a student. Do you stay in the same group (ABCD)
+  and or different group (EF).
 * Hopcraft and Ullman for reducing the FSM in nlogn times.
 * Switch Gears:  What questions can we answer about FSM?
 * Lex: Describe the FSM and given the Input string and it says whether it
@@ -565,7 +588,8 @@ Minimizing Finite State Machines
 * Start with a graph and re-label the other nodes till you get a match.
 * If two FSMS are equal, if you calculate their difference A-B = 0. 
 * A-B = A ⋂ ~B
-* Language is infinite. Look for a cycle, and if there is a state which goes to Final State and if it does, then it is infinite. easier way, convert to RE.
+* Language is infinite. Look for a cycle, and if there is a state which goes to
+  Final State and if it does, then it is infinite. easier way, convert to RE.
 * No 2 RE have smallest RE. To figure if two RE are same, is NP Complete.
 * SET Theory and Graph Theories are coming into picture here.
 * Is a Regular set A contained in Regular set B? 
@@ -626,11 +650,13 @@ Recitation-1 Theory of Computation
 ==================================
 
 * Programs are condensation (or compressed versions) of strings.
-* [http://en.wikipedia.org/wiki/Kolmogorov_complexity KOLMOGOROV complexity].
+* KOLMOGOROV_ complexity.
 * Turing Machine
 * Shannon/Fischer Information.
 * Entropy
 * Streams - All scheme programs
+
+.. _KOLMOGOROV: http://en.wikipedia.org/wiki/Kolmogorov_complexity 
 
 * Locality
 * Architecture.
@@ -780,9 +806,6 @@ Video 7 - Theory of Computation
 * Is queue more powerful than stack? How many queues are required to simulate a stack?
 * Deterministic Context Free Languages are Closed under Complement.
 
-Ars Digita University taught BE level courses in Computer Science
------------------------------------------------------------------
-
 Recitation Video 3 - Theory of Computation 
 ------------------------------------------
 
@@ -894,7 +917,7 @@ Algorithms Video 1
 * Greedy Approach for minimal spanning tree.
 * Map Coloring Algorithm.
 * Planar Graph (No Crossing Edges) can be done with 4 colors.
-* NP Complete Problem ( No idea has an idea to do it in the polynomial time.
+* NP Complete Problem ( No one has an idea to do it in the polynomial time.
 * 2 colors. Polynomial Problem called Bipartite Problem (can be tried with DFS and BFS).
 * Recursion. Thinking about the problem top-down, breaking it into sub-pieces, divide and conquer.
 * Dynamic Programming. Bottom Up. Opposite of Recursion. Solve Subproblems in polynomial time.
@@ -953,10 +976,9 @@ Programming
 
 * [http://www.htdp.org/ How to Design Programs]
 * [http://savannah.nongnu.org/projects/pgubook/ Programming Ground Up]
-* [http://www.hillside.net/plop/2009/ PlOP]
-* [http://minisat.se/ MINISAT]
 
-== Endian-ness ==
+Endian-ness 
+===========
 
 * Integer is 32 bits.
 * 8 bits make a byte.
@@ -977,36 +999,19 @@ Programming
           $ python -c "import struct;print 'little' if ord(struct.pack('L',1)[0]) else 'big'"
           little
 
-Rubik's Cube 
-============
-
-LU'R' U L'U'R U2
-
-
 Visual Programming Language Links
 ---------------------------------
 
-[http://en.wikipedia.org/wiki/Logo_(programming_language) Logo Programming Language]
+* `Logo Programming Language`_
 
-
-Visual Programming Enviroments
-
-Discussion on Visual Programming Environments and how it affects the way we
-approach Programming. This is specifically an indepth analysis of Alice
-Programming developed at Carnegie Mellon University, which has proven to be
-helpful to Educators, Students and is seen as a barrier breaker when learning
-programming. 
-
-The purpose of the Alice course is the provide the students with the conceptual
-underpinnings of the fundamental programming principles.
-
-Alice is a tool for describing time based and interactive behaviour of 3D Objects.
+.. _`Logo Programming Language`: http://en.wikipedia.org/wiki/Logo_(programming_language)
 
 Programming languages
 ---------------------
 
-1. Processing
-http://www.processing.org/
+* Processing_
+
+.. _Processing: http://www.processing.org/
 
 Discrete Maths Video 3
 ----------------------
@@ -1033,25 +1038,6 @@ Discrete Maths Video 5
 
 Data Structures and Algorithms
 ==============================
-
-Instructions:
--------------
-
-    1) Solve either the three problems in Section A or the
-       single problem in Section B. You must implement your
-       algorithms as working programs in the C language.
-
-    2) Try to keep your programs as simple as possible.
-       Take care of proper program layout and embellish it
-       with useful comments at the appropriate places.
-
-    3) Make your programs as robust as possible. All borderline
-       cases should be handled properly and the program should
-       exit gracefully under all circumstances.
-
-
-
-Section A
 
 Problem A1: Prime Number Generation
 -----------------------------------
@@ -1117,11 +1103,3 @@ You should implement this as a library of routines that can be
 used by anyone wanting to treat a file as a filesystem.
 Demonstrate the correctness of your routines by writing a demo
 program that lets one manipulate files interactively.
-
-
-William Stallings
------------------
-
-* Operating Systems Problems and Solutions.
-* There is problem which asks to calculate the maximum number of writes in one
-  sec. Could not understand that.
