@@ -1513,7 +1513,7 @@ Python Programming
     A Byte is 8 bits and array is a sequence. A Bytearray object can be
     constructed using integers only or text string along with an encoding or
     using another bytes or bytearray or any other object implementing a buffer
-    API. More importantly, it is mutable.
+   API. More importantly, it is mutable.
 
 
 #) **How to do convert int to hex in Python?**
@@ -1746,7 +1746,7 @@ Twisted Framework
 Twisted framework provides the facility to build an asynchronous, event-driven
 applications for Distributed Network Environment. You will understand all these
 terminologies if you just find reason to go ahead and build one.  Twisted is a
-platform for developing Internet applications.In the Twisted, internet term
+platform for developing Internet applications. In the Twisted, internet term
 actually denotes internetworking.
 
 At the core of Twisted Framework is its network layer, which can be used to
@@ -1774,7 +1774,7 @@ that involve an appreciable delay that deferreds are designed to help solve.
 They do this by giving a simple management interface for callbacks and
 applications.  blocking - means, if one tasks is waiting for data, the other
 task cannot get CPU but also waits until the first tasks finishes.  The typical
-asynchronous model to notify can application that some data is ready is called
+asynchronous model to notify an application that some data is ready is called
 as callback.
 
 Twisted uses Deferred objects to managed callback sequence.  Libraries know
