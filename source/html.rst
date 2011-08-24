@@ -1,19 +1,14 @@
-﻿====
-HTML
-====
+﻿==========================
+Hyper Text Markup Language
+==========================
 
+The current version in use is HTML 4.01. Always quote attribute values in the
+HTML.Use lowercase tag names. Common html attributes are class, id, style and
+title. Search engines use headings to index the structure and the content of
+the webpages. Browsers automatically adds an empty line before and after
+paragraphs. Use the  <br/> tag if you want a line break (a new line) without
+starting a new paragraph.
 
-:: 
-
-        * The current version in use is HTML 4.01
-        * Always quote attribute values in the HTML.
-        * Use lowercase tag names.
-        * Common html attributes are class, id, style and title.
-        * Search engines use headings to index the structure and the content of the
-          webpages.
-        * Browsers automatically adds an empty line before and after paragraphs.
-        * Use the  <br/> tag if you want a line break (a new line) without starting a
-          new paragraph.
         * In XHTML, XML and future versions of HTML, elements with no end tags are not
           allowed. Even though  <br> works on most browsers, <br/>  is more future
           proof.
