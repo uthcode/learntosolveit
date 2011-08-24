@@ -81,7 +81,7 @@ standard, the HTML comment tag should be used to hide the javascript.
 
 **//** is the javascript comment tag. it prevents javascript from executing the
 tag. Javascripts in the body section will be executed while the page loads.
-avascripts in the head section will be executed when the page is called. It is
+Javascripts in the head section will be executed when the page is called. It is
 normal to add semi-colon ';' to end of the javascript statement, but it is
 completely optional.
 
@@ -456,8 +456,12 @@ References
 * `A Re-Introduction to Javascript`_
 * `Introduction to Object Oriented Javascript`_
 * `Javascript Guide`_
+* Immediately Invoked Function Expression - `IFFE`_
+* `Vim Configuration for Javascript`_
 
 .. _A Re-Introduction to Javascript: https://developer.mozilla.org/en/A_re-introduction_to_JavaScript
 .. _Introduction to Object Oriented Javascript: https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript
 .. _Javascript Guide: https://developer.mozilla.org/en/JavaScript/Guide
 .. _Jquery example: http://jsfiddle.net/ndJFD/13/
+.. _IIFE: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+.. _Vim Configuration for Javascript: http://www.brankovukelic.com/post/2091037293/turn-vim-into-powerful-javascript-editor
