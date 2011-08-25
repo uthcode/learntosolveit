@@ -45,7 +45,7 @@ template.register_template_library('templatefilters')
 
 
 class TaskList(db.Model):
-  """A TaskList is the entity tasks refer to to form a list.
+  """A TaskList is the entity tasks refer to form a list.
 
   Other than the tasks referring to it, a TaskList just has meta-data, like
   whether it is published and the date at which it was last updated.
@@ -101,6 +101,8 @@ class Task(db.Model):
   marked completed.
   """
   description = db.TextProperty(required=True)
+  score       = db.IntegerProperty(required=True)
+  rating      = db.IntegerProperty()
   completed = db.DateTimeProperty()
   archived = db.BooleanProperty(default=False)
   priority = db.IntegerProperty(required=True, default=0)
@@ -124,7 +126,7 @@ class BaseRequestHandler(webapp.RequestHandler):
         'logout_url': users.create_logout_url('http://%s/' % (
             self.request.host,)),
         'debug': self.request.get('deb'),
-        'application_name': 'Task Manager',}
+        'application_name': 'Discipline Score',}
     values.update(template_values)
     directory = os.path.dirname(__file__)
     path = os.path.join(directory, os.path.join('templates', template_name))
@@ -244,6 +246,13 @@ class EditTaskAction(BaseRequestHandler):
   """
   def post(self):
     description = self.request.get('description')
+    try:
+        score = int(self.request.get('score'))
+        rating = int(self.request.get('rating'))
+    except:
+        self.error(403)
+        return
+
     if not description:
       self.error(403)
       return
@@ -268,8 +277,10 @@ class EditTaskAction(BaseRequestHandler):
     # Create the task
     if task:
       task.description = db.Text(description)
+      task.score = score
+      task.rating = rating
     else:
-      task = Task(description=db.Text(description), task_list=task_list)
+      task = Task(description=db.Text(description), score=score, rating=rating, task_list=task_list)
     task.put()
 
     # Update the task list so it's updated date is updated. Saving it is all

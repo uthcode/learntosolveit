@@ -415,11 +415,13 @@
         }, 0)
     };
 
-    function E(a, b, e, c) {
+    function E(a, b, e, c, rating, score) {
         this.aa = a;
         this.g = b;
         this.k = e;
         this.G = c;
+	this.rating = 10;
+	this.score = 10;
     }
     E.prototype.key = function () {
         return this.g
@@ -458,6 +460,8 @@
         j.addListener(h, "click", k(this, this.K));
         j.addListener(h, "mousedown", u);
         var s = this.b("td", d, "description");
+        var t = this.b("td", d, "score");
+        var u = this.b("td", d, "rating");
         this.d = this.b("div", s);
         this.d.style.position = "relative";
         this.u();
@@ -546,7 +550,7 @@
         this.d.insertBefore(a, this.d.firstChild)
     };
     E.prototype.save = function () {
-        var a = ["list=" + encodeURIComponent(this.aa), "description=" + encodeURIComponent(this.k)];
+        var a = ["list=" + encodeURIComponent(this.aa), "description=" + encodeURIComponent(this.k), "rating=" + this.rating, "score=" + this.score];
         if (this.g) a.push("task=" + encodeURIComponent(this.g));
         C("/edittask.do", k(this, this.S), {
             post: true,
