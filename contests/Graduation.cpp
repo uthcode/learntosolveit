@@ -171,7 +171,8 @@ class Graduation
 
 			for (int i=0;i<requirements.size();i++)
 			{
-				int num = atoi(requirements[i].c_str());
+				// does it take the first c char and discards the rest?
+				int num = atoi(requirements[i].c_str()); 
 				for (int choice=0; choice<num;choice++)
 				{
 					m.push_back(vector<int>());
@@ -182,7 +183,9 @@ class Graduation
 			}
 			
 			if (m.size() > 128) return "0";
-			remaining = m.size()-bipartitematch(m);
+
+			remaining = m.size()-bipartitematch(m); //BP match
+
 			nextclass=33;
 			while(remaining)
 			{
@@ -193,12 +196,14 @@ class Graduation
 					continue;
 				}
 				taken[nextclass] = 1;
-				paths = m.size() - bipartitematch(m);
+
+				paths = m.size() - bipartitematch(m); // BP match
+
 				if (paths == remaining)
 					taken[nextclass] = 0;
 				else
 				{
-					ret += nextclass;
+					ret += nextclass; // is it concatenating str + int and giving str?
 					remaining = paths;
 				}
 				nextclass++;
