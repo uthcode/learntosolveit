@@ -71,3 +71,10 @@ selector is a name preceded by a hash character (#).
 
 The difference between an ID and a class is that an ID can be used to identify
 one element, whereas a class can be used to identify more than one.
+
+Questions
+---------
+a) What could be a reason for nesting of div elements.
+b) fieldset tag?
+
+
