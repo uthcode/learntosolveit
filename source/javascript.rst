@@ -43,7 +43,9 @@ Syntax and Structure
 
 The current javascript version is 1.9. Javascript can be considered a
 functional programming language, similar to scheme or OCAML because it has
-closures and supports higher order functions.
+closures and supports higher order functions. However it is important to
+remember that mere presence of closures does not make a language functional.
+Closures are however most common away of encapsulation in javascript.
 
 Javascript supports all the structed programming syntax in C (if statements,
 while loops, switch statements etc). The mechanism of closures in Javascript is
@@ -119,7 +121,7 @@ types in javascript are
 * Undefined
 * Null
 
-New variables in JavaScript are declared using the var keyword.Variable names
+New variables in JavaScript are declared using the var keyword. Variable names
 in JavaScript is case sensitive.  And it's scope remains local to that block.
 If declared without var keyword, they are considered global.
 
@@ -145,7 +147,7 @@ Adding an empty string to something is a useful way of converting it.
 
 Javascript distinguishes between **null** object, which is an object of type
 'object' that indicates a delibrate *non-value* and **undefined** which is an
-object of type undefined that indicates an unintialized value.
+object of type **undefined** that indicates an unintialized value.
 
 Arrays
 ------
