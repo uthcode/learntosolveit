@@ -11,8 +11,9 @@ Python Internals
 ================
 
 This is a single page, python design notes from Yaniv Aknin's Python-Innards_
-Docs and other resources. I collected and wrote them for me to understand and
-grasp the design principles.
+Docs and other resources. I collected and wrote them so that I can understand
+and grasp the design principles. The material is possibly augumented with other
+resources.
 
 .. _Python-Innards: http://tech.blog.aknin.name/category/my-projects/pythons-innards/
 

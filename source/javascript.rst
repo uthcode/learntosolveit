@@ -105,6 +105,21 @@ Web applications within firefox can be debugged using the firebug on.
 JSON, or Java Script Object Notation is a general purpose data interchange
 format, that is defined as a subset of Java Script.
 
+The functions and methods defined in one js file is available in other js
+files too. For e.g. you include jQuery.js file in the body of a html file and
+other javascript files can access teh $.ready() which Jquery provides.
+
+::
+
+    Senthil: eboyjr: sure. If both client.js is getting the jQuery object from
+    its global object (window), how is it able to access jQuery object as a
+    standalone
+    object, instead of window.jQuery.  
+    eboyjr: phoe6: Because any properties of the global object in automatically
+    in scope. Here's an example...
+    eboyjr: >> var window = this; var jQuery = "example"; [window.jQuery, jQuery] @ phoe6
+    ecmabot: phoe6: (object) ['example', 'example']
+
 types
 -----
 
@@ -171,6 +186,8 @@ browsers, so don't do it.
 Object Syntax
 -------------
 
+A JavaScript object is a set of properties.  A property name is a string, a
+property value is any JS value.
 Javascript Objects are simply collections of name-value pairs.  The name part
 is a string and value is a primitive (or trivial primitive) or another
 Javascript object.The keys of the object are also called object's properties.
@@ -184,7 +201,6 @@ Javascript object.The keys of the object are also called object's properties.
 
 There are 3 primitives:  number, string, and boolean. Trivial primitives are
 null and undefined And don't confuse number with Number and string with String
-
 
 var obj = {}; this method of creating objects is called object literal syntax.
 It was not present in the initial version of javascript. obj.name = "Simon" and
@@ -217,6 +233,10 @@ Attribute access can be chained together.
         orange
         > obj["details"]["size"]
         12
+
+See: `Working with Objects`_
+
+.. _Working with Objects: https://developer.mozilla.org/en/JavaScript/Guide/Working_with_Objects
 
 Functions
 ---------
@@ -305,6 +325,28 @@ the string which returns the string in reverse.
         nomiS
 
 And this works on string literals too. Wow.
+
+::
+
+    dfenwick: prototype is a powerful feature, but it can also be dangerous if you don't know how prototypes work
+    dfenwick: Here's a simple example that can trip inexperienced folks up.  Using
+    for/in, all properties, including all prototypes associated with an object will
+    be returned
+    dfenwick: phoe6: I have a simple example that might be of interest to you
+    dfenwick: phoe6: It might help with understanding what happens with prototype:  http://jsfiddle.net/nbHYx/ 
+
+
+Here is a detailed discussion on closures_ in Javascript.
+
+Scoping and Hoisting
+--------------------
+
+Hoisting is uncommon in other programming languages but very common in
+Javascript. It is one of the reasons Js is denigraded sometimes.
+
+* http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting
+
+* https://gist.github.com/1164169
 
 Statements
 ----------
@@ -433,7 +475,6 @@ to the underlying data.
 Node
 ====
 
-
 Tidbits
 -------
 
@@ -444,6 +485,14 @@ Tidbits
 * alert function is not part of Javascript itself.
 * Debug javascript using firebug. The console.debug and console.dir would help
   you do introspection.
+
+Javascript Coding Standards
+===========================
+
+* NPM's - https://github.com/isaacs/npm/blob/master/man1/coding-style.1
+* Cockford's - http://javascript.crockford.com/code.html
+* Google's - http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+* Killdream's - http://killdream.github.com/Black/docs/deploy/dev/style-guide.html
 
 Questions
 =========
@@ -464,125 +513,26 @@ How do you implement namespaces in Javascript?
 What is this.something in javascript?
 -------------------------------------
 
-
 Code
 ----
 
-channel object as appendMessage and query.
-var callbacks = [];
-callbacks.shift().callback([]); // This is a way of clearing callback.
-sessions is a dictionary.
-remove the memory rss limits
-don't care about sessions at the moment.
-Have everything in the single file.
-What is the idea behind a channel and a session?
-createSession object is used when it is called for /join.
-There is a /send for sending the message.
-The GET's query string text is the message that you type.
+* callbacks.shift().callback([]); // This is a way of clearing callback.
 
-All are the requests which are happening but not via browser, but via simpleJSON calls.
+This snippet returns the Date object.
 
-// I would not have written this all by myself. 
+* new Date
 
-var starttime = (new Date()).getTime();
-
---
-
-Senthil: I would not have written the above, if I was left by myself. # var starttime = (new Date()).getTime();
-Senthil: how should remember that I have to do ( new Date()) 
-inimino: js> new Date().getTime()
-ecmabot: inimino: (number) 1314432211820
-inimino: js> +new Date
-ecmabot: inimino: (number) 1314432231484
-inimino: js> Date.now()
-ecmabot: inimino: (number) 1314432237250
-Senthil: js> (new Date()).getTime()
-ecmabot: phoe6: (number) 1314432239166
-Senthil: js> new Date
-ecmabot: phoe6: (object) Sat Aug 27 2011 04:04:22 GMT-0400 (EDT)
-hughfdjackson: js> var a = new Date; a;
-ecmabot: hughfdjackson: (object) Sat Aug 27 2011 04:04:54 GMT-0400 (EDT)
-Senthil: thanks everyone.  I was confused when I saw this var starttime = (new Date()).getTime(); - I would rather use something which I understand.
-Senthil: guys what is +new?
-Senthil: js>+new Date;
-ecmabot: phoe6: (number) 1314432448111
-Senthil: js> new Date;
-ecmabot: phoe6: (object) Sat Aug 27 2011 04:07:37 GMT-0400 (EDT)
-Senthil: How does +new working above?
-hughfdjackson: phoe6: are you familiar with type coercion?
-Senthil: yup.
-Senthil: what is it coercing against.
-hughfdjackson: + is just coercing the Date object you create to a number
-hughfdjackson: that's all
-Senthil: I thought new was keyword 
-hughfdjackson: new Date() resolves
-hughfdjackson: which leaves a date object behind
-hughfdjackson: then + is applied to the date object
-hughfdjackson: coercing it
-hughfdjackson: that's my understanding
-Senthil: oh + is associated with the object returned via new Date; and not on new keyword.
-Senthil: interesting.
-hughfdjackson: js> (+new) Date()
-ecmabot: hughfdjackson: SyntaxError: syntax error
-hughfdjackson: js> + (new Date())
-ecmabot: hughfdjackson: (number) 1314432577653
-hughfdjackson: see? :D
-Senthil: gotcha. :)
-Senthil: thanks.
-hughfdjackson: welcome
-Senthil: js> I love you.
-ecmabot: phoe6: SyntaxError: missing ; before statement
-Senthil: js> I love you;
-hughfdjackson: js> ;i love you
-ecmabot: phoe6: SyntaxError: missing ; before statement
-ecmabot: hughfdjackson: SyntaxError: missing ; before statement
-hughfdjackson: aaaaargh
-hughfdjackson: js, you fickle maiden!
+It should return - (object) Sat Aug 27 2011 04:04:22 GMT-0400 (EDT)
 
 
-phoe6, there are loads of different coding styles you can take a look before
-deciding your own. NPM's (
-https://github.com/isaacs/npm/blob/master/man1/coding-style.1 ), Cockford's (
-http://javascript.crockford.com/code.html ), Google's (
-http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml ), mine's
-( http://killdream.github.com/Black/docs/deploy/dev/style-guide.html )
+Converting the Date() to int. The following are equivalent.
 
+* var starttime = (new Date()).getTime();
+* +new Date (+ is associated with the object returned via new Date; and not on new keyword.)
+* Date.now()
 
-(12:39:28) eboyjr: !objects
-(12:39:28) ecmabot: eboyjr: A JavaScript object is a set of properties.  A property name is a string, a property value is any JS value.  See: Working with Objects https://developer.mozilla.org/en/JavaScript/Guide/Working_with_Objects
-(12:39:48) dfenwick: Again, think in terms of a dict
-(12:40:22) Senthil: ok.
-(12:40:52) dfenwick: And now a note on prototype, since I'm on that section
-(12:41:09) dfenwick: prototype is a powerful feature, but it can also be dangerous if you don't know how prototypes work
-(12:43:28) dfenwick: phoe6: Here's a simple example that can trip inexperienced folks up.  Using for/in, all properties, including all prototypes associated with an object will be returned
-(12:44:32) Senthil: just a moment..
-(12:55:50) dfenwick: phoe6: I have a simple example that might be of interest to you
-(12:56:19) dfenwick: phoe6: It might help with understanding what happens with prototype:  http://jsfiddle.net/nbHYx/
-(12:59:11) very_odd: dfenwick, don't put <html> into the html field on jsfiddle. it's meant for the content of <body>. :)
-(12:59:26) dfenwick: Bah, nitpick
-(12:59:33) dfenwick: I copied it from my browser :)
-(13:00:16) very_odd: ew, just look the generated page source `<body><html><head><script type="application/javascript">...`
-(13:00:31) dfenwick: It's beautiful!
-(13:00:38) dfenwick: The fact that it renders is even cooler
-(13:03:24) very_odd: dfenwick, but document.body.getElementsByTagName("html")[0] is undefined. so i think everythings okay.
+It should return 1314432237250
 
-
-
-(15:51:27) Senthil: eboyjr: sure. If both client.js is getting the jQuery object from its global object (window), how is it able to access jQuery object as a standalone object, instead of window.jQuery.  
-(15:51:29) shachaf: brianloveswords: I thought there was already a PNG metadata parser in JS, though?
-(15:52:04) Senthil: that's not perfect grammar either. but did I make sense?
-(15:52:08) brianloveswords: shachaf: There might be! I couldn't find one that was pure JS (that doesn't depend on libpng)
-(15:52:09) eboyjr: phoe6: Because any properties of the global object in automatically in scope. Here's an example...
-(15:52:22) shachaf: brianloveswords: Oh, this is a server-side thing?
-(15:52:27) brianloveswords: shachaf: Yeah.
-(15:52:33) eboyjr: >> var window = this; var jQuery = "example"; [window.jQuery, jQuery] @ phoe6
-(15:52:33) ecmabot: phoe6: (object) ['example', 'example']
-
-Links to go through
-
-http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting
-
-https://gist.github.com/1164169
 
 References
 ==========
@@ -599,3 +549,4 @@ References
 .. _Jquery example: http://jsfiddle.net/ndJFD/13/
 .. _IIFE: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 .. _Vim Configuration for Javascript: http://www.brankovukelic.com/post/2091037293/turn-vim-into-powerful-javascript-editor
+.. _closures: http://jibbering.com/faq/notes/closures/
