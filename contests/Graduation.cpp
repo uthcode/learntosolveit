@@ -111,8 +111,27 @@ Returns: "AEP"
 #define MAXSIZE 127
 #define VISITED -2
 #define NOTVISITED -1
+#define CLASSTAKEN 1
 
 using namespace std;
+
+template<typename T> void print( T a ) {
+    cerr << a;
+}
+static void print( long long a ) {
+    cerr << a << "L";
+}
+static void print( string a ) {
+    cerr << '"' << a << '"';
+}
+template<typename T> void print( vector<T> a ) {
+    cerr << "{";
+    for ( int i = 0 ; i != a.size() ; i++ ) {
+        if ( i != 0 ) cerr << ", ";
+        print( a[i] );
+    }
+    cerr << "}" << endl;
+}
 
 // Do we need 128? The ascii values are between 33 and 126.
 
@@ -125,15 +144,15 @@ int bipartitematch(const vector <vector <int> > &set_of_requirements) // Why is 
     // to the taken list. Only one item in each set of requirements is matched
     // against the taken.
 
-	int elemno;
+	int q_item;
 	int retn=0;
 	int path,classindex;
     int class_value;
 
     int size_of_requirements = set_of_requirements.size();
 
-	vector <int> mat(MAXSIZE, NOTVISITED);
-	vector <int> ret(size_of_requirements, NOTVISITED);
+	vector <int> allclasses(MAXSIZE, NOTVISITED);
+	vector <int> set_of_classes(size_of_requirements, NOTVISITED);
 
 	for(int elem=0; elem < size_of_requirements; elem++)
 	{
@@ -146,35 +165,39 @@ int bipartitematch(const vector <vector <int> > &set_of_requirements) // Why is 
 
 		while (!q_of_elements.empty())
 		{
-			elemno = q_of_elements.front(); q_of_elements.pop();
+			q_item = q_of_elements.front(); q_of_elements.pop();
 
-			for (classindex=0; classindex < set_of_requirements[elemno].size(); classindex++)
+			for (classindex=0; classindex < set_of_requirements[q_item].size(); classindex++)
             {
-                class_value = set_of_requirements[elemno][classindex];
+                class_value = set_of_requirements[q_item][classindex];
 
 				if (taken[class_value]) // If the individual class is taken.
 				{
-					path = mat[class_value];
 
-					if (path == NOTVISITED) 
+                    cin.get();
+
+					if (allclasses[class_value] == NOTVISITED) 
 						goto found;
+
+					path = allclasses[class_value];
+
 					if (previous[path] != NOTVISITED)
 						continue;
 
-					previous[path] = elemno; // BFS
+					previous[path] = q_item; // BFS
 					q_of_elements.push(path); // BFS
 				}
             }
 		}
 		continue;
 		found:  
-            path = set_of_requirements[elemno][classindex];
+            path = set_of_requirements[q_item][classindex];
 			retn++;
-			while( elemno != VISITED)
+			while( q_item != VISITED) 
 			{
-				mat[path] = elemno; // Mark the Path.
-				swap(ret[elemno], path);  // Mark the Path.
-				elemno = previous[elemno]; // Is it visited or not?
+				allclasses[path] = q_item; // Mark the Path.
+				swap(set_of_classes[q_item], path);  // Mark the Path.
+				q_item = previous[q_item]; // Is it visited or not?
 			}
 	}
 		return retn;
@@ -191,7 +214,7 @@ class Graduation
 			string ret="";
 
 			for (int ct=0; ct<classesTaken.size();ct++)
-				taken[classesTaken[ct]] = 1;
+				taken[classesTaken[ct]] = CLASSTAKEN;
 
 			for (int i=0;i<requirements.size();i++)
 			{
@@ -206,14 +229,14 @@ class Graduation
 				}
 			}
 			
-			if (m.size() > 128) return "0";
+			if (m.size() > MAXSIZE) return "0";
 
 			remaining = m.size()-bipartitematch(m); //BP match
 
 			nextclass=33;
 			while(remaining)
 			{
-				if (nextclass >= 128) return "0";
+				if (nextclass >= MAXSIZE) return "0";
 				if (taken[nextclass]) 
 				{
 					nextclass++;
@@ -245,6 +268,7 @@ int main(int argc, char *argv[])
 	vector<string> requirement;
 	requirement.push_back("2ABC");
 	requirement.push_back("2CDE");
-	cout<<combination.moreClasses("A",requirement)<<endl;
-
+	//cout<<combination.moreClasses("ACE",requirement)<<endl;
+	//cout<<combination.moreClasses("E",requirement)<<endl;
+	cout<<combination.moreClasses("AE",requirement)<<endl;
 }
