@@ -1,5 +1,4 @@
 /***
- *
 
 Problem Statement
     
@@ -109,48 +108,73 @@ Returns: "AEP"
 #include <ctype.h>
 #include <queue>
 
+#define MAXSIZE 127
+#define VISITED -2
+#define NOTVISITED -1
+
 using namespace std;
 
-int taken[128];
+// Do we need 128? The ascii values are between 33 and 126.
 
-int bipartitematch(const vector <vector <int> > &m, int max=128) // Why is &m here?
+int taken[MAXSIZE];
+
+int bipartitematch(const vector <vector <int> > &set_of_requirements) // Why is &m here?
 {
+
+    // We find the Bipartite match between elements in the set_of_requirements
+    // to the taken list. Only one item in each set of requirements is matched
+    // against the taken.
+
 	int elemno;
 	int retn=0;
-	int y,j;
-	//mat and ret vector.
-	vector <int> mat(max, -1); // mat is like the residual network Keeps track of edges super source to set A.
-	vector <int> ret(m.size(), -1); //  ret is residual network keeps track of edges from B to sink.
+	int path,classindex;
+    int class_value;
 
-	for(int i=0; i < m.size(); i++)
+    int size_of_requirements = set_of_requirements.size();
+
+	vector <int> mat(MAXSIZE, NOTVISITED);
+	vector <int> ret(size_of_requirements, NOTVISITED);
+
+	for(int elem=0; elem < size_of_requirements; elem++)
 	{
-		queue<int> q;
-		vector<int> pred(m.size(), -1); // to keep track of elements.
-		q.push(i);
-		pred[i] = -2;  // mark the elem as visited.
-		while (!q.empty())
+		queue<int> q_of_elements;
+		q_of_elements.push(elem);
+
+		vector<int> previous(size_of_requirements, NOTVISITED); // to keep track of elements.
+
+		previous[elem] = VISITED;  // mark the elem as visited.
+
+		while (!q_of_elements.empty())
 		{
-			elemno = q.front(); q.pop();
-			for (j=0; j < m[elemno].size(); j++)
-				if (taken[m[elemno][j]]) // If the individual class is taken.
+			elemno = q_of_elements.front(); q_of_elements.pop();
+
+			for (classindex=0; classindex < set_of_requirements[elemno].size(); classindex++)
+            {
+                class_value = set_of_requirements[elemno][classindex];
+
+				if (taken[class_value]) // If the individual class is taken.
 				{
-					y = mat[m[elemno][j]]; // Have we marked the path?
-					if (y == -1)  // Not yet.
+					path = mat[class_value];
+
+					if (path == NOTVISITED) 
 						goto found;
-					if (pred[y] != -1) // already visited. 
+					if (previous[path] != NOTVISITED)
 						continue;
-					pred[y] = elemno; // BFS
-					q.push(y); // BFS
+
+					previous[path] = elemno; // BFS
+					q_of_elements.push(path); // BFS
 				}
+            }
 		}
 		continue;
-		found:  y = m[elemno][j];
+		found:  
+            path = set_of_requirements[elemno][classindex];
 			retn++;
-			while( elemno != -2)
+			while( elemno != VISITED)
 			{
-				mat[y] = elemno; // Mark the Path.
-				swap(ret[elemno], y);  // Mark the Path.
-				elemno = pred[elemno]; // Is it visited or not?
+				mat[path] = elemno; // Mark the Path.
+				swap(ret[elemno], path);  // Mark the Path.
+				elemno = previous[elemno]; // Is it visited or not?
 			}
 	}
 		return retn;
