@@ -1,6 +1,9 @@
 Pylons
 ======
 
+Pylons is a lightweight web framework emphasizing flexibility and rapid
+development using standard tools from the Python community.
+
 Here are some problems with writing CGI scripts
 
 * Every script in the site needs the same code to load the config file and to
@@ -56,7 +59,6 @@ create good-looking web sites by defining the way the data is structured. The
 tools they provide then work on that data either to automatically generate code
 (scaffold in the case of Ruby on Rails) or to create form interfaces at runtime
 (as is the case with Django).
-
 
 Pylons provides sensible low-level APIs and methodologies that allow you to
 quickly and easily glue together the component parts you choose to use for
@@ -131,3 +133,8 @@ defs, template inheritance (beyond layouts).
 
 Pylons applications are usually given a package name in CamelCase, but the
 application directory itself is the lowercase version of the package name. 
+
+Pylons Example Application Code
+-------------------------------
+
+* http://www.apress.com/downloadable/download/sample/sample_id/958/
