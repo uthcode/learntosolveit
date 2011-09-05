@@ -472,3 +472,13 @@ http://sylvarwolflinux.wordpress.com/2007/12/18/installing-squid-proxy-server-in
 
    17. Now go to any webpage. If you get the page, it's working!
 
+
+algotutor
+fraqtive
+golly
+gplanarity
+graphthing
+
+Links
+-----
+http://docs.freebsd.org/info/regex/regex.info.Programming_with_Regex.html

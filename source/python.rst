@@ -347,7 +347,7 @@ Python Programming
 
     Some objects allow you to change their content, while some objects will not
     allow you to change the content.  The type is represented by type object
-    which knows more obout the objects of this type, like how many memory they
+    which knows more obout the objects of this type, like how much memory they
     occupy, what methods they have.
 
     * Objects have 0 or more methods.
@@ -834,7 +834,7 @@ Python Programming
       object.  `>>> u'Hello World !'`
     * You can have unicode by using the special python escape encoding: `>>> u'Hello\u0020World !'`
     * built-in function unicode() , default encoding is ASCII
-    * To convert unicode to a 8-bit string using a specified encoding::
+    * To convert unicode to a 8-bit bytes using a specified encoding::
 
         >>> u"쎤쎶쎼".encode('utf-8')
         '\xc3\xa4\xc3\xb6\xc3\xbc'

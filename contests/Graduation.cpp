@@ -174,16 +174,15 @@ int bipartitematch(const vector <vector <int> > &set_of_requirements) // Why is 
 				if (taken[class_value]) // If the individual class is taken.
 				{
 
-                    cin.get();
-
 					if (allclasses[class_value] == NOTVISITED) 
 						goto found;
 
 					path = allclasses[class_value];
 
-					if (previous[path] != NOTVISITED)
+					if (previous[path] != NOTVISITED) // continue to next if previous[path] other than -1
 						continue;
 
+                    //previous has -1 at path.
 					previous[path] = q_item; // BFS
 					q_of_elements.push(path); // BFS
 				}
@@ -197,7 +196,7 @@ int bipartitematch(const vector <vector <int> > &set_of_requirements) // Why is 
 			{
 				allclasses[path] = q_item; // Mark the Path.
 				swap(set_of_classes[q_item], path);  // Mark the Path.
-				q_item = previous[q_item]; // Is it visited or not?
+				q_item = previous[q_item]; // get from previous
 			}
 	}
 		return retn;

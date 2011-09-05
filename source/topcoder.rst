@@ -107,3 +107,9 @@ std::string s;
 std::stringstream out;
 out << i;
 s = out.str();
+
+http://wwwasd.web.cern.ch/wwwasd/lhc++/RW/stdlibcr/classref.htm
+
+http://www.sgi.com/tech/stl/
+
+http://www.cplusplus.com/reference/
