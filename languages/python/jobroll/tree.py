@@ -1,9 +1,21 @@
 import urllib2
+import urllib
 import urlparse
+import sys
 
-from BeautifulSoup import BeautifulSoup
+try:
+    from BeautifulSoup import BeautifulSoup
+except ImportError:
+    print "Pre-requsite not met - BeautifulSoup library"
+    sys.exit(-1)
 
-URL = 'http://www.shalgreetings.com/'
+try:
+    import Image
+except ImportError:
+    print "Pre-requisite not met - Python Imaging library"
+    sys.exit(-1)
+
+URL = 'http://www.indochino.com/'
 parsed_url = urlparse.urlparse(URL)
 global_url = []
 visited_url = []
@@ -14,11 +26,12 @@ def getimages(node):
         soup = BeautifulSoup(urllib2.urlopen(URL))
         for image in soup.findAll("img"):
             img = image["src"]
-            parsed_img = urlparse.urlparse(img)
-            if not parsed_img.scheme:
-                img = urlparse.urljoin(URL,parsed_img.path)
-            images.append(img)
-    except (IOError, KeyError):
+            if img.split('.')[-1] in ('jpg','png','jpeg','gif'):
+                parsed_img = urlparse.urlparse(img)
+                if not parsed_img.scheme:
+                    img = urlparse.urljoin(URL,parsed_img.path)
+                images.append(img)
+    except (IOError, KeyError, IndexError):
         pass
     return images
 
@@ -61,4 +74,8 @@ for n in breadth_first(node):
     if n not in visited_url:
         visited_url.append(n)
         for img in getimages(n):
-            print img
+            tmp_loc, hdrs = urllib.urlretrieve(img)
+            im  = Image.open(tmp_loc)
+            x, y = im.size
+            if x > 10 and y > 10:
+                print img
