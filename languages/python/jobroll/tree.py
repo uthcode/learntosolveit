@@ -2,6 +2,8 @@ import urllib2
 import urllib
 import urlparse
 import sys
+import re
+import optparse
 
 try:
     from BeautifulSoup import BeautifulSoup
@@ -16,14 +18,15 @@ except ImportError:
     sys.exit(-1)
 
 URL = 'http://www.indochino.com/'
-parsed_url = urlparse.urlparse(URL)
+
+parsed_url = urlparse.urlparse(URL) # for default
 global_url = []
 visited_url = []
 
-def getimages(node):
+def getimages(page):
     images = []
     try:
-        soup = BeautifulSoup(urllib2.urlopen(URL))
+        soup = BeautifulSoup(urllib2.urlopen(page))
         for image in soup.findAll("img"):
             img = image["src"]
             if img.split('.')[-1] in ('jpg','png','jpeg','gif'):
@@ -34,6 +37,18 @@ def getimages(node):
     except (IOError, KeyError, IndexError):
         pass
     return images
+
+def guess_product_page(page):
+    try:
+        soup = BeautifulSoup(urllib2.urlopen(page))
+    except (IOError,KeyError):
+        return False
+    american_currency = soup.findAll(text=re.compile('\$\d+(\.\d{2})?'))
+    other_indicators = soup.findAll(text=['discount','free', 'product details','shipping'])
+    if len(american_currency) > 2 or len(other_indicators) > 2:
+        return True
+    else:
+        return False
 
 def childrenfun(node):
     if isinstance(node, list):
@@ -69,13 +84,40 @@ def breadth_first(tree,children=childrenfun):
         if last == node:
             return
 
-node = URL
-for n in breadth_first(node):
-    if n not in visited_url:
-        visited_url.append(n)
-        for img in getimages(n):
-            tmp_loc, hdrs = urllib.urlretrieve(img)
-            im  = Image.open(tmp_loc)
-            x, y = im.size
-            if x > 10 and y > 10:
-                print img
+if __name__ == '__main__':
+    option_parser = optparse.OptionParser()
+    option_parser.add_option('-x','--height',dest='height',default=100,type="int")
+    option_parser.add_option('-y','--width', dest='width', default=100,type="int")
+    option_parser.add_option('-g',dest='guess',action='store_true',default=False)
+
+    (options, args) = option_parser.parse_args()
+
+    if len(args) == 0:
+        node = URL
+    else:
+        node = args[0]
+        try:
+            parsed_url = urlparse.urlparse(node)
+        except ValueError:
+            print 'Invalid URL', node
+            sys.exit(-1)
+
+    for n in breadth_first(node):
+        if n not in visited_url:
+            visited_url.append(n)
+            print 'URL %s' % n,
+            if options.guess:
+                product_page = guess_product_page(n)
+                if product_page:
+                    print 'is a Product Page'
+                else:
+                    print 'is not a Product Page'
+            for img in getimages(n):
+                tmp_loc, hdrs = urllib.urlretrieve(img)
+                try:
+                    im  = Image.open(tmp_loc)
+                    width, height = im.size
+                    if width >= options.height and height >= options.width:
+                        print '%d %d %s' % (width, height, img)
+                except Exception as exc:
+                    print 'Did not check size: %s' % img
