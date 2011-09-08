@@ -3,28 +3,43 @@ import urlparse
 
 from BeautifulSoup import BeautifulSoup
 
-URL = 'http://www.uthcode.com/'
+URL = 'http://www.shalgreetings.com/'
+parsed_url = urlparse.urlparse(URL)
+global_url = []
+visited_url = []
 
-req = urllib2.Request(URL)
-
-soup = BeautifulSoup(urllib2.urlopen(URL))
-
-for image in soup.findAll("img"):
-    img = image["src"]
-    print img
-
-for links in soup.findAll("a"):
-    link = links["href"]
-    print link
-    print urlparse.urlparse(link)
-
-tree = {1:[2,3],2:[3,4],3:[2,4]}
+def getimages(node):
+    images = []
+    try:
+        soup = BeautifulSoup(urllib2.urlopen(URL))
+        for image in soup.findAll("img"):
+            img = image["src"]
+            parsed_img = urlparse.urlparse(img)
+            if not parsed_img.scheme:
+                img = urlparse.urljoin(URL,parsed_img.path)
+            images.append(img)
+    except (IOError, KeyError):
+        pass
+    return images
 
 def childrenfun(node):
     if isinstance(node, list):
         return iter(node)
     else:
-        return []
+        links = []
+        try:
+            soup = BeautifulSoup(urllib2.urlopen(node))
+            for l in soup.findAll("a"):
+                l = l["href"]
+                parsed = urlparse.urlparse(l)
+                if (parsed.scheme and (parsed.scheme in ('http','https')) and (parsed.netloc in parsed_url.netloc)):
+                    link = urlparse.urlunparse((parsed.scheme,parsed.netloc,parsed.path,'','',''))
+                    if not link in global_url:
+                        global_url.append(link)
+                        links.append(link)
+        except (IOError, KeyError):
+            pass
+        return links
 
 def breadth_first(tree,children=childrenfun):
     """Traverse the nodes of a tree in breadth-first order.
@@ -32,7 +47,6 @@ def breadth_first(tree,children=childrenfun):
     should be a function taking as argument a tree node and
     returning an iterator of the node's children.
     """
-    yield #list of images in the link
     yield tree
     last = tree
     for node in breadth_first(tree,children):
@@ -42,5 +56,9 @@ def breadth_first(tree,children=childrenfun):
         if last == node:
             return
 
-for each in breadth_first(tree):
-    print each
+node = URL
+for n in breadth_first(node):
+    if n not in visited_url:
+        visited_url.append(n)
+        for img in getimages(n):
+            print img
