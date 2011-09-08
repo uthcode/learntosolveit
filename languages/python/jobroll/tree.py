@@ -1,3 +1,23 @@
+import urllib2
+import urlparse
+
+from BeautifulSoup import BeautifulSoup
+
+URL = 'http://www.uthcode.com/'
+
+req = urllib2.Request(URL)
+
+soup = BeautifulSoup(urllib2.urlopen(URL))
+
+for image in soup.findAll("img"):
+    img = image["src"]
+    print img
+
+for links in soup.findAll("a"):
+    link = links["href"]
+    print link
+    print urlparse.urlparse(link)
+
 tree = {1:[2,3],2:[3,4],3:[2,4]}
 
 def childrenfun(node):
