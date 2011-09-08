@@ -11,5 +11,6 @@ def insertion_sort(listtosort):
         listtosort[j] = key
     return listtosort
 
+print list_to_sort
 print insertion_sort(list_to_sort)
 
