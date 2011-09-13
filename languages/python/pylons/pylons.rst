@@ -215,11 +215,13 @@ various parts of Paste are described throughout the book as they are
 encountered.
 
 Pylons-0.9.7-py2.5.egg
+
     This is where everything needed to glue together the other components of
 Pylons is found. Pylons itself is relatively small, so if you are the curious
 type, feel free to look at its code to get a feel for how everything works.
 
 Routes-1.9-py2.5.egg
+
     Pylons uses a system called Routes that allows you to map a URL to a set of
 variables usually including controller and action. These variables are then
 used to determine which Pylons controller class and method should be used to
@@ -318,7 +320,9 @@ tests
     The tests directory is where you can put automated unit tests for your application.
 
 __init__.py
-    The __init__.py file is present so that the helloworld directory can be imported as a Python module within the egg.
+
+    The __init__.py file is present so that the helloworld directory can be
+    imported as a Python module within the egg.
 
 websetup.py
     The websetup.py contains any code that should be executed when an end user
@@ -326,9 +330,9 @@ has installed your Pylons application and needs to initialize it. It frequently
 contains code to create the database tables required by your application, for
 example. We’ll discuss this in Chapter 8. 
 
-
 It’s now time to learn how to generate the message dynamically using a Pylons
 controller. Controllers are the basic building blocks of Pylons applications.
+
 They contain all the programming logic and can be thought of as
 mini-applications. Controllers are implemented as Python classes. Each method
 of the class is known in Pylons as an action. On each request Pylons routes the
@@ -385,6 +389,7 @@ be freely referenced within a template; this includes the other Mako runtime
 built-ins, the Pylons default variables, and any extra variables passed by the
 extra_variables argument to render(). As such, the context object is very
 important. You can learn more about it at
+
 http://www.makotemplates.org/docs/documentation.html#runtime.
 
 local, self, parent, and next
