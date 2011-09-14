@@ -7,6 +7,101 @@ Resources for Solving Topcoder Problems
 
 * `TopCoder C++ for C Programmers`_
 
+C++ is an object oriented extension to the C programming language. C++ provides
+many benefits over traditional C while still maintaining C compatibility,
+allowing people to use C and C++ program in the same program. Within a
+competition, you'll be required to use some basic C++ functionality to sovle
+problems. What follows is a basic explanation for programmers who are currently
+familiar with C. ::
+
+    Class: CellTower
+    Method: best
+    Parameters: vector <string>, int, int
+    Returns: int
+    Method signature: int best(vector <string> towers, int x, int y)
+
+
+To solve the problem you'll need to create a class named CellTower containing a
+method best that takes three arguements (vector<string>, int, and int), and
+returns an int. 
+
+Classes are defined using the class keyword. The definition follows a similar
+pattern as the C struct keyword. To define the class above we'd use the
+following code.::
+
+    class CellTower {
+    public:
+    int best(vector<string> towers, int x, int y) {
+    //your code here
+    }
+    };
+
+Note how the method is defined like you would define a standard C function. The
+public keyword tells the compiler that the method we're defining is accessable
+to any object, allowing the testing process to properly execute your code. 
+
+The STL
+
+Many of the classes and functions used in competition come from the Standard
+Type Library, also known as the STL. The STL provides a set of common libraries
+to perform everything from basic string work to complicated sorting algorithms. 
+
+To be able to compete, you'll need to be familiar with two classes: vector and string. 
+
+Includes
+
+Before you can use any of the STL classes, you'll need to include the
+appropriate header files. The vector class comes from the header "vector" and
+the string class comes from the header "string". In addition, you'll need to
+add the line::
+
+    using namespace std;
+
+to your code to tell the compiler to look for objects in the std namespace. 
+
+Vector
+------
+
+A vector is the C++ replacement for arrays. Vectors solve many of the problems
+of tradidional C arrays by allowing dynamic resizing and providing methods to
+inspect the current size of the array. You declare a vector as vector<type>
+where type is the type of variable stored in the array. To create a vector of
+ints, you'd write::
+
+    vector<int> myVar;
+
+Newly created vectors are of size 0. To declare a vector with a specific size,
+you can use::
+
+    vector<int> myVar(10);
+
+In this case the newly created vector has a size of 10. 
+
+To set / retrieve the elements in a vector, you can use the same syntax you'd
+use to work with a C array.::
+
+    vector<int> myVar(10);
+
+    myVar[0] = 1; //sets the first element to 1
+    printf("%i", myVar[0]); //prints 1
+
+One of the major problems with C arrays is that there is no way at runtime to
+know how large the array is, making looping over the contents of the array
+difficult. Using vectors, this task becomes simple. The size() method will
+return the current size of the vector.
+
+    for(int i = 0; i < myVar.size(); i++) {
+    printf("%i", myVar[i]); //prints element i
+    }
+
+To resize a vector, use the resize method.::
+
+    myVar.resize(15); //sets the size of myVar to 15
+
+The vector class contains many additional useful functions, which you can read
+more about by following the reference links below. 
+
+
 .. _TopCoder C++ for C Programmers: http://www.topcoder.com/pl/?&module=Static&d1=gicj05&d2=cpp 
 
 C++ Notes
