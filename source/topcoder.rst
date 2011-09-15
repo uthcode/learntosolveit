@@ -10,7 +10,7 @@ Resources for Solving Topcoder Problems
 C++ is an object oriented extension to the C programming language. C++ provides
 many benefits over traditional C while still maintaining C compatibility,
 allowing people to use C and C++ program in the same program. Within a
-competition, you'll be required to use some basic C++ functionality to sovle
+competition, you'll be required to use some basic C++ functionality to solve
 problems. What follows is a basic explanation for programmers who are currently
 familiar with C. ::
 
@@ -63,7 +63,7 @@ Vector
 ------
 
 A vector is the C++ replacement for arrays. Vectors solve many of the problems
-of tradidional C arrays by allowing dynamic resizing and providing methods to
+of traditional C arrays by allowing dynamic resizing and providing methods to
 inspect the current size of the array. You declare a vector as vector<type>
 where type is the type of variable stored in the array. To create a vector of
 ints, you'd write::
