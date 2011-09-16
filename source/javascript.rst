@@ -533,6 +533,23 @@ Converting the Date() to int. The following are equivalent.
 
 It should return 1314432237250
 
+jsfiddle
+--------
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+  <!- Write all your Jquery below -->
+  <script>
+
+  <!- In order for the Jqery to act on all events use this -->
+  $(document).ready(function () {
+  <!- All your Jquery -->
+
+  });
+
+  </script>
 
 References
 ==========
