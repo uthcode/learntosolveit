@@ -3,6 +3,9 @@ import datetime
 import urllib
 import wsgiref.handlers
 
+import os
+from google.appengine.ext.webapp import template
+
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
@@ -20,44 +23,28 @@ def guestbook_key(guestbook_name=None):
   """Constructs a datastore key for a Guestbook entity with guestbook_name."""
   return db.Key.from_path('Guestbook', guestbook_name or 'default_guestbook')
 
-
 class MainPage(webapp.RequestHandler):
-  def get(self):
-    self.response.out.write('<html><body>')
-    guestbook_name=self.request.get('guestbook_name')
+    def get(self):
+        guestbook_name=self.request.get('guestbook_name')
+        greetings_query = Greeting.all().ancestor(
+            guestbook_key(guestbook_name)).order('-date')
+        greetings = greetings_query.fetch(10)
 
-    # Ancestor Queries, as shown here, are strongly consistent with the High
-    # Replication datastore. Queries that span entity groups are eventually
-    # consistent. If we omitted the ancestor from this query there would be a
-    # slight chance that Greeting that had just been written would not show up
-    # in a query.
-    greetings = db.GqlQuery("SELECT * "
-                            "FROM Greeting "
-                            "WHERE ANCESTOR IS :1 "
-                            "ORDER BY date DESC LIMIT 10",
-                            guestbook_key(guestbook_name))
+        if users.get_current_user():
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
 
-    for greeting in greetings:
-      if greeting.author:
-        self.response.out.write(
-            '<b>%s</b> wrote:' % greeting.author.nickname())
-      else:
-        self.response.out.write('An anonymous person wrote:')
-      self.response.out.write('<blockquote>%s</blockquote>' %
-                              cgi.escape(greeting.content))
+        template_values = {
+            'greetings': greetings,
+            'url': url,
+            'url_linktext': url_linktext,
+        }
 
-    self.response.out.write("""
-          <form action="/sign?%s" method="post">
-            <div><textarea name="content" rows="3" cols="60"></textarea></div>
-            <div><input type="submit" value="Sign Guestbook"></div>
-          </form>
-          <hr>
-          <form>Guestbook name: <input value="%s" name="guestbook_name">
-          <input type="submit" value="switch"></form>
-        </body>
-      </html>""" % (urllib.urlencode({'guestbook_name': guestbook_name}),
-                          cgi.escape(guestbook_name)))
-
+        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        self.response.out.write(template.render(path, template_values))
 
 class Guestbook(webapp.RequestHandler):
   def post(self):
