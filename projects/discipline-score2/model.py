@@ -2,15 +2,11 @@ from google.appengine.ext import db
 
 class Task(db.Model):
     taskid = db.IntegerProperty()
-    fromtime = db.DateTimeProperty()
-    totime = db.DateTimeProperty()
-    taskdetails = db.StringProperty()
+    fromtime = db.TimeProperty(required=True)
+    totime = db.TimeProperty(required=True)
+    taskdetails = db.StringProperty(required=True)
     done = db.BooleanProperty()
-
-class Rating(Task):
-    rating = db.IntegerProperty()
-
-class Score(Rating):
+    rating = db.IntegerProperty(required=True)
     score = db.IntegerProperty()
 
 class Daily(Score):
