@@ -8,18 +8,20 @@ based programming is a style of programming in which classes are absent, and
 behaviour reuse is performed via a process of cloning existing objects that
 serve as prototypes.
 
-The primary use of Javascript is to write functions that are embedded in or
-included from HTML pages and interact with the Document Object Model (DOM) of
-the page, like opening or popping up a new window with programmatic syntax.
+DOM is a platform and a language neutral interface that allows programs and
+scripts to dynamically access and update the content, structure and the style
+of the document. This Model describes each webpage element, which of its
+properties can be changed and how to do it. DOM provides an object oriented
+programming interface between HTML/CSS and JavaScript.  DOM is api for HTML and
+XML. It provides a structural representation of the Document, enabling you to
+modify the content and visual presentation. It is a connection between web
+pages to scripts. The primary use of Javascript is to write functions that are
+embedded in or included from HTML pages and interact with the Document Object
+Model (DOM) of the page, like opening or popping up a new window with
+programmatic syntax.
+
 In simple terms, DOM is the way Javascript sees the containing HTML page and
-the browser state.  DOM is a platform and a language neutral interface that
-allows programs and scripts to dynamically access and update the content,
-structure and the style of the document. This Model describes each webpage
-element, which of its properties can be changed and how to do it. DOM provides
-an object oriented programming interface between HTML/CSS and JavaScript.
-DOM is api for HTML and XML. It provides a structural representation of the
-Document, enabling you to modify the content and visual presentation. It is a
-connection between web pages to scripts.
+the browser state.  
 
 History
 -------
@@ -533,6 +535,10 @@ Converting the Date() to int. The following are equivalent.
 
 It should return 1314432237250
 
+`Defining Classes in JavaScript`_
+`JQuery Deconstructed`_
+
+
 jsfiddle
 --------
 
@@ -541,12 +547,12 @@ jsfiddle
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
   <!- Write all your Jquery below -->
+
   <script>
 
   <!- In order for the Jqery to act on all events use this -->
   $(document).ready(function () {
   <!- All your Jquery -->
-
   });
 
   </script>
@@ -567,3 +573,5 @@ References
 .. _IIFE: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 .. _Vim Configuration for Javascript: http://www.brankovukelic.com/post/2091037293/turn-vim-into-powerful-javascript-editor
 .. _closures: http://jibbering.com/faq/notes/closures/
+.. _Defining Classes in JavaScript: http://www.phpied.com/3-ways-to-define-a-javascript-class/
+.. _JQuery Deconstructed: http://www.keyframesandcode.com/code/development/javascript/jquery/jquery-deconstructed/
