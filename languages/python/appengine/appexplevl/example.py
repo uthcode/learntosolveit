@@ -25,7 +25,7 @@ class User(db.Model):
 
 
 class Experience(db.Model):
-    user = db.UserProperty()
+    user = db.StringProperty()
     exp = db.IntegerProperty()
     lvl = db.IntegerProperty()
 
@@ -67,7 +67,7 @@ class BaseHandler(webapp.RequestHandler):
 
 class GameHandler(BaseHandler):
     def get(self):
-        current_fb_user = self.current_user
+        current_fb_user = self.current_user.name
         game_query = Experience.all().ancestor(game_key())
         mygame = game_query.filter('user = ', current_fb_user)
         result = mygame.get()
