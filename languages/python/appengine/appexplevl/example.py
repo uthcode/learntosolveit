@@ -65,10 +65,8 @@ class BaseHandler(webapp.RequestHandler):
                 self._current_user = user
         return self._current_user
 
-
-class HomeHandler(BaseHandler):
-    def post(self):
-        path = os.path.join(os.path.dirname(__file__), "example.html")
+class GameHandler(webapp.RequestHandler):
+    def get(self):
         current_fb_user = self.current_user
         game_query = Experience.all().ancestor(game_key())
         mygame = game_query.filter('user = ', current_fb_user)
@@ -91,11 +89,19 @@ class HomeHandler(BaseHandler):
             score = expobj.exp
             level = expobj.lvl
 
-
-        args = dict(current_user=current_fb_user,
+        path = os.path.join(os.path.dirname(__file__), "game.html")
+        args = dict(current_user=self.current_user,
                     facebook_app_id=FACEBOOK_APP_ID,
                     current_score = score,
                     current_level = level
+                    )
+        self.response.out.write(template.render(path, args))
+
+class HomeHandler(BaseHandler):
+    def post(self):
+        path = os.path.join(os.path.dirname(__file__), "home.html")
+        args = dict(current_user=self.current_user,
+                    facebook_app_id=FACEBOOK_APP_ID,
                     )
         self.response.out.write(template.render(path, args))
 
