@@ -107,7 +107,8 @@ class HomeHandler(BaseHandler):
 
 
 def main():
-    util.run_wsgi_app(webapp.WSGIApplication([(r"/", HomeHandler)]))
+    util.run_wsgi_app(webapp.WSGIApplication([(r"/", HomeHandler),
+                                              (r"/play", GameHandler)]))
 
 
 if __name__ == "__main__":
