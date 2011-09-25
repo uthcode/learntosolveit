@@ -6,13 +6,13 @@
   </head>
   <body>
     <fb:login-button autologoutlink="true"></fb:login-button>
-    Please Login to continue.
+    <br><br>
+    <div id="fb-root"></div>
 
     {% if current_user %}
       <p><a href="{{ current_user.profile_url }}"><img src="http://graph.facebook.com/{{ current_user.id }}/picture?type=square"/></a></p>
       <p>Hello, <b>{{ current_user.name|escape }}!</b></p>
 
-    <div id="fb-root"></div>
     <div id="game">
     Welcome to our game. You have Experience Score and Levels. Clicking on Play
     will increase your <b>experience</b>. After getting <b>10 experience</b>,
@@ -20,7 +20,10 @@
     Enjoy!
     <hr> 
     <a href="/play">Play Game</a>
-    </div>
+</div>
+    {% else %}
+        <p>Please Login to Facebook to Play the Game!</p>
+
     {% endif %}
 
     <script>
