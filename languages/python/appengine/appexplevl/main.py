@@ -28,19 +28,19 @@ class GameHandler(webapp.RequestHandler):
         msg = """Hello %s! \n
         Your Experience is %s.\n
         Your Level is %s.\n
-        <a href="/play">Play again.</a>
+        <a href="/play">Play again.</a>\n\n
+        or <a href="%s">logout</a>
         """
-        if users.get_current_user():
-            url = users.create_logout_url(self.request.uri)
-        else:
+        url = users.create_logout_url(self.request.uri)
+
+        if not users.get_current_user():
             self.redirect(users.create_login_url(self.request.uri))
 
         game_query = Experience.all().ancestor(game_key())
         mygame = game_query.filter('user = ',users.get_current_user())
         result = mygame.get()
-
         user = users.get_current_user()
-        self.response.out.write(repr(mygame))
+
         if result:
             self.response.out.write(repr(result))
             self.response.out.write("hello")
@@ -48,11 +48,9 @@ class GameHandler(webapp.RequestHandler):
             self.response.out.write(dir(result))
             score = result.exp
             level = result.lvl
-            #score = mygame.exp
-            #level = mygame.lvl
-            #mygame.exp = mygame.exp + 1
-            #mygame.lvl = mygame.lvl + 1
-            #mygame.put()
+            result.exp = score + 1
+            result.lvl = level + 1
+            result.put()
         else:
             self.response.out.write("world")
             expobj = Experience(parent=game_key())
@@ -63,7 +61,7 @@ class GameHandler(webapp.RequestHandler):
             score = expobj.exp
             level = expobj.lvl
 
-        self.response.out.write(msg % (user,score,level))
+        self.response.out.write(msg % (user,score,level, url))
 
 def main():
     application = webapp.WSGIApplication([('/', MainHandler),
