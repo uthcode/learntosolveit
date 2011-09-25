@@ -65,6 +65,8 @@ class BaseHandler(webapp.RequestHandler):
 
 class GameHandler(BaseHandler):
     def get(self):
+        if not self.current_user:
+            self.redirect('/')
         current_fb_user = self.current_user.id
         game_query = Experience.all().ancestor(game_key())
         mygame = game_query.filter('user = ', current_fb_user)
@@ -97,6 +99,12 @@ class GameHandler(BaseHandler):
 
 class HomeHandler(BaseHandler):
     def post(self):
+        path = os.path.join(os.path.dirname(__file__), "home.html")
+        args = dict(current_user=self.current_user,
+                    facebook_app_id=FACEBOOK_APP_ID,
+                    )
+        self.response.out.write(template.render(path, args))
+    def get(self):
         path = os.path.join(os.path.dirname(__file__), "home.html")
         args = dict(current_user=self.current_user,
                     facebook_app_id=FACEBOOK_APP_ID,
