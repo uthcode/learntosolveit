@@ -25,12 +25,14 @@ class GameHandler(webapp.RequestHandler):
     def get(self):
         # Display the score and experience.
         # Increment the score and experience at each click.
-        msg = """Hello %s! \n
-        Your Experience is %s.\n
-        Your Level is %s.\n
-        Score 10 in Experience to Level up.\n\n
-        <a href="/play">Play again.</a>.\n\n
-        or <a href="%s">logout</a>
+        msg = """<h2>Hello %s! </h2>\n
+        <p>Your Experience is <b>%s.</b></p>\n
+        <p>Your Level is <b>%s.</b></p>\n
+        <hr>
+        <b><a href="/play">Play again.</a>.</b><br>
+        <p>Score 10 in Experience to Level up.</p>
+        <hr>
+        <a href="%s">logout</a>
         """
         url = users.create_logout_url(self.request.uri)
 
@@ -47,12 +49,13 @@ class GameHandler(webapp.RequestHandler):
             result.exp = score + 1
             if (result.exp % 10) == 0:
                 result.lvl = level + 1
+                result.exp = 0
             result.put()
         else:
             expobj = Experience(parent=game_key())
             expobj.user = users.get_current_user()
             expobj.exp = 1
-            expobj.lvl = 1
+            expobj.lvl = 0
             expobj.put()
             score = expobj.exp
             level = expobj.lvl
