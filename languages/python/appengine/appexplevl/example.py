@@ -65,7 +65,7 @@ class BaseHandler(webapp.RequestHandler):
                 self._current_user = user
         return self._current_user
 
-class GameHandler(webapp.RequestHandler):
+class GameHandler(BaseHandler):
     def get(self):
         current_fb_user = self.current_user
         game_query = Experience.all().ancestor(game_key())
