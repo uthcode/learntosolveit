@@ -24,6 +24,14 @@ class User(db.Model):
     access_token = db.StringProperty(required=True)
 
 
+class Experience(db.Model):
+    user = db.StringProperty()
+    exp = db.IntegerProperty()
+    lvl = db.IntegerProperty()
+
+def game_key():
+    return db.Key.from_path('Game','default')
+
 class BaseHandler(webapp.RequestHandler):
     """Provides access to the active Facebook user in self.current_user
 
@@ -61,8 +69,34 @@ class BaseHandler(webapp.RequestHandler):
 class HomeHandler(BaseHandler):
     def post(self):
         path = os.path.join(os.path.dirname(__file__), "example.html")
-        args = dict(current_user=self.current_user,
-                    facebook_app_id=FACEBOOK_APP_ID)
+        current_fb_user = self.current_user
+        game_query = Experience.all().ancestor(game_key())
+        mygame = game_query.filter('user = ', current_fb_user)
+        result = mygame.get()
+
+        if result:
+            score = result.exp
+            level = result.lvl
+            result.exp = score + 1
+            if (result.exp % 10) == 0:
+                result.lvl = level + 1
+                result.exp = 0
+            result.put()
+        else:
+            expobj = Experience(parent=game_key())
+            expobj.user = current_fb_user
+            expobj.exp = 1
+            expobj.lvl = 0
+            expobj.put()
+            score = expobj.exp
+            level = expobj.lvl
+
+
+        args = dict(current_user=current_fb_user,
+                    facebook_app_id=FACEBOOK_APP_ID,
+                    current_score = score,
+                    current_level = level
+                    )
         self.response.out.write(template.render(path, args))
 
 
