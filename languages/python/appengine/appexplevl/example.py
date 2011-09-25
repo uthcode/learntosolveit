@@ -25,7 +25,7 @@ class User(db.Model):
 
 
 class Experience(db.Model):
-    user = db.StringProperty()
+    user = db.UserProperty()
     exp = db.IntegerProperty()
     lvl = db.IntegerProperty()
 
