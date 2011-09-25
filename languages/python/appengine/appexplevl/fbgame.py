@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-"""A barebones AppEngine application that uses Facebook for login."""
-
 FACEBOOK_APP_ID = "280237022005951"
 FACEBOOK_APP_SECRET = "6ddb8ceb6cefc3ab1aa3adcec6a9e064"
 
@@ -67,7 +65,7 @@ class BaseHandler(webapp.RequestHandler):
 
 class GameHandler(BaseHandler):
     def get(self):
-        current_fb_user = self.current_user.name
+        current_fb_user = self.current_user.id
         game_query = Experience.all().ancestor(game_key())
         mygame = game_query.filter('user = ', current_fb_user)
         result = mygame.get()
