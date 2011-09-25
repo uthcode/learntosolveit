@@ -28,7 +28,8 @@ class GameHandler(webapp.RequestHandler):
         msg = """Hello %s! \n
         Your Experience is %s.\n
         Your Level is %s.\n
-        <a href="/play">Play again.</a>\n\n
+        Score 10 in Experience to Level up.\n\n
+        <a href="/play">Play again.</a>.\n\n
         or <a href="%s">logout</a>
         """
         url = users.create_logout_url(self.request.uri)
@@ -40,19 +41,14 @@ class GameHandler(webapp.RequestHandler):
         mygame = game_query.filter('user = ',users.get_current_user())
         result = mygame.get()
         user = users.get_current_user()
-
         if result:
-            self.response.out.write(repr(result))
-            self.response.out.write("hello")
-            self.response.out.write(type(result))
-            self.response.out.write(dir(result))
             score = result.exp
             level = result.lvl
             result.exp = score + 1
-            result.lvl = level + 1
+            if (result.exp % 10) == 0:
+                result.lvl = level + 1
             result.put()
         else:
-            self.response.out.write("world")
             expobj = Experience(parent=game_key())
             expobj.user = users.get_current_user()
             expobj.exp = 1
