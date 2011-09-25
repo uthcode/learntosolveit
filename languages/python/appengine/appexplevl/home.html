@@ -5,9 +5,6 @@
     <title>Game with Experience and Levels</title>
   </head>
   <body>
-    <fb:login-button autologoutlink="true"></fb:login-button>
-    <br><br>
-    <div id="fb-root"></div>
 
     {% if current_user %}
       <p><a href="{{ current_user.profile_url }}"><img src="http://graph.facebook.com/{{ current_user.id }}/picture?type=square"/></a></p>
@@ -20,9 +17,21 @@
     Enjoy!
     <hr> 
     <a href="/play">Play Game</a>
-</div>
+    </div><br/><br/>
+    <fb:login-button autologoutlink="true"></fb:login-button>
+    <br/><br/>
+    <div id="fb-root"></div>
     {% else %}
-        <p>Please Login to Facebook to Play the Game!</p>
+        <div id="game">
+        Welcome to our game. You have Experience Score and Levels. Clicking on Play
+        will increase your <b>experience</b>. After getting <b>10 experience</b>,
+        you are upgraded to new <b>level</b>. That is it.<br>
+        Enjoy!
+        <hr> 
+        <p>Please Login using Facebook to Play the Game!</p>
+        <fb:login-button autologoutlink="true"></fb:login-button>
+        <br><br>
+        <div id="fb-root"></div>
 
     {% endif %}
 
