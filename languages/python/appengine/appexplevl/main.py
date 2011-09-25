@@ -21,6 +21,9 @@ class MainHandler(webapp.RequestHandler):
     def get(self):
         self.response.out.write('<a href="/play">Play Game</a>')
 
+    def post(self):
+        self.response.out.write('<a href="/play">Play Game</a>')
+
 class GameHandler(webapp.RequestHandler):
     def get(self):
         # Display the score and experience.
