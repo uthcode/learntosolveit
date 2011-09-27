@@ -538,6 +538,14 @@ It should return 1314432237250
 `Defining Classes in JavaScript`_
 `JQuery Deconstructed`_
 
+Good article promoting some of the patterns we are using (and should be using
+more of) in prodcast.  In brief:                              
+
+- javascript modules exposing clean, minimal interfaces                                                                                    
+- pubsub or events to avoid direct dependencies between modules                                                                            
+
+    http://addyosmani.com/largescalejavascript/         
+
 
 jsfiddle
 --------
