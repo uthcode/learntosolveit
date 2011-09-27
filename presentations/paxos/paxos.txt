@@ -23,6 +23,7 @@ Paxos Algorithm
    :class: handout
 
 .. footer:: 
+    http://www.uthcode.com
 
 Paxos
 =====
