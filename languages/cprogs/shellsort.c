@@ -1,34 +1,39 @@
-/* shellsort: sorting distant elements first and then reducing the distance */
-
 #include<stdio.h>
-void shellsort(int v[],int n);
+#include<stdlib.h>
 
-int main(void)
+static void shell_sort(int a[], int size)
 {
-	int i;
-	int v[10]={32,12,46,25,8,6,12,98,34,90};
-	for(i=0;i<10;i++)
-		printf("%d ",v[i]);
-	shellsort(v,10);
-	printf("\nAfter Sort\n");
-	for(i=0;i<10;i++)
-		printf("%d ",v[i]);
-
-	return 0;
+    int i, j;
+    int h=1;
+    do {
+        h = h * 3 + 1;
+    }while (h <= size);
+    do {
+        h /= 3;
+        for (i = h; i < size; i++)
+        {
+            int v = a[i];
+            for (j = i; j >= h && a[j - h]  > v; j -= h)
+                a[j] = a[j -h];
+            if (i != j)
+                a[j] = v;
+        }
+    }while (h != 1);
 }
 
-void shellsort(int v[],int n)
+int main(int argc, char *argv[])
 {
-	int gap,i,j,temp;
+    int *a;
+    int i;
 
-	for(gap = n/2; gap > 0; gap /=2)
-		for(i= gap; i < n ; ++i)
-			for( j=i-gap; j >=0 && (v[j] > v[j+gap]);j-=gap)
-			{
-				temp = v[j];
-				v[j] = v[j+gap];
-				v[j+gap] = temp;
-			}
+    a  = (int *)malloc((argc - 1) * sizeof(int));
+    for (i = 0; i < argc - 1; i++)
+        a[i] = atoi(argv[i+1]);
+    shell_sort(a, argc);
+
+    for (i = 0; i < argc -1; i++)
+        printf("%d", a[i]);
+    printf("\n");
+    free(a);
+    return 0;
 }
-
-	
