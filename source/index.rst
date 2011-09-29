@@ -28,12 +28,13 @@ Articles
 .. toctree::
    :maxdepth: 1
 
-   pythonstart
-   beingagooddeveloper
    python
    pythondesign
+   pythonstart
+   beingagooddeveloper
    pycon2009
    computerscience
+   Alice_Programming
    quotes
    discipline-score
    finance
@@ -48,3 +49,12 @@ Articles
    ubuntu
    versioncontrol
    vim
+   appengine
+   cpp
+   lastlayer
+   mako
+   node
+   paxos
+   pylons
+   restructuredtext
+   thanks

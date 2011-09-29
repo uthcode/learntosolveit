@@ -46,7 +46,7 @@ My Constant thoughts with Ubuntu is to how to automate various tasks that I
 routinely do.
 
 ratpoison window manager related:
-	* starting nm-applet automatically.
+* starting nm-applet automatically.
 mutt folders.
 office email via mutt.
 
@@ -313,62 +313,64 @@ http://vim.wikia.com/wiki/Automatic_scrolling_of_text
 ! gentoo has a bug so that it doesnt read it when X starts, so add above
 ! command to /etc/xfce4/xinitrc (top) and be happy.
 
-!xterm*background:	Black
-!xterm*foreground:	Grey
-xterm*font:		-Misc-Fixed-Medium-R-Normal--20-200-75-75-C-100-ISO10646-1
-!xterm*font:		-misc-fixed-medium-r-normal--18-*-*-*-*-*-iso10646-1
-!xterm*iconPixmap: ...
-!xterm*iconPixmap:       /usr/share/pixmaps/gnome-gemvt.xbm
-!xterm*iconMask:         /usr/share/pixmaps/gnome-gemvt-mask.xbm
-!XTerm*iconName: terminal
-!Mwm*xterm*iconImage: /home/a/a1111aa/xterm.icon
-XTerm*loginShell: true
-XTerm*foreground: gray90
-XTerm*background: black
-XTerm*cursorColor: rgb:00/80/00
-XTerm*borderColor: white
-XTerm*scrollColor: black
-XTerm*visualBell: true
-XTerm*saveLines: 1000
-!! XTerm.VT100.allowSendEvents: True
-XTerm*allowSendEvents: True
-XTerm*sessionMgt: false
-!XTerm*eightBitInput:  false
-!XTerm*metaSendsEscape: true
-!XTerm*internalBorder:  10
-!XTerm*highlightSelection:  true
-!XTerm*VT100*colorBDMode:  on
-!XTerm*VT100*colorBD:  blue
-!XTerm.VT100.eightBitOutput:  true
-!XTerm.VT100.titeInhibit:  false
-XTerm*color0: black
-XTerm*color1: red3
-XTerm*color2: green3
-XTerm*color3: yellow3
-XTerm*color4: DodgerBlue1
-XTerm*color5: magenta3
-XTerm*color6: cyan3
-XTerm*color7: gray90
-XTerm*color8: gray50
-XTerm*color9: red
-XTerm*color10: green
-XTerm*color11: yellow
-XTerm*color12: blue
-XTerm*color13: magenta
-XTerm*color14: cyan
-XTerm*color15: white
-XTerm*colorUL: yellow
-XTerm*colorBD: white
-!XTerm*mainMenu*backgroundPixmap:     gradient:vertical?dimension=400&start=gray10&end=gray40
-!XTerm*mainMenu*foreground:          white 
-!XTerm*vtMenu*backgroundPixmap:       gradient:vertical?dimension=550&start=gray10&end=gray40
-!XTerm*vtMenu*foreground:             white
-!XTerm*fontMenu*backgroundPixmap:     gradient:vertical?dimension=300&start=gray10&end=gray40
-!XTerm*fontMenu*foreground:           white
-!XTerm*tekMenu*backgroundPixmap:      gradient:vertical?dimension=300&start=gray10&end=gray40
-!XTerm*tekMenu*foreground:            white
-!XTerm Profiles (idea from dag wieers)
-XTerm*rightScrollBar: true
+::
+
+    !xterm*background:	Black
+    !xterm*foreground:	Grey
+    xterm*font:		-Misc-Fixed-Medium-R-Normal--20-200-75-75-C-100-ISO10646-1
+    !xterm*font:		-misc-fixed-medium-r-normal--18-*-*-*-*-*-iso10646-1
+    !xterm*iconPixmap: ...
+    !xterm*iconPixmap:       /usr/share/pixmaps/gnome-gemvt.xbm
+    !xterm*iconMask:         /usr/share/pixmaps/gnome-gemvt-mask.xbm
+    !XTerm*iconName: terminal
+    !Mwm*xterm*iconImage: /home/a/a1111aa/xterm.icon
+    XTerm*loginShell: true
+    XTerm*foreground: gray90
+    XTerm*background: black
+    XTerm*cursorColor: rgb:00/80/00
+    XTerm*borderColor: white
+    XTerm*scrollColor: black
+    XTerm*visualBell: true
+    XTerm*saveLines: 1000
+    !! XTerm.VT100.allowSendEvents: True
+    XTerm*allowSendEvents: True
+    XTerm*sessionMgt: false
+    !XTerm*eightBitInput:  false
+    !XTerm*metaSendsEscape: true
+    !XTerm*internalBorder:  10
+    !XTerm*highlightSelection:  true
+    !XTerm*VT100*colorBDMode:  on
+    !XTerm*VT100*colorBD:  blue
+    !XTerm.VT100.eightBitOutput:  true
+    !XTerm.VT100.titeInhibit:  false
+    XTerm*color0: black
+    XTerm*color1: red3
+    XTerm*color2: green3
+    XTerm*color3: yellow3
+    XTerm*color4: DodgerBlue1
+    XTerm*color5: magenta3
+    XTerm*color6: cyan3
+    XTerm*color7: gray90
+    XTerm*color8: gray50
+    XTerm*color9: red
+    XTerm*color10: green
+    XTerm*color11: yellow
+    XTerm*color12: blue
+    XTerm*color13: magenta
+    XTerm*color14: cyan
+    XTerm*color15: white
+    XTerm*colorUL: yellow
+    XTerm*colorBD: white
+    !XTerm*mainMenu*backgroundPixmap:     gradient:vertical?dimension=400&start=gray10&end=gray40
+    !XTerm*mainMenu*foreground:          white 
+    !XTerm*vtMenu*backgroundPixmap:       gradient:vertical?dimension=550&start=gray10&end=gray40
+    !XTerm*vtMenu*foreground:             white
+    !XTerm*fontMenu*backgroundPixmap:     gradient:vertical?dimension=300&start=gray10&end=gray40
+    !XTerm*fontMenu*foreground:           white
+    !XTerm*tekMenu*backgroundPixmap:      gradient:vertical?dimension=300&start=gray10&end=gray40
+    !XTerm*tekMenu*foreground:            white
+    !XTerm Profiles (idea from dag wieers)
+    XTerm*rightScrollBar: true
 
 
 Networking
@@ -473,11 +475,14 @@ http://sylvarwolflinux.wordpress.com/2007/12/18/installing-squid-proxy-server-in
    17. Now go to any webpage. If you get the page, it's working!
 
 
-algotutor
-fraqtive
-golly
-gplanarity
-graphthing
+Programs for Study
+------------------
+
+* algotutor
+* fraqtive
+* golly
+* gplanarity
+* graphthing
 
 Links
 -----

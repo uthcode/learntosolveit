@@ -89,7 +89,6 @@ prior permission from the author.
 
 Ivan Sutherland Mountain View, CA December 1995
 
-
 Technology and Courage
 
 Ivan Sutherland
@@ -330,7 +329,6 @@ take his place as a researcher in their ranks. Graduate school is the place
 where the distinction between mentor and student begins to blur, and faculty
 and graduate students become colleagues.
 
-
 Informal interaction between students and faculty helps students join the ranks
 of full-fledged researchers. I recall playing with blocks at Claude Shannon's
 house when he was my thesis supervisor. Although at the time I thought of it as
@@ -346,30 +344,31 @@ provided by such social functions we can gain insight into the habits of our
 mentors and friends, and can discuss ill-formed ideas that would be too risky
 to reveal in a more formal context. 
 
-
-2.5 In Academia, it's Hard to Stop Some academics go on and on doing the same
+In Academia, it's Hard to Stop Some academics go on and on doing the same
 research year after year, often as a continuation of their thesis work.
 Academia seems to me deficient in mechanisms to help people stop old and stale
 projects. Sometimes their sponsors withdraw support and sometimes their peers
 suggest change. More often, however, academics continue working on old things,
 turning away only when they find newer and more interesting projects. 
 
-2.6 Encouragement in Business A person with the courage to start a new business
-is called an entrepreneur. When I was a child, my parents offered high praise
-for he who was "enterprising." By starting several companies myself, and
-through my work in venture capital, I have observed many ways that
-entrepreneurs work up their courage to the point where they are ready to start
-a business. The most important formal mechanism, nominally intended to present
-the prospects of the business to the financial community, is called the
-business plan. A business plan is very much like a thesis proposal. It says
-what its proponents intend to do, what they plan to spend, what competition
-they expect, and what return they anticipate. Its preparation requires that the
-entrepreneurs do the basic work that is needed to assess the business risks.
-Its approval encourages the entrepreneurs to begin by providing not only the
-capital required, but also the moral encouragement of the supporting investors.
-In effect, the business plan records the entrepreneur's estimate of the
-thickness of the ice. The financial backers of an enterprise back it only after
-examining its prospects with "due diligence."
+Encouragement in Business.
+
+A person with the courage to start a new business is called an entrepreneur.
+When I was a child, my parents offered high praise for he who was
+"enterprising." By starting several companies myself, and through my work in
+venture capital, I have observed many ways that entrepreneurs work up their
+courage to the point where they are ready to start a business. The most
+important formal mechanism, nominally intended to present the prospects of the
+business to the financial community, is called the business plan. A business
+plan is very much like a thesis proposal. It says what its proponents intend to
+do, what they plan to spend, what competition they expect, and what return they
+anticipate. Its preparation requires that the entrepreneurs do the basic work
+that is needed to assess the business risks.  Its approval encourages the
+entrepreneurs to begin by providing not only the capital required, but also the
+moral encouragement of the supporting investors.  In effect, the business plan
+records the entrepreneur's estimate of the thickness of the ice. The financial
+backers of an enterprise back it only after examining its prospects with "due
+diligence."
 
 Sometimes it seems to me that a plan is so obviously timely and the
 entrepreneur's ability so obviously great that little further diligence is due.
@@ -400,51 +399,51 @@ important in research and in new businesses.
 
 2.7 Business Incentives 
 
-Our system
-of capitalist free enterprise provides equity incentives. It is amazing to me
-how effectively stock ownership motivates hard work, and more important, how
-common ownership of identical stock makes people pull together. If you and I
-both own the same type of stock, I can make a return if and only if you do, and
-thus my objective becomes to make you rich. This is the power of the capitalist
-system that raised our standard of living to the highest in the world. In
-addition to stock ownership, income and bonus incentives to business people
-often help keep their minds focused on their essential tasks. Commissions for
-sales people are very common, probably because selling takes so much courage to
-face the high risk of rejection by the potential customer. There is almost
-nothing I like less than selling, particularly against competition that undoes
-my sales pitch as soon as I turn my back. Amazingly, salesmen with a commission
-program will keep at this difficult task; I can only conclude that they draw
-courage from the commission. Presidents of companies often have bonus programs
-tied to the profitability of the company. Such plans let the president do well
-if and only if the shareholders do well, and thus encourages him to keep the
-shareholders' interests at heart. Contracts are an essential ingredient of
-modern business. Contract milestones often include partial payments and thus
-powerful encouragement to getting on with the job. Contract deadlines can
-include penalty clauses. For example, the repaving contract for the Golden Gate
-Bridge included penalty clauses of tens of thousands of dollars per hour for
-delay in reopening the bridge to traffic each day. Social incentives also work
-in business. I spend much of my time as a consultant and have discovered that
-one of my tasks is to provide deadlines to my client's employees. My visits
-provide the deadlines for "charetting it up," for getting all of the reports
-done, for getting the presentations ready, and for getting on with the work. I
-can and do provide praise for good work. I like to think I have something
-technical to contribute also, but even if I did not, the deadline and appraisal
-value of my visits may easily make them worthwhile to my clients. It is not
-accidental that the word "company" as applied to a business enterprise is the
-same word that we apply to social occasions, as in "having company" or "keeping
-company" or "being company." Indeed, the Hudson's Bay Company, chartered in May
-1670, was literally called "The Governor and Company of Adventurers of England
-Trading into Hudson's Bay." The corporate form of business as we practice it
-has a Board of Directors to provide policy guidance. The board is elected by
-the owners of the company, the shareholders, and in turn, the board elects the
-officers of the company who manage its day-to-day affairs. In a very real
-sense, such boards along with the corporate officers are the Company of
-Adventurers who do our business. The board meets quarterly or monthly or, if
-necessary, more often. My experience suggests that the most effective boards
-have a measure of fellowship that helps them seek wise decisions together. When
-business prospects seem good, there is often humor at board meetings. It may be
-that the number of jokes told at board meetings is an important, albeit
-unreported, leading indicator of the business climate.
+Our system of capitalist free enterprise provides equity incentives. It is
+amazing to me how effectively stock ownership motivates hard work, and more
+important, how common ownership of identical stock makes people pull together.
+If you and I both own the same type of stock, I can make a return if and only
+if you do, and thus my objective becomes to make you rich. This is the power of
+the capitalist system that raised our standard of living to the highest in the
+world. In addition to stock ownership, income and bonus incentives to business
+people often help keep their minds focused on their essential tasks.
+Commissions for sales people are very common, probably because selling takes so
+much courage to face the high risk of rejection by the potential customer.
+There is almost nothing I like less than selling, particularly against
+competition that undoes my sales pitch as soon as I turn my back. Amazingly,
+salesmen with a commission program will keep at this difficult task; I can only
+conclude that they draw courage from the commission. Presidents of companies
+often have bonus programs tied to the profitability of the company. Such plans
+let the president do well if and only if the shareholders do well, and thus
+encourages him to keep the shareholders' interests at heart. Contracts are an
+essential ingredient of modern business. Contract milestones often include
+partial payments and thus powerful encouragement to getting on with the job.
+Contract deadlines can include penalty clauses. For example, the repaving
+contract for the Golden Gate Bridge included penalty clauses of tens of
+thousands of dollars per hour for delay in reopening the bridge to traffic each
+day. Social incentives also work in business. I spend much of my time as a
+consultant and have discovered that one of my tasks is to provide deadlines to
+my client's employees. My visits provide the deadlines for "charetting it up,"
+for getting all of the reports done, for getting the presentations ready, and
+for getting on with the work. I can and do provide praise for good work. I like
+to think I have something technical to contribute also, but even if I did not,
+the deadline and appraisal value of my visits may easily make them worthwhile
+to my clients. It is not accidental that the word "company" as applied to a
+business enterprise is the same word that we apply to social occasions, as in
+"having company" or "keeping company" or "being company." Indeed, the Hudson's
+Bay Company, chartered in May 1670, was literally called "The Governor and
+Company of Adventurers of England Trading into Hudson's Bay." The corporate
+form of business as we practice it has a Board of Directors to provide policy
+guidance. The board is elected by the owners of the company, the shareholders,
+and in turn, the board elects the officers of the company who manage its
+day-to-day affairs. In a very real sense, such boards along with the corporate
+officers are the Company of Adventurers who do our business. The board meets
+quarterly or monthly or, if necessary, more often. My experience suggests that
+the most effective boards have a measure of fellowship that helps them seek
+wise decisions together. When business prospects seem good, there is often
+humor at board meetings. It may be that the number of jokes told at board
+meetings is an important, albeit unreported, leading indicator of the business
+climate.
 
 2.8 Stopping a Business
 
@@ -757,7 +756,6 @@ the maze solving work I did in 1960 as a warm-up project. I was so sure no one
 would care about it that I never "bothered" to publish it until 1969 [5]. It
 turned out that my 1960 work drew questions even many years after publication,
 so someone must have cared.
-
 
 This very talk is another example for me. The chronology of this paper is shown
 in Table 1 on the next page. I first began to think about these ideas in the

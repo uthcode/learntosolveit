@@ -30,7 +30,7 @@ template_value = """
 ----
 """
 
-cfiles = glob.glob('cprogs/*.c')
+cfiles = glob.glob('languages/cprogs/*.c')
 for each in cfiles:
     stats = os.stat(each)
     last_modified_date = time.localtime(stats[8])

@@ -1,4 +1,6 @@
+===============
 Paxos Algorithm
+===============
 
 If you need agreement, you're lost.
 

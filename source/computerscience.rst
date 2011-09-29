@@ -373,20 +373,21 @@ Video Lecture 2: Closure and Non-Determinism
 * Convert a Non Deterministic FSM to a Deterministics FSM, the example of every 1 followed by two zeros.
 * Reversing a machine, wherein final state is the start state and arrows get reversed and start state is the new final state.
 * Theory of Computation Folklore. To convert to the minimize the Deterministic FSM   
-  * Reverse the Machine ( This would make it Non Deterministic)
-  * Convert to Deterministic FSM
-  * Reverse the machine (Again Non Deterministic FSM)
-  * Covert to Deterministic FSM again. *This would be minimal machine.* I kind of trust Shai Simonson's word on that. :)
+* Reverse the Machine ( This would make it Non Deterministic)
+* Convert to Deterministic FSM
+* Reverse the machine (Again Non Deterministic FSM)
+* Covert to Deterministic FSM again. *This would be minimal machine.* I kind of
+  trust Shai Simonson's word on that. :)
 * The above method of minimizing involves DFA to NFA and it is exponential time complex.
 * There are better methods using Polynomial Time Complexity using Dynamic Programming Strategy.
 * Union of two machines using NFA.
 * Intersection of two machines ( Using De Morgan's law. WOW!!!) But that is
   costly again, you can do it by working it out with pair or states as in
   cartesian product of the two machines. 
-   * Union means the set of accept states are either of the accept states in M1
-     and M2.
-   * Intersection means that set of accept states are BOTH the accept state in
-     M1 and M2.
+* Union means the set of accept states are either of the accept states in M1
+  and M2.
+* Intersection means that set of accept states are BOTH the accept state in M1
+  and M2.
 * Union, Intersection and Complement. Any two of the operations are enough and the third one is guaranteed.
 * Complement Operations means changing 1s to 0s.
 * Finding Intersection using Non Determinism is difficult, because Non
@@ -436,16 +437,16 @@ Pumping Lemma
 * How to show that it is not true? 
 * If you push not sign through quantifiers, it changes universal to existential
   and vice versa.
-* Not of pumping property. For any n, there exists z in L such that |z| >= n,
-  there exists v,w,x such that z=vwx and |vw| <= n and |w| >= 1 and there
-  exists i >0 vw^i^x is not in L.
+* Not of pumping property. For any n, there exists z in L such that ``|z|`` >=
+  n, there exists v,w,x such that z=vwx and ``|vw|`` <= n and ``|w|`` >= 1 and
+  there exists i >0 vw^i^x is not in L.
 * Converse of Point 3 is not true. A set having pumping property does not mean
   that the set is a regular set. It is not a iff property. 
 * A set of Palindromes, dont satisfy the pumping property. 
 * Palindrome - Latin for running backwards.
 * In the pumping lemma proof for palindrome, for sets = K, chosing 0^K^10^K^
   forces the opponent to choose the looping in 0, because of the property that
-  |vw| <= K. :) Palindromes are not a regular set.
+  ``|vw|`` <= K. :) Palindromes are not a regular set.
 * While a bad choice of z = 0^K/2^1^K/2^ would make the loop to be in 1 and it
   would result in a palindromes. 
 * Palindromes cannot be described by regular expressions.
@@ -534,9 +535,9 @@ The number of bits a CPU can process at once; word size is usually the same as
 the width of the CPU's external data bus, but sometimes is smaller.
 Justify that CPU in personal computer is a general purpose processor.
 
- * It is not just for sine and cosine but can do a large number of small scale mathematical calculations.
- * It can fairly handle the graphic requirements.
- * It can do multi-tasking to satisfy the users requirements.
+* It is not just for sine and cosine but can do a large number of small scale mathematical calculations.
+* It can fairly handle the graphic requirements.
+* It can do multi-tasking to satisfy the users requirements.
 
 In a mathematical sense, only three operations are needed to compute any
 computable function: add one, subtract one and branch if a value is non-zero.
@@ -550,7 +551,7 @@ Minimizing Finite State Machines
 * Cave example, Dungeon and Dragons. 
 * Minimising FSM
 * Make it such a way if one state is distinguishable from another.
-* NC_2_ are the number of pair of states for N states.
+* `` NC_2_`` are the number of pair of states for N states.
 * Draw a Matrix and X each pair of states which are distinguishable.
 * Proceed on 0,1 and on each pair and note the dependency and mark them for backtracking.
 * The amount of backtracking, determines the size of the string that distinguishes it.
@@ -701,17 +702,19 @@ Lecture 5 Context Free Languages
 * Semantic meaning for the non-terminal.
 
 ::
-   S -> 0A | 1B | e
-   A -> 1S |0AA
-   B -> 0S |1BB
+
+    S -> 0A | 1B | e
+    A -> 1S |0AA
+    B -> 0S |1BB
 
 * Ambiguity is at AA.
 * Recursive example of grammar.
 
 ::
-         S-> SAB | e
-         A-> 0S1 | e
-         B-> 1S0 | e
+
+    S-> SAB | e
+    A-> 0S1 | e
+    B-> 1S0 | e
 
 * Single Tree Grammers ( But the trees may get pruned at different levels)
 * This is equal number of 0s and 1s.

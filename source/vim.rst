@@ -147,7 +147,7 @@ backspace over end of line.
 * mx marks the current line with a letter.
 
 ::
-        * `a moves to the marked position.
+        * a moves to the marked position.
 
 * Ctrl-L Refreshes the Screen.
 * @ characters in the screen can be removed by pressing Ctrl-R (??)

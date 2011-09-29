@@ -1,3 +1,6 @@
+=================
+ReStructured Text
+=================
 
 Revised, Reworked, Reinterpreted, Structured Text.
 
@@ -41,13 +44,12 @@ Sub Section Header
 #) Enumerated List
 #) Second Point
 
-.. image:: /path/to/image.png
+::
 
-Links_
+    .. image:: /path/to/image.png
 
-_ Links: http://www.example.org
+::
 
+    Links_
 
-
-
-
+    _ Links: http://www.example.org
