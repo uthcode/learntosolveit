@@ -698,14 +698,14 @@ Purpose: - An Example Snippet
 **trials3.py**
 
 
-    dict1 = {'abcd':[(1,[('a','b','c','d')]),
-                     (3,[('a','b','cd'),('ab','c','d')])
-                     (2,[('abc','d'),('a','bcd')])]
-            }
+dict1 = {'abcd':[(1,[('a','b','c','d')]),
+                 (3,[('a','b','cd'),('ab','c','d')])
+                 (2,[('abc','d'),('a','bcd')])]
+        }
 
-    Step 1, aim for:
+Step 1, aim for:
 
-        store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
+store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
 .. literalinclude:: //home/senthil/uthcode/temp/python-VjZS60.py
@@ -716,14 +716,14 @@ Purpose: - An Example Snippet
 **trials2.py**
 
 
-    dict1 = {'abcd':[(1,[('a','b','c','d')]),
-                     (3,[('a','b','cd'),('ab','c','d')])
-                     (2,[('abc','d'),('a','bcd')])]
-            }
+dict1 = {'abcd':[(1,[('a','b','c','d')]),
+                 (3,[('a','b','cd'),('ab','c','d')])
+                 (2,[('abc','d'),('a','bcd')])]
+        }
 
-    Step 1, aim for:
+Step 2, aim for:
 
-        store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
+store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
 .. literalinclude:: //home/senthil/uthcode/temp/python-FT0BZ4.py
@@ -741,7 +741,7 @@ dict1 = {'abcd':[(1,[('a','b','c','d')]),
 
 Step 1, aim for:
 
-    store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
+store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
 
 
 .. literalinclude:: //home/senthil/uthcode/temp/python-XiDuBi.py
@@ -880,13 +880,13 @@ This function counts the number of characters in a tamil string
 
 **subprocess_6.py**
 
+::
 
-if errcode:
-    with open('error.out') as ef:
+    if errcode:
+        with open('error.out') as ef:
+            pass
+    with open('data.out') as f:
         pass
-    #errmess = p.stderr.read()
-with open('data.out') as f:
-    pass
 
 
 .. literalinclude:: //home/senthil/uthcode/temp/python-KqgB8s.py
@@ -2123,15 +2123,16 @@ Inspirations:
   urllib2_file:
     Fabien Seisen: <fabien@seisen.org>
 
-Example:
-  import MultipartPostHandler, urllib2, cookielib
+Example::
 
-  cookies = cookielib.CookieJar()
-  opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
-                                MultipartPostHandler.MultipartPostHandler)
-  params = { "username" : "bob", "password" : "riviera",
-             "file" : open("filename", "rb") }
-  opener.open("http://wwww.bobsite.com/upload/", params)
+    import MultipartPostHandler, urllib2, cookielib
+
+    cookies = cookielib.CookieJar()
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
+                                  MultipartPostHandler.MultipartPostHandler)
+    params = { "username" : "bob", "password" : "riviera",
+               "file" : open("filename", "rb") }
+    opener.open("http://wwww.bobsite.com/upload/", params)
 
 Further Example:
   The main function of this file is a sample which downloads a page and
