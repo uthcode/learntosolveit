@@ -179,15 +179,15 @@ Python Programming
     keys. When you create a defaultdict, you provide a factory function, which will
     be called for returning the default value::
 
-    >>> from collections import defaultdict
-    >>> d = defaultdict(lambda: 42)
-    >>> d[10]
-    42
-    >>> d[100]
-    42
-    >>> d
-    defaultdict(<function <lambda> at 0x7fc5616c8500>, {10: 42, 100: 42})
-    >>>
+        >>> from collections import defaultdict
+        >>> d = defaultdict(lambda: 42)
+        >>> d[10]
+        42
+        >>> d[100]
+        42
+        >>> d
+        defaultdict(<function <lambda> at 0x7fc5616c8500>, {10: 42, 100: 42})
+        >>>
 
 #) **How would implement the defaultdict's behavior using the normal dict?**
 
@@ -2446,15 +2446,15 @@ Dissecting urlparse:
 * then there is classification of schemes like uses_relative, uses_netloc,
   non_hierarchical, uses_params, uses_query, uses_fragment
 
-- there should be defined in an rfc most probably 1808.
+* there should be defined in an rfc most probably 1808.
 
-- there is a special '' blank string, in certain classifications, which means
+* there is a special '' blank string, in certain classifications, which means
   that apply by default.
 
 * valid characters in scheme name should be defined in 1808.
 
 * class ResultMixin is defined to provide username, password, hostname and
-port.
+  port.
 
 * The behaviour of the public methods urlparse, urlunparse, urlsplit and
   urlunsplit and urldefrag matter most.
@@ -2484,6 +2484,7 @@ well-formed URI reference into its components::
         path = $5
         query = $7
         fragment = $9
+
 
 The urlsplit functionality in the urllib can be moved to new regular expression
 based parsing mechanism.
@@ -2522,16 +2523,21 @@ CacheFTPHandler testcases are hard to write.
 
 Here's how the control goes.
 
-1) There is an url with two '//'s in the path.
-2) The call is data = urllib2.urlopen(url).read()
-3) urlopen calls the build_opener. build_opener builds the opener using (tuple)
+#) There is an url with two '//'s in the path
+
+#) The call is data = urllib2.urlopen(url).read()
+
+#) urlopen calls the build_opener. build_opener builds the opener using (tuple)
 of handlers.
-4) opener is an instance of OpenerDirector() and has default HTTPHandler and
+
+#) opener is an instance of OpenerDirector() and has default HTTPHandler and
 HTTPSHandler.
-5) When the Request call is made and the request has 'http' protocol, then
+
+#) When the Request call is made and the request has 'http' protocol, then
 http_request method is called.
 
 ::
+
          HTTPHandler has http_request method which is
          AbstractHTTPHandler.do_request_ Now, for this issue we get to the
          do_request_ method and see that host is set in the do_request_ method
@@ -2540,6 +2546,7 @@ http_request method is called.
          request.get_selector() is the call which is causing this particular
          issue of "urllib2 getting confused with path containing //".
          .get_selector() method returns self.__r_host.
+
 
 Now, when proxy is set using set_proxy(), self.__r_host is self.__original (
 The original complete url itself), so the get_selector() call is returns the
@@ -2680,34 +2687,37 @@ Mon Aug 25 10:17:01 IST 2008
 Section 1 of RFC3986 is very generic. Undestand that URI should be transferable
 and single generic syntax should denote the whole range of URI schemes.
 
-- URI Characters are, in turn, frequently encoded as octets for transport or
+* URI Characters are, in turn, frequently encoded as octets for transport or
   presentation.
-- This specification does not mandate any character encoding for mapping
+
+* This specification does not mandate any character encoding for mapping
   between URI characters and the octets used to store or transmit those
   characters.
-	pct-encoded = "%" HEXDIG HEXDIG
 
-- For consistency, uri producers and normalizers should use uppercase
+  pct-encoded = "%" HEXDIG HEXDIG
+
+* For consistency, uri producers and normalizers should use uppercase
   hexadecimal digits, for all percent - encodings.
-      reserved    = gen-delims / sub-delims
 
-      gen-delims  = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+  reserved    = gen-delims / sub-delims
 
-      sub-delims  = "!" / "$" / "&" / "'" / "(" / ")"
-                  / "*" / "+" / "," / ";" / "="
+  gen-delims  = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+
+  sub-delims  = "!" / "$" / "&" / "'" / "(" / ")"
+              / "*" / "+" / "," / ";" / "="
 
 
-      unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
+  unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
 
-   When a new URI scheme defines a component that represents textual
-   data consisting of characters from the Universal Character Set [UCS],
-   the data should first be encoded as octets according to the UTF-8
-   character encoding [STD63]; then only those octets that do not
-   correspond to characters in the unreserved set should be percent-
-   encoded.  For example, the character A would be represented as "A",
-   the character LATIN CAPITAL LETTER A WITH GRAVE would be represented
-   as "%C3%80", and the character KATAKANA LETTER A would be represented
-   as "%E3%82%A2".
+  When a new URI scheme defines a component that represents textual
+  data consisting of characters from the Universal Character Set [UCS],
+  the data should first be encoded as octets according to the UTF-8
+  character encoding [STD63]; then only those octets that do not
+  correspond to characters in the unreserved set should be percent-
+  encoded.  For example, the character A would be represented as "A",
+  the character LATIN CAPITAL LETTER A WITH GRAVE would be represented
+  as "%C3%80", and the character KATAKANA LETTER A would be represented
+  as "%E3%82%A2".
 
 Section 2, was on encoding and decoding the characters in the url scheme. How
 that is being used encoding reservered characters within data. Transmission of
@@ -2726,7 +2736,7 @@ authority so that governance of the name space defined by the
 remainder of the URI is delegated to that authority (which may, in
 turn, delegate it further).
 
-      userinfo    = *( unreserved / pct-encoded / sub-delims / ":" )
+      userinfo    = \*( unreserved / pct-encoded / sub-delims / ":" )
       host        = IP-literal / IPv4address / reg-name
 
 In order to disambiguate the syntax host between IPv4address and reg-name, we
@@ -2735,21 +2745,21 @@ apply the "first-match-wins" algorithm:
 A host identified by an Internet Protocol literal address, version 6
 [RFC3513] or later, is distinguished by enclosing the IP literal
 within square brackets ("[" and "]").  This is the only place where
- square bracket characters are allowed in the URI syntax.
+square bracket characters are allowed in the URI syntax.
 
       IP-literal = "[" ( IPv6address / IPvFuture  ) "]"
 
       IPvFuture  = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
 
-   IPv6address =                            6( h16 ":" ) ls32
+      IPv6address =                            6( h16 ":" ) ls32
                   /                       "::" 5( h16 ":" ) ls32
                   / [               h16 ] "::" 4( h16 ":" ) ls32
-                  / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
-                  / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
-                  / [ *3( h16 ":" ) h16 ] "::"    h16 ":"   ls32
-                  / [ *4( h16 ":" ) h16 ] "::"              ls32
-                  / [ *5( h16 ":" ) h16 ] "::"              h16
-                  / [ *6( h16 ":" ) h16 ] "::"
+                  / [ \*1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
+                  / [ \*2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
+                  / [ \*3( h16 ":" ) h16 ] "::"    h16 ":"   ls32
+                  / [ \*4( h16 ":" ) h16 ] "::"              ls32
+                  / [ \*5( h16 ":" ) h16 ] "::"              h16
+                  / [ \*6( h16 ":" ) h16 ] "::"
 
       ls32        = ( h16 ":" h16 ) / IPv4address
                   ; least-significant 32 bits of address
@@ -2757,7 +2767,7 @@ within square brackets ("[" and "]").  This is the only place where
       h16         = 1*4HEXDIG
                   ; 16 bits of address represented in hexadecimal
 
-   IPv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
+      IPv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
 
       dec-octet   = DIGIT                 ; 0-9
                   / %x31-39 DIGIT         ; 10-99
@@ -2765,7 +2775,7 @@ within square brackets ("[" and "]").  This is the only place where
                   / "2" %x30-34 DIGIT     ; 200-249
                   / "25" %x30-35          ; 250-255
 
-      reg-name    = *( unreserved / pct-encoded / sub-delims )
+      reg-name    = \*( unreserved / pct-encoded / sub-delims )
 
 Non-ASCII characters must first be encoded according to UTF-8 [STD63], and then
 each octet of the corresponding UTF-8 sequence must be percent- encoded to be
@@ -2784,15 +2794,14 @@ represented in NON ASCII how to go about with encoding/decoding that.
                     / path-rootless   ; begins with a segment
                     / path-empty      ; zero characters
 
-      path-abempty  = *( "/" segment )
-      path-absolute = "/" [ segment-nz *( "/" segment ) ]
-      path-noscheme = segment-nz-nc *( "/" segment )
-      path-rootless = segment-nz *( "/" segment )
+      path-abempty  = \*( "/" segment )
+      path-absolute = "/" [ segment-nz \*( "/" segment ) ]
+      path-noscheme = segment-nz-nc \*( "/" segment )
+      path-rootless = segment-nz \*( "/" segment )
       path-empty    = 0<pchar>
-      segment       = *pchar
-      segment-nz    = 1*pchar
-      segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
-                    ; non-zero-length segment without any colon ":"
+      segment       = \*pchar
+      segment-nz    = 1\*pchar
+      segment-nz-nc = 1\*( unreserved / pct-encoded / sub-delims / "@" ) ; non-zero-length segment without any colon ":"
 
       pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
 
@@ -2806,8 +2815,8 @@ represented in NON ASCII how to go about with encoding/decoding that.
 Section 4 was on the usage aspects and heuristics used in determining in the
 scheme in the normal usages where scheme is not given. 
 
-- Base uri must be stripped of any fragment components prior to it being used
-  as a Base URI.
+Base uri must be stripped of any fragment components prior to it being used as
+a Base URI.
 
 Section 5 was on relative reference implementation algorithm. I had covered
 them practically in the Python urlparse module.
@@ -2827,9 +2836,10 @@ urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
 
 2) then there is classification of schemes like uses_relative, uses_netloc,
 non_hierarchical, uses_params, uses_query, uses_fragment
-	- there should be defined in an rfc most probably 1808.
-	- there is a special '' blank string, in certain classifications, which
-	  means that apply by default.
+
+* there should be defined in an rfc most probably 1808.
+* there is a special '' blank string, in certain classifications, which means
+  that apply by default.
 
 3)valid characters in scheme name should be defined in 1808.
 
@@ -2856,10 +2866,7 @@ urlsplit x urlunsplit
 urldefrag
 urljoin
 
-
-
-
-Date: Tue Aug 19 20:40:46 IST 2008
+::
 
 	Changes to urlsplit functionality in urllib.
 	As per the RFC3986, the url is split into:
@@ -2882,7 +2889,6 @@ Date: Tue Aug 19 20:40:46 IST 2008
 
 	The urlsplit functionality in the urllib can be moved to new regular
 	expression based parsing mechanism.
-
 
 
 From man uri, which confirms to rfc2396 and HTML 4.0 specs.
@@ -2912,15 +2918,17 @@ considered best available current guidance:
 
 1) Represent each non-ASCII character as UTF-8
 2) Escape those bytes with the URI escaping mechanism, converting each byte to
-%HH where HH is the hexadecimal notation of the byte value.
+   %HH where HH is the hexadecimal notation of the byte value.
 
 One of the important changes when adhering to RFC3986 is parsing of IPv6
 addresses.
 
 ----------------------------------------------------------------------
-Having a construct like:
-def __init__(self, *args, **kwargs):
-	BaseClass.__init__(self, *args, **kwargs)
+
+Having a construct like::
+
+    def __init__(self, *args, **kwargs):
+        BaseClass.__init__(self, *args, **kwargs)
 
 But in the base class, I find that it is not taking the tuple and dict as
 arguments.
@@ -2935,20 +2943,30 @@ assert(proxies, 'has_key'), "proxies must be mapping"
 The getaddrinfo() function returns a list of 5-tuples with the following structure:
 (family, socktype, proto, canonname, sockaddr)
 
-family, socktype, proto are all integer and are meant to be passed to the socket() function. canonname is a string representing the canonical name of the host. It can be a numeric IPv4/v6 address when AI_CANONNAME is specified for a numeric host. 
+family, socktype, proto are all integer and are meant to be passed to the
+socket() function. canonname is a string representing the canonical name of the
+host. It can be a numeric IPv4/v6 address when AI_CANONNAME is specified for a
+numeric host. 
 
 socket.gethostbyname(hostname)
-    Translate a host name to IPv4 address format. The IPv4 address is returned as a string, such as '100.50.200.5'. If the host name is an IPv4 address itself it is returned unchanged. See gethostbyname_ex() for a more complete interface. gethostbyname() does not support IPv6 name resolution, and getaddrinfo() should be used instead for IPv4/v6 dual stack support.
+
+    Translate a host name to IPv4 address format. The IPv4 address is returned
+    as a string, such as '100.50.200.5'. If the host name is an IPv4 address
+    itself it is returned unchanged. See gethostbyname_ex() for a more complete
+    interface. gethostbyname() does not support IPv6 name resolution, and
+    getaddrinfo() should be used instead for IPv4/v6 dual stack support.
 
 
-We need to replace the gethostbyname socket call. Because it is only IPv4 specific. using the getaddrinfo() function can include the IPv4/v6 dual stack support.
+We need to replace the gethostbyname socket call. Because it is only IPv4
+specific. using the getaddrinfo() function can include the IPv4/v6 dual stack
+support.::
 
-import socket
-print socket.gethostbyname(hostname)
+    import socket
+    print socket.gethostbyname(hostname)
 
-def gethostbyname(hostname)
-	family, socktype, proto, canonname, sockaddr = socket.getaddrinfo(hostname)
-	return canonname
+    def gethostbyname(hostname)
+        family, socktype, proto, canonname, sockaddr = socket.getaddrinfo(hostname)
+        return canonname
 
 ----------------------------------------------------------------------
 
@@ -2957,21 +2975,20 @@ Compare dates for cache control
 RFC 1123 date format:
 Thu, 01 Dec 1994 16:00:00 GMT
 
-<pre>
->>> datereturned = "Thu, 01 Dec 1994 16:00:00 GMT"
->>> dateexpired = "Sun, 05 Aug 2007 03:25:42 GMT"
->>> obj1 = datetime.datetime(*time.strptime(datereturned, "%a, %d %b %Y %H:%M:%S %Z")[0:6])
->>> obj2 = datetime.datetime(*time.strptime(dateexpired, "%a, %d %b %Y %H:%M:%S %Z")[0:6])
->>> if obj1 == obj2:
-	print "Equal"
-elif obj1 > obj2:
-	print datereturned
-elif obj1 < obj2:
-	print dateexpired
-</pre>
+::
 
+    >>> datereturned = "Thu, 01 Dec 1994 16:00:00 GMT"
+    >>> dateexpired = "Sun, 05 Aug 2007 03:25:42 GMT"
+    >>> obj1 = datetime.datetime(*time.strptime(datereturned, "%a, %d %b %Y %H:%M:%S %Z")[0:6])
+    >>> obj2 = datetime.datetime(*time.strptime(dateexpired, "%a, %d %b %Y %H:%M:%S %Z")[0:6])
+    >>> if obj1 == obj2:
+        print "Equal"
+    elif obj1 > obj2:
+        print datereturned
+    elif obj1 < obj2:
+        print dateexpired
 
-* Now you can compare the headers for expiry in cache control.
+Now you can compare the headers for expiry in cache control.
 
 Header field definition:
 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
@@ -2985,7 +3002,6 @@ For e.g:
 Add the information on headers
 Header set Author "Senthil"
 
-
 Q) Question is can I add a test for cache.
 A) Its not a functionality, but its merely an internal optimization.
 
@@ -2993,27 +3009,29 @@ Q) If test for cache needs to be written, how will you write it?
 A) request an url and redirect and request it again and verify that it is
 coming frm a dictionary or the dictionary value is stored.
 
+::
 
-from_url = "http://example.com/a.html"
-to_url = "http://example.com/b.html"
+    from_url = "http://example.com/a.html"
+    to_url = "http://example.com/b.html"
 
-h = urllib2.HTTPRedirectHandler()
-o = h.parent = MockOpener()
-req = Request(from_url, origin_req_host="example.com")
-count = 0
-try:
-	while 1:
-		redirect(h, req, "http://example.com")
-		count = count + 1
-		if count > 2:
-			self.assertEqual("http://example.com",
-			urllib2.HTTPRedirectHandler().cache[req].geturl())
-except urllib2.HTTPError:
-	self.assertEqual(count, urllib2.HTTPRedirectHandler.max_repeats)	
+    h = urllib2.HTTPRedirectHandler()
+    o = h.parent = MockOpener()
+    req = Request(from_url, origin_req_host="example.com")
+    count = 0
+    try:
+        while 1:
+            redirect(h, req, "http://example.com")
+            count = count + 1
+            if count > 2:
+                self.assertEqual("http://example.com",
+                urllib2.HTTPRedirectHandler().cache[req].geturl())
+    except urllib2.HTTPError:
+        self.assertEqual(count, urllib2.HTTPRedirectHandler.max_repeats)	
 
 CacheFTPHandler testcasesare hard to write.
 
-- Playing the competition requires to have solved the similar problem a couple of times earlier.
+Playing the competition requires to have solved the similar problem a couple of
+times earlier.
 
 Header field definition:
 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
