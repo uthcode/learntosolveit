@@ -177,7 +177,7 @@ Python Programming
 
     A defaultdict is a dictionary which will return default values for missing
     keys. When you create a defaultdict, you provide a factory function, which will
-    be called for returning the default value.::
+    be called for returning the default value::
 
     >>> from collections import defaultdict
     >>> d = defaultdict(lambda: 42)
@@ -1510,9 +1510,9 @@ Python Programming
 
 #) **What is the bytearray class in Python3?**
 
-    A Byte is 8 bits and array is a sequence. A Bytearray object can be
-    constructed using integers only or text string along with an encoding or
-    using another bytes or bytearray or any other object implementing a buffer
+   A Byte is 8 bits and array is a sequence. A Bytearray object can be
+   constructed using integers only or text string along with an encoding or
+   using another bytes or bytearray or any other object implementing a buffer
    API. More importantly, it is mutable.
 
 
@@ -2441,15 +2441,15 @@ Dissecting urlparse:
 --------------------
 
 * __all__ methods provides the public interfaces to all the methods like
-urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
+  urlparse, urlunparse, urljoin, urldefrag, urlsplit and urlunsplit.
 
 * then there is classification of schemes like uses_relative, uses_netloc,
-non_hierarchical, uses_params, uses_query, uses_fragment
+  non_hierarchical, uses_params, uses_query, uses_fragment
 
 - there should be defined in an rfc most probably 1808.
 
-- there is a special '' blank string, in certain classifications, which
-means that apply by default.
+- there is a special '' blank string, in certain classifications, which means
+  that apply by default.
 
 * valid characters in scheme name should be defined in 1808.
 
@@ -2457,10 +2457,10 @@ means that apply by default.
 port.
 
 * The behaviour of the public methods urlparse, urlunparse, urlsplit and
-urlunsplit and urldefrag matter most.
+  urlunsplit and urldefrag matter most.
 
-urlparse - scheme, netloc, path, params, query and fragment.
-urlunparse will take those parameters and construct the url back.
+urlparse - scheme, netloc, path, params, query and fragment.  urlunparse will
+take those parameters and construct the url back.
 
 urlsplit - scheme, netloc, path, query and fragment.
 urlunsplit - takes these parameters (scheme, netloc, path, query and fragment)

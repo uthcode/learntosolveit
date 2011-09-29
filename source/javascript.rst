@@ -276,6 +276,7 @@ you can use arguments.callee to save information across multiple calls to the
 same function.
  
         ::
+
                 function Person(first, last) {
                     this.first = first;
                     this.last = last;
@@ -571,7 +572,7 @@ References
 * `A Re-Introduction to Javascript`_
 * `Introduction to Object Oriented Javascript`_
 * `Javascript Guide`_
-* Immediately Invoked Function Expression - `IFFE`_
+* Immediately Invoked Function Expression - `IIFE`_
 * `Vim Configuration for Javascript`_
 
 .. _A Re-Introduction to Javascript: https://developer.mozilla.org/en/A_re-introduction_to_JavaScript
