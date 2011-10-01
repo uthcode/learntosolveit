@@ -31,19 +31,3 @@ mult = dict_of_combos[key]
 
 a, b = divmod(index,mult)
 print q[a]
-
-"""
-list1 = []
-pointer = 0
-
-for each in q:
-    for i in range(mult):
-        list1.append(each)
-        if len(list1) > index:
-            pointer = 1
-            break
-    if pointer:
-        break
-
-print list1[index]
-"""
