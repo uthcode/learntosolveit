@@ -73,3 +73,132 @@ int main(int argc, char *argv[])
 	tr(m1,it)
 		cout<<it->first<<" "<<it->second<<endl;
 }
+#include <iostream>
+#include <ostream>
+#include <limits>
+
+int main()
+{
+typedef std::numeric_limits< double > dl;
+typedef std::numeric_limits< float > fl;
+
+using namespace std;
+
+cout << "double:\n";
+cout << "\tdigits (bits):\t\t" << dl::digits << endl;
+cout << "\tdigits (decimal):\t" << dl::digits10 << endl;
+
+cout << endl;
+
+cout << "float:\n";
+cout << "\tdigits (bits):\t\t" << fl::digits << endl;
+cout << "\tdigits (decimal):\t" << fl::digits10 << endl;
+}
+#include<iostream>
+#include<map>
+#include<string>
+
+using namespace std;
+int main(int argc, char *argv[])
+{
+	map<int,int> mymap;
+	map<string,string> mystrmap;
+	mymap[10] = 100;
+	mystrmap["senthil"] = "kumaran";
+	cout<<mymap[10]<<endl;
+	cout<<mystrmap["senthil"]<<endl;
+}
+
+
+
+#include <vector>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+class StringBuilder {
+	public: 
+		string buildString(vector<char> array)
+		{
+			// create a string for vector
+			string s;
+			
+			// loop over every element in the array.
+
+			for (int i = 0; i < array.size(); i++)
+			{
+				s = s + array[i];
+			}
+
+			return s;
+		}
+};
+
+int main() {
+	StringBuilder myStr;
+	vector<char> myvect(10);
+	for (int i=0; i < myvect.size(); i++) {
+		myvect[i] = i;
+	}
+	cout << myStr.buildString(myvect);
+	return 0;
+}
+
+
+
+
+#include<vector>
+#include<iostream>
+
+using namespace std;
+
+class Something
+{
+	public:
+		int foo()
+		{
+			return 10;
+		}
+		int bar()
+		{
+			return foo();
+		}
+};
+
+int main(int argc, char *argv[])
+{
+	vector <pair <int, int> > cords;
+	cords.push_back(make_pair(1,-1));
+	cords.push_back(make_pair(0,-1));
+	int i;
+	for (i =0; i < cords.size(); i++)
+		cout<<cords[i].first<<" "<<cords[i].second<<endl;
+	Something obj;
+	cout<<obj.bar();
+}
+
+
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<set>
+#include<map>
+#include<algorithm>
+
+using namespace std;
+
+class CLASSNAME {
+	public:
+		// method name
+		int foo()
+		{
+			return 0;
+		}
+};
+
+int main(int argc, char *argv[])
+{
+	CLASSNAME obj;
+}
