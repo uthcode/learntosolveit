@@ -1,46 +1,6 @@
 /**
 
-Problem Statement
-    
-The problem statement contains the unicode symbols.
-
-You are developing a new software calculator. A very important feature is the
-auto-placing of the ? value by one click. The only problem is that you don't
-know the required precision. That's why you decided to write a program that can
-return ? with any reasonable precision.  You are given an int precision. You
-should return the ? value with exactly precision digits after the decimal
-point. The last digit(s) should be rounded according to the standard rounding
-rules (less than five round down, more than or equal to five round up).
-Definition
-    
 Class: PiCalculator
-Method: calculate
-Parameters: int
-Returns: string
-Method signature: string calculate(int precision) (be sure your method is public)
-	    
-	Notes
-	-
-	? equals 3.141592653589793238462643383279...
-	Constraints
-	-
-	precision will be between 1 and 25, inclusive.
-	Examples
-	0)      2
-	Returns: "3.14"
-
-	1)      4
-	Returns: "3.1416"
-
-	The value should be rounded.
-	2)      12
-	Returns: "3.141592653590"
-	Be careful with rounding.
-
-This problem statement is the exclusive and proprietary property of TopCoder,
-Inc. Any unauthorized use or reproduction of this information without the prior
-written consent of TopCoder, Inc. is strictly prohibited. (c)2003, TopCoder,
-Inc. All rights reserved.
 
 ***/
 
