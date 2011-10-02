@@ -35,9 +35,11 @@ template_value = """
 re_title = re.compile(r'\$Id:\s+([\w\.]*).*\n')
 re_rest = re.compile('"""(.*?)"""(.*)',re.DOTALL)
 
+uthcodepath = '/home/senthil/uthcode/'
+
 date_file_list = []
 
-cfiles = glob.glob('languages/python/*.py')
+cfiles = glob.glob(uthcodepath + 'languages/python/*.py')
 
 for each in cfiles:
     stats = os.stat(each)
@@ -79,7 +81,7 @@ for item in date_file_list:
 
 content = ''.join(content)
 
-with open('source/pythonsnippets.rst','w') as fobject:
+with open(uthcodepath + 'source/pythonsnippets.rst','w') as fobject:
     fobject.write(page_header_value)
     fobject.write(content)
     fobject.write(footer_value)

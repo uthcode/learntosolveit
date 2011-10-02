@@ -30,7 +30,9 @@ template_value = """
 ----
 """
 
-cfiles = glob.glob('languages/cprogs/*.c')
+uthcodepath = '/home/senthil/uthcode/'
+
+cfiles = glob.glob(uthcodepath + 'languages/cprogs/*.c')
 for each in cfiles:
     stats = os.stat(each)
     last_modified_date = time.localtime(stats[8])
@@ -54,7 +56,7 @@ for item in date_file_list:
 
 content = ''.join(content)
 
-fobject = open('source/cprogramming.rst','w')
+fobject = open(uthcodepath + 'source/cprogramming.rst','w')
 fobject.write(header_value)
 fobject.write(content)
 fobject.write(footer_value)

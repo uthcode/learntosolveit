@@ -30,7 +30,9 @@ template_value = """
 ----
 """
 
-cfiles = glob.glob('contests/*.cpp')
+uthcodepath = '/home/senthil/uthcode/'
+
+cfiles = glob.glob(uthcodepath + 'contests/*.cpp')
 for each in cfiles:
     stats = os.stat(each)
     last_modified_date = time.localtime(stats[8])
@@ -54,7 +56,7 @@ for item in date_file_list:
 
 content = ''.join(content)
 
-fobject = open('source/contests.rst','w')
+fobject = open(uthcodepath + 'source/contests.rst','w')
 fobject.write(header_value)
 fobject.write(content)
 fobject.write(footer_value)
