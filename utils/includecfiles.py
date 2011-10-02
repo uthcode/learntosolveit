@@ -46,7 +46,7 @@ content = []
 for item in date_file_list:
     s = string.Template(template_value)
     filename_value = item[1].split('/')[-1]
-    fileloc_value = item[1]
+    fileloc_value = item[1].replace(uthcodepath,'')
     lastmodified_value = time.strftime("On %d %b,%Y.",item[0])
     o = s.substitute(fileloc=fileloc_value,
             filename=filename_value,

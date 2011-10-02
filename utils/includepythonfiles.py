@@ -26,7 +26,7 @@ template_value = """
 
 {1}
 
-.. literalinclude:: /{2}
+.. literalinclude:: ../{2}
    :tab-width: 4
 
 ----
@@ -76,6 +76,7 @@ for item in date_file_list:
         with open(filename,'w') as f:
             f.write(code)
 
+    filename = filename.replace(uthcodepath,'')
     out = template_value.format(title,header, filename)
     content.append(out)
 
