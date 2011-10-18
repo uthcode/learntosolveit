@@ -38,9 +38,7 @@ their heart, most web applications:
 
 * Store and retrieve data in a way that is natural to the programming language
   involved (the model)
-
 * Represent the data in various ways, most commonly as HTML pages (the view)
-
 * Execute logic code to manipulate the data and control how it is interacted
   with (the controllers)
 
@@ -206,7 +204,7 @@ paste.eval_exception module, which provided the 0.9.6 error handling, is
 replaced by WebError in Pylons 0.9.7, and even the paste.auth functionality has
 been built upon and improved in AuthKit, which you’ll learn about in Chapter
 18. Don’t be surprised if future versions of Pylons include even more projects
-spun out from their roots in Paste.
+    spun out from their roots in Paste.
 
 Despite the gradual shift to separate packages, Pylons still relies on Paste
 for its configuration files, registry manager, development HTTP server, project
@@ -265,6 +263,7 @@ This provides the new pylons.request and pylons.response objects in Pylons
 0.9.7. 
 
 Scripts 
+-------
 
 paster
 
@@ -443,7 +442,7 @@ arguments that the body() def takes. You’ll look at the body() def and its use
 in template inheritance chains later in the book, but for details of pageargs,
 consult the Mako documentation at
 
-http://www.makotemplates.org/docs/documentation.html#namespaces_body.
+http://www.makotemplates.org/docs/documentation.html#namespaces_body
 
 Three very useful methods of the context object are get(), keys(), and write().
 Here’s an example demonstrating how they are each used:
