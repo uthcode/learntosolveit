@@ -48,7 +48,7 @@ interacts with the model classes to fetch data from the database. Once all the
 necessary information has been gathered, the controller passes the key
 information to a view template where an HTML representation of the data is
 generated and returned to the user’s browser. The user then interacts with the
-view to create a new request, and the process starts again. The model and
+view to create a new request, and the process starts over again. The model and
 controller don’t contain code for generating HTML, and the view templates
 shouldn’t interact directly with the model.
 
@@ -66,16 +66,13 @@ yourself.
 Pylons is a collection of very carefully chosen 3rd party software.
 
 Exploring Pylons
+----------------
 
 Beaker is used for caching
-
-Paste is used for project setup, testing, and deployment. Using the common INI
-configuration format, Paste allows for multiple "profiles", so that developers
-can run development and deployment setups from the same codebase without
-revealing sensitive parts of Pylons, such as the interactive debugger, to
-production users.
+--------------------------
 
 URL Dispatching
+---------------
 
 Currently the only widely used URL dispatcher for Pylons is Routes, a Python
 reimplementation of Ruby on Rails' URL dispatching, although any
@@ -90,14 +87,23 @@ Pylons has no default database library. Both SQLObject and SQLAlchemy  are
 known to be used.
 
 Paste
+-----
+
+Paste is used for project setup, testing, and deployment. Using the common INI
+configuration format, Paste allows for multiple "profiles", so that developers
+can run development and deployment setups from the same codebase without
+revealing sensitive parts of Pylons, such as the interactive debugger, to
+production users.
 
 Python Paste, often simply called paste, is a set of utilities  for web
 development in Python. Paste has been described as "a framework for web
 frameworks".
 
 The Python Paste package contains Python modules that help in implementing WSGI
-middleware. The package includes a WSGI wrapper for CGI applications. It also
-includes a simple webserver that can produce WSGI requests.
+middleware. 
+
+* The package includes a WSGI wrapper for CGI applications.
+* It also includes a simple webserver that can produce WSGI requests.
 
 The WSGI standard is an interface that allows applications to use Python code
 to handle HTTP requests. A WSGI application is passed a Python representation
@@ -109,6 +115,7 @@ There are, however, other uses: WSGI middleware is Python code that receives a
 WSGI request and then performs logic based upon this request, before passing
 the request on to a WSGI application or more WSGI middleware. WSGI middleware
 appears to an application as a server, and to the server as an application.
+
 This is analogous to the function of pipes on Unix systems. Functionality
 provided by WSGI middleware may include authentication, logging, url
 redirection, creation of sessions, and compression.
@@ -126,6 +133,28 @@ have their own version numbers. They include:
   servers.
 * Paste Script, WebTest, ScriptType, INITools, Tempita, WaitForIt, WPHP,
   WSGIFilter, and WSGIProxy are other notable bundles.
+
+Paste, PasteDeploy, and PasteScript
+
+Paste comes in three packages for the benefit of framework developers who
+require only one part of its functionality. Pylons uses all three packages for
+a wide variety of things throughout the framework, but once again, as a Pylons
+application developer, you won’t normally directly interact with the Paste
+components yourself.
+
+Over time, the functionality in the Paste modules has been split up into custom
+packages. For example, the paste.wsgiwrappers module, which provided the
+pylons.request and pylons.response objects in Pylons 0.9.6, is now replaced by
+WebOb, which provides the Pylons 0.9.7 versions of those Pylons objects. The
+paste.eval_exception module, which provided the 0.9.6 error handling, is
+replaced by WebError in Pylons 0.9.7, and even the paste.auth functionality has
+been built upon and improved in AuthKit, which you’ll learn about in Chapter
+18. 
+
+Despite the gradual shift to separate packages, Pylons still relies on Paste
+for its configuration files, registry manager, development HTTP server, project
+template creation, test fixtures, error documents, and more. The various parts
+of Paste are described throughout the book as they are encountered.
 
 Mako is significantly more powerful than Django, with arbitrary expressions,
 defs, template inheritance (beyond layouts).
@@ -149,6 +178,7 @@ Pylons might have slightly different dependencies, but the following list is
 correct at the time of this writing:
 
 Beaker
+------
 
 Beaker is a piece of software used internally by Pylons to implement its
 caching and session functionality. The Pylons session global described later in
@@ -157,6 +187,7 @@ Pylons Cookbook at `Caching`_ but you would never normally interact with Beaker
 yourself directly.
 
 decorator
+---------
 
 This is a simple tool used by Pylons to create the @validate and @jsonify
 decorators. You’ll learn about @validate in Chapter 6, and you’ll learn about
@@ -164,6 +195,7 @@ decorators. You’ll learn about @validate in Chapter 6, and you’ll learn abou
 own programs because you’ll usually use the decorators provided by Pylons.
 
 FormEncode
+----------
 
 FormEncode is a library for validating form submissions from web sites.
 Although Pylons doesn’t use it internally, Pylons users work with it so often
@@ -175,6 +207,7 @@ application. Chapter 6 is dedicated to explaining how to use FormEncode and
 HTML Fill in a Pylons application.
 
 Mako
+----
 
 Mako is one of the three template languages that Pylons 0.9.7 supports out of
 the box. The others are Genshi (an XML template language) and Jinja (based on
@@ -184,40 +217,20 @@ installation because it is the recommended template language to use. Using Mako
 to generate your views is described in detail in Chapter 5.
 
 nose
+----
 
 This provides tools to help you write and run automated unit tests. Testing is
 described in Chapter 12.
 
-Paste, PasteDeploy, and PasteScript
-
-Paste comes in three packages for the benefit of framework developers who
-require only one part of its functionality. Pylons uses all three packages for
-a wide variety of things throughout the framework, but once again, as a Pylons
-application developer, you won’t normally directly interact with the Paste
-components yourself.
-
-Over time, the functionality in the Paste modules has been split up into custom
-packages. For example, the paste.wsgiwrappers module, which provided the
-pylons.request and pylons.response objects in Pylons 0.9.6, is now replaced by
-WebOb, which provides the Pylons 0.9.7 versions of those Pylons objects. The
-paste.eval_exception module, which provided the 0.9.6 error handling, is
-replaced by WebError in Pylons 0.9.7, and even the paste.auth functionality has
-been built upon and improved in AuthKit, which you’ll learn about in Chapter
-18. Don’t be surprised if future versions of Pylons include even more projects
-    spun out from their roots in Paste.
-
-Despite the gradual shift to separate packages, Pylons still relies on Paste
-for its configuration files, registry manager, development HTTP server, project
-template creation, test fixtures, error documents, and more. The various parts
-of Paste are described throughout the book as they are encountered.
-
 Pylons
+------
 
 This is where everything needed to glue together the other components of Pylons
 is found. Pylons itself is relatively small, so if you are the curious type,
 feel free to look at its code to get a feel for how everything works.
 
 Routes
+------
 
 Pylons uses a system called Routes that allows you to map a URL to a set of
 variables usually including controller and action. These variables are then
@@ -229,17 +242,20 @@ but you will learn the details of all of Route’s powerful features in Chapter
 9.
 
 setuptools
+----------
 
 This contains the methods used by the easy_install script to provide all of its
 features and allow the use of egg files.
 
 simplejson
+----------
 
 This package converts data back and forth between JSON and Python formats and
 is used by the @jsonify decorator mentioned earlier. Pylons application
 developers also occasionally use simplejson directly in their controllers.
 
 Tempita
+-------
 
 Tempita is a small template language that is a dependency of Paste. It is used
 only behind the scenes for simple variable substitutions when you create a new
@@ -247,17 +263,20 @@ Pylons project directory with the paster create command described later in this
 chapter.
 
 WebError
+--------
 
 WebError provides Pylons’ powerful interactive debugging and traceback
 functionality described in Chapter 4.
 
 WebHelpers
+----------
 
 WebHelpers is a collection of stand-alone functions and classes that provide
 useful functionality such as generating common HTML tags and form fields,
 handling multiple pages of results, and doing much more.
 
 WebOb
+-----
 
 This provides the new pylons.request and pylons.response objects in Pylons
 0.9.7. 
@@ -375,7 +394,7 @@ whitespace. For example:
 Mako also supports the full range of control structures supported by Python,
 including if, elif, else, while, and for. These structures are very useful in
 templates. For example, to control which information is displayed, you might
-use an if  statement:
+use an if statement:
 
 ::
 
@@ -408,11 +427,13 @@ important. You can learn more about it at
 http://www.makotemplates.org/docs/documentation.html#runtime.
 
 local, self, parent, and next
+-----------------------------
 
 These are all namespaces and have particular meanings in the context of
 template inheritance chains. You’ll look at these later in the chapter.
 
 capture
+-------
 
 This is a function that calls a given def and captures its resulting content
 into a string, which is returned. A def is Mako terminology for a reusable
@@ -421,6 +442,7 @@ function in Python. You’ll learn about defs and the capture() function later i
 the chapter.
 
 caller
+------
 
 This is a “mini” namespace created when using the <%call> tag to define a “def
 call with content.” You don’t deal with caller in this book, but it is well
@@ -429,6 +451,7 @@ http://www.makotemplates.org/docs/documentation.html#defs_defswithcontent if
 you are interested.
 
 UNDEFINED
+---------
 
 This is an instance of mako.runtime.Undefined that raises an exception when its
 __str__() method is called. It is used when you use a variable in a template
