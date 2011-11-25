@@ -1,6 +1,4 @@
 import random
-import pudb
-pudb.set_trace()
 
 def nth(arr, n):
     pivot = arr[0]
@@ -12,14 +10,13 @@ def nth(arr, n):
 
     if n < num_less:
         return nth(below, n)
-    elif n == num_lessoreq:
-        return nth(above, n)
+    elif n >= num_lessoreq:
+        return nth(above, n-num_lessoreq)
     else:
         return pivot
 
 arr = random.sample(range(10),10)
-arr = [9, 3, 1, 2, 6, 7, 8, 0, 4, 5]
-print arr
+
 print nth(arr,0)
 print nth(arr,1)
 print nth(arr,2)
