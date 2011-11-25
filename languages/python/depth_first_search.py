@@ -11,5 +11,3 @@ def depth_first_search(startnode, goalnode):
             return any(search_from(nextnode) for nextnode in node.successors)
 
     return search_from(startnode)
-
-print depth_first_search(1,9)
