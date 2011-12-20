@@ -769,16 +769,17 @@ get the video tape transcribed. I was, and still am, literally too afraid to
 look at it myself. Now, two more years later, I am writing the ideas down more
 formally.
 
-September 16, 1982 Mid-1983 Mid-1987 April 8, 1988 January 28, 1990 June 1990 September 1990
+September 16, 1982 Mid-1983 Mid-1987 April 8, 1988 January 28, 1990 June 1990
+September 1990
 
 First presented as a distinguished lecture at CMU Publication suggested by my
 daughter, Juliet Video tape obtained from CMU Transcribed from the video tape
 Edited into this paper Published by CMU Presented at the 25th anniversary
 celebration of the Computer Science Department at CMU
 
-Table 1: Chronology
+Table 1: 
 
-of This Document
+Chronology of This Document
 
 My pride demands that this written form of my ideas be perfect. I sought long
 and hard for an Anglo-Saxon word combining the ideas of disclose, publish,
@@ -973,6 +974,7 @@ Certainly they don't remember, as I do, how hard we thought it would be to make
 beautiful pictures by computer before Gouraud and Phong. It's always much
 easier in hindsight. Indeed, I think of scientific progress as the reduction of
 subjects from complete mystery to teachable form.
+
 2. 1995 update: Still no book, but we did publish a paper [14] on the subject.
 
 The best personal sources of courage are self confidence and comfort with

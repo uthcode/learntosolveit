@@ -109,11 +109,12 @@ Python Programming
 #) **What is the best way to remember negative slice indexing?**
 
     If the negative index is confusing to you, think of it this way: a_list[-n]
-    == a_list[len(a_list) - n]. So in this list, a_list[-3] == a_list[5 - 3] ==
-    a_list[2].  For list representation, If it helps, you can think of it this
-    way: reading the list from left to right, the first slice index specifies
-    the first item you want, and the second slice index specifies the first
-    item you don’t want.  The return value is everything in between.
+    == a_list[len(a_list) - n]. So in this list of length 5, a_list[-3] ==
+    a_list[5 - 3] == a_list[2].  For list representation, If it helps, you can
+    think of it this way: reading the list from left to right, the first slice
+    index specifies the first item you want, and the second slice index
+    specifies the first item you don’t want.  The return value is everything in
+    between.
 
 #) **In Python3 can you create a dictionary with {}**
 
@@ -137,7 +138,7 @@ Python Programming
 
 #) **Can you create NoneType objects?**
 
-    No.You can assign None to any variable, but you can not create other
+    No. You can assign None to any variable, but you can not create other
     NoneType objects.
 
 #) **What is a memoryview object?**
