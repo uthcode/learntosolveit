@@ -14,6 +14,7 @@ competition, you'll be required to use some basic C++ functionality to solve
 problems. What follows is a basic explanation for programmers who are currently
 familiar with C. ::
 
+
     Class: CellTower
     Method: best
     Parameters: vector <string>, int, int
@@ -193,15 +194,15 @@ Notes
   always strive to know any algorithms you have memorized inside and out
 
 In order to convert an int (or any other numeric type, e.g., float, double,
-etc.) to string, you can use:
+etc.) to string, you can use.::
 
-#include <sstream>
+    #include <sstream>
 
-int i = 5;
-std::string s;
-std::stringstream out;
-out << i;
-s = out.str();
+    int i = 5;
+    std::string s;
+    std::stringstream out;
+    out << i;
+    s = out.str();
 
 http://wwwasd.web.cern.ch/wwwasd/lhc++/RW/stdlibcr/classref.htm
 

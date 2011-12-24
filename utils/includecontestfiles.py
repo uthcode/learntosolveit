@@ -32,7 +32,7 @@ template_value = """
 
 uthcodepath = '/home/senthil/uthcode/'
 
-cfiles = glob.glob(uthcodepath + 'contests/*.cpp')
+cfiles = glob.glob(uthcodepath + 'contests/topcoder/*.cpp')
 for each in cfiles:
     stats = os.stat(each)
     last_modified_date = time.localtime(stats[8])
