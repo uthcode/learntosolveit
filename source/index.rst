@@ -57,4 +57,5 @@ Articles
    paxos
    pylons
    restructuredtext
+   dbclass
    thanks
