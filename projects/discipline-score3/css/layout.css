@@ -1,0 +1,90 @@
+body {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 62.5%;
+}
+
+/* site wide styles */
+label {
+  width: 75px;
+  font-weight: bold;
+  display: block;
+  float: left;
+  line-height: 1.8em;
+  text-align: right;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 175px;
+  margin-left: 5px;
+}
+
+/* Login page Styles */
+#login #content {
+  width: 344px,
+  margin: 20px auto;
+}
+
+#login section {
+  font-size: 1.4em;
+  width: 300px;
+  background-color: #ccc;
+  position: relative;
+  z-index: 1003;
+}
+
+#login section p {
+  padding-bottom: 20px;
+}
+
+#login p.ui-state-error {
+  padding: 5px;
+  display: none;
+}
+
+#login header, #login section div.ui-widget-content {
+  padding: 12px;
+}
+
+#login section form div {
+  padding: 8px 0px;
+}
+
+#login #btnLogin {
+  margin-left 80px;
+}
+
+#login .ui-widget-overlay {
+  z-index: 1002;
+}
+
+/* todo styles */
+
+#todo #content {
+  width: 400px;
+  margin: auto;
+  text-align: right;
+}
+#todo section {
+  text-align: left;
+}
+#todo #AddProject {
+  margin: 10px 0px;
+}
+#todo .AddToDo {
+  margin-top: 10px;
+}
+#todo #AddProjectItem, #todo #AddToDoItem {
+  display: none;
+}
+#todo #AddProjectItem p, #todo #AddToDoItem p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+#todo #AddToDoItem div {
+  padding: 8px 0px;
+}
+#todo #tabs li .ui-icon-close {
+  float: left;
+  margin: 0.4em 0.2em 0 0;
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <title>To-do List</title>
+    <link href="css/ui-lightness/ui-lightness.css" rel="stylesheet" type="text/css" />
+    <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body id="login">
+    <div id="content">
+      <section class="ui-widget ui-corner-all">
+      <header class="ui-widget-header ui-corner-top">To-do Login</header>
+      <div class="ui-widget-content ui-corner-bottom">
+        <p>Please use the login form below to login to your todo list.</p>
+        <p class="ui-state-error">Login username/password incorrect.</p>
+        <!-- Our login form -->
+        <form>
+          <div>
+            <label for="username">Username:</label>
+            <input id="username" type="text">
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input id="password" type="password">
+          </div>
+          <div>
+            <input id="btnLogin" type="submit" value="Login">
+          </div>
+        </form>
+      </div>
+      </section>
+    </div>
+
+    <div class="ui-widget-overlay" style="z-index: 1002;">
+    </div>
+
+    <!-- include jQuery, jQuery UI and other script files -->
+    <script src="js/lib/jquery-1.6.2.min.js"></script>
+    <script src="js/lib/jquery-ui-1.8.16.min.js"></script>
+    <script src="js/login.js"></script>
+
+  </body>
+</html>
