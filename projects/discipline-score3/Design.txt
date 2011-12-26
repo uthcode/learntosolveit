@@ -1,0 +1,4 @@
+Task for the day
+----------------
+1. Todo 2. Rate 3. Score.
+- Normalize it to 10.
