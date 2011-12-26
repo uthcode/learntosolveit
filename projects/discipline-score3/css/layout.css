@@ -1,3 +1,5 @@
+@import "reset.css";
+
 body {
   font-family: arial, helvetica, sans-serif;
   font-size: 62.5%;
@@ -20,7 +22,7 @@ input[type=text], input[type=password], textarea {
 
 /* Login page Styles */
 #login #content {
-  width: 344px,
+  width: 344px;
   margin: 20px auto;
 }
 
@@ -50,7 +52,7 @@ input[type=text], input[type=password], textarea {
 }
 
 #login #btnLogin {
-  margin-left 80px;
+  margin-left: 80px;
 }
 
 #login .ui-widget-overlay {
