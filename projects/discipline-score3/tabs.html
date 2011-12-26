@@ -1,0 +1,49 @@
+<div id="tabs">
+  <ul>
+    <li><a href="#project1">Project 1</a></li></li>
+  </ul>
+  <div id="project1">
+    <!-- tab content goes here --></div>
+</div>
+<script id="newProjectTabTemplate" type="text/x-jquery-tmpl">
+  <div>
+    <div class="accordion">
+    </div>
+    <button class="AddToDo">Add</button>
+  </div>
+</script>
+
+<!-- Button mark up -->
+<button id="AddProject">Add a Project</button>
+
+<!-- Diaglog mark up -->
+<div id="AddProjectItem" title="Add a project">
+  <p>Use the form below to add a project.</p>
+  <div>
+    <label for="project">Project name:</label>
+    <input type="text" id="project">
+  </div>
+</div>
+
+<script id="ToDoItemTemplate" type="text/x-jquery-tmpl">
+  <div>
+    <h3><a href="#">${task}</a></h3>
+    <div>
+      <input type="checkbox" class="completed"><strong>${task}</strong>
+      <div>
+        ${description}
+      </div>
+      <div>
+        <strong>Date due:</strong> ${duedata}
+      </div>
+    </div>
+  </div>
+</script>
+
+<button class="AddToDo">Add</button>
+<div id="AddToDoItem" title="Add To Do Item">
+  <p>Use the form below to add a new TODO item to the list.</p>
+  <div><label for="task">Task:</label><input type="text" id="task"></div>
+  <div><label for="description">Description:</label><textarea id="description"></textarea></div>
+  <div><label for="duedate">Date due:</label><input type="text" id="duedate"></div>
+</div>

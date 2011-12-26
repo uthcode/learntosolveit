@@ -5,7 +5,7 @@ $(".ui-state-error").hide();
 $("#btnLogin").button()
 
 // Now bind a click event to handle the login of the form
-$.bind("click", function() {
+$("#btnLogin").bind("click", function() {
     if ($("#username").val() != "script" && $("#password").val() != "junkie") {
         $(".ui-state-error").show();
         $("#login section").effect("shake", 150);
@@ -14,5 +14,3 @@ $.bind("click", function() {
     }
     return false;
 });
-
-
