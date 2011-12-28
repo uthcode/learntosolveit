@@ -133,6 +133,10 @@ For strings you could do only with one character
         gE = count(girl.begin(),girl.end(), 'E');
 
 
+Erase Operation
+While using erase operation on a vector, make sure that there are elements after erase. If all elements are erased, the result is not a null vector but rather a segmentation fault.
+
+
 
 .. _TopCoder C++ for C Programmers: http://www.topcoder.com/pl/?&module=Static&d1=gicj05&d2=cpp 
 
