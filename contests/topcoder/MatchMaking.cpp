@@ -40,6 +40,7 @@ class MatchMaking {
 
 			for (int i=0; i < namesWomen.size(); i++)
 			{
+                /* is this unique to map datastructure */
 				women[namesWomen[i]] = answersWomen[i];
 				men[namesMen[i]] = answersMen[i];
 			}
