@@ -1,6 +1,5 @@
-import setapipaths
+import setapipaths # Sets the paths to google appengine apis
 import sys
-print sys.path
 
 from google.appengine.ext import db
 
@@ -15,4 +14,9 @@ class TodoItem(db.Model):
     rating = db.IntegerProperty(required=True)
     score = db.IntegerProperty(required=True)
 
-obj1 = TodoItem()
+todolist = TodoList()
+todolist.name = "firstline"
+todolist.put()
+
+obj1 = TodoItem(user='senthil',belongs_to=todolist.key(),description="something",rating=10,score=5)
+obj1.put()
