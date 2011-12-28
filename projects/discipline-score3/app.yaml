@@ -1,18 +1,13 @@
 application: ksvshack
 version: 1
-runtime: python27
+runtime: python
 api_version: 1
-threadsafe: true
 
 handlers:
 - url: /stylesheets
   static_dir: stylesheets
 - url: /.*
-  script: helloworld.app
-
-libraries:
-- name: jinja2
-  version: latest
+  script: helloworld.py
 
 builtins:
 - remote_api: on
