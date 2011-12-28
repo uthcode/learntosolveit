@@ -6,6 +6,7 @@ import random
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
 
 class TodoList(db.Model):
     daykey = db.StringProperty(required=True)
@@ -44,14 +45,31 @@ class CreateTodo(webapp.RequestHandler):
 
 class UpdateTodo(webapp.RequestHandler):
     def get(self):
-        self.response.out.write("hello,world")
+        user = users.get_current_user()
+        if user:
+            username = user
+            Query_TodoItem = db.Query(TodoItem)
+            description = self.request.get('description',default_value='something')
+            rating = int(self.request.get('rating',default_value=10))
+            Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
+            if not Query_Filtered.fetch(limit=1):
+                self.response.out.write('You do not have such a Todo Item')
+            else:
+                todoitem = Query_Filtered.get()
+                score = int(self.request.get('score'))
+                todoitem.score = score
+                todoitem.put()
+                self.response.out.write('Updated Score.')
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
 
 application = webapp.WSGIApplication([
     ('/', CreateTodo),
     ('/update',UpdateTodo)],debug=True)
 
 def main():
-  wsgiref.handlers.CGIHandler().run(application)
+    run_wsgi_app(application)
+    #wsgiref.handlers.CGIHandler().run(application)
 
 if __name__ == '__main__':
   main()
