@@ -32,7 +32,8 @@ class CreateTodo(webapp.RequestHandler):
                 todolist = TodoList(daykey=today, user=username)
                 todolist.put()
             else:
-                todolist = Query_Filtered.fetch(limit=1)[0]
+                # there should be only one list for a user for a day.
+                todolist = Query_Filtered.get()
             user_rating = random.randint(1,10)
             user_score = random.randint(1,10)
             todoitem = TodoItem(user=username,belongs_to=todolist,description='something',rating=user_rating,score=user_score)
