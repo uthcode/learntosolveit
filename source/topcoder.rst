@@ -60,6 +60,9 @@ add the line::
 
 to your code to tell the compiler to look for objects in the std namespace. 
 
+Datastructures
+==============
+
 Vector
 ------
 
@@ -95,6 +98,8 @@ return the current size of the vector.
     printf("%i", myVar[i]); //prints element i
     }
 
+* Note while iterating through the vector, you use < (less than) operator.
+
 To resize a vector, use the resize method.::
 
     myVar.resize(15); //sets the size of myVar to 15
@@ -102,16 +107,110 @@ To resize a vector, use the resize method.::
 The vector class contains many additional useful functions, which you can read
 more about by following the reference links below. 
 
+Sorting the elements of a vector
+
+::
+
+    #include<algorithm>
+    sort(vector.begin(), vector.end());
+
+    // A custom function can be provided as third argument
+    bool myfunction(int i, int j) { return (i<j);}
+    sort(vector.begin(), vector.end(), myfunction);
+
+
+Couting the substring in a C++ string
+
+Use the STL std::count which counts the number of elements in a container.
+Works well for vectors and lists.
+For strings you could do only with one character
+
+::
+
+        gL = count(girl.begin(),girl.end(), 'L');
+        gO = count(girl.begin(),girl.end(), 'O');
+        gV = count(girl.begin(),girl.end(), 'V');
+        gE = count(girl.begin(),girl.end(), 'E');
+
+
 
 .. _TopCoder C++ for C Programmers: http://www.topcoder.com/pl/?&module=Static&d1=gicj05&d2=cpp 
 
-C++ Notes
----------
 
-To use the string in a function that expects a char*, use the c_str() method.
+map
+---
 
-string s = "Hello";
-printf("%s", s.c_str()); //outputs "Hello"
+::
+
+#include <map>
+
+Examples of maps::
+    
+    map <string, string> women;
+    map <string, string> men;
+
+map iterator::
+
+    map <string, string>:: iterator wi, mi;
+
+Creating the women map::
+
+    for (int i=0; i < somesize; i++)
+    {
+        women[women_name[i]] = women_answer[i];
+    }
+
+Using iterator::
+    
+    string first_element, second_element;
+    /* the elements of the map can be accessed via it->first and  it->second indirection. */
+
+    for (wi = women.begin(); wi != women.end)(); wi++)
+    {
+        first_element = wi->first;
+        second_element = wi->second;
+    }
+
+
+string
+------
+
+How to convert C++ string to C char array.
+
+::
+
+    // To use the string in a function that expects a char*, use the c_str() method.  
+    string s = "Hello";
+    printf("%s", s.c_str()); //outputs "Hello"
+
+
+How to convert int, float or double to C++ string.
+
+::
+
+    #include <sstream>
+
+    int i = 5;
+    std::string s;
+    std::stringstream out;
+    out << i;
+    s = out.str();
+
+Questions:
+
+* What is the difference between char * and char[]?
+
+http://stackoverflow.com/questions/7564033/difference-between-char-and-char
+
+* What is the difference between char[] and string?
+
+First one is C char array and second one is C++ class string.
+
+* What is the difference between char * and string?
+http://stackoverflow.com/questions/1287306/difference-between-string-and-char-types-in-c
+
+Note all three are different. Unlike your suspicion that two are same questions.
+
 
 Rough Data on Execution Times
 -----------------------------
@@ -193,16 +292,6 @@ Notes
 * It is not sufficient to know how to use an algorithm in the default sense;
   always strive to know any algorithms you have memorized inside and out
 
-In order to convert an int (or any other numeric type, e.g., float, double,
-etc.) to string, you can use.::
-
-    #include <sstream>
-
-    int i = 5;
-    std::string s;
-    std::stringstream out;
-    out << i;
-    s = out.str();
 
 http://wwwasd.web.cern.ch/wwwasd/lhc++/RW/stdlibcr/classref.htm
 
@@ -234,5 +323,9 @@ consider graduate school.  Advanced course work is an important part of the
 program, but the most important part of a Ph.D is research.
 
 
-
 http://www.cs.sunysb.edu/~skiena/talks/topcoder.pdf
+
+Plugins
+-------
+ExampleBuilder Plugin:
+http://community.topcoder.com/contest/classes/ExampleBuilder/ExampleBuilder.html
