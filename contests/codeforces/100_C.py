@@ -11,7 +11,10 @@ for e in result:
     if len(e) != 3:
         result.remove(e)
 
-for e in result:
-    res = sorted(e,reverse=True)
-    res = map(str,res)
-    print ' '.join(res)
+if not result:
+    print 0
+else:
+    for e in result:
+        res = sorted(e,reverse=True)
+        res = map(str,res)
+        print ' '.join(res)
