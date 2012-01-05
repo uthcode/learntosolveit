@@ -1,6 +1,5 @@
 import cgi
 import datetime
-import wsgiref.handlers
 import random
 
 from google.appengine.ext import db
@@ -69,7 +68,6 @@ application = webapp.WSGIApplication([
 
 def main():
     run_wsgi_app(application)
-    #wsgiref.handlers.CGIHandler().run(application)
 
 if __name__ == '__main__':
   main()

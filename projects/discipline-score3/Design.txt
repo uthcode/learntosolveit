@@ -2,3 +2,15 @@ Task for the day
 ----------------
 1. Todo 2. Rate 3. Score.
 - Normalize it to 10.
+
+ToDo item:
+    unixtime
+    username
+    description
+    rating
+    score
+
+Daily List
+    date
+    username
+    List of ToDo items
