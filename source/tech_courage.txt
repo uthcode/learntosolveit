@@ -1,10 +1,9 @@
-Technology and Courage
-
-Ivan Sutherland
-
-Perspectives 96-1 
+=========================================
+Technology and Courage by Ivan Sutherland
+=========================================
 
 In an Essay Series Published by SunLabs April 1996
+--------------------------------------------------
 
 © Copyright 1996 Sun Microsystems, Inc. Perspectives, a new and parallel series
 to the Sun Microsystems Laboratories Technical Report Series, is published by
@@ -29,8 +28,9 @@ Amy Tashbook Hall, Assistant Editor <amy.hall@eng.sun.com>.
 
 
 Editor's Notes
+--------------
 
-About the series 
+*About the series*
 
 Perspectives series is a collection of essays written by individuals -- The
 from Sun Microsystems Laboratories. These essays express ideas and opinions
@@ -41,6 +41,7 @@ views expressed herein are solely those of the authors, and do not in any way
 represent those of Sun Microsystems Laboratories, nor Sun Microsystems, Inc.
 
 About the author 
+----------------
 
 Dr. Ivan E. Sutherland recently won the prestigious Price Waterhouse --
 Information Technology Leadership Award for Lifetime Achievement, as well as an
@@ -56,49 +57,57 @@ design an acceptable field of academic study. Dr. Sutherland is a member of
 both the National Academy of Engineering and the National Academy of Sciences.
 He received the ACM Turing Award in 1988 and holds several honorary degrees. 
 
-In this paper, his spirit and joy are revealed: 
+In this paper, his spirit and joy are revealed.
 
-I, for one, am and will always remain a practicing technologist. When denied
-my minimum daily adult dose of technology, I get grouchy. I believe that
-technology is fun, especially when computers are involved, a sort of grand
-game or puzzle with ever so neat parts to fit together. I have turned down
-several lucrative administrative jobs because they would deny me that fun. If
-the technology you do isn't fun for you, you may wish to seek other
-employment.  Without the fun, none of us would go on. 
+::
+
+    I, for one, am and will always remain a practicing technologist. When
+    denied my minimum daily adult dose of technology, I get grouchy. I believe
+    that technology is fun, especially when computers are involved, a sort of
+    grand game or puzzle with ever so neat parts to fit together. I have
+    turned down several lucrative administrative jobs because they would deny
+    me that fun. If the technology you do isn't fun for you, you may wish to
+    seek other employment.  Without the fun, none of us would go on. 
+
 
 Dr. Sutherland is presently Vice President and Fellow of Sun Microsystems,
 Inc. --Ed.
 
 Notes from the Author
+---------------------
 
 This paper is essentially the text of a lecture I gave at Carnegie Mellon
 University in 1982. It was the first, and nearly the only, non-technical
-lecture I have ever given. At the time, I was deeply concerned that the ideas I
-expressed would be of little interest or value. This paper was eventually
+lecture I have ever given. At the time, I was deeply concerned that the ideas
+I expressed would be of little interest or value. This paper was eventually
 published in the Carnegie Mellon University Computer Science 25th Anniversary
-Commemorative [15]. Continuing demand for informal copies suggests that people,
-especially young people, may garner value from it. Perhaps experience has
-something to offer youth. As I read this paper again for the first time in many
-years, it brought me face to face with my own latest failures of courage.
+Commemorative [15]. Continuing demand for informal copies suggests that
+people, especially young people, may garner value from it. Perhaps experience
+has something to offer youth. As I read this paper again for the first time in
+many years, it brought me face to face with my own latest failures of courage.
 Sadly, I have no more courage now than I had then, no better insight into
-failures of courage, and no new ways to bolster courage. I was able to add only
-citations to subsequently published work. Sun Microsystems Laboratories
-reprints this paper with permission of the ACM press as a courtesy to those who
-may wish a copy. The ideas are my own and represent no official position of Sun
-Microsystems, Inc. or Carnegie Mellon University. The text is also available on
-the World Wide Web. You may reproduce this document for any not-for-profit
-purpose. Reproduction for profit or where a royalty is paid to anyone requires
-prior permission from the author.
+failures of courage, and no new ways to bolster courage. I was able to add
+only citations to subsequently published work. Sun Microsystems Laboratories
+reprints this paper with permission of the ACM press as a courtesy to those
+who may wish a copy. The ideas are my own and represent no official position
+of Sun Microsystems, Inc. or Carnegie Mellon University. The text is also
+available on the World Wide Web. You may reproduce this document for any
+not-for-profit purpose. Reproduction for profit or where a royalty is paid to
+anyone requires prior permission from the author.
 
 Ivan Sutherland Mountain View, CA December 1995
 
+======================
 Technology and Courage
+======================
 
 Ivan Sutherland
+===============
 
 Sun Microsystems Laboratories 2550 Garcia Avenue Mountain View, California 94043
 
 1 Introduction
+--------------
 
 Sutherland is a Scottish name. My ancestors came from the northernmost county
 in Scotland, called Sutherlandshire, a land where cows grow long hair against
@@ -115,7 +124,6 @@ default to avoid having to choose a tie, which is true but unimportant, or c)
 in honor of my late father who also generally wore such a tie, which is also
 true and is my real reason: like my father before me, I am proud of my lineage,
 and draw courage from identifying with my ancestors.
-
 
 Nearly all of the talks I have ever given were technical. Because I am a
 professor at heart, you can wind me up and I will easily go on for exactly 50
@@ -134,6 +142,7 @@ own failures of courage. I ask you to apply to yourselves any lessons you may
 learn. 
 
 1.1 What is Courage? 
+--------------------
 
 Many activities require courage, a human trait we find admirable. We admire the
 courage required to explore a wilderness and so great explorers become famous:
@@ -156,6 +165,7 @@ rescue the child in full knowledge that the ice is thin.
 
 
 1.2 Courage in Technology 
+-------------------------
 
 Exploring the horizons of technology requires courage because research carries
 risks, even if we cannot always articulate them in advance. Generally they are
@@ -176,6 +186,7 @@ fail and follows from the resulting experience of repeated failure. Research
 carries a special risk of discouragement. 
 
 1.3 Failures of Courage 
+-----------------------
 
 When you have inadequate courage for a task, you can work up your courage,
 reduce the real risk, reduce your perception of the risk, or leave the task
@@ -192,6 +203,7 @@ challenges technology offers.
 
 
 2 External Encouragement
+------------------------
 
 Because individuals are often unable to get things done without encouragement,
 society has devised many forms of encouragement. There are rewards of money,
@@ -237,6 +249,7 @@ Computer Company and Sutherland, Sproull, and Associates, Inc. I owe much to my
 partners in these enterprises. 
 
 2.1 Encouragement in Academia 
+-----------------------------
 
 One of the beauties of a university such as Carnegie Mellon University is that
 it abounds with mechanisms to encourage people to do research. Some of these,
@@ -290,6 +303,7 @@ out, you can always switch to another group or another project. The key thing
 is to get involved in something, get some basic knowledge, and get started. 
 
 2.3 Talking and Writing 
+-----------------------
 
 A thesis proposal can provide a starting mechanism for a thesis project: it
 can serve as a guide to the proposed research. It indicates that some thought
@@ -327,6 +341,7 @@ starting in high school or undergraduate English classes. All too often
 technical writing has to be a part of graduate education. 
 
 2.4 Informal Interactions 
+-------------------------
 
 One of the difficult lessons of graduate school is the lesson of autonomy from
 the faculty. At first, a graduate student may feel unable to question his
@@ -359,6 +374,7 @@ suggest change. More often, however, academics continue working on old things,
 turning away only when they find newer and more interesting projects. 
 
 Encouragement in Business.
+--------------------------
 
 A person with the courage to start a new business is called an entrepreneur.
 When I was a child, my parents offered high praise for he who was
@@ -405,6 +421,7 @@ risks seem clearer. This may be why the energy and enthusiasm of youth are so
 important in research and in new businesses. 
 
 2.7 Business Incentives 
+-----------------------
 
 Our system of capitalist free enterprise provides equity incentives. It is
 amazing to me how effectively stock ownership motivates hard work, and more
@@ -453,6 +470,7 @@ meetings is an important, albeit unreported, leading indicator of the business
 climate.
 
 2.8 Stopping a Business
+-----------------------
 
 Unlike academia, the capitalist system of free enterprise provides a very
 clear mechanism to detect when to stop, namely lack of profits. Businesses
@@ -481,6 +499,7 @@ stocks, far more than it takes to buy them.
 
 
 2.9 Investment Courage 
+----------------------
 
 I believe that investment courage is in short supply in the United States
 today, individually, institutionally, and nationally. Our collective failures
@@ -525,6 +544,7 @@ populace confident of the long-term future. We have become a "now" nation to
 the extent of jeopardizing our future.
 
 3 Self Encouragement
+--------------------
 
 So much for the institutional mechanisms for helping courage surmount risk. Now
 let me turn to some more personal ones. I offer the confession that I feel both
@@ -544,6 +564,7 @@ ways to reduce your need for courage, to marshal what courage you can muster,
 and to husband your store of it. 
 
 3.1 Courage to Start 
+--------------------
 
 It's often hard to get started. I always find it hard to start a lecture and so
 I cover my difficulty by telling a story. I select a story in advance, one that
@@ -559,6 +580,7 @@ courage to get started may help in identifying the excuses you have as excuses,
 and not reasons. 
 
 3.2 What it Feels Like to Me 
+----------------------------
 
 I feel many different risks in getting started. One common one is that, being
 ignorant in the new field, I will make a fool of myself. Many years ago when I
@@ -603,6 +625,7 @@ least, and seeming stupid if you ask dumb questions. By the way, for some time
 now I have been far too busy to learn "Excel." 
 
 3.3 Overcoming Risks 
+--------------------
 
 One start-up aid I have often used is ignorance; to use this approach I avoid
 ever measuring the thickness of the ice. I have often been told that it was a
@@ -632,6 +655,7 @@ before the student embarks on a Ph.D. Remember, "programs are like pancakes­
 throw the first one away." 
 
 3.4 Procedures 
+--------------
 
 I used to hate washing dishes. I would delay as long as possible. Eyeing the
 daunting pile of dishes, I would say to myself, "I'll be here forever at this
@@ -650,12 +674,14 @@ subgoals to avoid defeat by fear. Its highest form comes when the Lieutenant,
 charging up a heavily defended hill, says, "Follow me men!"--and they do. 
 
 3.5 Courage to Go On 
+--------------------
 
 "When the going gets tough, the tough go shopping," is the caption to a cartoon
 mocking all inveterate shoppers. Its humor comes from our certainty that when
 the going gets tough, it takes courage to go on rather than to go shopping.
 
 3.6 What it Feels Like to Me 
+----------------------------
 
 When I get bogged down in a project, the failure of my courage to go on never
 feels to me like a failure of courage, but always feels like something
@@ -685,6 +711,7 @@ North Carolina come to my mind as examples; they share an admirable ability to
 decline trivia. 
 
 3.7 Overcoming Risks 
+--------------------
 
 The inability to produce a new idea is a special risk in research. I have
 found that a change of scene helps to gel my thoughts on a new subject. I
@@ -742,6 +769,7 @@ can devote my finite store of courage either to solving technical problems or
 personal ones, but not both at once. 
 
 3.8 Courage to Talk or Write 
+----------------------------
 
 Perhaps the hardest part of research is talking about it, writing about it and
 publishing it. Here we really get down to the big risks. When all is said and
@@ -756,7 +784,8 @@ published. I know several unpublished authors of incomplete novels. There is
 less risk in "writing the great American novel" than in sending it to a
 publisher and waiting for it to be rejected. 
 
-3.9 What it Feels Like to Me 
+3.9 What it Feels Like to Me
+----------------------------
 
 My own failures of courage to talk or write do not, to me, seem like failures
 of courage at all.  Rather, it seems to me that my ideas are unworthy, that no
@@ -778,51 +807,8 @@ up the courage to get the video tape transcribed. I was, and still am,
 literally too afraid to look at it myself. Now, two more years later, I am
 writing the ideas down more formally.
 
-September 16, 1982 Mid-1983 Mid-1987 April 8, 1988 January 28, 1990 June 1990
-September 1990
-
-First presented as a distinguished lecture at CMU Publication suggested by my
-daughter, Juliet Video tape obtained from CMU Transcribed from the video tape
-Edited into this paper Published by CMU Presented at the 25th anniversary
-celebration of the Computer Science Department at CMU
-
-Table 1: 
-
-Chronology of This Document
-
-My pride demands that this written form of my ideas be perfect. I sought long
-and hard for an Anglo-Saxon word combining the ideas of disclose, publish,
-report, and talk about. I have finally chosen the compound "talk or write" to
-mean all of them, focusing most on public oral presentation, for it seems to
-take the most courage. I fear criticism of my choice. In addition, I fear that
-you will think my ideas irrelevant, stupid, or even wrong. I fear coming to an
-end of this work; at some point I shall have to release this paper to the
-publisher and I will have lost a good friend. But in both of these failures of
-my courage, during my procrastinating period I did not feel afraid. Rather, I
-believed simply that no one would be interested; my ideas seemed unimportant,
-irrelevant, and immaterial. I'm still reasonably sure no one will care about my
-ideas on courage, but my deadline approaches. Who among my audience has
-unpublished work that "no one will care about?" Who among my audience has a
-paper partly written but not yet "quite right?" Who the hell are you to judge?
-The rule for research is that you get credit only for ideas you have disclosed,
-not for ideas kept secret. It is absolutely true that the paper never submitted
-is never rejected, but of course, it is never published, either. I believe that
-it is better to be the published author of a slightly flawed document than the
-unpublished author of a perfect one. Because I spell in original ways and my
-handwriting is illegible, writing has always been a great embarrassment to me.
-When I got a typewriter half of the problem went away; long ago I learned to
-type faster than I can write by hand. With a computer spelling checker that
-will make suggestions I am even better off, but not yet free of risk. I
-remember well when Claude Shannon, my thesis supervisor, chastised me for
-spelling the top to bottom measurement of an electrical wave form "peek to
-peek" rather than "peak to peak." I had put, as my Victorian aunt used to say,
-"a blot in my copybook." Even today, I'm not sure which spelling is which and
-had to look them up in a dictionary because my spelling checker cannot
-distinguish cognates. I also once spelled naval incorrectly in a letter to my
-brother who was then in the Naval Reserve. Unfortunately, I put that blot on
-the outside of the envelope. 
-
 3.10 Overcoming Risks 
+---------------------
 
 It may be that everyone is embarrassed by his own writing, especially at the
 start. That courage to get a paper done is made up of a subcourage to start and
@@ -866,6 +852,7 @@ and some portions of books. Initially, however, each was just my record of some
 little idea not always well expressed. 
 
 3.11 Learning from Others 
+-------------------------
 
 Although it obviously takes courage to expose your ideas to criticism, it takes
 even more courage to learn from the criticism. The not-invented-here (NIH)
@@ -885,6 +872,7 @@ learned this trick in a class on domestic relations, but it serves well in
 nearly any context. 
 
 3.12 Courage to Stop 
+--------------------
 
 The risk of stopping work on a project is also large. First, there's the loss
 of the goal you will never reach.  Second, there's a loss of face in giving up
@@ -894,6 +882,7 @@ gained. Fourth, there is the criticism you may face for having wasted the
 investment. Finally, there is the risk of having to find something new to do. 
 
 3.13 What it Feels Like to Me 
+-----------------------------
 
 Failures to stop don't feel like failures of courage to me. Rather they feel
 like I'm still "doing my thing." I'm involved with the people and they have
@@ -903,6 +892,7 @@ make something really good. The incremental reward always seems to outweigh the
 incremental effort.
 
 3.14 Overcoming Risks 
+---------------------
 
 Ted Meyer and I once noticed that every architecture for a computer display
 system can be improved for just a little more money [6].  This kind of
@@ -924,27 +914,30 @@ is that I stopped for lack of courage to compete; I don't think so, but I'll
 never know.
 
 4 Rewards
+=========
 
-4.1 The Emotional Side of Research One of the greatest thrills for me is when a
-new idea emerges. In 1986, at Imperial College in London, I was working with
-complementary metal oxide semiconductor (CMOS) integrated circuits. I was
-attempting to design circuits that would operate very fast, but I had
-inadequate computer support for simulating them. Because I couldn't simulate
-the circuits, I had to think about the problem instead. Fortunately for me, the
-circuits I was working on used a lot of Muller C elements and XOR gates, both
-of which are symmetric with respect to ones and zeros at input and output.
-Because of this symmetry, I began to notice that my logic gates behaved as
-amplifiers, and that the more complex a logic gate was, the less good it was at
-amplification. The simplest inverter makes the best amplifier. It seemed as
-though each gate had only so much ability to exert "effort" and could put that
-effort either into amplification or into doing logic, but not both. Once I
-understood the idea, I gave it the obvious name: "logical effort." Using the
-idea of logical effort, and without going to the trouble of optimizing them, I
-can predict quite accurately the least possible delay for most CMOS logic
-circuits, literally on the back of an envelope. If the optimum circuit is
-required, I can easily compute the transistor sizes required for least delay.
-More important, I can decide how to change the topology of the circuit to
-reduce overall delay.
+4.1 The Emotional Side of Research 
+----------------------------------
+
+One of the greatest thrills for me is when a new idea emerges. In 1986, at
+Imperial College in London, I was working with complementary metal oxide
+semiconductor (CMOS) integrated circuits. I was attempting to design circuits
+that would operate very fast, but I had inadequate computer support for
+simulating them. Because I couldn't simulate the circuits, I had to think
+about the problem instead. Fortunately for me, the circuits I was working on
+used a lot of Muller C elements and XOR gates, both of which are symmetric
+with respect to ones and zeros at input and output.  Because of this symmetry,
+I began to notice that my logic gates behaved as amplifiers, and that the more
+complex a logic gate was, the less good it was at amplification. The simplest
+inverter makes the best amplifier. It seemed as though each gate had only so
+much ability to exert "effort" and could put that effort either into
+amplification or into doing logic, but not both. Once I understood the idea, I
+gave it the obvious name: "logical effort." Using the idea of logical effort,
+and without going to the trouble of optimizing them, I can predict quite
+accurately the least possible delay for most CMOS logic circuits, literally on
+the back of an envelope. If the optimum circuit is required, I can easily
+compute the transistor sizes required for least delay.  More important, I can
+decide how to change the topology of the circuit to reduce overall delay.
 
 I want to describe what it felt like to make this discovery. I had worked on
 the problem for some months, designing many circuits. About a week before I
@@ -980,9 +973,8 @@ the time of their discoveries, nor even thought of them as real people.
 Certainly they don't remember, as I do, how hard we thought it would be to make
 beautiful pictures by computer before Gouraud and Phong. It's always much
 easier in hindsight. Indeed, I think of scientific progress as the reduction of
-subjects from complete mystery to teachable form.
-
-2. 1995 update: Still no book, but we did publish a paper [14] on the subject.
+subjects from complete mystery to teachable form. 2. 1995 update: Still no
+book, but we did publish a paper [14] on the subject.
 
 The best personal sources of courage are self confidence and comfort with
 yourself and your peers. In some people, these develop early. In others, they
@@ -993,6 +985,7 @@ face risk in other areas. I provide myself the courage to do some things by
 reducing my need for courage in other areas. In effect, I husband my courage.
 
 4.2 Technology as Play
+----------------------
 
 The basic personal start-up mechanism for research has to be curiosity. I find
 myself curious about how something works, or I observe something strange and
@@ -1038,6 +1031,7 @@ impersonal. Technology is not far away and impersonal. It's here, it's
 intensely personal, and it's great fun.
 
 5 Acknowledgements
+------------------
 
 This is where I get to recognize my friends, my sponsors and my sources of
 encouragement. Thanks to Sara Kiesler whose critical reading was key in making
@@ -1050,6 +1044,59 @@ to talk or write about these ideas. The work reported here was supported by
 Sutherland, Sproull, and Associates, Inc., independent consultants in computer
 hardware and software, and by Advanced Technology Ventures, private investors
 in high technology start-up companies.
+
+
+----------
+
+September 16, 1982 Mid-1983 Mid-1987 April 8, 1988 January 28, 1990 June 1990
+September 1990
+
+First presented as a distinguished lecture at CMU Publication suggested by my
+daughter, Juliet Video tape obtained from CMU Transcribed from the video tape
+Edited into this paper Published by CMU Presented at the 25th anniversary
+celebration of the Computer Science Department at CMU
+
+
+Table 1: 
+--------
+
+Chronology of This Document
+===========================
+
+My pride demands that this written form of my ideas be perfect. I sought long
+and hard for an Anglo-Saxon word combining the ideas of disclose, publish,
+report, and talk about. I have finally chosen the compound "talk or write" to
+mean all of them, focusing most on public oral presentation, for it seems to
+take the most courage. I fear criticism of my choice. In addition, I fear that
+you will think my ideas irrelevant, stupid, or even wrong. I fear coming to an
+end of this work; at some point I shall have to release this paper to the
+publisher and I will have lost a good friend. But in both of these failures of
+my courage, during my procrastinating period I did not feel afraid. Rather, I
+believed simply that no one would be interested; my ideas seemed unimportant,
+irrelevant, and immaterial. I'm still reasonably sure no one will care about my
+ideas on courage, but my deadline approaches. Who among my audience has
+unpublished work that "no one will care about?" Who among my audience has a
+paper partly written but not yet "quite right?" Who the hell are you to judge?
+The rule for research is that you get credit only for ideas you have disclosed,
+not for ideas kept secret. It is absolutely true that the paper never submitted
+is never rejected, but of course, it is never published, either. I believe that
+it is better to be the published author of a slightly flawed document than the
+unpublished author of a perfect one. Because I spell in original ways and my
+handwriting is illegible, writing has always been a great embarrassment to me.
+When I got a typewriter half of the problem went away; long ago I learned to
+type faster than I can write by hand. With a computer spelling checker that
+will make suggestions I am even better off, but not yet free of risk. I
+remember well when Claude Shannon, my thesis supervisor, chastised me for
+spelling the top to bottom measurement of an electrical wave form "peek to
+peek" rather than "peak to peak." I had put, as my Victorian aunt used to say,
+"a blot in my copybook." Even today, I'm not sure which spelling is which and
+had to look them up in a dictionary because my spelling checker cannot
+distinguish cognates. I also once spelled naval incorrectly in a letter to my
+brother who was then in the Naval Reserve. Unfortunately, I put that blot on
+the outside of the envelope. 
+
+
+2. 1995 update: Still no book, but we did publish a paper [14] on the subject.
 
 References [1] Sutherland, I.E. "Micropipelines." Communications of the ACM.
 June 1989. [2] Sutherland, I.E., and Ullner, M.K. "Footprints in the Asphalt."

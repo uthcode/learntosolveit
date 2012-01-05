@@ -59,3 +59,4 @@ Articles
    restructuredtext
    dbclass
    thanks
+   tech_courage
