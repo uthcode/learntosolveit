@@ -7,7 +7,7 @@ handlers:
 - url: /stylesheets
   static_dir: stylesheets
 - url: /.*
-  script: helloworld.py
+  script: todoapp.py
 
 builtins:
 - remote_api: on
