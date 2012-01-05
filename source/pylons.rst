@@ -252,7 +252,20 @@ nose
 This provides tools to help you write and run automated unit tests.
 
 
+Examples to look
+----------------
+
+http://www.rexx.com/~dkuhlman/pylons_quick_site.html
+http://code.google.com/p/pyatl-pylons/
+
+Large Scale Application with Source for Motivation
+--------------------------------------------------
+
+https://github.com/reddit/reddit/wiki
+
+
 `Pylons Example Application Code`_
 
 .. _Caching: http://wiki.pylonshq.com/display/pylonsdocs/Caching+in+Templates+and+Controllers,
 .. _Pylons Example Application Code:   http://www.apress.com/downloadable/download/sample/sample_id/958/
+.. _Pylons Reference Docs: http://docs.pylonsproject.org/projects/pylons-webframework/en/latest/
