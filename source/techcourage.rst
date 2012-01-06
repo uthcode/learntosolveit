@@ -5,26 +5,28 @@ Technology and Courage by Ivan Sutherland
 In an Essay Series Published by SunLabs April 1996
 --------------------------------------------------
 
-© Copyright 1996 Sun Microsystems, Inc. Perspectives, a new and parallel series
-to the Sun Microsystems Laboratories Technical Report Series, is published by
-Sun Microsystems Laboratories, a division of Sun Microsystems, Inc. Printed in
-U.S.A. Unlimited copying without fee is permitted provided that the copies are
-not made nor distributed for direct commercial advantage, and credit to the
-source is given. Otherwise, no part of this work covered by copyright hereon
-may be reproduced in any form or by any means graphic, electronic, or
-mechanical, including photocopying, recording, taping, or storage in an
-information retrieval system, without the prior written permission of the
-copyright owner. TRADEMARKS Sun, Sun Microsystems, and the Sun logo are
-trademarks or registered trademarks of Sun Microsystems, Inc. UNIX is a
-registered trademark in the United States and other countries, exclusively
-licensed through X/Open Company, Ltd. All SPARC trademarks, including the SCD
-Compliant Logo, are trademarks or registered trademarks of SPARC International,
-Inc. SPARCstation, SPARCserver, SPARCengine, SPARCworks, and SPARCompiler are
-licensed exclusively to Sun Microsystems, Inc. All other product names
-mentioned herein are the trademarks of their respective owners. For information
-regarding the SunLabs Perspectives Series, contact Jeanie Treichel,
-Editor-in-Chief <jeanie.treichel@eng.sun.com>. For distribution issues, contact
-Amy Tashbook Hall, Assistant Editor <amy.hall@eng.sun.com>.
+::
+
+    © Copyright 1996 Sun Microsystems, Inc. Perspectives, a new and parallel series
+    to the Sun Microsystems Laboratories Technical Report Series, is published by
+    Sun Microsystems Laboratories, a division of Sun Microsystems, Inc. Printed in
+    U.S.A. Unlimited copying without fee is permitted provided that the copies are
+    not made nor distributed for direct commercial advantage, and credit to the
+    source is given. Otherwise, no part of this work covered by copyright hereon
+    may be reproduced in any form or by any means graphic, electronic, or
+    mechanical, including photocopying, recording, taping, or storage in an
+    information retrieval system, without the prior written permission of the
+    copyright owner. TRADEMARKS Sun, Sun Microsystems, and the Sun logo are
+    trademarks or registered trademarks of Sun Microsystems, Inc. UNIX is a
+    registered trademark in the United States and other countries, exclusively
+    licensed through X/Open Company, Ltd. All SPARC trademarks, including the SCD
+    Compliant Logo, are trademarks or registered trademarks of SPARC International,
+    Inc. SPARCstation, SPARCserver, SPARCengine, SPARCworks, and SPARCompiler are
+    licensed exclusively to Sun Microsystems, Inc. All other product names
+    mentioned herein are the trademarks of their respective owners. For information
+    regarding the SunLabs Perspectives Series, contact Jeanie Treichel,
+    Editor-in-Chief <jeanie.treichel@eng.sun.com>. For distribution issues, contact
+    Amy Tashbook Hall, Assistant Editor <amy.hall@eng.sun.com>.
 
 
 Editor's Notes
@@ -59,15 +61,13 @@ He received the ACM Turing Award in 1988 and holds several honorary degrees.
 
 In this paper, his spirit and joy are revealed.
 
-::
-
-    I, for one, am and will always remain a practicing technologist. When
-    denied my minimum daily adult dose of technology, I get grouchy. I believe
-    that technology is fun, especially when computers are involved, a sort of
-    grand game or puzzle with ever so neat parts to fit together. I have
-    turned down several lucrative administrative jobs because they would deny
-    me that fun. If the technology you do isn't fun for you, you may wish to
-    seek other employment.  Without the fun, none of us would go on. 
+**I, for one, am and will always remain a practicing technologist. When
+denied my minimum daily adult dose of technology, I get grouchy. I believe
+that technology is fun, especially when computers are involved, a sort of
+grand game or puzzle with ever so neat parts to fit together. I have
+turned down several lucrative administrative jobs because they would deny
+me that fun. If the technology you do isn't fun for you, you may wish to
+seek other employment.  Without the fun, none of us would go on.**
 
 
 Dr. Sutherland is presently Vice President and Fellow of Sun Microsystems,
@@ -141,8 +141,7 @@ experience to draw on, this will be an intensely personal talk, revealing of my
 own failures of courage. I ask you to apply to yourselves any lessons you may
 learn. 
 
-1.1 What is Courage? 
---------------------
+**1.1 What is Courage?**
 
 Many activities require courage, a human trait we find admirable. We admire the
 courage required to explore a wilderness and so great explorers become famous:
@@ -164,8 +163,7 @@ fact, too thin for safety. Courage is required only of a person who proceeds to
 rescue the child in full knowledge that the ice is thin.
 
 
-1.2 Courage in Technology 
--------------------------
+**1.2 Courage in Technology**
 
 Exploring the horizons of technology requires courage because research carries
 risks, even if we cannot always articulate them in advance. Generally they are
@@ -185,8 +183,7 @@ of research starts with the high probability that any particular attempt will
 fail and follows from the resulting experience of repeated failure. Research
 carries a special risk of discouragement. 
 
-1.3 Failures of Courage 
------------------------
+**1.3 Failures of Courage**
 
 When you have inadequate courage for a task, you can work up your courage,
 reduce the real risk, reduce your perception of the risk, or leave the task
@@ -248,8 +245,7 @@ my companies bear witness to my need to collaborate: the Evans and Sutherland
 Computer Company and Sutherland, Sproull, and Associates, Inc. I owe much to my
 partners in these enterprises. 
 
-2.1 Encouragement in Academia 
------------------------------
+**2.1 Encouragement in Academia**
 
 One of the beauties of a university such as Carnegie Mellon University is that
 it abounds with mechanisms to encourage people to do research. Some of these,
@@ -302,8 +298,7 @@ does than that he do something. If the first two or three things don't work
 out, you can always switch to another group or another project. The key thing
 is to get involved in something, get some basic knowledge, and get started. 
 
-2.3 Talking and Writing 
------------------------
+**2.3 Talking and Writing**
 
 A thesis proposal can provide a starting mechanism for a thesis project: it
 can serve as a guide to the proposed research. It indicates that some thought
@@ -340,8 +335,7 @@ undergraduate students too badly. Practice in writing is also valuable,
 starting in high school or undergraduate English classes. All too often
 technical writing has to be a part of graduate education. 
 
-2.4 Informal Interactions 
--------------------------
+**2.4 Informal Interactions**
 
 One of the difficult lessons of graduate school is the lesson of autonomy from
 the faculty. At first, a graduate student may feel unable to question his
@@ -373,8 +367,7 @@ projects. Sometimes their sponsors withdraw support and sometimes their peers
 suggest change. More often, however, academics continue working on old things,
 turning away only when they find newer and more interesting projects. 
 
-Encouragement in Business.
---------------------------
+**2.5 Encouragement in Business**
 
 A person with the courage to start a new business is called an entrepreneur.
 When I was a child, my parents offered high praise for he who was
@@ -420,8 +413,7 @@ that it is emotionally much harder to restart after a failure because the
 risks seem clearer. This may be why the energy and enthusiasm of youth are so
 important in research and in new businesses. 
 
-2.7 Business Incentives 
------------------------
+**2.7 Business Incentives**
 
 Our system of capitalist free enterprise provides equity incentives. It is
 amazing to me how effectively stock ownership motivates hard work, and more
@@ -469,8 +461,7 @@ humor at board meetings. It may be that the number of jokes told at board
 meetings is an important, albeit unreported, leading indicator of the business
 climate.
 
-2.8 Stopping a Business
------------------------
+**2.8 Stopping a Business**
 
 Unlike academia, the capitalist system of free enterprise provides a very
 clear mechanism to detect when to stop, namely lack of profits. Businesses
@@ -498,8 +489,7 @@ course, is deciding which are not to be winners. It takes courage to sell
 stocks, far more than it takes to buy them.
 
 
-2.9 Investment Courage 
-----------------------
+**2.9 Investment Courage**
 
 I believe that investment courage is in short supply in the United States
 today, individually, institutionally, and nationally. Our collective failures
@@ -563,8 +553,7 @@ need for it and by describing some symptoms of its failure. I will offer some
 ways to reduce your need for courage, to marshal what courage you can muster,
 and to husband your store of it. 
 
-3.1 Courage to Start 
---------------------
+**3.1 Courage to Start**
 
 It's often hard to get started. I always find it hard to start a lecture and so
 I cover my difficulty by telling a story. I select a story in advance, one that
@@ -579,8 +568,7 @@ started as a reluctance to overcome those risks. Recognizing that it takes
 courage to get started may help in identifying the excuses you have as excuses,
 and not reasons. 
 
-3.2 What it Feels Like to Me 
-----------------------------
+**3.2 What it Feels Like to Me**
 
 I feel many different risks in getting started. One common one is that, being
 ignorant in the new field, I will make a fool of myself. Many years ago when I
@@ -624,8 +612,7 @@ courage to learn a new computer program--you face the risk of frustration at
 least, and seeming stupid if you ask dumb questions. By the way, for some time
 now I have been far too busy to learn "Excel." 
 
-3.3 Overcoming Risks 
---------------------
+**3.3 Overcoming Risks**
 
 One start-up aid I have often used is ignorance; to use this approach I avoid
 ever measuring the thickness of the ice. I have often been told that it was a
@@ -654,8 +641,7 @@ including MIT, even require a Master's thesis, a formal warm-up project,
 before the student embarks on a Ph.D. Remember, "programs are like pancakes­
 throw the first one away." 
 
-3.4 Procedures 
---------------
+**3.4 Procedures**
 
 I used to hate washing dishes. I would delay as long as possible. Eyeing the
 daunting pile of dishes, I would say to myself, "I'll be here forever at this
@@ -673,15 +659,13 @@ being taught to the young. Discipline relies on a practiced use of routine
 subgoals to avoid defeat by fear. Its highest form comes when the Lieutenant,
 charging up a heavily defended hill, says, "Follow me men!"--and they do. 
 
-3.5 Courage to Go On 
---------------------
+**3.5 Courage to Go On**
 
 "When the going gets tough, the tough go shopping," is the caption to a cartoon
 mocking all inveterate shoppers. Its humor comes from our certainty that when
 the going gets tough, it takes courage to go on rather than to go shopping.
 
-3.6 What it Feels Like to Me 
-----------------------------
+**3.6 What it Feels Like to Me**
 
 When I get bogged down in a project, the failure of my courage to go on never
 feels to me like a failure of courage, but always feels like something
@@ -710,8 +694,7 @@ Newell of Carnegie Mellon University and Fred Brooks of the University of
 North Carolina come to my mind as examples; they share an admirable ability to
 decline trivia. 
 
-3.7 Overcoming Risks 
---------------------
+**3.7 Overcoming Risks**
 
 The inability to produce a new idea is a special risk in research. I have
 found that a change of scene helps to gel my thoughts on a new subject. I
@@ -768,8 +751,7 @@ best able to do creative work when I feel cared for and happy; it is as if I
 can devote my finite store of courage either to solving technical problems or
 personal ones, but not both at once. 
 
-3.8 Courage to Talk or Write 
-----------------------------
+**3.8 Courage to Talk or Write**
 
 Perhaps the hardest part of research is talking about it, writing about it and
 publishing it. Here we really get down to the big risks. When all is said and
@@ -784,8 +766,7 @@ published. I know several unpublished authors of incomplete novels. There is
 less risk in "writing the great American novel" than in sending it to a
 publisher and waiting for it to be rejected. 
 
-3.9 What it Feels Like to Me
-----------------------------
+**3.9 What it Feels Like to Me**
 
 My own failures of courage to talk or write do not, to me, seem like failures
 of courage at all.  Rather, it seems to me that my ideas are unworthy, that no
@@ -807,8 +788,7 @@ up the courage to get the video tape transcribed. I was, and still am,
 literally too afraid to look at it myself. Now, two more years later, I am
 writing the ideas down more formally.
 
-3.10 Overcoming Risks 
----------------------
+**3.10 Overcoming Risks**
 
 It may be that everyone is embarrassed by his own writing, especially at the
 start. That courage to get a paper done is made up of a subcourage to start and
@@ -851,8 +831,7 @@ reminders. Some of them have later become patents, some full-fledged papers,
 and some portions of books. Initially, however, each was just my record of some
 little idea not always well expressed. 
 
-3.11 Learning from Others 
--------------------------
+**3.11 Learning from Others**
 
 Although it obviously takes courage to expose your ideas to criticism, it takes
 even more courage to learn from the criticism. The not-invented-here (NIH)
@@ -871,8 +850,7 @@ had heard their comments and because they got a chance to correct my notes. I
 learned this trick in a class on domestic relations, but it serves well in
 nearly any context. 
 
-3.12 Courage to Stop 
---------------------
+**3.12 Courage to Stop**
 
 The risk of stopping work on a project is also large. First, there's the loss
 of the goal you will never reach.  Second, there's a loss of face in giving up
@@ -881,8 +859,7 @@ have already invested in the project and the knowledge about it you have
 gained. Fourth, there is the criticism you may face for having wasted the
 investment. Finally, there is the risk of having to find something new to do. 
 
-3.13 What it Feels Like to Me 
------------------------------
+**3.13 What it Feels Like to Me**
 
 Failures to stop don't feel like failures of courage to me. Rather they feel
 like I'm still "doing my thing." I'm involved with the people and they have
@@ -891,8 +868,7 @@ just a month or two away. I know that with just a little more effort, we can
 make something really good. The incremental reward always seems to outweigh the
 incremental effort.
 
-3.14 Overcoming Risks 
----------------------
+**3.14 Overcoming Risks**
 
 Ted Meyer and I once noticed that every architecture for a computer display
 system can be improved for just a little more money [6].  This kind of
@@ -914,10 +890,9 @@ is that I stopped for lack of courage to compete; I don't think so, but I'll
 never know.
 
 4 Rewards
-=========
+---------
 
-4.1 The Emotional Side of Research 
-----------------------------------
+**4.1 The Emotional Side of Research**
 
 One of the greatest thrills for me is when a new idea emerges. In 1986, at
 Imperial College in London, I was working with complementary metal oxide
@@ -984,8 +959,7 @@ risks. When I can reduce the risk in some places in my life, I can more easily
 face risk in other areas. I provide myself the courage to do some things by
 reducing my need for courage in other areas. In effect, I husband my courage.
 
-4.2 Technology as Play
-----------------------
+**4.2 Technology as Play**
 
 The basic personal start-up mechanism for research has to be curiosity. I find
 myself curious about how something works, or I observe something strange and
