@@ -25,15 +25,33 @@ class CreateTodo(webapp.RequestHandler):
         today = str(random.randint(1,3))
         user = users.get_current_user()
         if user:
+            self.response.write("""
+            <html>
+            <body>
+            """)
             username = user
             Query_TodoList = db.Query(TodoList)
             Query_Filtered = Query_TodoList.filter('daykey =', today).filter('user =',username)
             if not Query_Filtered.fetch(limit=1):
                 todolist = TodoList(daykey=today, user=username)
                 todolist.put()
+                self.response.write("""</br>No todos for you yet</br>""")
             else:
                 # there should be only one list for a user for a day.
                 todolist = Query_Filtered.get()
+                todoitem_query = db.Query(TodoItem)
+                todoitem = todoitem_query.filter('belongs_to =', todolist).filter('user =',username)
+                for todo in todoitem:
+                    sys.response.write("""Description: %s\nRating: %s\nScore: %s""" % (todo.description, todo.rating, todo.score)
+            self.response.write("<br>")
+            self.response.write("""
+            <form action="/update" method="post"/>
+            <div><textarea name="description" rows="3" cols="60></textarea></div>
+            <div><textarea name="rating" rows="1" cols="10></textarea></div>
+            <div><textarea name="score" rows="1" cols="10></textarea></div>
+            <div><input type="submit" value="Update"></div>
+            </form>
+            """)
             user_rating = random.randint(1,10)
             user_score = random.randint(1,10)
             todoitem = TodoItem(user=username,belongs_to=todolist,description='something',rating=user_rating,score=user_score)
