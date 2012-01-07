@@ -1,6 +1,7 @@
 import cgi
 import datetime
 import random
+import urllib
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -76,9 +77,27 @@ class UpdateTodo(webapp.RequestHandler):
                 score = int(self.request.get('score'))
                 todoitem.score = score
                 todoitem.put()
-                self.response.out.write('Updated Score.')
+                self.redirect('/')
         else:
             self.redirect(users.create_login_url(self.request.uri))
+    def post(self):
+        username = users.get_current_user()
+        if username:
+            Query_TodoItem = db.Query(TodoItem)
+            description = self.request.get('description',default_value='something')
+            rating = int(self.request.get('rating',default_value=10))
+            Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
+            if not Query_Filtered.fetch(limit=1):
+                self.response.out.write('You do not have such a Todo Item')
+            else:
+                todoitem = Query_Filtered.get()
+                score = int(self.request.get('score'))
+                todoitem.score = score
+                todoitem.put()
+                self.redirect('/')
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
 
 class MainPage(webapp.RequestHandler):
     def get(self):
@@ -100,8 +119,10 @@ class MainPage(webapp.RequestHandler):
                 filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
                         todolist).filter('user =', username)
                 self.response.out.write("<ul>")
-                editlink = '<a href="/edit">Edit</a>'
                 for todo in filtered_todoitem:
+                    editlink = """<a href="/edit?rating=%(rating)s&score=%(score)s&description=%(description)s">Edit</a>"""
+                    editlink %= {'rating':todo.rating,'score':todo.score,
+                            'description':todo.description}
                     self.response.out.write("""
                     <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
                         todo.rating, todo.score, editlink))
@@ -115,9 +136,23 @@ class MainPage(webapp.RequestHandler):
 
 class EditEntry(webapp.RequestHandler):
     def get(self):
-        pass
-    def post(self):
-        pass
+        description = self.request.get('description')
+        rating = self.request.get('rating')
+        score = self.request.get('score')
+        self.response.out.write("<html>")
+        form_contents = """
+        <form action="/update" method="post"/>
+        <div>Description</br><textarea name="description"
+        label="description" rows="3" cols="60">%(description)s</textarea></div>
+        <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10">%(rating)s</textarea></div>
+        <div>Score</br><textarea name="score" label="score" rows="1" cols="10">%(score)s</textarea></div>
+        <div><input type="submit" value="submit"></div>
+        </form>
+        """
+        form_contents %= {'description':description,'rating':rating,'score':score}
+        self.response.out.write(form_contents)
+        self.response.out.write('</html>')
+
 
 class NewEntry(webapp.RequestHandler):
 
