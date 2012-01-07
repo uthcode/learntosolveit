@@ -120,9 +120,8 @@ class MainPage(webapp.RequestHandler):
                         todolist).filter('user =', username)
                 self.response.out.write("<ul>")
                 for todo in filtered_todoitem:
-                    editlink = """<a href="/edit?rating=%(rating)s&score=%(score)s&description=%(description)s">Edit</a>"""
-                    editlink %= {'rating':todo.rating,'score':todo.score,
-                            'description':todo.description}
+                    key = todo.key()
+                    editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
                     self.response.out.write("""
                     <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
                         todo.rating, todo.score, editlink))
@@ -136,9 +135,8 @@ class MainPage(webapp.RequestHandler):
 
 class EditEntry(webapp.RequestHandler):
     def get(self):
-        description = self.request.get('description')
-        rating = self.request.get('rating')
-        score = self.request.get('score')
+        item_key = self.request.get('key')
+        item = db.get(item_key)
         self.response.out.write("<html>")
         form_contents = """
         <form action="/update" method="post"/>
@@ -149,7 +147,7 @@ class EditEntry(webapp.RequestHandler):
         <div><input type="submit" value="submit"></div>
         </form>
         """
-        form_contents %= {'description':description,'rating':rating,'score':score}
+        form_contents %= {'description':item.description,'rating':item.rating,'score':item.score}
         self.response.out.write(form_contents)
         self.response.out.write('</html>')
 
