@@ -62,9 +62,8 @@ class CreateTodo(webapp.RequestHandler):
 
 class UpdateTodo(webapp.RequestHandler):
     def get(self):
-        user = users.get_current_user()
-        if user:
-            username = user
+        username = users.get_current_user()
+        if username:
             Query_TodoItem = db.Query(TodoItem)
             description = self.request.get('description',default_value='something')
             rating = int(self.request.get('rating',default_value=10))
@@ -80,7 +79,89 @@ class UpdateTodo(webapp.RequestHandler):
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
+class MainPage(webapp.RequestHandler):
+    def get(self):
+        self.response.write("<html>")
+        username = users.get_current_user()
+        if username:
+            today = datetime.datetime.today().strftime('%d%m%Y')
+            todolist_queryobj = db.Query(TodoList)
+            filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
+            if not filtered_todolist.fetch(limit=1):
+                todolist = TodoList(daykey=today, user=username)
+                todolist.put()
+                self.response.write("""</br>No todos for you yet.</br>""")
+                self.response.write("""Why not create one <a href="/new">now</a>?""")
+            else:
+                # there should be only one list for a user for a day.
+                todolist = filtered_todolist.get()
+                todoitem_queryobj = db.Query(TodoItem)
+                filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
+                        todolist).filter('user =', username)
+                self.response.write("<ul>")
+                editlink = '<a href="/edit">Edit</a>'
+                for todo in filtered_todoitem:
+                    self.response.write("""
+                    <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
+                        todo.rating, todo.score, editlink)
+
+                self.response.write("</ul>")
+            self.response.write("<br>")
+            self.response.write("""Add a new todo <a href="/new">now</a>?""")
+            self.response.write("</html>")
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
+class EditEntry(webapp.RequestHandler):
+    def get(self):
+        pass
+    def post(self):
+        pass
+
+class NewEntry(webapp.RequestHandler):
+
+    def get(self):
+        username = users.get_current_user()
+        if username:
+            self.response.write("<html>")
+            self.response.write("""
+            <form action="/new" method="post"/>
+            <div><textarea name="description" rows="3" cols="60></textarea></div>
+            <div><textarea name="rating" rows="1" cols="10></textarea></div>
+            <div><textarea name="score" rows="1" cols="10></textarea></div>
+            <div><input type="submit" value="submit"></div>
+            </form>
+            """)
+            self.response.write("</html>")
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
+    def post(self):
+        username = users.get_current_user()
+        if username:
+            description = self.request.get('description',default_value='')
+            rating = int(self.request.get('rating',default_value=10))
+            score = int(self.request.get('score',default_value=10))
+
+            #Add a todoitem for today
+            today = datetime.datetime.today().strftime('%d%m%Y')
+            todolist_queryobj = db.Query(TodoList)
+            filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
+            if not filtered_todolist.fetch(limit=1):
+                todolist = TodoList(daykey=today, user=username)
+                todolist.put()
+            else:
+                todolist = filtered_todolist.get()
+            todoitem = TodoItem(user=username, belongs_to=todolist, description=description, rating=rating, score=score)
+            todoitem.put()
+            self.redirect('/')
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
 application = webapp.WSGIApplication([
+    ('/', MainPage),
+    ('/edit',EditEntry),
+    ('/new',NewEntry),
     ('/', CreateTodo),
     ('/update',UpdateTodo)],debug=True)
 
