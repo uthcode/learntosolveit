@@ -25,7 +25,7 @@ class CreateTodo(webapp.RequestHandler):
         today = str(random.randint(1,3))
         user = users.get_current_user()
         if user:
-            self.response.write("""
+            self.response.out.write("""
             <html>
             <body>
             """)
@@ -35,16 +35,17 @@ class CreateTodo(webapp.RequestHandler):
             if not Query_Filtered.fetch(limit=1):
                 todolist = TodoList(daykey=today, user=username)
                 todolist.put()
-                self.response.write("""</br>No todos for you yet</br>""")
+                self.response.out.write("""</br>No todos for you yet</br>""")
             else:
                 # there should be only one list for a user for a day.
                 todolist = Query_Filtered.get()
                 todoitem_query = db.Query(TodoItem)
                 todoitem = todoitem_query.filter('belongs_to =', todolist).filter('user =',username)
                 for todo in todoitem:
-                    sys.response.write("""Description: %s\nRating: %s\nScore: %s""" % (todo.description, todo.rating, todo.score)
-            self.response.write("<br>")
-            self.response.write("""
+                    self.response.out.write("""Description: %s\nRating: %s\nScore: %s""" % (todo.description, todo.rating,
+                                todo.score))
+
+            self.response.out.write("""
             <form action="/update" method="post"/>
             <div><textarea name="description" rows="3" cols="60></textarea></div>
             <div><textarea name="rating" rows="1" cols="10></textarea></div>
@@ -81,7 +82,7 @@ class UpdateTodo(webapp.RequestHandler):
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        self.response.write("<html>")
+        self.response.out.write("<html>")
         username = users.get_current_user()
         if username:
             today = datetime.datetime.today().strftime('%d%m%Y')
@@ -90,25 +91,25 @@ class MainPage(webapp.RequestHandler):
             if not filtered_todolist.fetch(limit=1):
                 todolist = TodoList(daykey=today, user=username)
                 todolist.put()
-                self.response.write("""</br>No todos for you yet.</br>""")
-                self.response.write("""Why not create one <a href="/new">now</a>?""")
+                self.response.out.write("""</br>No todos for you yet.</br>""")
+                self.response.out.write("""Why not create one <a href="/new">now</a>?""")
             else:
                 # there should be only one list for a user for a day.
                 todolist = filtered_todolist.get()
                 todoitem_queryobj = db.Query(TodoItem)
                 filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
                         todolist).filter('user =', username)
-                self.response.write("<ul>")
+                self.response.out.write("<ul>")
                 editlink = '<a href="/edit">Edit</a>'
                 for todo in filtered_todoitem:
-                    self.response.write("""
+                    self.response.out.write("""
                     <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
-                        todo.rating, todo.score, editlink)
+                        todo.rating, todo.score, editlink))
 
-                self.response.write("</ul>")
-            self.response.write("<br>")
-            self.response.write("""Add a new todo <a href="/new">now</a>?""")
-            self.response.write("</html>")
+                self.response.out.write("</ul>")
+            self.response.out.write("<br>")
+            self.response.out.write("""Add a new todo <a href="/new">now</a>?""")
+            self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
@@ -123,16 +124,16 @@ class NewEntry(webapp.RequestHandler):
     def get(self):
         username = users.get_current_user()
         if username:
-            self.response.write("<html>")
-            self.response.write("""
+            self.response.out.write("<html>")
+            self.response.out.write("""
             <form action="/new" method="post"/>
-            <div><textarea name="description" rows="3" cols="60></textarea></div>
-            <div><textarea name="rating" rows="1" cols="10></textarea></div>
-            <div><textarea name="score" rows="1" cols="10></textarea></div>
+            <div>Description</br><textarea name="description" label="description" rows="3" cols="60">Task Description</textarea></div>
+            <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10"></textarea></div>
+            <div>Score</br><textarea name="score" label="score" rows="1" cols="10"></textarea></div>
             <div><input type="submit" value="submit"></div>
             </form>
             """)
-            self.response.write("</html>")
+            self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
