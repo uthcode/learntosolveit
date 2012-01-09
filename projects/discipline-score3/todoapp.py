@@ -18,6 +18,7 @@ class TimezoneInfo(db.Model):
 class TodoList(db.Model):
     daykey = db.StringProperty(required=True)
     user = db.UserProperty(required=True)
+    dayscore = db.FloatProperty(default=0.0)
 
 class TodoItem(db.Model):
     user = db.UserProperty(required=True)
@@ -123,7 +124,6 @@ class MainPage(webapp.RequestHandler):
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
                     todolist = TodoList(daykey=today, user=username)
-                    todolist.put()
                     self.response.out.write("""</br>No todos for you yet.</br>""")
                     self.response.out.write("""Why not create one <a href="/new">now</a>?""")
                 else:
@@ -139,19 +139,22 @@ class MainPage(webapp.RequestHandler):
                         key = todo.key()
                         editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
                         self.response.out.write("""
-                        <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
-                            todo.rating, todo.score, editlink))
+                        <li><b>%s</b>  <i>%s</i>/<i>%s</i>  - %s </br>""" % (todo.description,
+                            todo.score, todo.rating, editlink))
                         total_rating_for_day += todo.rating
                         total_score_for_day += todo.score
 
                     self.response.out.write("</ul>")
-            score = str((100.0 * total_score_for_day) / total_rating_for_day)
-            self.response.out.write("<br>")
-            self.response.out.write("<h3>Score for today - %s%% </h3>" % score)
-            self.response.out.write("<br>")
-            self.response.out.write("<br>")
-            self.response.out.write("""Add a <a href="/new">new todo </a>?""")
-            self.response.out.write("""</br>""")
+                    score = (100.0 * total_score_for_day) / total_rating_for_day
+                    todolist.dayscore = score
+                    todolist.put()
+                    self.response.out.write("<br>")
+                    self.response.out.write("<h3>Score for today - %s%% </h3>" % str(score))
+                    self.response.out.write("<br>")
+                    self.response.out.write("<br>")
+                    self.response.out.write("""Add a <a href="/new">new todo </a>?""")
+                    self.response.out.write("""</br>""")
+
             self.response.out.write("""Check the <a href="/archives">archives</a>?""")
             self.response.out.write("""</br>""")
             self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
