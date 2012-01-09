@@ -2,11 +2,18 @@ import cgi
 import datetime
 import random
 import urllib
+import pytz
+
+from pytz import timezone
 
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+
+class TimezoneInfo(db.Model):
+    timezoneinfo = db.StringProperty(default='')
+    user = db.UserProperty(required=True)
 
 class TodoList(db.Model):
     daykey = db.StringProperty(required=True)
@@ -20,45 +27,38 @@ class TodoItem(db.Model):
     rating = db.IntegerProperty(required=True)
     score = db.IntegerProperty(default=0)
 
-class CreateTodo(webapp.RequestHandler):
-    def get(self):
-        #today = datetime.datetime.today().strftime('%d-%m-%Y')
-        today = str(random.randint(1,3))
-        user = users.get_current_user()
-        if user:
-            self.response.out.write("""
-            <html>
-            <body>
-            """)
-            username = user
-            Query_TodoList = db.Query(TodoList)
-            Query_Filtered = Query_TodoList.filter('daykey =', today).filter('user =',username)
-            if not Query_Filtered.fetch(limit=1):
-                todolist = TodoList(daykey=today, user=username)
-                todolist.put()
-                self.response.out.write("""</br>No todos for you yet</br>""")
-            else:
-                # there should be only one list for a user for a day.
-                todolist = Query_Filtered.get()
-                todoitem_query = db.Query(TodoItem)
-                todoitem = todoitem_query.filter('belongs_to =', todolist).filter('user =',username)
-                for todo in todoitem:
-                    self.response.out.write("""Description: %s\nRating: %s\nScore: %s""" % (todo.description, todo.rating,
-                                todo.score))
+class SetTimeZone(webapp.RequestHandler):
 
+    def get(self):
+        username = users.get_current_user()
+        if username:
+            self.response.out.write("<html>")
             self.response.out.write("""
-            <form action="/update" method="post"/>
-            <div><textarea name="description" rows="3" cols="60></textarea></div>
-            <div><textarea name="rating" rows="1" cols="10></textarea></div>
-            <div><textarea name="score" rows="1" cols="10></textarea></div>
-            <div><input type="submit" value="Update"></div>
+            <form action="/settimezone" method="post"/>
+            <div>TimeZone</br><textarea name="timezoneinfo" label="timezone" rows="1" cols="10"></textarea></div>
+            <div><input type="submit" value="submit"></div>
             </form>
             """)
-            user_rating = random.randint(1,10)
-            user_score = random.randint(1,10)
-            todoitem = TodoItem(user=username,belongs_to=todolist,description='something',rating=user_rating,score=user_score)
-            todoitem.put()
-            self.response.out.write('todo item written')
+            self.response.out.write("</html>")
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
+    def post(self):
+        username = users.get_current_user()
+        timezoneinfo = self.request.get('timezoneinfo',default_value='UTC')
+        if username:
+            timezoneinfo_obj = db.Query(TimezoneInfo)
+            filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+            if not filtered_timezoneinfo.fetch(limit=1):
+                settimezone = TimezoneInfo('user =', username, 'timezone =',
+                        timezoneinfo)
+                settimezone.put()
+            else:
+                settimezone = filtered_timezoneinfo.get()
+                settimezone = TimezoneInfo(user=username)
+                settimezone.timezoneinfo = timezoneinfo
+                settimezone.put()
+            self.redirect('/')
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
@@ -104,7 +104,17 @@ class MainPage(webapp.RequestHandler):
         self.response.out.write("<html>")
         username = users.get_current_user()
         if username:
-            today = datetime.datetime.today().strftime('%d%m%Y')
+            timezoneinfo_obj = db.Query(TimezoneInfo)
+            filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+            if not filtered_timezoneinfo.fetch(limit=1):
+                self.redirect('/settimezone')
+
+            usertimezone = filtered_timezoneinfo.get()
+            user_tzinfo = timezone(usertimezone.timezoneinfo)
+
+            # Make it timezone aware
+
+            today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
             todolist_queryobj = db.Query(TodoList)
             filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
             if not filtered_todolist.fetch(limit=1):
@@ -177,8 +187,17 @@ class NewEntry(webapp.RequestHandler):
             rating = int(self.request.get('rating',default_value=10))
             score = int(self.request.get('score',default_value=10))
 
+            timezoneinfo_obj = db.Query(TimezoneInfo)
+            filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+            if not filtered_timezoneinfo.fetch(limit=1):
+                self.redirect('/settimezone')
+
+            usertimezone = filtered_timezoneinfo.get()
+            user_tzinfo = timezone(usertimezone.timezoneinfo)
+
             #Add a todoitem for today
-            today = datetime.datetime.today().strftime('%d%m%Y')
+            today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
+
             todolist_queryobj = db.Query(TodoList)
             filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
             if not filtered_todolist.fetch(limit=1):
@@ -195,8 +214,8 @@ class NewEntry(webapp.RequestHandler):
 application = webapp.WSGIApplication([
     ('/', MainPage),
     ('/edit',EditEntry),
+    ('/settimezone',SetTimeZone),
     ('/new',NewEntry),
-    ('/', CreateTodo),
     ('/update',UpdateTodo)],debug=True)
 
 def main():
