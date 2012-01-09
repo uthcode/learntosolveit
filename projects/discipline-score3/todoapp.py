@@ -118,6 +118,7 @@ class MainPage(webapp.RequestHandler):
                 # Make it timezone aware
 
                 today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
+                self.response.out.write("<h3>Date - %s</h3>" % datetime.datetime.now(user_tzinfo).strftime("%d-%m-%Y"))
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
@@ -132,14 +133,22 @@ class MainPage(webapp.RequestHandler):
                     filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
                             todolist).filter('user =', username)
                     self.response.out.write("<ul>")
+                    total_rating_for_day = 0
+                    total_score_for_day = 0
                     for todo in filtered_todoitem:
                         key = todo.key()
                         editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
                         self.response.out.write("""
                         <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
                             todo.rating, todo.score, editlink))
+                        total_rating_for_day += todo.rating
+                        total_score_for_day += todo.score
 
                     self.response.out.write("</ul>")
+            score = str((100.0 * total_score_for_day) / total_rating_for_day)
+            self.response.out.write("<br>")
+            self.response.out.write("<h3>Score for today - %s%% </h3>" % score)
+            self.response.out.write("<br>")
             self.response.out.write("<br>")
             self.response.out.write("""Add a <a href="/new">new todo </a>?""")
             self.response.out.write("""</br>""")
