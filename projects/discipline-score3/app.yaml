@@ -1,5 +1,5 @@
-application: ksvshack
-version: 1
+application: discipline-score
+version: 4
 runtime: python
 api_version: 1
 

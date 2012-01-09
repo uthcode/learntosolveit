@@ -177,6 +177,7 @@ class MainPage(webapp.RequestHandler):
             self.response.out.write("""</br>""")
             self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
             self.response.out.write("""</br>""")
+            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>">)
             self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
@@ -275,6 +276,7 @@ class Archives(webapp.RequestHandler):
             self.response.out.write("""</br>""")
             self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
             self.response.out.write("""</br>""")
+            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>">)
             self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
