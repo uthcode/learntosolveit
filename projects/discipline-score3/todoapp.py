@@ -80,6 +80,7 @@ class UpdateTodo(webapp.RequestHandler):
                 self.redirect('/')
         else:
             self.redirect(users.create_login_url(self.request.uri))
+
     def post(self):
         username = users.get_current_user()
         if username:
@@ -140,7 +141,12 @@ class MainPage(webapp.RequestHandler):
 
                     self.response.out.write("</ul>")
             self.response.out.write("<br>")
-            self.response.out.write("""Add a new todo <a href="/new">now</a>?""")
+            self.response.out.write("""Add a <a href="/new">new todo </a>?""")
+            self.response.out.write("""</br>""")
+            self.response.out.write("""Check the <a href="/archives">archives</a>?""")
+            self.response.out.write("""</br>""")
+            self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
+            self.response.out.write("""</br>""")
             self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
@@ -162,7 +168,6 @@ class EditEntry(webapp.RequestHandler):
         form_contents %= {'description':item.description,'rating':item.rating,'score':item.score}
         self.response.out.write(form_contents)
         self.response.out.write('</html>')
-
 
 class NewEntry(webapp.RequestHandler):
 
@@ -213,11 +218,16 @@ class NewEntry(webapp.RequestHandler):
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
+class Archives(webapp.RequestHandler):
+    def get(self):
+        pass
+
 application = webapp.WSGIApplication([
     ('/', MainPage),
     ('/edit',EditEntry),
     ('/settimezone',SetTimeZone),
     ('/new',NewEntry),
+    ('/archives', Archives),
     ('/update',UpdateTodo)],debug=True)
 
 def main():
