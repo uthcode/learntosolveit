@@ -232,7 +232,34 @@ class NewEntry(webapp.RequestHandler):
 
 class Archives(webapp.RequestHandler):
     def get(self):
-        pass
+        self.response.out.write("<html>")
+        username = users.get_current_user()
+        if username:
+            todolist_queryobj = db.Query(TodoList)
+            filtered_todolist = todolist_queryobj.filter('user =', username)
+            if not filtered_todolist.fetch(limit=1):
+                self.response.out.write("""</br>No Todos for you yet.</br>""")
+                self.response.out.write("""Why not create one <a href="/new">now</a>?""")
+            else:
+                self.response.out.write("<ul>")
+                for todolist in filtered_todolist:
+                    todolist.daykey
+                    todolist.dayscore
+                    day = todolist.daykey[:2] + '-' + todolist.daykey[2:4] + '-' +todolist.daykey[4:]
+
+                    daylink = """<a href="/?day=%(daykey)s">%(day)s</a>""" % {'daykey':todolist.daykey, 'day':day}
+                    self.response.out.write("""
+                    <li>%s - <b>%s</b> </br>""" % (daylink, todolist.dayscore))
+
+                self.response.out.write("</ul>")
+
+            self.response.out.write("""Go to <a href="/">Main</a>?""")
+            self.response.out.write("""</br>""")
+            self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
+            self.response.out.write("""</br>""")
+            self.response.out.write("</html>")
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
 
 application = webapp.WSGIApplication([
     ('/', MainPage),
