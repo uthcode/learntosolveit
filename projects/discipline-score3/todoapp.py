@@ -68,7 +68,7 @@ class UpdateTodo(webapp.RequestHandler):
         username = users.get_current_user()
         if username:
             Query_TodoItem = db.Query(TodoItem)
-            description = self.request.get('description',default_value='something')
+            description = self.request.get('description',default_value='')
             rating = int(self.request.get('rating',default_value=10))
             Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
             if not Query_Filtered.fetch(limit=1):
@@ -118,8 +118,15 @@ class MainPage(webapp.RequestHandler):
 
                 # Make it timezone aware
 
-                today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
-                self.response.out.write("<h3>Date - %s</h3>" % datetime.datetime.now(user_tzinfo).strftime("%d-%m-%Y"))
+                today = self.request.get('day',default_value='')
+
+                if not today:
+                    today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
+                    displaydate = datetime.datetime.now(user_tzinfo).strftime("%d-%m-%Y")
+                else:
+                    displaydate = today[:2] + '-' + today[2:4] + '-' + today[4:]
+
+                self.response.out.write("<h3>Date - %s</h3>" % displaydate)
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
@@ -148,14 +155,25 @@ class MainPage(webapp.RequestHandler):
                     score = (100.0 * total_score_for_day) / total_rating_for_day
                     todolist.dayscore = score
                     todolist.put()
+
+                    todolist_queryobj = db.Query(TodoList)
+                    filtered_todolist = todolist_queryobj.filter('user =',username)
+                    discipline_score = 0.0
+                    number_of_entrys = 0
+                    for todolist_entry in filtered_todolist:
+                        discipline_score += todolist_entry.dayscore
+                        number_of_entrys += 1
+
                     self.response.out.write("<br>")
-                    self.response.out.write("<h3>Score for today - %s%% </h3>" % str(score))
+                    self.response.out.write("<h3>Score for the day - %s%% </h3>" % str(score))
                     self.response.out.write("<br>")
+                    self.response.out.write("<h3>Discipline Score- %s%% </h3>" % str(discipline_score/number_of_entrys))
                     self.response.out.write("<br>")
                     self.response.out.write("""Add a <a href="/new">new todo </a>?""")
                     self.response.out.write("""</br>""")
 
             self.response.out.write("""Check the <a href="/archives">archives</a>?""")
+            self.response.out.write("""</br>""")
             self.response.out.write("""</br>""")
             self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
             self.response.out.write("""</br>""")
