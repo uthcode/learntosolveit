@@ -33,9 +33,10 @@ class SetTimeZone(webapp.RequestHandler):
         username = users.get_current_user()
         if username:
             self.response.out.write("<html>")
+            self.response.out.write("<h2>Please set your timezone.</h2>")
             self.response.out.write("""
             <form action="/settimezone" method="post"/>
-            <div>TimeZone</br><textarea name="timezoneinfo" label="timezone" rows="1" cols="10"></textarea></div>
+            <div>TimeZone</br><textarea name="timezoneinfo" label="timezone" rows="1" cols="50"></textarea></div>
             <div><input type="submit" value="submit"></div>
             </form>
             """)
@@ -50,8 +51,7 @@ class SetTimeZone(webapp.RequestHandler):
             timezoneinfo_obj = db.Query(TimezoneInfo)
             filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
             if not filtered_timezoneinfo.fetch(limit=1):
-                settimezone = TimezoneInfo('user =', username, 'timezone =',
-                        timezoneinfo)
+                settimezone = TimezoneInfo(user=username, timezoneinfo=timezoneinfo)
                 settimezone.put()
             else:
                 settimezone = filtered_timezoneinfo.get()
@@ -106,37 +106,39 @@ class MainPage(webapp.RequestHandler):
         if username:
             timezoneinfo_obj = db.Query(TimezoneInfo)
             filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+
             if not filtered_timezoneinfo.fetch(limit=1):
                 self.redirect('/settimezone')
-
-            usertimezone = filtered_timezoneinfo.get()
-            user_tzinfo = timezone(usertimezone.timezoneinfo)
-
-            # Make it timezone aware
-
-            today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
-            todolist_queryobj = db.Query(TodoList)
-            filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
-            if not filtered_todolist.fetch(limit=1):
-                todolist = TodoList(daykey=today, user=username)
-                todolist.put()
-                self.response.out.write("""</br>No todos for you yet.</br>""")
-                self.response.out.write("""Why not create one <a href="/new">now</a>?""")
             else:
-                # there should be only one list for a user for a day.
-                todolist = filtered_todolist.get()
-                todoitem_queryobj = db.Query(TodoItem)
-                filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
-                        todolist).filter('user =', username)
-                self.response.out.write("<ul>")
-                for todo in filtered_todoitem:
-                    key = todo.key()
-                    editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
-                    self.response.out.write("""
-                    <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
-                        todo.rating, todo.score, editlink))
 
-                self.response.out.write("</ul>")
+                usertimezone = filtered_timezoneinfo.get()
+                user_tzinfo = timezone(usertimezone.timezoneinfo)
+
+                # Make it timezone aware
+
+                today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
+                todolist_queryobj = db.Query(TodoList)
+                filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
+                if not filtered_todolist.fetch(limit=1):
+                    todolist = TodoList(daykey=today, user=username)
+                    todolist.put()
+                    self.response.out.write("""</br>No todos for you yet.</br>""")
+                    self.response.out.write("""Why not create one <a href="/new">now</a>?""")
+                else:
+                    # there should be only one list for a user for a day.
+                    todolist = filtered_todolist.get()
+                    todoitem_queryobj = db.Query(TodoItem)
+                    filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
+                            todolist).filter('user =', username)
+                    self.response.out.write("<ul>")
+                    for todo in filtered_todoitem:
+                        key = todo.key()
+                        editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
+                        self.response.out.write("""
+                        <li><b>%s</b>  <i>%s</i>  <i>%s</i>  - %s </br>""" % (todo.description,
+                            todo.rating, todo.score, editlink))
+
+                    self.response.out.write("</ul>")
             self.response.out.write("<br>")
             self.response.out.write("""Add a new todo <a href="/new">now</a>?""")
             self.response.out.write("</html>")
