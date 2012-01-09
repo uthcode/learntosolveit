@@ -35,6 +35,7 @@ class SetTimeZone(webapp.RequestHandler):
         if username:
             self.response.out.write("<html>")
             self.response.out.write("<h2>Please set your timezone.</h2>")
+            self.response.out.write("<i>Like Asia/Singpore or Asia/Kolkata</h2>")
             self.response.out.write("""
             <form action="/settimezone" method="post"/>
             <div>TimeZone</br><textarea name="timezoneinfo" label="timezone" rows="1" cols="50"></textarea></div>
@@ -49,17 +50,26 @@ class SetTimeZone(webapp.RequestHandler):
         username = users.get_current_user()
         timezoneinfo = self.request.get('timezoneinfo',default_value='UTC')
         if username:
-            timezoneinfo_obj = db.Query(TimezoneInfo)
-            filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
-            if not filtered_timezoneinfo.fetch(limit=1):
-                settimezone = TimezoneInfo(user=username, timezoneinfo=timezoneinfo)
-                settimezone.put()
+            try:
+                timezone(timezoneinfo)
+            except pytz.UnknownTimeZoneError as e:
+                self.response.out.write("<h2>Unknown Timezone</h2>")
+                self.response.out.write("</br>")
+                self.response.out.write("<h2>Please <a href='/settimezone'>try again</a>.</h2>")
             else:
-                settimezone = filtered_timezoneinfo.get()
-                settimezone = TimezoneInfo(user=username)
-                settimezone.timezoneinfo = timezoneinfo
-                settimezone.put()
-            self.redirect('/')
+                timezoneinfo_obj = db.Query(TimezoneInfo)
+                filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+
+                if not filtered_timezoneinfo.fetch(limit=1):
+                    settimezone = TimezoneInfo(user=username, timezoneinfo=timezoneinfo)
+                    settimezone.put()
+                else:
+                    settimezone = filtered_timezoneinfo.get()
+                    settimezone = TimezoneInfo(user=username)
+                    settimezone.timezoneinfo = timezoneinfo
+                    settimezone.put()
+
+                self.redirect('/')
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
@@ -169,7 +179,7 @@ class MainPage(webapp.RequestHandler):
                     self.response.out.write("<br>")
                     self.response.out.write("<h3>Discipline Score- %s%% </h3>" % str(discipline_score/number_of_entrys))
                     self.response.out.write("<br>")
-                    self.response.out.write("""Add a <a href="/new">new todo </a>?""")
+                    self.response.out.write("""<h3>Add a <a href="/new">new todo</a>?</h3>""")
                     self.response.out.write("""</br>""")
 
             self.response.out.write("""Check the <a href="/archives">archives</a>?""")
@@ -177,7 +187,7 @@ class MainPage(webapp.RequestHandler):
             self.response.out.write("""</br>""")
             self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
             self.response.out.write("""</br>""")
-            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>">)
+            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>")
             self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
@@ -276,7 +286,7 @@ class Archives(webapp.RequestHandler):
             self.response.out.write("""</br>""")
             self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
             self.response.out.write("""</br>""")
-            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>">)
+            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>")
             self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
