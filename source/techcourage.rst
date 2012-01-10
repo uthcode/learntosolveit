@@ -2,8 +2,7 @@
 Technology and Courage by Ivan Sutherland
 =========================================
 
-In an Essay Series Published by SunLabs April 1996
---------------------------------------------------
+**About the author**
 
 ::
 
@@ -62,17 +61,13 @@ He received the ACM Turing Award in 1988 and holds several honorary degrees.
 
 In this paper, his spirit and joy are revealed.
 
-**I, for one, am and will always remain a practicing technologist. When
+*I, for one, am and will always remain a practicing technologist. When
 denied my minimum daily adult dose of technology, I get grouchy. I believe
 that technology is fun, especially when computers are involved, a sort of
 grand game or puzzle with ever so neat parts to fit together. I have
 turned down several lucrative administrative jobs because they would deny
 me that fun. If the technology you do isn't fun for you, you may wish to
-seek other employment.  Without the fun, none of us would go on.**
-
-
-Dr. Sutherland is presently Vice President and Fellow of Sun Microsystems,
-Inc. --Ed.
+seek other employment.  Without the fun, none of us would go on.*
 
 Notes from the Author
 ---------------------
