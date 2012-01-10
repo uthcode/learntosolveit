@@ -7,26 +7,27 @@ In an Essay Series Published by SunLabs April 1996
 
 ::
 
-    © Copyright 1996 Sun Microsystems, Inc. Perspectives, a new and parallel series
-    to the Sun Microsystems Laboratories Technical Report Series, is published by
-    Sun Microsystems Laboratories, a division of Sun Microsystems, Inc. Printed in
-    U.S.A. Unlimited copying without fee is permitted provided that the copies are
-    not made nor distributed for direct commercial advantage, and credit to the
-    source is given. Otherwise, no part of this work covered by copyright hereon
-    may be reproduced in any form or by any means graphic, electronic, or
-    mechanical, including photocopying, recording, taping, or storage in an
-    information retrieval system, without the prior written permission of the
-    copyright owner. TRADEMARKS Sun, Sun Microsystems, and the Sun logo are
-    trademarks or registered trademarks of Sun Microsystems, Inc. UNIX is a
-    registered trademark in the United States and other countries, exclusively
-    licensed through X/Open Company, Ltd. All SPARC trademarks, including the SCD
-    Compliant Logo, are trademarks or registered trademarks of SPARC International,
-    Inc. SPARCstation, SPARCserver, SPARCengine, SPARCworks, and SPARCompiler are
-    licensed exclusively to Sun Microsystems, Inc. All other product names
-    mentioned herein are the trademarks of their respective owners. For information
+    |copy| Copyright 1996 Sun Microsystems, Inc. Perspectives, a new and
+    parallel series to the Sun Microsystems Laboratories Technical Report
+    Series, is published by Sun Microsystems Laboratories, a division of Sun
+    Microsystems, Inc. Printed in U.S.A. Unlimited copying without fee is
+    permitted provided that the copies are not made nor distributed for direct
+    commercial advantage, and credit to the source is given. Otherwise, no part
+    of this work covered by copyright hereon may be reproduced in any form or
+    by any means graphic, electronic, or mechanical, including photocopying,
+    recording, taping, or storage in an information retrieval system, without
+    the prior written permission of the copyright owner. TRADEMARKS Sun, Sun
+    Microsystems, and the Sun logo are trademarks or registered trademarks of
+    Sun Microsystems, Inc. UNIX is a registered trademark in the United States
+    and other countries, exclusively licensed through X/Open Company, Ltd. All
+    SPARC trademarks, including the SCD Compliant Logo, are trademarks or
+    registered trademarks of SPARC International, Inc. SPARCstation,
+    SPARCserver, SPARCengine, SPARCworks, and SPARCompiler are licensed
+    exclusively to Sun Microsystems, Inc. All other product names mentioned
+    herein are the trademarks of their respective owners. For information
     regarding the SunLabs Perspectives Series, contact Jeanie Treichel,
-    Editor-in-Chief <jeanie.treichel@eng.sun.com>. For distribution issues, contact
-    Amy Tashbook Hall, Assistant Editor <amy.hall@eng.sun.com>.
+    Editor-in-Chief <jeanie.treichel@eng.sun.com>. For distribution issues,
+    contact Amy Tashbook Hall, Assistant Editor <amy.hall@eng.sun.com>.
 
 
 Editor's Notes
@@ -1104,3 +1105,5 @@ Research in VLSI, C. Sequin, ed. MIT Press, 1991. [15] Sutherland, I.E.
 "Technology and Courage," CMU Compter Science. A 25th Anniversary
 Commemorative. Ed. Rashid, R. ACM Press, 1991. Technology and Courage is also
 available on the World Wide Web.
+
+.. |copy| unicode:: 0xA9 .. copyright sign

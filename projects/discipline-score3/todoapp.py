@@ -52,7 +52,7 @@ class SetTimeZone(webapp.RequestHandler):
         if username:
             try:
                 timezone(timezoneinfo)
-            except pytz.UnknownTimeZoneError as e:
+            except pytz.UnknownTimeZoneError, e:
                 self.response.out.write("<h2>Unknown Timezone</h2>")
                 self.response.out.write("</br>")
                 self.response.out.write("<h2>Please <a href='/settimezone'>try again</a>.</h2>")
