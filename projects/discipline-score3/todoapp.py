@@ -25,7 +25,7 @@ class TodoItem(db.Model):
     date = db.DateTimeProperty(auto_now_add=True)
     belongs_to = db.ReferenceProperty(TodoList)
     description = db.StringProperty(multiline=True)
-    rating = db.IntegerProperty(required=True)
+    rating = db.IntegerProperty(required=True, default=0)
     score = db.IntegerProperty(default=0)
 
 class SetTimeZone(webapp.RequestHandler):
@@ -137,6 +137,7 @@ class MainPage(webapp.RequestHandler):
                     displaydate = today[:2] + '-' + today[2:4] + '-' + today[4:]
 
                 self.response.out.write("<h3>Date - %s</h3>" % displaydate)
+                self.response.out.write("""<h3>Add a <a href="/new">new todo</a>?</h3>""")
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
@@ -179,7 +180,6 @@ class MainPage(webapp.RequestHandler):
                     self.response.out.write("<br>")
                     self.response.out.write("<h3>Discipline Score- %s%% </h3>" % str(discipline_score/number_of_entrys))
                     self.response.out.write("<br>")
-                    self.response.out.write("""<h3>Add a <a href="/new">new todo</a>?</h3>""")
                     self.response.out.write("""</br>""")
 
             self.response.out.write("""Check the <a href="/archives">archives</a>?""")
