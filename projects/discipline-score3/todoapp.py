@@ -34,6 +34,7 @@ class SetTimeZone(webapp.RequestHandler):
         username = users.get_current_user()
         if username:
             self.response.out.write("<html>")
+            self.response.out.write("<title>discipline-score timezone.</title>")
             self.response.out.write("<h2>Please set your timezone.</h2>")
             self.response.out.write("<i>Like Asia/Singpore or Asia/Kolkata</h2>")
             self.response.out.write("""
@@ -79,7 +80,7 @@ class UpdateTodo(webapp.RequestHandler):
         if username:
             Query_TodoItem = db.Query(TodoItem)
             description = self.request.get('description',default_value='')
-            rating = int(self.request.get('rating',default_value=10))
+            rating = int(self.request.get('rating',default_value='10'))
             Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
             if not Query_Filtered.fetch(limit=1):
                 self.response.out.write('You do not have such a Todo Item')
@@ -97,7 +98,7 @@ class UpdateTodo(webapp.RequestHandler):
         if username:
             Query_TodoItem = db.Query(TodoItem)
             description = self.request.get('description',default_value='something')
-            rating = int(self.request.get('rating',default_value=10))
+            rating = int(self.request.get('rating',default_value='10'))
             Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
             if not Query_Filtered.fetch(limit=1):
                 self.response.out.write('You do not have such a Todo Item')
@@ -114,6 +115,7 @@ class UpdateTodo(webapp.RequestHandler):
 class MainPage(webapp.RequestHandler):
     def get(self):
         self.response.out.write("<html>")
+        self.response.out.write("<title>discipline score</title>")
         username = users.get_current_user()
         if username:
             timezoneinfo_obj = db.Query(TimezoneInfo)
@@ -197,6 +199,7 @@ class EditEntry(webapp.RequestHandler):
         item_key = self.request.get('key')
         item = db.get(item_key)
         self.response.out.write("<html>")
+        self.response.out.write("<title>Discipline Score</title>")
         form_contents = """
         <form action="/update" method="post"/>
         <div>Description</br><textarea name="description"
@@ -216,6 +219,7 @@ class NewEntry(webapp.RequestHandler):
         username = users.get_current_user()
         if username:
             self.response.out.write("<html>")
+            self.response.out.write("<title>discipline score</title>")
             self.response.out.write("""
             <form action="/new" method="post"/>
             <div>Description</br><textarea name="description" label="description" rows="3" cols="60">Task Description</textarea></div>
@@ -232,8 +236,8 @@ class NewEntry(webapp.RequestHandler):
         username = users.get_current_user()
         if username:
             description = self.request.get('description',default_value='')
-            rating = int(self.request.get('rating',default_value=10))
-            score = int(self.request.get('score',default_value=10))
+            rating = int(self.request.get('rating',default_value='10'))
+            score = int(self.request.get('score',default_value='0'))
 
             timezoneinfo_obj = db.Query(TimezoneInfo)
             filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
@@ -262,6 +266,7 @@ class NewEntry(webapp.RequestHandler):
 class Archives(webapp.RequestHandler):
     def get(self):
         self.response.out.write("<html>")
+        self.response.out.write("<title>discipline-score archives</title>")
         username = users.get_current_user()
         if username:
             todolist_queryobj = db.Query(TodoList)
