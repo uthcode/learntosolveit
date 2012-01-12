@@ -310,6 +310,15 @@ information to templates such as Mako.
 
 
 
+Pylons Resources
+================
 
+Pylons Book
 
+.. image:: cover.jpg
+   :align: center
+   :target: http://pylonsbook.com/en/1.1/
 
+* `Example Source Code`_
+
+.. _Example Source Code: http://docs.pylonsproject.org/projects/pylons-webframework/en/latest/
