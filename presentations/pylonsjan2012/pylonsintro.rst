@@ -164,6 +164,16 @@ Template
 
 * Update Controller to render template
 
+Specify Route
+=============
+
+* Edit config/routing.py
+
+::
+
+    # CUSTOM ROUTES HERE
+    map.connect('/', controller='hello', action='index')
+
 Underlying stuff
 ================
 
