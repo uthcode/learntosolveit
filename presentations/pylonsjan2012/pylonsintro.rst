@@ -117,10 +117,10 @@ Pylons Environment
 .. _go-pylons.py : http://www.pylonshq.com/download/1.0/go-pylons.py
 
 
-Hello World Project
-===================
+Project Template
+================
 
-* paster_ command to create project template and serve the project.
+* paster_ utility to create project template and serve the project.
 
 ::
 
@@ -133,13 +133,33 @@ Hello World Project
     (myenv)$cd helloworld
     (myenv)$paster serve development.ini
 
-* paster command to serve the project.
+* ``paster`` utility to serve the project welcome page.
 
 .. _paster: http://pythonpaste.org/script/
 
 
-Requests
+Contoller 
+==========
+
+* Create a contoller in the project to handle request.
+* Use ``paster`` again.
+
+::
+
+    (myenv)$paster controller hello
+
+* Edit ``helloworld/controller/hello.py``
+
+* Browse http://localhost:5000/hello/index
+
+Template
 ========
 
-* Requests are usually made by the browser.
-* Dispatched to the controller, which is 
+* ``templates/hello.mako``
+
+::
+
+    Hello World!<br>
+    Your environ looks like ${request.environ}
+
+* Update Controller to render template
