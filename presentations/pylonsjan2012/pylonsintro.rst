@@ -259,7 +259,7 @@ information to templates such as Mako.
     **Beaker**
 
     Beaker is a piece of software used internally by Pylons to implement its
-    `Caching`_ and session functionality but you would never normally interact with
+    Caching and session functionality but you would never normally interact with
     Beaker yourself directly.
 
     **Tempita**
