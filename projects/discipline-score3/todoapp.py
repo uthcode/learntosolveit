@@ -178,9 +178,9 @@ class MainPage(webapp.RequestHandler):
                         number_of_entrys += 1
 
                     self.response.out.write("<br>")
-                    self.response.out.write("<h3>Score for the day - %s%% </h3>" % str(score))
+                    self.response.out.write("<h3>Score for the day - %0.2f %% </h3>" % str(score))
                     self.response.out.write("<br>")
-                    self.response.out.write("<h3>Discipline Score- %s%% </h3>" % str(discipline_score/number_of_entrys))
+                    self.response.out.write("<h3>Discipline Score- %0.2f %% </h3>" % str(discipline_score/number_of_entrys))
                     self.response.out.write("<br>")
                     self.response.out.write("""</br>""")
 
