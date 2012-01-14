@@ -156,8 +156,6 @@ class MainPage(webapp.RequestHandler):
                                                 rating=todo.rating,
                                                 score=todo.score)
                             todoitem.put()
-
-                    self.response('/')
                 else:
                     # there should be only one list for a user for a day.
                     todolist = filtered_todolist.get()
@@ -192,7 +190,7 @@ class MainPage(webapp.RequestHandler):
                     self.response.out.write("<br>")
                     self.response.out.write("<h3>Score for the day - %0.2f %%</h3>" % score)
                     self.response.out.write("<br>")
-                    self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % float(discipline_score)/float(number_of_entrys))
+                    self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % (discipline_score/number_of_entrys))
                     self.response.out.write("<br>")
                     self.response.out.write("""</br>""")
 
