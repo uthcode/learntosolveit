@@ -144,8 +144,18 @@ class MainPage(webapp.RequestHandler):
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
                     todolist = TodoList(daykey=today, user=username)
-                    self.response.out.write("""</br>No todos for you yet.</br>""")
-                    self.response.out.write("""Why not create one <a href="/new">now</a>?""")
+                    # At this point pull unfinished from yesterday's
+                    yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(1)
+                    yesterday = yesterday.strftime('%d%m%Y')
+                    filtered_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
+                    for todo in filtered_todolist:
+                        if todo.score < todo.rating:
+                        todoitem = TodoItem(user=username, belongs_to=todolist,
+                                description=todo.description,
+                                rating=todo.rating, score=todo.score)
+                        todoitem.put()
+
+                    self.response('/')
                 else:
                     # there should be only one list for a user for a day.
                     todolist = filtered_todolist.get()
@@ -178,12 +188,15 @@ class MainPage(webapp.RequestHandler):
                         number_of_entrys += 1
 
                     self.response.out.write("<br>")
-                    self.response.out.write("<h3>Score for the day - %0.2f %% </h3>" % str(score))
+                    self.response.out.write("<h3>Score for the day - %0.2f %%</h3>" % score)
                     self.response.out.write("<br>")
-                    self.response.out.write("<h3>Discipline Score- %0.2f %% </h3>" % str(discipline_score/number_of_entrys))
+                    self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % float(discipline_score)/float(number_of_entrys))
                     self.response.out.write("<br>")
                     self.response.out.write("""</br>""")
 
+            self.response.out.write("""Create a <a href="/new">now</a> todo?""")
+            self.response.out.write("""</br>""")
+            self.response.out.write("""</br>""")
             self.response.out.write("""Check the <a href="/archives">archives</a>?""")
             self.response.out.write("""</br>""")
             self.response.out.write("""</br>""")
