@@ -150,10 +150,12 @@ class MainPage(webapp.RequestHandler):
                     filtered_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
                     for todo in filtered_todolist:
                         if todo.score < todo.rating:
-                        todoitem = TodoItem(user=username, belongs_to=todolist,
-                                description=todo.description,
-                                rating=todo.rating, score=todo.score)
-                        todoitem.put()
+                            todoitem = TodoItem(user=username,
+                                                belongs_to=todolist,
+                                                description=todo.description,
+                                                rating=todo.rating,
+                                                score=todo.score)
+                            todoitem.put()
 
                     self.response('/')
                 else:
