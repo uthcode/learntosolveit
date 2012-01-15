@@ -143,15 +143,23 @@ class MainPage(webapp.RequestHandler):
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
-                    todolist = TodoList(daykey=today, user=username)
+                    today_todolist = TodoList(daykey=today, user=username)
+                    today_todolist.put()
                     # At this point pull unfinished from yesterday's
                     yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(1)
                     yesterday = yesterday.strftime('%d%m%Y')
-                    filtered_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
-                    for todo in filtered_todolist:
+
+                    yesterday_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
+                    yesterday_todolist = yesterday_todolist.get()
+
+                    todoitem_queryobj = db.Query(TodoItem)
+                    filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
+                            yesterday_todolist).filter('user =', username)
+
+                    for todo in filtered_todoitem:
                         if todo.score < todo.rating:
                             todoitem = TodoItem(user=username,
-                                                belongs_to=todolist,
+                                                belongs_to=today_todolist,
                                                 description=todo.description,
                                                 rating=todo.rating,
                                                 score=todo.score)
@@ -162,37 +170,38 @@ class MainPage(webapp.RequestHandler):
                     todoitem_queryobj = db.Query(TodoItem)
                     filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
                             todolist).filter('user =', username)
-                    self.response.out.write("<ul>")
-                    total_rating_for_day = 0
-                    total_score_for_day = 0
-                    for todo in filtered_todoitem:
-                        key = todo.key()
-                        editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
-                        self.response.out.write("""
-                        <li><b>%s</b>  <i>%s</i>/<i>%s</i>  - %s </br>""" % (todo.description,
-                            todo.score, todo.rating, editlink))
-                        total_rating_for_day += todo.rating
-                        total_score_for_day += todo.score
+                    if filtered_todoitem:
+                        self.response.out.write("<ul>")
+                        total_rating_for_day = 0
+                        total_score_for_day = 0
+                        for todo in filtered_todoitem:
+                            key = todo.key()
+                            editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
+                            self.response.out.write("""
+                            <li><b>%s</b>  <i>%s</i>/<i>%s</i>  - %s </br>""" % (todo.description,
+                                todo.score, todo.rating, editlink))
+                            total_rating_for_day += todo.rating
+                            total_score_for_day += todo.score
 
-                    self.response.out.write("</ul>")
-                    score = (100.0 * total_score_for_day) / total_rating_for_day
-                    todolist.dayscore = score
-                    todolist.put()
+                        self.response.out.write("</ul>")
+                        score = (100.0 * total_score_for_day) / total_rating_for_day
+                        todolist.dayscore = score
+                        todolist.put()
 
-                    todolist_queryobj = db.Query(TodoList)
-                    filtered_todolist = todolist_queryobj.filter('user =',username)
-                    discipline_score = 0.0
-                    number_of_entrys = 0
-                    for todolist_entry in filtered_todolist:
-                        discipline_score += todolist_entry.dayscore
-                        number_of_entrys += 1
+                        todolist_queryobj = db.Query(TodoList)
+                        filtered_todolist = todolist_queryobj.filter('user =',username)
+                        discipline_score = 0.0
+                        number_of_entrys = 0
+                        for todolist_entry in filtered_todolist:
+                            discipline_score += todolist_entry.dayscore
+                            number_of_entrys += 1
 
-                    self.response.out.write("<br>")
-                    self.response.out.write("<h3>Score for the day - %0.2f %%</h3>" % score)
-                    self.response.out.write("<br>")
-                    self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % (discipline_score/number_of_entrys))
-                    self.response.out.write("<br>")
-                    self.response.out.write("""</br>""")
+                        self.response.out.write("<br>")
+                        self.response.out.write("<h3>Score for the day - %0.2f %%</h3>" % score)
+                        self.response.out.write("<br>")
+                        self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % (discipline_score/number_of_entrys))
+                        self.response.out.write("<br>")
+                        self.response.out.write("""</br>""")
 
             self.response.out.write("""Create a <a href="/new">now</a> todo?""")
             self.response.out.write("""</br>""")
