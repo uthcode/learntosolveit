@@ -359,6 +359,17 @@ each <script> tag delivers a compilation unit that is compiled and immediately
 executed. Lacking a linker, javascript throws them all together in a common
 global namespace.
 
+Dom Events
+----------
+
+DOM (Document Object Model) events allow event-driven programming languages
+like JavaScript to register various event handlers/listeners on the element
+nodes inside a DOM tree, e.g. HTML, XHTML, XUL and SVG documents.
+
+Historically, like DOM, the event models used by various web browsers had some
+significant differences. This caused compatibility problems. To combat this,
+the event model was standardized by the W3C in DOM Level 2.
+
 
 jQuery
 ======
@@ -546,6 +557,11 @@ more of) in prodcast.  In brief:
 - pubsub or events to avoid direct dependencies between modules                                                                            
 
     http://addyosmani.com/largescalejavascript/         
+
+
+15 days of JQuery
+
+http://15daysofjquery.com/quicker/4/
 
 
 jsfiddle

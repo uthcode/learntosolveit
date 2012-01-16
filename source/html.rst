@@ -77,5 +77,10 @@ Questions
 a) What could be a reason for nesting of div elements.
 b) fieldset tag?
 
+W3C's Documents
+---------------
+
+http://www.w3.org/standards/webdesign/
+
 
 http://www.w3.org/TR/html4/interact/forms.html
