@@ -3053,6 +3053,12 @@ Look a bit into property.
 Usage of Ellipses
 
 
+Python Tutorials
+----------------
+
+http://people.csail.mit.edu/pgbovine/python/
+
+
 Alex Martelli's Tutorials
 -------------------------
 
