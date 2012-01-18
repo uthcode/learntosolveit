@@ -12,7 +12,8 @@ CPython Development Process
 #) **What are the steps involved while using hg.python.org?**
 
     * update all codelines.
-    * Start working on 3.2 codeline and fix and commit and push. It will push it cpython
+    * Start working on 3.2 codeline and fix and commit and push. It will push
+      it cpython. *Realized that you don't have to push.*
     * hg pull -u ../3.2
     * hg merge 3.2
     * resolve any conflicts.
@@ -75,8 +76,8 @@ Python Programming
 #) **How will you use Python C-API ?**
 
     The Python API is incorporated in a C source file by including the header
-    "Python.h" . Do note that if your use case is calling C library functions
-    or system calls, you should consider using the ctypes module rather than
+    "Python.h". Do note that if your use case is calling C library functions or
+    system calls, you should consider using the ctypes module rather than
     writing custom C code.  Not only does ctypes let you write Python code to
     interface with C code, but it is more portable between implementations of
     Python than writing and compiling an extension module which typically ties
@@ -116,7 +117,7 @@ Python Programming
     specifies the first item you don’t want.  The return value is everything in
     between.
 
-#) **In Python3 can you create a dictionary with {}**
+#) **In Python3 can you create a set with {}**
 
     Due to historical quirks carried over from Python 2, you can not create an
     empty set with two curly brackets. This actually creates an empty
@@ -205,7 +206,7 @@ Python Programming
             >>> c['red']
             1
 
-#) **What is special with and and or operators in python?.**
+#) **What is special with `and` and `or` operators in python?.**
 
     ``and`` returns the right operand if the left is true. 
     ``or`` returns the right operand if the left is false.
@@ -3064,6 +3065,14 @@ References
 
 * [http://code.activestate.com/recipes/86900/ Factory Example]
 * [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
+
+Bugs
+----
+
+Why is Lib/site-packages not in sys.path.
+During development it can be helpful.
+If the module is a package, it cannot be executed via -m flag.
+
 
 Links
 =====

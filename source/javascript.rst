@@ -590,6 +590,33 @@ By doing a Zebra table showdown
 
 http://blog.jquery.com/2006/10/18/zebra-table-showdown/
 
+Jquery
+------
+
+Lochlan: phoe6; have you googled, javascript magnifier, or jquery magnifier
+Senthil: Lochlan: I should do that. thanks.
+eighty4: phoe6: looks like a standard js zoomer
+Lochlan: phoe6: no worries, that's how i get by just type 'jquery + verb'
+Lochlan: usually works :)
+eighty4: phoe6: all it does is basically tracking x,y on the main image and overlaying that with a bigger image
+Senthil: yeah, got it. http://jdbartlett.com/loupe/
+Senthil: it is brilliant.
+Lochlan: phoe6: good stuff
+Lochlan: too easy
+Senthil: I discovered jquery (as a programmer) who weeks ago only and I should say that I am falling in love with it.
+Senthil: the idea of dom manipulation is amazing. just today I looked at the 2006 tutorials (some were broken) and I felt, wow It took is me so long to get into this.
+Lochlan: phoe6: i'm not a programmer, but damn jquery is easy
+Senthil: Lochlan: seriously? i don't get that when you say it. jquery, I think is serious programming stuff.
+Senthil: perhaps you are downplaying yourself. :)
+Lochlan: phoe6: i've just rolled with it, first used plugins.. then starting reading plugins to modify, then started writing it myself, now i just write everything from scratch and barely use other people's code
+Senthil: wonderful, that's good to know.
+Lochlan: phoe6: story of my life
+Senthil: :)
+Lochlan: i just wrote quite large web app using jquery, before that all i had evr done was basic dom manipulation
+Lochlan: it's a start up and they have no $$ so i'm not getting paid anymore :/
+Lochlan: just use google and a bit of logic and you can work it all out
+Lochlan: if you know css you're halfway to jquery anyway
+
 
 
 

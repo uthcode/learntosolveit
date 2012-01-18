@@ -72,6 +72,21 @@ selector is a name preceded by a hash character (#).
 The difference between an ID and a class is that an ID can be used to identify
 one element, whereas a class can be used to identify more than one.
 
+
+CSS
+---
+
+Lochlan: it's easy to write though..
+Lochlan: if your html is structed well
+Lochlan: you target elements at the top of your css, like body, h1, h2, p, ul, ol
+Lochlan: give classes to elements that are repeated
+Lochlan: target with .className
+Lochlan: and give IDs to elements that only appear once on the page (like structure divs) #wrap
+Lochlan: with css you effect the position and other styles of the element that you target
+Lochlan: that's the basics
+
+
+
 Questions
 ---------
 a) What could be a reason for nesting of div elements.
