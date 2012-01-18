@@ -560,8 +560,38 @@ more of) in prodcast.  In brief:
 
 
 15 days of JQuery
+-----------------
 
 http://15daysofjquery.com/quicker/4/
+
+Sometimes window.onload is not quick enough and you want to javascript
+immediate after DOM is ready. That is why jQuery's $(document).ready() comes
+into picture.
+
+$(document).ready(
+
+// Write javascript functions
+
+)
+
+You can use it to launch any kind of javascript you like. It does not have to
+be reserved for jQuery style coding and there is nothing wrong with telling
+jQuery to launch several different functions all at once. It is similar to the
+init function, but just a damn lot faster.
+
+Zebra stripping made easy
+
+http://docs.jquery.com/Tutorials:Zebra_Striping_Made_Easy
+
+Excellent Introduction to Jquery
+--------------------------------
+
+By doing a Zebra table showdown
+
+http://blog.jquery.com/2006/10/18/zebra-table-showdown/
+
+
+
 
 
 jsfiddle

@@ -1588,6 +1588,9 @@ Python Programming
     ClassName class; to create classes python uses function class syntax to
     create objects. Even builtin types str, int provide factory pattern.
 
+#) **How does the simplejson.dumps useful in webapps?**
+
+
 distutils
 =========
 
