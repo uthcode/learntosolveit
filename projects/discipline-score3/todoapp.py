@@ -76,37 +76,22 @@ class SetTimeZone(webapp.RequestHandler):
 
 class UpdateTodo(webapp.RequestHandler):
     def get(self):
-        username = users.get_current_user()
-        if username:
-            Query_TodoItem = db.Query(TodoItem)
-            description = self.request.get('description',default_value='')
-            rating = int(self.request.get('rating',default_value='10'))
-            Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
-            if not Query_Filtered.fetch(limit=1):
-                self.response.out.write('You do not have such a Todo Item')
-            else:
-                todoitem = Query_Filtered.get()
-                score = int(self.request.get('score'))
-                todoitem.score = score
-                todoitem.put()
-                self.redirect('/')
-        else:
-            self.redirect(users.create_login_url(self.request.uri))
+        # I think, we do not need get here as it is not done.
+        pass
 
     def post(self):
         username = users.get_current_user()
         if username:
-            Query_TodoItem = db.Query(TodoItem)
-            description = self.request.get('description',default_value='something')
-            rating = int(self.request.get('rating',default_value='10'))
-            Query_Filtered = Query_TodoItem.filter('user =',username).filter('description =', description).filter('rating =',rating)
-            if not Query_Filtered.fetch(limit=1):
-                self.response.out.write('You do not have such a Todo Item')
+            key = self.request.get('key',default_value=None)
+            if not key:
+                self.response.out.write("You do not have such a todo item")
             else:
-                todoitem = Query_Filtered.get()
-                score = int(self.request.get('score'))
-                todoitem.score = score
-                todoitem.put()
+                item = db.get(key)
+                item.description = self.request.get('description',
+                        default_value='default')
+                item.rating = int(self.request.get('rating', default_value=10))
+                item.score = int(self.request.get('score',default_value=0))
+                item.put()
                 self.redirect('/')
         else:
             self.redirect(users.create_login_url(self.request.uri))
@@ -131,6 +116,7 @@ class MainPage(webapp.RequestHandler):
                 # Make it timezone aware
 
                 today = self.request.get('day',default_value='')
+                # today = '18012012'
 
                 if not today:
                     today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
@@ -143,12 +129,14 @@ class MainPage(webapp.RequestHandler):
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1):
+                    # There is no todolist for the day yet.
                     today_todolist = TodoList(daykey=today, user=username)
                     today_todolist.put()
                     # At this point pull unfinished from yesterday's
                     yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(1)
                     yesterday = yesterday.strftime('%d%m%Y')
 
+                    todolist_queryobj = db.Query(TodoList)
                     yesterday_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
                     yesterday_todolist = yesterday_todolist.get()
 
@@ -157,6 +145,7 @@ class MainPage(webapp.RequestHandler):
                             yesterday_todolist).filter('user =', username)
 
                     for todo in filtered_todoitem:
+                        # incomplete todos from yesterday.
                         if todo.score < todo.rating:
                             todoitem = TodoItem(user=username,
                                                 belongs_to=today_todolist,
@@ -184,7 +173,10 @@ class MainPage(webapp.RequestHandler):
                             total_score_for_day += todo.score
 
                         self.response.out.write("</ul>")
-                        score = (100.0 * total_score_for_day) / total_rating_for_day
+                        if total_rating_for_day:
+                            score = (100.0 * total_score_for_day) / total_rating_for_day
+                        else:
+                            score = 0.0
                         todolist.dayscore = score
                         todolist.put()
 
@@ -228,10 +220,14 @@ class EditEntry(webapp.RequestHandler):
         label="description" rows="3" cols="60">%(description)s</textarea></div>
         <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10">%(rating)s</textarea></div>
         <div>Score</br><textarea name="score" label="score" rows="1" cols="10">%(score)s</textarea></div>
+        <div><input type="hidden" name="key" value=%(key)s></div>
         <div><input type="submit" value="submit"></div>
         </form>
         """
-        form_contents %= {'description':item.description,'rating':item.rating,'score':item.score}
+        form_contents %= {'description':item.description,
+                'rating':item.rating,
+                'score':item.score,
+                'key': item_key}
         self.response.out.write(form_contents)
         self.response.out.write('</html>')
 
@@ -270,6 +266,7 @@ class NewEntry(webapp.RequestHandler):
             user_tzinfo = timezone(usertimezone.timezoneinfo)
 
             #Add a todoitem for today
+            #today = '18012012'
             today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
 
             todolist_queryobj = db.Query(TodoList)
