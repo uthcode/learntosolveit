@@ -97,5 +97,10 @@ W3C's Documents
 
 http://www.w3.org/standards/webdesign/
 
+Chessboard design
+-----------------
+
+http://designindevelopment.com/css/css3-chess-board/
+
 
 http://www.w3.org/TR/html4/interact/forms.html

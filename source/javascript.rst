@@ -590,6 +590,8 @@ By doing a Zebra table showdown
 
 http://blog.jquery.com/2006/10/18/zebra-table-showdown/
 
+Move way from table layouts and do the table in CSS.
+
 Jquery
 ------
 
@@ -617,9 +619,179 @@ Lochlan: it's a start up and they have no $$ so i'm not getting paid anymore :/
 Lochlan: just use google and a bit of logic and you can work it all out
 Lochlan: if you know css you're halfway to jquery anyway
 
+Here's how jQuery attacks the problem.
+
+::
+
+    $(document).ready(function(){
+    $("img.dropshadow")
+    .wrap("<div class='wrap1'><div class='wrap2'>" +
+    "<div class='wrap3'></div></div></div>");
+    });
+
+And then the images would be styled like so:
+
+::
+
+    <img src="object.gif" class="dropshadow" alt="The object casting a shadow" />
 
 
+- $(document).ready() is jQuery's version of window.onload()
 
+- $("img.dropshadow") tells jQuery to find all images with the class name
+"dropshadow". If you wanted to use an id instead, you could do something like
+$("img#dropshadow")
+
+- wrap() tells jQuery to use the DOM (Document Object Method Model) to wrap the
+images with the class="dropshadow" in the html inside the parenthesis.
+
+Exercise
+--------
+
+Explain the behavior of these jQuery methods append(), prepend(), before(),
+after(), html(), and remove().
+
+jQuery Style switcher example
+-----------------------------
+
+::
+
+    $(document).ready(function()
+    {
+            $('.styleswitch').click(function()
+            {
+                    switchStylestyle(this.getAttribute("rel"));
+                    return false;
+            });
+            var c = readCookie('style');
+            if (c) switchStylestyle(c);
+    });
+
+    function switchStylestyle(styleName)
+    {
+            $('link[@rel*=style]').each(function(i)
+            {
+                    this.disabled = true;
+                    if (this.getAttribute('title') == styleName) this.disabled = false;
+            });
+            createCookie('style', styleName, 365);
+    }
+
+
+For stuff like this - ``$('link[@rel*=style]')``, look at jQuery Selectors
+
+http://api.jquery.com/category/selectors/
+
+Basically, it is telling jQuery to find all link elements with a rel attribute
+containing the string ‘style’”.
+
+::
+
+                this.disabled = true;
+                if (this.getAttribute('title') == styleName) this.disabled = false;
+
+“Disable every stylesheet link but then un-disable any link where the “title”
+attribute is the same as the value passed to the switchStylestyle function”
+
+
+What we’re doing is matching the rel attribute of the links on our page (the
+clickable links for switching the stylesheets) with the title attribute of the
+stylesheets (and alternates) available to us.
+
+When one of the clickable links is clicked, a function is called, which finds
+all the stylesheets, disables all of them, and then turns one back on… the one
+where the title of the stylesheet link matches the rel attribute of the link
+clicked.
+
+Whew!
+
+JQuery style switcher example - http://www.kelvinluck.com/assets/jquery/styleswitch/toggle.html
+
+
+How would we take a html and use jQuery to clean up the code?
+
+First we need a “hook” – a unique html element, or an id, or a class name – to
+tell jQuery to target.
+
+Rounded box example
+-------------------
+
+::
+
+    <div class="dialog">
+     <div class="hd">
+      <div class="c"></div>
+      </div>
+     <div class="bd">
+      <div class="c">
+    <div class="s">
+      <-- main content goes here -->
+    </div>
+      </div>
+      </div>
+     <div class="ft">
+      <div class="c"></div>
+      </div>
+    </div>
+
+Let's try this
+
+::
+
+    <div class="roundbox">
+      <-- main content goes here -->
+      </div>
+
+Next step… we use jQuery to add in our html code:
+
+::
+
+    $(document).ready(function(){ $("div.roundbox") .wrap('<div
+            class="dialog">'+
+            '<div class="bd">'+
+            '<div class="c">'+
+            '<div class="s">'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '</div>');
+    });
+
+
+This is a perfect opportunity to use append and prepend functions of jQuery and chain them together.
+
+::
+
+    $('div.dialog').prepend('<div class="hd">'+
+            '<div class="c"></div>'+
+            '</div>')
+    .append('<div class="ft">'+
+            '<div class="c"></div>'+
+            '</div>');
+
+
+Multiple file upload script
+---------------------------
+
+::
+
+    <input type="file" class="upload" name="fileX[]" />
+
+The big difference in this second version is that I loop through each file
+input field and apply the doIt() function when the field value changes. By
+looping through each one, I can send an additional piece of information that’s
+critical to my code: the order of the field in the “stack”.
+
+In other words, as the code executes, it’s specifically targeting the first
+input field, or the second, or the third.
+
+The code for this is found here:
+
+::
+
+    $("input[@type=file]:nth-of-type("+n+")")
+
+jQuery’s flexibility allows me to use CSS and XPath descriptions to target specific elements.
 
 jsfiddle
 --------
