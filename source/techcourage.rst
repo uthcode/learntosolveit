@@ -93,7 +93,6 @@ anyone requires prior permission from the author.
 
 Ivan Sutherland Mountain View, CA December 1995
 
-======================
 Technology and Courage
 ======================
 

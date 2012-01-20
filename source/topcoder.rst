@@ -32,8 +32,8 @@ following code.::
 
     class CellTower {
     public:
-    int best(vector<string> towers, int x, int y) {
-    //your code here
+        int best(vector<string> towers, int x, int y) {
+         //your code here
     }
     };
 
@@ -112,6 +112,7 @@ Sorting the elements of a vector
 ::
 
     #include<algorithm>
+
     sort(vector.begin(), vector.end());
 
     // A custom function can be provided as third argument
@@ -134,9 +135,11 @@ For strings you could do only with one character
 
 
 Erase Operation
-While using erase operation on a vector, make sure that there are elements after erase. If all elements are erased, the result is not a null vector but rather a segmentation fault.
+---------------
 
-
+While using erase operation on a vector, make sure that there are elements
+after erase. If all elements are erased, the result is not a null vector but
+rather a segmentation fault.
 
 .. _TopCoder C++ for C Programmers: http://www.topcoder.com/pl/?&module=Static&d1=gicj05&d2=cpp 
 
@@ -204,13 +207,31 @@ Questions:
 
 * What is the difference between char * and char[]?
 
+::
+
+    char str[] = "Test";
+    Is an array of chars, initialized with the contents from "Test", while
+
+    char *str = "Test";
+    is a pointer to the literal (const) string "Test".
+
+    The main difference between them is that the first is an array and the
+    other one is a pointer. The array owns its contents, which happen to be a copy
+    of "Test", while the pointer simply refers to the contents of the string (which
+    in this case is immutable).
+
 http://stackoverflow.com/questions/7564033/difference-between-char-and-char
 
 * What is the difference between char[] and string?
 
-First one is C char array and second one is C++ class string.
+::
+
+    First one is C char array and second one is C++ class string.
 
 * What is the difference between char * and string?
+
+* is getline a commonly used C++ function?
+
 http://stackoverflow.com/questions/1287306/difference-between-string-and-char-types-in-c
 
 Note all three are different. Unlike your suspicion that two are same questions.
@@ -309,18 +330,15 @@ General Advice by Steven Skeina
 My Advice for Your Future You are all awesome and will be successful – but
 follow my advice to maximize your success:
 
-* Look out for yourself and your career, since no one else is going to do it
-for you.
+* Look out for yourself and your career, since no one else is going to do it for you.
 
-* Look for where the big challenges are happening, and then focus on setting
-the agenda.
+* Look for where the big challenges are happening, and then focus on setting the agenda.
 
 * Avoid self-destructive behavior/career-limiting moves.
 
 * Learn to communicate.
 
 * Always keep learning and growing.
-
 
 If you are interested in algorithms and advanced computer science, you should
 consider graduate school.  Advanced course work is an important part of the

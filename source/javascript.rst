@@ -21,14 +21,15 @@ Model (DOM) of the page, like opening or popping up a new window with
 programmatic syntax.
 
 In simple terms, DOM is the way Javascript sees the containing HTML page and
-the browser state.  
+the browser state.
 
 History
 -------
+
 Originally developed by Brenden Eich of Netscape.  The key design principles of
 Javascript are inherited from Self and Scheme programming languages. Initially
 many programmers denigrated the language because its target audience was 'web
-authors'. 
+authors'.
 
 The Javascript engine (the interpretor) was codenamed Spidermonkey this was
 written in C by Brenden Eich. Rhino, another Javascript engine was written in
@@ -70,8 +71,8 @@ Adobe Acrobat, Photoshop, Yahoo! Widget Engine.
 Browsers that do not support javascript will display the javascript as page
 contents. To prevent them from doing this and as part of the javascript
 standard, the HTML comment tag should be used to hide the javascript.
- 
-:: 
+
+::
 
         <html>
         <body>
@@ -115,8 +116,7 @@ other javascript files can access teh $.ready() which Jquery provides.
 
     Senthil: eboyjr: sure. If both client.js is getting the jQuery object from
     its global object (window), how is it able to access jQuery object as a
-    standalone
-    object, instead of window.jQuery.  
+    standalone object, instead of window.jQuery.
     eboyjr: phoe6: Because any properties of the global object in automatically
     in scope. Here's an example...
     eboyjr: >> var window = this; var jQuery = "example"; [window.jQuery, jQuery] @ phoe6
@@ -125,7 +125,7 @@ other javascript files can access teh $.ready() which Jquery provides.
 types
 -----
 
-types in javascript are 
+types in javascript are
 
 * Numbers
 * Strings
@@ -183,13 +183,14 @@ a.shift(), a.slice(start, end), a.sort(cmpfn), a.splice(start, delcount,
 [item]...), a.unshift([item]..)
 
 Leaving a trailing comma at the end of the array literal is incosistent across
-browsers, so don't do it.  
+browsers, so don't do it.
 
 Object Syntax
 -------------
 
-A JavaScript object is a set of properties.  A property name is a string, a
+A JavaScript object is a set of properties. A property name is a string, a
 property value is any JS value.
+
 Javascript Objects are simply collections of name-value pairs.  The name part
 is a string and value is a primitive (or trivial primitive) or another
 Javascript object.The keys of the object are also called object's properties.
@@ -199,7 +200,6 @@ Javascript object.The keys of the object are also called object's properties.
 * Hash Tables in C and C++
 * HashMaps in Java
 * Associative arrays in PHP
-
 
 There are 3 primitives:  number, string, and boolean. Trivial primitives are
 null and undefined And don't confuse number with Number and string with String
@@ -216,7 +216,7 @@ inherits it's properties and methods.
 
 Object literal syntax can be used to initialize the object in entirety.
 
-:: 
+::
 
         var obj = {
             name: "Carrot",
@@ -229,7 +229,7 @@ Object literal syntax can be used to initialize the object in entirety.
 
 Attribute access can be chained together.
 
-:: 
+::
 
         > obj.details.color
         orange
@@ -269,12 +269,12 @@ functions attached to parent function is part of the lookup chain. The special
 name for it is "prototype chain". Javascript allows you to call functions
 recursively. It is useful for dealing with tree structures, such as you get in
 browser DOM. For nameless functions, recursive call can be done using
-arguments.callee method which points to the current function. 
+arguments.callee method which points to the current function.
 
 Since arguments.callee is the current function and all functions are objects,
 you can use arguments.callee to save information across multiple calls to the
 same function.
- 
+
         ::
 
                 function Person(first, last) {
@@ -297,7 +297,7 @@ This is an incredibly powerful tool. JavaScript lets you modify something's
 prototype at any time in your program, which means you can add extra methods to
 existing objects at runtime.
 
-:: 
+::
 
 
         > s = new Person("Simon", "Willison");
@@ -551,12 +551,12 @@ It should return 1314432237250
 `JQuery Deconstructed`_
 
 Good article promoting some of the patterns we are using (and should be using
-more of) in prodcast.  In brief:                              
+more of) in prodcast.  In brief
 
-- javascript modules exposing clean, minimal interfaces                                                                                    
-- pubsub or events to avoid direct dependencies between modules                                                                            
+- javascript modules exposing clean, minimal interfaces
+- pubsub or events to avoid direct dependencies between modules
 
-    http://addyosmani.com/largescalejavascript/         
+    http://addyosmani.com/largescalejavascript/
 
 
 15 days of JQuery
@@ -693,7 +693,6 @@ containing the string ‘style’”.
 “Disable every stylesheet link but then un-disable any link where the “title”
 attribute is the same as the value passed to the switchStylestyle function”
 
-
 What we’re doing is matching the rel attribute of the links on our page (the
 clickable links for switching the stylesheets) with the title attribute of the
 stylesheets (and alternates) available to us.
@@ -792,6 +791,23 @@ The code for this is found here:
     $("input[@type=file]:nth-of-type("+n+")")
 
 jQuery’s flexibility allows me to use CSS and XPath descriptions to target specific elements.
+
+thickbox
+
+http://jquery.com/demo/thickbox/
+
+JQuery Interface Plugins
+------------------------
+
+http://interface.eyecon.ro/download
+
+Puzzle demo
+-----------
+
+http://madrobby.github.com/scriptaculous/puzzle-demo/
+
+Pretty useful for what I think for uthcode.
+
 
 jsfiddle
 --------
