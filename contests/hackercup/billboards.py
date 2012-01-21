@@ -1,8 +1,11 @@
 import math
+import pudb
 
-T = int(raw_input())
+# T = int(raw_input())
+T = 1
+pudb.set_trace()
 
-def divide(w, s, rows):
+def divide(s, rows, size,w):
     result = []
     for r in range(rows):
         result.append([])
@@ -11,13 +14,21 @@ def divide(w, s, rows):
     # Different combinations.
     i = 0
     for word in s.split():
+        # take each word and add it to right list.
+        # if it cannot be added to any list, return False
         if i == rows: # reset i when it reaches max
             i = 0
+        while (i <= rows):
         # take care that appending does not go beyond w
-        if (sum(map(len,result[i]))) + len(word) <= w:
-            result[i].append(word)
-        else:
-            i += 1
+            if i == rows:
+                return False
+            if (sum(map(len,result[i]))) + (size* len(word)) <= w:
+                i += 1
+                result[i].append(word)
+                break
+            else:
+                i += 1
+
     final_result = []
     for each_sub in result:
         split_sentence = " ".join(each_sub)
@@ -42,7 +53,9 @@ def solve(w, h, s):
             for rows in range(2,max_rows+1):
                 # How can we divide s into rows
                 # Can a check be made here?
-                result = divide(w,s,rows)
+                result = divide(s,rows,size,w)
+                print size
+                print result
                 if result:
                     gotit = True
                     #result = ["a b","c d"]
@@ -54,7 +67,8 @@ def solve(w, h, s):
                         return size
 
 for tc in range(T):
-    tc_input = raw_input().split()
+    #tc_input = raw_input().split()
+    tc_input = '20 6 hacker cup'.split()
     w = int(tc_input.pop(0))
     h = int(tc_input.pop(0))
     s = " ".join(tc_input)
