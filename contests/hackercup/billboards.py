@@ -1,9 +1,9 @@
 import math
 import pudb
 
-# T = int(raw_input())
-T = 1
-pudb.set_trace()
+T = int(raw_input())
+# T = 1
+#pudb.set_trace()
 
 def divide(s, rows, size,w):
     result = []
@@ -16,15 +16,15 @@ def divide(s, rows, size,w):
     for word in s.split():
         # take each word and add it to right list.
         # if it cannot be added to any list, return False
-        if i == rows: # reset i when it reaches max
+        if i >= rows: # reset i when it reaches max
             i = 0
         while (i <= rows):
         # take care that appending does not go beyond w
             if i == rows:
                 return False
             if (sum(map(len,result[i]))) + (size* len(word)) <= w:
-                i += 1
                 result[i].append(word)
+                i += 1
                 break
             else:
                 i += 1
@@ -54,8 +54,6 @@ def solve(w, h, s):
                 # How can we divide s into rows
                 # Can a check be made here?
                 result = divide(s,rows,size,w)
-                print size
-                print result
                 if result:
                     gotit = True
                     #result = ["a b","c d"]
@@ -67,10 +65,10 @@ def solve(w, h, s):
                         return size
 
 for tc in range(T):
-    #tc_input = raw_input().split()
-    tc_input = '20 6 hacker cup'.split()
+    tc_input = raw_input().split()
+    # tc_input = '20 6 hacker cup'.split()
     w = int(tc_input.pop(0))
     h = int(tc_input.pop(0))
     s = " ".join(tc_input)
     r = solve(w,h,s)
-    print tc, r
+    print 'Case #%s: %d' % (str(tc+1),r)
