@@ -32,7 +32,6 @@ int main(void)
 int getline(char s[],int lim)
 {
 	int i,c;
-	
 	for(i=0;i<lim-1 && (c=getchar())!=EOF && c!='\n';++i)
 		s[i]=c;
 
@@ -63,5 +62,3 @@ int any(char s1[],char s2[])
 	else
 		return i;
 }
-	
-

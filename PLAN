@@ -148,3 +148,7 @@ This document was updated on |today|.
 
 rsync instruction:
 rsync -avze ssh .  UN@PN.sarovar.org:/var/lib/gforge/chroot/home/groups/PN/htdocs/
+
+Instead of Source, Let it be Articles.
+Solutions.
+
