@@ -1,9 +1,9 @@
 import math
 import pudb
 
-T = int(raw_input())
-# T = 1
-#pudb.set_trace()
+# T = int(raw_input())
+T = 1
+pudb.set_trace()
 
 def divide(s, rows, size,w):
     result = []
@@ -47,9 +47,11 @@ def solve(w, h, s):
     # should not become 0 or -1
     for size in range(h,0,-1):
         if size * len(s) <= w:
+            print s
             return size
         else:
             # Can we decrease s and see.
+            # max_rows depends upon size
             for rows in range(2,max_rows+1):
                 # How can we divide s into rows
                 # Can a check be made here?
@@ -58,15 +60,16 @@ def solve(w, h, s):
                     gotit = True
                     #result = ["a b","c d"]
                     for each in result:
-                        if size * len(each) > w:
+                        if size * len(each) > w or (size * rows) > h:
                             gotit = False
                             break
                     if gotit:
+                        print result
                         return size
 
 for tc in range(T):
-    tc_input = raw_input().split()
-    # tc_input = '20 6 hacker cup'.split()
+    # tc_input = raw_input().split()
+    tc_input = '100 20 hacker cup 2013'.split()
     w = int(tc_input.pop(0))
     h = int(tc_input.pop(0))
     s = " ".join(tc_input)
