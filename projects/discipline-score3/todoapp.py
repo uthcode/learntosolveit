@@ -116,7 +116,7 @@ class MainPage(webapp.RequestHandler):
                 # Make it timezone aware
 
                 today = self.request.get('day',default_value='')
-                # today = '18012012'
+                #today = '20012012'
 
                 if not today:
                     today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
@@ -153,6 +153,8 @@ class MainPage(webapp.RequestHandler):
                                                 rating=todo.rating,
                                                 score=todo.score)
                             todoitem.put()
+                        self.response.out.write("Yesterday's unfinished tasks added.")
+                        self.redirect('/')
                 else:
                     # there should be only one list for a user for a day.
                     todolist = filtered_todolist.get()
@@ -266,7 +268,7 @@ class NewEntry(webapp.RequestHandler):
             user_tzinfo = timezone(usertimezone.timezoneinfo)
 
             #Add a todoitem for today
-            #today = '18012012'
+            #today = '20012012'
             today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
 
             todolist_queryobj = db.Query(TodoList)
