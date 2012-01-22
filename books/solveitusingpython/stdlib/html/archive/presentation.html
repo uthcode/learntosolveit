@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A Tour of Python Standard Library &mdash; PyCon 2009 - A Tour of Python Standard Library v2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="PyCon 2009 - A Tour of Python Standard Library v2 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="a-tour-of-python-standard-library">
+<h1>A Tour of Python Standard Library<a class="headerlink" href="#a-tour-of-python-standard-library" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Conference:</th><td class="field-body"><a class="reference" href="http://us.pycon.org/2009/">PyCon 2009</a></td>
+</tr>
+<tr class="field"><th class="field-name">Presentor:</th><td class="field-body">O.R.Senthil Kumaran &lt;<a class="reference" href="mailto:orsenthil&#37;&#52;&#48;gmail&#46;com">orsenthil<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="something-about-python">
+<h1>Something about Python<a class="headerlink" href="#something-about-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="have-you-watched-ratatouille">
+<h2>Have you watched Ratatouille?<a class="headerlink" href="#have-you-watched-ratatouille" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Anyone can cook. ~ Gusteau</li>
+<li>Computer Programming for Everybody. ~ Guido.</li>
+</ul>
+</div>
+<div class="section" id="what-is-python">
+<h2>What is Python?<a class="headerlink" href="#what-is-python" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Middle-layer between shell and system</li>
+<li>Easy to use for end programmers.</li>
+<li>Also convenient for library programmers.</li>
+<li>Multiple implementations: CPython, Jython, IronPython, PyPy</li>
+<li>Designed by Implementation, but still a very much designed languaged.</li>
+<li>Feature releases happen every 18 months and bug fix releases once in 3 months.</li>
+<li>Active Developer and User community.</li>
+<li>Python 2.x and Python 3k</li>
+</ul>
+</div>
+</div>
+<div class="section" id="diving-in">
+<h1>Diving In<a class="headerlink" href="#diving-in" title="Permalink to this headline">¶</a></h1>
+<p>Lets dissect a working Python Program and try to understand various aspects of it.</p>
+<p>In the above program, you have</p>
+<ul class="simple">
+<li>modules</li>
+<li>function definitions</li>
+<li>try and finally block</li>
+<li>socket calls.</li>
+<li>print statement</li>
+</ul>
+</div>
+<div class="section" id="py3k-what-to-look-for-in-brief">
+<h1>Py3K, what to look for in brief<a class="headerlink" href="#py3k-what-to-look-for-in-brief" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Simpler built-in types.  Instead of having a built-in type for int and then
+for long as in Py26, have a single built-in type int in py3k, which will
+behave like long and serve for int as well.</li>
+<li>In py26, you and str and unicode. Now Its just str, which is internally
+unicode. So all strings are unicode in py3k.  There is a separate bytes type
+for bytes of characters.</li>
+<li>1/5 will be 0.2 in Python3k. If you want the result to be 0, like in
+Python26, do 1//5</li>
+<li>No comparisons supported between incompatible types. Documents from time
+immemorial advised the users to not to rely and it can change anytime. Well
+the change has happened.</li>
+<li>Its print() function for output now, just like input() function input.
+Two things here. Previously in py2x, input() expected an object and raw_input()
+was actually used to input. Now in py3k, its just input() which will behave
+just like raw_input() before.</li>
+<li>Everything is a new style class. All classes that you define will implicitly
+be derived from the object class.</li>
+<li>There is refactoring tool developed by python hackers which can be used to
+port your py2x code to py3k.  Everyones resounding advice is Use It!. This
+will help in migration as well fix any issues with the refactoring tool.</li>
+</ul>
+</div>
+<div class="section" id="diving-into-py3k">
+<h1>Diving Into Py3K<a class="headerlink" href="#diving-into-py3k" title="Permalink to this headline">¶</a></h1>
+<p>Lets look at the same program in Python 3k</p>
+<ul class="simple">
+<li>Note the change in print function.</li>
+<li>Sending bytes instead ( encoded)</li>
+</ul>
+</div>
+<div class="section" id="python-standard-library">
+<h1>Python Standard Library<a class="headerlink" href="#python-standard-library" title="Permalink to this headline">¶</a></h1>
+<p>Python&#8217;s standard library is very extensive and it offers a wide range of
+facilities. The library contains built-in modules (written in C) that provide
+access to system functionality and also modules written in Python that
+provide standardized solutions for many problems that occur in everyday
+programming.</p>
+<p>Some of these modules are explicitly designed to encourage and enhance the
+portability of Python programs by abstracting away platform-specifics into
+platform-neutral APIs.</p>
+<p>Many large projects, both student level projects and industrial projects can be
+quickly accomplished by effective usage of the Python Standard Library modules.</p>
+<p>Certain modules, which are written in C, are built into the interpreter.
+You can find the builtin modules in the following way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">builtin_module_names</span>
+</pre></div>
+</div>
+<div class="section" id="builtin">
+<h2>__builtin__<a class="headerlink" href="#builtin" title="Permalink to this headline">¶</a></h2>
+<p>Let us start with the __builtin__ functions and exceptions which Python Standard Library defines.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;import __builtin__</span>
+<span class="go">&gt;&gt;&gt;dir(__builtin__)</span>
+</pre></div>
+</div>
+<div class="section" id="all">
+<h3>all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h3>
+<p>This would list the various functions and exceptions that are available to the interpreter.
+Let us look into certain important ones:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">all</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">all</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="any">
+<h3>any<a class="headerlink" href="#any" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">any</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">any</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="callable-object">
+<h3>callable(object)<a class="headerlink" href="#callable-object" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+Return True if the object argument appears callable, False if not. If this
+returns true, it is still possible that a call fails, but if it is false,
+calling object will never succeed. Note that classes are callable (calling
+a class returns a new instance); class instances are callable if they have
+a __call__() method.</blockquote>
+</div>
+<div class="section" id="staticmethod">
+<h3>staticmethod<a class="headerlink" href="#staticmethod" title="Permalink to this headline">¶</a></h3>
+<p>In Object Oriented Programming, you create a method which gets associated
+either with  a class or with an instance of the class, namely an object.  This
+is concept is the first thing to understand.</p>
+<p>And most often in our regular practice, we always create methods to be
+associated with an object. Those are called instance methods.</p>
+<p>For e.g:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">cartype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="s">&quot;Audi&quot;</span>
+<span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">mycar</span><span class="o">.</span><span class="n">cartype</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+</pre></div>
+</div>
+<p>Here cartype() is an instance method, it associates itself with an instance
+(mycar) of the class (Car) and that is defined by the first argument (&#8216;self&#8217;).</p>
+<p>When you want a method not to be associated with an instance, you call that as
+a staticmethod.</p>
+<p>How can you do such a thing in Python?</p>
+<p>The following would never work:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">getmodel</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Because, getmodel() is defined inside the class, Python binds it to the Class Object.
+You cannot call it by the following way also, namely: Car.getmodel()  or
+Car().getmodel() , because in this case we are passing it through an instance (
+Class Object or a Instance Object) as one of the argument while our definition
+does not take any argument.</p>
+<p>As you can see, there is a conflict here and in effect the case is, It is an
+&#8220;unbound local method&#8221; inside the class.</p>
+<p>Now comes Staticmethod.</p>
+<p>Now, in order to call getmodel(), you can to change it to a static method.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="n">getmodel</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">getmodel</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">cartype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Car</span><span class="o">.</span><span class="n">getmodel</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">cartype</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+<span class="go">&#39;Audi&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Now, I have called it as Car.getmodel() even though my definition of getmodel
+did not take any argument. This is what staticmethod function did.  getmodel()
+is a method which does not need an instance now, but still you do it as
+Car.getmodel() because getmodel() is still bound to the Class object.</p>
+</div>
+<div class="section" id="decorators">
+<h3>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h3>
+<p>getmodel = staticmethod(getmodel)</p>
+<p>If you look at the previous code example, the function staticmethod took a
+function as a argument and returned a function which we assigned to a variable
+(named as SAME functionname) and made it a function. Correct?</p>
+<p>staticmethod() function thus wrapped our getmodel function with some extra
+features and this wrapping is called as Decorator.</p>
+<p>The same code can be written like this.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nd">@staticmethod</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">cartype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Car</span><span class="o">.</span><span class="n">getmodel</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">cartype</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+<span class="go">&#39;Audi&#39;</span>
+</pre></div>
+</div>
+<p>Good reference on Decorators would be:
+<a class="reference" href="http://personalpages.tds.net/~kent37/kk/00001.html">http://personalpages.tds.net/~kent37/kk/00001.html</a></p>
+<p>Please remember that this concept of Decorator is independent of staticmethod
+and classmethod.</p>
+</div>
+<div class="section" id="classmethod">
+<h3>classmethod<a class="headerlink" href="#classmethod" title="Permalink to this headline">¶</a></h3>
+<p>Now, what is a difference between staticmethod and classmethod?</p>
+<p>In languages like Java,C++, both the terms denote the same :- methods for which
+we do not require instances. But there is a difference in Python. A class
+method receives the class it was called on as the first argument. This can be
+useful with subclasses.</p>
+<p>We can see the above example with the classmethod and a decorator as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nd">@classmethod</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">gettype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Car</span><span class="o">.</span><span class="n">getmodel</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">gettype</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+<span class="go">&#39;Audi&#39;</span>
+</pre></div>
+</div>
+<p>The following are the references in order to understand further:
+1) Alex-Martelli explaining it with code: <a class="reference" href="http://code.activestate.com/recipes/52304/">http://code.activestate.com/recipes/52304/</a>
+2)  Decorators: <a class="reference" href="http://personalpages.tds.net/~kent37/kk/00001.html">http://personalpages.tds.net/~kent37/kk/00001.html</a></p>
+</div>
+<div class="section" id="ellipsis">
+<h3>ellipsis<a class="headerlink" href="#ellipsis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>ellipsis is another builtin. It is only used in slicing.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="os-module">
+<h1>os module<a class="headerlink" href="#os-module" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Note the use of os.curdir and os.pardir to refer to the current and parent</span>
+<span class="c"># directories in a portable manner.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">print</span> <span class="s">&#39;Starting:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;Moving up one:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;After move:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">pipe_stdin</span><span class="p">,</span> <span class="n">pipe_stdout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen2</span><span class="p">(</span><span class="s">&#39;cat -&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;hello, world!&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stdout_value</span> <span class="o">=</span> <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">stdout_value</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">print</span> <span class="s">&#39;popen2, cmd as sequence:&#39;</span>
+
+<span class="n">pipe_stdin</span><span class="p">,</span> <span class="n">pipe_stdout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen2</span><span class="p">([</span><span class="s">&#39;cat&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">])</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;through stdin to stdout&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stdout_value</span> <span class="o">=</span> <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">stdout_value</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">print</span> <span class="s">&#39;popen3&#39;</span>
+
+<span class="n">pipe_stdin</span><span class="p">,</span> <span class="n">pipe_stdout</span><span class="p">,</span> <span class="n">pipe_stderr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen3</span><span class="p">(</span><span class="s">&#39;cat -;echo &quot;Error Message&quot; 1&gt;&amp;2&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Hello, World&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stdout_value</span> <span class="o">=</span> <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stderr_value</span> <span class="o">=</span> <span class="n">pipe_stderr</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stderr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&#39;STDOUT:&#39;</span><span class="p">,</span> <span class="n">stdout_value</span>
+<span class="k">print</span> <span class="s">&#39;STDERR:&#39;</span><span class="p">,</span> <span class="n">stderr_value</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">pipe_stdin</span><span class="p">,</span> <span class="n">pipe_stdout_and_stderr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen4</span><span class="p">(</span><span class="s">&#39;cat -;echo &quot;Hello, Rats!&quot; 1&gt;&amp;2&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stdout_value</span> <span class="o">=</span> <span class="n">pipe_stdout_and_stderr</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdout_and_stderr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&#39;Combined STDOUT and STDERR:&#39;</span><span class="p">,</span> <span class="n">stdout_value</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="anydbm">
+<h1>anydbm<a class="headerlink" href="#anydbm" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="basehttpsever">
+<h1>basehttpsever<a class="headerlink" href="#basehttpsever" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="compile">
+<h1>compile<a class="headerlink" href="#compile" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="configparser">
+<h1>configparser<a class="headerlink" href="#configparser" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">ConfigParser</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s">&#39;config.ini&#39;</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">filename</span><span class="p">])</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;section&#39;</span><span class="p">,</span><span class="s">&#39;url&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="doctest">
+<h1>doctest<a class="headerlink" href="#doctest" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="download-url-snippet">
+<h1>Download URL Snippet<a class="headerlink" href="#download-url-snippet" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="glob">
+<h1>glob<a class="headerlink" href="#glob" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="logging">
+<h1>logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="property">
+<h1>property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="python-shortcuts">
+<h1>Python Shortcuts<a class="headerlink" href="#python-shortcuts" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="shutil">
+<h1>shutil<a class="headerlink" href="#shutil" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">list_of_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="n">python_files</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">list_of_files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">each</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;.py&#39;</span><span class="p">):</span>
+        <span class="n">python_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each</span><span class="p">)</span>
+
+<span class="n">python_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">python_files</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">fname</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+
+<span class="k">print</span> <span class="s">&#39;BEFORE:&#39;</span><span class="p">,</span> <span class="n">glob</span><span class="p">(</span><span class="s">&#39;shutil_copyfile.*&#39;</span><span class="p">)</span>
+<span class="n">copyfile</span><span class="p">(</span><span class="s">&#39;shutil_copyfile.py&#39;</span><span class="p">,</span> <span class="s">&#39;shutil_copyfile.py.copy&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;AFTER:&#39;</span><span class="p">,</span> <span class="n">glob</span><span class="p">(</span><span class="s">&#39;shutil_copyfile.*&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="s">&#39;shutil_copyfile.py.copy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copytree</span>
+<span class="kn">from</span> <span class="nn">commands</span> <span class="kn">import</span> <span class="n">getoutput</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;BEFORE:&#39;</span>
+<span class="k">print</span> <span class="n">getoutput</span><span class="p">(</span><span class="s">&#39;ls -rlast /tmp/example&#39;</span><span class="p">)</span>
+<span class="n">copytree</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">,</span><span class="s">&#39;/tmp/example&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;AFTER:&#39;</span>
+<span class="k">print</span> <span class="n">getoutput</span><span class="p">(</span><span class="s">&#39;ls -rlast /tmp/example&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s">&#39;/tmp/example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copytree</span><span class="p">,</span> <span class="n">rmtree</span>
+<span class="kn">from</span> <span class="nn">commands</span> <span class="kn">import</span> <span class="n">getoutput</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">)</span>
+<span class="n">copytree</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">,</span><span class="s">&#39;/tmp/example&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;BEFORE:&#39;</span>
+<span class="k">print</span> <span class="n">getoutput</span><span class="p">(</span><span class="s">&#39;ls -rlast /tmp/example&#39;</span><span class="p">)</span>
+
+<span class="n">rmtree</span><span class="p">(</span><span class="s">&#39;/tmp/example&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;AFTER:&#39;</span>
+<span class="k">print</span>  <span class="n">getoutput</span><span class="p">(</span><span class="s">&#39;ls -rlast /tmp/example&#39;</span><span class="p">)</span>
+
+<span class="n">rmtree</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simplexmlprcserver">
+<h1>simplexmlprcserver<a class="headerlink" href="#simplexmlprcserver" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="smtpd-and-smtplib">
+<h1>smtpd and smtplib<a class="headerlink" href="#smtpd-and-smtplib" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="socket">
+<h1>socket<a class="headerlink" href="#socket" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="string">
+<h1>string<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="subprocess">
+<h1>subprocess<a class="headerlink" href="#subprocess" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">print</span> <span class="s">&#39;subprocess demo: reading output of child process&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;echo &quot;Hello,World&quot;&#39;</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">cout</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mf">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">cout</span>
+
+
+<span class="k">print</span> <span class="s">&#39;subprocess demo: writing to the input of a pipe&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&#39;Hello, World&#39;</span><span class="p">)</span>
+
+<span class="k">print</span>
+
+<span class="k">print</span> <span class="s">&#39;subprocess replacement of popen2, reading and writing through pipes&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+
+<span class="n">cout</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">We were so poor we couldn&#39;t afford a watchdog.  If we heard a noise at night,</span>
+<span class="s">we&#39;d bark ourselves.</span>
+<span class="s">		-- Crazy Jimmy</span>
+<span class="s">&quot;&quot;&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="n">cout</span>
+
+<span class="k">print</span> <span class="s">&#39;subprocess replacement of popen3, handling stdin, stdout and stderr&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -;echo &quot;This will be an Error Message&quot; 1&gt;&amp;2&#39;</span><span class="p">,</span>
+                        <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                        <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+                       <span class="p">)</span>
+<span class="n">cout</span><span class="p">,</span> <span class="n">cerr</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&#39;This is the Input Message&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">cout</span>
+<span class="k">print</span> <span class="n">cerr</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">popen3:&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -;echo &quot;;to stderr&quot; 1&gt;&amp;2&#39;</span><span class="p">,</span>
+                        <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                        <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                       <span class="p">)</span>
+<span class="n">stdout_value</span><span class="p">,</span> <span class="n">stderr_value</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&#39;through stdin to stdout&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">pass through:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">stdout_value</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">stderr:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">stderr_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="super">
+<h1>super<a class="headerlink" href="#super" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="threading">
+<h1>threading<a class="headerlink" href="#threading" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="time">
+<h1>time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+<span class="c"># PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.</span>
+
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c"># Data to use to calculate md5 checksums</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span><span class="s">&#39;rt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">5</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="s">&#39;: </span><span class="si">%0.3f</span><span class="s"> </span><span class="si">%0.3f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">100000</span><span class="p">):</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">cksum</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">6</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> </span><span class="si">%0.2f</span><span class="s"> </span><span class="si">%0.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">())</span>
+    <span class="k">print</span> <span class="s">&#39;Sleeping:&#39;</span><span class="p">,</span> <span class="n">i</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">print</span> <span class="s">&#39;gmtime   :&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;localtime:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;mktime   :&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+
+<span class="k">print</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&#39;Day of the month:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_mday</span>
+<span class="k">print</span> <span class="s">&#39;Day of the week:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_wday</span>
+<span class="k">print</span> <span class="s">&#39;Day of the year:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_yday</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unittest">
+<h1>unittest<a class="headerlink" href="#unittest" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="urllib">
+<h1>urllib<a class="headerlink" href="#urllib" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="xmlrpclib">
+<h1>xmlrpclib<a class="headerlink" href="#xmlrpclib" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="todo">
+<h1>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>collections module</li>
+<li>What are the mapping object other than the dictionary?</li>
+<li>Discuss super() properly.</li>
+<li>regex module examples - Howto/</li>
+</ol>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>A new style class is one that is derived, either directly or indirectly, from a
+built-in type. (Something that was not possible at all before python 2.2)
+Built-in types include types such as:</p>
+<ul class="simple">
+<li>int</li>
+<li>list</li>
+<li>tuple</li>
+<li>dict</li>
+<li>str</li>
+<li>and others</li>
+</ul>
+<p>The base class for new style class is called object.
+Here is what the new style classes have to offer:</p>
+<ul class="simple">
+<li>Properties: Attributes that are defined by get/set methods.</li>
+<li>staticmethods and classmethods</li>
+<li>The __getattribute__ hook, which unlike __getattr__, is called for every attribute access, not just when the attribute can&#8217;t be found in the instance.</li>
+<li>Descriptors: A protocol to define the behavior of attribute access through objects.</li>
+<li>Overriding the constructor __new__</li>
+<li>Metaclasses.</li>
+</ul>
+<p>What exactly is a descriptor?</p>
+<p>In general, a descriptor is an object attribute with &#8220;binding behavior&#8221;, one
+whose attribute access has been overridden by methods in the descriptor
+protocol. Those methods are __get__, __set__, and __delete__. If any of those
+methods are defined for an object, it is said to be a descriptor.</p>
+</div>
+</div>
+<div class="section" id="exceptions">
+<h1>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Exceptions are Classes and are __builtin__ to the interpreter.</li>
+<li>Until 1.5, simple string messages were exceptions.</li>
+<li>The exception classes are defined in a hierarchy, related exceptions can be caught by catching their base classes.</li>
+</ul>
+<p><em>BaseException</em>
+Baseclass for all exceptions. Implements logic for creating the string
+representation of the exception using the str() from the arguments passed to
+the constructor.</p>
+<p><em>Exception</em>
+Baseclass for the exception that do not result in quitting the running application. All user-defined exceptions should use Exception as a base class.
+<em>StandardError</em>
+Baseclass for builtin exceptions used in Standard Library.
+<em>ArthimeticError</em>
+Baseclass for math related errors.
+<em>LookupError</em>
+When something cannot be found.</p>
+<p><em>EnvironmentError</em>
+Base class for errors that come from outside of Python (the operating system, filesystem, etc.).</p>
+<p><em>AssertionError</em></p>
+<p>An AssertionError is raised by a failed assert statement.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>&gt;&gt;&gt;assert False, &#8216;The assertion failed&#8217;
+&gt;&gt;&gt;# This should throw a simple AssertionError</dd>
+</dl>
+<p><em>AttributeError</em></p>
+<p>When an attribute reference or assignment fails, AttributeError is raised.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;PyCon 2009&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">imag</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># This would throw AttributeError</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>AttributeError will also be raised when trying to modify a read-only attribute.</p>
+<div class="highlight-python"><pre>class MyClass(object):
+
+    @property
+        def attribute(self):
+                return 'This is the attribute value'
+
+                o = MyClass()
+                print o.attribute
+                o.attribute = 'New value'</pre>
+</div>
+<p><em>EOFError</em>
+An EOFError is raised when a builtin function like input() or raw_input() do
+not read any data before encountering the end of their input stream.</p>
+<p><em>IOError</em></p>
+<p>Raised when input or output fails, for example if a disk fills up or an input file does not exist.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>f = open(&#8216;/does/not/exist&#8217;, &#8216;r&#8217;)</dd>
+</dl>
+<p><em>ImportError</em></p>
+<p>Raised when a module, or member of a module, cannot be imported.</p>
+<p><em>IndexError</em></p>
+<p>An IndexError is raised when a sequence reference is out of range.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_seq</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span> <span class="p">]</span>
+<span class="k">print</span> <span class="n">my_seq</span><span class="p">[</span><span class="mf">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><em>KeyError</em>
+a KeyError is raised when a value is not found as a key of a dictionary.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>d = { &#8216;a&#8217;:1, &#8216;b&#8217;:2 }
+print d[&#8216;c&#8217;]</dd>
+</dl>
+<p><em>KeyboardInterrupt</em></p>
+<p>A KeyboardInterrupt occurs whenever the user presses Ctrl-C (or Delete) to stop
+a running program. Unlike most of the other exceptions, KeyboardInterrupt
+inherits directly from BaseException to avoid being caught by global exception
+handlers that catch Exception.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Press Return or Ctrl-C:&#39;</span><span class="p">,</span>
+    <span class="n">ignored</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught exception:&#39;</span><span class="p">,</span> <span class="n">err</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught KeyboardInterrupt&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;No exception&#39;</span>
+</pre></div>
+</div>
+<p><em>MemoryError</em></p>
+<p>If your program runs out of memory and it is possible to recover (by deleting
+some objects, for example), a MemoryError is raised.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c"># Try to create a MemoryError by allocating a lot of memory</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">3</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mf">1</span><span class="p">):</span>
+            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;*&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2</span><span class="o">**</span><span class="mf">30</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">MemoryError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;(error, discarding existing list)&#39;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>NameError</p>
+<p>NameErrors are raised when your code refers to a name that does not exist in
+the current scope. For example, an unqualified variable name.</p>
+<p>NotImplementedError</p>
+<p>User-defined base classes can raise NotImplementedError to indicate that a
+method or behavior needs to be defined by a subclass, simulating an interface.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference" href="">A Tour of Python Standard Library</a></li>
+<li><a class="reference" href="#something-about-python">Something about Python</a><ul>
+<li><a class="reference" href="#have-you-watched-ratatouille">Have you watched Ratatouille?</a></li>
+<li><a class="reference" href="#what-is-python">What is Python?</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#diving-in">Diving In</a></li>
+<li><a class="reference" href="#py3k-what-to-look-for-in-brief">Py3K, what to look for in brief</a></li>
+<li><a class="reference" href="#diving-into-py3k">Diving Into Py3K</a></li>
+<li><a class="reference" href="#python-standard-library">Python Standard Library</a><ul>
+<li><a class="reference" href="#builtin">__builtin__</a><ul>
+<li><a class="reference" href="#all">all</a></li>
+<li><a class="reference" href="#any">any</a></li>
+<li><a class="reference" href="#callable-object">callable(object)</a></li>
+<li><a class="reference" href="#staticmethod">staticmethod</a></li>
+<li><a class="reference" href="#decorators">Decorators</a></li>
+<li><a class="reference" href="#classmethod">classmethod</a></li>
+<li><a class="reference" href="#ellipsis">ellipsis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#os-module">os module</a></li>
+<li><a class="reference" href="#anydbm">anydbm</a></li>
+<li><a class="reference" href="#basehttpsever">basehttpsever</a></li>
+<li><a class="reference" href="#compile">compile</a></li>
+<li><a class="reference" href="#configparser">configparser</a></li>
+<li><a class="reference" href="#doctest">doctest</a></li>
+<li><a class="reference" href="#download-url-snippet">Download URL Snippet</a></li>
+<li><a class="reference" href="#glob">glob</a></li>
+<li><a class="reference" href="#logging">logging</a></li>
+<li><a class="reference" href="#property">property</a></li>
+<li><a class="reference" href="#python-shortcuts">Python Shortcuts</a></li>
+<li><a class="reference" href="#shutil">shutil</a></li>
+<li><a class="reference" href="#simplexmlprcserver">simplexmlprcserver</a></li>
+<li><a class="reference" href="#smtpd-and-smtplib">smtpd and smtplib</a></li>
+<li><a class="reference" href="#socket">socket</a></li>
+<li><a class="reference" href="#string">string</a></li>
+<li><a class="reference" href="#subprocess">subprocess</a></li>
+<li><a class="reference" href="#super">super</a></li>
+<li><a class="reference" href="#threading">threading</a></li>
+<li><a class="reference" href="#time">time</a></li>
+<li><a class="reference" href="#unittest">unittest</a></li>
+<li><a class="reference" href="#urllib">urllib</a></li>
+<li><a class="reference" href="#xmlrpclib">xmlrpclib</a></li>
+<li><a class="reference" href="#todo">TODO:</a><ul>
+<li><a class="reference" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#exceptions">Exceptions</a></li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/archive/presentation.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">PyCon 2009 - A Tour of Python Standard Library v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6b1.
+    </div>
+  </body>
+</html>

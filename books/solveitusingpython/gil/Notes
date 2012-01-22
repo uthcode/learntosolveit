@@ -1,0 +1,418 @@
+Global Interpretor Lock
+=======================
+
+1. It is used to protect the Python Objects from being modified by multiple
+   threads at once.
+2. To keep multiple threads running, the interpretor automatically releases and
+   reaquires the lock at regular intervals. It also does this around
+   potentially slow or blocking low level operations, such as file and network
+   I/O.
+3. This is used internally to ensure that only one thread runs in the Python VM
+   at a time.
+4. Python offers to switch amongst threads only between bytecode instructions.
+5. Each bytecode instruction and all C implemented function is atomic from
+   Python program's point of view.
+
+Definitions:
+
+A machine having multiple processors
+A machine having a single processor with multiple cores.
+A machine having multple processors with each one having multiple cores.
+
+concurrent programming:
+1. http://en.wikipedia.org/wiki/Concurrent_computing 
+   Java and C# use shared memory concurrency model, with locking provided by
+   monitors. Message passing concurrency model have been implemented on top of
+   the existing shared memory concurrency model.
+
+   Erlang is using message passing concurrency model.
+
+   Alice extension to Standard ML, supports concurrency via Futures.
+   Cilk is concurrent C. There are developers at Akamai.
+
+   The Actor Model.
+   Petri Nets.
+
+
+List of Important Publications in Concurrent, Parallel and Distributed
+Computing.
+
+http://en.wikipedia.org/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing
+
+Symposium on Principles of Distributed Computing.
+
+http://en.wikipedia.org/wiki/Symposium_on_Principles_of_Distributed_Computing
+
+
+Reworking the GIL
+http://mail.python.org/pipermail/python-dev/2009-October/093321.html
+
+Process (computing)
+
+What is the difference between multi-tasking and multi-processing?
+Inter-Process Communication.
+
+Some History
+
+By the early 60s computer control software had evolved from Monitor control
+software, e.g., IBSYS, to Executive control software. Computers got "faster"
+and computer time was still neither "cheap" nor fully used. It made
+multiprogramming possible and necessary.
+
+Multiprogramming means that several programs run "at the same time"
+(concurrently). At first they ran on a single processor (i.e., uniprocessor)
+and shared scarce resources. Multiprogramming is also basic form of
+multiprocessing, a much broader term.
+
+Programs consist of sequence of instruction for processor. Single processor can
+run only one instruction at a time. Therefore it is impossible to run more
+programs at the same time. Program might need some resource (input ...) which
+has "big" delay. Program might start some slow operation (output to printer
+...). This all leads to processor being "idle" (unused). To use processor at
+all time the execution of such program was halted. At that point, a second (or
+nth) program was started or restarted. User perceived that programs run "at the
+same time" (hence the term, concurrent).
+
+Shortly thereafter, the notion of a 'program' was expanded to the notion of an
+'executing program and its context'. The concept of a process was born.
+
+This became necessary with the invention of re-entrant code.
+
+Threads came somewhat later. However, with the advent of time-sharing; computer
+networks; multiple-CPU, shared memory computers; etc., the old
+"multiprogramming" gave way to true multitasking, multiprocessing and, later,
+multithreading.
+
+
+Python Threads and Global Interpretor Lock
+==========================================
+
+1. Why is the threading modules have start and join methods?
+
+What is the Global Interpreter Lock?
+
+The Global Interpreter Lock (GIL) is used to protect Python objects from being
+modified from multiple threads at once. Only the thread that has the lock may
+safely access objects.
+
+To keep multiple threads running, the interpreter automatically releases and
+reacquires the lock at regular intervals (controlled by the
+sys.setcheckinterval function). It also does this around potentially slow or
+blocking low-level operations, such as file and network I/O.
+
+Links
+=====
+
+1. http://en.wikipedia.org/wiki/Thread_(computer_science)
+2. http://effbot.org/pyfaq/what-is-the-global-interpreter-lock.htm
+3. http://effbot.org/pyfaq/what-kinds-of-global-value-mutation-are-thread-safe.htm
+4. http://effbot.org/pyfaq/can-t-we-get-rid-of-the-global-interpreter-lock.htm
+5. http://effbot.org/zone/wide-finder.htm
+
+Unladen Swallow
+---------------
+
+We have observed that Python applications spend a large portion of their time
+in the main eval loop. In particular, even relatively minor changes to VM
+components such as opcode dispatch have a significant effect on Python
+application performance. We believe that compiling Python to machine code via
+LLVM's JIT engine will deliver large performance benefits.
+
+We intend to structure Unladen Swallow's internals to assume that multiple
+cores are available for our use. Servers are only going to acquire more and
+more cores, and we want to exploit that to do more and more work in parallel.
+For example, we would like to have a concurrent code optimizer that applies
+increasingly-expensive (and -beneficial!) optimizations in parallel with code
+execution, using another core to do the work. We are also considering a
+concurrent garbage collector that would, again, utilize additional cores to
+offload work units. Since most production server machines are shipping with
+between 4 and 32 cores, we believe this avenue of optimization is potentially
+lucrative. However, we will have to be sensitive to the needs of
+highly-parallel applications and not consume extra cores blindly.
+
+Note that many of the areas we will need to address have been considered and
+developed by the other dynamic language implementations like MacRuby, JRuby,
+Rubinius and Parrot, and in particular other Python implementations like
+Jython, PyPy, and IronPython. In particular, we're looking at these other
+implementations for ideas on debug information, regex performance ideas, and
+generally useful performance ideas for dynamic languages. This is all fairly
+well-trodden ground, and we want to avoid reinventing the wheel as much as
+possible. 
+
+Lazy Pythonista
+---------------
+
+In terms of virtual machines there are a few levels of complexity, which
+roughly correspond to their speed. The simplest type of interpreter is an AST
+evaluator, these are more or less the lowest of the low on the speed totem
+pole, up until YARV was merged into the main Ruby interpreter, MRI (Matz Ruby
+Interpreter) was this type of virtual machine. The next level of VM is a
+bytecode interpreter, this means that the language is compiled to an
+intermediary format (bytecode) which is then executed. Strictly speaking this
+is an exceptionally broad category which encompasses most virtual machines
+today, however for the purposes of this article I'm going to exclude any VMs
+with a Just-In-Time compiler from this section (more on them later). The
+current CPython VM is this type of interpreter. The most complex (and fastest)
+type of virtual machine is one with a Just-In-Time compiler, this means that
+the bytecode that the virtual machine interprets is also dynamically compiled
+into assembly and executed. This type of VM includes modern Javascript
+interpreters such as V8, Tracemonkey, and Squirellfish, as well as other VMs
+like the Hotspot Java virtual machine.
+
+Now that we know where CPython is, and what the top of the totem pole looks
+like it's probably clear what Unladen Swallow is looking to accomplish, however
+there is a bit of prior art here that's worthy of taking a look. There is
+actually currently a JIT for CPython, named Psyco. Psyco is pretty commonly
+used to speed up numerical code, as that's what it's best at, but it can speed
+up most of the Python language. However, Psyco is extremely difficult to
+maintain and update. It only recently gained support for modern Python language
+features like generators, and it still only supports x86 CPUs. For these
+reasons the developers at Google chose to build their JIT rather than work to
+improve the existing solution (they also chose not to use one of the
+alternative Python VMs, I'll be discussing these in another post).
+
+I think you're overestimating the sophistication of the average
+extension developer, and the hardware to which they have access.
+
+Nevertheless, you're right the GIL is not as bad as you would
+initially think: you just have to undo the brainwashing you got from
+Windows and Java proponents who seem to consider threads as the only
+way to approach concurrent activities.
+
+Just because Java was once aimed at a set-top box OS that didn't
+support multiple address spaces, and just because process creation in
+Windows used to be slow as a dog, doesn't mean that multiple processes
+(with judicious use of IPC) aren't a much better approach to writing
+apps for multi-CPU boxes than threads.
+
+Just Say No to the combined evils of locking, deadlocks, lock
+granularity, livelocks, nondeterminism and race conditions.
+
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+Step 1.
+Everything that happens inside the Python interpretor is focussed around the
+concepts of ticks. Each tick loosely corresponds to a single instruction in the
+virtual machine. 
+
+_Py_Ticker is the countdown to the next time the interpreter might thread
+switch. The _Py_Ticker_Count keeps track of how many times the interpreter has
+actually signalled the Operating System to schedule the waiting threads.
+
+Step 2.
+Recorind Trace Data.
+
+Python defines a general purpose lock object that is used for both the GIL and
+locking primitives in the threading module. In the using Systems that use
+pthreads, the implementation of locks can be found in Python/thread_pthread.h 
+
+There are two functions in Python/thread_pthread.h
+thread_acquire_lock and there is thread_release_lock.
+
+The lock/unlock functions are instrumented to record a large in-memory trace of
+lock-related events. These include lock entry (when a thread first tries to
+acquire a lock), busy (when the lock is busy), retry (a repeated failed attempt
+to acquire a lock), acquire (lock successfully acquired), and release (lock
+released). In addition to events, the trace records current values of the
+_Py_Ticker and _Py_Ticker_Count variables as well as the pointer to the
+currently executing thread.
+
+newgil
+------
+
+And it is much better in the latency tests, especially in workload B (going
+down from almost a second of average latency with the old GIL, to a couple of
+milliseconds with the new GIL). This is the combined result of using a
+time-based scheme (rather than opcode-based) and of forced thread switching
+(rather than relying on the OS to actually switch threads when we speculatively
+release the GIL).
+
+Hello there,
+
+The last couple of days I've been working on an experimental rewrite of
+the GIL. Since the work has been turning out rather successful (or, at
+least, not totally useless and crashing!) I thought I'd announce it
+here.
+
+First I want to stress this is not about removing the GIL. There still
+is a Global Interpreter Lock which serializes access to most parts of
+the interpreter. These protected parts haven't changed either, so Python
+doesn't become really better at extracting computational parallelism out
+of several cores.
+
+Goals
+-----
+
+The new GIL (which is also the name of the sandbox area I've committed
+it in, "newgil") addresses the following issues :
+
+1) Switching by opcode counting. Counting opcodes is a very crude way of
+estimating times, since the time spent executing a single opcode can
+very wildly. Litterally, an opcode can be as short as a handful of
+nanoseconds (think something like "... is not None") or as long as a
+fraction of second, or even longer (think calling a heavy non-GIL
+releasing C function, such as re.search()). Therefore, releasing the GIL
+every 100 opcodes, regardless of their length, is a very poor policy.
+
+The new GIL does away with this by ditching _Py_Ticker entirely and
+instead using a fixed interval (by default 5 milliseconds, but settable)
+after which we ask the main thread to release the GIL and let another
+thread be scheduled.
+
+2) GIL overhead and efficiency in contended situations. Apparently, some
+OSes (OS X mainly) have problems with lock performance when the lock is
+already taken: the system calls are heavy. This is the "Dave Beazley
+effect", where he took a very trivial loop, therefore made of very short
+opcodes and therefore releasing the GIL very often (probably 100000
+times a second), and runs it in one or two threads on an OS with poor
+lock performance (OS X). He sees a 50% increase in runtime when using
+two threads rather than one, in what is admittedly a pathological case.
+
+Even on better platforms such as Linux, eliminating the overhead of many
+GIL acquires and releases (since the new GIL is released on a fixed time
+basis rather than on an opcode counting basis) yields slightly better
+performance (read: a smaller performance degradation :-)) when there are
+several pure Python computation threads running.
+
+3) Thread switching latency. The traditional scheme merely releases the
+GIL for a couple of CPU cycles, and reacquires it immediately.
+Unfortunately, this doesn't mean the OS will automatically switch to
+another, GIL-awaiting thread. In many situations, the same thread will
+continue running. This, with the opcode counting scheme, is the reason
+why some people have been complaining about latency problems when an I/O
+thread competes with a computational thread (the I/O thread wouldn't be
+scheduled right away when e.g. a packet arrives; or rather, it would be
+scheduled by the OS, but unscheduled immediately when trying to acquire
+the GIL, and it would be scheduled again only much later).
+
+The new GIL improves on this by combinating two mechanisms:
+- forced thread switching, which means that when the switching interval
+is terminated (mentioned in 1) and the GIL is released, we will force
+any of the threads waiting on the GIL to be scheduled instead of the
+formerly GIL-holding thread. Which thread exactly is an OS decision,
+however: the goal here is not to have our own scheduler (this could be
+discussed but I wanted the design to remain simple :-) After all,
+man-years of work have been invested in scheduling algorithms by kernel
+programming teams).
+- priority requests, which is an option for a thread requesting the GIL
+to be scheduled as soon as possible, and forcibly (rather than any other
+threads). This is meant to be used by GIL-releasing methods such as
+read() on files and sockets. The scheme, again, is very simple: when a
+priority request is done by a thread, the GIL is released as soon as
+possible by the thread holding it (including in the eval loop), and then
+the thread making the priority request is forcibly scheduled (by making
+all other GIL-awaiting threads wait in the meantime).
+
+Implementation
+--------------
+
+The new GIL is implemented using a couple of mutexes and condition
+variables. A {mutex, condition} pair is used to protect the GIL itself,
+which is a mere variable named `gil_locked` (there are a couple of other
+variables for bookkeeping). Another {mutex, condition} pair is used for
+forced thread switching (described above). Finally, a separate mutex is
+used for priority requests (described above).
+
+The code is in the sandbox:
+http://svn.python.org/view/sandbox/trunk/newgil/
+
+The file of interest is Python/ceval_gil.h. Changes in other files are
+very minimal, except for priority requests which have been added at
+strategic places (some methods of I/O modules). Also, the code remains
+rather short, while of course being less trivial than the old one.
+
+NB : this is a branch of py3k. There should be no real difficulty
+porting it back to trunk, provided someone wants to do the job.
+
+Platforms
+---------
+
+I've implemented the new GIL for POSIX and Windows (tested under Linux
+and Windows XP (running in a VM)). Judging by what I can read in the
+online MSDN docs, the Windows support should include everything from
+Windows 2000, and probably recent versions of Windows CE.
+
+Other platforms aren't implemented, because I don't have access to the
+necessary hardware. Besides, I must admit I'm not very motivated in
+working on niche/obsolete systems. I've e-mailed Andrew MacIntyre in
+private to ask him if he'd like to do the OS/2 support.
+
+Supporting a new platform is not very difficult: it's a matter of
+writing the 50-or-so lines of necessary platform-specific macros at the
+beginning of Python/ceval_gil.h.
+
+The reason I couldn't use the existing thread support
+(Python/thread_*.h) is that these abstractions are too poor. Mainly,
+they don't provide:
+- events, conditions or an equivalent thereof
+- the ability to acquire a resource with a timeout
+
+Measurements
+------------
+
+Before starting this work, I wrote ccbench (*), a little benchmark
+script ("ccbench" being a shorthand for "concurrency benchmark") which
+measures two things:
+- computation throughput with one or several concurrent threads
+- latency to external events (I use an UDP socket) when there is zero,
+one, or several background computation threads running
+
+(*) http://svn.python.org/view/sandbox/trunk/ccbench/
+
+The benchmark involves several computation workloads with different GIL
+characteristics. By default there are 3 of them:
+A- one pure Python workload (computation of a number of digits of pi):
+that is, something which spends its time in the eval loop
+B- one mostly C workload where the C implementation doesn't release the
+GIL (regular expression matching)
+C- one mostly C workload where the implementation does release the GIL
+(bz2 compression)
+
+In the ccbench directory you will find benchmark results, under Linux,
+for two different systems I have here. The new GIL shows roughly similar
+but slightly better throughput results than the old one. And it is much
+better in the latency tests, especially in workload B (going down from
+almost a second of average latency with the old GIL, to a couple of
+milliseconds with the new GIL). This is the combined result of using a
+time-based scheme (rather than opcode-based) and of forced thread
+switching (rather than relying on the OS to actually switch threads when
+we speculatively release the GIL).
+
+As a sidenote, I might mention that single-threaded performance is not
+degraded at all. It is, actually, theoretically a bit better because the
+old ticker check in the eval loop becomes simpler; however, this goes
+mostly unnoticed.
+
+
+Now what remains to be done?
+
+Having other people test it would be fine. Even better if you have an
+actual multi-threaded py3k application. But ccbench results for other
+OSes would be nice too :-)
+(I get good results under the Windows XP VM but I feel that a VM is not
+an ideal setup for a concurrency benchmark)
+
+Of course, studying and reviewing the code is welcome. As for
+integrating it into the mainline py3k branch, I guess we have to answer
+these questions:
+- is the approach interesting? (we could decide that it's just not worth
+it, and that a good GIL can only be a dead (removed) GIL)
+- is the patch good, mature and debugged enough?
+- how do we deal with the unsupported platforms (POSIX and Windows
+support should cover most bases, but the fate of OS/2 support depends on
+Andrew)?
+
+Regards
+
+Antoine.
+
+
+
+
+This is meant to prohibit the latency-adverse behaviour on multi-core machines
+where one thread would speculatively release the GIL, but still run and end up
+being the first to re-acquire it, making the "timeslices" much longer than
+expected.
+
+     (Note: this mechanism is enabled with FORCE_SWITCHING above)
+

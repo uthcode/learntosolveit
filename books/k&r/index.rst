@@ -3,17 +3,19 @@
 C Programming Language
 ======================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
 
 .. image:: _static/TheCPL.jpg
+    :scale: 50 %
 
 .. image:: _static/Senthil_withFavs.jpg
+    :scale: 50 %
 
 .. image:: _static/LiveFreeorDie.jpg
+    :scale: 50 %
+
 
 
 Useful Online Resources
@@ -22,12 +24,11 @@ Useful Online Resources
 * `Solutions at CLC-Wiki`_
 * `The C Programming Language`_
 * `The C Programming Language, Second Edition Home Page`_
+* :ref:`search`
 
 .. _Solutions at CLC-Wiki: http://clc-wiki.net/wiki/K%26R2_solutions
 .. _The C Programming Language: http://en.wikipedia.org/wiki/The_C_Programming_Language
 .. _The C Programming Language, Second Edition Home Page: http://cm.bell-labs.com/cm/cs/cbook/
-
-* :ref:`search`
 
 
 .. raw:: html
