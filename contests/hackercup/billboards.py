@@ -13,6 +13,16 @@ def divide(s, rows, size,w):
     # Take care of the tricky situation later.
     # Different combinations.
     i = 0
+    words = s.split()
+    for entry in result:
+        word = words.pop(0)
+        while (sum(map(len,entry)) + (size * len(word))) <= w:
+            entry.append(word)
+            word = words.pop(0)
+    if words:
+        return False
+
+    """
     for word in s.split():
         # take each word and add it to right list.
         # if it cannot be added to any list, return False
@@ -28,6 +38,7 @@ def divide(s, rows, size,w):
                 break
             else:
                 i += 1
+    """
 
     final_result = []
     for each_sub in result:
