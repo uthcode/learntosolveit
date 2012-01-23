@@ -1,9 +1,9 @@
 import math
 import pudb
 
-# T = int(raw_input())
-T = 1
-pudb.set_trace()
+T = int(raw_input())
+# T = 1
+# pudb.set_trace()
 
 def divide(s, rows, size,w):
     result = []
@@ -16,15 +16,14 @@ def divide(s, rows, size,w):
     words = s.split()
     next_word = True
     while words and i < rows:
-        if next_word: word = words.pop(0)
+        word = words.pop(0)
         existing_len = size * sum(map(len,result[i]))
         new_word_len = size * len(word)
-        if existing_len + new_word_len <= w:
+        if existing_len + new_word_len + ((size * len(result[i])) if existing_len else 0) <= w:
             result[i].append(word)
-            next_word = True
         else:
             i += 1
-            next_word = False
+            words.insert(0,word)
     if words:
         return False
 
@@ -57,10 +56,7 @@ def divide(s, rows, size,w):
     final_result = []
     for each_sub in result:
         split_sentence = " ".join(each_sub)
-        if s.find(split_sentence) == -1:
-            return False
-        else:
-            final_result.append(" ".join(each_sub))
+        final_result.append(split_sentence)
     return final_result
 
 def solve(w, h, s):
@@ -72,7 +68,6 @@ def solve(w, h, s):
     # should not become 0 or -1
     for size in range(h,0,-1):
         if size * len(s) <= w:
-            print s
             return size
         else:
             # Can we decrease s and see.
@@ -89,12 +84,13 @@ def solve(w, h, s):
                             gotit = False
                             break
                     if gotit:
-                        print result
                         return size
 
 for tc in range(T):
-    # tc_input = raw_input().split()
-    tc_input = '100 20 hacker cup 2013'.split()
+    tc_input = raw_input().split()
+    # tc_input = '100 20 hacker cup 2013'.split()
+    # tc_input = '20 6 hacker cup'.split()
+    # tc_input = '100 20 Hack your way to the cup'.split()
     w = int(tc_input.pop(0))
     h = int(tc_input.pop(0))
     s = " ".join(tc_input)
