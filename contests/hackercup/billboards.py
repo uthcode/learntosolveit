@@ -14,6 +14,21 @@ def divide(s, rows, size,w):
     # Different combinations.
     i = 0
     words = s.split()
+    next_word = True
+    while words and i < rows:
+        if next_word: word = words.pop(0)
+        existing_len = size * sum(map(len,result[i]))
+        new_word_len = size * len(word)
+        if existing_len + new_word_len <= w:
+            result[i].append(word)
+            next_word = True
+        else:
+            i += 1
+            next_word = False
+    if words:
+        return False
+
+    """
     for entry in result:
         word = words.pop(0)
         while (sum(map(len,entry)) + (size * len(word))) <= w:
@@ -22,7 +37,6 @@ def divide(s, rows, size,w):
     if words:
         return False
 
-    """
     for word in s.split():
         # take each word and add it to right list.
         # if it cannot be added to any list, return False
