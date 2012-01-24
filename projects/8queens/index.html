@@ -4,46 +4,52 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function () {
+      $(".board tr:even td:even").addClass("black");
       $(".board tr:odd td:odd").addClass("black");
+      $(".board tr:even td:odd").addClass("white");
       $(".board tr:odd td:even").addClass("white");
-      $(".board tr:even td:odd").addClass("black");
-      $(".board tr:even td:even").addClass("white");
 
   });
 </script>
 
 <style type="text/css">
 
-td.white {
+body {
+  background-color: #000;
+}
+
+.white {
   background-color: #FFF;
 }
 
-td.black {
+.black {
   background-color: #000;
 }
 
 td {
-  padding: 30px 30px;
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
+  padding: 25px 25px;
+  border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+  border-left: 1px solid #FFF;
+  border-right: 1px solid #FFF;
   vertical-align: top;
 }
 
 
 table {
   margin: 1px;
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
+  border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+  border-left: 1px solid #FFF;
+  border-right: 1px solid #FFF;
 }
 
 div.centered {
   position: absolute; /* absolute */
-  left: 10%;
-  top: 10%;
+  left: 40%;
+  top: 20%;
+  margin-left: -100px;
+  margin-top: -100px;
 }
 
 </style>
