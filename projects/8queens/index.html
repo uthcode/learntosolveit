@@ -108,11 +108,15 @@
       var choice = Math.floor(Math.random()*92);
       var position = queens[choice];
       var pos;
+      var item;
+
+      var sections = ["code","proj","blog","docs","games","socl","tuts", "servs","books"];
 
       for (var i =0; i <= 7; i++)
       {
           pos = "p.piece.p" + position[i] + i;
-          $(pos).html("&#9813;");
+          item = "&#9813;<br><a href='/" + sections[i] + "'>" + sections[i] + "</a>";
+          $(pos).html(item);
       }
 
   });
@@ -129,14 +133,16 @@ body {
 
 }
 
+a {
+  color: green;
+  font-size:30px;
+  text-shadow:0 1px green;
+  text-decoration: none;
+}
+
 .piece {
   color: green;
-  display:block;
-  font-size:80px;
-  height:80px;
-  width:80px;
-  position:relative;
-  text-decoration:none;
+  font-size:30px;
   text-shadow:0 1px green;
 }
 
