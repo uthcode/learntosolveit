@@ -4,24 +4,46 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function () {
-      $(".stripeMe tr:even").addClass("alt");
+      $(".board tr:odd td:odd").addClass("black");
+      $(".board tr:odd td:even").addClass("white");
+      $(".board tr:even td:odd").addClass("black");
+      $(".board tr:even td:even").addClass("white");
 
   });
 </script>
+
 <style type="text/css">
 
+td.white {
+  background-color: #FFF;
+}
+
+td.black {
+  background-color: #000;
+}
+
 td {
-  padding: 6px 11px;
-  border-bottom: 1px solid #95bce2;
+  padding: 30px 30px;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
   vertical-align: top;
 }
 
-td * {
-  padding: 6px 11px;
+
+table {
+  margin: 1px;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
 }
 
-tr.alt td {
-  background: #eee;
+div.centered {
+  position: absolute; /* absolute */
+  left: 10%;
+  top: 10%;
 }
 
 </style>
@@ -29,7 +51,9 @@ tr.alt td {
 
 <body>
 
-<table class="stripeMe">
+<div class="centered">
+
+<table class="board">
       <tr>
           <td>1</td>
           <td>2</td>
@@ -112,6 +136,6 @@ tr.alt td {
       </tr>
 
 </table>
-
+</div>
 </body>
 </html>
