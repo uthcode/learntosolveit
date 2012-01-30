@@ -808,6 +808,13 @@ http://madrobby.github.com/scriptaculous/puzzle-demo/
 
 Pretty useful for what I think for uthcode.
 
+CSS
+---
+
+http://designinfluences.com/fluid960gs/
+
+http://960.gs/
+
 
 jsfiddle
 --------

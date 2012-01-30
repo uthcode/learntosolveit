@@ -1106,3 +1106,8 @@ You should implement this as a library of routines that can be
 used by anyone wanting to treat a file as a filesystem.
 Demonstrate the correctness of your routines by writing a demo
 program that lets one manipulate files interactively.
+
+Sites
+-----
+
+http://www.programminglogic.com/

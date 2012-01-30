@@ -14,12 +14,15 @@ O.R.Senthil Kumaran
         
         Programmer willing to tackle hard problems and design beautiful
         solutions. I like to design and implement solutions which are useful
-        and make our lives easy.
+        and make our lives easy. I look forward to work in Engineering roles
+        with organizations which has strong Engineering focus.
 
 .. topic:: SKILLS AND TECHNICAL PROFICIENCY
 
         * **Python Core Developer** - Active contributer to the Python Programming Language.
         * Programming Laguages Known - **Python, C++, C, Perl**
+        * Web Development **Pylons, Javascript, jQuery**
+        * Database Systems **SQL, SQLAlchemy**
         * Revision Control Systems - **CVS, SVN, Perforce, git and Mercurial**
         * Profeciency in writing **System Software using C++ for Linux and Windows.**
         * Expertise in **Internet Programming, Cloud Computing and Distributed Systems.**
@@ -85,6 +88,13 @@ O.R.Senthil Kumaran
           * Role: Built the core asynchronous engine and the underlying request
             and response mechanism.
           * Languages and Technologies: **Python, XML, C++, Asynchronous Servers, Large Volume Data Processing**
+
+        * **Web Development - Lucasfilm Singapore**
+
+          Member of a team contributing to web development efforts building
+          internal webapps using Pylons, jQuery. Test Framework using Jenkins
+          and pytest.
+
 
         * **BIOS and Framework Test Automation Suite**
 
