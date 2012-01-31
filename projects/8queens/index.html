@@ -118,7 +118,7 @@
       for (var i =0; i <= 7; i++)
       {
           pos = "p.piece.p" + position[i] + i;
-          item = "&#9813;<br><a href='/" + sections[i] + "/'>" + sections[i] + "</a>";
+          item = "&#9813;<br><a href='/docs/index.html'>" + sections[i] + "</a>";
           $(pos).html(item);
       }
 
@@ -133,6 +133,7 @@ body {
   margin-right:10%;
   color: #101;
   font: 100%;
+  text-align: center;
 
 }
 
@@ -172,12 +173,18 @@ table {
   border: 1px solid #FFF;
 }
 
+/**
 div.centered {
-  position: absolute; /* absolute */
+  position: absolute;
   left: 50%;
   top: 50%;
   margin-left: -400px;
   margin-top: -400px;
+}
+**/
+
+.centered {
+  margin: 0 auto auto 0;
 }
 
 </style>
@@ -185,9 +192,7 @@ div.centered {
 
 <body>
 
-<div class="centered">
-
-<table class="board">
+<table class="board centered">
       <tr>
         <td><p class="piece p70"></p></td>
         <td><p class="piece p71"></p></td>
@@ -270,6 +275,5 @@ div.centered {
         <td><p class="piece p07"></p></td>
       </tr>
 </table>
-</div>
 </body>
 </html>
