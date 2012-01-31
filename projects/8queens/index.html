@@ -113,12 +113,22 @@
       var pos;
       var item;
 
-      var sections = ["code","proj","blog","docs","games","socl","tuts", "servs","books"];
+      var sections = ["code","proj","blog","docs","games","tuts", "servs","books"];
+      var links = ["http://docs.uthcode.com/",
+                   "http://docs.uthcode.com/",
+                   "http://blog.uthcode.com/",
+                   "http://docs.uthcode.com/",
+                   "http://docs.uthcode.com/",
+                   "http://docs.uthcode.com/",
+                   "http://docs.uthcode.com/",
+                   "http://docs.uthcode.com/",
+                  ]
+
 
       for (var i =0; i <= 7; i++)
       {
           pos = "p.piece.p" + position[i] + i;
-          item = "&#9813;<br><a href='/docs/index.html'>" + sections[i] + "</a>";
+          item = "&#9813;<br><a href='" + links[i] + "'>" + sections[i] + "</a>";
           $(pos).html(item);
       }
 
