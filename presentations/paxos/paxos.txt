@@ -85,6 +85,3 @@ Parallels
 * Semaphores for Multi-threaded apps.
 * Variations exists on top of Basic Paxos.
 * http://en.wikipedia.org/wiki/Paxos_(computer_science)
-
-
-
