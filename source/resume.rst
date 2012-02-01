@@ -21,7 +21,7 @@ O.R.Senthil Kumaran
 
         * **Python Core Developer** - Active contributer to the Python Programming Language.
         * Programming Laguages Known - **Python, C++, C, Perl**
-        * Web Development **Pylons, Javascript, jQuery**
+        * Web Development **Pylons, Javascript, jQuery, HTML5, CSS**
         * Database Systems **SQL, SQLAlchemy**
         * Revision Control Systems - **CVS, SVN, Perforce, git and Mercurial**
         * Profeciency in writing **System Software using C++ for Linux and Windows.**
@@ -156,6 +156,13 @@ O.R.Senthil Kumaran
 
           Website: pygame07_
 
+        * **Greetings Card Website**
+
+          Greetings Card website designed using HTML5, CSS, using Google App
+          Engine and Picnick APIs.
+
+          Website: shalgreetings_
+
 
 .. topic:: AWARDS AND RECOGNITIONS
 
@@ -198,6 +205,18 @@ O.R.Senthil Kumaran
         * Feature Enhancements for nanoblogger_ - A tiny blog engine for Unix.
         * Feature implementations in Rapple_ - A Standards based Website generator.
 
+
+.. topic:: Social Web
+
+    `Resume Online`_
+
+    StackOverFlow 
+
+.. raw:: html
+
+    <ul> <li> <a href="http://stackoverflow.com/users/18852/senthil-kumaran"><img src="http://stackoverflow.com/users/flair/18852.png?theme=clean" width="208" height="58" alt="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a> </ul>
+
+
 .. _Commit Stats: http://www.ohloh.net/p/python/contributors/111669178856
 .. _Tracker Stats: http://cia.vc/stats/author/orsenthil
 .. _Spastics Society of Karnataka: http://www.spasticssocietyofkarnataka.org 
@@ -217,3 +236,5 @@ O.R.Senthil Kumaran
 .. _ngwallpaper: http://ngwallpaper.googlecode.com 
 .. _pyljvim: http://www.vim.org/scripts/script.php?script_id=1724
 .. _pygame07: http://www.pyweek.org/e/v4victory/
+.. _shalgreetings: http://www.shalgreetings.com 
+.. _Resume Online: http://www.uthcode.com/docs/resume.html

@@ -88,9 +88,6 @@ Snippet 3
     #include<map>
     #include<iostream>
 
-    #define tr(container, it) \
-        for(typeof(container.begin()) it = container.begin(); it !=container.end(); it++)
-
     using namespace std;
 
     int main(int argc, char *argv[])
@@ -106,7 +103,6 @@ Snippet 3
 Snippet 4
 ---------
 ::
-
 
     #include<map>
     #include<iostream>

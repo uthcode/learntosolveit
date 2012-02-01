@@ -199,16 +199,6 @@ RFC 3986                   URI Generic Syntax               January 2005
       existing, large, and widely used set of resource identifiers.
 
 
-
-
-
-
-
-Berners-Lee, et al.         Standards Track                     [Page 4]
-
-RFC 3986                   URI Generic Syntax               January 2005
-
-
    Resource
 
       This specification does not limit the scope of what might be a
@@ -255,16 +245,6 @@ RFC 3986                   URI Generic Syntax               January 2005
    identifying resources.  This specification does not require that a
    URI persists in identifying the same resource over time, though that
    is a common goal of all URI schemes.  Nevertheless, nothing in this
-
-
-
-
-
-Berners-Lee, et al.         Standards Track                     [Page 5]
-
-RFC 3986                   URI Generic Syntax               January 2005
-
-
    specification prevents an application from limiting itself to
    particular types of resources, or to a subset of URIs that maintains
    characteristics desired by that application.
@@ -310,15 +290,6 @@ RFC 3986                   URI Generic Syntax               January 2005
    scheme-specific parsing can be performed on the components.  In other
    words, the URI generic syntax is a superset of the syntax of all URI
    schemes.
-
-
-
-
-
-
-Berners-Lee, et al.         Standards Track                     [Page 6]
-
-RFC 3986                   URI Generic Syntax               January 2005
 
 
 1.1.2.  Examples
@@ -1151,10 +1122,6 @@ RFC 3986                   URI Generic Syntax               January 2005
    provide these registered names in the IDNA encoding, rather than a
    percent-encoding, if they wish to maximize interoperability with
    legacy URI resolvers.
-
-
-
-
 
 Berners-Lee, et al.         Standards Track                    [Page 21]
 
