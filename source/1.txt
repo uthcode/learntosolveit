@@ -1,0 +1,79 @@
+CREATE TRIGGER "T1"
+INSTEAD OF UPDATE OF title ON LateRating
+FOR EACH ROW
+BEGIN
+    UPDATE Movie
+    set title = new.title
+    WHERE mID = new.mID;
+END
+
+CREATE TRIGGER "T2"
+INSTEAD OF UPDATE OF stars ON LateRating
+FOR EACH ROW
+BEGIN
+   UPDATE Rating
+   set stars = new.stars
+   where mID = new.mID and ratingDate = new.ratingDate;
+END
+
+
+CREATE TRIGGER "T3"
+INSTEAD OF UPDATE OF mID ON LateRating
+FOR EACH ROW
+BEGIN
+      UPDATE Movie
+      set mID = new.mID
+      WHERE mID = old.mID;
+      UPDATE Rating
+      set mID = new.mID
+      WHERE mID = old.mID;   
+END
+
+CREATE TRIGGER "T4"
+INSTEAD OF UPDATE ON LateRating 
+FOR EACH ROW 
+WHEN new.RatingDate = old.RatingDate
+BEGIN
+update Movie set mID=New.mID where mid =old.mid;
+update Rating set mID=New.mID where mid = old.mid;
+update Movie set title=new.title where mid=new.mid;
+update Rating set stars=new.stars where mid=new.mid and ratingDate=new.ratingDate;
+END;
+
+CREATE TRIGGER "T5"
+INSTEAD OF DELETE ON HighlyRated
+FOR EACH ROW
+BEGIN
+DELETE FROM Rating WHERE stars > 3 and mID=old.mID;
+END
+
+CREATE TRIGGER "T7"
+INSTEAD OF INSERT ON HighlyRated
+FOR EACH ROW
+WHEN new.mid||new.title in (select mid||title from movie)
+BEGIN
+     INSERT INTO Rating
+     VALUES (201,new.mID,5,NULL);
+END
+
+CREATE TRIGGER "T8"
+INSTEAD OF INSERT ON NoRating
+FOR EACH ROW
+WHEN new.mID||new.title in (select mID||title from Movie)
+BEGIN
+     DELETE FROM Rating WHERE mID = new.mID;
+END
+
+----------------------------------------------------------------------------
+
+ d = a * b * c -- GROUP BY
+ e = (a + 1) * (b + 1) * (c + 1) -- CUBE
+ f = a * b * c + a * b + a + 1 -- ROLLUP
+
+So we have:
+
+    (4, 7, 3, 14, 160, 117) incorrect, should be (4, 7, 3, 84, 160, 117)
+    (2, 2, 2, 8, 27, 14) incorrect, should be (2, 2, 2, 8, 27, 15)
+    (5, 10, 10, 500, 726, 556) correct
+    (5, 4, 3, 60, 64, 80), incorrect, should be (5, 4, 3, 60, 120, 86)
+
