@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>State of Python</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="ui/s5uthcode/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/s5uthcode/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/s5uthcode/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/s5uthcode/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/s5uthcode/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>State of Python</h1>
+<h2>PyCon Australia 2011</h2>
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">State of Python</h1>
+
+<!-- -*- coding: utf-8 -*- -->
+<!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
+<!-- This data file has been placed in the public domain. -->
+<!-- Colours
+======= -->
+<!-- Text Sizes
+========== -->
+<!-- Display in Slides (Presentation Mode) Only
+========================================== -->
+<!-- Display in Outline Mode Only
+============================ -->
+<!-- Display in Print Only
+===================== -->
+<!-- Display in Handout Mode Only
+============================ -->
+<!-- Incremental Display
+=================== -->
+<div class="center line-block">
+<div class="line"><a class="reference external" href="http://pycon-au.org">PyCon Australia 2011</a></div>
+</div>
+<div class="right small line-block">
+<div class="line">- Senthil Kumaran</div>
+<div class="line">- CPython Core Developer</div>
+</div>
+<!-- This document has been placed in the public domain. -->
+<div class="handout container">
+This presentation gives overview of State of Python Language and it's
+reference implementation as of August, 2011.</div>
+<div class="contents handout topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#python" id="id4">Python</a></li>
+<li><a class="reference internal" href="#reference-implementation" id="id5">Reference Implementation</a></li>
+<li><a class="reference internal" href="#cpython-release-schedule" id="id6">CPython Release Schedule</a></li>
+<li><a class="reference internal" href="#python3-progress" id="id7">Python3 Progress</a></li>
+<li><a class="reference internal" href="#python-launcher-for-windows-pep-397" id="id8">Python Launcher for Windows (PEP 397)</a></li>
+<li><a class="reference internal" href="#faulthandler-module" id="id9">Faulthandler module</a></li>
+<li><a class="reference internal" href="#framework-supports" id="id10">Framework Supports</a></li>
+<li><a class="reference internal" href="#jython" id="id11">Jython</a></li>
+<li><a class="reference internal" href="#java-and-jython" id="id12">Java and Jython</a></li>
+<li><a class="reference internal" href="#why-jython" id="id13">Why Jython</a></li>
+<li><a class="reference internal" href="#jython-s-features" id="id14">Jython's features</a></li>
+<li><a class="reference internal" href="#java-introspection" id="id15">Java Introspection</a></li>
+<li><a class="reference internal" href="#subclassing-java" id="id16">Subclassing java</a></li>
+<li><a class="reference internal" href="#how-is-jython-doing" id="id17">How is Jython doing?</a></li>
+<li><a class="reference internal" href="#jython-platform-support" id="id18">Jython Platform Support</a></li>
+<li><a class="reference internal" href="#performance" id="id19">Performance</a></li>
+<li><a class="reference internal" href="#ironpython" id="id20">IronPython</a></li>
+<li><a class="reference internal" href="#features" id="id21">Features</a></li>
+<li><a class="reference internal" href="#installation" id="id22">Installation</a></li>
+<li><a class="reference internal" href="#why-should-you-be-interested" id="id23">Why should you be interested?</a></li>
+<li><a class="reference internal" href="#example-code" id="id24">Example code</a></li>
+<li><a class="reference internal" href="#framework-support" id="id25">FrameWork Support</a></li>
+<li><a class="reference internal" href="#example-applications" id="id26">Example Applications</a></li>
+<li><a class="reference internal" href="#pypy" id="id27">PyPy</a></li>
+<li><a class="reference internal" href="#pypy-architecture" id="id28">PyPy Architecture</a></li>
+<li><a class="reference internal" href="#id1" id="id29">PyPy Architecture</a></li>
+<li><a class="reference internal" href="#id2" id="id30">PyPy Architecture</a></li>
+<li><a class="reference internal" href="#release" id="id31">Release</a></li>
+<li><a class="reference internal" href="#framework-compatiblity" id="id32">Framework Compatiblity</a></li>
+<li><a class="reference internal" href="#id3" id="id33">Performance</a></li>
+<li><a class="reference internal" href="#speed-speed-speed" id="id34">Speed,Speed,Speed</a></li>
+<li><a class="reference internal" href="#gil" id="id35">GIL</a></li>
+<li><a class="reference internal" href="#the-future" id="id36">The Future</a></li>
+</ul>
+</div>
+
+</div>
+<div class="slide" id="python">
+<h1>Python</h1>
+<ul class="simple">
+<li>Python as a language reference separate from implementation.</li>
+<li>CPython is only one of the implementation</li>
+<li>PyPy, Jython, IronPython, CLPython.</li>
+<li>Implementation in another language that you can write.</li>
+</ul>
+</div>
+<div class="slide" id="reference-implementation">
+<h1>Reference Implementation</h1>
+<ul class="simple">
+<li><strong>CPython</strong> implemented in C.</li>
+<li>Widely known as <strong>Python</strong></li>
+<li>BDFL overlooks the development and process.</li>
+<li>Mercurial Repository - <a class="reference external" href="http://hg.python.org">http://hg.python.org</a></li>
+</ul>
+</div>
+<div class="slide" id="cpython-release-schedule">
+<h1>CPython Release Schedule</h1>
+<div class="tiny sidebar">
+<p class="first sidebar-title">Process</p>
+<p class="last">alphas, betas, rc1, rc2 and release!</p>
+</div>
+<table border="1" class="small docutils">
+<colgroup>
+<col width="25%" />
+<col width="33%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Release</th>
+<th class="head">Date</th>
+<th class="head">RM</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>3.3</td>
+<td>Mar-Aug, 2012</td>
+<td>Georg Brandl</td>
+</tr>
+<tr><td>3.2.2</td>
+<td>Aug,  2011</td>
+<td>Georg Brandl</td>
+</tr>
+<tr><td>2.7.2</td>
+<td>June, 2011</td>
+<td>Benjamin Peterson</td>
+</tr>
+<tr><td>3.1.4</td>
+<td>June, 2011</td>
+<td>Benjamin Peterson</td>
+</tr>
+<tr><td>2.6.7</td>
+<td>June, 2011</td>
+<td>Barry Warsaw</td>
+</tr>
+</tbody>
+</table>
+<ul class="small simple">
+<li>Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.</li>
+</ul>
+</div>
+<div class="slide" id="python3-progress">
+<h1>Python3 Progress</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://py3ksupport.appspot.com/">http://py3ksupport.appspot.com/</a></li>
+</ul>
+<img alt="http://dev.pocoo.org/~gbrandl/py3pkgs.png" class="align-right" src="http://dev.pocoo.org/~gbrandl/py3pkgs.png" style="width: 1600px; height: 800px;" />
+<img alt="http://pypi.python.org/python-3.png" class="align-left" src="http://pypi.python.org/python-3.png" style="width: 500px; height: 300px;" />
+<div class="handout container">
+<ul class="simple">
+<li>Breaking from it's roots.</li>
+<li>Moving away from it's C Background.</li>
+<li>Modern Frameworks and Advanced Applications.</li>
+<li>Taking good points from Java and others.</li>
+<li>Fixing a lot of Language warts.</li>
+</ul>
+</div>
+</div>
+<div class="slide" id="python-launcher-for-windows-pep-397">
+<h1>Python Launcher for Windows (PEP 397)</h1>
+<ul class="simple">
+<li>Proposal by Mark Hammond and Implemented by Vinay Sajip.</li>
+<li>Python scripts (.py and .pyw files) get associted with Python2/3.</li>
+<li>&quot;shebang&quot; line on Windows.</li>
+<li>Will be distributed with Windows Installers.</li>
+<li>Download - <a class="reference external" href="https://bitbucket.org/vinay.sajip/pylauncher/">https://bitbucket.org/vinay.sajip/pylauncher/</a></li>
+</ul>
+<div class="handout container">
+<ul class="simple">
+<li>The shebang concept is decribed in man 2 execve</li>
+<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0397/">http://www.python.org/dev/peps/pep-0397/</a></li>
+</ul>
+</div>
+</div>
+<div class="slide" id="faulthandler-module">
+<h1>Faulthandler module</h1>
+<ul class="simple">
+<li>Implemented by Victor Stinner</li>
+<li>Functions to dump Python Traceback explictly, fault, user signal or timeout.</li>
+<li>Can be Enabled for <strong>SIGSEGV, SIGFPE, SIGABRT, SIGBUS and SIGILL</strong></li>
+<li><strong>PYTHONFAULTHANDLER</strong> or using <strong>-X faulthandler</strong></li>
+<li>Implemented in C, tracebacks can be dumped on a crash or when Python is deadlocked.</li>
+</ul>
+<div class="handout container">
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/dev/library/faulthandler.html">http://docs.python.org/dev/library/faulthandler.html</a></li>
+<li>Compatible with Apport or Windows Default Fault Handler.</li>
+<li>Use alternative stacks, if signalstack() is available to dump traceback even on StackOverflow.</li>
+</ul>
+</div>
+</div>
+<div class="slide" id="framework-supports">
+<h1>Framework Supports</h1>
+<ul class="simple">
+<li>Numpy Supports</li>
+<li>Support not fast in WebFramework world because of the need to sort out WSGI spec.</li>
+<li>Closing the gap of 2.7 and 3.x will help migrate faster.</li>
+<li>Distribute (fork of setuptools) has support.</li>
+<li>For many cases, the migration will be easy with on the fly 3 coversion with <span class="incremental">use2to3=True</span> flag.</li>
+<li>Support is steady and moving forward and will target 3.2 or 3.3.</li>
+</ul>
+</div>
+<div class="slide" id="jython">
+<h1>Jython</h1>
+<img alt="jython.png" class="align-center" src="jython.png" style="width: 400px; height: 300px;" />
+<ul class="simple">
+<li>Implementation written in Java.</li>
+<li>The language syntax and semantics will be same as Python.</li>
+<li><a class="reference external" href="http://hg.python.org/jython/">http://hg.python.org/jython/</a></li>
+</ul>
+</div>
+<div class="slide" id="java-and-jython">
+<h1>Java and Jython</h1>
+<ul class="simple">
+<li>Seamlessly integrated with Java and import and use any Java class.</li>
+<li>Except for some standard modules, Jython programs use Java classes instead of Python modules.</li>
+</ul>
+<pre class="tiny doctest-block">
+&gt;&gt;&gt; from java.lang import System
+&gt;&gt;&gt; props = System.getProperties()
+</pre>
+</div>
+<div class="slide" id="why-jython">
+<h1>Why Jython</h1>
+<ul class="simple">
+<li>You are from the Java world and do not want to feel away from home.</li>
+<li>Dynamic compilation to Java bytecodes.</li>
+<li>Ability to extend existing Java classes in Jython.</li>
+<li>Optional static compilation - Applets, Servlets and beans</li>
+<li>You are Python programmer and <tt class="docutils literal">You want to learn Java</tt></li>
+</ul>
+<ul class="handout simple">
+<li><a class="reference external" href="http://wiki.python.org/jython/LearningJython">http://wiki.python.org/jython/LearningJython</a></li>
+</ul>
+</div>
+<div class="slide" id="jython-s-features">
+<h1>Jython's features</h1>
+<ul class="simple">
+<li>Prototyping (using Java semantics)</li>
+<li>Java investigation of classes.</li>
+<li>Glues together libraries already written in Java.</li>
+<li>Runs on any JVM above 1.1</li>
+<li>Truly multi-threaded (no GIL) and Java garbage collected.</li>
+<li>It is all about concurrency.  Its dicts are
+built on top of Java's ConcurrentHashMap.</li>
+</ul>
+</div>
+<div class="slide" id="java-introspection">
+<h1>Java Introspection</h1>
+<pre class="literal-block">
+&gt;&gt;&gt; from java.util import Date
+&gt;&gt;&gt; d = Date()
+&gt;&gt;&gt; print d
+Fri Jun 10 09:08:58 SGT 2011
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path
+
+# [..,'__classpath__', ... ]
+</pre>
+</div>
+<div class="slide" id="subclassing-java">
+<h1>Subclassing java</h1>
+<pre class="literal-block">
+from java import awt
+
+class SpamListener(awt.event.ActionListener):
+    def actionPerformed(self,event):
+        if event.getActionCommand() == &quot;Spam&quot;:
+            print 'Spam and eggs!'
+
+f = awt.Frame(&quot;Subclassing Example&quot;)
+b = awt.Button(&quot;Spam&quot;)
+b.addActionListener(SpamListener())
+f.add(b, &quot;Center&quot;)
+f.pack()
+f.setVisible(1)
+</pre>
+<p class="handout"># Use of javax swing:</p>
+<pre class="handout literal-block">
+from javax.swing import *
+
+def hello(event):
+   print &quot;Hello, world!&quot;
+
+frame = JFrame(&quot;Hello Jython&quot;)
+
+button = JButton(&quot;Hello&quot;, actionPerformed = hello)
+frame.add(button)
+
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+frame.setSize(300, 300)
+frame.show()
+</pre>
+</div>
+<div class="slide" id="how-is-jython-doing">
+<h1>How is Jython doing?</h1>
+<ul class="simple">
+<li>Current Jython is compatible with CPython reference implementation 2.5.2</li>
+<li>hg version targets 2.6</li>
+<li>Supports Popular Python frameworks such as Django, Pylons, or SQLAlchemy.</li>
+<li>Scripting support in Oracle WebLogic and IBM Websphere application server.</li>
+<li>ZK Java Ajax Framework Support.</li>
+<li>virtualenv, easy_install</li>
+</ul>
+</div>
+<div class="slide" id="jython-platform-support">
+<h1>Jython Platform Support</h1>
+<ul class="simple">
+<li>apt-get install jython</li>
+<li>Or Download and java -jar jython-2.5.2.jar</li>
+<li>On All platforms which support Java Standard Edition.</li>
+<li>Not Java Mobile Edition, so not for Android.</li>
+</ul>
+</div>
+<div class="slide" id="performance">
+<h1>Performance</h1>
+<p>Performance to CPython is comparable to slower in general.
+Multi-threaded applications can be faster.</p>
+<p>The good news is, it is not just an extension language, but complete
+programming language suitable for application development.</p>
+</div>
+<div class="slide" id="ironpython">
+<h1>IronPython</h1>
+<p>IronPython is an implementation of the Python programming language targeting the .NET Framework and Mono.</p>
+<p class="handout">IronPython is an excellent addition to the .NET Framework, providing Python
+developers with the power of the .NET framework. Existing .NET developers
+can also use IronPython as a fast and expressive scripting language for
+embedding, testing, or writing a new application from scratch.</p>
+<p class="handout">The <a class="reference external" href="http://en.wikipedia.org/wiki/Common_Language_Runtime">CLR</a> is a great platform for creating programming languages, and the <a class="reference external" href="http://en.wikipedia.org/wiki/Dynamic_Language_Runtime">DLR</a>
+makes it all the better for dynamic languages. Also, the .NET framework
+(base class library, presentation foundation, Silverlight, etc.) gives
+developers an amazing amount of functionality and power.</p>
+</div>
+<div class="slide" id="features">
+<h1>Features</h1>
+<ul class="simple">
+<li>IronPython can use the .NET Framework and Python libraries, and other .NET languages can use Python code just as easily.</li>
+<li>Release 2.7 was released on March 12, 2011 and it targets CPython 2.7.</li>
+</ul>
+</div>
+<div class="slide" id="installation">
+<h1>Installation</h1>
+<ul class="simple">
+<li>IronPython 2.7 installer available for Windows Platform, as Desktop and Server Apps.</li>
+<li>Pre-requisite include .NET 4.0 or Silverlight 4.</li>
+<li>Also supports Browser apps development via Silverlight - Browser App for Mac and Windows.</li>
+<li>via Mono - desktop app for Linux and Mac.</li>
+<li>via Moonlight plugin - as browser app for Linux.</li>
+</ul>
+</div>
+<div class="slide" id="why-should-you-be-interested">
+<h1>Why should you be interested?</h1>
+<ul class="simple">
+<li>Corporate credibility, when your company uses .Net technologies.</li>
+<li>No GlobalInterpreterLock - IronPython has no GIL and multi-threaded code can use multi core processors</li>
+<li>The .NET framework library is very big. Windows Forms support.</li>
+<li>Easier to extend than CPython (C# is memory managed and C# types can be used directly in IronPython with no wrapping)</li>
+<li>An extensibility layer to application frameworks written in a .NET language.</li>
+<li>Silverlight!</li>
+</ul>
+</div>
+<div class="slide" id="example-code">
+<h1>Example code</h1>
+<pre class="literal-block">
+import clr
+clr.AddReference(&quot;System.Windows.Forms&quot;)
+
+from System.Windows.Forms import MessageBox
+MessageBox.Show(&quot;Hello World&quot;)
+</pre>
+</div>
+<div class="slide" id="framework-support">
+<h1>FrameWork Support</h1>
+<ul class="simple">
+<li>Numpy, and Scipy support via <a class="reference external" href="http://code.google.com/p/ironclad/">IronClad</a></li>
+<li><a class="reference external" href="https://bitbucket.org/jdhardy/django-ironpython/wiki/Run_the_Test_Suite">Django</a> on only with lot of hacks</li>
+</ul>
+</div>
+<div class="slide" id="example-applications">
+<h1>Example Applications</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://ironpython.net/try">http://ironpython.net/try</a></li>
+<li><a class="reference external" href="http://www.silverlight.net/learn/dynamic-languages/#example_applications">SilverLight Example Applications</a></li>
+<li>The Microsoft Robotics Kit</li>
+<li>XNA: 3D and Games Programming Framework</li>
+</ul>
+</div>
+<div class="slide" id="pypy">
+<h1>PyPy</h1>
+<p>PyPy is a Python Interpreter written in Python and it is a JIT Compiler. It
+focusses on Speed, Efficiency and 100% CPython compatibility.</p>
+<ul class="simple">
+<li>It is just your normal pure python code!</li>
+<li>Just run your existing pure python code against pypy interpreter.</li>
+</ul>
+<div class="handout container">
+<p>What is a Just in Time Compiler</p>
+<p>In the beginning, a compiler was responsible for turning a high-level language
+(defined as higher level than assembler) into object code (machine
+instructions), which would then be linked (by a linker) into an executable.</p>
+<p>At one point in the evolution of languages, compilers would compile a
+high-level language into pseudo-code, which would then be interpreted (by an
+interpreter) to run your program. This eliminated the object code and
+executables, and allowed these languages to be portable to multiple operating
+systems and hardware platforms. Pascal (which compiled to P-Code) was one of
+the first; Java and C# are more recent examples. Eventually the term P-Code was
+replaced with bytecode, since most of the pseudo-operations are a byte long.</p>
+<p>A Just-In-Time (JIT) compiler is a feature of the run-time interpreter, that
+instead of interpreting bytecode every time a method is invoked, will compile
+the bytecode into the machine code instructions of the running machine, and
+then invoke this object code instead. Ideally the efficiency of running object
+code will overcome the inefficiency of recompiling the program every time it
+runs.</p>
+<p>Details of PyPy</p>
+<p>Pypy includes a RPython translation toolchain, which translates RPython code to
+C code.PyPy is a framework for generating dynamic language implementations.
+PyPy is, in a sense, a toolbox for the creation of just-in-time compilers for
+dynamic languages; Python is just the start - but it's an interesting start.</p>
+<p>PyPy is ready for prime time; it implements the (Python 2.x) language
+faithfully, and it is <strong>fast</strong>.</p>
+<p>Pypy is an implementation of the Python 2.5 interpreter which is, itself,
+written in Python. One might thus expect it to be more elegant in its code than
+the standard, C-implemented interpreter (usually called CPython), but rather
+slower in its execution. If one runs PyPy under CPython, the result is indeed
+somewhat slow, but that is not how things are meant to be done. When running in
+its native mode, PyPy can be surprising.</p>
+<p>PyPy is actually written in a subset of Python called RPython (&quot;restricted
+Python&quot;). Many of the features and data types of Python are available, but
+there are rules. Variables are restricted to data of one type. Only built-in
+types can be used in for loops. There is no creation of classes or functions at
+run time, and the generator feature is not supported. And so on. The result is
+a version of the language which, while still clearly Python, looks a bit more
+like C.</p>
+<p>Running the RPython-based interpreter in CPython is supported; it is fully
+functional, if a bit slow. Running in this mode can be good for debugging. But
+the production version of PyPy is created in a rather different way: the PyPy
+hackers have created a multi-step compiler which is able to translate an
+RPython program into a lower-level language. That language might be C, in which
+case the result can be compiled and linked in the usual way. But the target
+language is not fixed; the translator is able to output code for the .NET or
+Java virtual machines as well. That means that the PyPy interpreter can be
+easily targeted to whatever runtime environment works best.</p>
+<p>It only runs on 32-bit x86 systems, it is described as &quot;memory-hungry,&quot; and
+Python 3 support seems to be a relatively distant goal.</p>
+<p>There are some other interesting features as well. There is a stackless Python
+mode which supports microthreaded, highly-concurrent applications. There is a
+sandboxed mode which intercepts all external library calls and hands them over
+to a separate policy daemon for authorization.</p>
+<p>What really catches your eye, though, is the concept of PyPy as a
+generalized compiler for the creation of JITs for high-level languages. The
+translation process is flexible, to the point that it can easily accommodate
+stackless mode, interesting optimizations, or experimentation with different
+language features. The object model can be (and has been) tweaked to support
+tainting and tracing features. And the system as a whole is not limited to the
+creation of JIT compilers for Python; projects are underway to implement a
+number of other languages, including Prolog, SmallTalk, and JavaScript.</p>
+<p>GIL is present in PyPy too.</p>
+<p>Modules built with cython (such as the excellent LXML bindings to libxml2)
+don't work with pypy.</p>
+<p>PyPy consists of a standard interpreter and a translator.</p>
+<p>The interpreter implements the full Python language in a restricted subset,
+called RPython (Restricted Python). Unlike standard Python, RPython is
+statically typed, to allow efficient compilation.[2]</p>
+<p>The translator is a tool chain that analyzes RPython code and translates it to
+a lower-level language, such as C, Java bytecode or Common Intermediate
+Language. It also allows for pluggable Garbage collectors as well as optionally
+enabling Stackless. Finally it includes a JIT generator which builds a
+just-in-time compiler into the interpreter, given a few annotations in the
+interpreter source code. The generated JIT compiler is a tracing JIT</p>
+<p>Supported backends</p>
+<p>C - the RPython code can be translated to C and run as a native program, and this is the standard operation mode;
+CLI - Common Language Interface;
+JVM - Java Virtual Machine;
+Python (programming language) - the PyPy interpreter can also be run on a Python interpreter, though extremely slowly, and this possibility is useful for debugging.
+As of 2010, PyPy has abandoned its JavaScript backend.</p>
+<p><a class="reference external" href="https://bitbucket.org/pypy/compatibility/wiki/Home">https://bitbucket.org/pypy/compatibility/wiki/Home</a>
+<a class="reference external" href="http://lwn.net/Articles/442268/">http://lwn.net/Articles/442268/</a> (General Introduction at the latest)
+<a class="reference external" href="http://wiki.python.org/moin/PyPy">http://wiki.python.org/moin/PyPy</a></p>
+<p>PyPy Website</p>
+<p>PyPy is a fast, compliant alternative implementation of the Python language
+(2.7.1). It has several advantages and distinct features:</p>
+<p>Speed: thanks to its Just-in-Time compiler, Python programs often run faster on
+PyPy. (What is a JIT compiler?)
+Memory usage: large, memory-hungry Python programs might end up taking less
+space than they do in CPython.
+Compatibility: PyPy is highly compatible with existing python code. It supports
+ctypes and can run popular python libraries like twisted and django.
+Sandboxing: PyPy provides the ability to run untrusted code in a fully secure way.
+Stackless: PyPy can be configured to run in stackless mode, providing
+micro-threads for massive concurrency.
+As well as other features.
+Download and try out the PyPy release 1.5!</p>
+<p>PyPy aims to provide a common translation and support framework for producing
+implementations of dynamic languages, emphasizing a clean separation between
+language specification and implementation aspects. It also aims to provide a
+compliant, flexible and fast implementation of the Python programming language
+using the above framework to enable new advanced features without having to
+encode low level details into it.</p>
+</div>
+</div>
+<div class="slide" id="pypy-architecture">
+<h1>PyPy Architecture</h1>
+<img alt="pypy1.jpg" class="align-center" src="pypy1.jpg" style="width: 800px; height: 600px;" />
+</div>
+<div class="slide" id="id1">
+<h1>PyPy Architecture</h1>
+<img alt="pypy2.png" class="align-center" src="pypy2.png" style="width: 800px; height: 600px;" />
+</div>
+<div class="slide" id="id2">
+<h1>PyPy Architecture</h1>
+<img alt="pypy3.png" class="align-center" src="pypy3.png" style="width: 800px; height: 600px;" />
+</div>
+<div class="slide" id="release">
+<h1>Release</h1>
+<ul class="simple">
+<li>CPython 2.7.1 compatible. It runs on 32- and 64-bit Intel x86 architecture and includes a JIT compiler.</li>
+</ul>
+</div>
+<div class="slide" id="framework-compatiblity">
+<h1>Framework Compatiblity</h1>
+<ul class="simple">
+<li>A plenty. Pylons, Pyglet, Nevow and Django.</li>
+<li>Almost anything that does not involve ctypes module.</li>
+<li>Tkinter and IDLE with PyPy</li>
+<li>Numpy integration is in progress.</li>
+</ul>
+</div>
+<div class="slide" id="id3">
+<h1>Performance</h1>
+<img alt="pypy4.png" class="align-center" src="pypy4.png" style="width: 800px; height: 600px;" />
+</div>
+<div class="slide" id="speed-speed-speed">
+<h1>Speed,Speed,Speed</h1>
+<ul class="simple">
+<li>It's all about Speed.</li>
+</ul>
+<p><a class="reference external" href="http://speed.pypy.org/">http://speed.pypy.org/</a></p>
+</div>
+<div class="slide" id="gil">
+<h1>GIL</h1>
+<ul class="simple">
+<li>Removing GIL using Software Transactional Memory.</li>
+</ul>
+</div>
+<div class="slide" id="the-future">
+<h1>The Future</h1>
+<ul class="simple">
+<li>It's Python Language!</li>
+<li>Choose the implementation which suits you most</li>
+<li>Work alongside other languages and frameworks.</li>
+</ul>
+<div class="handout container">
+<p>This presentation gives overview of State of Python Language and it's
+reference implementation as of August, 2011.</p>
+<p>GCC Python Plugin</p>
+<ul class="simple">
+<li>Implemented by David Malcolm.</li>
+</ul>
+<p>PyPy and STL</p>
+<p>&quot;Personally, I'm not holding my breath, because STM in other areas has
+so far captured many imaginations without bringing practical results
+(I keep hearing about it as this promising theory that needs more work
+to implement, sort-of like String Theory in theoretical physics).
+But I'm also not denying that Armin Rigo has a brain the size of the
+planet, and PyPy <em>has</em> already made much real, practical progress.  &quot;
+--Guido van Rossum (python.org/~guido)</p>
+<p>Cython</p>
+<p>Cython is a pretty cool tool in itself, well worth learning, and is
+surprisingly close to the Python syntax. If you do any scientific computing
+with Numpy, then Cython is the way to go because it integrates with Numpy
+for fast matrix operations.</p>
+<p>Cython is a superset of Python language. You can throw any valid Python
+file at it, and it will spit out a valid C program. In this case, Cython
+will just map the Python calls to the underlying CPython API. This results
+in perhaps a 50% speedup because your code is no longer interpreted.</p>
+<p>To get some optimizations, you have to start telling Cython additional
+facts about your code, such as type declarations. If you tell it enough, it
+can boil the code down to pure C. That is, a for loop in Python becomes a
+for loop in C.  Here you will see massive speed gains. You can also link to
+external C programs here.</p>
+<p>Using Cython code is also incredibly easy. I thought the manual makes it
+sound difficult. You literally just do:</p>
+<p>$ cython mymodule.pyx
+$ gcc [some arguments here] mymodule.c -o mymodule.so</p>
+<p>and then you can import mymodule in your Python code and forget entirely
+that it compiles down to C.</p>
+<p>In any case, because Cython is so easy to setup and start using, I suggest
+trying it to see if it suits your needs. It won't be a waste if it turns
+out not to be the tool you're looking for.</p>
+<p><a class="reference external" href="http://docs.cython.org/src/userguide/limitations.html">http://docs.cython.org/src/userguide/limitations.html</a></p>
+<p>I almost always recommend Cython over ctypes. The reason is that it has a
+much smoother upgrade path. If you use ctypes, many things will be simple
+at first, and it's certainly cool to write your FFI code in plain Python,
+without compilation, build dependencies and all that. However, at some
+point, you will almost certainly find that you have to call into your C
+library a lot, either in a loop or in a longer series of interdependent
+calls, and you would like to speed that up. That's the point where you'll
+notice that you can't do that with ctypes. Or, when you need callback
+functions and you find that your Python callback code becomes a bottleneck,
+you'd like to speed it up and/or move it down into C as well. Again, you
+cannot do that with ctypes. So you have to switch languages at that point
+and start rewriting parts of your code, potentially reverse engineering
+your Python/ctypes code into plain C, thus spoiling the whole benefit of
+writing your code in plain Python in the first place.</p>
+<p>With Cython, OTOH, you're completely free to make the wrapping and calling
+code as thin or thick as you want. You can start with simple calls into
+your C code from regular Python code, and Cython will translate them into
+native C calls, without any additional calling overhead, and with an
+extremely low conversion overhead for Python parameters. When you notice
+that you need even more performance at some point where you are making too
+many expensive calls into your C library, you can start annotating your
+surrounding Python code with static types and let Cython optimise it
+straight down into C for you. Or, you can start rewriting parts of your C
+code in Cython in order to avoid calls and to specialise and tighten your
+loops algorithmically. And if you need a fast callback, just write a
+function with the appropriate signature and pass it into the C callback
+registry directly. Again, no overhead, and it gives you plain C calling
+performance. And in the much less likely case that you really cannot get
+your code fast enough in Cython, you can still consider rewriting the truly
+critical parts of it in C (or C++ or Fortran) and call it from your Cython
+code naturally and natively. But then, this really becomes the last resort
+instead of the only option.</p>
+<p>So, ctypes is nice to do simple things and to quickly get something
+running.  However, as soon as things start to grow, you'll most likely come
+to the point where you notice that you'd better used Cython right from the
+start.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

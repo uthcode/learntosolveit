@@ -1,0 +1,58 @@
+PyCon Asia-Pacific
+==================
+
+Name of the Presenter: O.R.Senthil Kumaran
+
+Title of the Talk:  State of CPython and Python Ecosystem.
+
+Description of the Talk:
+
+This a high level overview of the State of CPython interpreter and other python interpreters.
+
+State of Cpython interpreter.
+- Major changes in the language in 3.2 release.
+- Major changes which are coming up in 3.3 release.
+- State of Python 2.7 
+
+State of PyPy interpreter
+- Features in release PyPy release 1.4
+- It's compatibility with CPython.
+- It's interesting performance enhancements in recent times. 
+- Where is PyPy heading towards?
+
+IronPython Interpreter
+- IronPython 2.7 release.
+- State of IronPython.
+
+State of Jython Interpreter
+- Jython release. 2.5.4
+- Developments in the Jython world
+
+References
+==========
+
+* http://speed.pypy.org
+
+Category tag
+============
+python
+python3
+pypy
+jython
+ironpython
+
+Difficulty Level
+================
+Intermediate
+
+Permission to Record the talk
+=============================
+
+Yes
+
+Personal Details of the Presenter
+=================================
+
+Senthil Kumaran is a Python Core developer and maintainer of Internet protocol
+related libraries in Python Stadard Library. http://www.uthcode.com is his
+programming site.

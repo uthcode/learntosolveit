@@ -1,0 +1,52 @@
+== CPython 3.1.1+ (release31-maint:76290:76291) ==
+== x86_64 Linux on '' ==
+
+--- Throughput ---
+
+Pi calculation (Python)
+
+threads=1: 1168 iterations/s.
+threads=2: 959 ( 82 %)
+threads=3: 962 ( 82 %)
+threads=4: 926 ( 79 %)
+
+regular expression (C)
+
+threads=1: 392 iterations/s.
+threads=2: 372 ( 95 %)
+threads=3: 363 ( 92 %)
+threads=4: 358 ( 91 %)
+
+bz2 compression (C)
+
+threads=1: 545 iterations/s.
+threads=2: 1003 ( 184 %)
+threads=3: 1027 ( 188 %)
+threads=4: 1027 ( 188 %)
+
+--- Latency ---
+
+Background CPU task: Pi calculation (Python)
+
+CPU threads=0: 0 ms. (std dev: 2 ms.)
+CPU threads=1: 0 ms. (std dev: 0 ms.)
+CPU threads=2: 0 ms. (std dev: 1 ms.)
+CPU threads=3: 0 ms. (std dev: 1 ms.)
+CPU threads=4: 0 ms. (std dev: 1 ms.)
+
+Background CPU task: regular expression (C)
+
+CPU threads=0: 0 ms. (std dev: 0 ms.)
+CPU threads=1: 52 ms. (std dev: 29 ms.)
+CPU threads=2: 948 ms. (std dev: 574 ms.)
+CPU threads=3: 1041 ms. (std dev: 577 ms.)
+CPU threads=4: 836 ms. (std dev: 418 ms.)
+
+Background CPU task: bz2 compression (C)
+
+CPU threads=0: 0 ms. (std dev: 0 ms.)
+CPU threads=1: 0 ms. (std dev: 0 ms.)
+CPU threads=2: 0 ms. (std dev: 0 ms.)
+CPU threads=3: 0 ms. (std dev: 0 ms.)
+CPU threads=4: 0 ms. (std dev: 0 ms.)
+
