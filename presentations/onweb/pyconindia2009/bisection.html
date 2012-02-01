@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bisect module &mdash; PyCon India 2009 - Algorithms in Python 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon India 2009 - Algorithms in Python 0.1 documentation" href="index.html" />
+    <link rel="next" title="Run time Analysis" href="runtimeanalysis.html" />
+    <link rel="prev" title="Bubble Sort" href="bubble.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon India 2009 - Algorithms in Python 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>bisect module</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="bubble.html">Bubble Sort</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="runtimeanalysis.html">Run time Analysis</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="bisect-module">
+<h1>bisect module<a class="headerlink" href="#bisect-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="inserting-elements-into-a-list-in-a-sorted-order">
+<h2>Inserting elements into a list in a sorted order.<a class="headerlink" href="#inserting-elements-into-a-list-in-a-sorted-order" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="this-can-be-much-more-efficient-than-repeatedly-sorting-a-list">
+<h2>This can be much more efficient than repeatedly sorting a list<a class="headerlink" href="#this-can-be-much-more-efficient-than-repeatedly-sorting-a-list" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="or-explicitly-sorting-a-large-list-after-it-is-constructed">
+<h2>Or Explicitly sorting a large list after it is constructed.<a class="headerlink" href="#or-explicitly-sorting-a-large-list-after-it-is-constructed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The bisect module implements an algorithm for inserting elements into a list in</span>
+<span class="sd">sorted order. This can be much more efficient than repeatedly sorting a list or</span>
+<span class="sd">explicitly sorting a large list after it is constructed.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">bisect</span>
+
+<span class="k">def</span> <span class="nf">bisectionsort</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">resultant</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">resultant</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span>
+        <span class="n">bisect</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">resultant</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultant</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="bubble.html">Bubble Sort</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="runtimeanalysis.html">Run time Analysis</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, O.R.Senthil Kumaran, &lt;orsenthil@gmail.com&gt;.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

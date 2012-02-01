@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Representing Graphs &mdash; PyCon India 2009 - Algorithms in Python 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon India 2009 - Algorithms in Python 0.1 documentation" href="index.html" />
+    <link rel="next" title="Path Finding Algorithms" href="pathfinding.html" />
+    <link rel="prev" title="Python’s Internal Sort" href="timsort.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon India 2009 - Algorithms in Python 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Representing Graphs</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="timsort.html">Python&#8217;s Internal Sort</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="pathfinding.html">Path Finding Algorithms</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="representing-graphs">
+<h1>Representing Graphs<a class="headerlink" href="#representing-graphs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="graphs-are-basically-dictionaries-with-keys-as-nodes-and-values-as-the-connected-nodes">
+<h2>Graphs are basically dictionaries with keys as nodes and values as the connected nodes.<a class="headerlink" href="#graphs-are-basically-dictionaries-with-keys-as-nodes-and-values-as-the-connected-nodes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="directed-graph-can-also-be-reprented-as-class-with-common-graph-operations-as-methods">
+<h2>Directed Graph can also be reprented as class. With common graph operations as methods<a class="headerlink" href="#directed-graph-can-also-be-reprented-as-class-with-common-graph-operations-as-methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="directed-graph">
+<h2>Directed Graph<a class="headerlink" href="#directed-graph" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/ugraph.jpg" src="_images/ugraph.jpg" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">H</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;C&#39;</span><span class="p">,</span><span class="s">&#39;D&#39;</span><span class="p">],</span>
+     <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span><span class="s">&#39;D&#39;</span><span class="p">],</span>
+     <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">,</span><span class="s">&#39;E&#39;</span><span class="p">],</span>
+     <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;E&#39;</span><span class="p">],</span>
+     <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="weighted-graph">
+<h2>Weighted Graph<a class="headerlink" href="#weighted-graph" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/wgraph.jpg" src="_images/wgraph.jpg" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">W</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;A&#39;</span><span class="p">:{</span><span class="s">&#39;C&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;D&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">},</span>
+     <span class="s">&#39;B&#39;</span><span class="p">:{</span><span class="s">&#39;A&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s">&#39;D&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">},</span>
+     <span class="s">&#39;C&#39;</span><span class="p">:{</span><span class="s">&#39;E&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">&#39;D&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">},</span>
+     <span class="s">&#39;D&#39;</span><span class="p">:{</span><span class="s">&#39;E&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">},</span>
+     <span class="s">&#39;E&#39;</span><span class="p">:{}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="graph-class">
+<h2>Graph Class<a class="headerlink" href="#graph-class" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span>
+
+    <span class="k">def</span> <span class="nf">V</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">Adj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="timsort.html">Python&#8217;s Internal Sort</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="pathfinding.html">Path Finding Algorithms</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, O.R.Senthil Kumaran, &lt;orsenthil@gmail.com&gt;.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

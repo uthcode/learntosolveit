@@ -9,3 +9,7 @@ Uthcode Presentations
 
 Enjoy the following presentations.
 
+
+* Network Libraries in Python
+
+* Algorithms using Python

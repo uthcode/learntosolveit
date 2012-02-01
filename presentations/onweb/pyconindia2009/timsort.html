@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python’s Internal Sort &mdash; PyCon India 2009 - Algorithms in Python 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon India 2009 - Algorithms in Python 0.1 documentation" href="index.html" />
+    <link rel="next" title="Representing Graphs" href="graph.html" />
+    <link rel="prev" title="Run time Analysis" href="runtimeanalysis.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon India 2009 - Algorithms in Python 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Python’s Internal Sort</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="runtimeanalysis.html">Run time Analysis</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="graph.html">Representing Graphs</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="python-s-internal-sort">
+<h1>Python&#8217;s Internal Sort<a class="headerlink" href="#python-s-internal-sort" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="timsort">
+<h2>timsort<a class="headerlink" href="#timsort" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="exploits-the-patterns-in-data-wickedly-fast-on-partially-or-already-sorted-list">
+<h2>Exploits the patterns in data, Wickedly fast on partially or already sorted list.<a class="headerlink" href="#exploits-the-patterns-in-data-wickedly-fast-on-partially-or-already-sorted-list" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="non-recursive-adaptive-stable-natural-mergesort-binary-insertion-sort-hybrid">
+<h2>non-recursive adaptive stable natural mergesort / binary insertion sort hybrid<a class="headerlink" href="#non-recursive-adaptive-stable-natural-mergesort-binary-insertion-sort-hybrid" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="in-a-nutshell-the-main-routine-marches-over-the-array-once-left-to-right-alternately-identifying-the-next-run-then-merging-it-into-the-previous-runs-intelligently">
+<h2>In a nutshell, the main routine marches over the array once, left to right, alternately identifying the next run, then merging it into the previous runs &#8220;intelligently&#8221;.<a class="headerlink" href="#in-a-nutshell-the-main-routine-marches-over-the-array-once-left-to-right-alternately-identifying-the-next-run-then-merging-it-into-the-previous-runs-intelligently" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="java-s-sort-modified-to-use-timsort">
+<h2>Java&#8217;s sort modified to use timsort.<a class="headerlink" href="#java-s-sort-modified-to-use-timsort" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="runtimeanalysis.html">Run time Analysis</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="graph.html">Representing Graphs</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, O.R.Senthil Kumaran, &lt;orsenthil@gmail.com&gt;.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

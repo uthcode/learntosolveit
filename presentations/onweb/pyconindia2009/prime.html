@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Numbers, Prime Numbers. &mdash; PyCon India 2009 - Algorithms in Python 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon India 2009 - Algorithms in Python 0.1 documentation" href="index.html" />
+    <link rel="next" title="To Sort or Not to Sort." href="sorting.html" />
+    <link rel="prev" title="Algorithm Analysis" href="analysis.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon India 2009 - Algorithms in Python 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Numbers, Prime Numbers.</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="analysis.html">Algorithm Analysis</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sorting.html">To Sort or Not to Sort.</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="numbers-prime-numbers">
+<h1>Numbers, Prime Numbers.<a class="headerlink" href="#numbers-prime-numbers" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Does that sound <em>Bond, James Bond.</em>  Prime numbers are indeed James Bond of Numbers.</li>
+<li>Let us start with a simple algorithm and look at the python code.</li>
+</ul>
+<div class="section" id="prime-numbers-have-exactly-two-factors-1-and-itself">
+<h2>Prime Numbers have exactly two factors 1 and itself.<a class="headerlink" href="#prime-numbers-have-exactly-two-factors-1-and-itself" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="eratosthenes-invented-a-sieve-that-would-drain-out-composite-numbers-and-give-the-primes">
+<h2>Eratosthenes invented a sieve that would drain out composite numbers and give the primes.<a class="headerlink" href="#eratosthenes-invented-a-sieve-that-would-drain-out-composite-numbers-and-give-the-primes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">eratosthenes</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Yields the sequence of prime numbers via the Sieve of Eratosthenes.&#39;&#39;&#39;</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">p</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span>
+            <span class="k">while</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="n">p</span>
+            <span class="n">D</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">D</span><span class="p">[</span><span class="n">q</span><span class="o">*</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">q</span>
+            <span class="k">yield</span> <span class="n">q</span>
+        <span class="n">q</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Credits: David Eppstein, Alex Martelli</p>
+</div>
+<div class="section" id="this-is-an-interesting-algorithm-it-is-maintaining-a-dictionary-of-the-nearest-composite-numbers-and-the-smallest-prime">
+<h2>This is an interesting algorithm. It is maintaining a dictionary of the nearest composite numbers and the smallest prime.<a class="headerlink" href="#this-is-an-interesting-algorithm-it-is-maintaining-a-dictionary-of-the-nearest-composite-numbers-and-the-smallest-prime" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="you-may-want-to-print-out-the-variables-at-diffent-point-to-see-it-if-you-dont-get-it-in-the-first-shot">
+<h2>You may want to print out the variables at diffent point to see it (If you dont get it in the first shot)<a class="headerlink" href="#you-may-want-to-print-out-the-variables-at-diffent-point-to-see-it-if-you-dont-get-it-in-the-first-shot" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="analysis.html">Algorithm Analysis</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sorting.html">To Sort or Not to Sort.</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, O.R.Senthil Kumaran, &lt;orsenthil@gmail.com&gt;.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
