@@ -385,14 +385,15 @@ This presentation gives an overview of Pylons web development framework.</div>
 <li><a class="reference internal" href="#project-template" id="id11">Project Template</a></li>
 <li><a class="reference internal" href="#contoller" id="id12">Contoller</a></li>
 <li><a class="reference internal" href="#template" id="id13">Template</a></li>
-<li><a class="reference internal" href="#underlying-stuff" id="id14">Underlying stuff</a></li>
-<li><a class="reference internal" href="#routes" id="id15">Routes</a></li>
-<li><a class="reference internal" href="#templates" id="id16">Templates</a></li>
-<li><a class="reference internal" href="#database" id="id17">Database</a></li>
-<li><a class="reference internal" href="#wsgi-standards" id="id18">WSGI Standards</a></li>
-<li><a class="reference internal" href="#paste" id="id19">Paste</a></li>
-<li><a class="reference internal" href="#id4" id="id20">Pylons</a></li>
-<li><a class="reference internal" href="#pylons-resources" id="id21">Pylons Resources</a></li>
+<li><a class="reference internal" href="#specify-route" id="id14">Specify Route</a></li>
+<li><a class="reference internal" href="#underlying-stuff" id="id15">Underlying stuff</a></li>
+<li><a class="reference internal" href="#routes" id="id16">Routes</a></li>
+<li><a class="reference internal" href="#templates" id="id17">Templates</a></li>
+<li><a class="reference internal" href="#database" id="id18">Database</a></li>
+<li><a class="reference internal" href="#wsgi-standards" id="id19">WSGI Standards</a></li>
+<li><a class="reference internal" href="#paste" id="id20">Paste</a></li>
+<li><a class="reference internal" href="#id4" id="id21">Pylons</a></li>
+<li><a class="reference internal" href="#pylons-resources" id="id22">Pylons Resources</a></li>
 </ul>
 </div>
 
@@ -515,6 +516,16 @@ Your environ looks like ${request.environ}
 <ul class="simple">
 <li>Update Controller to render template</li>
 </ul>
+</div>
+<div class="slide" id="specify-route">
+<h1>Specify Route</h1>
+<ul class="simple">
+<li>Edit config/routing.py</li>
+</ul>
+<pre class="literal-block">
+# CUSTOM ROUTES HERE
+map.connect('/', controller='hello', action='index')
+</pre>
 </div>
 <div class="slide" id="underlying-stuff">
 <h1>Underlying stuff</h1>
