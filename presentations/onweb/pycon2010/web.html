@@ -1,0 +1,137 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Web Programming &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="index.html" />
+    <link rel="next" title="Unit test - Super Cool stuff" href="unittest.html" />
+    <link rel="prev" title="Network Programming" href="network.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Web Programming</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="network.html">Network Programming</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="unittest.html">Unit test - Super Cool stuff</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="web-programming">
+<h1>Web Programming<a class="headerlink" href="#web-programming" title="Permalink to this headline">¶</a></h1>
+<p>urllib module is available for doing a variety of web-related stuff.</p>
+<p>urllib.request - request an url.
+urllib.parse   - parse an url.
+urllib.error   - handle errors
+urllib.robotparser - handles robots.txt file.</p>
+<div class="section" id="example-of-smart-redirect-handler">
+<h2>Example of  Smart Redirect Handler<a class="headerlink" href="#example-of-smart-redirect-handler" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+
+<span class="k">class</span> <span class="nc">SmartRedirectHandler</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPRedirectHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">http_error_302</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPRedirectHandler</span><span class="o">.</span><span class="n">http_error_302</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span>
+                                                                 <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span>
+                                                                 <span class="n">headers</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">code</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s">&quot;http://localhost/index.html&quot;</span><span class="p">)</span>
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">SmartRedirectHandler</span><span class="p">())</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;I capture the http redirect code:&#39;</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">status</span>
+<span class="k">print</span> <span class="s">&#39;Its been redirected to:&#39;</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="urllib-basic-authentication-example">
+<h2>urllib - basic authentication example<a class="headerlink" href="#urllib-basic-authentication-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span> <span class="nn">urllib.error</span><span class="o">,</span> <span class="nn">urllib.parse</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s">&#39;http://localhost/basic.html&#39;</span> 
+
+<span class="n">ah</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">HTTPBasicAuthHandler</span><span class="p">()</span>
+<span class="n">ah</span><span class="o">.</span><span class="n">add_password</span><span class="p">(</span><span class="s">&#39;Realm&#39;</span><span class="p">,</span><span class="s">&#39;http://localhost/&#39;</span><span class="p">,</span><span class="s">&#39;senthil&#39;</span><span class="p">,</span><span class="s">&#39;senthil&#39;</span><span class="p">)</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">ah</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="urllib-digest-authentication-example">
+<h2>urllib - digest authentication example<a class="headerlink" href="#urllib-digest-authentication-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span> <span class="nn">urllib.error</span><span class="o">,</span> <span class="nn">urllib.parse</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s">&#39;http://livejournal.com/users/phoe6/data/rss?auth=digest&#39;</span> 
+
+<span class="n">ah</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">HTTPDigestAuthHandler</span><span class="p">()</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">()</span>
+<span class="n">ah</span><span class="o">.</span><span class="n">add_password</span><span class="p">(</span><span class="s">&#39;lj&#39;</span><span class="p">,</span><span class="s">&#39;http://phoe6.livejournal.com/&#39;</span><span class="p">,</span><span class="s">&#39;phoe6&#39;</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">ah</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="network.html">Network Programming</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="unittest.html">Unit test - Super Cool stuff</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

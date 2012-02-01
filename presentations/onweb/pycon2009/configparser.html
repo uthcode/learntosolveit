@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>configparser &mdash; PyCon 2009 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 1 documentation" href="index.html" />
+    <link rel="next" title="Python Shortcuts" href="shortcuts.html" />
+    <link rel="prev" title="unittest" href="unittest.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 1 documentation</span></a></h1>
+        <h2 class="heading"><span>configparser</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="unittest.html">unittest</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="shortcuts.html">Python Shortcuts</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="configparser">
+<h1>configparser<a class="headerlink" href="#configparser" title="Permalink to this headline">¶</a></h1>
+<p>The configparser module reads configuration files.The files should be written
+in a format similar to Windows INI files.  The file contains one or more
+sections, separated by section names written in brackets. Each section can
+contain one or more configuration items.</p>
+<div class="section" id="changes-in-python-3k">
+<h2>Changes in Python 3k<a class="headerlink" href="#changes-in-python-3k" title="Permalink to this headline">¶</a></h2>
+<p>The ConfigParser module has been renamed to configparser in Python 3.0. The
+2to3 tool will automatically adapt imports when converting your sources to 3.0.</p>
+</div>
+<div class="section" id="reading-a-configfile">
+<h2>Reading a configfile<a class="headerlink" href="#reading-a-configfile" title="Permalink to this headline">¶</a></h2>
+<p>Class RawConfigParser and its subclass ConfigParser, provides the basic
+configuration object.</p>
+<p>The sections of the configuration object can be accessed through the object&#8217;s
+<cite>sections()</cite> method, the options for each section is availble through object&#8217;s
+<cite>options(section)</cite> method.  and config value can be accessed through object&#8217;s,
+<cite>get(section,option)</cite>.</p>
+<p>The following example demonstrates the concepts which were discussed.</p>
+<div class="highlight-python"><pre>[book]
+title = THE ADVENTURES OF TINTIN
+autor = HERGE
+language = English
+
+[cost]
+Euro = 12.99
+INR = 600
+</pre>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ConfigParser</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;config1.ini&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">sections</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(</span><span class="n">option</span><span class="p">),</span> <span class="s">&quot; = &quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-to-a-configfile">
+<h2>Writing to a configfile<a class="headerlink" href="#writing-to-a-configfile" title="Permalink to this headline">¶</a></h2>
+<p>RawConfigParser object can be used to write Configuration files.  When adding
+sections or items, add them in the reverse order of how you want them to be
+displayed in the actual file.  In addition, please note that using
+RawConfigParser&#8217;s and the raw mode of ConfigParser&#8217;s respective set functions,
+you can assign non-string values to keys internally, but will receive an error
+when attempting to write to a file or when you get it in non-raw mode.
+SafeConfigParser does not allow such assignments to take place.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ConfigParser</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;15&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;true&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;3.1415&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">,</span> <span class="s">&#39;fun&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;Python&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;</span><span class="si">%(bar)s</span><span class="s"> is </span><span class="si">%(baz)s</span><span class="s">!&#39;</span><span class="p">)</span>
+
+<span class="c"># Writing our configuration file to &#39;example.cfg&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;example.cfg&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">configfile</span><span class="p">:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configfile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Configfile generated using this example</p>
+<div class="highlight-python"><pre>[Section1]
+bar = Python
+int = 15
+float = 3.1415
+baz = fun
+bool = true
+foo = %(bar)s is %(baz)s!
+
+</pre>
+</div>
+</div>
+<div class="section" id="reading-the-configfile-with-value-types-and-interpolation">
+<h2>Reading the configfile with value types and interpolation<a class="headerlink" href="#reading-the-configfile-with-value-types-and-interpolation" title="Permalink to this headline">¶</a></h2>
+<p>An example of reading the configuration file again.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ConfigParser</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;example.cfg&#39;</span><span class="p">)</span>
+
+<span class="c"># getfloat() raises an exception if the value is not a float</span>
+<span class="c"># getint() and getboolean() also do this for their respective types</span>
+<span class="nb">float</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">)</span>
+<span class="nb">int</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">float</span> <span class="o">+</span> <span class="nb">int</span>
+
+<span class="c"># Notice that the next output does not interpolate &#39;%(bar)s&#39; or &#39;%(baz)s&#39;.</span>
+<span class="c"># This is because we are using a RawConfigParser().</span>
+<span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Note that getint and getfloat return respective value types.</li>
+<li>Also RawConfigParser() does not interpolate the option values, so the output
+will still be <tt class="docutils literal"><span class="pre">%(bar)s'</span> <span class="pre">or</span> <span class="pre">'%(baz)s</span></tt></li>
+<li>To get the output value interpolation (That is substition of option values at
+places denoted), use use a ConfigParser or SafeConfigParser and the third
+argument default 0 signifies interpolation and 1 indicates raw mode. There is
+a fourth argument possible, taking a dict which will take higher precedence
+to interpolation.</li>
+</ul>
+<p>The following example demonstrates these concepts well.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ConfigParser</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;example.cfg&#39;</span><span class="p">)</span>
+
+<span class="c"># Set the third, optional argument of get to 1 if you wish to use raw mode.</span>
+<span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c"># -&gt; &quot;Python is fun!&quot;</span>
+<span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c"># -&gt; &quot;%(bar)s is %(baz)s!&quot;</span>
+
+<span class="c"># The optional fourth argument is a dict with members that will take</span>
+<span class="c"># precedence in interpolation.</span>
+<span class="k">print</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;Section1&#39;</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="s">&#39;Documentation&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;baz&#39;</span><span class="p">:</span> <span class="s">&#39;evil&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="unittest.html">unittest</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="shortcuts.html">Python Shortcuts</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

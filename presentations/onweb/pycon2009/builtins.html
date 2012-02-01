@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>builtin modules &mdash; PyCon 2009 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 1 documentation" href="index.html" />
+    <link rel="next" title="os module" href="os_module.html" />
+    <link rel="prev" title="Diving In" href="divein.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 1 documentation</span></a></h1>
+        <h2 class="heading"><span>builtin modules</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="divein.html">Diving In</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="os_module.html">os module</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="builtin-modules">
+<h1>builtin modules<a class="headerlink" href="#builtin-modules" title="Permalink to this headline">¶</a></h1>
+<p>Let us start with the __builtin__ functions and exceptions which Python
+Standard Library defines.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;import __builtin__</span>
+<span class="go">&gt;&gt;&gt;dir(__builtin__)</span>
+</pre></div>
+</div>
+<div class="section" id="all">
+<h2>all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h2>
+<p>This would list the various functions and exceptions that are available to the interpreter.
+Let us look into certain important ones:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="any">
+<h2>any<a class="headerlink" href="#any" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="callable-object">
+<h2>callable(object)<a class="headerlink" href="#callable-object" title="Permalink to this headline">¶</a></h2>
+<p>Return True if the object argument appears callable, False if not. If this
+returns true, it is still possible that a call fails, but if it is false,
+calling object will never succeed. Note that classes are callable (calling a
+class returns a new instance); class instances are callable if they have a
+__call__() method.</p>
+</div>
+<div class="section" id="staticmethod">
+<h2>staticmethod<a class="headerlink" href="#staticmethod" title="Permalink to this headline">¶</a></h2>
+<p>In Object Oriented Programming, you create a method which gets associated
+either with  a class or with an instance of the class, namely an object.  This
+is concept is the first thing to understand.</p>
+<p>And most often in our regular practice, we always create methods to be
+associated with an object. Those are called instance methods.</p>
+<p>For e.g:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">cartype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="s">&quot;Audi&quot;</span>
+<span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">mycar</span><span class="o">.</span><span class="n">cartype</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+</pre></div>
+</div>
+<p>Here cartype() is an instance method, it associates itself with an instance
+(mycar) of the class (Car) and that is defined by the first argument (&#8216;self&#8217;).</p>
+<p>When you want a method not to be associated with an instance, you call that as
+a staticmethod.</p>
+<p>How can you do such a thing in Python?</p>
+<p>The following would never work:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">getmodel</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Because, getmodel() is defined inside the class, Python binds it to the Class Object.
+You cannot call it by the following way also, namely: Car.getmodel()  or
+Car().getmodel() , because in this case we are passing it through an instance (
+Class Object or a Instance Object) as one of the argument while our definition
+does not take any argument.</p>
+<p>As you can see, there is a conflict here and in effect the case is, It is an
+&#8220;unbound local method&#8221; inside the class.</p>
+<p>Now comes Staticmethod.</p>
+<p>Now, in order to call getmodel(), you can to change it to a static method.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="n">getmodel</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">getmodel</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">cartype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Car</span><span class="o">.</span><span class="n">getmodel</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">cartype</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+<span class="go">&#39;Audi&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Now, I have called it as Car.getmodel() even though my definition of getmodel
+did not take any argument. This is what staticmethod function did.  getmodel()
+is a method which does not need an instance now, but still you do it as
+Car.getmodel() because getmodel() is still bound to the Class object.</p>
+</div>
+<div class="section" id="decorators">
+<h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
+<p>getmodel = staticmethod(getmodel)</p>
+<p>If you look at the previous code example, the function staticmethod took a
+function as a argument and returned a function which we assigned to a variable
+(named as SAME functionname) and made it a function. Correct?</p>
+<p>staticmethod() function thus wrapped our getmodel function with some extra
+features and this wrapping is called as Decorator.</p>
+<p>The same code can be written like this.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nd">@staticmethod</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">cartype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Car</span><span class="o">.</span><span class="n">getmodel</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">cartype</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+<span class="go">&#39;Audi&#39;</span>
+</pre></div>
+</div>
+<p>Good reference on Decorators would be:
+<a class="reference external" href="http://personalpages.tds.net/~kent37/kk/00001.html">http://personalpages.tds.net/~kent37/kk/00001.html</a></p>
+<p>Please remember that this concept of Decorator is independent of staticmethod
+and classmethod.</p>
+</div>
+<div class="section" id="classmethod">
+<h2>classmethod<a class="headerlink" href="#classmethod" title="Permalink to this headline">¶</a></h2>
+<p>Now, what is a difference between staticmethod and classmethod?</p>
+<p>In languages like Java,C++, both the terms denote the same :- methods for which
+we do not require instances. But there is a difference in Python. A class
+method receives the class it was called on as the first argument. This can be
+useful with subclasses.</p>
+<p>We can see the above example with the classmethod and a decorator as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nd">@classmethod</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">getmodel</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s">&quot;Audi&quot;</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">gettype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Car</span><span class="o">.</span><span class="n">getmodel</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">gettype</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycar</span><span class="o">.</span><span class="n">model</span>
+<span class="go">&#39;Audi&#39;</span>
+</pre></div>
+</div>
+<p>The following are the references in order to understand further:
+1) Alex-Martelli explaining it with code: <a class="reference external" href="http://code.activestate.com/recipes/52304/">http://code.activestate.com/recipes/52304/</a>
+2)  Decorators: <a class="reference external" href="http://personalpages.tds.net/~kent37/kk/00001.html">http://personalpages.tds.net/~kent37/kk/00001.html</a></p>
+</div>
+<div class="section" id="ellipsis">
+<h2>ellipsis<a class="headerlink" href="#ellipsis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>ellipsis is another builtin. It is only used in slicing.</li>
+</ul>
+</div>
+<div class="section" id="property">
+<h2>property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;---- First Section ----&quot;</span>
+
+<span class="k">class</span> <span class="nc">Name</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;PyCon 2009&quot;</span>
+    <span class="k">def</span> <span class="nf">confname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+<span class="n">conference</span> <span class="o">=</span> <span class="n">Name</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">conference</span><span class="o">.</span><span class="n">confname</span>
+<span class="k">print</span> <span class="n">conference</span><span class="o">.</span><span class="n">confname</span><span class="p">()</span>
+
+
+<span class="k">print</span> <span class="s">&quot;---- Second Section ----&quot;</span>
+
+<span class="k">class</span> <span class="nc">Name2</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;PyCon 2009&quot;</span>
+
+    <span class="k">def</span> <span class="nf">confname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="n">confname</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">confname</span><span class="p">)</span>
+
+<span class="n">conference2</span> <span class="o">=</span> <span class="n">Name2</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">conference2</span><span class="o">.</span><span class="n">confname</span>
+
+<span class="c"># print conference2.confname() is not possible, because it is an attribute and</span>
+<span class="c"># not callable.</span>
+
+<span class="k">print</span> <span class="s">&quot;---- Third Section ----&quot;</span>
+
+<span class="k">class</span> <span class="nc">Name3</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;PyCon 2009&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">confname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+
+<span class="n">conference3</span> <span class="o">=</span> <span class="n">Name3</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">conference3</span><span class="o">.</span><span class="n">confname</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="super">
+<h2>super<a class="headerlink" href="#super" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;A init&quot;</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;B init&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;C init&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;D init&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;A init&quot;</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__mro__</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;B init&quot;</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__mro__</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;C init&quot;</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__mro__</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;D init&quot;</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__mro__</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Farm</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;I am from Farm&quot;</span>
+
+<span class="k">class</span> <span class="nc">Barm</span><span class="p">(</span><span class="n">Farm</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Barm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Barm</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">obj</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Farm</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;I am from Farm&quot;</span>
+
+<span class="k">class</span> <span class="nc">Barm</span><span class="p">(</span><span class="n">Farm</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Farm</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Barm</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">obj</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile">
+<h2>compile<a class="headerlink" href="#compile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">source</span> <span class="o">=</span> <span class="s">&quot;import os;print os.listdir(os.getcwd())&quot;</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="s">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="s">&#39;exec&#39;</span><span class="p">)</span>
+<span class="nb">eval</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Exceptions are Classes and are __builtin__ to the interpreter.</li>
+<li>Until 1.5, simple string messages were exceptions.</li>
+<li>The exception classes are defined in a hierarchy, related exceptions can be caught by catching their base classes.</li>
+</ul>
+<div class="section" id="baseexception">
+<h3>BaseException<a class="headerlink" href="#baseexception" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for all exceptions. Implements logic for creating the string
+representation of the exception using the str() from the arguments passed to
+the constructor.</p>
+</div>
+<div class="section" id="exception">
+<h3>Exception<a class="headerlink" href="#exception" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for the exception that do not result in quitting the running
+application. All user-defined exceptions should use Exception as a base class.</p>
+</div>
+<div class="section" id="standarderror">
+<h3>StandardError<a class="headerlink" href="#standarderror" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for builtin exceptions used in Standard Library.</p>
+</div>
+<div class="section" id="arthimeticerror">
+<h3>ArthimeticError<a class="headerlink" href="#arthimeticerror" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for math related errors.</p>
+</div>
+<div class="section" id="lookuperror">
+<h3>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h3>
+<p>When something cannot be found.</p>
+</div>
+<div class="section" id="environmenterror">
+<h3>EnvironmentError<a class="headerlink" href="#environmenterror" title="Permalink to this headline">¶</a></h3>
+<p>Base class for errors that come from outside of Python (the operating system,
+filesystem, etc.).</p>
+</div>
+<div class="section" id="assertionerror">
+<h3>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h3>
+<p>An AssertionError is raised by a failed assert statement.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>&gt;&gt;&gt;assert False, &#8216;The assertion failed&#8217;
+&gt;&gt;&gt;# This should throw a simple AssertionError</dd>
+</dl>
+</div>
+<div class="section" id="attributeerror">
+<h3>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h3>
+<p>When an attribute reference or assignment fails, AttributeError is raised.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;PyCon 2009&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">imag</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># This would throw AttributeError</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>AttributeError will also be raised when trying to modify a read-only attribute.</p>
+<div class="highlight-python"><pre>class MyClass(object):
+
+    @property
+        def attribute(self):
+                return 'This is the attribute value'
+
+                o = MyClass()
+                print o.attribute
+                o.attribute = 'New value'</pre>
+</div>
+</div>
+<div class="section" id="eoferror">
+<h3>EOFError<a class="headerlink" href="#eoferror" title="Permalink to this headline">¶</a></h3>
+<p>An EOFError is raised when a builtin function like input() or raw_input() do
+not read any data before encountering the end of their input stream.</p>
+</div>
+<div class="section" id="ioerror">
+<h3>IOError<a class="headerlink" href="#ioerror" title="Permalink to this headline">¶</a></h3>
+<p>Raised when input or output fails, for example if a disk fills up or an input file does not exist.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>f = open(&#8216;/does/not/exist&#8217;, &#8216;r&#8217;)</dd>
+</dl>
+</div>
+<div class="section" id="importerror">
+<h3>importError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h3>
+<p>Raised when a module, or member of a module, cannot be imported.</p>
+</div>
+<div class="section" id="indexerror">
+<h3>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h3>
+<p>An IndexError is raised when a sequence reference is out of range.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_seq</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">]</span>
+<span class="k">print</span> <span class="n">my_seq</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="keyerror">
+<h3>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h3>
+<p>A KeyError is raised when a value is not found as a key of a dictionary.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>d = { &#8216;a&#8217;:1, &#8216;b&#8217;:2 }
+print d[&#8216;c&#8217;]</dd>
+</dl>
+</div>
+<div class="section" id="keyboardinterrupt">
+<h3>KeyboardInterrupt<a class="headerlink" href="#keyboardinterrupt" title="Permalink to this headline">¶</a></h3>
+<p>A KeyboardInterrupt occurs whenever the user presses Ctrl-C (or Delete) to stop
+a running program. Unlike most of the other exceptions, KeyboardInterrupt
+inherits directly from BaseException to avoid being caught by global exception
+handlers that catch Exception.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Press Return or Ctrl-C:&#39;</span><span class="p">,</span>
+    <span class="n">ignored</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught exception:&#39;</span><span class="p">,</span> <span class="n">err</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught KeyboardInterrupt&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;No exception&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="memoryerror">
+<h3>MemoryError<a class="headerlink" href="#memoryerror" title="Permalink to this headline">¶</a></h3>
+<p>If your program runs out of memory and it is possible to recover (by deleting
+some objects, for example), a MemoryError is raised.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c"># Try to create a MemoryError by allocating a lot of memory</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;*&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">30</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">MemoryError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;(error, discarding existing list)&#39;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nameerror">
+<h3>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h3>
+<p>NameErrors are raised when your code refers to a name that does not exist in
+the current scope. For example, an unqualified variable name.</p>
+</div>
+<div class="section" id="notimplementederror">
+<h3>NotImplementedError<a class="headerlink" href="#notimplementederror" title="Permalink to this headline">¶</a></h3>
+<p>User-defined base classes can raise NotImplementedError to indicate that a
+method or behavior needs to be defined by a subclass, simulating an interface.</p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="divein.html">Diving In</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="os_module.html">os module</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Let’s start with strings &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="index.html" />
+    <link rel="next" title="Files - we handle them often" href="files.html" />
+    <link rel="prev" title="Interesting Modules that ease our tasks" href="interestingmodules.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Let’s start with strings</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="interestingmodules.html">Interesting Modules that ease our tasks</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="files.html">Files - we handle them often</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="let-s-start-with-strings">
+<h1>Let&#8217;s start with strings<a class="headerlink" href="#let-s-start-with-strings" title="Permalink to this headline">¶</a></h1>
+<p>The main tool Python gives us to process text is strings - immutable sequence
+of characters.In Python2, there are two kinds of strings: plain strings, which
+contain 8-bit (ASCII) characters; and Unicode Strings, which contain Unicode
+characters.In Python3, there is only one string - which is unicode string.
+Strings are immutable, which means that no matter what operations you do on a
+string, you will always produce a new string object, rather than mutating the
+existing string. In general, you can do anything to a string that you can do to
+any other sequence, as long as it doesn&#8217;t require changing the sequence, since
+the strings are immutable.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">list_of_lines</span> <span class="o">=</span> <span class="n">one_large</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="n">one_large_string</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_of_lines</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Characters of a string.</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">list</span><span class="p">(</span><span class="s">&quot;python&quot;</span><span class="p">)</span>
+<span class="nb">map</span><span class="p">(</span><span class="n">somefunc</span><span class="p">,</span><span class="s">&quot;python&quot;</span><span class="p">)</span>
+<span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s">&quot;python&quot;</span><span class="p">)</span>
+<span class="n">sets</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">&quot;python&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Reversing</strong></p>
+<p>For sequences, the extended slicing with negative step can be used for
+reversing. [::-1] There is reversed built-in function which can also be used
+for reversing the words in a sentence.  But for reversing the characters in a
+string, if reversed is used, then a &#8216;&#8217;.join needs to be called.  The reversed
+returns an iterator, suitable for looping on or for passing to some
+&#8220;accumulator&#8221; callable such as &#8216;&#8217;.join. It does not return a ready made string.</p>
+<p><strong>python2.6 string functions</strong>
+<strong>python3.1 they belong to bytes</strong></p>
+<p><tt class="docutils literal"><span class="pre">string.translate(s,</span> <span class="pre">table[,</span> <span class="pre">deletechars])</span></tt>
+OR
+<tt class="docutils literal"><span class="pre">bytes.translate(s,</span> <span class="pre">table[,</span> <span class="pre">deletechars])</span></tt></p>
+<blockquote>
+<div>Delete all characters from <em>s</em> that are in <em>deletechars</em> (if
+present), and then translate the characters using <em>table</em>, which
+must be a 256-character string giving the translation for each
+character value, indexed by its ordinal.  If <em>table</em> is <tt class="docutils literal"><span class="pre">None</span></tt>,
+then only the character deletion step is performed.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">string.maketrans(from,</span> <span class="pre">to)</span></tt>
+<tt class="docutils literal"><span class="pre">bytes.maketrans(from,</span> <span class="pre">to)</span></tt></p>
+<blockquote>
+<div>Return a translation table suitable for passing to <tt class="docutils literal"><span class="pre">translate()</span></tt>, that
+will map each character in <em>from</em> into the character at the same position in
+<em>to</em>; <em>from</em> and <em>to</em> must have the same length.  Note: Don&#8217;t use strings
+derived from <tt class="docutils literal"><span class="pre">lowercase</span></tt> and <tt class="docutils literal"><span class="pre">uppercase</span></tt> as arguments; in some locales,
+these don&#8217;t have the same length.  For case conversions, always use
+<tt class="docutils literal"><span class="pre">str.lower()</span></tt> and <tt class="docutils literal"><span class="pre">str.upper()</span></tt>.</div></blockquote>
+<p><strong>builtins that deal with strings</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="35%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">builtin</th>
+<th class="head"><em>python2</em></th>
+<th class="head"><em>python3</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>repr</td>
+<td>obj to str</td>
+<td>obj to str</td>
+</tr>
+<tr class="row-odd"><td>ord</td>
+<td>c to int</td>
+<td>c to int, valid surrogate pair accepted.</td>
+</tr>
+<tr class="row-even"><td>chr</td>
+<td>i to c, 0 &lt;= i &lt; 256,</td>
+<td>i to u , 0 &lt;= i &lt; 0x10ffff</td>
+</tr>
+<tr class="row-odd"><td>unichr</td>
+<td>i to u, 0 &lt;= i &lt; 0x10ffff</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>string, unicode string, bytes, bytestring</strong></p>
+<p>Strings are sequence of characters (ascii in python2 and unicode - python3),
+e.g. an HTML Document.Bytes are not characters an JPEG Document.</p>
+<p>A general rule of thumb is Bytesting contains encoded data and a unicode
+object contains unencoded data.</p>
+<ul class="simple">
+<li>bytes object have a decode() method that takes a character encoding and returns a string.</li>
+<li>string object has a encode method that takes a a character encoding and returns a bytes object.</li>
+</ul>
+<p>Python 2.0 had strings and Unicode Strings.
+Python 3.0 has strings. That is it.But you wont miss 8 bit strings which acted
+as bytes in python2, because there is a separate bytes datatype.</p>
+<div class="section" id="string-filters-filtering-a-set-of-characters-from-a-string">
+<h2>String filters. Filtering a Set of Characters from a String.<a class="headerlink" href="#string-filters-filtering-a-set-of-characters-from-a-string" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the source code <strong>howto1_strings_filter.py</strong> directly.
+<strong>python2.6 version</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+<span class="c">#-*- coding:utf-8 -*- </span>
+
+<span class="k">class</span> <span class="nc">Keeper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keep</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">keep</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="nb">unichr</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="n">makefilter</span> <span class="o">=</span> <span class="n">Keeper</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">just_vowels_and_maths</span> <span class="o">=</span> <span class="n">makefilter</span><span class="p">(</span><span class="s">u&#39;aeiouy∇∂&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">just_vowels_and_maths</span><span class="p">(</span><span class="s">u&#39;∇something about strings∂&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>python3.1 version</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="k">class</span> <span class="nc">Keeper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keep</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">keep</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="n">makefilter</span> <span class="o">=</span> <span class="n">Keeper</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">just_vowels_and_maths</span> <span class="o">=</span> <span class="n">makefilter</span><span class="p">(</span><span class="s">&#39;aeiouy∇∂&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">just_vowels_and_maths</span><span class="p">(</span><span class="s">&#39;∇something about strings∂&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-translate-method-and-maketrans-function">
+<h2>String translate method and maketrans function<a class="headerlink" href="#string-translate-method-and-maketrans-function" title="Permalink to this headline">¶</a></h2>
+<p><strong>python2.6 version</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="k">def</span> <span class="nf">translator</span><span class="p">(</span><span class="n">frm</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">to</span> <span class="o">=</span> <span class="n">to</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">frm</span><span class="p">)</span>
+    <span class="n">trans</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="n">frm</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">keep</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">allchars</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">delete</span> <span class="o">=</span> <span class="n">allchars</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">allchars</span><span class="p">,</span> <span class="n">keep</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">allchars</span><span class="p">,</span> <span class="n">delete</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">trans</span><span class="p">,</span> <span class="n">delete</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">translate</span>
+
+<span class="n">digits_only</span> <span class="o">=</span> <span class="n">translator</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">digits_only</span><span class="p">(</span><span class="s">&#39;Senthil - 007&#39;</span><span class="p">)</span>
+
+<span class="n">chars_only</span> <span class="o">=</span> <span class="n">translator</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">chars_only</span><span class="p">(</span><span class="s">&#39;Senthil - 007&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>python3.1 version</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="k">def</span> <span class="nf">translator</span><span class="p">(</span><span class="n">frm</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">to</span> <span class="o">=</span> <span class="n">to</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">frm</span><span class="p">)</span>
+    <span class="n">trans</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="n">frm</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">keep</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">allchars</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">delete</span> <span class="o">=</span> <span class="n">allchars</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">allchars</span><span class="p">,</span> <span class="n">keep</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">allchars</span><span class="p">,</span> <span class="n">delete</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">trans</span><span class="p">,</span> <span class="n">delete</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">translate</span>
+
+<span class="n">digits_only</span> <span class="o">=</span> <span class="n">translator</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="nb">bytes</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">digits_only</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Senthil - 007&#39;</span><span class="p">),</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+
+<span class="n">chars_only</span> <span class="o">=</span> <span class="n">translator</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="nb">bytes</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">chars_only</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Senthil - 007&#39;</span><span class="p">),</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-if-a-string-contains-a-set-of-characters">
+<h2>Checking if a  string contains a set of characters<a class="headerlink" href="#checking-if-a-string-contains-a-set-of-characters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="k">def</span> <span class="nf">containsAny</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">aset</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">aset</span><span class="p">:</span> <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">containsAny_itertoolsway</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">aset</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="n">aset</span><span class="o">.</span><span class="n">__contains__</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">containsAny</span><span class="p">(</span><span class="s">&#39;916&#39;</span><span class="p">,</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">containsAny_itertoolsway</span><span class="p">(</span><span class="s">&#39;916&#39;</span><span class="p">,</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reindenting-a-string">
+<h2>Reindenting a String<a class="headerlink" href="#reindenting-a-string" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="k">def</span> <span class="nf">reindent</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">numSpaces</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">leading_space</span> <span class="o">=</span> <span class="n">numSpaces</span> <span class="o">*</span> <span class="s">&#39; &#39;</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span> <span class="n">leading_space</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="p">]</span>
+    <span class="k">return</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        This is a sentence which is not formatted. </span>
+<span class="s">   You this right? </span>
+<span class="s">                    How would it be good be really well formattted?</span>
+
+<span class="s">        Let us try it?</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">reindent</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-multiple-replacements-in-a-string-in-a-single-pass">
+<h2>Making multiple Replacements in a String in a Single Pass<a class="headerlink" href="#making-multiple-replacements-in-a-string-in-a-single-pass" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Source: Python Cookbook Recipe 1.18</span>
+<span class="sd">Credits: Xavier Defrang, Alex Martelli</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">multiple_replace</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">adict</span><span class="p">):</span>
+    <span class="n">rx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">,</span> <span class="n">adict</span><span class="p">)))</span>
+    <span class="k">def</span> <span class="nf">one_xlat</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">adict</span><span class="p">[</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">rx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">one_xlat</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c"># Closure based approach</span>
+<span class="k">def</span> <span class="nf">make_xlat</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="n">adict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+    <span class="n">rx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">,</span> <span class="n">adict</span><span class="p">)))</span>
+    <span class="k">def</span> <span class="nf">one_xlat</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">adict</span><span class="p">[</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+    <span class="k">def</span> <span class="nf">xlat</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">one_xlat</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xlat</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;Larry Wall is the creator of the Perl&quot;</span>
+    <span class="n">adict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&quot;Larry Wall&quot;</span><span class="p">:</span><span class="s">&quot;Guido van Rossum&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span><span class="s">&quot;Benevolent Dictator for Life&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Perl&quot;</span><span class="p">:</span><span class="s">&quot;Python&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">multiple_replace</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">adict</span><span class="p">))</span>
+    <span class="n">translate</span> <span class="o">=</span> <span class="n">make_xlat</span><span class="p">(</span><span class="n">adict</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="strings-template-method">
+<h2>Strings Template Method<a class="headerlink" href="#strings-template-method" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s">&#39;the square of the $number is $square&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="n">number</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s">&#39;This is different way: $number * $number = $square&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">num</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="n">num</span><span class="o">*</span><span class="n">num</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="interestingmodules.html">Interesting Modules that ease our tasks</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="files.html">Files - we handle them often</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

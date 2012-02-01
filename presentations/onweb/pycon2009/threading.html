@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>threading &mdash; PyCon 2009 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 1 documentation" href="index.html" />
+    <link rel="next" title="logging" href="logging.html" />
+    <link rel="prev" title="socket module" href="socket.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 1 documentation</span></a></h1>
+        <h2 class="heading"><span>threading</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="socket.html">socket module</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="logging.html">logging</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="threading">
+<h1>threading<a class="headerlink" href="#threading" title="Permalink to this headline">¶</a></h1>
+<p>Threads allow applications to perform multiple tasks at once. Multi-threading
+is important in many applications, from primitive servers to today&#8217;s complex
+and hardware-demanding games.</p>
+<p><cite>Credits</cite>: Peyton McCullough
+<cite>Article</cite>: Basic Threading in Python</p>
+<div class="section" id="simplest-thread">
+<h2>Simplest Thread<a class="headerlink" href="#simplest-thread" title="Permalink to this headline">¶</a></h2>
+<p>The threading module provides an easy way to work with threads. Its Thread
+class may be subclassed to create a thread or threads. The run method should
+contain the code you wish to be executed when the thread is executed. This
+sound simple, right? Well, it is:</p>
+<p>Executing the thread is also simple. All we have to do is create an instance of
+our thread class and then call its start method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Insert some thread stuff here.&#39;</span>
+        <span class="k">print</span> <span class="s">&#39;It will be executed.&#39;</span>
+        <span class="k">print</span> <span class="s">&#39;There is nothing much here.&#39;</span>
+
+<span class="c"># To create a thread, just call its start() method.</span>
+<span class="c"># That is it.</span>
+
+<span class="n">MyThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="group-of-threads">
+<h2>Group of Threads<a class="headerlink" href="#group-of-threads" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Instead of a single thread, create a group of threads.</span>
+
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="n">theVar</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">theVar</span>
+        <span class="k">print</span> <span class="s">&#39;This is a thread&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">theVar</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;speaking&#39;</span>
+        <span class="k">print</span> <span class="s">&#39;Hello and Good Bye&#39;</span>
+        <span class="n">theVar</span> <span class="o">=</span> <span class="n">theVar</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">MyThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="server-which-services-clients-in-threads">
+<h2>Server which services clients in threads<a class="headerlink" href="#server-which-services-clients-in-threads" title="Permalink to this headline">¶</a></h2>
+<p>Let us build a server, which services clients in threads. When client opens a
+connection with the server, the server will create a new thread to handle the
+client.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="c"># We will pickle a list of numbers</span>
+
+<span class="n">somelist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">pickledlist</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">somelist</span><span class="p">)</span>
+
+
+<span class="c"># Our thread class</span>
+
+<span class="k">class</span> <span class="nc">ClientThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+
+    <span class="c"># Override Thread&#39;s __init__ method to accept the parameters needed.</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">details</span> <span class="o">=</span> <span class="n">details</span>
+        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Received Connection:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">pickledlist</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s">&#39;Closed Connection:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="c"># Setup the server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="mi">2727</span><span class="p">))</span>
+<span class="n">server</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c"># Have the server serve forever</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">channel</span><span class="p">,</span> <span class="n">details</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+    <span class="n">ClientThread</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">details</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="client-process-for-this-server">
+<h3>Client process for this server<a class="headerlink" href="#client-process-for-this-server" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+
+
+<span class="c"># Connect to the Server</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(((</span><span class="s">&#39;localhost&#39;</span><span class="p">),</span> <span class="mi">2727</span><span class="p">))</span>
+
+<span class="k">print</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
+
+
+<span class="c"># Send some messages</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;Hey,&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="c"># Close the connection</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-threaded-client">
+<h3>multi-threaded client<a class="headerlink" href="#multi-threaded-client" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="c"># Here&#39;s our thread</span>
+
+<span class="k">class</span> <span class="nc">ConnectionThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># Connect to the server</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span><span class="mi">2727</span><span class="p">))</span>
+
+        <span class="c"># Retrive and unpickle the list object</span>
+        <span class="k">print</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
+
+        <span class="c"># Send some messages</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;Hey,&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+        <span class="c"># Close the connection</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="c"># Lets spawn few threads</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">ConnectionThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="threaded-pool-server">
+<h2>Threaded Pool Server<a class="headerlink" href="#threaded-pool-server" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s important to remember that threads don&#8217;t start up instantly. Creating too
+many of them can slow down your application. It takes time to spawn and later
+kill threads. Threads can also eat up valuable system resources in large
+applications. This problem is easily solved by creating a set number of threads
+(a thread pool) and assigning them new tasks, basically recycling them.
+Connections would be accepted and then pushed to a thread as soon as it
+finished with the previous client.</p>
+<p>Obviously, we&#8217;ll need something that can transfer client data to our threads
+without running into problems (it will need to be “thread safe”). Python&#8217;s
+Queue module does this for us. Client information is stored in a Queue object,
+where threads can pull them out when needed.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">Queue</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+
+<span class="c"># We&#39;ll pickle a list of numbers, yet again:</span>
+
+<span class="n">somelist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pickledlist</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">somelist</span><span class="p">)</span>
+
+<span class="c"># A revised version of the thread class</span>
+
+<span class="k">class</span> <span class="nc">ClientThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="c"># Note that we do not override Thread&#39;s __init__ method</span>
+    <span class="c"># The Queue module makes this as not neccessary</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># Have our thread serve &quot;forever&quot;.</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="c"># Get a client out of the queue.</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">clientPool</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="c"># Check if actually have an actual client in the client variable.</span>
+
+            <span class="k">if</span> <span class="n">client</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;Received Connection:&#39;</span><span class="p">,</span> <span class="n">client</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">client</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">pickledlist</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                    <span class="k">print</span> <span class="n">client</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+
+                <span class="n">client</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">print</span> <span class="s">&#39;Closed Connection:&#39;</span><span class="p">,</span> <span class="n">client</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+
+
+<span class="c"># Create our Queue</span>
+
+<span class="n">clientPool</span> <span class="o">=</span> <span class="n">Queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c"># Start two threads</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ClientThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c"># Setup the server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="mi">2727</span><span class="p">))</span>
+<span class="n">server</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c"># Have the server &#39;serve&#39; forever</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">clientPool</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">accept</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="naming-the-threads">
+<h2>Naming the Threads<a class="headerlink" href="#naming-the-threads" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">class</span> <span class="nc">TestThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Hello, my name is&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
+
+
+<span class="n">bombay</span> <span class="o">=</span> <span class="n">TestThread</span><span class="p">()</span>
+<span class="n">bombay</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&#39;bombay&#39;</span><span class="p">)</span>
+<span class="n">bombay</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="n">madras</span> <span class="o">=</span> <span class="n">TestThread</span><span class="p">()</span>
+<span class="n">madras</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&#39;madras&#39;</span><span class="p">)</span>
+<span class="n">madras</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="n">TestThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">TestThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">bangalore</span> <span class="o">=</span> <span class="n">TestThread</span><span class="p">()</span>
+<span class="n">bangalore</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&#39;bangalore&#39;</span><span class="p">)</span>
+<span class="n">bangalore</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">TestThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-status-of-threads">
+<h2>Check status of Threads<a class="headerlink" href="#check-status-of-threads" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">TestThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Patient: Doctor, am I going to die?&#39;</span>
+
+<span class="k">class</span> <span class="nc">AnotherThread</span><span class="p">(</span><span class="n">TestThread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">TestThread</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">dying</span> <span class="o">=</span> <span class="n">TestThread</span><span class="p">()</span>
+<span class="n">dying</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">dying</span><span class="o">.</span><span class="n">isAlive</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&#39;Doctor, No&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Oops. Dead before I could do anything. Next!&#39;</span>
+
+<span class="n">living</span> <span class="o">=</span> <span class="n">AnotherThread</span><span class="p">()</span>
+<span class="n">living</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">living</span><span class="o">.</span><span class="n">isAlive</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&#39;Doctor:No&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Doctor: Next!&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="join-and-setdaemon-methods">
+<h2>join and setdaemon methods<a class="headerlink" href="#join-and-setdaemon-methods" title="Permalink to this headline">¶</a></h2>
+<p>If we want a particular thread to wait for another thread to terminate itself,
+then we can use the join method.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">class</span> <span class="nc">ThreadOne</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Thread&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="s">&#39;started.&#39;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&#39;Thread&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="s">&#39;ended.&#39;</span>
+
+
+<span class="k">class</span> <span class="nc">ThreadTwo</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;Thread&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="s">&#39;started.&#39;</span>
+        <span class="n">thingOne</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s">&#39;Thread&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="s">&#39;ended.&#39;</span>
+
+<span class="n">thingOne</span> <span class="o">=</span> <span class="n">ThreadOne</span><span class="p">()</span>
+<span class="n">thingOne</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">thingTwo</span> <span class="o">=</span> <span class="n">ThreadTwo</span><span class="p">()</span>
+<span class="n">thingTwo</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We can use the setDaemon method, too. If a True value is passed with this
+method and all other threads have finished executing, the Python program will
+exit, leaving the thread by itself:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">DaemonThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">DaemonThread</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;Leaving.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="banking-scenario-with-threading">
+<h2>Banking Scenario with threading<a class="headerlink" href="#banking-scenario-with-threading" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">Credits:</span></tt> Jesse Nooler</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">add</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">class</span> <span class="nc">Bank</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">naccounts</span><span class="p">,</span> <span class="n">ibalance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_naccounts</span> <span class="o">=</span> <span class="n">naccounts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ibalance</span> <span class="o">=</span> <span class="n">ibalance</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">accounts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_naccounts</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">accounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ibalance</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accounts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">getTotalBalance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">reduce</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">accounts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">afrom</span><span class="p">,</span> <span class="n">ato</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">afrom</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">:</span> <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">afrom</span><span class="p">]</span> <span class="o">-=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="n">ato</span><span class="p">]</span> <span class="o">+=</span> <span class="n">amount</span>
+
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%-9s</span><span class="s"> </span><span class="si">%8.2f</span><span class="s"> from </span><span class="si">%2d</span><span class="s"> to </span><span class="si">%2d</span><span class="s"> Balance: </span><span class="si">%10.2f</span><span class="s">&quot;</span> <span class="o">%</span> \
+                <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">afrom</span><span class="p">,</span> <span class="n">ato</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTotalBalance</span><span class="p">())</span>
+
+
+<span class="k">class</span> <span class="nc">transfer</span><span class="p">(</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bank</span><span class="p">,</span> <span class="n">afrom</span><span class="p">,</span> <span class="n">maxamt</span><span class="p">):</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bank</span> <span class="o">=</span> <span class="n">bank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_afrom</span> <span class="o">=</span> <span class="n">afrom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxamt</span> <span class="o">=</span> <span class="n">maxamt</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c">#for i in range(0, 3000):</span>
+            <span class="n">ato</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
+            <span class="n">amount</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_maxamt</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()),</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bank</span><span class="o">.</span><span class="n">transfer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_afrom</span><span class="p">,</span> <span class="n">ato</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
+
+<span class="n">naccounts</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">initial_balance</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">Bank</span><span class="p">(</span><span class="n">naccounts</span><span class="p">,</span> <span class="n">initial_balance</span><span class="p">)</span>
+
+<span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">naccounts</span><span class="p">):</span>
+    <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transfer</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">naccounts</span><span class="p">):</span>
+    <span class="n">threads</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="socket.html">socket module</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="logging.html">logging</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

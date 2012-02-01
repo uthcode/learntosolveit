@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>simplexmlprcserver &mdash; PyCon 2009 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 1 documentation" href="index.html" />
+    <link rel="next" title="smtpd and smtplib" href="smtp.html" />
+    <link rel="prev" title="basehttpsever" href="basehttpserver.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 1 documentation</span></a></h1>
+        <h2 class="heading"><span>simplexmlprcserver</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="basehttpserver.html">basehttpsever</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="smtp.html">smtpd and smtplib</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="simplexmlprcserver">
+<h1>simplexmlprcserver<a class="headerlink" href="#simplexmlprcserver" title="Permalink to this headline">¶</a></h1>
+<p>The SimpleXMLRPCServer module contains classes for creating your own cross-platform, language-independent server using the XML-RPC protocol. Client libraries exist for many other languages, making XML-RPC an easy choice for building RPC-style services.</p>
+<p>The client portion is written using xmlprclib module.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="kn">import</span> <span class="n">SimpleXMLRPCServer</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># Set up logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span><span class="mi">9000</span><span class="p">),</span> <span class="n">logRequests</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c"># Expose a function</span>
+<span class="k">def</span> <span class="nf">list_contents</span><span class="p">(</span><span class="n">dir_name</span><span class="p">):</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;list_contents(</span><span class="si">%s</span><span class="s">)&#39;</span><span class="p">,</span> <span class="n">dir_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">list_contents</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Use Control-C to quit.&#39;</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Exiting&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="kn">import</span> <span class="n">SimpleXMLRPCServer</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span><span class="mi">9000</span><span class="p">),</span> <span class="n">allow_none</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">,</span> <span class="s">&#39;dir.list&#39;</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span><span class="s">&#39;dir.create&#39;</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">,</span><span class="s">&#39;dir.remove&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Use Control-C to quit&#39;</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Exiting&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-3">
+<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="kn">import</span> <span class="n">SimpleXMLRPCServer</span><span class="p">,</span> <span class="n">list_public_methods</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">9000</span><span class="p">),</span> <span class="n">logRequests</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_introspection_functions</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">DirectoryService</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">_listMethods</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">list_public_methods</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_methodHelp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getdoc</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list(dir_name) =&gt; [&lt;filename&gt;]</span>
+
+<span class="sd">        Returns a list containing the contents of the named directory.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+
+
+<span class="n">server</span><span class="o">.</span><span class="n">register_instance</span><span class="p">(</span><span class="n">DirectoryService</span><span class="p">())</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Use CTRL-C to exit&#39;</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Exitting&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="xmlrpclib">
+<h3>xmlrpclib<a class="headerlink" href="#xmlrpclib" title="Permalink to this headline">¶</a></h3>
+<p>xmlrpclib client modules</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Example 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s">&#39;http://localhost:9000&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">proxy</span><span class="o">.</span><span class="n">list_contents</span><span class="p">(</span><span class="s">&#39;/home/senthil&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Example 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s">&#39;http://localhost:9000&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;BEFORE   :&#39;</span><span class="p">,</span> <span class="s">&#39;Example&#39;</span> <span class="ow">in</span> <span class="n">proxy</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s">&#39;/home/senthil&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;CREATE   :&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&#39;/home/senthil/Example&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;SHOULD EXIST :&#39;</span><span class="p">,</span> <span class="s">&#39;Example&#39;</span> <span class="ow">in</span> <span class="n">proxy</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s">&#39;/home/senthil/&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;REMOVE   :&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#39;/home/senthil/Example&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;AFTER    :&#39;</span><span class="p">,</span> <span class="s">&#39;Example&#39;</span> <span class="ow">in</span> <span class="n">proxy</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s">&#39;/home/senthil&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Example 3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s">&#39;http://localhost:9000&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">method_name</span> <span class="ow">in</span> <span class="n">proxy</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">listMethods</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="k">print</span> <span class="n">method_name</span>
+    <span class="k">print</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="k">print</span> <span class="n">proxy</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">methodHelp</span><span class="p">(</span><span class="n">method_name</span><span class="p">)</span>
+    <span class="k">print</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="basehttpserver.html">basehttpsever</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="smtp.html">smtpd and smtplib</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

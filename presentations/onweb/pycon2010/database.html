@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dealing with Databases &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="index.html" />
+    <link rel="next" title="Process Handling" href="process.html" />
+    <link rel="prev" title="Processing XML" href="processingxml.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Dealing with Databases</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="processingxml.html">Processing XML</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="process.html">Process Handling</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="dealing-with-databases">
+<h1>Dealing with Databases<a class="headerlink" href="#dealing-with-databases" title="Permalink to this headline">¶</a></h1>
+<p>There are only two kinds of computer programs: toy programs and programs that
+interact with some kind of persistent databases.</p>
+<ul class="simple">
+<li>sqllite database is included as part of Python&#8217;s standard library.</li>
+<li>Python provides a number of built-in facilities for storing and retrieving data. pickle module should be used always and marshal exists for the purposes of &#8216;pyc&#8217; files.</li>
+</ul>
+<div class="section" id="using-sqlite3">
+<h2>using sqlite3<a class="headerlink" href="#using-sqlite3" title="Permalink to this headline">¶</a></h2>
+<p>SQLite is a C library that provides a lightweight disk-based database that
+doesn&#8217;t require a separate server process and allows accessing the database
+using a nonstandard variant of the SQL query language. Some applications can use
+SQLite for internal data storage.  It&#8217;s also possible to prototype an
+application using SQLite and then port the code to a larger database such as
+PostgreSQL or Oracle.</p>
+<p>To use the module, you must first create a <tt class="xref py py-class docutils literal"><span class="pre">Connection</span></tt> object that
+represents the database.  Here the data will be stored in the
+<tt class="file docutils literal"><span class="pre">/tmp/example</span></tt> file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;/tmp/example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also supply the special name <tt class="docutils literal"><span class="pre">:memory:</span></tt> to create a database in RAM.</p>
+<p>Once you have a <tt class="xref py py-class docutils literal"><span class="pre">Connection</span></tt>, you can create a <tt class="xref py py-class docutils literal"><span class="pre">Cursor</span></tt>  object
+and call its <tt class="xref py py-meth docutils literal"><span class="pre">Cursor.execute()</span></tt> method to perform SQL commands</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;exampledb&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c"># Create table</span>
+<span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&#39;&#39;&#39;create table stocks (date text, trans text, symbol text, qty real,</span>
+<span class="s">          price real)&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;&quot;&quot;insert into stocks values (&#39;2006-01-05&#39;,&#39;BUY&#39;,&#39;RHAT&#39;,100,35.14)&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pickle-module">
+<h2>pickle module<a class="headerlink" href="#pickle-module" title="Permalink to this headline">¶</a></h2>
+<p>In python3, The pickle module has an transparent optimizer (_pickle) written in
+C. It is used whenever available. Otherwise the pure Python implementation is
+used.</p>
+<p>In python2, there is a pure python pickle and a C implementation cPickle.</p>
+<p>There are currently 4 different protocols which can be used for pickling.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Protocol version 0 is the original human-readable protocol and is backwards compatible with earlier versions of Python.</li>
+<li>Protocol version 1 is the old binary format which is also compatible with earlier versions of Python.</li>
+<li>Protocol version 2 was introduced in Python 2.3. It provides much more efficient pickling of new-style classes.</li>
+<li>Protocol version 3 was added in Python 3.0. It has explicit support for bytes and cannot be unpickled by Python 2.x pickle modules. This is the current recommended protocol, use it whenever it is possible.</li>
+</ul>
+</div></blockquote>
+<p>Refer to PEP 307 for information about improvements brought by protocol 2. See pickletools‘s source code for extensive comments about opcodes used by pickle protocols.</p>
+<p>The following can be pickled.</p>
+<blockquote>
+<div><ul class="simple">
+<li>None, True, and False</li>
+<li>integers, floating point numbers, complex numbers</li>
+<li>strings, bytes, bytearrays</li>
+<li>tuples, lists, sets, and dictionaries containing only picklable objects</li>
+<li>functions defined at the top level of a module</li>
+<li>built-in functions defined at the top level of a module</li>
+<li>classes that are defined at the top level of a module</li>
+<li>instances of such classes whose __dict__ or __setstate__() is picklable (see section Pickling Class Instances for details)</li>
+</ul>
+</div></blockquote>
+<p>For the simplest code, use the <tt class="xref py py-func docutils literal"><span class="pre">dump()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">load()</span></tt> functions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python3.1</span>
+
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c"># An arbitrary collection of objects supported by pickle.</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">],</span>
+    <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&quot;character string&quot;</span><span class="p">,</span> <span class="n">b</span><span class="s">&quot;byte string&quot;</span><span class="p">),</span>
+    <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="bp">None</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
+<span class="p">}</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;data.pickle&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c"># Pickle the &#39;data&#39; dictionary using the highest protocol available</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+
+
+<span class="c"># Now read it</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;data.pickle&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c"># The protocol version used is detected automatically, so we don&#39;t have to</span>
+    <span class="c"># explitcitly specify it.</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="processingxml.html">Processing XML</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="process.html">Process Handling</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

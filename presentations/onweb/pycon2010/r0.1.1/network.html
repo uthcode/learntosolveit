@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Network Programming &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="../index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Network Programming</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="network-programming">
+<h1>Network Programming<a class="headerlink" href="#network-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="socket-module">
+<h2>socket module<a class="headerlink" href="#socket-module" title="Permalink to this headline">¶</a></h2>
+<p>The Python socket module provides direct access to the standard BSD socket
+interface, which is available on most modern computer systems. The advantage of
+using Python for socket programming is that socket addressing is simpler and
+much of the buffer allocation is done automatically. In addition, it is easy to
+create secure sockets and several higher-level socket abstractions are
+available.</p>
+<p>To create a server, you need to:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>create a socket</li>
+<li>bind the socket to an address and port</li>
+<li>listen for incoming connections</li>
+<li>wait for clients</li>
+<li>accept a client</li>
+<li>send and receive data</li>
+</ol>
+</div></blockquote>
+<p>To create a client, you need to:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>create a socket</li>
+<li>connect to the server</li>
+<li>send and receive data</li>
+</ol>
+</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;Hello,World&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;Received:&#39;</span><span class="p">,</span> <span class="n">data</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">backlog</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">backlog</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">client</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting-to-irc-and-logging-the-messages">
+<h2>Connecting to IRC and logging the messages<a class="headerlink" href="#connecting-to-irc-and-logging-the-messages" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="n">SERVER</span> <span class="o">=</span> <span class="s">&#39;irc.freenode.net&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">6667</span>
+<span class="n">NICKNAME</span> <span class="o">=</span> <span class="s">&#39;phoe6&#39;</span>  <span class="c"># REPLACE WITH YOUR USERNAME</span>
+<span class="n">CHANNEL</span> <span class="o">=</span> <span class="s">&#39;#python&#39;</span> <span class="c"># CHANGE CHANNEL IF DESIRED</span>
+
+<span class="n">IRC</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">irc_conn</span><span class="p">():</span>
+    <span class="n">IRC</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">SERVER</span><span class="p">,</span><span class="n">PORT</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">send_data</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+    <span class="n">IRC</span><span class="o">.</span><span class="n">send</span><span class="p">((</span><span class="n">command</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\r\n</span><span class="s">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">join</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="n">send_data</span><span class="p">(</span><span class="s">&quot;JOIN </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">channel</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">nickname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s">&#39;phoe6&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">realname</span><span class="o">=</span><span class="s">&#39;Senthil&#39;</span><span class="p">,</span>
+          <span class="n">hostname</span><span class="o">=</span><span class="s">&#39;freenode&#39;</span><span class="p">,</span> <span class="n">servername</span><span class="o">=</span><span class="s">&#39;Server&#39;</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">getpass</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s">&#39;Enter password for </span><span class="si">%s</span><span class="s">:&#39;</span> <span class="o">%</span> <span class="n">nickname</span><span class="p">)</span>
+    <span class="n">send_data</span><span class="p">(</span><span class="s">&quot;PASS </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">password</span><span class="p">)</span>
+    <span class="n">send_data</span><span class="p">(</span><span class="s">&quot;USER </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">servername</span><span class="p">,</span> <span class="n">realname</span><span class="p">))</span>
+    <span class="n">send_data</span><span class="p">(</span><span class="s">&quot;NICK </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">nickname</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">part</span><span class="p">():</span>
+    <span class="n">send_data</span><span class="p">(</span><span class="s">&quot;PART&quot;</span><span class="p">)</span>
+
+<span class="n">irc_conn</span><span class="p">()</span>
+<span class="n">login</span><span class="p">(</span><span class="n">NICKNAME</span><span class="p">)</span>
+<span class="n">join</span><span class="p">(</span><span class="n">CHANNEL</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="nb">buffer</span> <span class="o">=</span> <span class="n">IRC</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="nb">buffer</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;PING&quot;</span><span class="p">:</span>
+            <span class="c"># answer PING with PONG, as RFC 1459 specifies</span>
+            <span class="n">send_data</span><span class="p">(</span><span class="s">&quot;PONG </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;PRIVMSG&#39;</span><span class="p">:</span>
+            <span class="n">nick_name</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="n">msg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)]</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">nick_name</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">),</span> <span class="s">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">))</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">part</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

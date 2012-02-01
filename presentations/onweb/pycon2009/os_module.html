@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>os module &mdash; PyCon 2009 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 1 documentation" href="index.html" />
+    <link rel="next" title="shutil module" href="shutil.html" />
+    <link rel="prev" title="builtin modules" href="builtins.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 1 documentation</span></a></h1>
+        <h2 class="heading"><span>os module</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="builtins.html">builtin modules</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="shutil.html">shutil module</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="os-module">
+<h1>os module<a class="headerlink" href="#os-module" title="Permalink to this headline">¶</a></h1>
+<p>This module provides a unified interface to a number of operating system
+functions.</p>
+<p>Most of the functions in this module are implemented by platform specific
+modules, such as posix and nt. The os module automatically loads the right
+implementation module when it is first imported.</p>
+<div class="section" id="differences-from-earlier-python-releases">
+<h2>Differences from earlier python releases<a class="headerlink" href="#differences-from-earlier-python-releases" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>popen2,popen3,popen4 modules are Deprecated in Python 2.6</li>
+<li>popen2,popen3,popen4 modules are removed in Python 3.0.</li>
+<li>Most of the these functionalities are best adviced to be carried out through subprocess module.</li>
+<li>os.popen() method exists though to create child processes.</li>
+</ul>
+</div>
+<div class="section" id="working-with-directories-and-files">
+<h2>Working with directories and files<a class="headerlink" href="#working-with-directories-and-files" title="Permalink to this headline">¶</a></h2>
+<p>There are several functions for working with directories on filesystem,
+including creating, listing contents and removing them. Let us look into
+<tt class="docutils literal"><span class="pre">os.getcwd()</span></tt>, <tt class="docutils literal"><span class="pre">os.makedirs(path[,mode=777])</span></tt>, <tt class="docutils literal"><span class="pre">os.path.join(a,*p)</span></tt>,
+<tt class="docutils literal"><span class="pre">os.listdir(path)</span></tt>, <tt class="docutils literal"><span class="pre">os.unlink(path)</span></tt> and <tt class="docutils literal"><span class="pre">os.rmdir(path)</span></tt> with this
+example.</p>
+<p><tt class="docutils literal"><span class="pre">os.curdir</span></tt> and <tt class="docutils literal"><span class="pre">os.pardir</span></tt> attributes refer the current directory and
+parent directory respectively in a portable manner.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.6</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">dir_name</span> <span class="o">=</span> <span class="s">&#39;os_directories_example&#39;</span>
+
+
+<span class="k">print</span> <span class="s">&#39;Starting at:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;Creating Directory:&#39;</span><span class="p">,</span> <span class="n">dir_name</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_name</span><span class="p">,</span> <span class="s">&#39;example.txt&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Creating File:&#39;</span><span class="p">,</span> <span class="n">file_name</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="s">&#39;wt&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;example file&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&#39;Listing:&#39;</span><span class="p">,</span> <span class="n">dir_name</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;Cleaning up&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+
+
+<span class="k">print</span> <span class="s">&#39;Moving up one directory:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;After move:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>There is difference between <tt class="docutils literal"><span class="pre">os.mkdir(path,[,mode=777])</span></tt> and
+<tt class="docutils literal"><span class="pre">os.makedirs(path[,mode=777])</span></tt>, the latter is recursive and it best to use
+makedirs.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="checking-file-permissions">
+<h2>Checking file permissions.<a class="headerlink" href="#checking-file-permissions" title="Permalink to this headline">¶</a></h2>
+<p>We can test the permissions set on file, by using <tt class="docutils literal"><span class="pre">os.access(path,mode)</span></tt> module.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">print</span> <span class="s">&#39;Testing:&#39;</span><span class="p">,</span> <span class="n">__file__</span>
+<span class="k">print</span> <span class="s">&#39;Exists:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">F_OK</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Readable:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Writable:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">W_OK</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Executable:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>__file__ is a special attribute that points to the current file in python interpretor.</li>
+</ul>
+</div>
+<div class="section" id="change-file-permissions-using-chmod">
+<h2>Change file permissions using chmod<a class="headerlink" href="#change-file-permissions-using-chmod" title="Permalink to this headline">¶</a></h2>
+<p>Subsequent to the <tt class="docutils literal"><span class="pre">os.access(path,mode)</span></tt>, os.chmod can be used to set the file
+permissions.  Here we also see the <cite>stat</cite> module to retrieve the permission
+values to be set using <tt class="docutils literal"><span class="pre">os.chmod(path,mode)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">stat</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s">&#39;os_stat_chmod_example.txt&#39;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">existing_permissions</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IMODE</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">st_mode</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&#39;File Exists and has execute permissions.&#39;</span>
+        <span class="k">print</span> <span class="s">&#39;Removing Execute permissions&#39;</span>
+        <span class="n">new_permissions</span> <span class="o">=</span> <span class="n">existing_permissions</span> <span class="o">^</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IXUSR</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;File Exists and lacks execute permission.&#39;</span>
+        <span class="k">print</span> <span class="s">&#39;Adding Execute permissions&#39;</span>
+        <span class="n">new_permissions</span> <span class="o">=</span> <span class="n">existing_permissions</span> <span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IXUSR</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Creating a file and Read, Write and Execute mode&#39;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;wt&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;contents&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">new_permissions</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IWRITE</span><span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IREAD</span> <span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IXUSR</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">new_permissions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-and-file-system-status-through-stat-system-call">
+<h2>file and file system status through stat system call<a class="headerlink" href="#file-and-file-system-status-through-stat-system-call" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">os.stat(path)</span></tt> returns stat information about <em>path</em> in the same formata on
+both Unix and Windows Operating Systems. The stat values are interpreted using
+the stat helper attributes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">__file__</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">stat_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;os.stat(</span><span class="si">%s</span><span class="s">):&#39;</span> <span class="o">%</span> <span class="n">filename</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Size:&#39;</span><span class="p">,</span> <span class="n">stat_info</span><span class="o">.</span><span class="n">st_size</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Permissions:&#39;</span><span class="p">,</span> <span class="nb">oct</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Owner:&#39;</span><span class="p">,</span> <span class="n">stat_info</span><span class="o">.</span><span class="n">st_uid</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Device:&#39;</span><span class="p">,</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_dev</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\t</span><span class="s">Last Modified:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-symbolic-link-to-a-file">
+<h2>Creating a symbolic link to a file.<a class="headerlink" href="#creating-a-symbolic-link-to-a-file" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">os.symlink(src,dst)</span></tt> method provides the facility to create a symbolic link at <cite>dst</cite> for the <cite>src</cite>. We also see <tt class="docutils literal"><span class="pre">os.readlink(path)</span></tt> and <tt class="docutils literal"><span class="pre">os.unlink(path)</span></tt> in this example.</p>
+<ul class="simple">
+<li><cite>tempfile</cite> module is used to create a temporary file.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">tempfile</span>
+
+<span class="n">link_name</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&#39;Creating link </span><span class="si">%s</span><span class="s">-&gt;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">link_name</span><span class="p">,</span> <span class="n">__file__</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">link_name</span><span class="p">)</span>
+
+<span class="n">stat_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">lstat</span><span class="p">(</span><span class="n">link_name</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Permissions:&#39;</span><span class="p">,</span> <span class="nb">oct</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;Points to:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">readlink</span><span class="p">(</span><span class="n">link_name</span><span class="p">)</span>
+
+<span class="c"># cleanup</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">link_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-the-user-information">
+<h2>Getting the user information.<a class="headerlink" href="#getting-the-user-information" title="Permalink to this headline">¶</a></h2>
+<p>User information details such as effective user id, actual user id, group id and login id can be got from os module. In this example, let us look at <tt class="docutils literal"><span class="pre">os.geteuid()</span></tt>, <tt class="docutils literal"><span class="pre">os.getegid()</span></tt>, <tt class="docutils literal"><span class="pre">os.getuid()</span></tt>, <tt class="docutils literal"><span class="pre">os.getgid()</span></tt>, <tt class="docutils literal"><span class="pre">os.getlogin()</span></tt>, <tt class="docutils literal"><span class="pre">os.getgroups()</span></tt> and <tt class="docutils literal"><span class="pre">os.setegid(gid)</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.5</span>
+<span class="c"># PyMOTW Copyright (c) 2009 Doug Hellmann All rights reserved.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">TEST_UID</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c"># set your user id</span>
+<span class="n">TEST_GID</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c"># set your user&#39;s group id</span>
+
+<span class="k">def</span> <span class="nf">show_user_info</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Effective User:  &#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">geteuid</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Effective Group: &#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getegid</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Actual User:     &#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getuid</span><span class="p">(),</span>  <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Actual Group:    &#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getgid</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Actual Groups:   &#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getgroups</span><span class="p">())</span>
+    <span class="k">return</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;BEFORE CHANGE:&#39;</span><span class="p">)</span>
+<span class="n">show_user_info</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">setegid</span><span class="p">(</span><span class="n">TEST_GID</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error: Could not change effective group. Re-run as root.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;CHANGED GROUP&#39;</span><span class="p">)</span>
+    <span class="n">show_user_info</span><span class="p">()</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">seteuid</span><span class="p">(</span><span class="n">TEST_UID</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error: Could not change effective user. Re-run as root.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;CHANGED USER&#39;</span><span class="p">)</span>
+    <span class="n">show_user_info</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Exception <tt class="docutils literal"><span class="pre">OSError</span></tt> is raised on failure to perform any operation from os module.</li>
+</ul>
+</div>
+<div class="section" id="environment-values-and-execution">
+<h2>Environment values and execution<a class="headerlink" href="#environment-values-and-execution" title="Permalink to this headline">¶</a></h2>
+<p>Methods available <tt class="docutils literal"><span class="pre">os.environ</span></tt> provide facilities to get and set the
+enviroment variable.  Please note that the enviroment variables are set for the
+Python process and cannot be reflected in the system environment variables
+outside in the parent process. That is, child process cannot change values of
+the parent process.</p>
+<p><tt class="docutils literal"><span class="pre">os.system(command)</span></tt> provides a facility to execute the command as executed
+by the operating system shell.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">print</span> <span class="s">&#39;Initial value:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;TESTVAR&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Child Process:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;echo $TESTVAR&#39;</span><span class="p">)</span>
+<span class="k">print</span>
+
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TESTVAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;THIS VALUE HAS CHANGED.&#39;</span>
+
+<span class="k">print</span> <span class="s">&#39;Changed Value:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TESTVAR&#39;</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&#39;Child Process:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;echo $TESTVAR&#39;</span><span class="p">)</span>
+<span class="k">print</span>
+
+
+<span class="k">del</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TESTVAR&#39;</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="s">&#39;Removed Value:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;TESTVAR&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Child Process:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;echo $TESTVAR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="popen-open-a-pipe">
+<h2>popen - Open a pipe<a class="headerlink" href="#popen-open-a-pipe" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">popen(command</span> <span class="pre">[,</span> <span class="pre">mode='r'</span> <span class="pre">[,</span> <span class="pre">bufsize]])</span> <span class="pre">-&gt;</span> <span class="pre">pipe</span></tt></p>
+<p>Open a pipe to/from a command returning a file object.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">pipe_stdout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s">&#39;echo &quot;hello,world&quot;&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stdout_value</span> <span class="o">=</span> <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">stdout_value</span><span class="p">,</span>
+
+
+<span class="n">pipe_stdin</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s">&#39;cat -&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;hello,world</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">pipe_stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="builtins.html">builtin modules</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="shutil.html">shutil module</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2009, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

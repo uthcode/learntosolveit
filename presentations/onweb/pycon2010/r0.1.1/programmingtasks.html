@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Programming Tasks &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="../index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Programming Tasks</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="programming-tasks">
+<h1>Programming Tasks<a class="headerlink" href="#programming-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="implement-tuples-with-named-items">
+<h2>Implement Tuples with named items<a class="headerlink" href="#implement-tuples-with-named-items" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="performance-measurements-using-timeit-module">
+<h2>Performance measurements using timeit module<a class="headerlink" href="#performance-measurements-using-timeit-module" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>::</dt>
+<dd>$ python -mtimeit -s&#8217;import random; x=range(1000); random.shuffle(x)&#8217; &#8216;y=list(x); y.sort()&#8217;
+1000 loops, best of 3: 452 usec per loop
+$ python -mtimeit -s&#8217;import random; x=range(1000); random.shuffle(x)&#8217; &#8216;x.sort()&#8217;
+10000 loops, best of 3: 37.4 usec per loop
+$ python -mtimeit -s&#8217;import random; x=range(1000); random.shuffle(x)&#8217; &#8216;sorted(x)&#8217;
+1000 loops, best of 3: 462 usec per loop
+$</dd>
+</dl>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

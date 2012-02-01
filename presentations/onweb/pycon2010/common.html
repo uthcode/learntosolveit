@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lets recollect certain common Programming Paradigms &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="index.html" />
+    <link rel="next" title="Interesting Modules that ease our tasks" href="interestingmodules.html" />
+    <link rel="prev" title="How to Solve it using Python" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Lets recollect certain common Programming Paradigms</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">How to Solve it using Python</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="interestingmodules.html">Interesting Modules that ease our tasks</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="lets-recollect-certain-common-programming-paradigms">
+<h1>Lets recollect certain common Programming Paradigms<a class="headerlink" href="#lets-recollect-certain-common-programming-paradigms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="regular-expressions">
+<h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Compiling Regular Expressions</strong></p>
+<p>Regular expressions are compiled into pattern objects, which have
+methods for various operations such as searching for pattern matches or
+performing string substitutions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;ab*&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span>
+<span class="go">&lt;_sre.SRE_Pattern object at 80b4150&gt;</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-func docutils literal"><span class="pre">re.compile()</span></tt> also accepts an optional <em>flags</em> argument, used to enable
+various special features and syntax variations.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;ab*&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Methods for searching and matching on RegexObject.</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method/Attribute</th>
+<th class="head">Purpose</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">match()</span></tt></td>
+<td>Determine if the RE matches at the beginning
+of the string.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">search()</span></tt></td>
+<td>Scan through a string, looking for any
+location where this RE matches.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">findall()</span></tt></td>
+<td>Find all substrings where the RE matches, and
+returns them as a list.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">finditer()</span></tt></td>
+<td>Find all substrings where the RE matches, and
+returns them as an <em class="xref std std-term">iterator</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>ToAvoid the backslash plague, a raw string is used.  prefix the string with r&#8217;&#8216;</p>
+<p>You can also do search and replacement using the sub method.  In the following
+example, the replacement function translates  decimals into hexadecimal:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">hexrepl</span><span class="p">(</span> <span class="n">match</span> <span class="p">):</span>
+<span class="gp">... </span>    <span class="s">&quot;Return the hex string for a decimal number&quot;</span>
+<span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">hex</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;\d+&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">hexrepl</span><span class="p">,</span> <span class="s">&#39;Call 65490 for printing, 49152 for user code.&#39;</span><span class="p">)</span>
+<span class="go">&#39;Call 0xffd2 for printing, 0xc000 for user code.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exception-handling">
+<h2>Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Press Return or Ctrl-C:&#39;</span><span class="p">,</span>
+    <span class="n">ignored</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught exception:&#39;</span><span class="p">,</span> <span class="n">err</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught KeyboardInterrupt&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;No exception&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exception-handling-changes">
+<h2>Exception-Handling Changes<a class="headerlink" href="#exception-handling-changes" title="Permalink to this headline">¶</a></h2>
+<p>One error that Python programmers occasionally make
+is writing the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c"># Wrong!</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>The author is probably trying to catch both <tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt> and
+<tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt> exceptions, but this code actually does something
+different: it will catch <tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt> and bind the resulting
+exception object to the local name <tt class="docutils literal"><span class="pre">&quot;ValueError&quot;</span></tt>.  The
+<tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt> exception will not be caught at all.  The correct
+code specifies a tuple of exceptions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>This error happens because the use of the comma here is ambiguous:
+does it indicate two different nodes in the parse tree, or a single
+node that&#8217;s a tuple?</p>
+<p>Python 3.0 makes this unambiguous by replacing the comma with the word
+&#8220;as&#8221;.  To catch an exception and store the exception object in the
+variable <tt class="docutils literal"><span class="pre">exc</span></tt>, you must write:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Python 3.0 will only support the use of &#8220;as&#8221;, and therefore interprets
+the first example as catching two different exceptions.  Python 2.6
+supports both the comma and &#8220;as&#8221;, so existing code will continue to
+work.  We therefore suggest using &#8220;as&#8221; when writing new Python code
+that will only be executed with 2.6.</p>
+</div>
+<div class="section" id="iterators">
+<h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
+<p>An iterator is an object representing a stream of data; this object returns the
+data one element at a time.  A Python iterator must support a method called
+<tt class="docutils literal"><span class="pre">next()</span></tt> (Python2) and <tt class="docutils literal"><span class="pre">__next__()</span></tt> (Python3) that takes no arguments and
+always returns the next element of the stream.  If there are no more elements
+in the stream, <tt class="docutils literal"><span class="pre">next()</span></tt>/ <tt class="docutils literal"><span class="pre">__next__()</span></tt> must raise the <tt class="docutils literal"><span class="pre">StopIteration</span></tt>
+exception.  Iterators don&#8217;t have to be finite, though; it&#8217;s perfectly
+reasonable to write an iterator that produces an infinite stream of data.  You
+can only go forward in an iterator; there&#8217;s no way to get the previous element,
+reset the iterator, or make a copy of it.</p>
+</div>
+<div class="section" id="list-comprehensions">
+<h2>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h2>
+<p>Two common operations on an iterator&#8217;s output are 1) performing some operation
+for every element, 2) selecting a subset of elements that meet some condition.
+List comprehensions and generator expressions (short form: &#8220;listcomps&#8221; and
+&#8220;genexps&#8221;)</p>
+<p>You can strip all the whitespace from a stream of strings with the following
+code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">line_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;  line 1</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="s">&#39;line 2  </span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="c"># Generator expression -- returns iterator</span>
+<span class="n">stripped_iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">)</span>
+<span class="c"># List comprehension -- returns list</span>
+<span class="n">stripped_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can select only certain elements by adding an <tt class="docutils literal"><span class="pre">&quot;if&quot;</span></tt> condition:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">stripped_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span>
+                 <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>With a list comprehension, you get back a Python list; <tt class="docutils literal"><span class="pre">stripped_list</span></tt> is a
+list containing the resulting lines, not an iterator.  Generator expressions
+return an iterator that computes the values as necessary, not needing to
+materialize all the values at once.  This means that list comprehensions aren&#8217;t
+useful if you&#8217;re working with iterators that return an infinite stream or a very
+large amount of data.  Generator expressions are preferable in these situations.</p>
+<p>To avoid introducing an ambiguity into Python&#8217;s grammar, if <tt class="docutils literal"><span class="pre">expression</span></tt> is
+creating a tuple, it must be surrounded with parentheses.  The first list
+comprehension below is a syntax error, while the second one is correct:</p>
+<div class="highlight-python"><pre># Syntax error
+[ x,y for x in seq1 for y in seq2]
+# Correct
+[ (x,y) for x in seq1 for y in seq2]</pre>
+</div>
+</div>
+<div class="section" id="generators">
+<h2>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h2>
+<p>Generators are a special class of functions that simplify the task of writing
+iterators.  Regular functions compute a value and return it, but generators
+return an iterator that returns a stream of values.  Generators can then can be
+thought of as resumable functions.</p>
+<p>Here&#8217;s the simplest example of a generator function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">generate_ints</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p>Any function containing a <tt class="docutils literal"><span class="pre">yield</span></tt> keyword is a generator function; this is
+detected by Python&#8217;s <tt class="docutils literal"><span class="pre">bytecode</span></tt> compiler which compiles the function
+specially as a result.</p>
+<p>Inside a generator function, the <tt class="docutils literal"><span class="pre">return</span></tt> statement can only be used without a
+value, and signals the end of the procession of values; after executing a
+<tt class="docutils literal"><span class="pre">return</span></tt> the generator cannot return any further values.  <tt class="docutils literal"><span class="pre">return</span></tt> with a
+value, such as <tt class="docutils literal"><span class="pre">return</span> <span class="pre">5</span></tt>, is a syntax error inside a generator function.  The
+end of the generator&#8217;s results can also be indicated by raising
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt> manually, or by just letting the flow of execution fall off
+the bottom of the function.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">How to Solve it using Python</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="interestingmodules.html">Interesting Modules that ease our tasks</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

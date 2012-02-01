@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lets recollect certain common Programming Paradigms &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="../index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Lets recollect certain common Programming Paradigms</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="lets-recollect-certain-common-programming-paradigms">
+<h1>Lets recollect certain common Programming Paradigms<a class="headerlink" href="#lets-recollect-certain-common-programming-paradigms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="regular-expressions">
+<h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Regular Expressions are pattern that specify the matching rule.</li>
+<li>foo.*  # matches everything that starts with foo</li>
+<li>d*    # matches all digits.</li>
+<li>[a-zA-Z]* # matches sequence of letters.</li>
+<li>text - match the literal text.</li>
+<li>.</li>
+<li>^</li>
+<li>$</li>
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+<li>?</li>
+<li>*?</li>
+<li>+?</li>
+<li>{m,n}</li>
+<li>{m,n}?</li>
+<li>[...]</li>
+<li>[^...]</li>
+<li>A|B</li>
+<li>(...)</li>
+</ul>
+<p>Special characters</p>
+<p>number  - any text matched by previous group.
+A       - matches the start of the string.
+b       - matches empty string at the beginning or end of the string.
+B       - matches empty string not at the begining or end of the string.
+d       - matches a decimal digit.
+D       - matches any non-digit.
+s       - matches any whitespace.
+S
+w      - matches alpha-numeric character.
+W      - matches non alpha-numeric character.
+Z      - End of string.</p>
+<p>To Avoid the backslash plague, a raw string is used.
+prefix the string with r&#8217;&#8216;</p>
+<ul class="simple">
+<li>use re module to create a Regex Object.</li>
+<li>do a match or search on the regex object.</li>
+</ul>
+<p>Interesting example:</p>
+</div>
+<div class="section" id="handling-exceptions">
+<h2>Handling Exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A try statement may have more than one except clause, to specify handlers for</li>
+</ul>
+<div class="highlight-python"><pre>different exceptions.
+
+   ... except (RuntimeError, TypeError, NameError):
+
+   ...     pass</pre>
+</div>
+<ul class="simple">
+<li>The last except clause may omit the exception name(s), to serve as a
+wildcard. Use this with extreme caution, since it is easy to mask a real
+programming error in this way!</li>
+<li>It can also be used to print an error message and then re-raise the</li>
+</ul>
+<blockquote>
+<div>exception (allowing a caller to handle the exception as well)</div></blockquote>
+<ul class="simple">
+<li>The try ... except statement has an optional else clause, executed when the
+try clause does not raise an exception.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;cannot open&#39;</span><span class="p">,</span> <span class="n">arg</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">arg</span><span class="p">,</span> <span class="s">&#39;has&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()),</span> <span class="s">&#39;lines&#39;</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defining-clean-up-actions">
+<h2>Defining Clean-up Actions<a class="headerlink" href="#defining-clean-up-actions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A finally clause is always executed before leaving the try statement, whether</li>
+</ul>
+<p>an exception has occurred or not.</p>
+<ul class="simple">
+<li>In real world applications, the finally clause is useful for releasing
+external resources (such as files or network connections), regardless of
+whether the use of the resource was successful.</li>
+</ul>
+</div>
+<div class="section" id="pre-defined-clean-up-actions">
+<h2>Pre-defined Clean-up actions<a class="headerlink" href="#pre-defined-clean-up-actions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>with statement</li>
+<li>Some objects define standard clean-up actions to be undertaken when the
+object is no longer needed, regardless of whether or not the operation using
+the object succeeded or failed.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">line</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>After the statement is executed, the file f is always closed, even if a
+problem was encountered while processing the lines.</li>
+<li>Exceptions are Classes and are __builtin__ to the interpreter.</li>
+<li>Until 1.5, simple string messages were exceptions.</li>
+<li>The exception classes are defined in a hierarchy, related exceptions can be caught by catching their base classes.</li>
+</ul>
+<div class="section" id="baseexception">
+<h3>BaseException<a class="headerlink" href="#baseexception" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for all exceptions. Implements logic for creating the string
+representation of the exception using the str() from the arguments passed to
+the constructor.</p>
+</div>
+<div class="section" id="exception">
+<h3>Exception<a class="headerlink" href="#exception" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for the exception that do not result in quitting the running
+application. All user-defined exceptions should use Exception as a base class.</p>
+</div>
+<div class="section" id="standarderror">
+<h3>StandardError<a class="headerlink" href="#standarderror" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for builtin exceptions used in Standard Library.</p>
+</div>
+<div class="section" id="arthimeticerror">
+<h3>ArthimeticError<a class="headerlink" href="#arthimeticerror" title="Permalink to this headline">¶</a></h3>
+<p>Baseclass for math related errors.</p>
+</div>
+<div class="section" id="lookuperror">
+<h3>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h3>
+<p>When something cannot be found.</p>
+</div>
+<div class="section" id="environmenterror">
+<h3>EnvironmentError<a class="headerlink" href="#environmenterror" title="Permalink to this headline">¶</a></h3>
+<p>Base class for errors that come from outside of Python (the operating system,
+filesystem, etc.).</p>
+</div>
+<div class="section" id="assertionerror">
+<h3>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h3>
+<p>An AssertionError is raised by a failed assert statement.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>&gt;&gt;&gt;assert False, &#8216;The assertion failed&#8217;
+&gt;&gt;&gt;# This should throw a simple AssertionError</dd>
+</dl>
+</div>
+<div class="section" id="attributeerror">
+<h3>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h3>
+<p>When an attribute reference or assignment fails, AttributeError is raised.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;PyCon 2009&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">imag</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># This would throw AttributeError</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>AttributeError will also be raised when trying to modify a read-only attribute.</p>
+<div class="highlight-python"><pre>class MyClass(object):
+
+    @property
+        def attribute(self):
+                return 'This is the attribute value'
+
+                o = MyClass()
+                print o.attribute
+                o.attribute = 'New value'</pre>
+</div>
+</div>
+<div class="section" id="eoferror">
+<h3>EOFError<a class="headerlink" href="#eoferror" title="Permalink to this headline">¶</a></h3>
+<p>An EOFError is raised when a builtin function like input() or raw_input() do
+not read any data before encountering the end of their input stream.</p>
+</div>
+<div class="section" id="ioerror">
+<h3>IOError<a class="headerlink" href="#ioerror" title="Permalink to this headline">¶</a></h3>
+<p>Raised when input or output fails, for example if a disk fills up or an input file does not exist.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>f = open(&#8216;/does/not/exist&#8217;, &#8216;r&#8217;)</dd>
+</dl>
+</div>
+<div class="section" id="importerror">
+<h3>importError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h3>
+<p>Raised when a module, or member of a module, cannot be imported.</p>
+</div>
+<div class="section" id="indexerror">
+<h3>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h3>
+<p>An IndexError is raised when a sequence reference is out of range.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_seq</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">]</span>
+<span class="k">print</span> <span class="n">my_seq</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="keyerror">
+<h3>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h3>
+<p>A KeyError is raised when a value is not found as a key of a dictionary.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>d = { &#8216;a&#8217;:1, &#8216;b&#8217;:2 }
+print d[&#8216;c&#8217;]</dd>
+</dl>
+</div>
+<div class="section" id="keyboardinterrupt">
+<h3>KeyboardInterrupt<a class="headerlink" href="#keyboardinterrupt" title="Permalink to this headline">¶</a></h3>
+<p>A KeyboardInterrupt occurs whenever the user presses Ctrl-C (or Delete) to stop
+a running program. Unlike most of the other exceptions, KeyboardInterrupt
+inherits directly from BaseException to avoid being caught by global exception
+handlers that catch Exception.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Press Return or Ctrl-C:&#39;</span><span class="p">,</span>
+    <span class="n">ignored</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught exception:&#39;</span><span class="p">,</span> <span class="n">err</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Caught KeyboardInterrupt&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;No exception&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="memoryerror">
+<h3>MemoryError<a class="headerlink" href="#memoryerror" title="Permalink to this headline">¶</a></h3>
+<p>If your program runs out of memory and it is possible to recover (by deleting
+some objects, for example), a MemoryError is raised.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c"># Try to create a MemoryError by allocating a lot of memory</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;*&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">30</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">MemoryError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;(error, discarding existing list)&#39;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nameerror">
+<h3>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h3>
+<p>NameErrors are raised when your code refers to a name that does not exist in
+the current scope. For example, an unqualified variable name.</p>
+</div>
+<div class="section" id="notimplementederror">
+<h3>NotImplementedError<a class="headerlink" href="#notimplementederror" title="Permalink to this headline">¶</a></h3>
+<p>User-defined base classes can raise NotImplementedError to indicate that a
+method or behavior needs to be defined by a subclass, simulating an interface.</p>
+</div>
+</div>
+<div class="section" id="iterators">
+<h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
+<p>An iterator is an object representing a stream of data; this object returns the
+data one element at a time.  A Python iterator must support a method called
+<tt class="docutils literal"><span class="pre">next()</span></tt> that takes no arguments and always returns the next element of the
+stream.  If there are no more elements in the stream, <tt class="docutils literal"><span class="pre">next()</span></tt> must raise the
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt> exception.  Iterators don&#8217;t have to be finite, though; it&#8217;s
+perfectly reasonable to write an iterator that produces an infinite stream of
+data.</p>
+<p>The built-in <tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt> function takes an arbitrary object and tries to
+return an iterator that will return the object&#8217;s contents or elements, raising
+<tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt> if the object doesn&#8217;t support iteration.  Several of Python&#8217;s
+built-in data types support iteration, the most common being lists and
+dictionaries.  An object is called an <strong>iterable</strong> object if you can get an
+iterator for it.</p>
+<p>Note that you can only go forward in an iterator; there&#8217;s no way to get the
+previous element, reset the iterator, or make a copy of it.  Iterator objects
+can optionally provide these additional capabilities, but the iterator protocol
+only specifies the <tt class="docutils literal"><span class="pre">next()</span></tt> method.  Functions may therefore consume all of
+the iterator&#8217;s output, and if you need to do something different with the same
+stream, you&#8217;ll have to create a new iterator.</p>
+</div>
+<div class="section" id="list-comprehensions">
+<h2>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h2>
+<p>Two common operations on an iterator&#8217;s output are 1) performing some operation
+for every element, 2) selecting a subset of elements that meet some condition.
+For example, given a list of strings, you might want to strip off trailing
+whitespace from each line or extract all the strings containing a given
+substring.</p>
+<p>List comprehensions and generator expressions (short form: &#8220;listcomps&#8221; and
+&#8220;genexps&#8221;) are a concise notation for such operations, borrowed from the
+functional programming language Haskell (<a class="reference external" href="http://www.haskell.org">http://www.haskell.org</a>).  You can strip
+all the whitespace from a stream of strings with the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">line_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;  line 1</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="s">&#39;line 2  </span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+
+<span class="c"># Generator expression -- returns iterator</span>
+<span class="n">stripped_iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">)</span>
+
+<span class="c"># List comprehension -- returns list</span>
+<span class="n">stripped_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can select only certain elements by adding an <tt class="docutils literal"><span class="pre">&quot;if&quot;</span></tt> condition:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">stripped_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">line_list</span>
+                 <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>With a list comprehension, you get back a Python list; <tt class="docutils literal"><span class="pre">stripped_list</span></tt> is a
+list containing the resulting lines, not an iterator.  Generator expressions
+return an iterator that computes the values as necessary, not needing to
+materialize all the values at once.  This means that list comprehensions aren&#8217;t
+useful if you&#8217;re working with iterators that return an infinite stream or a very
+large amount of data.  Generator expressions are preferable in these situations.</p>
+<p>Example of List Comprehension</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">seq1</span> <span class="o">=</span> <span class="s">&#39;abc&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seq2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq1</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">seq2</span><span class="p">]</span>
+<span class="go">[(&#39;a&#39;, 1), (&#39;a&#39;, 2), (&#39;a&#39;, 3),</span>
+<span class="go">(&#39;b&#39;, 1), (&#39;b&#39;, 2), (&#39;b&#39;, 3),</span>
+<span class="go">(&#39;c&#39;, 1), (&#39;c&#39;, 2), (&#39;c&#39;, 3)]</span>
+</pre></div>
+</div>
+<p>To avoid introducing an ambiguity into Python&#8217;s grammar, if <tt class="docutils literal"><span class="pre">expression</span></tt> is
+creating a tuple, it must be surrounded with parentheses.  The first list
+comprehension below is a syntax error, while the second one is correct:</p>
+<div class="highlight-python"><pre># Syntax error
+[ x,y for x in seq1 for y in seq2]
+# Correct
+[ (x,y) for x in seq1 for y in seq2]</pre>
+</div>
+</div>
+<div class="section" id="data-structures-list-comprehensions">
+<h2>Data Structures: List comprehensions<a class="headerlink" href="#data-structures-list-comprehensions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Each list comprehension consists of an expression followed by a for clause, then zero or more for or if clauses.</li>
+<li>If the expression would evaluate to a tuple, it must be parenthesized.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">freshfruit</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;  banana&#39;</span><span class="p">,</span> <span class="s">&#39;  loganberry &#39;</span><span class="p">,</span> <span class="s">&#39;passion fruit  &#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">weapon</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">weapon</span> <span class="ow">in</span> <span class="n">freshfruit</span><span class="p">]</span>
+<span class="go">[&#39;banana&#39;, &#39;loganberry&#39;, &#39;passion fruit&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>
+<span class="go">[6, 12, 18]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+<span class="go">[12, 18]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[[</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>
+<span class="go">[[2, 4], [4, 16], [6, 36]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>  <span class="c"># error - parens required for tuples</span>
+<span class="go">  File &quot;&lt;stdin&gt;&quot;, line 1, in ?</span>
+<span class="go">    [x, x**2 for x in vec]</span>
+<span class="go">               ^</span>
+<span class="go">SyntaxError: invalid syntax</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>
+<span class="go">[(2, 4), (4, 16), (6, 36)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec1</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">vec2</span><span class="p">]</span>
+<span class="go">[8, 6, -18, 16, 12, -36, 24, 18, -54]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec1</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">vec2</span><span class="p">]</span>
+<span class="go">[6, 5, -7, 8, 7, -5, 10, 9, -3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vec1</span><span class="p">))]</span>
+<span class="go">[8, 12, -54]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-iaq">
+<h2>Python IAQ<a class="headerlink" href="#python-iaq" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+       <span class="p">]</span>
+</pre></div>
+</div>
+<p>How would you transpose the matrix?</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><dl class="first docutils">
+<dt>result = [[1,4,7],</dt>
+<dd>[2,5,8],
+[3,6,9]
+]</dd>
+</dl>
+<p class="last">Answer:
+&gt;&gt;&gt;zip(*mat)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id1">
+<h2>Iterators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The use of iterators pervades and unifies Python.</li>
+<li>Behind the scenes, the iterator statement calls iter() on the container
+object.</li>
+<li>The function returns an iterator object that defines the method next() which
+accesses elements in the container one at a time.</li>
+<li>StopIterationException terminates</li>
+<li>In your classes, define __iter__ which will return self and the next method.</li>
+</ul>
+</div>
+<div class="section" id="generators">
+<h2>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Just like regular function, but instead of return they use yield.</li>
+<li>Generators are used to return iterators.</li>
+<li>Generator expressions which are very similar to list comprehensions.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Generators<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Generators are a special class of functions that simplify the task of writing
+iterators.  Regular functions compute a value and return it, but generators
+return an iterator that returns a stream of values.  Generators can they can be
+thought of as resumable functions.</p>
+<p>Here&#8217;s the simplest example of a generator function:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>def generate_ints(N):</dt>
+<dd><dl class="first last docutils">
+<dt>for i in range(N):</dt>
+<dd>yield i</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Any function containing a <tt class="docutils literal"><span class="pre">yield</span></tt> keyword is a generator function; this is
+detected by Python&#8217;s <tt class="docutils literal"><span class="pre">bytecode</span></tt> compiler which compiles the function
+specially as a result.</p>
+<p>Inside a generator function, the <tt class="docutils literal"><span class="pre">return</span></tt> statement can only be used without a
+value, and signals the end of the procession of values; after executing a
+<tt class="docutils literal"><span class="pre">return</span></tt> the generator cannot return any further values.  <tt class="docutils literal"><span class="pre">return</span></tt> with a
+value, such as <tt class="docutils literal"><span class="pre">return</span> <span class="pre">5</span></tt>, is a syntax error inside a generator function.  The
+end of the generator&#8217;s results can also be indicated by raising
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt> manually, or by just letting the flow of execution fall off
+the bottom of the function.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interesting Modules that ease our tasks &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="../index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Interesting Modules that ease our tasks</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="interesting-modules-that-ease-our-tasks">
+<h1>Interesting Modules that ease our tasks<a class="headerlink" href="#interesting-modules-that-ease-our-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="collections-module">
+<h2>Collections module<a class="headerlink" href="#collections-module" title="Permalink to this headline">¶</a></h2>
+<p>collections module provides a high performance container datatype.</p>
+<p>Collections module implements high-performance container datatypes.  Currently,
+there are four datatypes, <tt class="xref py py-class docutils literal"><span class="pre">Counter</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">deque</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">OrderedDict</span></tt> and
+<tt class="xref py py-class docutils literal"><span class="pre">defaultdict</span></tt>, and one datatype factory function, <tt class="xref py py-func docutils literal"><span class="pre">namedtuple()</span></tt>.</p>
+<p>The specialized containers provided in this module provide alternatives
+to Python&#8217;s general purpose built-in containers, <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">list</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">set</span></tt>, and <tt class="xref py py-class docutils literal"><span class="pre">tuple</span></tt>.</p>
+<p>In addition to containers, the collections module provides some ABCs
+(abstract base classes) that can be used to test whether a class
+provides a particular interface, for example, whether it is hashable or
+a mapping.</p>
+<p>A counter tool is provided to support convenient and rapid tallies.
+For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># Tally occurrences of words in a list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnt</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;green&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="n">cnt</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnt</span>
+<span class="go">Counter({&#39;blue&#39;: 3, &#39;red&#39;: 2, &#39;green&#39;: 1})</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Find the ten most common words in Hamlet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">&#39;\w+&#39;</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;hamlet.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">[(&#39;the&#39;, 1143), (&#39;and&#39;, 966), (&#39;to&#39;, 762), (&#39;of&#39;, 669), (&#39;i&#39;, 631),</span>
+<span class="go"> (&#39;you&#39;, 554),  (&#39;a&#39;, 546), (&#39;my&#39;, 514), (&#39;hamlet&#39;, 471), (&#39;in&#39;, 451)]</span>
+</pre></div>
+</div>
+<p>deque([iterable[, maxlen]])</p>
+<blockquote>
+<div><p>Returns a new deque object initialized left-to-right (using <tt class="xref py py-meth docutils literal"><span class="pre">append()</span></tt>) with
+data from <em>iterable</em>.  If <em>iterable</em> is not specified, the new deque is empty.</p>
+<p>Deques are a generalization of stacks and queues (the name is pronounced &#8220;deck&#8221;
+and is short for &#8220;double-ended queue&#8221;).  Deques support thread-safe, memory
+efficient appends and pops from either side of the deque with approximately the
+same O(1) performance in either direction.</p>
+<p>Though <tt class="xref py py-class docutils literal"><span class="pre">list</span></tt> objects support similar operations, they are optimized for
+fast fixed-length operations and incur O(n) memory movement costs for
+<tt class="docutils literal"><span class="pre">pop(0)</span></tt> and <tt class="docutils literal"><span class="pre">insert(0,</span> <span class="pre">v)</span></tt> operations which change both the size and
+position of the underlying data representation.</p>
+<p class="versionadded">
+<span class="versionmodified">New in version 2.4.</span></p>
+<p>If <em>maxlen</em> is not specified or is <em>None</em>, deques may grow to an
+arbitrary length.  Otherwise, the deque is bounded to the specified maximum
+length.  Once a bounded length deque is full, when new items are added, a
+corresponding number of items are discarded from the opposite end.  Bounded
+length deques provide functionality similar to the <tt class="docutils literal"><span class="pre">tail</span></tt> filter in
+Unix. They are also useful for tracking transactions and other pools of data
+where only the most recent activity is of interest.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>def moving_average(iterable, n=3):</dt>
+<dd><p class="first"># moving_average([40, 30, 50, 46, 39, 44]) &#8211;&gt; 40.0 42.0 45.0 43.0
+# <a class="reference external" href="http://en.wikipedia.org/wiki/Moving_average">http://en.wikipedia.org/wiki/Moving_average</a>
+it = iter(iterable)
+d = deque(itertools.islice(it, n-1))
+d.appendleft(0)
+s = sum(d)
+for elem in it:</p>
+<blockquote class="last">
+<div>s += elem - d.popleft()
+d.append(elem)
+yield s / float(n)</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="default-dict">
+<h2>Default Dict<a class="headerlink" href="#default-dict" title="Permalink to this headline">¶</a></h2>
+<p>ing <tt class="xref py py-class docutils literal"><span class="pre">list</span></tt> as the <tt class="xref py py-attr docutils literal"><span class="pre">default_factory</span></tt>, it is easy to group a
+sequence of key-value pairs into a dictionary of lists:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;yellow&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;yellow&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="go">[(&#39;blue&#39;, [2, 4]), (&#39;red&#39;, [1]), (&#39;yellow&#39;, [1, 3])]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="namedtuple">
+<h2>Namedtuple<a class="headerlink" href="#namedtuple" title="Permalink to this headline">¶</a></h2>
+<p>imed tuples assign meaning to each position in a tuple and allow for more readable,
+self-documenting code.  They can be used wherever regular tuples are used, and
+they add the ability to access fields by name instead of position index.
+tertools module</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Point&#39;</span><span class="p">,</span> <span class="s">&#39;x y&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ordered-dictionary">
+<h2>Ordered Dictionary<a class="headerlink" href="#ordered-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>Ordered dictionaries are just like regular dictionaries but they remember the
+order that items were inserted.  When iterating over an ordered dictionary,
+the items are returned in the order their keys were first added.</p>
+<hr class="docutils" />
+<p>The <tt class="xref py py-mod docutils literal"><span class="pre">itertools</span></tt> module contains a number of commonly-used iterators as well
+as functions for combining several iterators.  This section will introduce the
+module&#8217;s contents by showing small examples.</p>
+<p>The module&#8217;s functions fall into a few broad classes:</p>
+<ul class="simple">
+<li>Functions that create a new iterator based on an existing iterator.</li>
+<li>Functions for treating an iterator&#8217;s elements as function arguments.</li>
+<li>Functions for selecting portions of an iterator&#8217;s output.</li>
+<li>A function for grouping an iterator&#8217;s output.</li>
+</ul>
+</div>
+<div class="section" id="creating-new-iterators">
+<h2>Creating new iterators<a class="headerlink" href="#creating-new-iterators" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">itertools.count(n)</span></tt> returns an infinite stream of integers, increasing by 1
+each time.  You can optionally supply the starting number, which defaults to 0:</p>
+<div class="highlight-python"><pre>itertools.count() =&gt;
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ...
+itertools.count(10) =&gt;
+  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, ...</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.cycle(iter)</span></tt> saves a copy of the contents of a provided iterable
+and returns a new iterator that returns its elements from first to last.  The
+new iterator will repeat these elements infinitely.</p>
+<div class="highlight-python"><pre>itertools.cycle([1,2,3,4,5]) =&gt;
+  1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.repeat(elem,</span> <span class="pre">[n])</span></tt> returns the provided element <tt class="docutils literal"><span class="pre">n</span></tt> times, or
+returns the element endlessly if <tt class="docutils literal"><span class="pre">n</span></tt> is not provided.</p>
+<div class="highlight-python"><pre>itertools.repeat('abc') =&gt;
+  abc, abc, abc, abc, abc, abc, abc, abc, abc, abc, ...
+itertools.repeat('abc', 5) =&gt;
+  abc, abc, abc, abc, abc</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.chain(iterA,</span> <span class="pre">iterB,</span> <span class="pre">...)</span></tt> takes an arbitrary number of iterables as
+input, and returns all the elements of the first iterator, then all the elements
+of the second, and so on, until all of the iterables have been exhausted.</p>
+<div class="highlight-python"><pre>itertools.chain(['a', 'b', 'c'], (1, 2, 3)) =&gt;
+  a, b, c, 1, 2, 3</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.izip(iterA,</span> <span class="pre">iterB,</span> <span class="pre">...)</span></tt> takes one element from each iterable and
+returns them in a tuple:</p>
+<div class="highlight-python"><pre>itertools.izip(['a', 'b', 'c'], (1, 2, 3)) =&gt;
+  ('a', 1), ('b', 2), ('c', 3)</pre>
+</div>
+<p>It&#8217;s similar to the built-in <tt class="xref py py-func docutils literal"><span class="pre">zip()</span></tt> function, but doesn&#8217;t construct an
+in-memory list and exhaust all the input iterators before returning; instead
+tuples are constructed and returned only if they&#8217;re requested.  (The technical
+term for this behaviour is <a class="reference external" href="http://en.wikipedia.org/wiki/Lazy_evaluation">lazy evaluation</a>.)</p>
+<p>This iterator is intended to be used with iterables that are all of the same
+length.  If the iterables are of different lengths, the resulting stream will be
+the same length as the shortest iterable.</p>
+<div class="highlight-python"><pre>itertools.izip(['a', 'b'], (1, 2, 3)) =&gt;
+  ('a', 1), ('b', 2)</pre>
+</div>
+<p>You should avoid doing this, though, because an element may be taken from the
+longer iterators and discarded.  This means you can&#8217;t go on to use the iterators
+further because you risk skipping a discarded element.</p>
+<p><tt class="docutils literal"><span class="pre">itertools.islice(iter,</span> <span class="pre">[start],</span> <span class="pre">stop,</span> <span class="pre">[step])</span></tt> returns a stream that&#8217;s a
+slice of the iterator.  With a single <tt class="docutils literal"><span class="pre">stop</span></tt> argument, it will return the
+first <tt class="docutils literal"><span class="pre">stop</span></tt> elements.  If you supply a starting index, you&#8217;ll get
+<tt class="docutils literal"><span class="pre">stop-start</span></tt> elements, and if you supply a value for <tt class="docutils literal"><span class="pre">step</span></tt>, elements will
+be skipped accordingly.  Unlike Python&#8217;s string and list slicing, you can&#8217;t use
+negative values for <tt class="docutils literal"><span class="pre">start</span></tt>, <tt class="docutils literal"><span class="pre">stop</span></tt>, or <tt class="docutils literal"><span class="pre">step</span></tt>.</p>
+<div class="highlight-python"><pre>itertools.islice(range(10), 8) =&gt;
+  0, 1, 2, 3, 4, 5, 6, 7
+itertools.islice(range(10), 2, 8) =&gt;
+  2, 3, 4, 5, 6, 7
+itertools.islice(range(10), 2, 8, 2) =&gt;
+  2, 4, 6</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.tee(iter,</span> <span class="pre">[n])</span></tt> replicates an iterator; it returns <tt class="docutils literal"><span class="pre">n</span></tt>
+independent iterators that will all return the contents of the source iterator.
+If you don&#8217;t supply a value for <tt class="docutils literal"><span class="pre">n</span></tt>, the default is 2.  Replicating iterators
+requires saving some of the contents of the source iterator, so this can consume
+significant memory if the iterator is large and one of the new iterators is
+consumed more than the others.</p>
+<div class="highlight-python"><pre>itertools.tee( itertools.count() ) =&gt;
+   iterA, iterB
+
+where iterA -&gt;
+   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ...
+
+and   iterB -&gt;
+   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ...</pre>
+</div>
+</div>
+<div class="section" id="calling-functions-on-elements">
+<h2>Calling functions on elements<a class="headerlink" href="#calling-functions-on-elements" title="Permalink to this headline">¶</a></h2>
+<p>Two functions are used for calling other functions on the contents of an
+iterable.</p>
+<p><tt class="docutils literal"><span class="pre">itertools.imap(f,</span> <span class="pre">iterA,</span> <span class="pre">iterB,</span> <span class="pre">...)</span></tt> returns a stream containing
+<tt class="docutils literal"><span class="pre">f(iterA[0],</span> <span class="pre">iterB[0]),</span> <span class="pre">f(iterA[1],</span> <span class="pre">iterB[1]),</span> <span class="pre">f(iterA[2],</span> <span class="pre">iterB[2]),</span> <span class="pre">...</span></tt>:</p>
+<div class="highlight-python"><pre>itertools.imap(operator.add, [5, 6, 5], [1, 2, 3]) =&gt;
+  6, 8, 8</pre>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">operator</span></tt> module contains a set of functions corresponding to Python&#8217;s
+operators.  Some examples are <tt class="docutils literal"><span class="pre">operator.add(a,</span> <span class="pre">b)</span></tt> (adds two values),
+<tt class="docutils literal"><span class="pre">operator.ne(a,</span> <span class="pre">b)</span></tt> (same as <tt class="docutils literal"><span class="pre">a!=b</span></tt>), and <tt class="docutils literal"><span class="pre">operator.attrgetter('id')</span></tt>
+(returns a callable that fetches the <tt class="docutils literal"><span class="pre">&quot;id&quot;</span></tt> attribute).</p>
+<p><tt class="docutils literal"><span class="pre">itertools.starmap(func,</span> <span class="pre">iter)</span></tt> assumes that the iterable will return a stream
+of tuples, and calls <tt class="docutils literal"><span class="pre">f()</span></tt> using these tuples as the arguments:</p>
+<div class="highlight-python"><pre>itertools.starmap(os.path.join,
+                  [('/usr', 'bin', 'java'), ('/bin', 'python'),
+                   ('/usr', 'bin', 'perl'),('/usr', 'bin', 'ruby')])
+=&gt;
+  /usr/bin/java, /bin/python, /usr/bin/perl, /usr/bin/ruby</pre>
+</div>
+</div>
+<div class="section" id="selecting-elements">
+<h2>Selecting elements<a class="headerlink" href="#selecting-elements" title="Permalink to this headline">¶</a></h2>
+<p>Another group of functions chooses a subset of an iterator&#8217;s elements based on a
+predicate.</p>
+<p><tt class="docutils literal"><span class="pre">itertools.ifilter(predicate,</span> <span class="pre">iter)</span></tt> returns all the elements for which the
+predicate returns true:</p>
+<div class="highlight-python"><pre>def is_even(x):
+    return (x % 2) == 0
+
+itertools.ifilter(is_even, itertools.count()) =&gt;
+  0, 2, 4, 6, 8, 10, 12, 14, ...</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.ifilterfalse(predicate,</span> <span class="pre">iter)</span></tt> is the opposite, returning all
+elements for which the predicate returns false:</p>
+<div class="highlight-python"><pre>itertools.ifilterfalse(is_even, itertools.count()) =&gt;
+  1, 3, 5, 7, 9, 11, 13, 15, ...</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.takewhile(predicate,</span> <span class="pre">iter)</span></tt> returns elements for as long as the
+predicate returns true.  Once the predicate returns false, the iterator will
+signal the end of its results.</p>
+<div class="highlight-python"><pre>def less_than_10(x):
+    return (x &lt; 10)
+
+itertools.takewhile(less_than_10, itertools.count()) =&gt;
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+itertools.takewhile(is_even, itertools.count()) =&gt;
+  0</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">itertools.dropwhile(predicate,</span> <span class="pre">iter)</span></tt> discards elements while the predicate
+returns true, and then returns the rest of the iterable&#8217;s results.</p>
+<div class="highlight-python"><pre>itertools.dropwhile(less_than_10, itertools.count()) =&gt;
+  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, ...
+
+itertools.dropwhile(is_even, itertools.count()) =&gt;
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ...</pre>
+</div>
+</div>
+<div class="section" id="grouping-elements">
+<h2>Grouping elements<a class="headerlink" href="#grouping-elements" title="Permalink to this headline">¶</a></h2>
+<p>The last function I&#8217;ll discuss, <tt class="docutils literal"><span class="pre">itertools.groupby(iter,</span> <span class="pre">key_func=None)</span></tt>, is
+the most complicated.  <tt class="docutils literal"><span class="pre">key_func(elem)</span></tt> is a function that can compute a key
+value for each element returned by the iterable.  If you don&#8217;t supply a key
+function, the key is simply each element itself.</p>
+<p><tt class="docutils literal"><span class="pre">groupby()</span></tt> collects all the consecutive elements from the underlying iterable
+that have the same key value, and returns a stream of 2-tuples containing a key
+value and an iterator for the elements with that key.</p>
+<div class="highlight-python"><pre>city_list = [('Decatur', 'AL'), ('Huntsville', 'AL'), ('Selma', 'AL'),
+             ('Anchorage', 'AK'), ('Nome', 'AK'),
+             ('Flagstaff', 'AZ'), ('Phoenix', 'AZ'), ('Tucson', 'AZ'),
+             ...
+            ]
+
+def get_state ((city, state)):
+    return state
+
+itertools.groupby(city_list, get_state) =&gt;
+  ('AL', iterator-1),
+  ('AK', iterator-2),
+  ('AZ', iterator-3), ...
+
+where
+iterator-1 =&gt;
+  ('Decatur', 'AL'), ('Huntsville', 'AL'), ('Selma', 'AL')
+iterator-2 =&gt;
+  ('Anchorage', 'AK'), ('Nome', 'AK')
+iterator-3 =&gt;
+  ('Flagstaff', 'AZ'), ('Phoenix', 'AZ'), ('Tucson', 'AZ')</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">groupby()</span></tt> assumes that the underlying iterable&#8217;s contents will already be
+sorted based on the key.  Note that the returned iterators also use the
+underlying iterable, so you have to consume the results of iterator-1 before
+requesting iterator-2 and its corresponding key.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

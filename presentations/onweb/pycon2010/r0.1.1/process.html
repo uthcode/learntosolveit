@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Process Handling &mdash; PyCon 2009 0.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="PyCon 2009 0.1.2 documentation" href="../index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>PyCon 2009 0.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Process Handling</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="process-handling">
+<h1>Process Handling<a class="headerlink" href="#process-handling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subprocess-module">
+<h2>subprocess module<a class="headerlink" href="#subprocess-module" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>subprocess</cite> module allows you to spawn new processes, connect to their
+input/output/error pipes, and obtain their return codes.</p>
+</div>
+<div class="section" id="subprocess-call-popenargs-kwargs">
+<h2><tt class="docutils literal"><span class="pre">subprocess.call(*popenargs,</span> <span class="pre">**kwargs)</span></tt><a class="headerlink" href="#subprocess-call-popenargs-kwargs" title="Permalink to this headline">¶</a></h2>
+<p>This is convenience function provided by subprocess module which executes the command given by the argument, when shell=True is the shell variables are expanded in the command line.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># using os.system() you could call the external operating system calls</span>
+<span class="c"># That is equivalent to call() method from subprocess.</span>
+<span class="c"># Optional shell argument provides the facility to pass the shell variables.</span>
+
+<span class="c"># Doing it os.system way</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">)</span>
+
+<span class="c"># Doing it subprocess way</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">)</span>
+
+<span class="c"># Accessing shell variables</span>
+<span class="c"># Since we set shell=True, the shell variables are expanded in the command line</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#39;echo $PATH&#39;</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="popen-method">
+<h2>Popen method<a class="headerlink" href="#popen-method" title="Permalink to this headline">¶</a></h2>
+<p><cite>subprocess</cite> module defines a class called <cite>Popen</cite>.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>class subprocess.Popen(args, bufsize=0, executable=None, stdin=None,
+stdout=None, stderr=None, preexec_fn=None, close_fds=False,
+shell=False, cwd=None, env=None, universal_newlines=False,
+startupinfo=None, creationflags=0)</dd>
+</dl>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">subprocess.PIPE</span></tt>: Special value that can be used as the stdin, stdout or
+stderr argument to Popen and indicates that a pipe to the standard stream
+should be opened.</li>
+<li><tt class="docutils literal"><span class="pre">subprocess.STDOUT</span></tt>: Special value that can be used as the stderr argument
+to Popen and indicates that standard error should go into the same handle as
+standard output.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">print</span> <span class="s">&#39;subprocess demo: reading output of child process&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;echo &quot;Hello,World&quot;&#39;</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">cout</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">cout</span>
+
+
+<span class="k">print</span> <span class="s">&#39;subprocess demo: writing to the input of a pipe&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&#39;Hello, World&#39;</span><span class="p">)</span>
+
+<span class="k">print</span>
+
+<span class="k">print</span> <span class="s">&#39;subprocess replacement of popen2, reading and writing through pipes&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+
+<span class="n">cout</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">We were so poor we couldn&#39;t afford a watchdog.  If we heard a noise at night,</span>
+<span class="s">we&#39;d bark ourselves.</span>
+<span class="s">		-- Crazy Jimmy</span>
+<span class="s">&quot;&quot;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="n">cout</span>
+
+<span class="k">print</span> <span class="s">&#39;subprocess replacement of popen3, handling stdin, stdout and stderr&#39;</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&#39;cat -;echo &quot;This will be an Error Message&quot; 1&gt;&amp;2&#39;</span><span class="p">,</span>
+                        <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                        <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+                       <span class="p">)</span>
+<span class="n">cout</span><span class="p">,</span> <span class="n">cerr</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="s">&#39;This is the Input Message&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">cout</span>
+<span class="k">print</span> <span class="n">cerr</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-a-task-scheduler">
+<h2>Writing a Task Scheduler<a class="headerlink" href="#writing-a-task-scheduler" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Scheduling Commands.</span>
+<span class="c"># Credit: Peter Cogolo</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">sched</span>
+
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">sched</span><span class="o">.</span><span class="n">scheduler</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">perform_command</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
+    <span class="n">schedule</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="n">inc</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">perform_command</span><span class="p">,</span> <span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">inc</span><span class="p">))</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">schedule</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">perform_command</span><span class="p">,</span> <span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">inc</span><span class="p">))</span>
+    <span class="n">schedule</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">numargs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">numargs</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">numargs</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;usage: &quot;</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot; command [seconds_delay]&quot;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">cmd</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">numargs</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">main</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">main</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">inc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Senthil Kumaran.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
