@@ -10,6 +10,7 @@ from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext.webapp import template
 
 class TimezoneInfo(db.Model):
     timezoneinfo = db.StringProperty(default='')
@@ -25,6 +26,8 @@ class TodoItem(db.Model):
     date = db.DateTimeProperty(auto_now_add=True)
     belongs_to = db.ReferenceProperty(TodoList)
     description = db.StringProperty(multiline=True)
+    start_time = db.TimeProperty(required=False)
+    end_time = db.TimeProperty(required=False)
     rating = db.IntegerProperty(required=True, default=0)
     score = db.IntegerProperty(default=0)
 
