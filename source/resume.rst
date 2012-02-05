@@ -232,7 +232,7 @@ O.R.Senthil Kumaran
 .. _FOLDOC: http://www.foldoc.org
 .. _nanoblogger: http://www.nanoblogger.sf.net
 .. _Rapple: http://rapple.sf.net
-.. _uthcode: http://uthcode.sarovar.org
+.. _uthcode: http://www.uthcode.com
 .. _ngwallpaper: http://ngwallpaper.googlecode.com 
 .. _pyljvim: http://www.vim.org/scripts/script.php?script_id=1724
 .. _pygame07: http://www.pyweek.org/e/v4victory/
