@@ -49,22 +49,25 @@
     </div>
 
     <div class="container">
-
-      {% if no_todos %}
-      <h2>No Todos for you yet.</h2>
-      <h2>Why not create a <a href="/new">new one now?</a></h2>
-      {% else %}
+      <h1>Discipline Score for {{displaydate}}</h1>
+      <h2>Add a <a href="/new">new todo?</a></h2>
+      <br>
       <ul>
-        {% for todolist in filtered_todolist %}
-        <li><a href="/?day={{todolist.daykey}}">{{todolist.daykey|splitdate}}</a>&nbsp;{{todolist.dayscore}}
+        {% for todo in filtered_todoitem %}
+        <li><h4>{{todo.description}} - {{todo.score}}/{{todo.rating}} <a href="/edit?key={{todo.key}}">Edit</a></h4>
         {% endfor %}
       </ul>
-      {% endif %}
-      <h2>Go to <a href="/">Main</a></h2>
       </br>
-      <a href='%s'>Logout?</a>
+      <h2>Score of the day: {{score}}</h2>
+      <h2>Discipline Score: {{total_score}}</h2>
+      <h2>You are playing at {{total_score}}% of your potential.</h2>
       </br>
-      <a href='http://3.discipline-score.appspot.com'>Older Version</a>
+      <h3>Check the <a href="/archives">archives</a>?</h3>
+      </br>
+      </br>
+      <h3><a href={{logout}}>Logout?</a></h3>
+      </br>
+      <h3><a href='http://3.discipline-score.appspot.com'>Older Version</a></h3>
 
     </div> <!-- /container -->
 

@@ -304,8 +304,10 @@ class Archives(webapp.RequestHandler):
 #            self.response.out.write("""</br>""")
 #            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>")
 #            self.response.out.write("</html>")
-            archive_contents = { 'no_todos': no_todos, 'filtered_todolist' :
-                    filtered_todolist}
+            logout = users.create_logout_url("/")
+            archive_contents = { 'no_todos': no_todos,
+                    'filtered_todolist' :filtered_todolist,
+                    'logout':logout}
             self.response.out.write(template.render(path, archive_contents))
         else:
             self.redirect(users.create_login_url(self.request.uri))
