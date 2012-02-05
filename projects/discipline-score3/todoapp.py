@@ -37,17 +37,8 @@ class SetTimeZone(webapp.RequestHandler):
     def get(self):
         username = users.get_current_user()
         if username:
-            self.response.out.write("<html>")
-            self.response.out.write("<title>discipline-score timezone.</title>")
-            self.response.out.write("<h2>Please set your timezone.</h2>")
-            self.response.out.write("<i>Like Asia/Singpore or Asia/Kolkata</h2>")
-            self.response.out.write("""
-            <form action="/settimezone" method="post"/>
-            <div>TimeZone</br><textarea name="timezoneinfo" label="timezone" rows="1" cols="50"></textarea></div>
-            <div><input type="submit" value="submit"></div>
-            </form>
-            """)
-            self.response.out.write("</html>")
+            path = os.path.join(os.path.dirname(__file__), 'timezone.html')
+            self.response.out.write(template.render(path, {}))
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
