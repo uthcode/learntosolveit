@@ -56,7 +56,7 @@
       {% else %}
       <ul>
         {% for todolist in filtered_todolist %}
-        <li><a href="/?day={{todolist.daykey}}">{{todolist.daykey}}</a>&nbsp;{{todolist.dayscore}}
+        <li><a href="/?day={{todolist.daykey}}">{{todolist.daykey|splitdate}}</a>&nbsp;{{todolist.dayscore}}
         {% endfor %}
       </ul>
       {% endif %}
