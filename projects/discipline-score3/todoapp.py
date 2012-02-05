@@ -3,6 +3,7 @@ import datetime
 import random
 import urllib
 import pytz
+import os
 
 from pytz import timezone
 
@@ -92,6 +93,7 @@ class UpdateTodo(webapp.RequestHandler):
                 item = db.get(key)
                 item.description = self.request.get('description',
                         default_value='default')
+
                 item.rating = int(self.request.get('rating', default_value=10))
                 item.score = int(self.request.get('score',default_value=0))
                 item.put()
@@ -217,41 +219,20 @@ class EditEntry(webapp.RequestHandler):
     def get(self):
         item_key = self.request.get('key')
         item = db.get(item_key)
-        self.response.out.write("<html>")
-        self.response.out.write("<title>Discipline Score</title>")
-        form_contents = """
-        <form action="/update" method="post"/>
-        <div>Description</br><textarea name="description"
-        label="description" rows="3" cols="60">%(description)s</textarea></div>
-        <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10">%(rating)s</textarea></div>
-        <div>Score</br><textarea name="score" label="score" rows="1" cols="10">%(score)s</textarea></div>
-        <div><input type="hidden" name="key" value=%(key)s></div>
-        <div><input type="submit" value="submit"></div>
-        </form>
-        """
-        form_contents %= {'description':item.description,
+        form_contents = {'description':item.description,
                 'rating':item.rating,
                 'score':item.score,
                 'key': item_key}
-        self.response.out.write(form_contents)
-        self.response.out.write('</html>')
+        path = os.path.join(os.path.dirname(__file__), 'edit.html')
+        self.response.out.write(template.render(path, form_contents))
 
 class NewEntry(webapp.RequestHandler):
 
     def get(self):
         username = users.get_current_user()
         if username:
-            self.response.out.write("<html>")
-            self.response.out.write("<title>discipline score</title>")
-            self.response.out.write("""
-            <form action="/new" method="post"/>
-            <div>Description</br><textarea name="description" label="description" rows="3" cols="60">Task Description</textarea></div>
-            <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10"></textarea></div>
-            <div>Score</br><textarea name="score" label="score" rows="1" cols="10"></textarea></div>
-            <div><input type="submit" value="submit"></div>
-            </form>
-            """)
-            self.response.out.write("</html>")
+            path = os.path.join(os.path.dirname(__file__), 'new.html')
+            self.response.out.write(template.render(path, {}))
         else:
             self.redirect(users.create_login_url(self.request.uri))
 

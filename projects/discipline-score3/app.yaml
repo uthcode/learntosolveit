@@ -6,6 +6,10 @@ api_version: 1
 handlers:
 - url: /stylesheets
   static_dir: stylesheets
+
+- url: /bootstrap
+  static_dir: bootstrap
+
 - url: /.*
   script: todoapp.py
 
