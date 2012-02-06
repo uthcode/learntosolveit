@@ -201,10 +201,11 @@ class MainPage(webapp.RequestHandler):
                         #self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % (discipline_score/number_of_entrys))
                         #self.response.out.write("<br>")
                         #self.response.out.write("""</br>""")
+                        template_values.update({'score':score, 'total_score':total_score})
+                        template_values.update({'filtered_todoitem':filtered_todoitem})
 
             logout_url = users.create_logout_url('/')
-            template_values.update({'score':score,'total_score':total_score,'logout':logout_url})
-            template_values.update({'filtered_todoitem':filtered_todoitem})
+            template_values.update({'logout':logout_url})
             self.response.out.write(template.render(path, template_values))
 #            self.response.out.write("""Create a <a href="/new">now</a> todo?""")
 #            self.response.out.write("""</br>""")

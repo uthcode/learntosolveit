@@ -96,10 +96,13 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Handlee", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   * */
   font-size: 13px;
   line-height: 18px;
   color: #333333;
+  /*background-image: url(../img/math-paper.jpg); */
   background-color: #ffffff;
 }
 a {
