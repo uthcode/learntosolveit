@@ -1,0 +1,179 @@
+Technical Interviews
+
+Review the basics
+
+Write code, especially if you are “rusty” in a given language
+
+Review algorithms and data structures
+
+If you claim to be an “expert” or “master” in something, be prepared to be grilled about it!
+Think about how to write software to test software
+Think about why, how, and where software breaks
+
+You can expect questions that evaluate your skills in three primary areas:
+
+1. Coding
+
+- You should know at least one programming language really well, and it should
+preferably be an object-oriented language, ideally C++ or Java (C# is OK since
+it’s similar to Java)
+
+- You should know a fair amount of detail about your favourite language,
+including justifying why it’s your favourite
+
+- If your favourite language is C or Python, you might be better suited as a
+Software Engineer in Site Reliability Engineering (talk to your Recruiter about
+this)
+
+- Sample topics: construct / traverse data structures, implement system
+routines, distill large data sets to single values, transform one data set to
+another.
+
+2. Algorithms
+
+- You need to know Big-O complexity analysis really well → it’s OK to quickly
+come up with a brute force solution, but that’s never going to be the answer →
+always look for an O(n*logn) solution or ideally a linear one
+
+- Searching and sorting algorithms (Quicksort, Mergesort, etc) → know more than
+one O(n*logn) sorting algorithm → know how they work and how to optimise for
+time and space
+
+- Hash tables → be able to implement one using only arrays
+
+- Trees → know tree construction, traversal, and manipulation algorithms.
+Familiarise yourself with binary trees, n-ary trees and trie-trees, and at
+least one type of balanced binary tree
+
+- Know the classic computer science problems (Shortest Path, Traveling
+Salesman, Knapsack, etc)
+
+Interview Hints
+
+- Talk through your thought processes. Our engineers are evaluating not only
+your technical abilities but how you approach & solve problems
+
+- Ask clarifying questions if you do not understand the problem or need more
+information. Many of the questions asked in Google interviews are deliberately
+underspecified because our engineers are looking to see how you engage the
+problem. In particular, they are looking to see which areas leap to your mind
+as the most important piece of the technological puzzle you've been presented
+
+- Think about ways to improve the solution you'll present. In many cases, the
+first answer that springs to mind isn't the most elegant solution & may need
+some refining. It's definitely worthwhile to talk about your initial thoughts
+to a question, but jumping immediately into presenting a brute force solution
+will be received less well than taking time to compose a more efficient
+solution.
+
+- Show an interest in Google products. What is your favourite product, and how
+would you improve it?
+
+Videos
+
+Classic problems
+
+Towers of Hanoi
+
+There's a temple in the middle of Hanoi. In that temple, there are three very
+large diamond-encrusted posts, and on those posts are sixty-four disks, all of
+a different size. There are a set of priests in that temple, and their task is
+to move the entire stack of sixty-four disks from one post to a second post.
+The rules, though, are, they can only move one disk at a time, and they can
+never cover up a smaller disk with a larger disk. Write a  recursive program to
+solve this problem. What is the complexity?
+
+Searching and sorting algorithms
+
+Write code to search a sorted list.  Write a binary search algorithm.  Write a
+selection sort algorithm.  Write code to create a hash table of size 256
+
+Shortest path problem
+Write an algorithm to plan a route by minimising distance or time (eg Google Maps)
+
+Traveling salesman
+Write an algorithm to determine the least cost round-trip, given multiple
+cities and varying costs of flights
+
+Knapsack problem 
+Write an algorithm to optimize the value of items you can fit into a backpack
+based on weight and volume
+
+Sorting algorithms - know how they work, average/worst case running times,
+stack space
+
+Insertion sort
+Quicksort
+Mergesort
+Heapsort
+
+
+Searching algorithms
+Sequential search
+Binary search
+Hashing
+Binary search trees
+Key indexing
+
+
+Other algorithms
+Priority queues
+Selection
+Back of the envelope calculations
+Know your powers of 2 (binary)
+Be able to express mega/giga/etc in binary and/or scientific notation
+Know cycle times and disk seek times for CPUs
+Explain and justify your assumptions
+Don’t be afraid of dealing with huge numbers!
+
+Sample questions from Programming Pearls
+
+1. How do you sort 10 million 7-digit phone numbers with ~1MB RAM? How would
+you solve this using one pass and no intermediate files? What if 1MB RAM was a
+firm limit?
+
+2. Given a sequential file that contains at most four billion 32-bit integers
+in random order, find a 32-bit integer that isn’t in the file (and there must
+be at least one missing...why?). How would you solve this with unlimited main
+memory? How would you solve it if you could use several external files but only
+a few bytes of main memory?
+
+3. Rotate a one-dimensional vector of n elements left by i positions. For
+instance, with n=8 and i=3, the vector abcdefg is rotated to defghabc. Simple
+code uses an n-element intermediate vector to do the job in n steps. Can you
+rotate the vector in time proportional to n using only a few dozen extra bytes
+of storage?
+
+4. Given a dictionary of English words, find sets of anagrams. For instance,
+“pots”, “stop”, and “tops” are all anagrams of one another because each can be
+found by permuting the letters of the others.
+
+5. Write functions for the following date problems: given two dates, compute
+the number of days between them; given a date, return it’s day of the week;
+given a month and year, produce a calendar of the month as an array of
+characters
+
+6. Given a very long sequence (say, billions or trillions) of bytes, how would
+you efficiently count the total number of one bits? (i.e. how many bits are
+turned on in the entire sequence)
+
+7. Although Quicksort uses only O(logn) stack space on the average, it can use
+linear space in the worst case. Explain why, then modify the program to use
+only logarithmic space in the worst case.
+
+8. Write a program for finding the kth-smallest element in the array x[0...n-1]
+in O(n) expected time. Your algorithm may permute the elements of x.
+
+9. Build the fastest possible complete function to generate a sorted array of
+random integers without duplicates. (You need feel constrained to use any
+prescribed interface for set representation)
+
+10.Implement heap-based priority queues to run as quickly as possible; at what
+values of n are they faster than sequential structures?
+
+If you have not already read through Steve Yegge's Technical Prep Tips on his blog
+
+The Algorithm Design Manual ‐ A lot you'd want to know about designing and
+implementing lots of fundamental aglorithms Structure and Interpretation of
+Computer Programs ‐  (esp. Pragmatic Unit Testing, Effective Java, Code
+Complete 2, Agile Estimation and Planning).
