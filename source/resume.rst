@@ -21,11 +21,12 @@ O.R.Senthil Kumaran
 
         * **Python Core Developer** - Active contributer to the Python Programming Language.
         * Programming Laguages Known - **Python, C++, C, Perl**
+        * Network Programming - **Twisted, Sockets, HTTP and URLs**
         * Web Development **Pylons, Javascript, jQuery, HTML5, CSS**
         * Database Systems **SQL, SQLAlchemy**
         * Revision Control Systems - **CVS, SVN, Perforce, git and Mercurial**
         * Profeciency in writing **System Software using C++ for Linux and Windows.**
-        * Expertise in **Internet Programming, Cloud Computing and Distributed Systems.**
+        * Expertise in **Internet Programming,Distributed Systems, Google App Engine**
         * **OpenSSL** based Secure Programming System.
         * Expertise in Designing **Test Automation and Unittest Frameworks**.
 
@@ -87,13 +88,14 @@ O.R.Senthil Kumaran
 
           * Role: Built the core asynchronous engine and the underlying request
             and response mechanism.
-          * Languages and Technologies: **Python, XML, C++, Asynchronous Servers, Large Volume Data Processing**
+          * Languages and Technologies: **Python, Twisted, XML, C++, Asynchronous Servers, Large Volume Data Processing**
 
         * **Web Development - Lucasfilm Singapore**
 
           Member of a team contributing to web development efforts building
-          internal webapps using Pylons, jQuery. Test Framework using Jenkins
-          and pytest.
+          internal webapps.
+          
+          * Languages and Technologies: **Python, Pylons, jQuery. Test Framework using Jenkins and pytest**
 
 
         * **BIOS and Framework Test Automation Suite**
@@ -214,7 +216,7 @@ O.R.Senthil Kumaran
 
 .. raw:: html
 
-    <ul> <li> <a href="http://stackoverflow.com/users/18852/senthil-kumaran"><img src="http://stackoverflow.com/users/flair/18852.png?theme=clean" width="208" height="58" alt="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a> </ul>
+    <p><ul><li><a href="http://stackoverflow.com/users/18852/senthil-kumaran"><img src="http://stackoverflow.com/users/flair/18852.png?theme=clean" width="208" height="58" alt="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></li></ul></p>
 
 
 .. _Commit Stats: http://www.ohloh.net/p/python/contributors/111669178856
