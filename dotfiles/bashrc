@@ -1,48 +1,14 @@
-#export PS1="[\[[1;34m\w\[\033[0m]\n[\t\u]$"
+STARTCOLOR='\e[0;32m';
+ENDCOLOR="\e[0m"
+export PS1="$STARTCOLOR\u@\h \w $ENDCOLOR\n[\t\u]$"
 
 export EDITOR=/usr/bin/vim
-export P4CONFIG=.perforce
-export PATH=$PATH:/home/senthil/akamai/repository/p4v/bin/:/home/senthil/projects/android-sdk-linux_86/tools:
 
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-if [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-fi
-
-alias shell05='ssh -A prod-unix-shell05.kendall.corp.akamai.com -l skumaran'
-alias man='pinfo'
-alias lsgbox='ssh -14A -i /home/senthil/.ssh/identity.deployed lsg-gss1.netmgmt.akamai.com -l skumaran'
-alias lsgbox2='ssh -14A -i /home/senthil/.ssh/identity.deployed lsg-gss2.netmgmt.akamai.com -l skumaran'
-alias linuxdesktop='ssh -14AX -i /home/senthil/.ssh/identity.internal 172.22.43.94 -l skumaran'
-alias connectlinguini='ssh -14AX -x -i /home/senthil/.ssh/identity.internal -l skumaran -p 4242 localhost'
-alias getwproxy='ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 8080:wproxy-east.akamai.com:3128 skumaran@callahan.akamai.com sleep 86400'
 alias ps='ps auxf'
 alias ll='ls --color=none'
-#alias ffwproxy='/usr/bin/firefox -P wproxy -no-remote 2>/dev/null'
-#alias callahan='ssh -f callahan.akamai.com "while (( 1 )); do sleep 5; done"' 
+alias ..='cd ..'
+
 alias mydig='dig +nocmd +nocomments +noquestion +nostats \\!^'
-
-scplinuxdesktop()
-{
-	scp -1 "$@" skumaran@172.22.43.94:/home/skumaran/dwns/;
-	echo 'Copied to ~/dwns at 172.22.43.94'
-}
-settunnels()
-{
-ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 10993:exchange.bangalore.corp.akamai.com:993 skumaran@callahan.akamai.com sleep 86400 
-ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 10025:exchange.bangalore.corp.akamai.com:25 skumaran@callahan.akamai.com sleep 86400 
-ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 10669:perforce.akamai.com:22 skumaran@callahan.akamai.com sleep 86400
-ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 5222:jabberim.akamai.com:5222 skumaran@callahan.akamai.com sleep 86400
-ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 8080:wproxy-east.akamai.com:3128 skumaran@callahan.akamai.com sleep 86400
-ssh -1 -a -x -i /home/senthil/.ssh/identity.external -f -L 4242:172.22.43.94:22 skumaran@callahan.akamai.com sleep 86400
-}
-
-killtunnels()
-{
-ps aux | awk "/callahan/ {print \$2}"|xargs kill -9
-}
 
 alias mountedinfo='df -hT'
 alias ping='ping -c 10'
@@ -71,20 +37,10 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-ssh-add /home/senthil/.ssh/identity.internal 2>/dev/null
-ssh-add /home/senthil/.ssh/identity.external 2>/dev/null
-ssh-add /home/senthil/.ssh/identity.deployed 2>/dev/null
-ssh-add /home/senthil/.ssh/phebbago_testbed_20050920.ppk 2>/dev/null
-
-export HISTCONTROL=erasedups
-export HISTSIZE=10000
-shopt -s histappend
-
 export IRCNICK=phoe6
 export IRCSERVER=irc.freenode.net:8001
 
 alias mutt='LOCAL_CONFIG=spool /usr/bin/mutt'
-alias akamutt='LOCAL_CONFIG=akamutt /usr/bin/mutt'
 
 if [ $(tty) == "/dev/tty1" ]; then
   startx
