@@ -14,38 +14,43 @@ from google.appengine.api import mail
 
 logging.getLogger().setLevel(logging.DEBUG)
 
-
-class Greeting(db.Model):
-    cardid = db.StringProperty()
-    cardimage = db.BlobProperty()
+class Resume(db.Model):
+    user = db.UserProperty()
+    pdfformat = db.BlobProperty()
+    docformat = db.BlobProperty()
+    stackoverflow = db.LinkProperty()
+    linkedin = db.LinkProperty()
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
-        """Get the cards and display it."""
-        # We are not using any template features at the moment.
+        """resumator application"""
         values = { }
-
         template_loc = os.path.join(os.path.dirname(__file__),'templates',
                 'index.html')
-
         self.response.out.write(template.render(template_loc, values))
 
-class EditedHandler(webapp.RequestHandler):
-    def post(self):
-        ecard = ''.join(random.sample(string.lowercase,6))
-        greeting = Greeting(key_name=ecard)
-        greeting.cardid = "ecard"
-        cardimage = self.request.get("imgdata")
-        greeting.cardimage = db.Blob(cardimage)
-        greeting.put()
-        self.redirect('/sendit/%s' % ecard)
+class CreatePage(webapp.RequestHandler):
+    def get(self):
+        """create your resume"""
+        values = { }
+        template_loc = os.path.join(os.path.dirname(__file__),'templates',
+                'create.html')
+        self.response.out.write(template.render(template_loc, values))
 
-class EcardHandler(webapp.RequestHandler):
-    def get(self,ecard):
-        chosencard = Greeting.get_by_key_name(ecard)
-        if chosencard and chosencard.cardimage:
-            self.response.headers['Content-Type'] = 'image/jpeg'
-            self.response.out.write(chosencard.cardimage)
+    def post(self):
+        """upload resume to your database"""
+        resume = Resume(user=username)
+        resumepdf = self.request.get("resumepdf")
+        resumedoc = self.request.get("resumedoc")
+        stackoverflow = self.request.get("stackoverflow")
+        linkedin = self.request.get("linkedin")
+        resume.resumepdf = db.Blob(resumepdf)
+        resume.resumedoc = db.Blob(resumedoc)
+        resume.stackoverflow = stackoverflow
+        resume.linkedin = linkedin
+        resume.put()
+        self.redirect('/')
+
 
 class SendHandler(webapp.RequestHandler):
     def get(self,ecard):
@@ -79,56 +84,21 @@ Card from http://www.shalgreetings.com
                 attachments=[('greetings.jpg', chosencard.cardimage)])
         self.redirect('/')
 
-class UploadPage(webapp.RequestHandler):
-    def get(self):
-        self.response.out.write("""
-              <form action="/submit" enctype="multipart/form-data" method="post">
-                <div><label>Message:</label></div>
-                <div><textarea name="cardid" cols="60"></textarea></div>
-                <div><label>Card:</label></div>
-                <div><input type="file" name="cardimage"/></div>
-                <div><input type="submit" value="Submit"></div>
-              </form>
-            </body>
-          </html>""")
-
-
-class ImageHandler(webapp.RequestHandler):
-
-    def get(self, imageid):
-        chosencard = Greeting.get_by_key_name(imageid)
-        if chosencard and chosencard.cardimage:
-            self.response.headers['Content-Type'] = 'image/jpeg'
-            self.response.out.write(chosencard.cardimage)
-
-
-class Guestbook(webapp.RequestHandler):
-    def post(self):
-        cardid = self.request.get("cardid")
-        cardimage = self.request.get("cardimage")
-        greeting = Greeting(key_name=cardid)
-        greeting.cardid = cardid
-        greeting.cardimage = db.Blob(cardimage)
-        greeting.put()
-        self.redirect('/')
-
 
 application = webapp.WSGIApplication([
     ('/', MainHandler),
+    ('/create', CreatePage),
     ('/export', EditedHandler),
     ('/ecard/(.*)', EcardHandler),
     ('/sendit/(.*)', SendHandler),
     ('/mail', MailHandler),
-    ('/upload', UploadPage),
     ('/submit', Guestbook),
     ('/cards/(.*)',ImageHandler)
 ], debug=True)
 
-
 def main():
     logging.getLogger().setLevel(logging.DEBUG)
     run_wsgi_app(application)
-
 
 if __name__ == '__main__':
     main()
