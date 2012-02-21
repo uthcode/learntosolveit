@@ -1,0 +1,40 @@
+Linked List
+Binary Tree
+Tries
+Stacks
+Queues
+Vectors
+Array List
+Hash Tables
+
+Breadth First Search
+Depth First Search
+Binary Search
+Merge Sort
+Quick Sort
+Tree Find
+Tree Insert
+Tree Delete
+
+Bit Manipulation
+Singleton Design Pattern
+Factory Design Pattern
+Memory (Stack vs Heap)
+Recursion
+Big O
+
+For each of these, know how to implement and use them and bigO complexity.
+
+Rabin Karp Algorithm
+
+Heaps
+
+A heap is really good at basic ordering and keeping track of max and mins
+This is actually interesting – if you had two heaps, you could keep track of
+the biggest half and the smallest half of the elements   The biggest half is
+kept in a min heap, such that the smallest element in the biggest half is at
+the root   The smallest half is kept in a max heap, such that the biggest
+element of the smallest half is at the root   Now, with these data structures,
+you have the potential median elements at the roots   If the heaps are no
+longer the same size, you can quickly “rebalance” the heaps by popping an
+element off the one heap and pushing it onto the other
