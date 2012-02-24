@@ -145,3 +145,9 @@ prescribed interface for set representation)
 
 10. Implement heap-based priority queues to run as quickly as possible; at what
 values of n are they faster than sequential structures?
+
+Consistent Hashing
+------------------
+
+http://michaelnielsen.org/blog/consistent-hashing/
+
