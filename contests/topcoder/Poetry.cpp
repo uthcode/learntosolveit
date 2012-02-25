@@ -115,7 +115,13 @@ public:
         for(string_it = poem.begin(); string_it != poem.end(); string_it++)
         {
             line = (*string_it);
+            
+            /* lower case it */
+
             transform(line.begin(),line.end(),line.begin(),::tolower);
+        
+            /* check blank line */
+
             empty_line = line;
             empty_line.erase(std::remove_if(empty_line.begin(), empty_line.end(), (int(*)(int))isspace), empty_line.end());
             if (empty_line.size() == 0)
@@ -123,44 +129,19 @@ public:
                 res += " ";
                 continue;
             }
-            for(int i=0; i<=empty_line.size()-1;i++)
-            {
-                if (empty_line[i] != ' ')
-                {
-                    blank_line = 0;
-                    break;
-                }
-            }
 
-            if (blank_line == 1)
-            {
-                res += " ";
-                continue;
-            }
-
-            if (line == "")
-            {
-                res += " ";
-                continue;
-            }
+            /* remove spaces (trailing) and first y */
 
             word = find_word(line);
-            if (word == "" || word.size() == 0)
-            {
-                res += " ";
-                continue;
-            }
-
             word.erase(std::remove_if(word.begin(), word.end(), (int(*)(int))isspace), word.end());
-            
             if (word[0] == 'y')
                 word = word.substr(1);
-            /**
-            if (*word.rbegin() == ' ')
-                word.resize(word.length() - 1);
-            **/
 
-            print(word);
+            /**
+             * The idea is form the dictionary of the rhymes and fetch from the
+             * dictionary if the rhyme already exist, if not add to the
+             * dictionary for the new rhyme created according to the rule.
+             */
 
             if (rhymes.count(word) > 0)
                 res += rhymes[word];
@@ -170,11 +151,6 @@ public:
                 res += chars_in_poem[current_char];
                 current_char++;
             }
-            /**
-             * The idea is form the dictionary of the rhymes and fetch from the
-             * dictionary if the rhyme already exist, if not add to the
-             * dictionary for the new rhyme created according to the rule.
-             */
         }
         return res;
     }
@@ -185,11 +161,7 @@ public:
         string::iterator c;
         int v;
         int len = line.size();
-        int orig_size = len;
-        int end_point;
         int found = 0;
-        int end_char = 1;
-        int end_sub = 0;
         string sub_str;
         for(c= line.end()-1; c != line.begin(); --c)
         {
@@ -198,19 +170,9 @@ public:
             {
                 len -= 1;
                 found = 1;
-                end_char = 0;
             }
             else
             {
-                if (end_char == 1 && v == ' ')
-                {
-                    end_sub += 1;
-                }
-                else if (v != ' ')
-                {
-                    end_char = 0;
-                }
-
                 if (found == 0)
                 {
                     len -= 1;
