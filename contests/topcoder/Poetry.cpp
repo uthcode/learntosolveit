@@ -1,5 +1,3 @@
-/** INCOMPELTE **/
-
 #include <algorithm>
 #include <iostream>
 #include <sstream>
@@ -105,24 +103,78 @@ class Poetry {
 public:
     string rhymeScheme(vector <string> poem) {
         vector <string>::iterator string_it;
-        string res, line;
+        string res, line, empty_line;
         string word;
+        string::iterator ec;
         map<string,string> rhymes;
+        res = "";
+        string chars_in_poem = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int current_char = 0;
+        int blank_line = 1;
+
         for(string_it = poem.begin(); string_it != poem.end(); string_it++)
         {
             line = (*string_it);
+            transform(line.begin(),line.end(),line.begin(),::tolower);
+            empty_line = line;
+            empty_line.erase(std::remove_if(empty_line.begin(), empty_line.end(), (int(*)(int))isspace), empty_line.end());
+            if (empty_line.size() == 0)
+            {
+                res += " ";
+                continue;
+            }
+            for(int i=0; i<=empty_line.size()-1;i++)
+            {
+                if (empty_line[i] != ' ')
+                {
+                    blank_line = 0;
+                    break;
+                }
+            }
+
+            if (blank_line == 1)
+            {
+                res += " ";
+                continue;
+            }
+
             if (line == "")
             {
                 res += " ";
                 continue;
             }
+
             word = find_word(line);
+            if (word == "" || word.size() == 0)
+            {
+                res += " ";
+                continue;
+            }
+
+            word.erase(std::remove_if(word.begin(), word.end(), (int(*)(int))isspace), word.end());
+            
+            if (word[0] == 'y')
+                word = word.substr(1);
+            /**
+            if (*word.rbegin() == ' ')
+                word.resize(word.length() - 1);
+            **/
+
+            print(word);
+
+            if (rhymes.count(word) > 0)
+                res += rhymes[word];
+            else
+            {
+                rhymes[word] += chars_in_poem[current_char];
+                res += chars_in_poem[current_char];
+                current_char++;
+            }
             /**
              * The idea is form the dictionary of the rhymes and fetch from the
              * dictionary if the rhyme already exist, if not add to the
-             * dictionary for the new rhyme creaated according to the rule.
+             * dictionary for the new rhyme created according to the rule.
              */
-            print(word);
         }
         return res;
     }
@@ -133,7 +185,12 @@ public:
         string::iterator c;
         int v;
         int len = line.size();
+        int orig_size = len;
+        int end_point;
         int found = 0;
+        int end_char = 1;
+        int end_sub = 0;
+        string sub_str;
         for(c= line.end()-1; c != line.begin(); --c)
         {
             v = *c;
@@ -141,9 +198,19 @@ public:
             {
                 len -= 1;
                 found = 1;
+                end_char = 0;
             }
             else
             {
+                if (end_char == 1 && v == ' ')
+                {
+                    end_sub += 1;
+                }
+                else if (v != ' ')
+                {
+                    end_char = 0;
+                }
+
                 if (found == 0)
                 {
                     len -= 1;
@@ -153,7 +220,7 @@ public:
             }
         }
 
-        string sub_str = line.substr(len);
+        sub_str = line.substr(len);
         return sub_str;
     }
 
@@ -168,7 +235,6 @@ int main( int argc, char* argv[] ) {
         Poetry theObject;
         eq(0, theObject.rhymeScheme(poem),"aab");
     }
-    /**
     {
         string poemARRAY[] = {"I hope this problem",
             "is a whole lot better than",
@@ -256,5 +322,4 @@ int main( int argc, char* argv[] ) {
         eq(6, theObject.rhymeScheme(poem),"aa");
     }
 
-    **/
 }
