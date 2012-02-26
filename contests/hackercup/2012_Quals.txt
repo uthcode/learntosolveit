@@ -1,0 +1,39 @@
+BillBoards
+http://www.facebook.com/hackercup/problems.php?pid=215823855164332&round=146094915502528
+
+Auction
+http://www.facebook.com/hackercup/problems.php?pid=268598303201105&round=146094915502528
+
+Alphabet Soup
+http://www.facebook.com/hackercup/problems.php?pid=341666075863455&round=146094915502528
+
+Solutions:
+http://www.facebook.com/notes/facebook-hacker-cup/2012-qualification-round-solutions/371108282905079
+
+Round1
+Checkpoint
+https://www.facebook.com/hackercup/problems.php?pid=191596157517194&round=225705397509134
+
+Recover the Sequence
+https://www.facebook.com/hackercup/problems.php?pid=287764834605024&round=225705397509134
+
+Squished Status
+https://www.facebook.com/hackercup/problems.php?pid=348968131789235&round=225705397509134
+
+Road Removal
+https://www.facebook.com/hackercup/problems.php?pid=278355025564990&round=154897681286317
+
+Monopoly
+https://www.facebook.com/hackercup/problems.php?pid=299871816717968&round=154897681286317
+
+Sequence Slicing
+https://www.facebook.com/hackercup/problems.php?pid=317343604974808&round=154897681286317
+
+Trapezoids
+https://www.facebook.com/hackercup/problems.php?pid=182208915220500&round=222291111185610
+
+Divison Function Optimization
+https://www.facebook.com/hackercup/problems.php?pid=249570461788103&round=222291111185610
+
+Unfriending
+https://www.facebook.com/hackercup/problems.php?pid=277701708952729&round=222291111185610
