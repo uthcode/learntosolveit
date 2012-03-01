@@ -2,6 +2,7 @@
    starting at column m. choose a convenient (for the user) default behaviour */
 
 #include<stdio.h>
+
 #define MAXLINE 100	/*maximum line size */
 #define TABINC	8	/* default tab increment size */
 #define YES	1

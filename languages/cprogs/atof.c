@@ -1,5 +1,6 @@
-/* Program demonstrating atof(char s[]).The function which converts the string to a floating 
-   point value */
+/* Program demonstrating atof(char s[]).The function which converts the string
+ * to a floating point value */
+
 #include<stdio.h>
 #include<ctype.h>
 #define MAXLINE 100

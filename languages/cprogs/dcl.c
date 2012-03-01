@@ -55,7 +55,7 @@ enum {NAME,PARENS,BRACKETS};
 void dcl(void);
 void directdcl(void);
 int gettoken(void);
-int tokentype;	/* type of last token */
+int tokentype;			/* type of last token */
 char token[MAXTOKEN];		/* last token string */
 char name[MAXTOKEN];		/* identifier name */
 char datatype[MAXTOKEN];	/* data type=char, int etc */

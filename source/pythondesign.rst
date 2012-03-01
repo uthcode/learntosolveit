@@ -266,7 +266,7 @@ demonstrated already that setting the method ``__call__`` on a type after it’s
 created will also make objects instantiated from that type callable (even
 objects already instantiated from that type). Recall that a type is an object,
 and that the type of a type is type (if your head is spinning, try: 
-``>>> class Foo(list): pass ; type(Foo))``. 
+``>>> class Foo(list): pass ; type(Foo)``). 
 
 So when we do stuff to a class, like calling a class, or subtracting a class,
 or, indeed, setting an attribute on a class, what happens is that the ``class’
