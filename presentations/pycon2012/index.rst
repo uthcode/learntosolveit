@@ -2,9 +2,9 @@
 .. include:: <s5defs.txt>
 .. |==>| unicode:: U+02794 .. thick rightwards arrow
 
-=======================================
-New and Interesting in Standard Library
-=======================================
+================
+Standard Library
+================
 
 .. sidebar:: Contents
    :class: handout
