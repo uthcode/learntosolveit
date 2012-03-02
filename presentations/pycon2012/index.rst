@@ -48,140 +48,101 @@ Python 3.3
         '3.3.0a0 (default:a92e73dfbff6, Mar 1 2012, 20:54:21)'
 
 
-Language Changes in 3.3
-=======================
-
-*Memory View and Buffer Protocol*
-
-* Improvements in MemoryView and Buffer Protocol.
-* MemoryView and Buffer Protocol is used extensively by SciPy Community and had
-  seen crashes and unpredictable behaviors.
-* Fixes issues with dynamically allocated items in `Py_Buffer` struct
-
-.. class:: handout
-        
-        http://bugs.python.org/issue10181
-
-Flexible Unicode String
-=======================
-
-* Unicode string is changed to support multiple internal representation,
-  depending on character with the largest Unicode ordinal (1, 2, 4).
-* Space efficient representation and gives access to UCS-4 on all cases.
-* Python now supports full unicode code points. Including non-BMP ones (i.e.
-  from U+0000 to U+10FFFF).
-* No narrow or wide builds. It's all wide builds.
-* memory usage of string storage should decrease significantly for all
-  applications.
-
-.. class:: handout
-      
-         http://www.python.org/dev/peps/pep-0393/
-
-
-IO and OS Exception Hierarchy
-=============================
-
-* The hierarchy of exceptions raised by OS and IO is simplified and
-  fine-grained.
-* It is just `OSError` for OSError, IOError, EnvironmentError, WindowsError,
-  mmap.error, socket.error or select.error.
-* Fine-grained subclasses for `OSError` like BlockingIOError and different File and Directory operation errors are exposed.
-* ConnectionError has fine-grained subclasses like BrokenPipeError, ConnectionAbortedError, ConnectionRefusedError, ConnectionResetError.
-
-.. class:: handout
-      
-         http://www.python.org/dev/peps/pep-3151/
-
-
-Using new Exceptions
-====================
-
-* Previously you had to look at `errno` attribute, now you can do.
-
-::
-
-    try:
-        with open("document.txt") as f:
-            content = f.read()
-    except FileNotFoundError:
-        print("document.txt file is missing")
-    except PermissionError:
-        print("You are not allowed to read document.txt")
-
-yield from
+abc module
 ==========
 
-* Syntax for delegating to a sub-generator.
-* yield from expression, allowing a generator to delegate part of its operations to another generator
-* yield from expression actually allows delegation to arbitrary subiterators.
+* abc.abstractproperty has been deprecated, use `property` with
+  abc.abstractmethod() instead.
+* abc.abstractclassmethod has been deprecated, use `classmethod` with
+  abc.abstractmethod() instead.
+* abc.abstractstaticmethod has been deprecated, use `staticmethod` with
+  abc.abstractmethod() instead.
+
+array module
+============
+
+* array module takes long long type.
+
+bz2 module
+==========
+
+* `bz2.BZ2File` can now read from and write to arbitrary file-like objects, by
+  means of its constructor’s fileobj argument.
+
+* `bz2.BZ2File` and `bz2.decompress()` can now decompress multi-stream inputs.
+  bz2.BZ2File can now also be used to create this type of file, using the 'a'
+  (append) mode.
 
 
-Suppressing Exception Context
-=============================
+faulthandler
+============
 
-* `raise AttributeError(attr) from None...`
-* Supresses the Expression of Context of a Nested Exception without  supressing
-  the cause.
+* New `faulthandler` module.
 
+This module contains functions to dump Python tracebacks explicitly, on a
+fault, after a timeout, or on a user signal. Call faulthandler.enable() to
+install fault handlers for the SIGSEGV, SIGFPE, SIGABRT, SIGBUS, and SIGILL
+signals. 
 
-.. class:: handout
+lzma
+====
 
-            >>> class C:
-            ...     def __init__(self, extra):
-            ...         self._extra_attributes = extra
-            ...     def __getattr__(self, attr):
-            ...         try:
-            ...             return self._extra_attributes[attr]
-            ...         except KeyError:
-            ...             raise AttributeError(attr)
-            ...
-            >>> C({}).x
-            Traceback (most recent call last):
-              File "<stdin>", line 6, in __getattr__
-            KeyError: 'x'
+* The newly-added lzma module provides data compression and decompression using
+  the LZMA algorithm, including support for the .xz and .lzma file formats.
 
-            During handling of the above exception, another exception occurred:
+os module
+=========
 
-            Traceback (most recent call last):
-            File "<stdin>", line 1, in <module>
-            File "<stdin>", line 8, in __getattr__
-            AttributeError: x
+* sendfile() function which provides an efficent “zero-copy” way for copying
+  data from one file (or socket) descriptor to another.
 
-            With new syntax
-
-            >>> class D:
-            ...     def __init__(self, extra):
-            ...         self._extra_attributes = extra
-            ...     def __getattr__(self, attr):
-            ...         try:
-            ...             return self._extra_attributes[attr]
-            ...         except KeyError:
-            ...             raise AttributeError(attr) from None...
-            >>> 
-            D({}).x
-            Traceback (most recent call last):
-              File "<stdin>", line 1, in <module>
-              File "<stdin>", line 8, in __getattr__
-            AttributeError: x
+* fwalk() function similar to walk() except that it also yields file
+  descriptors referring to the directories visited. 
 
 
-Qualified names 
-===============
+packaging
+=========
 
-* Functions and class objects have a new __qualname__ attribute representing
-  the “path” from the module top-level to their definition.
+* distutils module is called packaging, helper functions for building,
+  packaging, distributing and installing additional projects into a Python
+  installation.
 
+shutil
+======
+
+* shutil.disk_usage() - total, used and free disk space statistics.
+
+signal module
+=============
+
+* signal module has functions such as pthread_sigmask, pthread_kill, sigpending, sigwait, sigwaitinfo.
+* The signal handler writes the signal number as a single byte instead of a nul
+  byte into the wakeup file descriptor.
+* signal.signal() and signal.siginterrupt() raise an OSError, instead of a RuntimeError: OSError has an errno attribute.
+
+ssl module
+==========
+
+* RAND_bytes(): generate cryptographically strong pseudo-random bytes.
+* RAND_pseudo_bytes(): generate pseudo-random bytes.
+* Query the SSL compression algorithm used by an SSL socket, thanks to its new compression() method.
+
+sys module
+==========
+
+* The sys module has a new `thread_info` struct sequence holding informations
+  about the thread implementation.
+
+urllib module
+=============
+
+* The Request class, now accepts a method argument used by get_method() to
+  determine what HTTP method should be used. For example, this will send a 'HEAD'
+  request.
 
 ::
 
-    >>> class C:
-    ...     def meth(self):
-    ...         pass
-    >>> C.meth.__name__
-    'meth'
-    >>> C.meth.__qualname__
-    'C.meth'
+    >>> urlopen(Request('http://www.python.org', method='HEAD'))
 
 
 There is more
