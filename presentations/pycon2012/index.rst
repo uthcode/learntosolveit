@@ -317,7 +317,6 @@ functools
 
 * Magic happens.
 
-
 itertools
 =========
 
@@ -419,7 +418,58 @@ urllib
 * urlopen can take POST which can be an iterable. 
 * http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
 
+Python 2.7
+==========
 
+* Released in July, 2010.
+
+*What's current version*
+
+* Improved unittest module.
+* Improved Decimal class.
+* Improvements in collections module.
+
+
+Deprecation Warnings
+====================
+
+* DeprecationWarning and its descendants are now ignored unless otherwise
+  requested, preventing users from seeing warnings triggered by an application. 
+
+* Previous Python 2.x releases had `DeprecationWarning` ON by default. Now,
+  since the path to upgrade is 3.x, those have been silenced unless explictly
+  requested.
+
+* You can re-enable display of DeprecationWarning messages by running Python
+  with the -Wdefault (short form: -Wd) switch, or by setting the PYTHONWARNINGS
+  environment variable to "default" (or "d") before running Python.
+
+3.x Backported Features
+=======================
+
+* The syntax for set literals ({1,2,3} is a mutable set).
+* Dictionary and set comprehensions ({i: i*2 for i in range(3)}).
+* Multiple context managers in a single with statement.
+* A new version of the io library, rewritten in C for performance.
+* The ordered-dictionary type described in PEP 372
+* The new "," format specifier for Thousands Separator PEP 378
+* The memoryview object.
+* A small subset of the importlib module, described below.
+
+Dictionary Views
+================
+
+* viewkeys(), viewvalues(), and viewitems() return an object called views.
+
+
+Bug fixes in  modules
+=====================
+
+* http://docs.python.org/whatsnew/2.7.html#new-and-improved-modules
+* 2.7.x is the maintained bug fix release. All bug reports which have been
+  reported have found it's way to 2.7.x
+* Only new features do not make it to 2.7.
+* It's a stable release which can you to upgrade to Python 3.x
 
 There is more
 =============

@@ -399,7 +399,12 @@ ul.auto-toc {
 <li><a class="reference internal" href="#unicode-os-module" id="id32">unicode - os module</a></li>
 <li><a class="reference internal" href="#unittest" id="id33">unittest</a></li>
 <li><a class="reference internal" href="#urllib" id="id34">urllib</a></li>
-<li><a class="reference internal" href="#there-is-more" id="id35">There is more</a></li>
+<li><a class="reference internal" href="#python-2-7" id="id35">Python 2.7</a></li>
+<li><a class="reference internal" href="#deprecation-warnings" id="id36">Deprecation Warnings</a></li>
+<li><a class="reference internal" href="#x-backported-features" id="id37">3.x Backported Features</a></li>
+<li><a class="reference internal" href="#dictionary-views" id="id38">Dictionary Views</a></li>
+<li><a class="reference internal" href="#bug-fixes-in-modules" id="id39">Bug fixes in  modules</a></li>
+<li><a class="reference internal" href="#there-is-more" id="id40">There is more</a></li>
 </ul>
 </div>
 </div>
@@ -792,6 +797,60 @@ ValueError: malformed node or string: &lt;_ast.Call object at 0x101739a10&gt;
 <li>The urlparse() function now supports IPv6 addresses as described in RFC 2732:</li>
 <li>urlopen can take POST which can be an iterable.</li>
 <li>http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.</li>
+</ul>
+</div>
+<div class="slide" id="python-2-7">
+<h1>Python 2.7</h1>
+<ul class="simple">
+<li>Released in July, 2010.</li>
+</ul>
+<p><em>What's current version</em></p>
+<ul class="simple">
+<li>Improved unittest module.</li>
+<li>Improved Decimal class.</li>
+<li>Improvements in collections module.</li>
+</ul>
+</div>
+<div class="slide" id="deprecation-warnings">
+<h1>Deprecation Warnings</h1>
+<ul class="simple">
+<li>DeprecationWarning and its descendants are now ignored unless otherwise
+requested, preventing users from seeing warnings triggered by an application.</li>
+<li>Previous Python 2.x releases had <span class="incremental">DeprecationWarning</span> ON by default. Now,
+since the path to upgrade is 3.x, those have been silenced unless explictly
+requested.</li>
+<li>You can re-enable display of DeprecationWarning messages by running Python
+with the -Wdefault (short form: -Wd) switch, or by setting the PYTHONWARNINGS
+environment variable to &quot;default&quot; (or &quot;d&quot;) before running Python.</li>
+</ul>
+</div>
+<div class="slide" id="x-backported-features">
+<h1>3.x Backported Features</h1>
+<ul class="simple">
+<li>The syntax for set literals ({1,2,3} is a mutable set).</li>
+<li>Dictionary and set comprehensions ({i: i*2 for i in range(3)}).</li>
+<li>Multiple context managers in a single with statement.</li>
+<li>A new version of the io library, rewritten in C for performance.</li>
+<li>The ordered-dictionary type described in PEP 372</li>
+<li>The new &quot;,&quot; format specifier for Thousands Separator PEP 378</li>
+<li>The memoryview object.</li>
+<li>A small subset of the importlib module, described below.</li>
+</ul>
+</div>
+<div class="slide" id="dictionary-views">
+<h1>Dictionary Views</h1>
+<ul class="simple">
+<li>viewkeys(), viewvalues(), and viewitems() return an object called views.</li>
+</ul>
+</div>
+<div class="slide" id="bug-fixes-in-modules">
+<h1>Bug fixes in  modules</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/whatsnew/2.7.html#new-and-improved-modules">http://docs.python.org/whatsnew/2.7.html#new-and-improved-modules</a></li>
+<li>2.7.x is the maintained bug fix release. All bug reports which have been
+reported have found it's way to 2.7.x</li>
+<li>Only new features do not make it to 2.7.</li>
+<li>It's a stable release which can you to upgrade to Python 3.x</li>
 </ul>
 </div>
 <div class="slide" id="there-is-more">
