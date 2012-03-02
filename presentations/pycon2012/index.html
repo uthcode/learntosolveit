@@ -3,14 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
 <meta name="version" content="S5 1.1" />
-<title>New and Interesting in Standard Library</title>
+<title>Standard Library</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Id: $Id: html4css1.css 6253 2010-03-02 00:24:53Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -47,10 +47,6 @@ blockquote.epigraph {
 
 dl.docutils dd {
   margin-bottom: 0.5em }
-
-object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
-  overflow: hidden;
-}
 
 /* Uncomment (and remove this text!) to get bold-faced definition list terms
 dl.docutils dt {
@@ -190,7 +186,7 @@ img.align-center, .figure.align-center, object.align-center {
 
 /* reset inner alignment in figures */
 div.align-right {
-  text-align: inherit }
+  text-align: left }
 
 /* div.align-center * { */
 /*   text-align: left } */
@@ -250,7 +246,7 @@ pre.address {
   margin-top: 0 ;
   font: inherit }
 
-pre.literal-block, pre.doctest-block, pre.math {
+pre.literal-block, pre.doctest-block {
   margin-left: 2em ;
   margin-right: 2em }
 
@@ -339,13 +335,13 @@ ul.auto-toc {
 
 </div>
 <div id="footer">
-<h1>New and Interesting in Standard Library</h1>
+<h1>Standard Library</h1>
 
 </div>
 </div>
 <div class="presentation">
 <div class="slide" id="slide0">
-<h1 class="title">New and Interesting in Standard Library</h1>
+<h1 class="title">Standard Library</h1>
 
 <!-- -*- coding: utf-8 -*- -->
 <!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
@@ -369,42 +365,41 @@ ul.auto-toc {
 <div class="contents local last topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#python-3-3" id="id4">Python 3.3</a></li>
-<li><a class="reference internal" href="#abc-module" id="id5">abc module</a></li>
-<li><a class="reference internal" href="#array-module" id="id6">array module</a></li>
-<li><a class="reference internal" href="#bz2-module" id="id7">bz2 module</a></li>
-<li><a class="reference internal" href="#faulthandler" id="id8">faulthandler</a></li>
-<li><a class="reference internal" href="#lzma" id="id9">lzma</a></li>
-<li><a class="reference internal" href="#os-module" id="id10">os module</a></li>
-<li><a class="reference internal" href="#packaging" id="id11">packaging</a></li>
-<li><a class="reference internal" href="#shutil" id="id12">shutil</a></li>
-<li><a class="reference internal" href="#signal-module" id="id13">signal module</a></li>
-<li><a class="reference internal" href="#ssl-module" id="id14">ssl module</a></li>
-<li><a class="reference internal" href="#sys-module" id="id15">sys module</a></li>
-<li><a class="reference internal" href="#urllib-module" id="id16">urllib module</a></li>
-<li><a class="reference internal" href="#python-3-2" id="id17">Python 3.2</a></li>
-<li><a class="reference internal" href="#import-argparse" id="id18">import argparse</a></li>
-<li><a class="reference internal" href="#logging-module-configuration-dictionary" id="id19">logging module - Configuration Dictionary.</a></li>
-<li><a class="reference internal" href="#from-concurrent-import-futures" id="id20">from concurrent import futures</a></li>
-<li><a class="reference internal" href="#pyc-directories" id="id21">pyc directories</a></li>
-<li><a class="reference internal" href="#wsgi-1-1" id="id22">WSGI 1.1</a></li>
-<li><a class="reference internal" href="#new-string-formatting-methods" id="id23">New string formatting methods</a></li>
-<li><a class="reference internal" href="#functools" id="id24">functools</a></li>
-<li><a class="reference internal" href="#id1" id="id25">functools</a></li>
-<li><a class="reference internal" href="#id2" id="id26">functools</a></li>
-<li><a class="reference internal" href="#itertools" id="id27">itertools</a></li>
-<li><a class="reference internal" href="#collections" id="id28">collections</a></li>
-<li><a class="reference internal" href="#id3" id="id29">collections</a></li>
-<li><a class="reference internal" href="#threading" id="id30">threading</a></li>
-<li><a class="reference internal" href="#ast-module" id="id31">ast module</a></li>
-<li><a class="reference internal" href="#unicode-os-module" id="id32">unicode - os module</a></li>
-<li><a class="reference internal" href="#unittest" id="id33">unittest</a></li>
-<li><a class="reference internal" href="#urllib" id="id34">urllib</a></li>
-<li><a class="reference internal" href="#python-2-7" id="id35">Python 2.7</a></li>
-<li><a class="reference internal" href="#deprecation-warnings" id="id36">Deprecation Warnings</a></li>
-<li><a class="reference internal" href="#x-backported-features" id="id37">3.x Backported Features</a></li>
-<li><a class="reference internal" href="#dictionary-views" id="id38">Dictionary Views</a></li>
-<li><a class="reference internal" href="#bug-fixes-in-modules" id="id39">Bug fixes in  modules</a></li>
-<li><a class="reference internal" href="#there-is-more" id="id40">There is more</a></li>
+<li><a class="reference internal" href="#array-module" id="id5">array module</a></li>
+<li><a class="reference internal" href="#bz2-module" id="id6">bz2 module</a></li>
+<li><a class="reference internal" href="#faulthandler" id="id7">faulthandler</a></li>
+<li><a class="reference internal" href="#lzma" id="id8">lzma</a></li>
+<li><a class="reference internal" href="#os-module" id="id9">os module</a></li>
+<li><a class="reference internal" href="#packaging" id="id10">packaging</a></li>
+<li><a class="reference internal" href="#shutil" id="id11">shutil</a></li>
+<li><a class="reference internal" href="#signal-module" id="id12">signal module</a></li>
+<li><a class="reference internal" href="#ssl-module" id="id13">ssl module</a></li>
+<li><a class="reference internal" href="#sys-module" id="id14">sys module</a></li>
+<li><a class="reference internal" href="#urllib-module" id="id15">urllib module</a></li>
+<li><a class="reference internal" href="#python-3-2" id="id16">Python 3.2</a></li>
+<li><a class="reference internal" href="#import-argparse" id="id17">import argparse</a></li>
+<li><a class="reference internal" href="#logging-module-configuration-dictionary" id="id18">logging module - Configuration Dictionary.</a></li>
+<li><a class="reference internal" href="#from-concurrent-import-futures" id="id19">from concurrent import futures</a></li>
+<li><a class="reference internal" href="#pyc-directories" id="id20">pyc directories</a></li>
+<li><a class="reference internal" href="#wsgi-1-1" id="id21">WSGI 1.1</a></li>
+<li><a class="reference internal" href="#new-string-formatting-methods" id="id22">New string formatting methods</a></li>
+<li><a class="reference internal" href="#functools" id="id23">functools</a></li>
+<li><a class="reference internal" href="#id1" id="id24">functools</a></li>
+<li><a class="reference internal" href="#id2" id="id25">functools</a></li>
+<li><a class="reference internal" href="#itertools" id="id26">itertools</a></li>
+<li><a class="reference internal" href="#collections" id="id27">collections</a></li>
+<li><a class="reference internal" href="#id3" id="id28">collections</a></li>
+<li><a class="reference internal" href="#threading" id="id29">threading</a></li>
+<li><a class="reference internal" href="#ast-module" id="id30">ast module</a></li>
+<li><a class="reference internal" href="#unicode-os-module" id="id31">unicode - os module</a></li>
+<li><a class="reference internal" href="#unittest" id="id32">unittest</a></li>
+<li><a class="reference internal" href="#urllib" id="id33">urllib</a></li>
+<li><a class="reference internal" href="#python-2-7" id="id34">Python 2.7</a></li>
+<li><a class="reference internal" href="#deprecation-warnings" id="id35">Deprecation Warnings</a></li>
+<li><a class="reference internal" href="#x-backported-features" id="id36">3.x Backported Features</a></li>
+<li><a class="reference internal" href="#dictionary-views" id="id37">Dictionary Views</a></li>
+<li><a class="reference internal" href="#bug-fixes-in-modules" id="id38">Bug fixes in  modules</a></li>
+<li><a class="reference internal" href="#there-is-more" id="id39">There is more</a></li>
 </ul>
 </div>
 </div>
@@ -436,17 +431,6 @@ $python -q
 &gt;&gt;&gt; import sys;sys.version
 '3.3.0a0 (default:a92e73dfbff6, Mar 1 2012, 20:54:21)'
 </pre>
-</div>
-<div class="slide" id="abc-module">
-<h1>abc module</h1>
-<ul class="simple">
-<li>abc.abstractproperty has been deprecated, use <span class="incremental">property</span> with
-abc.abstractmethod() instead.</li>
-<li>abc.abstractclassmethod has been deprecated, use <span class="incremental">classmethod</span> with
-abc.abstractmethod() instead.</li>
-<li>abc.abstractstaticmethod has been deprecated, use <span class="incremental">staticmethod</span> with
-abc.abstractmethod() instead.</li>
-</ul>
 </div>
 <div class="slide" id="array-module">
 <h1>array module</h1>
