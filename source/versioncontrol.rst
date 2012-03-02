@@ -200,3 +200,17 @@ hg tag Something will tag your latest changeset with the *something* as the tag.
 
 hg up -r Something will take you back to the previous version.
 
+
+subversion and google code
+==========================
+
+Setting the property will enable the files to be served from svn.
+
+svn propset svn:mime-type 'text/html' index.html 
+
+.css  = svn:mime-type=text/css
+.html = svn:mime-type=text/html
+.js   = svn:mime-type=text/javascript
+.gif  = svn:mime-type=image/gif
+.png  = svn:mime-type=image/png
+
