@@ -48,16 +48,6 @@ Python 3.3
         '3.3.0a0 (default:a92e73dfbff6, Mar 1 2012, 20:54:21)'
 
 
-abc module
-==========
-
-* abc.abstractproperty has been deprecated, use `property` with
-  abc.abstractmethod() instead.
-* abc.abstractclassmethod has been deprecated, use `classmethod` with
-  abc.abstractmethod() instead.
-* abc.abstractstaticmethod has been deprecated, use `staticmethod` with
-  abc.abstractmethod() instead.
-
 array module
 ============
 
