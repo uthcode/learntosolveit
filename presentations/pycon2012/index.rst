@@ -2,16 +2,16 @@
 .. include:: <s5defs.txt>
 .. |==>| unicode:: U+02794 .. thick rightwards arrow
 
-==========================
-What's new and Interesting
-==========================
+=======================================
+New and Interesting in Standard Library
+=======================================
 
 .. sidebar:: Contents
    :class: handout
 
    .. contents:: :local:
 
-.. class:: center large
+.. class:: center small
 
    | What's new and interesting in Python Standard Library 2.7, 3.2 and 3.3
 
@@ -127,44 +127,43 @@ Suppressing Exception Context
 
 .. class:: handout
 
-        >>> class C:
-        ...     def __init__(self, extra):
-        ...         self._extra_attributes = extra
-        ...     def __getattr__(self, attr):
-        ...         try:
-        ...             return self._extra_attributes[attr]
-        ...         except KeyError:
-        ...             raise AttributeError(attr)
-        ...
-        >>> C({}).x
-        Traceback (most recent call last):
-          File "<stdin>", line 6, in __getattr__
-        KeyError: 'x'
+            >>> class C:
+            ...     def __init__(self, extra):
+            ...         self._extra_attributes = extra
+            ...     def __getattr__(self, attr):
+            ...         try:
+            ...             return self._extra_attributes[attr]
+            ...         except KeyError:
+            ...             raise AttributeError(attr)
+            ...
+            >>> C({}).x
+            Traceback (most recent call last):
+              File "<stdin>", line 6, in __getattr__
+            KeyError: 'x'
 
-        During handling of the above exception, another exception occurred:
+            During handling of the above exception, another exception occurred:
 
-        Traceback (most recent call last):
-          File "<stdin>", line 1, in <module>
-          File "<stdin>", line 8, in __getattr__
-        AttributeError: x
+            Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            File "<stdin>", line 8, in __getattr__
+            AttributeError: x
 
-    Now with new syntax.
+            With new syntax
 
-
-        >>> class D:
-        ...     def __init__(self, extra):
-        ...         self._extra_attributes = extra
-        ...     def __getattr__(self, attr):
-        ...         try:
-        ...             return self._extra_attributes[attr]
-        ...         except KeyError:
-        ...             raise AttributeError(attr) from None...
-        >>> 
-        D({}).x
-        Traceback (most recent call last):
-          File "<stdin>", line 1, in <module>
-          File "<stdin>", line 8, in __getattr__
-        AttributeError: x
+            >>> class D:
+            ...     def __init__(self, extra):
+            ...         self._extra_attributes = extra
+            ...     def __getattr__(self, attr):
+            ...         try:
+            ...             return self._extra_attributes[attr]
+            ...         except KeyError:
+            ...             raise AttributeError(attr) from None...
+            >>> 
+            D({}).x
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+              File "<stdin>", line 8, in __getattr__
+            AttributeError: x
 
 
 Qualified names 

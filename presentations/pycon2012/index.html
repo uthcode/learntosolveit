@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
 <meta name="version" content="S5 1.1" />
-<title>What's new in Python 3.2</title>
+<title>What's new and Interesting</title>
 <style type="text/css">
 
 /*
@@ -339,13 +339,13 @@ ul.auto-toc {
 
 </div>
 <div id="footer">
-<h1>What's new in Python 3.2</h1>
+<h1>What's new and Interesting</h1>
 
 </div>
 </div>
 <div class="presentation">
 <div class="slide" id="slide0">
-<h1 class="title">What's new in Python 3.2</h1>
+<h1 class="title">What's new and Interesting</h1>
 
 <!-- -*- coding: utf-8 -*- -->
 <!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
@@ -368,426 +368,175 @@ ul.auto-toc {
 <p class="first sidebar-title">Contents</p>
 <div class="contents local last topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#python-3-2-release-schedule" id="id4">Python 3.2 Release Schedule</a></li>
-<li><a class="reference internal" href="#python-language-moratorium" id="id5">Python Language Moratorium</a></li>
-<li><a class="reference internal" href="#defining-a-stable-abi" id="id6">Defining a Stable ABI</a></li>
-<li><a class="reference internal" href="#import-argparse" id="id7">import argparse</a></li>
-<li><a class="reference internal" href="#logging-module-configuration-dictionary" id="id8">logging module - Configuration Dictionary.</a></li>
-<li><a class="reference internal" href="#from-concurrent-import-futures" id="id9">from concurrent import futures</a></li>
-<li><a class="reference internal" href="#pyc-directories" id="id10">pyc directories</a></li>
-<li><a class="reference internal" href="#abi-version-tagged-so" id="id11">ABI version tagged .so</a></li>
-<li><a class="reference internal" href="#wsgi-1-1" id="id12">WSGI 1.1</a></li>
-<li><a class="reference internal" href="#string-formatting-sub-language" id="id13">String formatting sub-language</a></li>
-<li><a class="reference internal" href="#new-string-formatting-methods" id="id14">New string formatting methods</a></li>
-<li><a class="reference internal" href="#some-environment-variables" id="id15">Some environment Variables</a></li>
-<li><a class="reference internal" href="#new-methods-on-range" id="id16">New methods on range</a></li>
-<li><a class="reference internal" href="#unicode-handling-improvements" id="id17">Unicode handling improvements</a></li>
-<li><a class="reference internal" href="#stdlib-1" id="id18">stdlib - 1</a></li>
-<li><a class="reference internal" href="#stdlib-improvements-2" id="id19">stdlib improvements -2</a></li>
-<li><a class="reference internal" href="#functools" id="id20">functools</a></li>
-<li><a class="reference internal" href="#id1" id="id21">functools</a></li>
-<li><a class="reference internal" href="#id2" id="id22">functools</a></li>
-<li><a class="reference internal" href="#itertools" id="id23">itertools</a></li>
-<li><a class="reference internal" href="#collections" id="id24">collections</a></li>
-<li><a class="reference internal" href="#id3" id="id25">collections</a></li>
-<li><a class="reference internal" href="#threading" id="id26">threading</a></li>
-<li><a class="reference internal" href="#ast-module" id="id27">ast module</a></li>
-<li><a class="reference internal" href="#unicode-os-module" id="id28">unicode - os module</a></li>
-<li><a class="reference internal" href="#unittest" id="id29">unittest</a></li>
-<li><a class="reference internal" href="#urllib" id="id30">urllib</a></li>
-<li><a class="reference internal" href="#there-is-more" id="id31">There is more</a></li>
+<li><a class="reference internal" href="#python-3-3" id="id1">Python 3.3</a></li>
+<li><a class="reference internal" href="#language-changes-in-3-3" id="id2">Language Changes in 3.3</a></li>
+<li><a class="reference internal" href="#flexible-unicode-string" id="id3">Flexible Unicode String</a></li>
+<li><a class="reference internal" href="#io-and-os-exception-hierarchy" id="id4">IO and OS Exception Hierarchy</a></li>
+<li><a class="reference internal" href="#using-new-exceptions" id="id5">Using new Exceptions</a></li>
+<li><a class="reference internal" href="#yield-from" id="id6">yield from</a></li>
+<li><a class="reference internal" href="#suppressing-exception-context" id="id7">Suppressing Exception Context</a></li>
+<li><a class="reference internal" href="#qualified-names" id="id8">Qualified names</a></li>
+<li><a class="reference internal" href="#there-is-more" id="id9">There is more</a></li>
 </ul>
 </div>
 </div>
 <div class="center large line-block">
-<div class="line">For Python Users Group, Singapore</div>
+<div class="line">What's new and interesting in Python Standard Library 2.7, 3.2 and 3.3</div>
 </div>
 <div class="center small line-block">
 <div class="line"><strong>Senthil Kumaran</strong></div>
-<div class="line"><a class="reference external" href="mailto:orsenthil&#64;gmail.com">orsenthil&#64;gmail.com</a></div>
+<div class="line">Python Core Developer</div>
+<div class="line"><a class="reference external" href="mailto:senthil&#64;uthcode.com">senthil&#64;uthcode.com</a></div>
 <div class="line"><a class="reference external" href="http://www.uthcode.com">http://www.uthcode.com</a></div>
 </div>
-<p class="handout">What is coming up new in the Python 3.2 version.</p>
+<p class="handout">What is coming up new in Python 2.7, 3.2 and 3.3 versions</p>
 <p class="handout">There are 3 versions of this presentation:</p>
 <ul class="handout simple">
-<li><a class="reference external" href="py32.html">S5 presentation</a></li>
-<li><a class="reference external" href="py32handout.html">Handout</a></li>
-<li><a class="reference external" href="py32.txt">reStructuredText source</a></li>
+<li><a class="reference external" href="index.html">S5 presentation</a></li>
+<li><a class="reference external" href="handout.html">Handout</a></li>
+<li><a class="reference external" href="index.rst">reStructuredText source</a></li>
 </ul>
 <p class="handout">©2010, licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
 Attribution/Share-Alike (BY-SA) license</a>.</p>
 
 </div>
-<div class="slide" id="python-3-2-release-schedule">
-<h1>Python 3.2 Release Schedule</h1>
-<ul class="simple">
-<li>3.2 beta 1: December 4, 2010. (Feature Freeze)</li>
-<li>3.2 final: February 19, 2011  (Release Date)</li>
-<li>3.2 Release Manager: Georg Brandl</li>
-<li>Binaries/Installers: Windows (Martin v. Loewis) and Mac (Ronald Oussoren)</li>
-</ul>
+<div class="slide" id="python-3-3">
+<h1>Python 3.3</h1>
 <p><em>At the moment</em></p>
 <pre class="literal-block">
 $python -q
 &gt;&gt;&gt; import sys;sys.version
-'3.2rc3+ (py3k:88430M, Feb 17 2011, 14:53:19) \n[GCC 4.4.5]'
+'3.3.0a0 (default:a92e73dfbff6, Mar 1 2012, 20:54:21)'
 </pre>
 </div>
-<div class="slide" id="python-language-moratorium">
-<h1>Python Language Moratorium</h1>
+<div class="slide" id="language-changes-in-3-3">
+<h1>Language Changes in 3.3</h1>
+<p><em>Memory View and Buffer Protocol</em></p>
 <ul class="simple">
-<li>Python 3.1 was released on June 27, 2009</li>
-<li>Disallows changes to syntax, semantics, and built-ins</li>
-<li>Language Moratorium to allow non-CPython implmentations to
-catchup.</li>
-<li>Help ease the adoption of Python 3.x and provide a more stable base.</li>
+<li>Improvements in MemoryView and Buffer Protocol.</li>
+<li>MemoryView and Buffer Protocol is used extensively by SciPy Community and had
+seen crashes and unpredictable behaviors.</li>
+<li>Fixes issues with dynamically allocated items in <span class="incremental">Py_Buffer</span> struct</li>
 </ul>
-<p class="handout">Here are list of issues which would be handled after moratorium. <a class="reference external" href="http://goo.gl/CCqDn">http://goo.gl/CCqDn</a></p>
+<p class="handout"><a class="reference external" href="http://bugs.python.org/issue10181">http://bugs.python.org/issue10181</a></p>
 </div>
-<div class="slide" id="defining-a-stable-abi">
-<h1>Defining a Stable ABI</h1>
+<div class="slide" id="flexible-unicode-string">
+<h1>Flexible Unicode String</h1>
 <ul class="simple">
-<li>Python Extension modules were required to be rebuilt for each feature release</li>
-<li>Now, Extension modules can limit themselves to a limited APIs <strong>Py_LIMITED_API</strong></li>
-<li>During the compilation of applications, the preprocessor macro Py_LIMITED_API
-must be defined.</li>
-<li>There are list of GLOBALS, Functions available which fall under stable ABI. A definition file is made available.</li>
-<li>There is a converter module, which C source can use to convert itself to ABI compatible way.</li>
+<li>Unicode string is changed to support multiple internal representation,
+depending on character with the largest Unicode ordinal (1, 2, 4).</li>
+<li>Space efficient representation and gives access to UCS-4 on all cases.</li>
+<li>Python now supports full unicode code points. Including non-BMP ones (i.e.
+from U+0000 to U+10FFFF).</li>
+<li>No narrow or wide builds. It's all wide builds.</li>
+<li>memory usage of string storage should decrease significantly for all
+applications.</li>
 </ul>
-<p class="handout"><a class="reference external" href="http://www.python.org/dev/peps/pep-0384/">http://www.python.org/dev/peps/pep-0384/</a></p>
+<p class="handout"><a class="reference external" href="http://www.python.org/dev/peps/pep-0393/">http://www.python.org/dev/peps/pep-0393/</a></p>
 </div>
-<div class="slide" id="import-argparse">
-<h1>import argparse</h1>
+<div class="slide" id="io-and-os-exception-hierarchy">
+<h1>IO and OS Exception Hierarchy</h1>
 <ul class="simple">
-<li>There is an argparse command line parsing module included in stdlib.</li>
-<li>That makes it 3. getopt,optparse and argparse. It was quite a discussion.</li>
-<li>argparse will be the future and optparse will slowly be deprecated.</li>
-<li>Support for positional args, sub-commands, <strong>'required options'</strong>, pattern for specifying and validating options.</li>
-<li>argparse has the ability to define subparsers, each with their own argument patterns and help displays:</li>
+<li>The hierarchy of exceptions raised by OS and IO is simplified and
+fine-grained.</li>
+<li>It is just <span class="incremental">OSError</span> for OSError, IOError, EnvironmentError, WindowsError,
+mmap.error, socket.error or select.error.</li>
+<li>Fine-grained subclasses for <span class="incremental">OSError</span> like BlockingIOError and different File and Directory operation errors are exposed.</li>
+<li>ConnectionError has fine-grained subclasses like BrokenPipeError, ConnectionAbortedError, ConnectionRefusedError, ConnectionResetError.</li>
 </ul>
-<p class="handout">import argparse</p>
-<dl class="handout docutils">
-<dt>parser = argparse.ArgumentParser(</dt>
-<dd>description = 'Manage servers',         # main description for help
-epilog = 'Tested on Solaris and Linux') # displayed after help</dd>
-<dt>parser.add_argument('action',                       # argument name</dt>
-<dd>choices = ['deploy', 'start', 'stop'],  # three allowed values
-help = 'action on each target')         # help msg</dd>
-<dt>parser.add_argument('targets',</dt>
-<dd>metavar = 'HOSTNAME',                   # var name used in help msg
-nargs = '+',                            # require one or more targets
-help = 'url for target machines')       # help msg explanation</dd>
-<dt>parser.add_argument('-u', '--user',                 # -u or --user option</dt>
-<dd>required = True,                        # make it a required argument
-help = 'login as user')</dd>
-</dl>
-<p class="handout">print(parser.parse_args('-h'.split()))</p>
+<p class="handout"><a class="reference external" href="http://www.python.org/dev/peps/pep-3151/">http://www.python.org/dev/peps/pep-3151/</a></p>
 </div>
-<div class="slide" id="logging-module-configuration-dictionary">
-<h1>logging module - Configuration Dictionary.</h1>
+<div class="slide" id="using-new-exceptions">
+<h1>Using new Exceptions</h1>
 <ul class="simple">
-<li>The logging documentation has been augmented by a basic tutorial, an advanced tutorial, and a cookbook of logging recipes.</li>
-<li><strong>logging.config.dictConfig()</strong> - logging configuration with plain Python dictionaries.</li>
+<li>Previously you had to look at <span class="incremental">errno</span> attribute, now you can do.</li>
 </ul>
 <pre class="literal-block">
-with open('conf.json', 'r') as f:
-        conf = json.load(f)
-logging.config.dictConfig(conf)
+try:
+    with open(&quot;document.txt&quot;) as f:
+        content = f.read()
+except FileNotFoundError:
+    print(&quot;document.txt file is missing&quot;)
+except PermissionError:
+    print(&quot;You are not allowed to read document.txt&quot;)
 </pre>
 </div>
-<div class="slide" id="from-concurrent-import-futures">
-<h1>from concurrent import futures</h1>
+<div class="slide" id="yield-from">
+<h1>yield from</h1>
 <ul class="simple">
-<li>Code for creating and managing concurrency is being collected in a new top-level namespace, concurrent</li>
-<li>first package is <strong>futures</strong> high level interface for managing threads and processes.</li>
-<li>Inspired by java.utils.concurrent and Future Object.</li>
-<li>status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions</li>
-</ul>
-<p class="handout">The primary offering of the new module is a pair of executor classes
-for launching and managing calls. The goal of the executors is to make
-it easier to use existing tools for making parallel calls. They save
-the effort needed to setup a pool of resources, launch the calls,
-create a results queue, add time-out handling, and limit the total
-number of threads, processes, or remote procedure calls.</p>
-<p class="handout">Ideally, each application should share a single executor across
-multiple components so that process and thread limits can be centrally
-managed. This solves the design challenge that arises when each
-component has its own competing strategy for resource management.</p>
-<p class="handout">Both classes share a common interface with three methods: submit() for
-scheduling a callable and returning a Future object; map() for
-scheduling many asynchronous calls at a time, and shutdown() for
-freeing resources. The class is a context manager and can be used in a
-with statement to assure that resources are automatically released when
-currently pending futures are done executing.</p>
-</div>
-<div class="slide" id="pyc-directories">
-<h1>pyc directories</h1>
-<ul class="simple">
-<li>Multiple implementations can refer to their own .pyc files.</li>
-<li>mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc</li>
-<li>pyc files are now collected in a <strong>__pycache__</strong> directory stored under the package directory</li>
-<li>Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported</li>
-<li>tag that is unique to each interpreter is accessible from the <strong>imp</strong> module</li>
+<li>Syntax for delegating to a sub-generator.</li>
+<li>yield from expression, allowing a generator to delegate part of its operations to another generator</li>
+<li>yield from expression actually allows delegation to arbitrary subiterators.</li>
 </ul>
 </div>
-<div class="slide" id="abi-version-tagged-so">
-<h1>ABI version tagged .so</h1>
+<div class="slide" id="suppressing-exception-context">
+<h1>Suppressing Exception Context</h1>
 <ul class="simple">
-<li>shared object files by giving them a common directory and distinct names for each version</li>
-<li>common directory is “pyshared” and the file names are made distinct by identifying the Python implementation</li>
-<li><strong>/usr/share/pyshared/foo.cpython-32m.so</strong></li>
+<li><span class="incremental">raise AttributeError(attr) from None...</span></li>
+<li>Supresses the Expression of Context of a Nested Exception without  supressing
+the cause.</li>
 </ul>
-</div>
-<div class="slide" id="wsgi-1-1">
-<h1>WSGI 1.1</h1>
-<ul class="simple">
-<li>Well Intentioned Upgrade for WSGI to support Python3.</li>
-<li>Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol</li>
-</ul>
-</div>
-<div class="slide" id="string-formatting-sub-language">
-<h1>String formatting sub-language</h1>
-<ul class="simple">
-<li>Old string formatting had '#' type specifiers. It is included in the format sublanguage for compatiblity.</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; format(20, '#o')
-'0o24'
-&gt;&gt;&gt; format(12.34, '#5.0f') # You can have leading space.
-'  12.'
-&gt;&gt;&gt; format(1,'#%')  # percent operation
-'100.000000%'
-&gt;&gt;&gt; format(1,'#.0%') # trailing dot.
-'100.%'
-&gt;&gt;&gt; format(1,'.0%')
-'100%'
-</pre>
-</div>
-<div class="slide" id="new-string-formatting-methods">
-<h1>New string formatting methods</h1>
-<ul class="simple">
-<li><strong>str.format_map</strong></li>
-<li>It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; import shelve
-&gt;&gt;&gt; d = shelve.open('tmp.shl')
-&gt;&gt;&gt; 'The {project_name} status is {status} as of {date}'.format_map(d)
-'The testing project status is green as of February 15, 2011'
-
-&gt;&gt;&gt; class PlaceholderDict(dict):
-        def __missing__(self, key):
-            return '&lt;{}&gt;'.format(key)
-&gt;&gt;&gt; 'Hello {name}, welcome to {location}'.format_map(PlaceholderDict())
-'Hello &lt;name&gt;, welcome to &lt;location&gt;'
-</pre>
-</div>
-<div class="slide" id="some-environment-variables">
-<h1>Some environment Variables</h1>
-<ul class="simple">
-<li>Warnings are now easier to control using the <strong>PYTHONWARNINGS</strong> environment variable as an alternative to using -W.</li>
-<li><strong>ResourceWarning</strong>, has been added. It is emitted when potential issues with resource consumption or cleanup are detected.</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; f = open('foo','w')
-&gt;&gt;&gt; del f
-__main__:1: ResourceWarning: unclosed file &lt;_io.TextIOWrapper name='foo' mode='w' encoding='UTF-8'&gt;
-</pre>
-</div>
-<div class="slide" id="new-methods-on-range">
-<h1>New methods on range</h1>
-<pre class="literal-block">
-&gt;&gt;&gt; range(0, 100, 2).count(10)
-1
-&gt;&gt;&gt; range(0, 100, 2).index(10)
-5
-&gt;&gt;&gt; range(0, 100, 2)[5]
-10
-&gt;&gt;&gt; range(0, 100, 2)[0:5]
-range(0, 10, 2)
-</pre>
-<ul class="simple">
-<li>Part of an effort to make more objects fully implement the <strong>collections.Sequence</strong> abstract base class</li>
-</ul>
-</div>
-<div class="slide" id="unicode-handling-improvements">
-<h1>Unicode handling improvements</h1>
-<ul class="simple">
-<li>Python’s import mechanism can now load modules installed in directories with non-ASCII characters in the path name.</li>
-</ul>
-</div>
-<div class="slide" id="stdlib-1">
-<h1>stdlib - 1</h1>
-<ul class="simple">
-<li><strong>email</strong> package, <strong>mailcap</strong> package, <strong>nntplib</strong> packages work properly with bytes/text model in Python 3.</li>
-<li>Throughout stdlib there has been a careful attention to encodings and text versus bytes issues</li>
-<li>Better support for SSL connections and security certificates in Internet Protocol related modules.</li>
-<li>More classes now implement a context manager to support convenient and reliable resource clean-up using a with statement.</li>
-</ul>
-</div>
-<div class="slide" id="stdlib-improvements-2">
-<h1>stdlib improvements -2</h1>
-<ul class="simple">
-<li>The xml.etree.ElementTree package and its xml.etree.cElementTree counterpart have been updated to version 1.3.</li>
-<li>The datetime module has a new type <strong>timezone</strong> that implements the tzinfo interface by returning a fixed UTC offset and timezone name.</li>
-<li>Many more ...</li>
-</ul>
-</div>
-<div class="slide" id="functools">
-<h1>functools</h1>
-<ul class="simple">
-<li>The functools module includes a new decorator for caching function calls.
-<strong>functools.lru_cache()</strong> can save repeated queries to an external resource
-whenever the results are expected to be the same.</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; import functools
-&gt;&gt;&gt; &#64;functools.lru_cache(maxsize=300)
-&gt;&gt;&gt; def get_phone_number(name):
-        c = conn.cursor()
-        c.execute('SELECT phonenumber FROM phonelist WHERE name=?', (name,))
-        return c.fetchone()[0]
+<pre class="handout doctest-block">
+&gt;&gt;&gt; class C:
+...     def __init__(self, extra):
+...         self._extra_attributes = extra
+...     def __getattr__(self, attr):
+...         try:
+...             return self._extra_attributes[attr]
+...         except KeyError:
+...             raise AttributeError(attr)
 ...
-&gt;&gt;&gt; get_phone_number(name)        # cached lookup
-</pre>
-</div>
-<div class="slide" id="id1">
-<h1>functools</h1>
-<ul class="simple">
-<li>We have cache stats</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; get_phone_number.cache_info()
-CacheInfo(hits=4805, misses=980, maxsize=300, currsize=300)
-</pre>
-<ul class="simple">
-<li>OMG! Way to get unwrapped function.</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; get_phone_number = get_phone_number.__wrapped__    # uncached function
-</pre>
-</div>
-<div class="slide" id="id2">
-<h1>functools</h1>
-<ul class="simple">
-<li>functools.total_ordering - rich comparison methods, a new decorator functools.total_ordering() will use a existing equality and inequality methods to fill in the remaining methods.</li>
-</ul>
-<pre class="literal-block">
-&#64;total_ordering
-class Student:
-    def __eq__(self, other):
-        return ((self.lastname.lower(), self.firstname.lower()) ==
-                (other.lastname.lower(), other.firstname.lower()))
-    def __lt__(self, other):
-        return ((self.lastname.lower(), self.firstname.lower()) &lt;
-                (other.lastname.lower(), other.firstname.lower()))
-</pre>
-<ul class="simple">
-<li>Magic happens.</li>
-</ul>
-</div>
-<div class="slide" id="itertools">
-<h1>itertools</h1>
-<pre class="literal-block">
-&gt;&gt;&gt; from itertools import accumulate
-&gt;&gt;&gt; list(accumulate([8, 2, 50]))
-[8, 10, 60]
-</pre>
-</div>
-<div class="slide" id="collections">
-<h1>collections</h1>
-<ul class="simple">
-<li>The collections.Counter class now has two forms of in-place subtraction, the existing -= operator for saturating subtraction and the new subtract() method for regular subtraction</li>
-<li><a class="reference external" href="http://en.wikipedia.org/wiki/Saturation_arithmetic">http://en.wikipedia.org/wiki/Saturation_arithmetic</a></li>
-</ul>
-</div>
-<div class="slide" id="id3">
-<h1>collections</h1>
-<pre class="literal-block">
-&gt;&gt;&gt; tally = Counter(dogs=5, cat=3)
-&gt;&gt;&gt; tally -= Counter(dogs=2, cats=8)    # saturating subtraction
-&gt;&gt;&gt; tally
-Counter({'dogs': 3})
-
-&gt;&gt;&gt; tally = Counter(dogs=5, cats=3)
-&gt;&gt;&gt; tally.subtract(dogs=2, cats=8)      # regular subtraction
-&gt;&gt;&gt; tally
-Counter({'dogs': 3, 'cats': -5})
-</pre>
-</div>
-<div class="slide" id="threading">
-<h1>threading</h1>
-<ul class="simple">
-<li>The threading module has a new Barrier synchronization class for making multiple threads wait until all of them have reached a common barrier point.</li>
-</ul>
-<pre class="literal-block">
-from threading import Barrier, Thread
-
-def get_votes(site):
-    ballots = conduct_election(site)
-    all_polls_closed.wait()        # do not count until all polls are closed
-    totals = summarize(ballots)
-    publish(site, totals)
-
-all_polls_closed = Barrier(len(sites))
-for site in sites:
-    Thread(target=get_votes, args=(site,)).start()
-</pre>
-</div>
-<div class="slide" id="ast-module">
-<h1>ast module</h1>
-<ul class="simple">
-<li>The ast.literal_eval() function serves as a secure alternative to the builtin eval() function which is easily abused.</li>
-</ul>
-<pre class="literal-block">
-&gt;&gt;&gt; from ast import literal_eval
-&gt;&gt;&gt; request = &quot;{'req': 3, 'func': 'pow', 'args': (2, 0.5)}&quot;
-&gt;&gt;&gt; literal_eval(request)
-{'args': (2, 0.5), 'req': 3, 'func': 'pow'}
-
-&gt;&gt;&gt; request = &quot;os.system('do something harmful')&quot;
-&gt;&gt;&gt; literal_eval(request)
+&gt;&gt;&gt; C({}).x
 Traceback (most recent call last):
-  ...
-ValueError: malformed node or string: &lt;_ast.Call object at 0x101739a10&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 6, in __getattr__
+KeyError: 'x'
+</pre>
+<p class="handout">During handling of the above exception, another exception occurred:</p>
+<p class="handout">Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+File &quot;&lt;stdin&gt;&quot;, line 8, in __getattr__
+AttributeError: x</p>
+<p class="handout">With new syntax</p>
+<pre class="handout doctest-block">
+&gt;&gt;&gt; class D:
+...     def __init__(self, extra):
+...         self._extra_attributes = extra
+...     def __getattr__(self, attr):
+...         try:
+...             return self._extra_attributes[attr]
+...         except KeyError:
+...             raise AttributeError(attr) from None...
+&gt;&gt;&gt;
+D({}).x
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 8, in __getattr__
+AttributeError: x
 </pre>
 </div>
-<div class="slide" id="unicode-os-module">
-<h1>unicode - os module</h1>
+<div class="slide" id="qualified-names">
+<h1>Qualified names</h1>
 <ul class="simple">
-<li>The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.</li>
-</ul>
-</div>
-<div class="slide" id="unittest">
-<h1>unittest</h1>
-<ul class="simple">
-<li>improvements supporting test discovery for packages, easier experimentation at the interactive prompt</li>
-</ul>
-<dl class="docutils">
-<dt>::</dt>
-<dd>python -m unittest discover -s my_proj_dir -p _test.py</dd>
-</dl>
-<ul class="simple">
-<li>Interactivity!</li>
+<li>Functions and class objects have a new __qualname__ attribute representing
+the “path” from the module top-level to their definition.</li>
 </ul>
 <pre class="literal-block">
-&gt;&gt;&gt; TestCase().assertEqual(pow(2, 3), 8)
+&gt;&gt;&gt; class C:
+...     def meth(self):
+...         pass
+&gt;&gt;&gt; C.meth.__name__
+'meth'
+&gt;&gt;&gt; C.meth.__qualname__
+'C.meth'
 </pre>
-</div>
-<div class="slide" id="urllib">
-<h1>urllib</h1>
-<ul class="simple">
-<li>The urlparse() function now supports IPv6 addresses as described in RFC 2732:</li>
-<li>urlopen can take POST which can be an iterable.</li>
-<li>http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.</li>
-</ul>
 </div>
 <div class="slide" id="there-is-more">
 <h1>There is more</h1>
 <ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/dev/whatsnew/3.3.html">http://docs.python.org/dev/whatsnew/3.3.html</a></li>
 <li><a class="reference external" href="http://docs.python.org/dev/whatsnew/3.2.html">http://docs.python.org/dev/whatsnew/3.2.html</a></li>
+<li><a class="reference external" href="http://docs.python.org/dev/whatsnew/2.7.html">http://docs.python.org/dev/whatsnew/2.7.html</a></li>
 <li><strong>Misc/NEWS</strong> file.</li>
-<li><strong>If you are interested in sprints, let me know.</strong>.</li>
 </ul>
 <pre class="literal-block">
 print('{0} {1}'.format('Thank',' you!'))
