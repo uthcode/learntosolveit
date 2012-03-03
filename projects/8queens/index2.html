@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  // draws a chessboard
+  function drawChessboard() {
+    // define the constants
+    var baseX = 0.5, baseY = 0.5, width = 50;
+    // get the 2D context from the "chessboard" canvas
+    var context = document.getElementById("chessboardCanvas").getContext("2d");
+
+    // draws the 8 by 8 chessboard
+    for (var i = 0; i < 8; i++) {
+      for (var j = 0; j < 8; j++) {
+        var x = baseX + width * i, y = baseY + width * j;
+
+        // draw the rectangle
+        context.strokeRect(x, y, width, width);
+
+        // fill the odd number rectangles
+        if ((i + j) % 2 != 0) {
+          context.fillRect(x, y, width, width);
+        }
+      }
+    }
+  }
+  drawChessboard();
+});
+</script>
+</head>
+<body>
+<canvas id="chessboardCanvas" width="401" height="401" class="block"/>
+</body>
+
+</html>
