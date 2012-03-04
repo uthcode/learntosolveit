@@ -25,3 +25,11 @@ def timezone_list():
             item = "%s/%s" % (country,city)
             list_of_timezones.append(item)
     return list_of_timezones
+
+for country, tzlist in pytz.country_timezones.iteritems():
+    if len(tzlist) > 1:
+        for each in tzlist:
+            print '<option value="%s">%s</option>' % (each, each)
+    else:
+        each = tzlist[0]
+        print '<option value="%s">%s</option>' % (each, each)
