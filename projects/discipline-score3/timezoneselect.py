@@ -18,7 +18,10 @@ for (country, tzlist) in pytz.country_timezones.iteritems():
         cities.append(city)
     country_timezones[country_name] = cities
 
-for country in sorted(country_timezones):
-    print country
-    for city in sorted(country_timezones[country]):
-        print "\t%s" % (city)
+def timezone_list():
+    list_of_timezones = []
+    for country in sorted(country_timezones):
+        for city in sorted(country_timezones[country]):
+            item = "%s/%s" % (country,city)
+            list_of_timezones.append(item)
+    return list_of_timezones
