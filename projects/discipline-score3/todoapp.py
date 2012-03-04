@@ -98,8 +98,6 @@ class UpdateTodo(webapp.RequestHandler):
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        #self.response.out.write("<html>")
-        #self.response.out.write("<title>discipline score</title>")
         username = users.get_current_user()
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         template_values = {}
@@ -118,7 +116,6 @@ class MainPage(webapp.RequestHandler):
                 # Make it timezone aware
 
                 today = self.request.get('day',default_value='')
-                #today = '20012012'
 
                 if not today:
                     today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
@@ -126,8 +123,6 @@ class MainPage(webapp.RequestHandler):
                 else:
                     displaydate = today[:2] + '-' + today[2:4] + '-' + today[4:]
 
-                #self.response.out.write("<h3>Date - %s</h3>" % displaydate)
-                #self.response.out.write("""<h3>Add a <a href="/new">new todo</a>?</h3>""")
                 template_values.update({'displaydate': displaydate})
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
@@ -165,19 +160,12 @@ class MainPage(webapp.RequestHandler):
                     filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
                             todolist).filter('user =', username)
                     if filtered_todoitem:
-                        #self.response.out.write("<ul>")
                         total_rating_for_day = 0
                         total_score_for_day = 0
                         for todo in filtered_todoitem:
-                            #key = todo.key()
-                            #editlink = """<a href="/edit?key=%(key)s">Edit</a>""" % {'key':key}
-                            #self.response.out.write("""
-                            #<li><b>%s</b>  <i>%s</i>/<i>%s</i>  - %s </br>""" % (todo.description,
-                            #    todo.score, todo.rating, editlink))
                             total_rating_for_day += todo.rating
                             total_score_for_day += todo.score
 
-                        #self.response.out.write("</ul>")
                         if total_rating_for_day:
                             score = (100.0 * total_score_for_day) / total_rating_for_day
                         else:
@@ -195,28 +183,12 @@ class MainPage(webapp.RequestHandler):
 
                         score = "%0.2f" % score
                         total_score = "%0.2f" % (discipline_score/number_of_entrys)
-                        #self.response.out.write("<br>")
-                        #self.response.out.write("<h3>Score for the day - %0.2f %%</h3>" % score)
-                        #self.response.out.write("<br>")
-                        #self.response.out.write("<h3>Discipline Score- %0.2f %%</h3>" % (discipline_score/number_of_entrys))
-                        #self.response.out.write("<br>")
-                        #self.response.out.write("""</br>""")
                         template_values.update({'score':score, 'total_score':total_score})
                         template_values.update({'filtered_todoitem':filtered_todoitem})
 
             logout_url = users.create_logout_url('/')
             template_values.update({'logout':logout_url})
             self.response.out.write(template.render(path, template_values))
-#            self.response.out.write("""Create a <a href="/new">now</a> todo?""")
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("""Check the <a href="/archives">archives</a>?""")
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>")
-#            self.response.out.write("</html>")
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
@@ -256,8 +228,6 @@ class NewEntry(webapp.RequestHandler):
             usertimezone = filtered_timezoneinfo.get()
             user_tzinfo = timezone(usertimezone.timezoneinfo)
 
-            #Add a todoitem for today
-            #today = '20012012'
             today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
 
             todolist_queryobj = db.Query(TodoList)
@@ -287,24 +257,6 @@ class Archives(webapp.RequestHandler):
                 no_todos = False
                 filtered_todolist = filtered_todolist
 
-#                self.response.out.write("<ul>")
-#                for todolist in filtered_todolist:
-#                    todolist.daykey
-#                    todolist.dayscore
-#                    day = todolist.daykey[:2] + '-' + todolist.daykey[2:4] + '-' +todolist.daykey[4:]
-#
-#                    daylink = """<a href="/?day=%(daykey)s">%(day)s</a>""" % {'daykey':todolist.daykey, 'day':day}
-#                    self.response.out.write("""
-#                    <li>%s - <b>%s</b> </br>""" % (daylink, todolist.dayscore))
-#
-#                self.response.out.write("</ul>")
-
-#            self.response.out.write("""Go to <a href="/">Main</a>?""")
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("<a href='%s'>Logout?</a>" % users.create_logout_url("/"))
-#            self.response.out.write("""</br>""")
-#            self.response.out.write("<a href='http://3.discipline-score.appspot.com'>Older Version</a>")
-#            self.response.out.write("</html>")
             logout = users.create_logout_url("/")
             archive_contents = { 'no_todos': no_todos,
                     'filtered_todolist' :filtered_todolist,
@@ -319,6 +271,7 @@ application = webapp.WSGIApplication([
     ('/settimezone',SetTimeZone),
     ('/new',NewEntry),
     ('/archives', Archives),
+    ('/graph', Graph),
     ('/update',UpdateTodo)],debug=True)
 
 def main():
