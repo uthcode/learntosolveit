@@ -6,6 +6,7 @@ import pytz
 import os
 
 from pytz import timezone
+import gviz_api
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -54,7 +55,7 @@ class SetTimeZone(webapp.RequestHandler):
             except pytz.UnknownTimeZoneError, e:
                 self.response.out.write("<h2>Unknown Timezone</h2>")
                 self.response.out.write("</br>")
-                self.response.out.write("<h2>Please <a href='/settimezone'>try again</a>.</h2>")
+                self.response.out.write("<h2>Please <a href='/settimezone'>set timezone</a>.</h2>")
             else:
                 timezoneinfo_obj = db.Query(TimezoneInfo)
                 filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
@@ -260,6 +261,41 @@ class Archives(webapp.RequestHandler):
             logout = users.create_logout_url("/")
             archive_contents = { 'no_todos': no_todos,
                     'filtered_todolist' :filtered_todolist,
+                    'logout':logout}
+            self.response.out.write(template.render(path, archive_contents))
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
+class Graph(webapp.RequestHandler):
+    def get(self):
+        username = users.get_current_user()
+        path = os.path.join(os.path.dirname(__file__), 'graph.html')
+        if username:
+            todolist_queryobj = db.Query(TodoList)
+            filtered_todolist = todolist_queryobj.filter('user =', username)
+            if not filtered_todolist.fetch(limit=1):
+                no_todos = True
+                filtered_todolist = None
+            else:
+                no_todos = False
+                filtered_todolist = filtered_todolist
+
+            logout = users.create_logout_url("/")
+            description = {"day": ("string","Day"),
+                           "score": ("number", "Score")
+                           }
+            data = []
+            data_table = gviz_api.DataTable(description)
+
+            for todolist in filtered_todolist:
+                item = {"day": todolist.daykey,"score":todolist.dayscore}
+                data.append(item)
+
+            data_table.LoadData(data)
+            json_data = data_table.ToJSon()
+            archive_contents = { 'no_todos': no_todos,
+                    'filtered_todolist' :filtered_todolist,
+                    'json_data' :json_data,
                     'logout':logout}
             self.response.out.write(template.render(path, archive_contents))
         else:
