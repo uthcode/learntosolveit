@@ -48,7 +48,8 @@ class SetTimeZone(webapp.RequestHandler):
 
     def post(self):
         username = users.get_current_user()
-        timezoneinfo = self.request.get('timezoneinfo',default_value='UTC')
+        #timezoneinfo = self.request.get('timezoneinfo',default_value='UTC')
+        timezoneinfo = self.request.get('DropDownTimezone',default_value='UTC')
         if username:
             try:
                 timezone(timezoneinfo)
@@ -291,11 +292,15 @@ class Graph(webapp.RequestHandler):
                 item = {"day": todolist.daykey,"score":todolist.dayscore}
                 data.append(item)
 
+            points = len(data)
+            data.sort(key=lambda x:int(x["day"]))
             data_table.LoadData(data)
-            json_data = data_table.ToJSon()
+            json_data = data_table.ToJSon(columns_order=("day","score"))
             archive_contents = { 'no_todos': no_todos,
                     'filtered_todolist' :filtered_todolist,
                     'json_data' :json_data,
+                    'username': username,
+                    'points':points,
                     'logout':logout}
             self.response.out.write(template.render(path, archive_contents))
         else:

@@ -62,7 +62,7 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = new google.visualization.DataTable(%(json_data)s);
+        var data = new google.visualization.DataTable({{json_data}});
         var options = {
           title: 'Discipline Score Graph',
           hAxis: {title: 'Day Points',  titleTextStyle: {color: 'red'}}
@@ -74,7 +74,8 @@
     </script>
 
     <div class="container">
-      <h1>Discipline Score for {{displaydate}}</h1>
+      <h1>Discipline Score Graph for {{username}}</h1>
+      <h2>Data points: {{points}}</h2>
       <div id="chart_div" style="width: 1200px; height: 500px;"></div>
     </div>
 
