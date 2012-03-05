@@ -37,5 +37,30 @@ class Recover(object):
     def solve(self):
         return self.checksum(self.merge_sort(self.sequence))
 
-obj = Recover([3,5,2,4,1], 1)
-print obj.solve()
+class RecoverSequence(Recover):
+    def __init__(self, n, debugseq):
+        self.n = n
+        self.debugseq = list(debugseq)
+        self.debug = 0
+
+    def cmp(self, a, b):
+        if self.debugseq.pop(0) == "1":
+            return True
+        else:
+            return False
+
+    def solve(self):
+        seq = range(1,N+1)
+        orig = self.merge_sort(seq)
+        return self.checksum([orig.index(x+1)+1 for x in range(self.n)])
+
+#obj = Recover([3,5,2,4,1], 0)
+#print obj.solve()
+
+if __name__ == '__main__':
+    T = int(raw_input())
+    for each in range(T):
+        N = int(raw_input())
+        seq = raw_input()
+        obj = RecoverSequence(N, seq)
+        print 'Case #%d: %d' % (T+1, obj.solve())
