@@ -4,6 +4,9 @@ import random
 import urllib
 import pytz
 import os
+import sys
+
+sys.path.insert(0,'pytz.zip')
 
 from pytz import timezone
 import gviz_api
