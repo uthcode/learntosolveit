@@ -9,6 +9,8 @@ class Stack(object):
         return self.items.pop()
     def is_empty(self):
         return not self.items
+    def remove(self, item):
+        self.items.remove(item)
 
 def striptag(t):
     if '/' in t: # closing tag
@@ -24,7 +26,6 @@ def solve(text):
     # greedy regex search
     tags = re.compile(r'<.*?>')
     all_tags = tags.findall(text)
-    print all_tags
     s = Stack()
 
     for tag in all_tags:
@@ -54,15 +55,16 @@ def solve(text):
     return "OK"
 
 
-tc = 1
-N = int(raw_input())
-while N:
-    content = []
-    for line in range(N):
-        content.append(raw_input())
-    input_html = "".join(content)
-    result = solve(input_html)
-    print "Case #%d: %s" % (tc, result)
-    tc += 1
+if __name__ == '__main__':
+    tc = 1
     N = int(raw_input())
+    while N:
+        content = []
+        for line in range(N):
+            content.append(raw_input())
+        input_html = "".join(content)
+        result = solve(input_html)
+        print "Case #%d: %s" % (tc, result)
+        tc += 1
+        N = int(raw_input())
 
