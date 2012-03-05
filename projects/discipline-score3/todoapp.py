@@ -2,7 +2,6 @@ import cgi
 import datetime
 import random
 import urllib
-import pytz
 import os
 import sys
 
