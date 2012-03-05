@@ -26,6 +26,7 @@ def solve(text):
     # greedy regex search
     tags = re.compile(r'<.*?>')
     all_tags = tags.findall(text)
+    all_tags.reverse()
     s = Stack()
 
     for tag in all_tags:
@@ -44,13 +45,13 @@ def solve(text):
 
     while not s.is_empty():
         tag = s.pop()
-        if not tag.startswith("</"):
-            return "expected </" + striptag(tag) + ">"
-        start_tag = "<" + striptag(tag) + ">"
-        if not start_tag in s.items:
+        if tag.startswith("</"):
             return "no matching begin tag"
+        end_tag = "</" + striptag(tag) + ">"
+        if not end_tag in s.items:
+            return "expected %s" % end_tag
         else:
-            s.items.remove(start_tag)
+            s.items.remove(end_tag)
 
     return "OK"
 
