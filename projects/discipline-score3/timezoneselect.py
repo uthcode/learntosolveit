@@ -37,5 +37,5 @@ for country, tzlist in pytz.country_timezones.iteritems():
         values.append(each)
 
 values.sort()
-for each in values:
+for each in pytz.all_timezones:
     print '<option value="%s">%s</option>' % (each, each)

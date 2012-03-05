@@ -48,7 +48,6 @@ class SetTimeZone(webapp.RequestHandler):
 
     def post(self):
         username = users.get_current_user()
-        #timezoneinfo = self.request.get('timezoneinfo',default_value='UTC')
         timezoneinfo = self.request.get('DropDownTimezone',default_value='UTC')
         if username:
             try:
