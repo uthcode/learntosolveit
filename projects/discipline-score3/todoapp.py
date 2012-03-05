@@ -5,8 +5,7 @@ import urllib
 import os
 import sys
 
-sys.path.insert(0,'pytz.zip')
-
+import pytz
 from pytz import timezone
 import gviz_api
 
