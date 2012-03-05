@@ -26,10 +26,16 @@ def timezone_list():
             list_of_timezones.append(item)
     return list_of_timezones
 
+values = []
+
 for country, tzlist in pytz.country_timezones.iteritems():
     if len(tzlist) > 1:
         for each in tzlist:
-            print '<option value="%s">%s</option>' % (each, each)
+            values.append(each)
     else:
         each = tzlist[0]
-        print '<option value="%s">%s</option>' % (each, each)
+        values.append(each)
+
+values.sort()
+for each in values:
+    print '<option value="%s">%s</option>' % (each, each)
