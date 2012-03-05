@@ -11,36 +11,46 @@ class Stack(object):
         return not self.items
 
 def striptag(t):
-    if '/' in t:
+    if '/' in t: # closing tag
         return t[2:-1]
     else:
         return t[1:-1]
 
 def solve(text):
+    # Just check if there is a missing < or >
     if (text.count("<") != text.count(">")):
         return "bad character in tag name"
+
     # greedy regex search
     tags = re.compile(r'<.*?>')
     all_tags = tags.findall(text)
     print all_tags
+    s = Stack()
+
     for tag in all_tags:
         c = striptag(tag)
-        # if more than 10 characters in tag.
-        # too many/few characters in tag name
         if len(c) > 10 or len(c) == 0:
             return "too many/few characters in tag"
 
         # if not find upper case alphabetic character
         # bad character in tag name
-
         reg = re.compile(r'[A-Z]*')
         match = reg.match(c)
         if not match.group():
             return "bad character in tag name"
-        # No ending tag
-        # expected </xxxxx>
-        # No begin tag
-        # no matching begin tag.
+
+        s.push(tag)
+
+    while not s.is_empty():
+        tag = s.pop()
+        if not tag.startswith("</"):
+            return "expected </" + striptag(tag) + ">"
+        start_tag = "<" + striptag(tag) + ">"
+        if not start_tag in s.items:
+            return "no matching begin tag"
+        else:
+            s.items.remove(start_tag)
+
     return "OK"
 
 
