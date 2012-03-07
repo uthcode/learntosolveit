@@ -290,8 +290,10 @@ class Graph(webapp.RequestHandler):
             data_table = gviz_api.DataTable(description)
 
             num_days = 1.0
+            score_so_far = 0.0
             for todolist in filtered_todolist:
-                discipline_score = round(todolist.dayscore / num_days, 2)
+                score_so_far += todolist.dayscore
+                discipline_score = round(score_so_far/num_days, 2)
                 num_days += 1
                 item = {"day": todolist.daykey,"score":todolist.dayscore, "disciplinescore": discipline_score}
                 data.append(item)
