@@ -293,7 +293,7 @@ class Graph(webapp.RequestHandler):
                 data.append(item)
 
             points = len(data)
-            data.sort(key=lambda x:int(x["day"]))
+            data.sort(key=lambda x:datetime.datetime.strptime(x["day"],"%d%m%Y"))
             data_table.LoadData(data)
             json_data = data_table.ToJSon(columns_order=("day","score"))
             archive_contents = { 'no_todos': no_todos,
