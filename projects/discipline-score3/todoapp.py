@@ -284,6 +284,7 @@ class Graph(webapp.RequestHandler):
             logout = users.create_logout_url("/")
             description = {"day": ("string","Day"),
                            "score": ("number", "Score")
+                           "disciplinescore": ("number", "Discipline Score")
                            }
             data = []
             data_table = gviz_api.DataTable(description)
@@ -292,13 +293,13 @@ class Graph(webapp.RequestHandler):
             for todolist in filtered_todolist:
                 discipline_score = round(todolist.dayscore / num_days, 2)
                 num_days += 1
-                item = {"day": todolist.daykey,"score":todolist.dayscore, "discipline-score": discipline_score}
+                item = {"day": todolist.daykey,"score":todolist.dayscore, "disciplinescore": discipline_score}
                 data.append(item)
 
             points = len(data)
             data.sort(key=lambda x:datetime.datetime.strptime(x["day"],"%d%m%Y"))
             data_table.LoadData(data)
-            json_data = data_table.ToJSon(columns_order=("day","score", "discipline-score"))
+            json_data = data_table.ToJSon(columns_order=("day","score","disciplinescore"))
             archive_contents = { 'no_todos': no_todos,
                     'filtered_todolist' :filtered_todolist,
                     'json_data' :json_data,
