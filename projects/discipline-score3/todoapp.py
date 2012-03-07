@@ -283,7 +283,7 @@ class Graph(webapp.RequestHandler):
 
             logout = users.create_logout_url("/")
             description = {"day": ("string","Day"),
-                           "score": ("number", "Score"),
+                           "score": ("number", "Day Scores"),
                            "disciplinescore": ("number", "Discipline Score")
                            }
             data = []
@@ -307,6 +307,7 @@ class Graph(webapp.RequestHandler):
                     'json_data' :json_data,
                     'username': username,
                     'points':points,
+                    'disciplinescore': discipline_score,
                     'logout':logout}
             self.response.out.write(template.render(path, archive_contents))
         else:

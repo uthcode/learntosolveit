@@ -65,10 +65,10 @@
         var data = new google.visualization.DataTable({{json_data}});
         var options = {
           title: 'Discipline Score Graph',
-          vAxis: {title: 'Scores',  titleTextStyle: {color: 'red'}},
-          hAxis: {title: 'Days',  titleTextStyle: {color: 'red'}},
+          vAxis: {title: 'Scores',  titleTextStyle: {color: 'black'}},
+          hAxis: {title: 'Days',  titleTextStyle: {color: 'black'}},
           seriesType: 'bars',
-          series: {1: {type: 'lines'}}
+          series: {0: {type: 'bars'}, 1: {type:'area'}}
         };
 
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
@@ -79,6 +79,7 @@
     <div class="container">
       <h1>Discipline Score Graph for {{username}}</h1>
       <h2>Data points: {{points}}</h2>
+      <h2>Discipline score: {{disciplinescore}}</h2>
       <div id="chart_div" style="width: 1200px; height: 500px;"></div>
     </div>
 
