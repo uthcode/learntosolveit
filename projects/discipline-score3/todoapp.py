@@ -283,7 +283,7 @@ class Graph(webapp.RequestHandler):
 
             logout = users.create_logout_url("/")
             description = {"day": ("string","Day"),
-                           "score": ("number", "Score")
+                           "score": ("number", "Score"),
                            "disciplinescore": ("number", "Discipline Score")
                            }
             data = []
