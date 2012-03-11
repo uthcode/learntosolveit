@@ -47,23 +47,6 @@ Python 3.3
     >>> import sys; sys.version
     '3.3.0a1+ (default:2f48415e917c, Mar 10 2012, 23:10:43) \n[GCC 4.5.2]'
 
-
-array module
-============
-
-* array module takes long long type.
-
-bz2 module
-==========
-
-* `bz2.BZ2File` can now read from and write to arbitrary file-like objects, by
-  means of its constructor’s fileobj argument.
-
-* `bz2.BZ2File` and `bz2.decompress()` can now decompress multi-stream inputs.
-  bz2.BZ2File can now also be used to create this type of file, using the 'a'
-  (append) mode.
-
-
 faulthandler
 ============
 
@@ -87,6 +70,32 @@ lzma
 
 * The newly-added lzma module provides data compression and decompression using
   the LZMA algorithm, including support for the .xz and .lzma file formats.
+* lzma compression is usually better than bz2.
+* Python 3.3
+* Per Øyvind Karlsen, Nadeem Vawda and others.
+
+.. class:: handout
+
+    * http://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm
+    * http://bugs.python.org/issue6715
+    * http://docs.python.org/dev/library/lzma.html#examples
+
+array module
+============
+
+* array module takes long long type.
+
+bz2 module
+==========
+
+* `bz2.BZ2File` can now read from and write to arbitrary file-like objects, by
+  means of its constructor’s fileobj argument.
+
+* `bz2.BZ2File` and `bz2.decompress()` can now decompress multi-stream inputs.
+  bz2.BZ2File can now also be used to create this type of file, using the 'a'
+  (append) mode.
+
+
 
 os module
 =========
