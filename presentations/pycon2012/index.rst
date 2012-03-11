@@ -552,3 +552,4 @@ There is more
 
         print('{0} {1}'.format('Thank',' you!'))
 
+* Presentation - http://bit.ly/pycon2012stdlib
