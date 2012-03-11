@@ -396,17 +396,18 @@ collections
 unittest - 3.2
 ==============
 
-* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
+* improvements supporting test discovery for packages, easier experimentation
+  at the interactive prompt
 
 ::
+
     python -m unittest discover -s my_proj_dir -p _test.py
 
 * Interactivity!
-    
+
 ::
 
     >>> TestCase().assertEqual(pow(2, 3), 8)
-
 
 pyc directories - 3.2
 =====================

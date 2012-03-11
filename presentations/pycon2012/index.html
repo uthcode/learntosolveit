@@ -428,12 +428,13 @@ Attribution/Share-Alike (BY-SA) license</a>.</p>
 <p><strong>At the moment</strong></p>
 <pre class="literal-block">
 ./python -q
-&gt;&gt;&gt; import sys; sys.version.split(&quot; &quot;)[0]
+&gt;&gt;&gt; import sys; sys.version
 '3.3.0a1+'
 ...
+./python3.2
 '3.2.3rc1'
- ...
-./python
+...
+./python2.7
 '3.2.3rc1'
 </pre>
 </div>
@@ -731,12 +732,12 @@ Counter({'dogs': 3, 'cats': -5})
 <div class="slide" id="unittest-3-2">
 <h1>unittest - 3.2</h1>
 <ul class="simple">
-<li>improvements supporting test discovery for packages, easier experimentation at the interactive prompt</li>
+<li>improvements supporting test discovery for packages, easier experimentation
+at the interactive prompt</li>
 </ul>
-<dl class="docutils">
-<dt>::</dt>
-<dd>python -m unittest discover -s my_proj_dir -p _test.py</dd>
-</dl>
+<pre class="literal-block">
+python -m unittest discover -s my_proj_dir -p _test.py
+</pre>
 <ul class="simple">
 <li>Interactivity!</li>
 </ul>

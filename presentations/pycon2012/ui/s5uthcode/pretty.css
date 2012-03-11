@@ -21,10 +21,10 @@ img {border: 0; }
 kbd {font-weight: bold; font-size: 1em;}
 sup {font-size: smaller; line-height: 1px;}
 
-.slide code {padding: 2px 0.25em; font-weight: bold; color: #f30;}
-.slide code.bad, code del {color: red;}
+.slide code {padding: 2px 0.25em; font-weight: bold; color: yellow;}
+.slide code.bad, code del {color: yellow;}
 .slide code.old {color: silver;}
-.slide pre {padding: 0; margin: 0.25em 0 0.5em 0.5em; color: #f30; font-size: 90%;}
+.slide pre {padding: 0; margin: 0.25em 0 0.5em 0.5em; color: yellow; font-size: 90%;}
 .slide pre code {display: block;}
 .slide ul {margin-left: 5%; margin-right: 7%; list-style: disc;}
 .slide li {margin-top: 0.75em; margin-right: 0;}
