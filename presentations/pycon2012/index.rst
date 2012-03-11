@@ -80,11 +80,6 @@ lzma
     * http://bugs.python.org/issue6715
     * http://docs.python.org/dev/library/lzma.html#examples
 
-array module
-============
-
-* array module takes long long type.
-
 bz2 module
 ==========
 
@@ -95,8 +90,6 @@ bz2 module
   bz2.BZ2File can now also be used to create this type of file, using the 'a'
   (append) mode.
 
-
-
 os module
 =========
 
@@ -106,18 +99,12 @@ os module
 * fwalk() function similar to walk() except that it also yields file
   descriptors referring to the directories visited. 
 
-
 packaging
 =========
 
 * distutils module is called packaging, helper functions for building,
   packaging, distributing and installing additional projects into a Python
   installation.
-
-shutil
-======
-
-* shutil.disk_usage() - total, used and free disk space statistics.
 
 signal module
 =============
@@ -150,17 +137,6 @@ urllib module
 ::
 
     >>> urlopen(Request('http://www.python.org', method='HEAD'))
-
-
-Python 3.2
-==========
-
-* At the moment *
-
-::
-    python
-    >>> import sys; sys.version
-
 
 import argparse
 ===============
@@ -234,42 +210,6 @@ from concurrent import futures
         freeing resources. The class is a context manager and can be used in a
         with statement to assure that resources are automatically released when
         currently pending futures are done executing.
-
-
-pyc directories
-===============
-* Multiple implementations can refer to their own .pyc files.
-* mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
-* pyc files are now collected in a **__pycache__** directory stored under the package directory
-* Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported
-* tag that is unique to each interpreter is accessible from the **imp** module
-
-WSGI 1.1
-========
-
-* Well Intentioned Upgrade for WSGI to support Python3.
-* Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
-
-
-New string formatting methods
-=============================
-
-* **str.format_map** 
-* It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
-
-::
-
-        >>> import shelve
-        >>> d = shelve.open('tmp.shl')
-        >>> 'The {project_name} status is {status} as of {date}'.format_map(d)
-        'The testing project status is green as of February 15, 2011'
-
-        >>> class PlaceholderDict(dict):
-                def __missing__(self, key):
-                    return '<{}>'.format(key)
-        >>> 'Hello {name}, welcome to {location}'.format_map(PlaceholderDict())
-        'Hello <name>, welcome to <location>'
-
 
 functools
 =========
@@ -358,6 +298,66 @@ collections
         Counter({'dogs': 3, 'cats': -5})
 
 
+unittest
+========
+
+* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
+
+::
+    python -m unittest discover -s my_proj_dir -p _test.py
+
+* Interactivity!
+    
+::
+
+    >>> TestCase().assertEqual(pow(2, 3), 8)
+
+array module
+============
+
+* array module takes long long type.
+
+
+shutil
+======
+
+* shutil.disk_usage() - total, used and free disk space statistics.
+
+pyc directories
+===============
+* Multiple implementations can refer to their own .pyc files.
+* mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
+* pyc files are now collected in a **__pycache__** directory stored under the package directory
+* Imported modules now have a __cached__ attribute which stores the name of the actual file that was imported
+* tag that is unique to each interpreter is accessible from the **imp** module
+
+WSGI 1.1.1
+==========
+
+* Well Intentioned Upgrade for WSGI to support Python3.
+* Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
+
+
+New string formatting methods
+=============================
+
+* **str.format_map** 
+* It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
+
+::
+
+        >>> import shelve
+        >>> d = shelve.open('tmp.shl')
+        >>> 'The {project_name} status is {status} as of {date}'.format_map(d)
+        'The testing project status is green as of February 15, 2011'
+
+        >>> class PlaceholderDict(dict):
+                def __missing__(self, key):
+                    return '<{}>'.format(key)
+        >>> 'Hello {name}, welcome to {location}'.format_map(PlaceholderDict())
+        'Hello <name>, welcome to <location>'
+
+
 threading
 =========
 
@@ -403,19 +403,6 @@ unicode - os module
 * The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.
 
 
-unittest
-========
-
-* improvements supporting test discovery for packages, easier experimentation at the interactive prompt
-
-::
-    python -m unittest discover -s my_proj_dir -p _test.py
-
-* Interactivity!
-    
-::
-
-    >>> TestCase().assertEqual(pow(2, 3), 8)
 
 
 urllib
@@ -429,13 +416,6 @@ Python 2.7
 ==========
 
 * Released in July, 2010.
-
-*What's current version*
-
-* Improved unittest module.
-* Improved Decimal class.
-* Improvements in collections module.
-
 
 Deprecation Warnings
 ====================
