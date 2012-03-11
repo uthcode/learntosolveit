@@ -156,23 +156,55 @@ packaging
 signal module
 =============
 
-* signal module has functions such as pthread_sigmask, pthread_kill, sigpending, sigwait, sigwaitinfo.
-* The signal handler writes the signal number as a single byte instead of a nul
-  byte into the wakeup file descriptor.
-* signal.signal() and signal.siginterrupt() raise an OSError, instead of a RuntimeError: OSError has an errno attribute.
+* signal.signal() and signal.siginterrupt() raise an OSError, instead of a
+  RuntimeError: OSError has an errno attribute.
+
+* signal module has functions such as pthread_sigmask , pthread_kill,
+  sigpending, sigwait, sigwaitinfo.
+
+* Jean-Paul Calderone, Antoine Pitrou and others.
+
+.. class:: handout
+
+        http://docs.python.org/dev/library/signal.html
+        man sigprocmask
+        man pthread_sigmask
+        man sigwait
+        man sigwaitinfo
+
+
+socket module
+=============
+
+* The socket class now supports the PF_CAN protocol family. (Matthias Fuchs,
+  Tiago Gonçalves) - Control Area Network Bus Drivers.
+
+* The socket class now supports the PF_RDS protocol family - Reliable High
+  performance, low latency reliable connectioness protocol for delivering
+  datagrams.
 
 ssl module
 ==========
 
 * RAND_bytes(): generate cryptographically strong pseudo-random bytes.
-* RAND_pseudo_bytes(): generate pseudo-random bytes.
-* Query the SSL compression algorithm used by an SSL socket, thanks to its new compression() method.
+* RAND_pseudo_bytes(): generate pseudo-random bytes. (Both by Victor Stinner)
+* Query the SSL compression algorithm used by an SSL socket, thanks to its new compression() method. You can also supress Compression. ( Antoine Pitrou)
+
+.. class:: handout
+
+    http://bugs.python.org/issue13634
 
 sys module
 ==========
 
 * The sys module has a new `thread_info` struct sequence holding informations
   about the thread implementation.
+
+::
+
+    >>> sys.thread_info
+    sys.thread_info(name='pthread', lock='semaphore', version='NPTL 2.13')
+
 
 urllib module
 =============
@@ -185,10 +217,10 @@ urllib module
 
     >>> urlopen(Request('http://www.python.org', method='HEAD'))
 
-import argparse
-===============
+argparse
+========
 
-* There is an argparse command line parsing module included in stdlib.
+* Included in 3.2
 * argparse will be the future and optparse will slowly be deprecated.
 * Support for positional args, sub-commands, **'required options'**, pattern for specifying and validating options.
 * argparse has the ability to define subparsers, each with their own argument patterns and help displays:
@@ -328,6 +360,7 @@ collections
 
 * http://en.wikipedia.org/wiki/Saturation_arithmetic
 
+* All these features were added by Raymond Hettinger
 
 collections
 ===========
@@ -451,18 +484,12 @@ unicode - os module
 
 
 
-
 urllib
 ======
 
 * The urlparse() function now supports IPv6 addresses as described in RFC 2732:
 * urlopen can take POST which can be an iterable. 
 * http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
-
-Python 2.7
-==========
-
-* Released in July, 2010.
 
 Deprecation Warnings
 ====================
