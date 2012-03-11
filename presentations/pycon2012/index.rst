@@ -14,6 +14,7 @@ Standard Library
 .. class:: center small
 
    | What's new and interesting in Python Standard Library 2.7, 3.2 and 3.3
+   | http://bit.ly/pycon2012stdlib
 
 .. class:: center small
 
@@ -127,6 +128,10 @@ os module
 * fwalk() function similar to walk() except that it also yields file
   descriptors referring to the directories visited. (Interesting!)
 
+* **Since 3.2** - The os module provides two new functions, fsencode()
+  and fsdecode(), for encoding and decoding filenames based on file-system
+  encoding.
+
 
 .. class:: handout
 
@@ -206,8 +211,8 @@ sys module
     sys.thread_info(name='pthread', lock='semaphore', version='NPTL 2.13')
 
 
-urllib module
-=============
+urllib package
+==============
 
 * The Request class, now accepts a method argument used by get_method() to
   determine what HTTP method should be used. For example, this will send a 'HEAD'
@@ -217,10 +222,17 @@ urllib module
 
     >>> urlopen(Request('http://www.python.org', method='HEAD'))
 
-argparse
-========
+urllib package
+==============
 
-* Included in 3.2
+* The parse.urlparse() function now supports IPv6 addresses as described in RFC
+  2732
+* request.urlopen can take POST which can be an iterable. 
+* http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
+
+argparse - 3.2
+==============
+
 * argparse will be the future and optparse will slowly be deprecated.
 * Support for positional args, sub-commands, **'required options'**, pattern for specifying and validating options.
 * argparse has the ability to define subparsers, each with their own argument patterns and help displays:
@@ -247,8 +259,8 @@ argparse
 
         print(parser.parse_args('-h'.split()))
 
-logging module - Configuration Dictionary.
-==========================================
+logging module - 3.2
+====================
 
 * The logging documentation has been augmented by a basic tutorial, an advanced tutorial, and a cookbook of logging recipes.
 * **logging.config.dictConfig()** - logging configuration with plain Python dictionaries.
@@ -260,8 +272,8 @@ logging module - Configuration Dictionary.
         logging.config.dictConfig(conf)
 
 
-from concurrent import futures
-==============================
+from concurrent import futures - 3.2
+====================================
 
 * Code for creating and managing concurrency is being collected in a new top-level namespace, concurrent
 * first package is **futures** high level interface for managing threads and processes.
@@ -290,8 +302,8 @@ from concurrent import futures
         with statement to assure that resources are automatically released when
         currently pending futures are done executing.
 
-functools
-=========
+functools - 3.2
+===============
 
 * The functools module includes a new decorator for caching function calls.
   **functools.lru_cache()** can save repeated queries to an external resource
@@ -308,8 +320,8 @@ functools
         ...
         >>> get_phone_number(name)        # cached lookup
 
-functools
-=========
+functools - 3.2
+===============
 
 * We have cache stats
 
@@ -324,8 +336,8 @@ functools
 
         >>> get_phone_number = get_phone_number.__wrapped__    # uncached function
 
-functools
-=========
+functools - 3.2
+===============
 
 * functools.total_ordering - rich comparison methods, a new decorator functools.total_ordering() will use a existing equality and inequality methods to fill in the remaining methods.
 
@@ -343,8 +355,8 @@ functools
 
 * Magic happens.
 
-itertools
-=========
+itertools - 3.2
+===============
 
 ::
 
@@ -358,7 +370,9 @@ collections
 
 * The collections.Counter class now has two forms of in-place subtraction, the existing -= operator for saturating subtraction and the new subtract() method for regular subtraction
 
-* http://en.wikipedia.org/wiki/Saturation_arithmetic
+* http://en.wikipedia.org/wiki/Saturation_arithmetic If the result of an
+  operation is greater than the maximum it is set ("clamped") to the maximum,
+  while if it is below the minimum it is clamped to the minimum.
 
 * All these features were added by Raymond Hettinger
 
@@ -378,8 +392,8 @@ collections
         Counter({'dogs': 3, 'cats': -5})
 
 
-unittest
-========
+unittest - 3.2
+==============
 
 * improvements supporting test discovery for packages, easier experimentation at the interactive prompt
 
@@ -392,19 +406,10 @@ unittest
 
     >>> TestCase().assertEqual(pow(2, 3), 8)
 
-array module
-============
 
-* array module takes long long type.
-
-
-shutil
-======
-
-* shutil.disk_usage() - total, used and free disk space statistics.
-
-pyc directories
-===============
+pyc directories - 3.2
+=====================
+* **3.2 onwards**
 * Multiple implementations can refer to their own .pyc files.
 * mymodule.cpython-32.pyc, mymodule.cpython-33.pyc, and mymodule.unladen10.pyc
 * pyc files are now collected in a **__pycache__** directory stored under the package directory
@@ -417,9 +422,8 @@ WSGI 1.1.1
 * Well Intentioned Upgrade for WSGI to support Python3.
 * Informational PEP clarifies how bytes/text issues are to be handled by the WGSI protocol
 
-
-New string formatting methods
-=============================
+New string formatting 3.2
+=========================
 
 * **str.format_map** 
 * It can take dictionaries from defaultdict, shelve, ConfigParser, dbm.
@@ -438,8 +442,8 @@ New string formatting methods
         'Hello <name>, welcome to <location>'
 
 
-threading
-=========
+threading 3.2
+=============
 
 * The threading module has a new Barrier synchronization class for making
   multiple threads wait until all of them have reached a common barrier point. 
@@ -477,22 +481,18 @@ ast module
           ...
         ValueError: malformed node or string: <_ast.Call object at 0x101739a10>
 
-unicode - os module
-===================
+array module - 3.3
+==================
 
-* The os module provides two new functions, fsencode() and fsdecode(), for encoding and decoding filenames based on file-system encoding.
+* array module takes long long type.
 
+shutil - 3.3
+==========
 
+* shutil.disk_usage() - total, used and free disk space statistics.
 
-urllib
-======
-
-* The urlparse() function now supports IPv6 addresses as described in RFC 2732:
-* urlopen can take POST which can be an iterable. 
-* http.client.HTTPSConnection, urllib.request.HTTPSHandler and urllib.request.urlopen() now take optional arguments to allow for server certificate checking against a set of Certificate Authorities, as recommended in public uses of HTTPS.
-
-Deprecation Warnings
-====================
+Deprecation Warnings - 2.7
+==========================
 
 * DeprecationWarning and its descendants are now ignored unless otherwise
   requested, preventing users from seeing warnings triggered by an application. 
@@ -505,8 +505,8 @@ Deprecation Warnings
   with the -Wdefault (short form: -Wd) switch, or by setting the PYTHONWARNINGS
   environment variable to "default" (or "d") before running Python.
 
-3.x Backported Features
-=======================
+3.x Backported Features in 2.7
+==============================
 
 * The syntax for set literals ({1,2,3} is a mutable set).
 * Dictionary and set comprehensions ({i: i*2 for i in range(3)}).
@@ -514,13 +514,21 @@ Deprecation Warnings
 * A new version of the io library, rewritten in C for performance.
 * The ordered-dictionary type described in PEP 372
 * The new "," format specifier for Thousands Separator PEP 378
-* The memoryview object.
-* A small subset of the importlib module, described below.
+
+3.x Backported Features in 2.7
+==============================
+
+* The memoryview object and this is further improved in **3.3**
+* A small subset of the importlib module and full version of **importlib** will be in place in 3.3
 
 Dictionary Views
 ================
 
 * viewkeys(), viewvalues(), and viewitems() return an object called views.
+
+.. class:: handout
+
+    http://stackoverflow.com/questions/340850/python-3-0-dict-methods-return-views-why
 
 
 Bug fixes in  modules
