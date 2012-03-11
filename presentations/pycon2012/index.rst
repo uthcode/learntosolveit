@@ -45,12 +45,13 @@ CPython
 ::
 
     ./python -q
-    >>> import sys; sys.version.split(" ")[0]
+    >>> import sys; sys.version
     '3.3.0a1+'
     ...
+    ./python3.2
     '3.2.3rc1'
-     ...
-    ./python
+    ...
+    ./python2.7
     '3.2.3rc1'
 
 
