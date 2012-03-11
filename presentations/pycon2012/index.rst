@@ -487,7 +487,7 @@ array module - 3.3
 * array module takes long long type.
 
 shutil - 3.3
-==========
+============
 
 * shutil.disk_usage() - total, used and free disk space statistics.
 
