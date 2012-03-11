@@ -36,21 +36,27 @@ Standard Library
         Attribution/Share-Alike (BY-SA) license
         <http://creativecommons.org/licenses/by-sa/3.0/>`__.
 
-Python 3.3 
-==========
+CPython
+=======
 
-*At the moment* 
+**At the moment**
 
 ::
 
     ./python -q
-    >>> import sys; sys.version
-    '3.3.0a1+ (default:2f48415e917c, Mar 10 2012, 23:10:43) \n[GCC 4.5.2]'
+    >>> import sys; sys.version.split(" ")[0]
+    '3.3.0a1+'
+    ...
+    '3.2.3rc1'
+     ...
+    ./python
+    '3.2.3rc1'
+
 
 faulthandler
 ============
 
-* New `faulthandler` module.
+* New **faulthandler** module.
 
 This module contains functions to dump Python tracebacks explicitly, on a
 fault, after a timeout, or on a user signal. Call faulthandler.enable() to
@@ -83,21 +89,51 @@ lzma
 bz2 module
 ==========
 
-* `bz2.BZ2File` can now read from and write to arbitrary file-like objects, by
-  means of its constructor’s fileobj argument.
+* **bz2.BZ2File** can now read from and write to arbitrary file-like objects,
+  by means of its constructor’s fileobj argument. (Nadeem Vawda)
 
-* `bz2.BZ2File` and `bz2.decompress()` can now decompress multi-stream inputs.
+* **bz2.BZ2File** and **bz2.decompress()** can now decompress multi-stream inputs.
   bz2.BZ2File can now also be used to create this type of file, using the 'a'
-  (append) mode.
+  (append) mode. (Nir Aides)
+
+
+.. class:: handout
+
+    * http://bugs.python.org/issue5863
+    * http://bugs.python.org/issue1625
+
+
+    Behavior is similar to bunzip2 utility. Like gzip, you can concatenate two
+    bzip2 files.
+
+    bzip2 -c /etc/passwd >/tmp/pass.bz2
+    bzip2 -c /etc/passwd >>/tmp/pass.bz2
+
+    bunzip2 will output both parts, generating two copies of the file.
+
+    So nothing needs to be done on compression, but uncompression needs to
+    look for another chunk of compressed data after finishing one chunk.
+
 
 os module
 =========
 
 * sendfile() function which provides an efficent “zero-copy” way for copying
-  data from one file (or socket) descriptor to another.
+  data from one file (or socket) descriptor to another. ( Ross Lagerwall and
+  Giampaolo Rodola')
+
+* Use of sendfile instead of send provides 1.5x speed up!
 
 * fwalk() function similar to walk() except that it also yields file
-  descriptors referring to the directories visited. 
+  descriptors referring to the directories visited. (Interesting!)
+
+
+.. class:: handout
+
+        Some benchmarks - 
+
+        http://code.google.com/p/pyftpdlib/issues/detail?id=152#c5
+
 
 packaging
 =========
@@ -105,6 +141,17 @@ packaging
 * distutils module is called packaging, helper functions for building,
   packaging, distributing and installing additional projects into a Python
   installation.
+
+* distutils is still provided in the standard library, but users are encouraged
+  to transition to packaging.
+
+* New features from packaging will be available under distutils2 in PyPI.
+
+
+.. class:: handout
+
+    http://docs.python.org/dev/library/packaging.html#module-packaging
+
 
 signal module
 =============
