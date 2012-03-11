@@ -43,9 +43,9 @@ Python 3.3
 
 ::
 
-        $python -q
-        >>> import sys;sys.version
-        '3.3.0a0 (default:a92e73dfbff6, Mar 1 2012, 20:54:21)'
+    ./python -q
+    >>> import sys; sys.version
+    '3.3.0a1+ (default:2f48415e917c, Mar 10 2012, 23:10:43) \n[GCC 4.5.2]'
 
 
 array module
@@ -73,6 +73,14 @@ This module contains functions to dump Python tracebacks explicitly, on a
 fault, after a timeout, or on a user signal. Call faulthandler.enable() to
 install fault handlers for the SIGSEGV, SIGFPE, SIGABRT, SIGBUS, and SIGILL
 signals. 
+
+* It is version 3.3 and was contributed by Victor Stinner.
+
+.. class:: handout
+
+    More information available at 
+
+    http://blog.python.org/2011/05/new-faulthandler-module-in-python-33.html
 
 lzma
 ====
