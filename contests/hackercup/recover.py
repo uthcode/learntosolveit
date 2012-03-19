@@ -63,4 +63,4 @@ if __name__ == '__main__':
         N = int(raw_input())
         seq = raw_input()
         obj = RecoverSequence(N, seq)
-        print 'Case #%d: %d' % (T+1, obj.solve())
+        print 'Case #%d: %d' % (each+1, obj.solve())

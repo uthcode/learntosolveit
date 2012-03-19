@@ -1,0 +1,145 @@
+.. This is a comment
+.. Use ":Vst s5" to generate the HTML for this document
+
+============================================
+Vim reStructured Text
+============================================
+
+:Title: Vim reStructured Text - A Quick Introduction
+:Author: George V. Reilly  <george@reilly.org>
+:Date: 2006/05/12
+
+
+What is VST?
+============
+
+`VST <http://skawina.eu.org/mikolaj/vst.html>`_ is an easy way to produce:
+
+* HTML
+* S5 Slides, like this document
+* LaTeX and PDF
+
+from `reStructured text <http://docutils.sf.net>`_: plain text
+with minimal markup.
+
+The powerful `Vim <http://www.vim.org>`_ editor is used to prepare the
+material.
+
+Please read the _`source` of these slides to see how the effects used herein are
+achieved.
+
+
+Simple markup
+=============
+
++ Bulleted Lists
++ Numeric lists (nested)
+
+    #. **Bold** text
+    2. *Italics* text
+    #. ``typewriter`` text
+
++ Subscripts, H\ :sub:`2`\ O.
++ Replacement -- |VST| -- of text.
+
+
+Blockquotes
+===========
+
+You can embed blockquotes inside your text::
+
+    Simple markup
+    ==============
+
+    + Bulleted Lists
+    + Numeric lists (nested)
+
+        #. **Bold** text
+        2. *Italics* text
+        #. ``typewriter`` text
+
+    + Replacement -- |VST| -- of text.
+
+is most of the text of the previous slide.
+
+
+Links
+=====
+
+VST supports a variety of hyperlink notations.
+
+* Starting points: `What is VST?`_
+* `External links`_
+* Internal links, such as `source`_
+* Standalone links, http://www.vim.org
+* `Embedded URIs <http://skawina.eu.org/mikolaj/vst.html#lembedded-uris>`_
+
+The full effect of these links cannot be seen in the S5 slides.
+Regenerate with ``:Vst`` instead.
+
+.. _External links: http://skawina.eu.org/mikolaj/vst.html#lexternal-links
+
+
+Images
+======
+
+.. image:: http://www.vim.org/images/vim_header.gif
+    :title: Vim
+    :target: http://www.vim.org/
+
+.. tip:: You can apply a variety of attributes to images.
+
+    If you need really fine control, you may need to use ``.. raw:: html``
+
+
+Simple Tables
+=============
+
+
+== == == == == == ==
+su mo tu we th fr sa 
+== == == == == == ==
+                  1
+2  3  4  5  6  7  8
+9  10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31
+== == == == == == ==
+
+
+Rich Tables
+===========
+
++---------------------+----------------+------------------+
+| Cells are           | by bar with    | <Space>|<Space>  |
+| separated           | spaces around  |                  |
++---------------------+----------------+------------------+
+| *You* may use       | markup,        | included.        |
+| **inline**          | links_         |                  |
++---------------------+----------------+------------------+
+| You can use various | - like lists   | VST will         |
+| types of structure  |                | interpret them.  |
+| elements::          |    + various   |                  |
+|                     |                | Even paragraphs. |
+|  Welcome to world   | - embedded     |                  |
+|  of preformatted    | - one into     | 1. And           |
+|  text.              |   other        | 2. not           |
++---------------------+----------------+------------------+
+| Text may span across several         |                  |
+| columns. Cell can be also empty ->   |                  |
++---------------------+----------------+------------------+
+
+
+Conclusion
+==========
+
+VST is an easy way to produce marked-up documents with easy-to-read source, in
+Vim.
+
+This slideshow displays only a few features of VST. Be sure to read the
+`manual <http://skawina.eu.org/mikolaj/vst.html>`_.
+
+.. |VST| replace:: Vim reStructured Text
+
+.. vim:set tw=78 ai fo+=n fo-=l ft=rst:

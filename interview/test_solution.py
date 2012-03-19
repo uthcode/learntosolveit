@@ -23,11 +23,11 @@ def solve(text):
     if (text.count("<") != text.count(">")):
         return "bad character in tag name"
 
-    # greedy regex search
+    # regex search for tags (greedy)
     tags = re.compile(r'<.*?>')
     all_tags = tags.findall(text)
     all_tags.reverse()
-    s = Stack()
+    tag_stack = Stack()
 
     for tag in all_tags:
         c = striptag(tag)
@@ -41,17 +41,17 @@ def solve(text):
         if not match.group():
             return "bad character in tag name"
 
-        s.push(tag)
+        tag_stack.push(tag)
 
-    while not s.is_empty():
-        tag = s.pop()
+    while not tag_stack.is_empty():
+        tag = tag_stack.pop()
         if tag.startswith("</"):
             return "no matching begin tag"
         end_tag = "</" + striptag(tag) + ">"
-        if not end_tag in s.items:
+        if not end_tag in tag_stack.items:
             return "expected %s" % end_tag
         else:
-            s.items.remove(end_tag)
+            tag_stack.remove(end_tag)
 
     return "OK"
 
@@ -63,7 +63,7 @@ if __name__ == '__main__':
         content = []
         for line in range(N):
             content.append(raw_input())
-        input_html = "".join(content)
+        input_html = "\n".join(content)
         result = solve(input_html)
         print "Case #%d: %s" % (tc, result)
         tc += 1

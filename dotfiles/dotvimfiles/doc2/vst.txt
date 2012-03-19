@@ -1,0 +1,2995 @@
+=====================
+Vim reStructured Text
+=====================
+:Author: Mikolaj Machowski
+:Title: Vim reStructured Text - HTML and LaTeX output
+:Keywords: Vim, LaTeX, PDF, HTML, XML
+:Version: 1.4
+:License: GPL v. 2
+:Date: 4 Nov 2006
+
+For a long time Vim_ users were asking for "real" export to HTML.  This is,
+I believe, first real try to achieve this effect.  This is Vim version of
+reStructuredText_, popular Python_ language documentation tool (so I borrowed
+parts of its documentation).
+
+.. contents::
+   :depth: 3
+   :class: new
+
+Introduction
+------------
+
+*Structured* means Vim script recognizes some patterns and translates them
+into form recognizable by WWW browsers. In fact, Vim creates quasi-XML
+form which can be exported into HTML and LaTeX.
+
+Major office suites OpenOffice.org_ and MS-Office_ can import HTML
+(KOffice_ also can do this but results aren't good) and save files in
+their native formats.
+
+
+Download
+--------
+
+- Scripts themselves and docs in txt form: vst.zip_
+
+All forms of documentation were created from the same txt source without
+**any** corrections:
+
+- HTML documentation: vst.html_
+- PDF documentation: vst.pdf_
+- LaTeX source of documentation: vst.tex_
+
+.. _vst.zip: http://skawina.eu.org/mikolaj/vst.zip
+.. _vst.html: http://skawina.eu.org/mikolaj/vst.html
+.. _vst.pdf: http://skawina.eu.org/mikolaj/vst.pdf
+.. _vst.tex: http://skawina.eu.org/mikolaj/vst.tex
+
+.. _archive:
+
+Installation
+------------
+
+Put archive  ``vst.zip`` into your ``~/.vim`` (Unices) or ``vimfiles``
+(MS-Windows) directory and unpack it there. It will create files::
+
+    |- doc2/vst.txt           <- documentation
+    |- doc2/vst-s5.txt        <- example of S5 presentation
+    |- doc2/test.png          <- to complete documentation
+    |- plugin/vstplugin.vim   <- small plugin file with commands
+    |- autoload/vst/vst.vim   <- main script
+    |- autoload/vst/myhtmlvst.vim <- examples of macros
+    \- autoload/vst/s5ui/*    <- S5 style files
+
+Usage
+-----
+
+Transformation is called with command::
+
+    :Vst [{format}]
+
+Where ``{format}`` is format of exported file.  Format argument is
+optional and without it default value (HTML) will be used. Argument name
+is case-insensitive: HTML, html, Html are equivalents. Formatted file
+will be opened in new buffer without name.
+
+``g:vst_write_export``
+    Boolean (0). If true, write file immediately with extension specific to
+    export format (html, tex, xml). Overwrite existing files without warning.
+    How to set it read ``:help :let``.
+
+Second command::
+
+    :Vsti [{format}]
+
+Instantly writes file with extension specific to export, overwrite existing
+files without warning.
+
+Third command::
+
+    :Vstm
+    
+Is calling menus.
+
+
+Project file
+~~~~~~~~~~~~
+
+User can write variables specific to project into special file ``vstrc.vim``,
+located into the same directory as processed file. This is regular Vim script
+file which will be sourced at the time of export.
+
+Export to HTML
+~~~~~~~~~~~~~~
+
+These commands will create XHTML 1.0 file::
+
+    :Vst html
+    :Vst
+
+Vst command (with any export argument) accepts range::
+
+    :[range]Vst {[export]}
+
+When file use exclusively lists starting from 1/a/A/etc. doctype is Strict, in
+other case it is Transitional.
+
+From special characters/entities |VST| handles at the moment::
+
+     <, >, &, (c)
+
+Results in: <, >, &, (c). 
+
+List can be extended on request.
+
+.. _vhp:
+
+``g:vst_html_post``
+    String (empty). Filename, sourced after whole processing. In that file
+    user can put specialized formatting commands, replacing custom or export
+    dependent templates from replacements etc. For examples check macros_
+    section. How to set it read ``:help :let``.
+
+User CSS
+````````
+
+User can manipulate how CSS will be attached by combinations of these two
+variables (how to use Vim variables read ``:help :let``):
+
+``g:vst_css_default``
+    String (empty). When unmodified default CSS will be included in HTML file.
+    When non-empty default CSS will be written to external file. Existing file
+    will be overwritten without warning. If equal to NONE (case sensitive) any
+    reference to default CSS will be skipped.
+
+``g:vst_css_user``
+    String (empty). When non-empty link to specified file will be included.
+
+Default CSS is in separate file in autoload/vst/default.css so it is easy to
+make global-local modifications.
+
+Export to S5
+~~~~~~~~~~~~
+
+Command::
+
+    :Vst s5
+
+Will create S5_ -- Simple Standards Based Slide Show System. XHTML file steered
+by JavaScript and CSS created by Eric Meyer.
+
+.. _S5: http://meyerweb.com/eric/tools/s5
+
+Not every document will be good S5 presentation. All elements but table of
+contents are supported but not every one will be good thing to place in one
+screen. 
+
+S5 document
+```````````
+
+File should begin with first level header. It will be title of document. Each
+slide will begin with second level header. Author and date to place in footer
+will be taken from appropriate fields of field list.
+
+.. Tip::
+
+   - it is unwise to use more than two levels of headers
+
+|VST| provides predefined classes. Both can be introduced by class_ or
+container_ directives:
+
+``handout`` 
+    Elements marked with that class will not be seen in presentation mode,
+    only handout mode.
+
+``incremental``
+    Elements marked with that class will be displayed gradually, when using
+    normal forward. This one can be also introduced as a role -- usage of this
+    element is easier with `default role`_ directive.
+    
+Good example of S5 document was prepared by George V. Reilly and its text
+form is included in tarball (doc2/vst-s5.txt). Result can be viewed here__.
+
+__ http://skawina.eu.org/mikolaj/vst-s5.html
+
+Export to LaTeX
+~~~~~~~~~~~~~~~
+
+These commands will LaTeX version of |VST| file::
+
+    :Vst latex
+    :Vst tex
+
+Document will use ``hyperref`` package and it will be fully hyperlinked.
+It is better to compile it with ``pdflatex``, directly to PDF than use
+pure ``latex``.
+
+.. _vtp:
+
+``g:vst_tex_preamble``
+    String (empty). User can define his own command (to use in
+    `raw latex`_) or change some defaults. Should be absolute or relative
+    path to processed file. Contents of file will be included with
+    ``\input{}``.
+
+``g:vst_tex_post``
+    String (empty). Filename, sourced after whole processing. In that file
+    user can put specialized formatting commands, replacing custom or export
+    dependent templates from replacements etc.
+
+Current differences between HTML and LaTeX export:
+
+- 2html is treated as ordinary preformatted text
+- custom roles are ignored
+- right/left floating frames are ignored
+
+Export to PDF
+~~~~~~~~~~~~~
+
+This command will immediately compile PDF document after creation of
+LaTeX source::
+
+    :Vst pdf
+
+Additional tuning of this command with variables (how to use variables read
+``:help :let``):
+
+``g:vst_pdf_view``
+   Boolean (0). When equal 1 immediately show result of compilation.
+
+``g:vst_pdf_viewer``
+    String (default for unices is ``xpdf``, for MS-Windows empty
+    -- properly setup system will take care about choosing application).
+
+``g:vst_pdf_clean``
+    Boolean (0). When equal 1 remove auxiliary files of PDF compilation
+    (including tex source -- use with caution!)
+
+``g:vst_pdf_command``
+    String (``pdflatex -interaction=nonstopmode``). Value of this string will
+    be used to produce PDF document. User may need to modify this variable,
+    especially if document needs some preprocessing.
+
+Export to XML
+~~~~~~~~~~~~~
+
+This command will produce XML-like code::
+
+    :Vst xml
+
+For debugging purposes.
+
+Export to reST
+~~~~~~~~~~~~~~
+
+This command will remove incompatibilities with reST::
+
+    :Vst rest
+
+- identify option of images_ and figures_ will be deleted
+- figalign option of figures_ will be deleted
+- in Vim commands of `option list`_ leading colon will be replaced with
+  ``--VIM, :``
+- replace non-breaking space with plain space
+- replace 2html directive declaration with '::'
+
+.. Warning:: This export can result in losing of some formatting.
+
+Auxiliary commands
+~~~~~~~~~~~~~~~~~~
+
+|VST| script provides set of auxiliary commands to make easier editing
+of bigger files and especially navigating through them.
+
+
+.. _headers:
+
+``head``
+````````
+
+It is possible to lost orientation which type of underscore was used to
+mark certain level of sections::
+
+    :Vst head
+
+Will show small table with level name and symbols used to mark them::
+
+    Level               Symbol
+    h1                  =========d
+    h2                  --------- 
+    h3                  ~~~~~~~~~ 
+    h4                  +++++++++ 
+ 
+This is result of ``Vst head`` for this manual. Letter ``d`` at the end of
+ornament shows this is double ornament.
+
+
+.. _contents:
+
+``toc``
+```````
+
+In longer text documents it is very easy to be lost::
+
+    :Vst toc
+
+This command will present table of contents for current document. Here
+is fragment of table of contents of this manual::
+
+    h3 ~~~~~~~~~   5.3  Inline markup rules                553
+    h3 ~~~~~~~~~   5.4  Special characters                 587
+    h3 ~~~~~~~~~   [[[ 5.5  Roles ]]]                      625
+    h4 `````````   5.5.1  Predefined roles                 652
+    h5 '''''''''   5.5.1.1  Title reference                658
+    h5 '''''''''   5.5.1.2  Subscript                      670
+
+It gives plenty of information. First column is name of section level; second
+column shows decoration for that level; third column are section titles with
+numbers of sections as they will be shown in HTML and LaTeX export.  Title of
+section were cursor was at the moment of invoking command is taken into 
+``[[[ ]]]``; fourth column are line numbers of section titles -- user can
+immediately issue Vim command, eg. ``:625`` to go to Roles section.
+
+``link`` and ``slink``
+``````````````````````
+
+Commands will show all external links and internal explicit targets in
+chronological order::
+
+    :Vst link
+
+In alphabetical order::
+
+    :Vst slink
+
+Fragment of link table for this document (in chronological order)::
+
+    Text                Link
+    Vim                 http://www.vim.org
+    reStructuredText    http://docutils.sf.net
+    starting point      http://www.vim.org
+    comment
+    Opera               http://www.opera.com
+    vst.pdf             http://skawina.eu.org/mikolaj/vst.pdf
+
+Item without Link part (second column) is internal explicit target.
+
+``rep`` and ``srep``
+````````````````````
+
+Commands will show replace declarations. In chronological order::
+
+    :Vst rep
+
+And in alphabetical::
+
+    :Vst srep
+
+Replace table for this document (in chronological order)::
+
+    Symbol              Replacement
+    H2O                 H\ :sub:`2`\ O
+    from                image:image.jpg width:20 height:20 target:URL
+    VST                 Vim reStructured Text
+
+
+Folding
+```````
+
+|VST| offers whole family of commands for folding of file.
+
+This command will create simple folds for document, each section has its own
+fold on the same level::
+
+    :Vst fold
+
+Folds are created based on regular expressions and when you add new text to
+section fold will be expanded to include them. New sections won't be
+recognized automatically and you should recreate folds to include new
+sections.
+
+In front of header text you will see numbers of section as they will be
+visible in HTML and LaTeX formats.
+
+At the end of line enclosed in parenthesis are charaters used as ornament of
+section title.
+
+Command::
+
+    :Vst foldr
+    
+Will create folds recursively, each level of headers will have its own level
+of folding.
+
+Commands::
+
+    :Vst fold1
+    :Vst fold2
+    :Vst fold3
+    :Vst fold4
+    :Vst fold5
+    
+Will create one level of folds down to this level of headers. This is can be
+useful for visualization of table of contents and faster navigation by big
+structures of text.
+
+Folding by directive
+````````````````````
+
+For easier finding of some directives user can use special case of folding::
+
+    :Vst f{directive}
+
+Where ``{directive}`` is name of directive, eg.: container, blockquote,
+image, figure, tip, note, etc. Directive name is case insensitive.
+
+Special case is::
+
+    :Vst fblank
+
+Document will be folded by paragraphs -- fragments of text separated by
+blank lines.
+
+``help``
+````````
+
+This command will show short summary of |VST| commands::
+
+    :Vst help
+
+``preproc``
+```````````
+
+This command will preprocess file and include in file all including commands::
+
+    :Vst preproc
+
+This command is recursive. For details see `including commands`_
+
+Ornament mapping
+````````````````
+
+Manual insertion of sections_ or transitions_ ornaments is boring. To speed
+things up in Vim way auxiliary mapping was created: <C-B>o.
+
+When placed below line of text and above empty one it will fill line to length
+of line above. It may use character before cursor, when not available it will
+use last single ornamented section title as hint.
+
+When placed above line of text and below empty line it will embrace line below
+in section ornaments. It may use character before cursor, when not available it
+will use last double ornamented section title as hint.
+
+When placed between empty lines it will fill it as transition element. It may
+use character before cursor, when not available it will use last transition as
+hint.
+
+Vim settings
+~~~~~~~~~~~~
+
+Set of Vim settings which can be useful for editing of |VST| files::
+
+    set nocompatible
+    set autoindent
+    set formatoptions+=tqn
+    set formatlistpat=^\\s*\\(\\d\\+\\\|[a-z]\\)[\\].)]\\s*
+    set textwidth=78    " purely arbitrary value, just remember to set it
+    set expandtab
+    set softtabstop=4   " less than 4 may result in breaking of lists
+    set shiftwidth=4
+    set formatoptions+=tqn
+
+Syntax highlighting
+~~~~~~~~~~~~~~~~~~~
+
+Structure of document will be more visible with syntax highlighting. It is
+possible to use Vim default syntax highlighting file by Nicolai Weibull just
+by issuing Vim command::
+
+    :set ft=rst
+
+On `vim-online`_ site is another syntax file by Estienne Swart.
+
+You can plase filetype declaration in Vim modeline, it will be removed from
+output file to not confuse Vim filetype detection (modelines have the highest
+priority). But it will work only if filetype setting is in separate |VST|
+comment, line matching::
+
+    ^\s*\.\. vim:
+    
+This line has to be also inside of 'modelines' Vim option range.
+
+.. _vim-online: http://www.vim.org/scripts/script.php?script_id=973
+
+
+Menus
+~~~~~
+
+Command::
+
+    :Vstm
+    
+in GUI version (gvim) will create menu with most common commands:
+
+:Export to HTML: `export to HTML`_
+:Export to LaTeX: `export to LaTeX`_
+:Export to PDF: `export to PDF`_ 
+:Export to reST: `export to reST`_
+:Fold: folding_ of document
+:Headers: show symbols of headers_ for various levels
+:TOC: show contents_ of text document
+:Help: show short help at the bottom of screen
+
+To show menu always put this command in .vimrc:
+
+``g:vst_showmenu``
+    Boolean (0). When 1 and set in .vimrc it will always show menu.
+
+Structure
+---------
+
+Paragraphs
+~~~~~~~~~~
+
+Base unit of text is **paragraph**, text separated by at least one blank
+line.  All lines in paragraphs must have the same indentation. Paragraph
+indented will be displayed as quotation (blockquote). It is possible to
+embed any type and any number of elements inside blockquote -- respecting
+their own rules of embedding. Example::
+
+    This is example of paragraph. This
+    is continuation of paragraph.
+
+        This is indented paragraph. Looking
+        like quoted text.
+
+            This is quoted quoted text. Indented two times.
+
+    This is another one.
+
+Results in:
+
+This is example of paragraph. This
+is continuation of paragraph.
+
+    This is indented paragraph. Looking
+    like quoted text.
+
+        This is quoted quoted text. Indented two times.
+
+This is another one.
+
+Embedding of elements is supported for paragraphs, blockquotes, ordered
+lists, unordered lists and tip, note, warning directives. In all of them
+can be embedded the rest of one-level elements.
+
+Text styles
+~~~~~~~~~~~
+
+Inside of paragraph (and other text elements you can use another markup
+-- *italics* with ``*italics*``,  **bold** with ``**bold**``,
+````double back-quotes```` for ``typewriter text``.
+
+This text is *italicised*.
+
+This text is **strongly emphasised**.
+
+This text is ``a code``.
+
+If you find that you want to use one of the "special" characters in
+text, it should be OK -- |VST| can deal with most typical situations.
+For example, this * asterisk is handled just fine.  If you actually
+want text \*surrounded by asterisks* to **not** be italicised, then
+you need to indicate that the asterisk is not special.  You do this by
+placing a backslash just before it, like so "``\\*``". Remember: special
+treatment of these few characters is entering inline literals -- even
+there you have to escape it with double backslash::
+
+    ``\\*``
+
+For another method of font manipulation check Roles_.
+
+Inline markup rules
+~~~~~~~~~~~~~~~~~~~
+
+These rules apply for `text styles`_ and all other types of inline markup,
+especially links_.
+
+The inline markup start-string and end-string recognition rules are as
+follows.  If any of the conditions are not met, the start-string or
+end-string will not be recognized or processed.
+
+1. Inline markup start-strings must start a text block or be
+   immediately preceded by whitespace or one of::
+
+       ' " ( [ { < - / :
+
+2. Inline markup start-strings must be immediately followed by
+   non-whitespace.
+
+3. Inline markup end-strings must be immediately preceded by
+   non-whitespace.
+
+4. Inline markup end-strings must end a text block or be immediately
+   followed by whitespace or one of::
+
+       ' " ) ] } > - / : . , ; ! ? \
+
+5. If an inline markup start-string is immediately preceded by a
+   single or double quote, "(", "[", "{", or "<", it must not be
+   immediately followed by the corresponding single or double quote,
+   ")", "]", "}", or ">".
+
+6. An inline markup end-string must be separated by at least one
+   character from the start-string.
+
+Special characters
+~~~~~~~~~~~~~~~~~~
+
+Sometimes it is necessary to escape special treatment of some
+characters (or give that meaning). Then you have to put backslash ``\``
+before them.
+
+Remove space::
+
+    this\ that
+
+Result: this\ that
+
+Do not italicise word::
+
+    not \*this* word
+
+Result: not \*this* word
+
+Insert non-breaking space::
+
+    non\-breaking\-space
+
+Result: non\-breaking\-space (``&amp;nbsp;`` in HTML)
+
+.. Note:: This construction should be avoided and use non-breaking space
+          instead. It will be replaced with tilde in LaTeX export and leaved
+          as-is in HTML (it is correctly interpreted by browsers.
+          
+          To input non-breaking space in Vim use: 
+          
+          - <C-V>160 in Latin1 and Latin2 encodings (``:help i_CTRL-V_digit``)
+          - <C-K>NS (``:help i_digraph``)
+
+Backslash should be escaped by putting before it another backslash only in
+case when backslash could be used in special character. Slight inconsistency
+but generally makes text more readable.
+
+Roles
+~~~~~
+
+|VST| supports additional methods of text manipulation. They are called
+*roles*. Usual form is::
+
+    :name:`text`
+
+Roles are requiring white spaces or non-word characters around them. You
+can escape them so they will be::
+
+    H\ :sub:`2`\ O
+
+Result: H\ :sub:`2`\ O
+
+It looks awkwardly, especially if repeated many times in text. You can
+help it with replacement_::
+
+    |H2O|
+
+    .. |H2O| replace:: H\ :sub:`2`\ O
+
+Result is: |H2O|
+
+.. |H2O| replace:: H\ :sub:`2`\ O
+
+
+Predefined roles
+````````````````
+
+All predefined roles can be recognized as arguments for `default role`_
+directive.
+
+Title reference
+'''''''''''''''
+
+This role will should be used to display :t:`Titles of books` and similar
+citation sources. There are three ways to declare it in text::
+
+    :title-reference:`Title`
+    :title:`Title`
+    :t:`Title`
+
+Title reference is default role for interpreted text.
+
+Subscript
+'''''''''
+
+This role will show :sub:`small text below` normal line of text::
+
+    :sub:`small text below`
+
+Superscript
+'''''''''''
+
+This role will show :sup:`small text over` normal line of text::
+
+    :sup:`small text over`
+
+Big
+'''
+
+This role will show some :big:`bigger text`::
+
+    :big:`bigger text`
+
+Small
+'''''
+
+This role will show some :small:`smaller text`::
+
+    :small:`smaller text`
+    
+Strong
+''''''
+
+This role will show :strong:`bold text`::
+
+    :strong:`bold text`
+
+Emphasis
+''''''''
+
+This role will show :emphasis:`emphasised text`::
+
+    :emphasis:`emphasised text`
+
+Literal
+'''''''
+
+This role will show :literal:`monospaced text`::
+
+    :literal:`monospaced text`
+    
+Custom roles
+````````````
+
+You can use custom roles which will be marked in |VST| source as::
+
+    :custom:`special text`
+
+And in HTML output::
+
+    <span class="custom">special text</span>
+    
+In LaTeX output::
+
+    \vstcustom{special text}
+    
+Note ``vst`` prefix to avoid possible conflicts with built-in (La)TeX
+commands. In preamble will be inserted simple template to allow compilation of
+document without stopping on unknown commands::
+
+    \newcommand{\vstcustom}[1]{\textnormal{#1}}
+    
+It will be inserted before declaration of extension of preamble by `external
+file`__. If user wants to declare there these new commands he should
+use ``renewcommand`` LaTeX command.
+
+__ vtp_
+
+Roles have to be declared through _`role directive`. When not declared will be
+silently ignored and any sign of them will be removed from output. Declaration
+of role::
+
+    .. role:: custom
+
+May be used for example to underline fragment of text (style of decoration not
+supported by reST_ or |VST|)::
+
+    .. role:: ul
+
+    This fragment :ul:`will be underlined`
+
+And in `user CSS`_ file::
+
+    span.ul { text-decoration: underline }
+
+Role directive may have an option ``class``::
+
+    .. role:: name
+       :class: special
+       
+It will turn::
+
+    This is :name:`wonderful` feature.
+    
+Into::
+
+    This is <span class="special">wonderful</span> feature.
+
+Useful when CSS name is long or not meaningful.
+
+Reversed notation
+`````````````````
+
+|VST| supports also reversed notation of roles::
+
+    `text`:name:
+
+But be careful. Use of it in some cases (replacement-link combo) can give
+weird results.
+
+Lists
+~~~~~
+
+Lists of items come in three main flavours: **enumerated**, **bulleted** and
+**definitions**. List element can contain many body elements.
+
+Lists must always start a new paragraph -- that is, they must appear
+after a blank line.
+
+Enumerated lists
+````````````````
+
+Start a line off with a number or letter followed by a period ".",
+right bracket ")" or colon ":", also enclosed in parenthesis (a). Following
+forms are recognised::
+
+    1. numbers
+
+    A. upper-case letters
+       and it goes over many lines and may contain body elements like
+
+       1. sub-
+       2. -lists
+
+       ::
+
+           Or preformatted text
+
+    a. lower-case letters
+
+    1) numbers again
+
+    i. lower roman numerals
+
+    I. and upper roman literals
+
+    (a) enumerator enclosed in parenthesis
+
+Results in:
+
+1. numbers
+
+A. upper-case letters
+   and it goes over many lines and may contain body elements like
+
+   1. sub-
+   2. -lists
+
+   ::
+
+       Or preformatted text
+
+   Or many other elements.
+
+a. lower-case letters
+
+1) numbers again
+
+i. lower roman numerals
+
+I. and upper roman literals
+
+(a) enumerator enclosed in parenthesis
+
+|VST| is taking numeration of first element as numeration of whole
+list. This code::
+
+    a. alpha list
+    2. decimal list
+
+Will be rendered as:
+
+    a. alpha list
+    b. decimal list
+
+Two lists of the same type must have separator between them. In other
+cause they will be rendered as one::
+
+    1. List1 Elem1
+    2. List1 Elem2
+
+    1. List2 Elem1
+    2. List2 Elem2
+
+Results in:
+
+1. List1 Elem1
+2. List1 Elem2
+
+1. List2 Elem1
+2. List2 Elem2
+
+Placing between them empty comment_ is enough. Anyway, short
+description is always good thing.
+
+List does not have to start from 1, a or A. Example::
+
+    5. First element of list
+    #. Second element
+
+Will become:
+
+5. First element of list
+#. Second element
+
+And::
+
+    h. lower alpha list
+    #. also don't have to start from a
+
+Results in:
+
+h. lower alpha list
+#. also don't have to start from a
+
+Also roman numerals can begin not only with i/I. Note however they have to
+begin with number containing more than one letter (xl, iii, CV), in other case
+they will be treated as alpha lists. Also each list beginning with i/I will be
+treated as roman, never as alpha which begins at 9\ :sup:`th` letter of Latin
+alphabet.
+
+.. Warning:: In LaTeX export starting of lists not from 1/a/A/i/I requires
+   enumitem_ package.
+
+   .. _enumitem: http://www.ctan.org/tex-archive/macros/latex/contrib/enumitem
+
+Auto numerated lists
+````````````````````
+
+Lists can be auto numerated. Begin list item with ``#``::
+
+    #. First item of list
+    #. Second item of list
+
+All lists created with ``#`` will be displayed as numerated lists. Result:
+
+#: First item of list
+#: Second item of list
+
+Bulleted lists
+``````````````
+
+Just like enumerated lists, start the line off with a bullet point
+character -- either "-", "+" or "*"::
+
+    * a bullet using "*"
+
+    - list using "-"
+
+    + yet another list
+
+Results in:
+
+    * a bullet using "*"
+
+    - list using "-"
+
+    + yet another list
+
+These elements are connected (HTML only). ``*`` bulleted list always will be
+``circle``, ``-`` will be ``disc`` and ``+`` will be ``square``.
+
+In UTF-8 it is possible to use unicode BULLET characters:
+
+- \u2022 BULLET
+- \u2023 TRIANGULAR BULLET
+- \u2043 HYPHEN BULLET
+- \u204C BLACK LEFTWARDS BULLET
+- \u204D BLACK RIGHTWARDS BULLET
+- \u2219 BULLET OPERATOR
+- \u25D8 INVERSE BULLET
+- \u25E6 WHITE BULLET
+- \u2619 REVERSED ROTATED FLORAL HEART BULLET
+- \u2765 ROTATED HEAVY BLACK HEART BULLET
+- \u2767 ROTATED FLORAL HEART BULLET
+- \u29BE CIRCLED WHITE BULLET
+- \u29BF CIRCLED BULLET
+
+To make nicely looking text documents, however all of them will be treated in
+output as ``-``.
+
+
+Embedding of lists
+``````````````````
+
+Enumerated and bulleted lists can contain many elements and can be
+nested. This code will be rendered::
+
+    1. This is description how to make lists embeddable
+       one into other.
+
+           - start one list
+           - insert blank line and bigger indentation
+           - start another list
+           - insert blank line before next element
+
+    2. It is possible to embed paragraphs into list (and blockquotes)
+       also.
+
+       Paragraphs and blockquotes have to be separated by blank line and
+       start where list begins: indentation of list "leader" plus
+       "leader", punctuation sign and space.
+
+            That is memorable quote.
+
+        Those features are not implemented for other types of elements.
+        Only: plain paragraphs, blockquotes, ordered lists, bulleted
+        lists.
+
+        Indentation level is *very* important. One space can break
+        things.
+
+Results in:
+
+1. This is description how to make lists embeddable
+   one into other.
+
+       - start one list
+       - insert blank line and bigger indentation
+       - start another list
+       - insert blank line before next element
+
+2. It is possible to embed paragraphs into list (and blockquotes)
+   also.
+
+   Paragraphs and blockquotes have to be separated by blank line and
+   start where list begins: indentation of list "leader" plus
+   "leader", punctuation sign and space.
+
+        That is memorable quote.
+
+   Those features are not implemented for other types of elements. Only:
+   plain paragraphs, blockquotes, ordered lists, bulleted lists.
+
+   Indentation level is *very* important. One space can break things.
+
+Definition lists
+````````````````
+
+Unlike the other two, the definition lists consist of a term, and
+the definition of that term.  The format of a definition list is::
+
+    what
+        Definition lists associate a term with a definition.
+
+    *how*
+        The term is a one-line phrase, and the definition are body elements,
+        indented relative to the term.  Blank lines are not allowed between
+        term and first line of definition.
+
+    list
+        1. First element of definition
+        2. don't have to be
+        3. plain paragraph.
+
+Results in:
+
+what
+    Definition lists associate a term with a definition.
+
+*how*
+    The term is a one-line phrase, and the definition are body elements,
+    indented relative to the term.  Blank lines are not allowed between term
+    and first line of definition.
+
+list
+    1. First element of definition
+    2. don't have to be
+    3. plain paragraph.
+
+Field list
+~~~~~~~~~~
+
+Special kind of list designed for headers of files or highlighting
+important information. Paragraph in form::
+
+    :Author: Mikolaj Machowski
+    :Something: Somewhere
+
+Results in:
+
+:Author: Mikolaj Machowski
+:Something: Somewhere
+
+Vim recognizes some names of field list as special and places them in
+meta info of created documents:
+
+- Author
+- Title
+- Date
+- Subject
+- Keywords
+
+By default date is displayed in LaTeX documents. User can suppress it by using
+keyword NONE::
+
+    :Date: NONE
+
+This line will be removed from output and there will be no info about date in
+exported document.
+
+Option list
+~~~~~~~~~~~
+
+|VST| recognizes also special type of lists: option lists. It is
+designed for listing of command options and Vim commands.
+
+It is possible to create list from various types of command line
+options::
+
+    -a                  Short form of an option
+    --all-name          Long form of an option
+    -a, --all-name      Combined listing of option
+    +option             Old style options
+    /VMS                VMS and DOS style options
+    :Vim command        And Vim command -- not available in reST
+    --multi-struct      It is possible to use structure elements in
+                        option lists::
+
+                             To present examples of use
+
+                        1. Or possible
+                        2. uses
+                        3. Or any other structure element.
+
+   --in-case-of-very-long-option
+                        definition may begin in next line, no trailing space
+                        after option name allowed.
+
+Option (command) have to be separated from description by at least two
+spaces. Above example results in:
+
+-a                 Short form of an option
+--all-name         Long form of an option
+-a, --all-name     Combined listing of option
++option            Old style options
+/VMS               VMS and DOS style options
+:Vim command       And Vim command -- not available in reST
+--multi-struct     It is possible to use structure elements in
+                   option lists::
+
+                        To present examples of use
+
+                   1. Or possible
+                   2. uses
+                   3. Or any other structure element.
+
+--in-case-of-very-long-option
+                    definition may begin in next line, no trailing space
+                    after option name allowed.
+
+Line blocks
+~~~~~~~~~~~
+
+Useful for presenting poetry or some preformatted text but not in monospace
+font like addresses::
+
+    | This is *first* line
+    |      This is indented **second** line
+    |   This is indented slightly less then second
+                line, third (long) line
+    | And last, :small:`fourth` line
+
+Will result in:
+
+| This is *first* line
+|      This is indented **second** line
+|   This is indented slightly less then second
+            line, third (long) line
+| And last, :small:`fourth` line
+
+As you see, you can use markup inside of line block paragraphs. Line without
+"| " starting sequence will be treated as continuation of previous line.
+
+To use | at the beginning of paragraph but without intention of line block
+creation, escape it with backslash.
+
+.. Tip:: Indentation provided by output writers is visually much smaller than
+   presented in monospace font. Make correction for that.
+
+.. _double colon:
+
+Preformatting
+~~~~~~~~~~~~~
+
+To just include a chunk of preformatted, text, finish the prior
+paragraph with "``::``".  The preformatted block is finished when the
+text falls back to the same indentation level as a paragraph prior to
+the preformatted block.  For example::
+
+    An example::
+
+          Whitespace, newlines, blank lines, and all kinds of markup
+            (like *this* or \this) is preserved by literal blocks.
+        Lookie here, I've dropped an indentation level
+        (but not far enough)
+
+    no more example
+
+Results in:
+
+An example::
+
+      Whitespace, newlines, blank lines, and all kinds of markup
+        (like *this* or \this) is preserved by literal blocks.
+    Lookie here, I've dropped an indentation level
+    (but not far enough)
+
+no more example
+
+.. _empty double colon:
+
+Note that if a paragraph consists only of "``::``", then it's removed
+from the output::
+
+  ::
+
+      This is preformatted text, and the
+      last "::" paragraph is removed
+
+Results in:
+
+::
+
+    This is preformatted text, and the
+    last "::" paragraph is removed
+
+Quoted literal blocks
+`````````````````````
+
+Quoted literal blocks are unindented blocks of text where each line begins
+with the same character::
+
+    ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] ^ _ ` { | } ~
+
+**And** previous paragraph ends with ``::``.
+
+Blank line ends quoted literal block. Quoting characters are preserved.
+Example::
+
+    You wrote::
+
+    >> Thanks for your work
+    >
+    > Glad you appreciate it
+
+    Ha!
+
+Results in:
+
+You wrote::
+
+>> Thanks for your work
+>
+> Glad you appreciate it
+
+Ha!
+
+Doctest
+~~~~~~~
+
+Special case of preformatted text are doctest blocks. First line have to begin
+with ">>>" and can contain only one paragraph of text (without blank lines)::
+
+    >>> print 'Python-specific usage examples; begun with ">>>"'
+    Python-specific usage examples; begun with ">>>"
+    >>> print '(cut and pasted from interactive Python sessions)'
+    (cut and pasted from interactive Python sessions)
+
+Sections
+~~~~~~~~
+
+To break longer text up into sections, you use **section headers**.  These are
+a single line of text (one or more words) with adornment: an underline, in
+dashes "``-----``", equals "``======``", tildes "``~~~~~~``" or any of the
+non-alphanumeric characters ``= - ~ ^ ` * + # `` that you feel comfortable
+with (full list of chars is in `quoted literal blocks`_ section). The
+underline must be at least as long as the title text.  Be consistent, since
+all sections marked with the same adornment style are deemed to be at the same
+level::
+
+    Chapter 1 Title
+    ===============
+
+    Section 1.1 Title
+    -----------------
+
+    Subsection 1.1.1 Title
+    ~~~~~~~~~~~~~~~~~~~~~~
+
+    Section 1.2 Title
+    -----------------
+
+    Chapter 2 Title
+    ===============
+
+To make some section titles more outstanding you can use double style headers,
+with adornments below and *above* of title. These special lines **must** be
+equal, both in characters and length. However, these two titles::
+
+    =================
+    Document title
+    =================
+
+    Section title
+    =============
+
+Will be treated as two different levels.
+
+In HTML export sections will be numbered thanks to ``content`` property.
+Alas, only small number of WWW browsers are supporting this feature
+(Konqueror_, Opera_, Firefox 1.5).
+
+Section headers don't have to be separated with blank line from next paragraph
+but it is recommended. Simple paragraphs not separated from section header
+will be treated as subtitles_, rest will be treated normally, only directives
+and special markup explicit blocks are forbidden.
+
+Subtitles
+`````````
+
+It is possible to provide subtitles for section headers. It should be one,
+short paragraph placed directly under ornament which will be rendered slightly
+bigger than normal text. Example::
+
+    Directives
+    ----------
+    Or how to place special elements in text
+
+Check rendering of Directives_ section header.
+
+
+Links
+~~~~~
+
+Links are important part of modern document. |VST| allows to create
+external and internal links. All names declarations are case
+insensitive. It means both examples will be working::
+
+    start_
+
+    _start: http://www.vim.org
+
+    `Starting point`_
+
+    .. _starting point: http://www.vim.org
+
+Jump to tables_ (which is section with title "Tables").
+
+Starting point
+``````````````
+
+Starting point looks like this::
+
+    We explained `starting point`_ somewhere else
+
+    The same for start_
+
+Note: when start is single entity made from ``[:alnum:]``, ``.``, ``-``,
+``_`` characters it may not be enclosed in backticks, also if word
+is constructed from ``iskeyword`` characters.  
+
+
+External links
+``````````````
+
+Definition of external target::
+
+    .. _starting point: http://www.vim.org
+    .. _start: http://skawina.eu.org/mikolaj
+
+Note: lack of backticks around titles, even when there is more than one
+word. Links can be split for several lines::
+
+    .. _very, very long link description:
+           http://this.is.address.com/of/this/description
+
+
+Internal links
+``````````````
+
+Definition of internal target can be done in two ways.
+
+First is to put definition in text::
+
+    some text about _`starting point` explaining this term
+
+Backticks are obligatory.
+
+Second way is anonymous target::
+
+    .. _starting point:
+
+Very similar to external target just pointing nowhere.
+
+
+Standalone links
+````````````````
+
+Links can be put directly into text when written explicitly in text::
+
+    This link to http://skawina.eu.org/mikolaj page by
+    mailto:mikmach@wp.pl.
+
+Results in:
+
+This link to http://skawina.eu.org/mikolaj page by mailto:mikmach@wp.pl.
+
+Supported protocols: http, https, ftp, mailto.
+
+
+Anonymous hyperlinks
+````````````````````
+
+Definitions of links are boring. For creation of fast links use anonymous
+hyperlinks. Example::
+
+    This is link__ to external document. I don't have time to write__ full
+    definition.
+
+    __ http://link.to.some.external.doc
+    .. __: http://second.link.to.external.doc
+
+As you can see order of links and definitions is important. Should be used
+only for fast and dirty work.
+
+
+Indirect links
+``````````````
+
+Links definitions can be starting points defined elsewhere. Example::
+
+    .. _my wonderful page: start_
+    .. _start: http://skawina.eu.org/mikolaj
+
+Should point to `my wonderful page`_.
+
+.. _my wonderful page: start_
+.. _start: http://skawina.eu.org/mikolaj
+
+This can be also used in anonymous links::
+
+    __ start_
+
+User can even create multi element chains::
+
+    .. _first elem: secondelem_
+    .. _secondelem: thirdelem_
+    .. _thirdelem: http://skawina.eu.org/mikolaj
+
+Here is `first elem`_ link.
+
+.. _first elem: secondelem_
+.. _secondelem: thirdelem_
+.. _thirdelem: http://skawina.eu.org/mikolaj
+
+
+Embedded URIs
+`````````````
+
+A hyperlink reference may directly embed a target URI inline, within
+angle brackets ("<...>") as follows::
+
+    See the `Vim-online page <http://www.vim.org>`_ for info.
+
+This is exactly equivalent to::
+
+    See the `Vim-online page`_ for info.
+
+    .. _Vim-online page: http://www.vim.org
+
+The bracketed URI must be preceded by whitespace and be the last text
+before the end string.  With a single trailing underscore, the
+reference is named and the same target URI may be referred to again.
+
+With two trailing underscores, the reference and target are both
+anonymous, and the target cannot be referred to again.  These are
+"one-off" hyperlinks in form::
+
+    This is `embedded URI <examples.html>`__
+    This is `John Smith's mail <mailto:john@smith.info>`__
+
+Note double underscore at the end and declaration of ``mailto:`` with e-mail.
+
+There is also possible ultimate compact form::
+
+    This is link to `<vst-changelog.html>`__.
+
+Results in:
+
+This is link to `<vst-changelog.html>`__.
+
+Replacement-link combo
+``````````````````````
+
+It is often boring to write long link texts. Shortening of them is very handy.
+|VST| can do that with::
+
+    This is |vrest|_.
+
+    .. |vrest| replace:: reST implementation for Vim, **the best** editor of Earth
+    .. _vrest: http://skawina.eu.org/mikolaj/vst.html
+
+Results in:
+
+This is |vrest|_.
+
+.. |vrest| replace:: reST implementation for Vim, **the best** editor of Earth
+.. _vrest: http://skawina.eu.org/mikolaj/vst.html
+
+This also a way to use inline markup inside of links.
+
+Transitions
+~~~~~~~~~~~
+
+It is a nice touch to separate some paragraphs and parts of text
+visually. In some old-fashioned books it is done with small graphics, in
+newer with eg. row of asterisks ``* * *``.
+
+In |VST| you can do this with line of letters, preferred are characters
+used for sections_ underscoring::
+
+    ================================================
+
+    ------------------------------------------------
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ************************************************
+
+etc. It have to be separated from other elements with blank lines.  In
+exported file they will look like straight line:
+
+    ================================================
+
+
+Attribution
+~~~~~~~~~~~
+
+When quoting text it is nice to add mention about author of quote. Special
+element of text looks like::
+
+    This is memorable quote.
+
+            -- John Smith, Esq.
+
+Results in:
+
+    This is memorable quote.
+
+            -- John Smith, Esq.
+
+Some things which may not be visible:
+
+    - Must be last paragraph of block quote
+    - Must begin with '--' or '---' and space
+
+Tables
+~~~~~~
+
+|VST| provides support for two types of tables. With border::
+
+    +---------------------+----------------+------------------+
+    | Cells are           | by bar with    | <Space>|<Space>  |
+    | separated           | spaces around  |                  |
+    +---------------------+----------------+------------------+
+    | *You* may use       | markup,        | included.        |
+    | **inline**          | links_         |                  |
+    +---------------------+----------------+------------------+
+    | You can use various | - like lists   | |VST| will       |
+    | types of structure  |                | interpret them.  |
+    | elements::          |    + various   |                  |
+    |                     |                | Even paragraphs. |
+    |  Welcome to world   | - embedded     |                  |
+    |  of preformatted    | - one into     | 1. And           |
+    |  text.              |   other        | 2. not           |
+    |                     |                | 3. only          |
+    +---------------------+----------------+------------------+
+    | Text may span across several         |                  |
+    | columns. Cell can be also empty ->   |                  |
+    +---------------------+----------------+------------------+
+
+This is result of table:
+
++---------------------+----------------+------------------+
+| Cells are           | by bar with    | <Space>|<Space>  |
+| separated           | spaces around  |                  |
++---------------------+----------------+------------------+
+| *You* may use       | markup,        | included.        |
+| **inline**          | links_         |                  |
++---------------------+----------------+------------------+
+| You can use various | - like lists   | |VST| will       |
+| types of structure  |                | interpret them.  |
+| elements::          |    + various   |                  |
+|                     |                | Even paragraphs. |
+|  Welcome to world   | - embedded     |                  |
+|  of preformatted    | - one into     | 1. And           |
+|  text.              |   other        | 2. not           |
+|                     |                | 3. only          |
++---------------------+----------------+------------------+
+| Text may span across several         |                  |
+| columns. Cell can be also empty ->   |                  |
++---------------------+----------------+------------------+
+
+For tables containing bigger chunks of structured text it may be better
+to use border less tables. They are looking almost the same as regular
+tables with exception of first line which is created with from equal
+sign::
+
+    +======================================================================+
+    |     This is converted fragment of ChangeLog_                         |
+    +============+=========================================================+
+    | 5 Apr 2005 | - FIX: [HTML] properly indent preformatted              |
+    |            |   text when first line has bigger                       |
+    |            |   indentation than next ones                            |
+    |            | - CHG: [LaTeX] improve displaying                       |
+    |            |   of field lists                                        |
+    +------------+---------------------------------------------------------+
+    | 6 Apr 2005 | - ADD: Rawlatex  directive                              |
+    |            | - ADD: [HTML] use counters in CSS for                   |
+    |            |   numbering of `table of contents`_                     |
+    |            |   and sections_ in text. At the moment                  |
+    |            |   this numbering can be seen only in                    |
+    |            |   Konqueror_ 3.4 and Opera_ ver. ?                      |
+    +------------+---------------------------------------------------------+
+
+Result of above example:
+
++======================================================================+
+|     This is converted fragment of ChangeLog_                         |
++============+=========================================================+
+| 5 Apr 2005 | - FIX: [HTML] properly indent preformatted              |
+|            |   text when first line has bigger                       |
+|            |   indentation than next ones                            |
+|            | - CHG: [LaTeX] improve displaying                       |
+|            |   of field lists                                        |
++------------+---------------------------------------------------------+
+| 6 Apr 2005 | - ADD: Rawlatex  directive                              |
+|            | - ADD: [HTML] use counters in CSS for                   |
+|            |   numbering of `table of contents`_                     |
+|            |   and sections_ in text. At the moment                  |
+|            |   this numbering can be seen only in                    |
+|            |   Konqueror_ 3.4 and Opera_ ver. ?                      |
++------------+---------------------------------------------------------+
+
+Row separator from ``=`` will create head of table. Second such row will
+create foot of table (only in HTML export).
+
+Simple tables
+~~~~~~~~~~~~~
+
+Full tables are hard to correct and in most cases not necessary. Simple tables
+are much simpler to write and maintain. They have also less features. The most
+important difference is lack of support for spanning columns.  Fragment of
+changelog rewritten as simple table::
+
+    ============  ========================================================
+    Date          This is converted fragment of ChangeLog_
+    ============  ========================================================
+    5 Apr 2005    - FIX: [HTML] properly indent preformatted              
+                    text when first line has bigger                       
+                    indentation than next ones                            
+                  - CHG: [LaTeX] improve displaying                       
+                    of field lists                                        
+    6 Apr 2005    - ADD: Rawlatex  directive                              
+                  - ADD: [HTML] use counters in CSS for                   
+                    numbering of `table of contents`_                     
+                    and sections_ in text. At the moment                  
+                    this numbering can be seen only in                    
+                    Konqueror_ 3.4 and Opera_ ver. ?                      
+    ============  ========================================================
+
+Results in:
+
+============  ========================================================
+Date          This is converted fragment of ChangeLog_
+============  ========================================================
+5 Apr 2005    - FIX: [HTML] properly indent preformatted
+                text when first line has bigger
+                indentation than next ones
+              - CHG: [LaTeX] improve displaying
+                of field lists
+6 Apr 2005    - ADD: Rawlatex  directive
+              - ADD: [HTML] use counters in CSS for
+                numbering of `table of contents`_
+                and sections_ in text. At the moment
+                this numbering can be seen only in
+                Konqueror_ 3.4 and Opera_ ver. ?
+============  ========================================================
+
+Another nice example is output of ``cal`` program with slight modifications::
+
+    == == == == == == ==
+    su mo tu we th fr sa 
+    == == == == == == ==
+                      1
+    2  3  4  5  6  7  8
+    9  10 11 12 13 14 15
+    16 17 18 19 20 21 22
+    23 24 25 26 27 28 29
+    30 31
+    == == == == == == ==
+
+Will be shown as:
+
+== == == == == == ==
+su mo tu we th fr sa 
+== == == == == == ==
+                  1
+2  3  4  5  6  7  8
+9  10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31
+== == == == == == ==
+
+.. _comment:
+
+Comments
+~~~~~~~~
+
+To comment fragment of text it should be prepended with two dots::
+
+    .. This text will be commented.
+
+       This text also will be commented.
+
+    But this not.
+
+To make commenting easier dots can be in previous line::
+
+    ..
+        This line will be commented.
+
+    And this not.
+
+However, when line with two dots (and only two dots, eventually spaces) will
+be followed by blank line even indented lines won't be commented out.
+
+Comments may be useful to place in output code useful things like Vim
+modelines::
+
+    .. vim:set tw=72:
+
+or folding markers::
+
+    .. {{{
+    .. }}}
+
+These lines will be in exported format, just not visible.
+
+Footnotes
+---------
+
+You can include in text special links to fragments which don't match
+into current paragraph, and place those fragments wherever you want in
+document. |VST| supports three types of footnotes: **numbered**, **labeled**
+and **auto-numbered**.
+
+It is possible to use many structure elements in footnotes. They have to be
+indented up to ``[`` opening footnote declaration.
+
+Text of footnotes cannot be placed inside of tables.
+
+Numbered footnotes
+~~~~~~~~~~~~~~~~~~
+
+The simplest one. Number is manually assigned to footnote. Example::
+
+    This doesn't belong here[1]_.
+
+    .. [1] I will describe it here.
+
+Results in:
+
+This doesn't belong here[1]_.
+
+.. [1] I will describe it here.
+
+There are numbered footnotes, try to keep them in order to not
+disorientate readers. |VST| will not warn about duplicate footnotes.
+
+Auto-numbered footnotes
+~~~~~~~~~~~~~~~~~~~~~~~
+
+In this type footnotes are declared by author only with ``[#]_``. Text of
+footnote will look like::
+
+    .. [#] Footnote text.
+
+Order of ``#`` signs is very important. First ``[#]_`` will be
+connected with first ``.. [#]``, second ``[#]_`` with second ``.. [#]``
+and so on.
+
+Labeled footnotes
+~~~~~~~~~~~~~~~~~
+
+Marking footnotes with ``[#]_`` is fast but user can easily lost orientation.
+Solution can be use of labeled footnotes. Example::
+
+    This is labeled[#lfoot]_ footnote.
+
+    .. [#lfoot] Labeled footnote looks similar to auto numbered but # is
+       followed by short alphanumeric description.
+
+Mixing of footnotes
+~~~~~~~~~~~~~~~~~~~
+
+User can mix types of footnotes but results can be unexpected (and for sure
+they will be different from reST_).
+
+First numbers will be assigned to numbered footnotes, labeled footnotes will
+follow with first number bigger then maximum number of numbered footnotes.
+Numbers to labels will be assigned in order of use of labels in text. The last
+ones will be auto-numbered footnotes.
+
+.. Note:: Numbering of footnotes in LaTeX will strictly follow order of
+   footnotes. With mixed types is high probability numbers of footnotes in two
+   types of export will be different.
+
+
+Citations
+---------
+
+Special case of footnotes_ are citations. In form::
+
+    This is citation [Smith1995]_
+
+    .. [Smith1995] John Smith, *Something about nothing*, Kein Press, 1995.
+
+Will create footnote-like paragraph and link to this paragraph.
+
+Directives
+----------
+Or how to place special elements in text
+
+You can achieve special treating of some paragraphs by using
+directives. They have always a form of::
+
+    .. directive::
+
+Some directives can contain many various elements of text like lists,
+preformatted text, even other directives.
+
+Unknown directives will be displayed in red frame and in monospace font.
+
+Images
+~~~~~~
+
+To include an image in your document, you use the ``image`` directive.
+For example::
+
+    .. image:: test.png
+
+Spaces in filename should be avoided (or encoded as %20, but can work properly
+on standard settings.
+
+- **Argument**: path to image
+- **Options**:
+
+    ``:width:``
+        Sets width of image in output document. Example::
+
+            :width: 200
+
+    ``:height:``
+        Sets height of image in output document. Example::
+
+            :height: 100
+
+    ``:identify:``
+        Calls ``identify`` program from ImageMagick_ suite to identify
+        dimensions of image. Possible use of argument -- number will be value
+        how to scale image in percents. When containing non digit chars,
+        ignored. Example::
+            
+            :identify: 50
+
+        .. Note:: Not available in reST.
+
+    ``:scale:``
+        Scale values from ``width``, ``height`` and/or ``identify``. Ignored
+        when values not supplied or argument contain non digit chars. Example::
+
+            :scale: 50
+
+    ``:alt:``
+        Alternative text to show in WWW browsers when image not loaded. HTML
+        export only. Example::
+            
+            :alt: Alternative text
+
+    ``:title:``
+        Title of image to show in WWW browsers and as caption of image in
+        LaTeX/PDF output. Example::
+
+            :title: Title of image
+
+    ``:target:``
+        Makes image a link. Argument is a path to location. Special argument
+        ``self`` points to image itself. Examples::
+
+            :target: URL
+            :target: start_
+            :target: self
+
+    ``:align:``
+        Moves image to the side of document making text flowing around it.
+        Allowed arguments are ``right`` and ``left``. HTML export only.
+
+    ``:class:``
+        Apply special class to image. HTML export only.
+
+- **Content**: NONE
+
+Image examples
+``````````````
+
+You can supply additional information about image with options::
+
+    .. image:: test.png
+       :width: 200
+       :height: 100
+       :alt: Alternative text
+       :title: Title of image
+
+Results in:
+
+.. image:: test.png
+   :width: 200
+   :height: 100
+   :alt: Alternative text
+   :title: Title of image
+
+Getting info about image dimensions is boring. You can use special
+option ``:identify:`` which uses program from ImageMagick_ suite
+of programs (available on most OS where Vim is available)::
+
+    .. image:: test.png
+       :identify:
+       :alt: Alternative text
+       :title: Title of image
+
+``identify:`` can handle argument which will serve as scale factor. 100
+is scale 1:1, scale will decrease size of image **only in document**. Real
+size of image will not change::
+
+    .. image:: test.png
+       :identify: 50
+       :alt: Alternative text
+       :title: Title of image
+
+Similar effect can be achieved with option ``:scale:``. Note that
+``:identify:`` argument and ``:scale:`` will accumulate. If you declare 50 in
+both image will have only 25% of linear size.
+
+It is possible to make image a link with option ``:target:``::
+
+    .. image:: test.png
+       :target: http://www.vst.info/test.png
+
+It will make image a link to other image. When you are scaling image
+view it is a good idea to make it clickable and point to full scale
+version -- possible with special argument ``self`` (note limited
+usability in LaTeX export)::
+
+    .. image:: test.png
+       :identify: 50
+       :target: self
+       :alt: Alternative text
+       :title: Title of image
+
+Results in:
+
+.. image:: test.png
+   :identify: 50
+   :target: self
+   :alt: Alternative text
+   :title: Title of image
+
+Figures
+~~~~~~~
+
+Figure is special construction which creates image with following text
+elements will be placed in separate frame with possible text flowing around
+(HTML only)::
+
+    .. figure:: test.png
+       :identify:
+       
+       This is description of this figure.
+
+       1. Can use 
+       2. Different elements
+
+Spaces in filename should be avoided (or encoded as %20, but can work properly
+on standard settings.
+
+- **Argument**: path to image
+- **Options**:
+
+    ``:width:``
+        Sets width of image in output document. Example::
+
+            :width: 200
+
+    ``:height:``
+        Sets height of image in output document. Example::
+
+            :height: 100
+
+    ``:identify:``
+        Calls ``identify`` program from ImageMagick_ suite to identify
+        dimensions of image. Possible use of argument -- number will be value
+        hot to scale image. When containing non digit chars, ignored.
+        Example::
+            
+            :identify: 50
+
+        .. Note:: Not available in reST.
+
+    ``:scale:``
+        Scale values from ``width``, ``height`` and/or ``identify``. Ignored
+        when values not supplied or argument contain non digit chars. Example::
+
+            :scale: 50
+
+    ``:alt:``
+        Alternative text to show in WWW browsers when image not loaded. HTML
+        export only. Example::
+            
+            :alt: Alternative text
+
+    ``:title:``
+        Title of image to show in WWW browsers and as caption of image in
+        LaTeX/PDF output. Example::
+
+            :title: Title of image
+
+    ``:target:``
+        Makes image a link. Argument is a path to location. Special argument
+        ``self`` points to image itself. Examples::
+
+            :target: URL
+            :target: start_
+            :target: self
+
+    ``:align:``
+        Moves image to the side of document making text flowing around it.
+        Allowed arguments are ``right`` and ``left``. HTML export only.
+
+        .. Note:: When in options without ``:figalign:`` will be interpreted
+           as align of figure, not image.
+
+    ``:class:``
+        Apply special class to image. HTML export only.
+
+    ``:figwidth:``
+        Width of figure. By default 400px on HTML export and 0.6 of textwidth
+        in LaTeX. HTML export only.
+
+    ``:figalign:``
+        Side where figure will be placed and text will flow around it. HTML
+        export only.
+
+    ``:figclass:``
+        Apply special class to figure. HTML export only.
+
+- **Content**: Interpreted as body elements.
+
+Topic
+~~~~~
+
+A topic is like a block quote with a title, or a self-contained section with
+no subsections. Use the "topic" directive to indicate a self-contained idea
+that is separate from the flow of the document. Topics may occur anywhere
+a section or transition may occur.
+
+The directive's sole argument is interpreted as the topic title; the next line
+must be blank. All subsequent lines make up the topic body, interpreted as
+body elements. Example::
+
+    .. topic:: Header of topic
+
+         These lines are topic content interpreted
+         as body elements.
+
+- **Argument**: header of topic
+- **Options**:
+
+    ``:class:``
+        Name of class applied to the topic. Only in HTML export.
+
+        One class is predefined -- sidebar::
+
+            .. topic:: Notes on margin
+               :class: sidebar
+
+        Elements from that topic will be put in float on right margin.
+
+- **Content**: Interpreted as body elements
+
+Sidebar
+~~~~~~~
+
+A sidebar is like a block quote with a title (also can be subtitle). Use the
+"sidebar" directive to indicate a self-contained idea that is separate from
+the flow of the document.
+
+The directive's sole argument is interpreted as the sidebar title; the next
+line must be blank. All subsequent lines make up the sidebar body, interpreted
+as body elements. Example::
+
+    .. sidebar:: Header of subtitle
+       :subtitle: Why this is important
+
+         These lines are sidebar content interpreted
+         as body elements.
+
+- **Argument**: header of sidebar
+- **Options**:
+
+    ``:class:``
+        Name of class applied to the topic. Only in HTML export.
+
+    ``:subtitle:``
+        Subtitle of topic.
+
+- **Content**: Interpreted as body elements
+
+Table of contents
+~~~~~~~~~~~~~~~~~
+
+For longer text it is good idea to put in document table of contents.
+In |VST| you can place table of contents at desired position with
+directive::
+
+    .. contents::
+
+In exported document it will be replaced by unordered list with elements
+indented to present structure of document.
+
+When contents directive is used sections headers will become links to
+corresponding entries in table of contents.
+
+- **Argument**: This directive automatically places also title. Default is
+  'Contents'. If you want give title in your language add this as argument to
+  directive (example for Polish)::
+
+    .. contents:: Spis tresci
+
+  I have omitted Polish diacritics to avoid encoding problems.
+
+- **Options**:
+
+  ``:depth:``
+        Directive ``contents`` accepts option ``:depth:`` which
+        argument is level of headers shown in table of contents::
+
+            .. contents:
+               :depth: 3
+
+        Will show in table of contents only headers down to 3\ :sup:`rd`
+        level.
+
+  ``:class:``
+       Class of table of contents. In HTML CSS it is presented by two
+       elements: ``span`` (TOC header)  and ``ul`` (TOC contents).
+
+- **Content**: NONE
+
+In HTML export table of contents will be numbered thanks to ``content``
+property.  Alas, only small number of WWW browsers are supporting this
+feature (Konqueror_, Opera_, Firefox1.5).
+
+Replacement
+~~~~~~~~~~~
+
+This is an exception from general format of directive::
+
+    .. |from| replace:: into
+
+It consists of four parts: leading commas; source part enclosed in
+bars; name of directive -- ``replace::``; and the rest of line which will
+replace source in file (without leading space). Beware: ``from`` and ``into``
+elements are processed through ``substitute()`` Vim function and have to be
+proper Vim regexps. Three characters will be escaped automatically: ``\ & ~``.
+
+Inline images
+`````````````
+
+Special type of replacement, designed for placement of images inline and
+in tables_.
+
+In text you can use it as normal replacement_ but declaration is
+different::
+
+    .. |from| image::image.jpg
+       :width: 20 
+       :height: 20 
+       :target: URL
+
+All options of Images_ directive are supported.
+
+Result looks like that: |from|.
+
+.. |from| image:: test.png
+   :width: 20 
+   :height: 20 
+   :target: self
+
+Unicode
+```````
+
+Not all characters can be shown in localized encodings. For the rest it is
+possible to use Unicode (U+ followed by hexadecimal number)::
+
+    .. |from| unicode:: U+2211 .. Sigma sign
+
+This text will replace marker into unicode sigma sign. Encoding of output
+document, regardless of current Vim encoding will be set to utf-8. Text after
+two dots will be ignored.
+
+User can put longer text in replacement::
+
+   .. |200E| unicode:: 200 U+20AC .. 200 euro
+
+Spaces will be removed from output.
+
+Unicode directive accepts one of three options:
+
+``:ltrim:``
+    Will remove space from the left side of sign.
+
+``:trim:``
+    Will remove space from left and right side of sign.
+
+``:rtrim:``
+    Will remove space from right side of sign.
+
+.. Warning:: 
+
+   - Encoding of Vim will not be changed and characters encoded in
+     utf-8 may be unreadable on terminal with non utf-8 encoding.
+   - Unicode replacements doesn't work for standard LaTeX
+     configuration. Direct PDF export will not work and LaTeX may need special
+     configuration.
+
+Date
+````
+
+Inserting of date is tedious. To make it simpler use date replacement
+directive::
+
+    .. |date| date::
+    .. |time| date:: %H:%M
+    
+Without arguments placeholder will be replaced with date in ISO format
+YYYY-MM-DD. Arguments are following ``strftime()`` syntax. This function isn't
+available on all systems, in such case placeholder will be replaced with
+seconds from epoch :)
+
+Including commands
+~~~~~~~~~~~~~~~~~~
+
+With bigger sets of documents some parts can be repeated. In such case it is
+good idea to put them in external file and only include it in proper place.
+Also it gives profits when making changes. User have to only make correction
+in one file, not in whole collection. |VST| provides three directives. All are
+making the same thing -- include text file -- written in VST before any other
+activity.
+
+1. This command will include file in given place::
+
+       .. header:: {filename}
+    
+   Regardless of placement of this directive file will be put in the
+   beginning of exported file.
+
+2. This command will include file in given place::
+
+       .. include:: {filename}
+
+3. This command will include file in given place::
+
+       .. footer:: {filename}
+
+   Regardless of placement of this directive file will be put at the end of
+   exported file.
+
+- **Argument**: String. 
+
+  - If it is readable file its contents will be included and parsed as |VST|. 
+  - Predefined name: ``vstfooter``. Contains date of generation and link to
+    source file. ``vstfooter`` will be used also in case when argument will be
+    empty. 
+  - When filename is enclosed in <> |VST| will search in directory defined by
+    ``g:vst_included`` variable. By default it is defined as: first element of
+    'runtimepath' option plus ``autoload/vst/include/`` directory.  For example
+    on Linux it will be::
+
+        $HOME/.vim/autoload/vst/include/
+        
+    This can be used for standard substitutions like provided by `reST
+    substitutes`_, personal set of substitutions or other type of data.
+
+  - For header and footer in other cases it will be treated as short message
+    to include at the top or bottom of the document and separated with
+    horizontal line from the rest of document.
+  - When including files indentation of directive will be taken into account.
+    It may be convenient to produce program listings in connection with `double
+    colon`_ or 2html_ directive.
+
+- **Options**: NONE
+- **Content**: NONE
+
+.. Note:: To avoid endless loops level of recursiveness is equal to Vim's
+   option 'maxfuncdepth'/2 (default: 50).
+
+.. _reST substitutes:
+   http://docutils.sf.net/docs/ref/rst/substitutions.html#character-entity-sets
+
+Tip
+~~~
+
+This directive can contain many various elements::
+
+    .. tip:: First paragraph.
+
+        1. List element
+        2. List element
+
+        Second paragraph
+
+- **Argument**: NONE
+- **Options**: NONE
+- **Content**: Interpreted as body elements
+
+Above example results in:
+
+.. tip:: First paragraph.
+
+    1. List element
+    2. List element
+
+    Second paragraph
+
+All elements must have bigger indentation than directive.  These
+elements will be placed in green frame and with title 'Tip'. 
+
+Note
+~~~~
+
+This directive can contain many various elements::
+
+    .. Note:: First paragraph.
+
+           Remember these noble words.
+
+       Second paragraph
+
+- **Argument**: NONE
+- **Options**: NONE
+- **Content**: Interpreted as body elements
+
+Above example results in:
+
+    .. Note:: First paragraph.
+
+           Remember these noble words.
+
+       Second paragraph
+
+All elements must have bigger indentation than directive.  These
+elements will be placed in black frame and with title 'Note'.
+
+Warning
+~~~~~~~
+
+This directive can contain many various elements::
+
+    .. Warning:: First paragraph.
+
+        - List element
+        - List element
+
+        Second paragraph
+
+- **Argument**: NONE
+- **Options**: NONE
+- **Content**: Interpreted as body elements
+
+Above example results in:
+
+.. Warning:: First paragraph.
+
+    - List element
+    - List element
+
+    Second paragraph
+
+All elements must have bigger indentation than directive.  These
+elements will be placed in red frame and with title 'Warning'.
+
+Admonition
+~~~~~~~~~~
+
+General form of multi element message directive (MEMD). Have form::
+
+    .. admonition:: <title>
+       :class: <class>
+
+       Text of admonition (many elements).
+
+- **Argument**: title of admonition
+- **Options**
+
+    ``:class:``
+        describes look of admonition. By default ``note``, available three
+        classes: ``note``, ``tip``, ``warning``.
+
+- **Content**: Interpreted as body elements. MUST be separated from header by
+  blank line.
+
+Directive can be used as i18n version of any other MEMD.
+
+Pull-quote
+~~~~~~~~~~
+
+Semantically similar to blockquote but in addition to being indented text will
+be displayed with bigger font to attract attention::
+
+    .. pull-quote:: 
+    
+       This is time of our lives!
+
+Results in:
+
+.. pull-quote:: 
+
+   This is time of our lives!
+
+- **Argument**: NONE
+- **Options**: NONE
+- **Content**: Interpreted as block quote.
+
+
+Container
+~~~~~~~~~
+
+General block directive::
+
+    .. container:: classname
+
+- **Argument**: class name, may use any character, string will be parsed to
+  eliminate them
+- **Options**: NONE
+- **Content**: Interpreted as body elements
+  
+HTML output::
+
+    <div class="classname"> content of container </div>
+    
+LaTeX output::
+
+    \vstclassname{ content of container }
+    
+Note ``vst`` prefix to avoid possible conflicts with built-in (La)TeX
+commands. In preamble will be inserted simple template to allow compilation of
+document without stopping on unknown commands::
+
+    \newcommand{\vstclassname}[1]{#1}
+    
+It will be inserted before declaration of extension of preamble by `external
+file`__. If user wants to declare there these new commands he should
+use ``renewcommand`` LaTeX command.
+
+__ vtp_
+
+Compound
+~~~~~~~~
+
+Similar to container_ but designed to distinguish text rather semantically, not
+visually:
+
+    .. compound:: <class>
+
+- **Argument**: NONE
+- **Options**
+
+    ``:class:``
+        describes look of admonition
+
+- **Content**: Interpreted as body elements
+
+Class
+~~~~~
+
+This directive allows to apply arbitrary class name to most block elements
+(HTML only)::
+
+    .. class:: name
+
+There is an exception: Class directive will be ignored for directives which
+has ``:class:`` option.
+
+If next element has the same level of indentation class will be applied only
+to that alement. But if next elements has bigger indentation class will be
+applied to all of them::
+
+    .. class:: name
+    
+       First paragraph
+       
+       Second paragraph
+       
+   Third paragraph
+   
+``name`` class will be applied to first and second paragraph but to to third.
+
+.. Note:: ``name`` class style will be added to default style, not replace it.
+
+- **Argument**: class name, may use any character, string will be parsed to
+  eliminate them
+- **Options**: NONE
+- **Content**: Interpreted as body elements
+
+Default role
+~~~~~~~~~~~~
+
+This role sets default text role used for interpreted tex without declared
+role. For example, after setting::
+
+    .. default-role:: newstyle
+    
+Text enclosed in backticks will be presented with help of ``newstyle`` class.
+Default role for |VST| is `title reference`_.
+
+- **Argument**: class name, may use any character, string will be parsed to
+  eliminate them
+- **Options**: NONE
+- **Content**: NONE
+
+Meta
+~~~~
+
+This directive can be useful when providing meta data which user don't want to
+be visible in form of `field list`_::
+
+    .. meta::
+       :author: Mikolaj Machowski
+       :subject: Vim reStructured Text
+       :http-equiv=Content-Type: text/html; charset=iso-8859-2
+       :description lang=en: Special text formatting
+
+In HTML export this list will be included into meta tags of header. In LaTeX
+four keywords will be recognized and put into PDF info: author, title,
+subject, keywords.
+
+- **Argument**: List of keywords with descriptions.
+- **Options**: NONE
+- **Content**: NONE
+
+Title
+~~~~~
+
+Title directive may be used to place your own text in title tag of HTML export
+or in PDF info fields. This title will not be visible in document itself::
+
+    .. title:: VST documentation
+      
+- **Argument**: Title of document
+- **Options**: NONE
+- **Content**: NONE
+
+Rubric
+~~~~~~
+
+This directive shows line as header but without semantic meaning of header::
+
+   .. rubric:: This may be of interest for readers
+
+- **Argument**: class name, may use any character, string will be parsed to
+  eliminate them
+- **Options**: NONE
+- **Content**: NONE
+
+Raw
+~~~
+
+Raw latex
+`````````
+
+HTML and pure text are often not enough to present some mathematical
+concepts. You can use then raw LaTeX directive::
+
+    .. raw:: latex
+    .. raw:: tex
+
+- **Argument**: name of export: html, latex (case sensitive)
+- **Options**: 
+
+    ``:file:``
+        External file which will be read into file. Example::
+        
+            :file: path/to/file.tex
+
+        Contrary to treating of content there is no fall back for other
+        format.
+
+- **Content**: one indented paragraph of LaTeX source
+
+Content of this directive will not be visible in HTML export and in LaTeX
+literally. This directive must be a one paragraph of |VST| -- without blank
+lines. But you can make it multi paragraph LaTeX content with ``\par``
+command::
+
+    .. raw:: latex
+
+                This is first par with special $\pi$ content.
+        \par
+                This is second par with special $\alpha$ content.
+        \par
+                \emph{Indentation} doesn't have special meaning but it is
+                good for visual separation of \texttt{paragraphs}.
+
+Results in:
+        
+.. raw:: latex
+
+            This is first par with special $\pi$ content.
+    \par
+            This is second par with special $\alpha$ content.
+    \par
+            \emph{Indentation} doesn't have special meaning but it is
+            good for visual separation of \texttt{paragraphs}.
+
+Content of this directive (and above example) will not be visible in HTML
+export. This directive must be a one paragraph of |VST| -- without blank lines. 
+
+Raw latex replaces ``latexonly`` directive which is considered deprecated.
+
+Raw html
+````````
+
+::
+
+    .. raw:: html
+
+- **Argument**: name of export: html, latex (case sensitive)
+- **Options**:
+
+    ``:file:``
+        External file which will be read into file. Example::
+        
+            :file: path/to/file.html
+
+        Contrary to treating of content there is no fall back for other
+        format.
+
+- **Content**: one indented paragraph
+
+::
+
+    .. raw:: html
+    
+          <p>CO<sub>2</sub></p>
+
+Results in:
+
+.. raw:: html
+
+      <p>CO<sub>2</sub></p>
+
+Content of this directive (and above example) will not be visible in LaTeX
+export. This directive must be a one paragraph of |VST| -- without blank lines. 
+
+Raw html replaces ``htmlonly`` directive which is considered deprecated.
+
+Both
+````
+
+Directive will accept also two arguments (HTML and LaTeX), it will be passed
+without any modifications in two exports::
+
+    .. raw:: html latex
+
+Order is not significant.
+
+2html
+~~~~~
+
+.. Note:: Not available in reST. Colors in HTML only.
+
+Directive designed to make use from ``2html.vim`` script for syntax
+highlighting of code::
+
+    .. 2html:: [{filetype}]
+    .. 2html:: filetype [{colorscheme}]
+
+``2html`` directive is extended declaration of `empty double colon`_.
+Following paragraphs have to be separated by blank line and must have
+bigger indentation. 
+
+- **Arguments**:
+
+    ``filetype`` 
+        Argument will set proper highlighting for the following fragment of
+        code (usually those snippets will be too short for automatic
+        recognition). May be omitted, following paragraphs will be treated
+        as normal code snippets -- without coloring. Obligatory if you want
+        to declare ``colorscheme``.
+
+    ``colorscheme``
+        Will set color scheme used for syntax highlighting. If omitted
+        current color scheme will be used. If you started without color
+        scheme and declared ``colorscheme`` argument it will be set. When
+        declared colorscheme doesn't exist default/current colorscheme will
+        be used.
+
+- **Options**: NONE
+- **Content**: Interpreted as preformatted text
+
+.. Tip:: Not all colorschemes look good when exported to HTML. It is wise idea
+   to check result before official presentation. Especially ``default`` is
+   hard to read on white background -- and this is default combination when
+   doing export from non-GUI version of Vim. It is a good idea to set
+   ``g:colors_name`` somewhere because it will be used in such case. When you
+   try to export this document on your system check example below with manxome
+   colorscheme which is not included in default Vim distribution.
+   
+2html examples
+``````````````
+
+Fragment of ``vst.vim`` in blue colorscheme::
+
+    .. 2html:: vim blue
+
+        if exists('depth') && depth != ''
+            let hdepth = strpart(g:ptype[j], '1')
+            if hdepth > depth
+                let j += 1
+                continue
+            endif
+        endif
+
+Result:
+
+.. 2html:: vim blue
+
+    if exists('depth') && depth != ''
+        let hdepth = strpart(g:ptype[j], '1')
+        if hdepth > depth
+            let j += 1
+            continue
+        endif
+    endif
+
+The same fragment in manxome:
+
+.. 2html:: vim manxome
+
+    if exists('depth') && depth != ''
+        let hdepth = strpart(g:ptype[j], '1')
+        if hdepth > depth
+            let j += 1
+            continue
+        endif
+    endif
+
+And fragment of Vim itself -- ex_cmds.c by murphy. Declaration::
+
+    .. 2html:: c murphy
+
+.. 2html:: c murphy
+
+    if (fp_out != NULL)
+    {
+    (void)mch_setperm(tempname,
+              (long)((st_old.st_mode & 0777) | 0600));
+    /* this only works for root: */
+    (void)chown((char *)tempname, st_old.st_uid, st_old.st_gid);
+    }
+
+
+Macros
+------
+
+Not everything can be done with VST syntax. Here are coming **macros**. Macro
+is keyword with optional value after colon like::
+
+    {macroname:argument}
+
+They are not codified. To show what can be achieved with them to distribution
+is added ``myhtmlvst.vim`` file with examples of two macros:
+
+1. ::
+
+        {read:file}
+
+   First macro read file and put it inside of ``pre`` tag (it is like Vim
+   ``:read`` command). 
+
+2. ::
+
+        {readpython:file}
+
+   Second _macro interpret contents of file and put it also in ``pre`` tag
+   (like Vim ``:read!`` command).
+
+   This command is smart. It can catch name of program between read and : and
+   call it later. Thus it can become {readperl}, {readruby}, {readbash}, etc.
+   Program name has to match ``\w\+`` regexp.
+   
+   ``readbang`` has special value -- it will execute shell command.
+   
+   .. Warning:: This macro can have serious security consequences!!!
+
+These two macros are line wise and must be kept in separate lines with
+nothing around them.
+
+Macro file is executed with help of `g:vst_html_post variable`__.
+
+__ vhp_
+
+Thanks
+------
+
+I'd like to say thanks to:
+
+- Bram Moolenaar for great editor
+- All authors of ``2html.vim``
+- Authors of reST_ documentation
+- George V. Reilly for extensive testing
+- Edward G.J. Lee for traditional Chinese support in LaTeX
+
+FAQ
+---
+
+- **Why VST was created?** For long time Vim users were asking for export
+  to real, human readable HTML text. Default 2html.vim does wonderful job but
+  only in regard to code. For other documents it is not well suited.
+
+- **Why reST_ syntax and not ...?** I was looking through several text format
+  syntaxes but only reStructuredText was looking complete enough for me. Also
+  major plus for reST was fact that (contrary to all Wikis I saw) it was
+  designed to look equally good in original text form.
+
+- **Will VST support all reST features?** Rather not. It is too big project
+  and develop too fast to catch up. All major features at the moment (1 Dec
+  2005) were implemented, minor features are covered to satisfy most users
+  IMO -- you can compare differences in `compatibility table`_.
+  
+  .. _compatibility table: http://skawina.eu.org/mikolaj/restdiff.html
+
+  Also there are many pythonisms in reST I am personally not interested. Vim
+  Python users will probably install reST and will be happy, other wont be
+  interested in them.
+
+- **Will be VST files fully compatible with reST?** It depends on user. There
+  are features Vim specific (like accepting of Vim commands in option lists),
+  or features that could not find in reST and seemed necessary for me. Also
+  some structure elements are practically impossible to implement in the same
+  way as in reST.  I decided it is better to provide different implementation
+  that nothing.
+
+- **How to make...?** Not everything can be made by pure VST or syntax. That
+  is what ``g:vst_xxx_post`` is for. For example, if you really must break
+  lines in HTML with ``br`` tag put placeholder ``{br}`` in your document,
+  and write::
+  
+        %s/{br}/<br\/>/ge
+    
+  in ``myhtmlvst.vim`` file and set::
+  
+        let g:vst_html_post = "myhtmlvst.vim"
+
+  For other examples check macros_ section.
+
+- **How to get only body of document?** Yes, this can be useful for writing blogs
+  or embedding text in other documents. As in previous question the answer is:
+  ``g:vst_xxx_post``. Example for HTML::
+  
+        :1,/<body>/ d
+        :/<\/body/,$ d
+        
+  Also it is possible to get rid of VST specific ``id``\ s and ``class``\ es
+  with::
+  
+        :%s/\(id\|class\)=".\{-}"//ge
+
+- **Why should I choose VST over reST?**
+
+    1. No dependency on external tools. Unpack .zip archive and everything is ready.
+    2. reST is hard to install. I tried several times on Linux to set it up
+       properly -- $PATH and everything. Failed each time. Don't want even
+       think how to install it on MS-Windows. Plus installation of Python
+       itself.
+    3. 2html_ directive. Whole power of Vim syntax and colorscheme files on
+       your command!
+
+  Still, reST users may find some commands provided by VST useful. Check
+  `auxiliary commands`_ section.
+
+- **What are the differences between VST and reST?** Comparison table is long
+  and is in `separate file`_.
+
+  .. _separate file: http://skawina.eu.org/mikolaj/restdiff.html
+
+ChangeLog
+---------
+
+:FIX: bug fix
+:ADD: new feature
+:CHG: change of behaviour
+:RMV: remove feature
+:LaTeX/HTML/etc: apply to export, without that tag -- global
+
+Full ChangeLog is here: `vst-changelog`_.
+
+.. _vst-changelog: http://skawina.eu.org/mikolaj/vst-changelog.html
+
+Changes from last announcement:
+
+- 31 Oct 2006 - **1.3** announcement
+  
+  - FIX: Vst link broken
+  - FIX: & in URLs double encoded
+  - FIX: broken chained links with uppercase letters
+  
+  
+- REMEMBER ABOUT UPDATING DOCS
+
+TODO
+----
+
+There is no roadmap for these things, they are just loose thoughts what
+can be done in the future.
+
+reST compatibility things are in `compatibility table`_ with (td) note.
+
+- rotation of ornaments in titles
+- option for XHTML doctype with proper content?
+- image inside of admonition in LaTeX export (minipage conflicts...)
+- show worded reference as label
+- (doc) Quick start table
+- start description of option in next line if option name too long
+- fix _top in CSS (IE...)
+
++ REMEMBER ABOUT UPDATING DOCS
+
+Copyright (c) Mikolaj Machowski, 2006
+
+
+.. |VST| replace:: Vim reStructured Text
+
+.. _reStructuredText: http://docutils.sf.net
+.. _reST: http://docutils.sf.net
+.. _Python: http://www.python.org
+.. _Vim: http://www.vim.org
+.. _OpenOffice.org: http://www.openoffice.org
+.. _KOffice: http://koffice.kde.org
+.. _MS-Office: http://www.microsoft.com
+.. _ImageMagick: http://www.imagemagick.org
+.. _Konqueror: http://www.kde.org
+.. _Opera: http://www.opera.com
+
+.. vim:set tw=78 ai fo+=n fo-=l ft=rst:

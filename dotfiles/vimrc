@@ -1,161 +1,169 @@
-" vimrc file for following the coding standards specified in PEP 7 & 8.
-"
-" To use this file, source it in your own personal .vimrc file (``source
-" <filename>``) or, if you don't have a .vimrc file, you can just symlink to it
-" (``ln -s <this file> ~/.vimrc``).  All options are protected by autocmds
-" (read below for an explanation of the command) so blind sourcing of this file
-" is safe and will not affect your settings for non-Python or non-C files.
-"
-"
-" All setting are protected by 'au' ('autocmd') statements.  Only files ending
-" in .py or .pyw will trigger the Python settings while files ending in *.c or
-" *.h will trigger the C settings.  This makes the file "safe" in terms of only
-" adjusting settings for Python and C files.
-"
-" Only basic settings needed to enforce the style guidelines are set.
-" Some suggested options are listed but commented out at the end of this file.
-
-" Number of spaces that a pre-existing tab is equal to.
-" For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=8
-
-" What to use for an indent.
-" This will affect Ctrl-T and 'autoindent'.
-" Python: 4 spaces
-" C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set expandtab
-fu Select_c_style()
-    if search('^\t', 'n', 150)
-        set shiftwidth=8
-        set noexpandtab
-    el 
-        set shiftwidth=4
-        set expandtab
-    en
-endf
-au BufRead,BufNewFile *.c,*.h call Select_c_style()
-au BufRead,BufNewFile Makefile* set noexpandtab
-
-" Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
-
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Wrap text after a certain number of characters
-" Python: 79 
-" C: 79
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h set textwidth=79
-
-" Turn off settings in 'formatoptions' relating to comment formatting.
-" - c : do not automatically insert the comment leader when wrapping based on
-"    'textwidth'
-" - o : do not insert the comment leader when using 'o' or 'O' from command mode
-" - r : do not insert the comment leader when hitting <Enter> in insert mode
-" Python: not needed
-" C: prevents insertion of '*' at the beginning of every line in a comment
-au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
-
-" Use UNIX (\n) line endings.
-" Only used for new files so as to not force existing files to change their
-" line endings.
-" Python: yes
-" C: yes
-au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
-
-
-" ----------------------------------------------------------------------------
-" The following section contains suggested settings.  While in no way required
-" to meet coding standards, they are helpful.
-
-" Set the default file encoding to UTF-8: ``set encoding=utf-8``
-
+set nocompatible    " use vim defaults
+set ls=2            " allways show status line
+set tabstop=4       " numbers of spaces of tab character
+set shiftwidth=4    " numbers of spaces to (auto)indent
+set scrolloff=3     " keep 3 lines when scrolling
+set showcmd         " display incomplete commands
+set hlsearch        " highlight searches
+set incsearch       " do incremental searching
+set ruler           " show the cursor position all the time
+set laststatus=2
+set visualbell t_vb=    " turn off error beep/flash
+set novisualbell    " turn off visual bell
+set nobackup        " do not keep a backup file
+set nonumber          " do not show line numbers
+set numberwidth=4   " line numbering takes up 5 spaces
+set ignorecase      " ignore case when searching
+set nowrap          " stop lines from wrapping
+set noignorecase   " don't ignore case
+set notitle         " don't show "Thanks for flying vim"
+set ttyfast         " smoother changes
+"set ttyscroll=0        " turn off scrolling, didn't work well with PuTTY
+set bs=2            " Backspace can delete previous characters
+set modeline        " last lines in document sets vim mode
+set modelines=3     " number lines checked for modelines
+set shortmess=atI   " Abbreviate messages
+set nostartofline   " don't jump to first character when paging
+set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
+set undolevels=200
+set cpoptions=$cF
+set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.DS_Store,*.db
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]\(BYTE=%b\ HEX=%B\ COL=%c)\ %<%F%=\ [%1*%M%*%n%R%H]\ %-19(%3l,%02c%03V%)%O'%02b'
 set encoding=utf-8
 
-" Puts a marker at the beginning of the file to differentiate between UTF and
-" UCS encoding (WARNING: can trick shells into thinking a text file is actually
-" a binary file when executing the text file): ``set bomb``
-" set bomb
+filetype plugin indent on " turn on the indent plugins
 
-" For full syntax highlighting:
-"``let python_highlight_all=1``
-"``syntax on``
-let python_highlight_all=1
-syntax on
+set noautoindent    " turn off by default, enable for specific filetypes
+set nosmartindent   " turn off by default, enable for specific filetypes
+set nocindent       " turn off by default, enable for specific filetypes
 
-" Automatically indent based on file type: ``filetype indent on``
-" Keep indentation level from previous line: ``set autoindent``
-set autoindent
+" NERD_tree config
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
+let NERDTreeShowBookmarks=1
 
-" Folding based on indentation: ``set foldmethod=indent``
-" set foldmethod=indent
+" VCS Command Configs
+let mapleader = ","
 
-filetype plugin indent on
+" Syntax for multiple tag files are
+" set tags=/my/dir1/tags, /my/dir2/tags
+set tags=tags;$HOME/.vim/tags/ "recursively searches directory for 'tags' file
 
-" Short-cuts for perforce
-nnoremap @p4a :!p4 add % <CR>:e<CR>
-nnoremap @p4e :!p4 edit % <CR>:e<CR>
-nnoremap @p4d :!p4 diff % <CR>
+" TagList Plugin Configuration
+let Tlist_Ctags_Cmd='/usr/bin/ctags' " point taglist to ctags
+let Tlist_GainFocus_On_ToggleOpen = 1      " Focus on the taglist when its toggled
+let Tlist_Close_On_Select = 1              " Close when something's selected
+let Tlist_Use_Right_Window = 1             " Project uses the left window
+let Tlist_File_Fold_Auto_Close = 1         " Close folds for inactive files
 
-" Tue Aug 23 15:27:08 SGT 2011 changes ORS
-" http://www.brankovukelic.com/post/2091037293/turn-vim-into-powerful-javascript-editor
+" SCMDiff Plugin Configuration
+let SCMDiffCommand = 'git'
 
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
-set filetype=on
-filetype plugin on
-filetype indent on
-set autoindent
-set ts=4
-set sts=4
-set et
-set sw=4
-set textwidth=79
+"set autowrite       " auto saves changes when quitting and swiching buffer
+set expandtab       " tabs are converted to spaces
+set sm              " show matching braces, somewhat annoying...
 
-" HTML (tab width 2 chr, no wrapping)
-autocmd FileType html setlocal sw=2
-autocmd FileType html setlocal ts=2
-autocmd FileType html setlocal sts=2
-autocmd FileType html setlocal textwidth=0
-" Python (tab width 4 chr, wrap at 79th char)
-autocmd FileType python setlocal sw=4
-autocmd FileType python setlocal ts=4
-autocmd FileType python setlocal sts=4
-autocmd FileType python setlocal textwidth=79
-" CSS (tab width 2 chr, wrap at 79th char)
-autocmd FileType css setlocal sw=2
-autocmd FileType css setlocal ts=2
-autocmd FileType css setlocal sts=2
-autocmd FileType css setlocal textwidth=79
-" JavaScript (tab width 4 chr, wrap at 79th)
-autocmd FileType javascript setlocal sw=4
-autocmd FileType javascript setlocal ts=4
-autocmd FileType javascript setlocal sts=4
-autocmd FileType javascript setlocal textwidth=79
+" remove ALL auto-commands so there are no dupes
+autocmd!
 
-" Auto Completion
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-
-" Highlight current line only in the insert mode
-autocmd InsertLeave * set nocursorline
-autocmd InsertEnter * set cursorline
-
-"Highlight cursor
-highlight CursorLine ctermbg=8 cterm=NONE
-
-"Incremental Search
-set incsearch
-
-set nocompatible
-
-if &diff
-        colorscheme evening
+syntax on                 " syntax highlighing
+if has("gui_running")
+    " See ~/.gvimrc
+    set guifont=ProggyCleanTT\ 12.00  " use this font
+    set lines=50          " height = 50 lines
+    set columns=120       " width = 100 columns
+    set background=dark   " adapt colors for background
+    set guioptions-=T
+    set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " mark trailing white space
+    colorscheme brookstream
+else
+    "colorscheme elflord   " use this color scheme
+    colorscheme asu1dark
+    set background=dark   " adapt colors for background
 endif
-colorscheme desert
+
+if has("autocmd")
+    " Restore cursor position
+    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+    " Filetypes (au = autocmd)
+    au FileType helpfile set nonumber      " no line numbers when viewing help
+    au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
+    au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
+    
+    " When using mutt, text width=72
+    au FileType mail,tex set textwidth=72
+    au FileType cpp,c,java,sh,pl,php,py,asp  set autoindent
+    au FileType cpp,c,java,sh,pl,php,py,asp  set smartindent
+    au FileType cpp,c,java,sh,pl,php,py,asp  set cindent
+    au FileType py set foldmethod=indent
+    au FileType py set textwidth=79  " PEP-8 friendly
+    au FileType py inoremap # X#
+    au FileType py set expandtab
+    au FileType py set omnifunc=pythoncomplete#Complete
+    autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+    autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+    "au BufRead mutt*[0-9] set tw=72
+    
+    " Automatically chmod +x Shell scripts
+    au BufWritePost   *.sh             !chmod +x %
+
+    " File formats
+    au BufNewFile,BufRead  *.pls    set syntax=dosini
+    au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
+endif
+
+" Keyboard mappings
+" map <F1> :previous<CR>  " map F1 to open previous buffer
+map <F2> :next<CR>      " map F2 to open next buffer
+map <F3> :NERDTreeToggle<CR>" map F3 to open NERDTree
+map <F7> :TlistToggle<CR> " map F7 to toggle the Tag Listing
+map <silent> <C-N> :silent noh<CR> " turn off highlighted search
+map ,v :sp ~/.vimrc<cr> " edit my .vimrc file in a split
+map ,e :e ~/.vimrc<cr>      " edit my .vimrc file
+map ,u :source ~/.vimrc<cr> " update the system settings from my vimrc file
+map ,p :Lodgeit<CR>         " pastes selection / file to paste.pocoo.org
+map ,ft :%s/	/    /g<CR> " replace all tabs with 4 spaces
+map ,d :call <SID>SCMDiff()<CR>
+nmap <S-n> :next<CR> " normal node Shift n to next window - useful for buffers.
+"
+" Viewport Controls
+" ie moving between split panes
+map <silent>,h <C-w>h 
+map <silent>,j <C-w>j
+map <silent>,k <C-w>k
+map <silent>,l <C-w>l
+
+map <silent><C-left> <C-T>  " step out of a python function
+map <silent><C-right> <C-]> " follow a python function 
+
+" perforce commands
+
+nnoremap @p4a :!p4 add %:e
+nnoremap @p4e :!p4 edit %:e
+nnoremap @p4d :!p4 diff %
+
+" testing Restructured text output
+:com RP :exec "Vst html" | w! /tmp/test.html | :q | !firefox /tmp/test.html
+
+" Setup Pathogen
+"
+call pathogen#infect()
+let g:ctrlp_max_height = 30
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
+
+" Settings for python-mode
+map <Leader>g :call RopeGotoDefinition()<CR>
+let ropevim_enable_shortcuts = 1
+let g:pymode_rope_goto_def_newwin = 1
+let g:pymode_rope_extended_complete = 1
+let g:pymode_breakpoint = 0
+let g:pymode_syntax = 1
+let g:pymode_syntax_builtin_objs = 0
+let g:pymode_syntax_builtin_funcs = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>

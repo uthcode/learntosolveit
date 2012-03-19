@@ -1,0 +1,110 @@
+/* Vim reStructured Text CSS */
+
+body { background-color: #fff; margin: 0px 10%; width: 45em; font-family: Georgia, serif;}
+div.footnote { border-left: 1px solid silver; margin-left: 0em; clear: both }
+div.ftext { position: relative; margin-left: 50px }
+div.fnumber { float: left; width: 40px; padding: 0em; margin-left: 0.5em; margin-top: 0em }
+div.fnumber a { margin: 0px; padding: 0px }
+div.ctext { position: relative; margin-left: 100px }
+div.cnumber { float: left; width: 90px; padding: 0em; margin-left: 0.5em; margin-top: 0em }
+div.cnumber a { margin: 0px; padding: 0px }
+div.tip { border: 2px solid #0d0; margin: 0.5em 2em 1em 2em; padding: 0em 1em }
+div.warning, div.caution, div.danger, div.error { border: 2px solid #f00; margin: 0.5em 2em 1em 2em; padding: 0em 1em }
+div.note, div.hint, div.important { border: 2px solid silver; margin: 0.5em 2em 1em 2em; padding: 0em 1em }
+div.figure { display: block; padding: 1em; width: 400px; clear: both}
+div.topic { margin: 2em }
+div.vstsidebar, div.sidebar { border: 2px solid #aaa; background-color: #ffffee; float: right; width: 40%; margin-left: 1em; margin-right: -1em; padding: 1em }
+span.strike { text-decoration: line-through }
+span.big { font-size: large }
+span.small { font-size: small }
+span.title { font-style: italic }
+span.toc { font-size: large; font-weight: 900 }
+span.notetitle { font-size: large; font-weight: 900; font-family: Arial, sans-serif }
+p.notesubtitle { font-weight: 900; font-family: Arial, sans-serif }
+p.attribution { font-style: italic; margin-left: 8em; text-indent: -1.4em }
+.vstright { float: right; margin: 1em }
+.vstleft { float: left; margin: 1em }
+.vstcenter { margin: 1em; margin-left: auto; margin-right: auto }
+blockquote.pull { font-size: large }
+p.rubric { font-size: large; margin-left: 2em }
+dd.normal { margin-bottom: 0.5em }
+dt.option { float: left; margin: 0em 0em 5px 2em; padding: 0px; font-family: monospace }
+dd.option { margin: 0px; padding: 0px; margin: 0em 0em 5px 10em; text-indent: 0.5em }
+dd.option > p { margin: 0px }
+dd.normal > p { margin: 0px }
+table { border-collapse: collapse; border-top: 1px solid navy; border-bottom: 1px solid navy; margin: 0.5em; margin-left: 0em; margin-right: 0em }
+thead, tfoot { text-align: center; font-weight: bold }
+thead { font-family: Arial, sans-serif; border-bottom: 1px solid silver; }
+td { border: 0px solid #000; padding: 0.25em; _top: 0%; vertical-align: top }
+td blockquote p{ margin: 0px; padding: 0px}
+td blockquote { margin: 0px; padding: 0px}
+table.vstbless { border: 0px solid #000; }
+table.vstbless thead { border: 0px solid #000; }
+table.vstbless td { border: 0px solid #000; padding: 0.25em; _top: 0%; vertical-align: top }
+td > p { margin: 0px }
+table.field { border: 0px solid #000; margin-left: 2em; padding: 0.25em; _top: 0%; vertical-align: top }
+td.fkey { font-weight: 900 }
+td.fval { border: 0px solid #000; padding: 0.25em; _top: 0%; vertical-align: top }
+td.fkey { font-weight: 900; border: 0px solid #000; padding: 0.25em; _top: 0%; vertical-align: top }
+td.fdkey { text-align: center; font-weight: 900 }
+td.fdval { text-align: center; font-style: italic }
+td.fakey { text-align: center; font-weight: 900 }
+td.faval { border: 0px solid #000; padding: 0.25em; _top: 0%; vertical-align: top }
+hr { width: 80%; margin: 1.5em auto; border: 1px solid silver }
+h1 { border-bottom: 2px solid silver; text-align: center; clear: both }
+h2, h3, h4, h5, h6 { text-align: left; margin-top: 1em; clear: both; padding-top: 0.5em;}
+h2, h3 { border-bottom: 1px solid silver; }
+h1 a { color: dodgerblue4 }
+h2 a { color: dodgerblue4 }
+h3 a { color: dodgerblue4 }
+h4 a { color: dodgerblue4 }
+h5 a { color: dodgerblue4 }
+h6 a { color: dodgerblue4 }
+p.subh1 { text-align: center; font-size: 120%; font-variant: small-caps }
+p.subh2, p.subh3, p.subh4, p.subh5, p.subh6 { text-align: left; font-size: 120%; font-variant: small-caps }
+li.h1 { margin-left: 0em }
+li.h2 { margin-left: 1em;}
+li.h3 { margin-left: 2em;}
+li.h4 { margin-left: 3em;}
+li.h5 { margin-left: 4em;}
+li.h6 { margin-left: 5em }
+ol, ul { margin-bottom: 0.5em; margin-top: 0.5em }
+ol.loweralpha { list-style-type: lower-alpha }
+ol.upperalpha { list-style-type: upper-alpha }
+ol.lowerroman { list-style-type: lower-roman }
+ol.upperroman { list-style-type: upper-roman }
+ol.decimal { list-style-type: decimal }
+ul.square { list-style-type: square }
+ul.circle { list-style-type: circle }
+ul.disc { list-style-type: disc }
+li > p { margin: 0em }
+img { border: 1px solid #000; padding: 0em; display: block; margin: 1em; margin-left: auto; margin-right: auto }
+img.inline { border: 1px solid #000; padding: 0em; margin: 0em; display: inline }
+pre { background-color: #f9f9f9; margin-left: 2em; clear: both; overflow: auto }
+div.unknown { font-family: monospace; background-color: #fff; margin: 1em; padding: 1em; clear: both; border: 3px solid red}
+pre.quoted { background-color: #eee; margin-left: 0em; clear: both; overflow: auto  }
+pre.rawlatex { background-color: #ddd; border: 1px solid #000; padding: 0.1em; clear: both; overflow: auto  }
+pre.address { font-family: Georgia, serif; display: inline; margin: 0px; background-color: #fff; overflow: auto }
+span.target { text-decoration: underline }
+div.vstfooter hr { width: 100%; margin: 0px; margin-top: 0em }
+div.vstfooter p { margin: 0px }
+
+/* Debug borders */
+p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
+/*
+  border: 1px solid red;
+*/
+}
+
+
+a { color: dodgerblue4; }
+a:visited { color: fuchsia; }
+tt { color: dodgerblue4; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: dodgerblue4;
+  font-family: Arial, sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
