@@ -56,18 +56,39 @@
     </div>
 
     <div class="container">
-      <h1>Discipline Score for {{displaydate}}</h1>
-      <h2>Add a <a href="/new">new todo?</a></h2>
-      <br>
-      <ul>
-        {% for todo in filtered_todoitem %}
-        <li><h4>{{todo.description}} - {{todo.score}}/{{todo.rating}} <a href="/edit?key={{todo.key}}">Edit</a></h4>
-        {% endfor %}
-      </ul>
-      </br>
-      <h2>Score of the day: {{score}}</h2>
-      <h2>Discipline Score: {{total_score}}</h2>
-      <h2>You are playing at {{total_score}}% of your potential.</h2>
+        <center>
+        <table border="1" summary="discipline score of the day">
+            <caption>Discipline Score</caption>
+            <thead rowspan="2">
+                <tr colspan="3">
+                    <th colspan="3">{{displaydate}}</th>
+                </tr>
+                <tr>
+                    <th>Task</th>
+                    <th>Rating</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr><td colspan="3"><center><a href="/new">new task</a></center>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for todo in filtered_todoitem %}
+                <tr><td>{{todo.description}}<td>{{todo.rating}}<td><a href="/edit?key={{todo.key}}">{{todo.score}}</a>
+                {% endfor %}
+            </tbody>
+        </table>
+        </br>
+        <table border="1" summary="discipline score summary">
+            <tbody>
+                <tr><td>Score of the day<td>{{score}}
+                <tr><td>Discipline Score<td>{{total_score}}
+            </tbody>
+            <table>
+                </br>
+            You are playing at {{total_score}}% of your potential.
+            </center>
       </br>
       </br>
 

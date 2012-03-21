@@ -1,9 +1,5 @@
-import cgi
 import datetime
-import random
-import urllib
 import os
-import sys
 
 import pytz
 from pytz import timezone
@@ -124,6 +120,9 @@ class MainPage(webapp.RequestHandler):
                     displaydate = datetime.datetime.now(user_tzinfo).strftime("%d-%m-%Y")
                 else:
                     displaydate = today[:2] + '-' + today[2:4] + '-' + today[4:]
+
+                datetime_obj = datetime.datetime.strptime(displaydate,"%d-%m-%Y")
+                displaydate = datetime_obj.strftime("%a %d %b %Y")
 
                 template_values.update({'displaydate': displaydate})
                 todolist_queryobj = db.Query(TodoList)
