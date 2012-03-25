@@ -1,3 +1,7 @@
+============
+Django Notes
+============
+
 django-admin.py startproject mysite
 
 The startproject command creates a directory containing four files:
