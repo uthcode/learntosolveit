@@ -57,7 +57,6 @@ Articles
    paxos
    pylons
    restructuredtext
-   dbclass
    thanks
    techcourage
    django
