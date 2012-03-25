@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 =======
-uthcode
+Uthcode
 =======
 
 Project which contains solutions to programming problems from text books, like
@@ -60,6 +60,11 @@ Articles
    dbclass
    thanks
    techcourage
+   django
+   games
+   go
+   negotiating
+   programmingchallenges
 
 Projects
 ========

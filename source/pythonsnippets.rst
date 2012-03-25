@@ -5,12 +5,137 @@ Python Snippets
 The following project page contains Python snippets useful for various tasks.
 
 
+**ast_example1.py**
+
+
+This program is directly executing it a Abstract Syntax Tree Level.
+This is just doing xy*3.
+
+
+.. literalinclude:: ../utils/temp/python-IXFc1D.py
+   :tab-width: 4
+
+----
+
+**depth_first_search.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/depth_first_search.py
+   :tab-width: 4
+
+----
+
+**client.py**
+
+
+This is a simple socket client. It connects to a host and port and creates a
+fileobject using makefile and prints the content of it.
+I don't remember when or why I wrote this.
+
+
+.. literalinclude:: ../utils/temp/python-dXTXlT.py
+   :tab-width: 4
+
+----
+
+**urllib2-proxy-auth.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/urllib2-proxy-auth.py
+   :tab-width: 4
+
+----
+
+**tester.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/tester.py
+   :tab-width: 4
+
+----
+
+**8queens.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/8queens.py
+   :tab-width: 4
+
+----
+
+**fibo2.py**
+
+
+print fibo(1)
+print fibo(2)
+print fibo(3)
+print fibo(4)
+print fibo(5)
+print fibo(6)
+print fibo(37)
+
+
+.. literalinclude:: ../utils/temp/python-0UnL0O.py
+   :tab-width: 4
+
+----
+
+**email3.py**
+
+
+Sending gmail with attachment.
+
+
+.. literalinclude:: ../utils/temp/python-vel6xz.py
+   :tab-width: 4
+
+----
+
+**email2.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/email2.py
+   :tab-width: 4
+
+----
+
+**email1.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/email1.py
+   :tab-width: 4
+
+----
+
+**quick_select.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/quick_select.py
+   :tab-width: 4
+
+----
+
+**binary_search.py**
+
+Purpose: - An Example Snippet
+
+.. literalinclude:: ../languages/python/binary_search.py
+   :tab-width: 4
+
+----
+
 **npuzzle.py**
 
 Initialze the n-puzzle problem, with n-size value, tsize the total nodes and initial the goal state from n.
         
 
-.. literalinclude:: ../temp/python-Nb_wIt.py
+.. literalinclude:: ../utils/temp/python-NaYLdp.py
    :tab-width: 4
 
 ----
@@ -132,15 +257,6 @@ Purpose: - An Example Snippet
 
 ----
 
-**8queens.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: ../languages/python/8queens.py
-   :tab-width: 4
-
-----
-
 **closure.py**
 
 Purpose: - An Example Snippet
@@ -154,7 +270,7 @@ Purpose: - An Example Snippet
 
 in-place counting sort
 
-.. literalinclude:: ../temp/python-SagZAo.py
+.. literalinclude:: ../utils/temp/python-ghP9ja.py
    :tab-width: 4
 
 ----
@@ -167,7 +283,7 @@ Traverse the nodes of a tree in breadth-first order.
     returning an iterator of the node's children.
     
 
-.. literalinclude:: ../temp/python-B9UpVQ.py
+.. literalinclude:: ../utils/temp/python-pstXkq.py
    :tab-width: 4
 
 ----
@@ -211,7 +327,7 @@ it. That is what is happening here.
 
 
 
-.. literalinclude:: ../temp/python-nco3nE.py
+.. literalinclude:: ../utils/temp/python-EcPeGG.py
    :tab-width: 4
 
 ----
@@ -306,7 +422,7 @@ otherwise -1. Overflow is not an error.
 
 
 
-.. literalinclude:: ../temp/python-_HOlR4.py
+.. literalinclude:: ../utils/temp/python-RRlzQd.py
    :tab-width: 4
 
 ----
@@ -337,7 +453,7 @@ Source:
    Python cookbook perhaps.
 
 
-.. literalinclude:: ../temp/python-OAgaVX.py
+.. literalinclude:: ../utils/temp/python-fyKomS.py
    :tab-width: 4
 
 ----
@@ -353,7 +469,7 @@ fails.
 You will have to setup your environment properly for this to work.
 
 
-.. literalinclude:: ../temp/python-jGoNfV.py
+.. literalinclude:: ../utils/temp/python-_hDYJx.py
    :tab-width: 4
 
 ----
@@ -366,7 +482,7 @@ you might want some facilities to do a case-insenstive dictiionary lookup at
 times.  This provides the facility for the same.
 
 
-.. literalinclude:: ../temp/python-efSgVP.py
+.. literalinclude:: ../utils/temp/python-teG1LK.py
    :tab-width: 4
 
 ----
@@ -383,19 +499,7 @@ Explaination: TODO
 
 
 
-.. literalinclude:: ../temp/python-OpIjk0.py
-   :tab-width: 4
-
-----
-
-**ast_example1.py**
-
-
-This program is directly executing it a Abstract Syntax Tree Level.
-This is just doing xy*3.
-
-
-.. literalinclude:: ../temp/python-dxov0d.py
+.. literalinclude:: ../utils/temp/python-tf5EbX.py
    :tab-width: 4
 
 ----
@@ -411,7 +515,7 @@ args: ('c', 'd', 'e', 'f') # Note it's a tuple.
 kwargs: {'i': 'i', 'h': 'h', 'j': 'j', 'g': 'g'}
 
 
-.. literalinclude:: ../temp/python-2Xfxhi.py
+.. literalinclude:: ../utils/temp/python-zYtBd2.py
    :tab-width: 4
 
 ----
@@ -426,7 +530,7 @@ This code is useful to maintain uthcode.
 
 
 
-.. literalinclude:: ../temp/python-XVeDHh.py
+.. literalinclude:: ../utils/temp/python-GEtFnP.py
    :tab-width: 4
 
 ----
@@ -448,7 +552,7 @@ Source:
 
 
 
-.. literalinclude:: ../temp/python-u6B8mx.py
+.. literalinclude:: ../utils/temp/python-le0hku.py
    :tab-width: 4
 
 ----
@@ -460,7 +564,7 @@ Generate a random domain name and see if it actually exists by doing a
 gethostbyname call.
 
 
-.. literalinclude:: ../temp/python-NZUpZU.py
+.. literalinclude:: ../utils/temp/python-ZY1n8N.py
    :tab-width: 4
 
 ----
@@ -484,7 +588,7 @@ Given an integer, covert to binary and convert to octal.
 ('111011100110101100101000000000', '7346545000')
 
 
-.. literalinclude:: ../temp/python-3UZn1i.py
+.. literalinclude:: ../utils/temp/python-RQ1Fx2.py
    :tab-width: 4
 
 ----
@@ -495,7 +599,7 @@ Given an integer, covert to binary and convert to octal.
 Program to do binary representation of various interesting ints.
 
 
-.. literalinclude:: ../temp/python-Hv_EZi.py
+.. literalinclude:: ../utils/temp/python-OP0bNB.py
    :tab-width: 4
 
 ----
@@ -514,7 +618,7 @@ protocol family.
 
 
 
-.. literalinclude:: ../temp/python-OTfuMR.py
+.. literalinclude:: ../utils/temp/python-ymgDnG.py
    :tab-width: 4
 
 ----
@@ -619,7 +723,7 @@ s = opener.open(req)
 print cookiejar
 
 
-.. literalinclude:: ../temp/python-BRfMOg.py
+.. literalinclude:: ../utils/temp/python-2x4prM.py
    :tab-width: 4
 
 ----
@@ -628,7 +732,7 @@ print cookiejar
 
 Accumulate the data to be used when posting a form.
 
-.. literalinclude:: ../temp/python-vymHYx.py
+.. literalinclude:: ../utils/temp/python-dOWpCH.py
    :tab-width: 4
 
 ----
@@ -772,7 +876,7 @@ Purpose: - An Example Snippet
         store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
-.. literalinclude:: ../temp/python-w1BLJX.py
+.. literalinclude:: ../utils/temp/python-UW21KF.py
    :tab-width: 4
 
 ----
@@ -790,7 +894,7 @@ Purpose: - An Example Snippet
         store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
     
 
-.. literalinclude:: ../temp/python-E3RdLJ.py
+.. literalinclude:: ../utils/temp/python-4o8nfc.py
    :tab-width: 4
 
 ----
@@ -808,7 +912,7 @@ Step 1, aim for:
     store = [[abc,d][a,bcd],[a,b,cd],[ab,c,d],[a,b,c,d]]
 
 
-.. literalinclude:: ../temp/python-Ms4qY9.py
+.. literalinclude:: ../utils/temp/python-JItx4I.py
    :tab-width: 4
 
 ----
@@ -844,7 +948,7 @@ other part of the order)
 
 
 
-.. literalinclude:: ../temp/python-arEVjv.py
+.. literalinclude:: ../utils/temp/python-FEA6Za.py
    :tab-width: 4
 
 ----
@@ -937,7 +1041,7 @@ This function counts the number of characters in a tamil string
         function, the sample string has a length of 17 - but there are actually
         only 11 characters
 
-.. literalinclude:: ../temp/python-L18wlW.py
+.. literalinclude:: ../utils/temp/python-OjVWSX.py
    :tab-width: 4
 
 ----
@@ -953,7 +1057,7 @@ with open('data.out') as f:
     pass
 
 
-.. literalinclude:: ../temp/python-42M1lU.py
+.. literalinclude:: ../utils/temp/python-CXIsZL.py
    :tab-width: 4
 
 ----
@@ -996,7 +1100,7 @@ find -iname *.py|xargs grep class
 
 
 
-.. literalinclude:: ../temp/python-j5wDc4.py
+.. literalinclude:: ../utils/temp/python-YaIg8L.py
    :tab-width: 4
 
 ----
@@ -1050,7 +1154,7 @@ Purpose: - An Example Snippet
 
 blah
 
-.. literalinclude:: ../temp/python-g8nQnU.py
+.. literalinclude:: ../utils/temp/python-QNZDER.py
    :tab-width: 4
 
 ----
@@ -1061,7 +1165,7 @@ blah
 Implementation of stack data structure in Python.
 
 
-.. literalinclude:: ../temp/python-oQLJU3.py
+.. literalinclude:: ../utils/temp/python-OBTUYZ.py
    :tab-width: 4
 
 ----
@@ -1090,7 +1194,7 @@ Solution:
     can take multiple values.
 
 
-.. literalinclude:: ../temp/python-UE8aEB.py
+.. literalinclude:: ../utils/temp/python-zzuRkk.py
    :tab-width: 4
 
 ----
@@ -1108,7 +1212,7 @@ Purpose: - An Example Snippet
 
 Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: ../temp/python-7G6D_4.py
+.. literalinclude:: ../utils/temp/python-EucKox.py
    :tab-width: 4
 
 ----
@@ -1117,7 +1221,7 @@ Create a dictionary mapping socket module constants to their names.
 
 Create a dictionary mapping socket module constants to their names.
 
-.. literalinclude:: ../temp/python-8fMadu.py
+.. literalinclude:: ../utils/temp/python-yaNqxg.py
    :tab-width: 4
 
 ----
@@ -1172,7 +1276,7 @@ Purpose: - An Example Snippet
 Track HTTP Requests and responses with this custom handlers. Be sure to
     add it your build_opener call, or use: handler_order = 900 
 
-.. literalinclude:: ../temp/python-puv7mo.py
+.. literalinclude:: ../utils/temp/python-cV5rMM.py
    :tab-width: 4
 
 ----
@@ -1199,7 +1303,7 @@ Purpose: - An Example Snippet
 
 Print the first several URL references in the given URL
 
-.. literalinclude:: ../temp/python-W6N36m.py
+.. literalinclude:: ../utils/temp/python-xl9bb5.py
    :tab-width: 4
 
 ----
@@ -1218,7 +1322,7 @@ Interesting Observation:
 
 
 
-.. literalinclude:: ../temp/python-hPoadt.py
+.. literalinclude:: ../utils/temp/python-QtkuST.py
    :tab-width: 4
 
 ----
@@ -1242,7 +1346,7 @@ Interesting Observation:
 
 
 
-.. literalinclude:: ../temp/python-HIMw_U.py
+.. literalinclude:: ../utils/temp/python-lvW2Hc.py
    :tab-width: 4
 
 ----
@@ -1257,7 +1361,7 @@ times between the integer addition and integer division. Execute the operation
 100,000 times and compare the difference in the running time. 
 
 
-.. literalinclude:: ../temp/python-eOQiEv.py
+.. literalinclude:: ../utils/temp/python-sXSyG8.py
    :tab-width: 4
 
 ----
@@ -1300,7 +1404,7 @@ An implementation of the token bucket algorithm.
     False
     
 
-.. literalinclude:: ../temp/python-Cpep8a.py
+.. literalinclude:: ../utils/temp/python-DfPphA.py
    :tab-width: 4
 
 ----
@@ -1357,7 +1461,7 @@ Purpose: - An Example Snippet
             u with v without a remainder.
         
 
-.. literalinclude:: ../temp/python-zil1hV.py
+.. literalinclude:: ../utils/temp/python-qNYrda.py
    :tab-width: 4
 
 ----
@@ -1387,7 +1491,7 @@ Purpose: - An Example Snippet
         u with v without a remainder.
     
 
-.. literalinclude:: ../temp/python-HPEmEG.py
+.. literalinclude:: ../utils/temp/python-Z0jnTc.py
    :tab-width: 4
 
 ----
@@ -1417,7 +1521,7 @@ This is a simple program which prints first 100 primes.
 Guido had used this example in 1993 paper while explaining python language.
 
 
-.. literalinclude:: ../temp/python-6Go37X.py
+.. literalinclude:: ../utils/temp/python-zCisd8.py
    :tab-width: 4
 
 ----
@@ -1426,7 +1530,7 @@ Guido had used this example in 1993 paper while explaining python language.
 
 This is a comment
 
-.. literalinclude:: ../temp/python-IfYdGa.py
+.. literalinclude:: ../utils/temp/python-2mCdBs.py
    :tab-width: 4
 
 ----
@@ -1444,7 +1548,7 @@ Purpose: - An Example Snippet
 
 This is a comment
 
-.. literalinclude:: ../temp/python-i0sKKY.py
+.. literalinclude:: ../utils/temp/python-sXzvC1.py
    :tab-width: 4
 
 ----
@@ -1524,7 +1628,7 @@ usage: %(progname)s [args]
 
 
 
-.. literalinclude:: ../temp/python-y9uah_.py
+.. literalinclude:: ../utils/temp/python-N4iXbv.py
    :tab-width: 4
 
 ----
@@ -1714,7 +1818,7 @@ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 
-.. literalinclude:: ../temp/python-rAlKTV.py
+.. literalinclude:: ../utils/temp/python-67MF7F.py
    :tab-width: 4
 
 ----
@@ -1723,7 +1827,7 @@ for more details.
 
 Formats HTML
 
-.. literalinclude:: ../temp/python-NJJpnG.py
+.. literalinclude:: ../utils/temp/python-xozPAX.py
    :tab-width: 4
 
 ----
@@ -1804,7 +1908,7 @@ Purpose: - An Example Snippet
 
 Yield 5 until something else is passed back via send()
 
-.. literalinclude:: ../temp/python-FHHABo.py
+.. literalinclude:: ../utils/temp/python-vymExg.py
    :tab-width: 4
 
 ----
@@ -1842,7 +1946,7 @@ Purpose: - An Example Snippet
 Calculate the number of Friday the 13th from 1900 to 2009.
 
 
-.. literalinclude:: ../temp/python-H9GKSJ.py
+.. literalinclude:: ../utils/temp/python-RLVxXg.py
    :tab-width: 4
 
 ----
@@ -1861,15 +1965,6 @@ Purpose: - An Example Snippet
 Purpose: - An Example Snippet
 
 .. literalinclude:: ../languages/python/fortune-card.py
-   :tab-width: 4
-
-----
-
-**fibo2.py**
-
-Purpose: - An Example Snippet
-
-.. literalinclude:: ../languages/python/fibo2.py
    :tab-width: 4
 
 ----
@@ -1905,7 +2000,7 @@ Purpose: - An Example Snippet
 
 A Simple example of object iteration in Python.
 
-.. literalinclude:: ../temp/python-GLml9y.py
+.. literalinclude:: ../utils/temp/python-f6iCyb.py
    :tab-width: 4
 
 ----
@@ -1957,7 +2052,7 @@ The example module supplies one function, factorial(). For example,
 120
 
 
-.. literalinclude:: ../temp/python-MDl3q8.py
+.. literalinclude:: ../utils/temp/python-othxWr.py
    :tab-width: 4
 
 ----
@@ -2001,7 +2096,7 @@ shown here. Control the mkstemp call according to your requirements.
 
 
 
-.. literalinclude:: ../temp/python-9O4yrI.py
+.. literalinclude:: ../utils/temp/python-FOyMM1.py
    :tab-width: 4
 
 ----
@@ -2014,7 +2109,7 @@ destination was unicode filenames. Remember to declaring the encoding used by
 the program if using Python2.
 
 
-.. literalinclude:: ../temp/python-1e2Kbg.py
+.. literalinclude:: ../utils/temp/python-2ASqqw.py
    :tab-width: 4
 
 ----
@@ -2044,21 +2139,7 @@ This outputs:
      </h1>
 
 
-.. literalinclude:: ../temp/python-oZlv_g.py
-   :tab-width: 4
-
-----
-
-**combination.py**
-
-
-for i in range(len(atomic_words)-1):
-    for j in range(i+1,len(atomic_words)):
-        if len(atomic_words[j]) > len(atomic_words[i]):
-            atomic_words[i],atomic_words[j] = atomic_words[j],atomic_words[i]
-
-
-.. literalinclude:: ../temp/python-vINwyQ.py
+.. literalinclude:: ../utils/temp/python-Jo88Xg.py
    :tab-width: 4
 
 ----
@@ -2082,20 +2163,7 @@ passed the value and calling the inner function from within, it is not required
 to send the value.
 
 
-.. literalinclude:: ../temp/python-i3eTW_.py
-   :tab-width: 4
-
-----
-
-**client.py**
-
-
-This is a simple socket client. It connects to a host and port and creates a
-fileobject using makefile and prints the content of it.
-I don't remember when or why I wrote this.
-
-
-.. literalinclude:: ../temp/python-8UnR1a.py
+.. literalinclude:: ../utils/temp/python-SvbPbu.py
    :tab-width: 4
 
 ----
@@ -2107,7 +2175,7 @@ This  program checks if a string is a text or binary.
 This snippet is from Python Cookbook.
 
 
-.. literalinclude:: ../temp/python-ePPC4C.py
+.. literalinclude:: ../utils/temp/python-Ey0JWX.py
    :tab-width: 4
 
 ----
@@ -2132,7 +2200,7 @@ Fills up an initial cell and runs a particular rule of Cellular Automata.
 
 
 
-.. literalinclude:: ../temp/python-E82V9V.py
+.. literalinclude:: ../utils/temp/python-OWXC2e.py
    :tab-width: 4
 
 ----
@@ -2143,7 +2211,7 @@ Fills up an initial cell and runs a particular rule of Cellular Automata.
 Simple implementation of a Queue datastructure in Python.
 
 
-.. literalinclude:: ../temp/python-k7DLSO.py
+.. literalinclude:: ../utils/temp/python-zzBCWp.py
    :tab-width: 4
 
 ----
@@ -2202,7 +2270,7 @@ Further Example:
   then uploads it to the W3C validator.
 
 
-.. literalinclude:: ../temp/python-ocd9ev.py
+.. literalinclude:: ../utils/temp/python-hs11cR.py
    :tab-width: 4
 
 ----

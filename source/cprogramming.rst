@@ -6,6 +6,62 @@ The following project page contains the solutions to problems presented in
 Kernighan and Ritchie and additional programs written out of my interest.
 
 
+*eof_getch.c* - On 02 Mar,2012.
+
+.. literalinclude:: ../languages/cprogs/eof_getch.c
+   :language: c
+   :tab-width: 4
+
+----
+
+*dcl.c* - On 02 Mar,2012.
+
+.. literalinclude:: ../languages/cprogs/dcl.c
+   :language: c
+   :tab-width: 4
+
+----
+
+*conddetab.c* - On 02 Mar,2012.
+
+.. literalinclude:: ../languages/cprogs/conddetab.c
+   :language: c
+   :tab-width: 4
+
+----
+
+*atof.c* - On 02 Mar,2012.
+
+.. literalinclude:: ../languages/cprogs/atof.c
+   :language: c
+   :tab-width: 4
+
+----
+
+*getline_woandr.c* - On 21 Feb,2012.
+
+.. literalinclude:: ../languages/cprogs/getline_woandr.c
+   :language: c
+   :tab-width: 4
+
+----
+
+*entab.c* - On 20 Feb,2012.
+
+.. literalinclude:: ../languages/cprogs/entab.c
+   :language: c
+   :tab-width: 4
+
+----
+
+*any.c* - On 21 Jan,2012.
+
+.. literalinclude:: ../languages/cprogs/any.c
+   :language: c
+   :tab-width: 4
+
+----
+
 *shellsort.c* - On 27 Sep,2011.
 
 .. literalinclude:: ../languages/cprogs/shellsort.c
@@ -798,14 +854,6 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*getline_woandr.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/getline_woandr.c
-   :language: c
-   :tab-width: 4
-
-----
-
 *getint.c* - On 26 Jun,2011.
 
 .. literalinclude:: ../languages/cprogs/getint.c
@@ -934,22 +982,6 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*eof_getch.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/eof_getch.c
-   :language: c
-   :tab-width: 4
-
-----
-
-*entab.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/entab.c
-   :language: c
-   :tab-width: 4
-
-----
-
 *endian.c* - On 26 Jun,2011.
 
 .. literalinclude:: ../languages/cprogs/endian.c
@@ -961,14 +993,6 @@ Kernighan and Ritchie and additional programs written out of my interest.
 *detab.c* - On 26 Jun,2011.
 
 .. literalinclude:: ../languages/cprogs/detab.c
-   :language: c
-   :tab-width: 4
-
-----
-
-*dcl.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/dcl.c
    :language: c
    :tab-width: 4
 
@@ -1025,14 +1049,6 @@ Kernighan and Ritchie and additional programs written out of my interest.
 *condientab.c* - On 26 Jun,2011.
 
 .. literalinclude:: ../languages/cprogs/condientab.c
-   :language: c
-   :tab-width: 4
-
-----
-
-*conddetab.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/conddetab.c
    :language: c
    :tab-width: 4
 
@@ -1118,25 +1134,9 @@ Kernighan and Ritchie and additional programs written out of my interest.
 
 ----
 
-*atof.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/atof.c
-   :language: c
-   :tab-width: 4
-
-----
-
 *anylonglinelen.c* - On 26 Jun,2011.
 
 .. literalinclude:: ../languages/cprogs/anylonglinelen.c
-   :language: c
-   :tab-width: 4
-
-----
-
-*any.c* - On 26 Jun,2011.
-
-.. literalinclude:: ../languages/cprogs/any.c
    :language: c
    :tab-width: 4
 

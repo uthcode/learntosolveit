@@ -6,6 +6,142 @@ The following project page contains the solutions to some programming contest
 problems.
 
 
+*Poetry.cpp* - On 25 Feb,2012.
+
+.. literalinclude:: ../contests/topcoder/Poetry.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*DengklekMakingChains.cpp* - On 10 Feb,2012.
+
+.. literalinclude:: ../contests/topcoder/DengklekMakingChains.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*DengklekTryingToSleep.cpp* - On 10 Feb,2012.
+
+.. literalinclude:: ../contests/topcoder/DengklekTryingToSleep.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*BettingMoney.cpp* - On 05 Feb,2012.
+
+.. literalinclude:: ../contests/topcoder/BettingMoney.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*userName.cpp* - On 05 Feb,2012.
+
+.. literalinclude:: ../contests/topcoder/userName.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*MatchMaking.cpp* - On 05 Feb,2012.
+
+.. literalinclude:: ../contests/topcoder/MatchMaking.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*NoRepeatPlaylist.cpp* - On 31 Jan,2012.
+
+.. literalinclude:: ../contests/topcoder/NoRepeatPlaylist.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*UnsortedSequence.cpp* - On 31 Jan,2012.
+
+.. literalinclude:: ../contests/topcoder/UnsortedSequence.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*GogoXCake.cpp* - On 20 Jan,2012.
+
+.. literalinclude:: ../contests/topcoder/GogoXCake.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*GogoXBallsAndBinsEasy.cpp* - On 20 Jan,2012.
+
+.. literalinclude:: ../contests/topcoder/GogoXBallsAndBinsEasy.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*LoveCalculator.cpp* - On 04 Jan,2012.
+
+.. literalinclude:: ../contests/topcoder/LoveCalculator.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*MagicCandy.cpp* - On 24 Dec,2011.
+
+.. literalinclude:: ../contests/topcoder/MagicCandy.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*MagicStonesStore.cpp* - On 24 Dec,2011.
+
+.. literalinclude:: ../contests/topcoder/MagicStonesStore.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*MagicStonesStore2.cpp* - On 24 Dec,2011.
+
+.. literalinclude:: ../contests/topcoder/MagicStonesStore2.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*FunnyFence.cpp* - On 24 Dec,2011.
+
+.. literalinclude:: ../contests/topcoder/FunnyFence.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*PointErasingTwo.cpp* - On 13 Nov,2011.
+
+.. literalinclude:: ../contests/topcoder/PointErasingTwo.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
+*RowAndManyCoins.cpp* - On 26 Oct,2011.
+
+.. literalinclude:: ../contests/topcoder/RowAndManyCoins.cpp
+   :language: c
+   :tab-width: 4
+
+----
+
 *WhichDay.cpp* - On 01 Oct,2011.
 
 .. literalinclude:: ../contests/topcoder/WhichDay.cpp
@@ -57,14 +193,6 @@ problems.
 *vaish_solution.cpp* - On 01 Oct,2011.
 
 .. literalinclude:: ../contests/topcoder/vaish_solution.cpp
-   :language: c
-   :tab-width: 4
-
-----
-
-*userName.cpp* - On 01 Oct,2011.
-
-.. literalinclude:: ../contests/topcoder/userName.cpp
    :language: c
    :tab-width: 4
 
@@ -342,14 +470,6 @@ problems.
 
 ----
 
-*MatchMaking.cpp* - On 01 Oct,2011.
-
-.. literalinclude:: ../contests/topcoder/MatchMaking.cpp
-   :language: c
-   :tab-width: 4
-
-----
-
 *MagicalSource.cpp* - On 01 Oct,2011.
 
 .. literalinclude:: ../contests/topcoder/MagicalSource.cpp
@@ -529,14 +649,6 @@ problems.
 *BinaryCode.cpp* - On 01 Oct,2011.
 
 .. literalinclude:: ../contests/topcoder/BinaryCode.cpp
-   :language: c
-   :tab-width: 4
-
-----
-
-*BettingMoney.cpp* - On 01 Oct,2011.
-
-.. literalinclude:: ../contests/topcoder/BettingMoney.cpp
    :language: c
    :tab-width: 4
 
