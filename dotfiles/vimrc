@@ -39,9 +39,10 @@ set nocindent       " turn off by default, enable for specific filetypes
 
 " NERD_tree config
 let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$', '\.hg$','\.svn$','\.git$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
+let NERDTreeWinPos="right"
 
 " VCS Command Configs
 let mapleader = ","
@@ -97,7 +98,11 @@ if has("autocmd")
     au FileType cpp,c,java,sh,pl,php,py,asp  set autoindent
     au FileType cpp,c,java,sh,pl,php,py,asp  set smartindent
     au FileType cpp,c,java,sh,pl,php,py,asp  set cindent
-    au FileType py set foldmethod=indent
+    au FileType python set foldmethod=indent
+    au FileType python set foldlevel=1
+    au FileType python set foldnestmax=2
+    au FileType python nnoremap <space> za
+    au FileType py vnoremap <space> zf
     au FileType py set textwidth=79  " PEP-8 friendly
     au FileType py inoremap # X#
     au FileType py set expandtab
@@ -127,6 +132,10 @@ map ,p :Lodgeit<CR>         " pastes selection / file to paste.pocoo.org
 map ,ft :%s/	/    /g<CR> " replace all tabs with 4 spaces
 map ,d :call <SID>SCMDiff()<CR>
 nmap <S-n> :next<CR> " normal node Shift n to next window - useful for buffers.
+
+autocmd FileType c setlocal foldmethod=syntax " folding to syntax for c files
+autocmd FileType py setlocal foldmethod=indent " folding to syntax for c files
+
 "
 " Viewport Controls
 " ie moving between split panes

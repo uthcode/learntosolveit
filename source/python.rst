@@ -3080,6 +3080,10 @@ During development it can be helpful.
 If the module is a package, it cannot be executed via -m flag.
 
 
+Write about Lazy Evaluation the process as described in PEAK.
+
+
+
 Links
 =====
 
