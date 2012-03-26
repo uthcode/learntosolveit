@@ -3,24 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-%%%%%
-Books
-%%%%%
+%%%%%%%%%%%%%
+Uthcode Books
+%%%%%%%%%%%%%
 
-Contents:
 
 .. toctree::
-   :maxdepth: 3
+    :maxdepth: 2
 
-    solveitusingpython/index.rst
+    solveitusingpython/howtosolveit/index.rst
     k&r/index.rst
-    algorithmsinpython/index.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+    algorithmsinpython/master.rst
