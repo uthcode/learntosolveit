@@ -1591,6 +1591,52 @@ Python Programming
 
 #) **How does the simplejson.dumps useful in webapps?**
 
+    json
+
+
+#) **Explain Lazy Import.**
+
+    http://peak.telecommunity.com/DevCenter/Importing
+
+#) **What is inversion of control and dependency injection?**
+
+    http://code.google.com/p/snake-guice/
+
+    http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml#dependency-injection
+
+    http://code.activestate.com/recipes/413268-dependency-injection-the-python-way/
+
+    http://pypi.python.org/pypi/mext.context
+
+    http://en.wikipedia.org/wiki/Dependency_inversion_principle
+
+#) **dispatch**
+
+  """Multiple/Predicate Dispatch Framework                                                                                                
+                                                                                                                                          
+    This framework refines the algorithms of Chambers and Chen in their 1999
+    paper, "Efficient Multiple and Predicate Dispatching", to make them suitable
+    for Python, while adding a few other enhancements like incremental index
+    building and lazy expansion of the dispatch DAG.   Also, their algorithm was
+    designed only for class selection and true/false tests, while this framework
+    can be used with any kind of test, such as numeric ranges, or custom tests such
+    as categorization/hierarchy membership.                                                                                     
+
+#) **Metaclassing**
+
+    I saw an example like this. ::
+
+        import attr
+
+        class MetaInterface(type): 
+            """Interface meta class."""
+
+        class Interface(object): 
+            """Interface base class."""
+             __metaclass__ = MetaInterface 
+
+    I am not sure of it's utility.
+
 
 distutils
 =========
