@@ -57,6 +57,8 @@
     <div class="container">
             <form action="/new" method="post"/>
             <div>Description</br><textarea name="description" label="description" rows="3" cols="60">Task Description</textarea></div>
+            <div>Start Time</br><input type="text" name="starttime" label="starttime" id="starttime"/></div>
+            <div>End Time</br><input type="text" name="endtime" label="endtime" id="endtime"/></div>
             <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10"></textarea></div>
             <div>Score</br><textarea name="score" label="score" rows="1" cols="10"></textarea></div>
             <div><input type="submit" value="submit"></div>
@@ -80,6 +82,13 @@
     <script src="bootstrap/js/bootstrap-collapse.js"></script>
     <script src="bootstrap/js/bootstrap-carousel.js"></script>
     <script src="bootstrap/js/bootstrap-typeahead.js"></script>
+    <script>
+        $(function() {
+            $("#starttime, #endtime").timePicker({
+                startTime:"00:00"
+            });
+        });
+    </script>
 
   </body>
 </html>

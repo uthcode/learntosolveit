@@ -61,6 +61,8 @@
             <form action="/future" method="post"/>
             <div>Future Date</br><input type="text" name="future" label="future" id="datepicker"/></div>
             <div>Description</br><textarea name="description" label="description" rows="3" cols="60">Task Description</textarea></div>
+            <div>Start Time</br><input type="text" name="starttime" label="starttime" id="starttime"/></div>
+            <div>End Time</br><input type="text" name="endtime" label="endtime" id="endtime"/></div>
             <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10"></textarea></div>
             <div>Score</br><textarea name="score" label="score" rows="1" cols="10"></textarea></div>
             <div><input type="submit" value="submit"></div>
@@ -89,6 +91,9 @@
         $(function(){
             $("#datepicker").datepicker({
                 format: 'mm/dd/yyyy'
+            });
+            $("#starttime, #endtime").timePicker({
+                startTime:"00:00"
             });
         });
     </script>
