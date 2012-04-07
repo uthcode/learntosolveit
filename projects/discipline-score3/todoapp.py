@@ -244,6 +244,51 @@ class NewEntry(webapp.RequestHandler):
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
+class FutureEntry(webapp.RequestHandler):
+
+    def get(self):
+        username = users.get_current_user()
+        if username:
+            path = os.path.join(os.path.dirname(__file__), 'future.html')
+            self.response.out.write(template.render(path, {}))
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
+    def post(self):
+        username = users.get_current_user()
+        if username:
+            future_date_value = self.request.get('future_date', default_value='')
+            description = self.request.get('description',default_value='')
+            rating = int(self.request.get('rating',default_value='10'))
+            score = int(self.request.get('score',default_value='0'))
+
+            timezoneinfo_obj = db.Query(TimezoneInfo)
+            filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+            if not filtered_timezoneinfo.fetch(limit=1):
+                self.redirect('/settimezone')
+
+            usertimezone = filtered_timezoneinfo.get()
+            user_tzinfo = timezone(usertimezone.timezoneinfo)
+
+            today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
+
+            if future_date_value:
+                future_date = datetime.datetime.strptime(future_date_value,'%m/%d/%Y')
+                future_date = future_date.strftime('%d%m%Y')
+
+            todolist_queryobj = db.Query(TodoList)
+            filtered_todolist = todolist_queryobj.filter('daykey =', future_date).filter('user =', username)
+            if not filtered_todolist.fetch(limit=1):
+                todolist = TodoList(daykey=future_date, user=username)
+                todolist.put()
+            else:
+                todolist = filtered_todolist.get()
+            todoitem = TodoItem(user=username, belongs_to=todolist, description=description, rating=rating, score=score)
+            todoitem.put()
+            self.redirect('/')
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
 class Archives(webapp.RequestHandler):
     def get(self):
         username = users.get_current_user()
@@ -317,6 +362,7 @@ application = webapp.WSGIApplication([
     ('/edit',EditEntry),
     ('/settimezone',SetTimeZone),
     ('/new',NewEntry),
+    ('/future',FutureEntry),
     ('/archives', Archives),
     ('/graph', Graph),
     ('/update',UpdateTodo)],debug=True)
