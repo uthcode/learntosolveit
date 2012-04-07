@@ -257,7 +257,7 @@ class FutureEntry(webapp.RequestHandler):
     def post(self):
         username = users.get_current_user()
         if username:
-            future_date_value = self.request.get('future_date', default_value='')
+            future_date_value = self.request.get('future', default_value='')
             description = self.request.get('description',default_value='')
             rating = int(self.request.get('rating',default_value='10'))
             score = int(self.request.get('score',default_value='0'))
