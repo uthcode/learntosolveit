@@ -81,7 +81,7 @@
             </tfoot>
             <tbody>
                 {% for todo in filtered_todoitem %}
-                <tr><td>{{todo.description}}<td>{{todo.start_time}}<td>{{todo.end_time}}<td>{{todo.rating}}<td><a href="/edit?key={{todo.key}}">{{todo.score}}</a>
+                <tr><td>{{todo.description}}<td>{{todo.start_time|removesecs}}<td>{{todo.end_time|removesecs}}<td>{{todo.rating}}<td><a href="/edit?key={{todo.key}}">{{todo.score}}</a>
                 {% endfor %}
             </tbody>
         </table>
