@@ -26,6 +26,7 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
   </head>
 
   <body>
@@ -56,7 +57,7 @@
 
     <div class="container">
             <form action="/new" method="post"/>
-            <div>Future Date</br><input type="text" name="future" label="future" value="02/29/2016" data-date-format="mm/dd/yy" id="datepicker"/></div>
+            <div>Future Date</br><input type="text" name="future" label="future" id="datepicker"/></div>
             <div>Description</br><textarea name="description" label="description" rows="3" cols="60">Task Description</textarea></div>
             <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10"></textarea></div>
             <div>Score</br><textarea name="score" label="score" rows="1" cols="10"></textarea></div>
@@ -67,11 +68,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script>
-        $('#datepicker').datepicker({
-            format: 'mm/dd/yyyy'
-        });
-    </script>
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap-datepicker.js"></script>
     <script src="bootstrap/js/bootstrap-transition.js"></script>
@@ -86,6 +82,14 @@
     <script src="bootstrap/js/bootstrap-collapse.js"></script>
     <script src="bootstrap/js/bootstrap-carousel.js"></script>
     <script src="bootstrap/js/bootstrap-typeahead.js"></script>
+    <script>
+        $(function(){
+            $("#datepicker").datepicker({
+                format: 'mm/dd/yyyy'
+            });
+        });
+    </script>
+
 
   </body>
 </html>
