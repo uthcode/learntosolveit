@@ -61,22 +61,27 @@
         <table border="1" summary="discipline score of the day" class="table table-striped">
             <caption>Discipline Score</caption>
             <thead rowspan="2">
-                <tr colspan="3">
-                    <th colspan="3">{{displaydate}}</th>
+                <tr colspan="5">
+                    <th colspan="5">{{displaydate}}</th>
                 </tr>
                 <tr>
                     <th>Task</th>
+                    <th>Start-Time</th>
+                    <th>End-Time</th>
                     <th>Rating</th>
                     <th>Score</th>
                 </tr>
             </thead>
             <tfoot>
-                <tr><td colspan="3"><center><a href="/new">new task</a></center>
+                <tr><td colspan="5">
+                        <center>
+                            <a href="/new" class="btn btn-primary">new task</a>
+                        </center>
                 </tr>
             </tfoot>
             <tbody>
                 {% for todo in filtered_todoitem %}
-                <tr><td>{{todo.description}}<td>{{todo.rating}}<td><a href="/edit?key={{todo.key}}">{{todo.score}}</a>
+                <tr><td>{{todo.description}}<td>{{todo.start_time}}<td>{{todo.end_time}}<td>{{todo.rating}}<td><a href="/edit?key={{todo.key}}">{{todo.score}}</a>
                 {% endfor %}
             </tbody>
         </table>
