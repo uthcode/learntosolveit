@@ -218,6 +218,8 @@ class NewEntry(webapp.RequestHandler):
         username = users.get_current_user()
         if username:
             description = self.request.get('description',default_value='')
+            starttime = self.request.get('starttime',default_value='00:00')
+            endtime = self.request.get('endtime',default_value='00:00')
             rating = int(self.request.get('rating',default_value='10'))
             score = int(self.request.get('score',default_value='0'))
 
@@ -231,6 +233,13 @@ class NewEntry(webapp.RequestHandler):
 
             today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
 
+            starttime_hour, starttime_min = map(int, starttime.split(':'))
+            endtime_hour, endtime_min = map(int, endtime.split(':'))
+
+            starttime = datetime.time(starttime_hour, starttime_min, tzinfo=user_tzinfo)
+            endtime = datetime.time(endtime_hour, endtime_min, tzinfo=user_tzinfo)
+
+
             todolist_queryobj = db.Query(TodoList)
             filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
             if not filtered_todolist.fetch(limit=1):
@@ -238,7 +247,7 @@ class NewEntry(webapp.RequestHandler):
                 todolist.put()
             else:
                 todolist = filtered_todolist.get()
-            todoitem = TodoItem(user=username, belongs_to=todolist, description=description, rating=rating, score=score)
+            todoitem = TodoItem(user=username, belongs_to=todolist, description=description, start_time = starttime, end_time = endtime, rating=rating, score=score)
             todoitem.put()
             self.redirect('/')
         else:
@@ -259,6 +268,8 @@ class FutureEntry(webapp.RequestHandler):
         if username:
             future_date_value = self.request.get('future', default_value='')
             description = self.request.get('description',default_value='')
+            starttime = self.request.get('starttime',default_value='00:00')
+            endtime = self.request.get('endtime',default_value='00:00')
             rating = int(self.request.get('rating',default_value='10'))
             score = int(self.request.get('score',default_value='0'))
 
@@ -272,9 +283,16 @@ class FutureEntry(webapp.RequestHandler):
 
             today = datetime.datetime.now(user_tzinfo).strftime('%d%m%Y')
 
+
             if future_date_value:
                 future_date = datetime.datetime.strptime(future_date_value,'%m/%d/%Y')
                 future_date = future_date.strftime('%d%m%Y')
+
+            starttime_hour, starttime_min = map(int, starttime.split(':'))
+            endtime_hour, endtime_min = map(int, endtime.split(':'))
+
+            starttime = datetime.time(starttime_hour, starttime_min, tzinfo=user_tzinfo)
+            endtime = datetime.time(endtime_hour, endtime_min, tzinfo=user_tzinfo)
 
             todolist_queryobj = db.Query(TodoList)
             filtered_todolist = todolist_queryobj.filter('daykey =', future_date).filter('user =', username)
@@ -283,7 +301,7 @@ class FutureEntry(webapp.RequestHandler):
                 todolist.put()
             else:
                 todolist = filtered_todolist.get()
-            todoitem = TodoItem(user=username, belongs_to=todolist, description=description, rating=rating, score=score)
+            todoitem = TodoItem(user=username, belongs_to=todolist, description=description, start_time=starttime, end_time=endtime, rating=rating, score=score)
             todoitem.put()
             self.redirect('/')
         else:
