@@ -130,57 +130,38 @@ class MainPage(webapp.RequestHandler):
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
                 if not filtered_todolist.fetch(limit=1) or filtered_todolist.future_tasks:
                     if filtered_todolist.future_tasks:
-                        yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(1)
-                        yesterday = yesterday.strftime('%d%m%Y')
-
-                        todolist_queryobj = db.Query(TodoList)
-                        yesterday_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
-                        yesterday_todolist = yesterday_todolist.get()
-
-                        todoitem_queryobj = db.Query(TodoItem)
-                        filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
-                                yesterday_todolist).filter('user =', username)
-
-                        for todo in filtered_todoitem:
-                            # incomplete todos from yesterday.
-                            if todo.score < todo.rating:
-                                todoitem = TodoItem(user=username,
-                                                    belongs_to=filtered_todolist,
-                                                    description=todo.description,
-                                                    rating=todo.rating,
-                                                    score=todo.score)
-                                todoitem.put()
                         filtered_todolist.future_tasks = False
                         filtered_todolist.put()
-                        self.response.out.write("Yesterday's unfinished tasks added.")
-                        self.redirect('/')
+                        new_todolist = filtered_todolist
                     else:
                         # There is no todolist for the day yet.
                         today_todolist = TodoList(daykey=today, user=username)
                         today_todolist.put()
-                        # At this point pull unfinished from yesterday's
-                        yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(1)
-                        yesterday = yesterday.strftime('%d%m%Y')
+                        new_todolist = today_todolist
 
-                        todolist_queryobj = db.Query(TodoList)
-                        yesterday_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
-                        yesterday_todolist = yesterday_todolist.get()
+                    # At this point pull unfinished from yesterday's
+                    yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(1)
+                    yesterday = yesterday.strftime('%d%m%Y')
 
-                        todoitem_queryobj = db.Query(TodoItem)
-                        filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
-                                yesterday_todolist).filter('user =', username)
+                    todolist_queryobj = db.Query(TodoList)
+                    yesterday_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
+                    yesterday_todolist = yesterday_todolist.get()
 
-                        for todo in filtered_todoitem:
-                            # incomplete todos from yesterday.
-                            if todo.score < todo.rating:
-                                todoitem = TodoItem(user=username,
-                                                    belongs_to=today_todolist,
-                                                    description=todo.description,
-                                                    rating=todo.rating,
-                                                    score=todo.score)
-                                todoitem.put()
-                            self.response.out.write("Yesterday's unfinished tasks added.")
-                            self.redirect('/')
+                    todoitem_queryobj = db.Query(TodoItem)
+                    filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
+                            yesterday_todolist).filter('user =', username)
+
+                    for todo in filtered_todoitem:
+                        # incomplete todos from yesterday.
+                        if todo.score < todo.rating:
+                            todoitem = TodoItem(user=username,
+                                                belongs_to=new_todolist,
+                                                description=todo.description,
+                                                rating=todo.rating,
+                                                score=todo.score)
+                            todoitem.put()
+                        self.response.out.write("Yesterday's unfinished tasks added.")
+                        self.redirect('/')
                 else:
                     # there should be only one list for a user for a day.
                     todolist = filtered_todolist.get()
