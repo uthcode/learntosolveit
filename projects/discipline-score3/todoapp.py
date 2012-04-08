@@ -128,7 +128,7 @@ class MainPage(webapp.RequestHandler):
                 template_values.update({'displaydate': displaydate})
                 todolist_queryobj = db.Query(TodoList)
                 filtered_todolist = todolist_queryobj.filter('daykey =', today).filter('user =', username)
-                if not filtered_todolist.fetch(limit=1) or filtered_todolist.future_tasks:
+                if not filtered_todolist.fetch(limit=1) or filtered_todolist.future_tasks == True:
                     if filtered_todolist.future_tasks:
                         filtered_todolist.future_tasks = False
                         filtered_todolist.put()
