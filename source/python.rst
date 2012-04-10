@@ -1622,6 +1622,7 @@ Python Programming
     can be used with any kind of test, such as numeric ranges, or custom tests such
     as categorization/hierarchy membership.                                                                                     
 
+
 #) **Metaclassing**
 
     I saw an example like this. ::
@@ -1636,6 +1637,25 @@ Python Programming
              __metaclass__ = MetaInterface 
 
     I am not sure of it's utility.
+
+#) How to use static class variable in Python?
+
+    http://stackoverflow.com/questions/68645/static-class-variables-in-python
+
+#) What would filter(None, iterable) would return?
+   
+    It would return only the elements from the iterable which are true.
+
+#) How is OrderedDict implemented in Python?
+
+   It maintains a doubly-linked list of keys, appending new keys to the list as
+   they’re inserted. A secondary dictionary maps keys to their corresponding
+   list node, so deletion doesn’t have to traverse the entire linked list and
+   therefore remains O(1).
+
+#) Include this is 3.3
+
+    http://pypi.python.org/pypi/MultipartPostHandler/0.1.0
 
 
 distutils
@@ -3127,6 +3147,35 @@ If the module is a package, it cannot be executed via -m flag.
 
 
 Write about Lazy Evaluation the process as described in PEAK.
+
+
+"In other words, the typical Python class library is *not* a "component". It is
+not configurable and composable with other components because it is a single
+instance, and its connection points are hidden, rather than exposed."
+
+The difference between an object and a component is component takes
+configuration and is composable out of other components.
+
+
+PEAK
+
+PEAK is the "Python Enterprise Application Kit". If you develop "enterprise"
+applications with Python, or indeed almost any sort of application with Python,
+PEAK may help you do it faster, easier, on a larger scale, and with fewer
+defects than ever before. The key is component-based development, on a reliable
+infrastructure.
+
+PEAK is an application kit, and applications are made from components. PEAK
+provides you with a component architecture, component infrastructure, and
+various general-purpose components and component frameworks for building
+applications. As with J2EE, the idea is to let you stop reinventing
+architectural and infrastructure wheels, so you can put more time into your
+actual application.
+
+But PEAK is different from J2EE: it's a single, free implementation of simpler
+API's based on an easier-to-use language that can nonetheless scale with better
+performance than J2EE.
+
 
 
 
