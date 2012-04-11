@@ -3177,6 +3177,40 @@ API's based on an easier-to-use language that can nonetheless scale with better
 performance than J2EE.
 
 
+# How to make Python's standard output non-buffered?
+
+sys.stdout = os.fdopen(sys.stdout.fileno(), 'a', 0)                                                                                     
+
+
+# What is the purpose of Zope Interfaces?
+
+
+You can actually test if your object or class implements your interface. For
+that you can use verify module (you would normally use it in your tests).
+
+::
+
+
+    >>> from zope.interface import Interface, Attribute, implements
+    >>> class IFoo(Interface):
+    ...     x = Attribute("The X attribute")
+    ...     y = Attribute("The Y attribute")
+
+    >>> class Foo(object):
+    ...     implements(IFoo)
+    ...     x = 1
+    ...     def __init__(self):
+    ...         self.y = 2
+
+    >>> from zope.interface.verify import verifyObject
+    >>> verifyObject(IFoo, Foo())
+    True
+
+    >>> from zope.interface.verify import verifyClass
+    >>> verifyClass(IFoo, Foo)
+    True
+
+
 
 
 Links
