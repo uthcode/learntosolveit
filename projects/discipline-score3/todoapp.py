@@ -86,10 +86,31 @@ class UpdateTodo(webapp.RequestHandler):
                 item = db.get(key)
                 item.description = self.request.get('description',
                         default_value='default')
-                item.starttime = self.request.get('starttime',default_value='00:00')
-                item.endtime = self.request.get('endtime',default_value='00:00')
+
                 item.rating = int(self.request.get('rating', default_value=10))
                 item.score = int(self.request.get('score',default_value=0))
+
+                # modularize
+
+                username = users.get_current_user()
+                timezoneinfo_obj = db.Query(TimezoneInfo)
+                filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
+
+                if not filtered_timezoneinfo.fetch(limit=1):
+                    self.redirect('/settimezone')
+
+                usertimezone = filtered_timezoneinfo.get()
+                user_tzinfo = timezone(usertimezone.timezoneinfo)
+
+                starttime = self.request.get('starttime',default_value='00:00')
+                endtime = self.request.get('endtime',default_value='00:00')
+
+                starttime_hour, starttime_min = map(int, starttime.split(':'))
+                endtime_hour, endtime_min = map(int, endtime.split(':'))
+
+                item.start_time = datetime.time(starttime_hour, starttime_min, tzinfo=user_tzinfo)
+                item.end_time = datetime.time(endtime_hour, endtime_min, tzinfo=user_tzinfo)
+
                 item.put()
                 self.redirect('/')
         else:

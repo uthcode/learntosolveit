@@ -13,6 +13,7 @@
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/timePicker.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -56,8 +57,8 @@
 
         <form action="/update" method="post"/>
           <div>Description</br><textarea name="description" label="description" rows="3" cols="60">{{description}}</textarea></div>
-          <div>Start Time</br><input type="text" name="starttime" label="starttime" id="starttime"/></div>
-          <div>End Time</br><input type="text" name="endtime" label="endtime" id="endtime"/></div>
+          <div>Start Time</br><input type="text" name="starttime" label="starttime" id="starttime" value="{{start_time}}"/></div>
+          <div>End Time</br><input type="text" name="endtime" label="endtime" id="endtime" value="{{end_time}}"/></div>
           <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10">{{rating}}</textarea></div>
           <div>Score</br><textarea name="score" label="score" rows="1" cols="10">{{score}}</textarea></div>
           <div><input type="hidden" name="key" value={{key}}></div>
@@ -70,6 +71,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/jquery.timePicker.min.js"></script>
     <script src="bootstrap/js/bootstrap-transition.js"></script>
     <script src="bootstrap/js/bootstrap-alert.js"></script>
     <script src="bootstrap/js/bootstrap-modal.js"></script>
@@ -82,6 +84,12 @@
     <script src="bootstrap/js/bootstrap-collapse.js"></script>
     <script src="bootstrap/js/bootstrap-carousel.js"></script>
     <script src="bootstrap/js/bootstrap-typeahead.js"></script>
-
+    <script>
+        $(function() {
+            $("#starttime, #endtime").timePicker({
+                startTime:"00:00"
+            });
+        });
+    </script>
   </body>
 </html>
