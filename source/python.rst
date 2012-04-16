@@ -3211,6 +3211,37 @@ that you can use verify module (you would normally use it in your tests).
     True
 
 
+Inversion of Control
+====================
+
+http://stackoverflow.com/questions/3058/what-is-inversion-of-control
+
+Inversion of Control is what you get when you program callbacks, e.g. like a
+gui program.
+
+For example, in an old school menu, you might have:
+
+print "enter your name"
+read name
+print "enter your address"
+read address
+etc...
+store in database
+
+thereby controlling the flow of user interaction.
+
+In a GUI program or somesuch, instead we say
+
+when the user types in field a, store it in NAME
+when the user types in field b, store it in ADDRESS
+when the user clicks the save button, call StoreInDatabase
+
+So now control is inverted... instead of the computer accepting user input in a
+fixed order, the user controls the order in which the data is entered, and when
+the data is saved in the database.
+
+Basically, anything with an event loop, callbacks, or execute triggers falls
+into this category.
 
 
 Links
