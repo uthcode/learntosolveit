@@ -57,8 +57,8 @@
 
         <form action="/update" method="post"/>
           <div>Description</br><textarea name="description" label="description" rows="3" cols="60">{{description}}</textarea></div>
-          <div>Start Time</br><input type="text" name="starttime" label="starttime" id="starttime" value="{{start_time}}"/></div>
-          <div>End Time</br><input type="text" name="endtime" label="endtime" id="endtime" value="{{end_time}}"/></div>
+          <div>Start Time</br><input type="text" name="starttime" label="starttime" id="starttime" value="{{start_time|removesecs}}"/></div>
+          <div>End Time</br><input type="text" name="endtime" label="endtime" id="endtime" value="{{end_time|removesecs}}"/></div>
           <div>Rating</br><textarea name="rating" label="rating" rows="1" cols="10">{{rating}}</textarea></div>
           <div>Score</br><textarea name="score" label="score" rows="1" cols="10">{{score}}</textarea></div>
           <div><input type="hidden" name="key" value={{key}}></div>
