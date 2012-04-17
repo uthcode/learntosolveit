@@ -53,6 +53,28 @@ office email via mutt.
 fetchmail automatically.
 http://ubuntuforums.org/showthread.php?t=175438
 
+Ubuntu Bash Shortcuts
+---------------------
+
+    Ctrl-a  Move to the start of the line.
+    Ctrl-e  Move to the end of the line.
+    Alt-] x Moves the cursor forward to the next occurrence of x.
+    Alt-Ctrl-] x    Moves the cursor backwards to the previous occurrence of x.
+    Ctrl-u  Delete from the cursor to the beginning of the line.
+    Ctrl-k  Delete from the cursor to the end of the line.
+    Ctrl-w  Delete from the cursor to the start of the word.
+    Ctrl-y  Pastes text from the clipboard.
+    Ctrl-l  Clear the screen leaving the current line at the top of the screen.
+    Ctrl-x Ctrl-u   Undo the last changes. Ctrl-_
+    Alt-r   Undo all changes to the line.
+    Alt-Ctrl-e  Expand command line.
+    Ctrl-r  Incremental reverse search of history.
+    Alt-p   Non-incremental reverse search of history.
+    !!  Execute last command in history
+    !abc    Execute last command in history beginning with abc
+    !n  Execute nth command in history
+    ^abc^xyz    Replace first occurrence of abc with xyz in last command and execute it
+
 httpd
 -----
 

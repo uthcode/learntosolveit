@@ -1,4 +1,4 @@
-disks = 3 
+disks = 3
 from_tower = 'A'
 to_tower = 'C'
 using_tower = 'B'
