@@ -42,6 +42,8 @@ Life
 * You are never given a wish without also being given the power to make it true.
   You may have to work for it, however. - Richard Bach
 * A foolish consistency is the hobgoblin of little minds. -- Ralph Waldo Emerson
+* “A dream is not what you see in sleep. A dream is what does not let you sleep" -- A.P.J. Abdul Kalam
+
 
 Universe
 ========
