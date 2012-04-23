@@ -210,18 +210,22 @@ Python Programming
 
     ``and`` returns the right operand if the left is true. 
     ``or`` returns the right operand if the left is false.
-    Otherwise they both return the left operand. They are said to coalesce One
-    way to remember is to consider the binary truth tables:                                                                                          
 
-    A and B
-    0 0 -> 0
-    0 1 -> 0
-    1 0 -> 0
-    1 1 -> 1
+    Otherwise they both return the left operand. They are said to coalesce One
+    way to remember is to consider the binary truth tables.
+
+    ::
+
+        A and B
+        0 0 -> 0
+        0 1 -> 0
+        1 0 -> 0
+        1 1 -> 1
 
     So, when A is False, the value of B is irrelevant, so Python skips it
     completely. Otherwise, Python has to evaluate B to find out the overall
-    value of the expression.                                                                                                                                   
+    value of the expression.    
+
     A or B
     0 0 -> 0
     0 1 -> 1
@@ -1548,13 +1552,15 @@ Python Programming
     is a tree datastructure. It represents the XML document as a Tree. The XML
     Nodes are Elements. (Thus the name Element Tree)
 
-    Now, if I were to structure an html document as a element tree.::
+    Now, if I were to structure an html document as a element tree.
+    
+    ::
 
                     <html>
                       |
-                    <head> -------
-                    /   \        |
-                 <title> <meta> <body>
+                    <head> ----------
+                        /   \        |
+                    <title> <meta> <body>
                                /   |  \
                             <h1>  <h2> <para>
                                        /   \
@@ -1571,7 +1577,7 @@ Python Programming
     Factory method design pattern is used quite often in Python. It is a
     creational pattern, dealing with creation of objects (products) without
     specifying the exact class. The creational patterns abstract the concept of
-    instantiating objects and It handles this case by defining a separate
+    instantiating objects and it handles this case by defining a separate
     method for creation objects. The subclasses of that method or object can
     override to specify the derived type of the product that will be created.
     Factory method is used to refer to any method whose main purpose is to
@@ -2740,10 +2746,10 @@ Thu, 01 Dec 1994 16:00:00 GMT
         elif obj1 < obj2:
         print dateexpired
 
------
 
+RFC 3986 Notes
+--------------
 
-RFC 3986 Notes:
 Mon Aug 25 10:17:01 IST 2008
 
 - A URI is a sequence of characters that is not always represented as a
@@ -2897,8 +2903,7 @@ normalization practices that are used.
 
 
 Use of namedtuple in py3k branch for urlparse.
-
-========================================================================
+==============================================
 
 Dissecting urlparse:
 
