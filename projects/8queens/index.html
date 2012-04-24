@@ -162,7 +162,7 @@
     }
 
     .white {
-      background-color: #FFFFF0;
+      background-color: #FFFFFF;
     }
 
     .black {
@@ -170,10 +170,10 @@
     }
 
     td {
-      border-bottom: 1px solid #FFF;
-      border-top: 1px solid #FFF;
-      border-left: 1px solid #FFF;
-      border-right: 1px solid #FFF;
+      border-bottom: 1px solid #000;
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
       vertical-align: middle;
       text-align: center;
       width: 90px;
@@ -183,7 +183,7 @@
 
     table {
       margin: 1px;
-      border: 1px solid #FFF;
+      border: 1px solid #000;
     }
 
     /**
@@ -225,98 +225,113 @@
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
+    <!-- <link rel="apple-touch-icon" href="images/apple-touch-icon.png"> -->
+    <!-- <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"> -->
+    <!-- <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"> -->
+
   </head>
 
   <body>
-
-      <div class="container">
-        <header class="jumbotron masthead">
+       <div class="container">
+          <header class="jumbotron masthead">
         <table class="board">
-              <tr>
-                <td><p class="piece p70"></p></td>
-                <td><p class="piece p71"></p></td>
-                <td><p class="piece p72"></p></td>
-                <td><p class="piece p73"></p></td>
-                <td><p class="piece p74"></p></td>
-                <td><p class="piece p75"></p></td>
-                <td><p class="piece p76"></p></td>
-                <td><p class="piece p77"></p></td>
-              </tr>
-              <tr>
-                <td><p class="piece p60"></p></td>
-                <td><p class="piece p61"></p></td>
-                <td><p class="piece p62"></p></td>
-                <td><p class="piece p63"></p></td>
-                <td><p class="piece p64"></p></td>
-                <td><p class="piece p65"></p></td>
-                <td><p class="piece p66"></p></td>
-                <td><p class="piece p67"></p></td>
-              </tr>
-
-              <tr>
-                <td><p class="piece p50"></p></td>
-                <td><p class="piece p51"></p></td>
-                <td><p class="piece p52"></p></td>
-                <td><p class="piece p53"></p></td>
-                <td><p class="piece p54"></p></td>
-                <td><p class="piece p55"></p></td>
-                <td><p class="piece p56"></p></td>
-                <td><p class="piece p57"></p></td>
-              </tr>
-              <tr>
-                <td><p class="piece p40"></p></td>
-                <td><p class="piece p41"></p></td>
-                <td><p class="piece p42"></p></td>
-                <td><p class="piece p43"></p></td>
-                <td><p class="piece p44"></p></td>
-                <td><p class="piece p45"></p></td>
-                <td><p class="piece p46"></p></td>
-                <td><p class="piece p47"></p></td>
-              </tr>
-              <tr>
-                <td><p class="piece p30"></p></td>
-                <td><p class="piece p31"></p></td>
-                <td><p class="piece p32"></p></td>
-                <td><p class="piece p33"></p></td>
-                <td><p class="piece p34"></p></td>
-                <td><p class="piece p35"></p></td>
-                <td><p class="piece p36"></p></td>
-                <td><p class="piece p37"></p></td>
-              </tr>
-              <tr>
-                <td><p class="piece p20"></p></td>
-                <td><p class="piece p21"></p></td>
-                <td><p class="piece p22"></p></td>
-                <td><p class="piece p23"></p></td>
-                <td><p class="piece p24"></p></td>
-                <td><p class="piece p25"></p></td>
-                <td><p class="piece p26"></p></td>
-                <td><p class="piece p27"></p></td>
-              </tr>
-              <tr>
-                <td><p class="piece p10"></p></td>
-                <td><p class="piece p11"></p></td>
-                <td><p class="piece p12"></p></td>
-                <td><p class="piece p13"></p></td>
-                <td><p class="piece p14"></p></td>
-                <td><p class="piece p15"></p></td>
-                <td><p class="piece p16"></p></td>
-                <td><p class="piece p17"></p></td>
-              </tr>
-              <tr>
-                <td><p class="piece p00"></p></td>
-                <td><p class="piece p01"></p></td>
-                <td><p class="piece p02"></p></td>
-                <td><p class="piece p03"></p></td>
-                <td><p class="piece p04"></p></td>
-                <td><p class="piece p05"></p></td>
-                <td><p class="piece p06"></p></td>
-                <td><p class="piece p07"></p></td>
-              </tr>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p70"></p></td></div>
+                    <div class="span1"><td><p class="piece p71"></p></td></div>
+                    <div class="span1"><td><p class="piece p72"></p></td></div>
+                    <div class="span1"><td><p class="piece p73"></p></td></div>
+                    <div class="span1"><td><p class="piece p74"></p></td></div>
+                    <div class="span1"><td><p class="piece p75"></p></td></div>
+                    <div class="span1"><td><p class="piece p76"></p></td></div>
+                    <div class="span1"><td><p class="piece p77"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p60"></p></td></div>
+                    <div class="span1"><td><p class="piece p61"></p></td></div>
+                    <div class="span1"><td><p class="piece p62"></p></td></div>
+                    <div class="span1"><td><p class="piece p63"></p></td></div>
+                    <div class="span1"><td><p class="piece p64"></p></td></div>
+                    <div class="span1"><td><p class="piece p65"></p></td></div>
+                    <div class="span1"><td><p class="piece p66"></p></td></div>
+                    <div class="span1"><td><p class="piece p67"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p50"></p></td></div>
+                    <div class="span1"><td><p class="piece p51"></p></td></div>
+                    <div class="span1"><td><p class="piece p52"></p></td></div>
+                    <div class="span1"><td><p class="piece p53"></p></td></div>
+                    <div class="span1"><td><p class="piece p54"></p></td></div>
+                    <div class="span1"><td><p class="piece p55"></p></td></div>
+                    <div class="span1"><td><p class="piece p56"></p></td></div>
+                    <div class="span1"><td><p class="piece p57"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p40"></p></td></div>
+                    <div class="span1"><td><p class="piece p41"></p></td></div>
+                    <div class="span1"><td><p class="piece p42"></p></td></div>
+                    <div class="span1"><td><p class="piece p43"></p></td></div>
+                    <div class="span1"><td><p class="piece p44"></p></td></div>
+                    <div class="span1"><td><p class="piece p45"></p></td></div>
+                    <div class="span1"><td><p class="piece p46"></p></td></div>
+                    <div class="span1"><td><p class="piece p47"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p30"></p></td></div>
+                    <div class="span1"><td><p class="piece p31"></p></td></div>
+                    <div class="span1"><td><p class="piece p32"></p></td></div>
+                    <div class="span1"><td><p class="piece p33"></p></td></div>
+                    <div class="span1"><td><p class="piece p34"></p></td></div>
+                    <div class="span1"><td><p class="piece p35"></p></td></div>
+                    <div class="span1"><td><p class="piece p36"></p></td></div>
+                    <div class="span1"><td><p class="piece p37"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p20"></p></td></div>
+                    <div class="span1"><td><p class="piece p21"></p></td></div>
+                    <div class="span1"><td><p class="piece p22"></p></td></div>
+                    <div class="span1"><td><p class="piece p23"></p></td></div>
+                    <div class="span1"><td><p class="piece p24"></p></td></div>
+                    <div class="span1"><td><p class="piece p25"></p></td></div>
+                    <div class="span1"><td><p class="piece p26"></p></td></div>
+                    <div class="span1"><td><p class="piece p27"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p10"></p></td></div>
+                    <div class="span1"><td><p class="piece p11"></p></td></div>
+                    <div class="span1"><td><p class="piece p12"></p></td></div>
+                    <div class="span1"><td><p class="piece p13"></p></td></div>
+                    <div class="span1"><td><p class="piece p14"></p></td></div>
+                    <div class="span1"><td><p class="piece p15"></p></td></div>
+                    <div class="span1"><td><p class="piece p16"></p></td></div>
+                    <div class="span1"><td><p class="piece p17"></p></td></div>
+                </tr>
+                </div>
+                <div class="row-fluid">
+                <tr>
+                    <div class="span1"><td><p class="piece p00"></p></td></div>
+                    <div class="span1"><td><p class="piece p01"></p></td></div>
+                    <div class="span1"><td><p class="piece p02"></p></td></div>
+                    <div class="span1"><td><p class="piece p03"></p></td></div>
+                    <div class="span1"><td><p class="piece p04"></p></td></div>
+                    <div class="span1"><td><p class="piece p05"></p></td></div>
+                    <div class="span1"><td><p class="piece p06"></p></td></div>
+                    <div class="span1"><td><p class="piece p07"></p></td></div>
+                </tr>
+                </div>
           </table>
       </center>
           </header>
