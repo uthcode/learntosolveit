@@ -165,55 +165,55 @@ a:hover {
 .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 620px;
+  width: 1100px;
 }
 .span8 {
-  width: 620px;
+  width: 1100px;
 }
 .span7 {
-  width: 540px;
+  width: 960px;
 }
 .span6 {
-  width: 460px;
+  width: 820px;
 }
 .span5 {
-  width: 380px;
+  width: 680px;
 }
 .span4 {
-  width: 300px;
+  width: 540px;
 }
 .span3 {
-  width: 220px;
+  width: 400px;
 }
 .span2 {
-  width: 140px;
+  width: 260px;
 }
 .span1 {
-  width: 60px;
+  width: 120px;
 }
 .offset8 {
-  margin-left: 660px;
+  margin-left: 1140px;
 }
 .offset7 {
-  margin-left: 580px;
+  margin-left: 1000px;
 }
 .offset6 {
-  margin-left: 500px;
+  margin-left: 860px;
 }
 .offset5 {
-  margin-left: 420px;
+  margin-left: 720px;
 }
 .offset4 {
-  margin-left: 340px;
+  margin-left: 580px;
 }
 .offset3 {
-  margin-left: 260px;
+  margin-left: 440px;
 }
 .offset2 {
-  margin-left: 180px;
+  margin-left: 300px;
 }
 .offset1 {
-  margin-left: 100px;
+  margin-left: 160px;
 }
 .row-fluid {
   width: 100%;
@@ -762,28 +762,28 @@ textarea,
   margin-left: 0;
 }
 input.span8, textarea.span8, .uneditable-input.span8 {
-  width: 610px;
+  width: 1090px;
 }
 input.span7, textarea.span7, .uneditable-input.span7 {
-  width: 530px;
+  width: 950px;
 }
 input.span6, textarea.span6, .uneditable-input.span6 {
-  width: 450px;
+  width: 810px;
 }
 input.span5, textarea.span5, .uneditable-input.span5 {
-  width: 370px;
+  width: 670px;
 }
 input.span4, textarea.span4, .uneditable-input.span4 {
-  width: 290px;
+  width: 530px;
 }
 input.span3, textarea.span3, .uneditable-input.span3 {
-  width: 210px;
+  width: 390px;
 }
 input.span2, textarea.span2, .uneditable-input.span2 {
-  width: 130px;
+  width: 250px;
 }
 input.span1, textarea.span1, .uneditable-input.span1 {
-  width: 50px;
+  width: 110px;
 }
 input[disabled],
 select[disabled],
@@ -1222,122 +1222,122 @@ table {
 }
 table .span1 {
   float: none;
-  width: 44px;
+  width: 104px;
   margin-left: 0;
 }
 table .span2 {
   float: none;
-  width: 124px;
+  width: 244px;
   margin-left: 0;
 }
 table .span3 {
   float: none;
-  width: 204px;
+  width: 384px;
   margin-left: 0;
 }
 table .span4 {
   float: none;
-  width: 284px;
+  width: 524px;
   margin-left: 0;
 }
 table .span5 {
   float: none;
-  width: 364px;
+  width: 664px;
   margin-left: 0;
 }
 table .span6 {
   float: none;
-  width: 444px;
+  width: 804px;
   margin-left: 0;
 }
 table .span7 {
   float: none;
-  width: 524px;
+  width: 944px;
   margin-left: 0;
 }
 table .span8 {
   float: none;
-  width: 604px;
+  width: 1084px;
   margin-left: 0;
 }
 table .span9 {
   float: none;
-  width: 684px;
+  width: 1224px;
   margin-left: 0;
 }
 table .span10 {
   float: none;
-  width: 764px;
+  width: 1364px;
   margin-left: 0;
 }
 table .span11 {
   float: none;
-  width: 844px;
+  width: 1504px;
   margin-left: 0;
 }
 table .span12 {
   float: none;
-  width: 924px;
+  width: 1644px;
   margin-left: 0;
 }
 table .span13 {
   float: none;
-  width: 1004px;
+  width: 1784px;
   margin-left: 0;
 }
 table .span14 {
   float: none;
-  width: 1084px;
+  width: 1924px;
   margin-left: 0;
 }
 table .span15 {
   float: none;
-  width: 1164px;
+  width: 2064px;
   margin-left: 0;
 }
 table .span16 {
   float: none;
-  width: 1244px;
+  width: 2204px;
   margin-left: 0;
 }
 table .span17 {
   float: none;
-  width: 1324px;
+  width: 2344px;
   margin-left: 0;
 }
 table .span18 {
   float: none;
-  width: 1404px;
+  width: 2484px;
   margin-left: 0;
 }
 table .span19 {
   float: none;
-  width: 1484px;
+  width: 2624px;
   margin-left: 0;
 }
 table .span20 {
   float: none;
-  width: 1564px;
+  width: 2764px;
   margin-left: 0;
 }
 table .span21 {
   float: none;
-  width: 1644px;
+  width: 2904px;
   margin-left: 0;
 }
 table .span22 {
   float: none;
-  width: 1724px;
+  width: 3044px;
   margin-left: 0;
 }
 table .span23 {
   float: none;
-  width: 1804px;
+  width: 3184px;
   margin-left: 0;
 }
 table .span24 {
   float: none;
-  width: 1884px;
+  width: 3324px;
   margin-left: 0;
 }
 [class^="icon-"],
@@ -2928,7 +2928,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 620px;
+  width: 1100px;
 }
 .navbar-fixed-top {
   top: 0;
