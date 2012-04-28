@@ -13,7 +13,7 @@ CPython Development Process
 
     * update all codelines.
     * Start working on 3.2 codeline and fix and commit and push. It will push
-      it cpython. *Realized that you don't have to push.*
+      it cpython. 
     * hg pull -u ../3.2
     * hg merge 3.2
     * resolve any conflicts.
@@ -226,11 +226,13 @@ Python Programming
     completely. Otherwise, Python has to evaluate B to find out the overall
     value of the expression.    
 
-    A or B
-    0 0 -> 0
-    0 1 -> 1
-    1 0 -> 1
-    1 1 -> 1
+    ::
+
+        A or B
+        0 0 -> 0
+        0 1 -> 1
+        1 0 -> 1
+        1 1 -> 1
 
     Here, the truth table shows clearly that B is now irrelevant when A is
     *True*, so that is the case that short circuits. Only if A is False does
