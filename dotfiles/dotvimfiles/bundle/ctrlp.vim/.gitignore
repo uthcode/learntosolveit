@@ -1,8 +1,0 @@
-.hgignore
-*.markdown
-*.zip
-wiki.md
-note.txt
-tags
-.hg/*
-tmp/*
