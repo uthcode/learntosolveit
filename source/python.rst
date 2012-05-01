@@ -1665,6 +1665,101 @@ Python Programming
 
     http://pypi.python.org/pypi/MultipartPostHandler/0.1.0
 
+#) How to make Python's standard output non-buffered?
+
+    sys.stdout = os.fdopen(sys.stdout.fileno(), 'a', 0)                                                                                     
+
+
+#) What is the purpose of Zope Interfaces?
+
+
+    You can actually test if your object or class implements your interface. For
+    that you can use verify module (you would normally use it in your tests).
+
+    ::
+
+
+        >>> from zope.interface import Interface, Attribute, implements
+        >>> class IFoo(Interface):
+        ...     x = Attribute("The X attribute")
+        ...     y = Attribute("The Y attribute")
+
+        >>> class Foo(object):
+        ...     implements(IFoo)
+        ...     x = 1
+        ...     def __init__(self):
+        ...         self.y = 2
+
+        >>> from zope.interface.verify import verifyObject
+        >>> verifyObject(IFoo, Foo())
+        True
+
+        >>> from zope.interface.verify import verifyClass
+        >>> verifyClass(IFoo, Foo)
+        True
+
+#) Write about Lazy Evaluation the process as described in PEAK.
+
+
+    "In other words, the typical Python class library is *not* a "component". It is
+    not configurable and composable with other components because it is a single
+    instance, and its connection points are hidden, rather than exposed."
+
+    The difference between an object and a component is component takes
+    configuration and is composable out of other components.
+
+
+    PEAK
+
+    PEAK is the "Python Enterprise Application Kit". If you develop "enterprise"
+    applications with Python, or indeed almost any sort of application with Python,
+    PEAK may help you do it faster, easier, on a larger scale, and with fewer
+    defects than ever before. The key is component-based development, on a reliable
+    infrastructure.
+
+    PEAK is an application kit, and applications are made from components. PEAK
+    provides you with a component architecture, component infrastructure, and
+    various general-purpose components and component frameworks for building
+    applications. As with J2EE, the idea is to let you stop reinventing
+    architectural and infrastructure wheels, so you can put more time into your
+    actual application.
+
+    But PEAK is different from J2EE: it's a single, free implementation of simpler
+    API's based on an easier-to-use language that can nonetheless scale with better
+    performance than J2EE.
+
+
+#) What is Inversion of Control?
+
+    http://stackoverflow.com/questions/3058/what-is-inversion-of-control
+
+    Inversion of Control is what you get when you program callbacks, e.g. like a
+    gui program.
+
+    For example, in an old school menu, you might have:
+
+    print "enter your name"
+    read name
+    print "enter your address"
+    read address
+    etc...
+    store in database
+
+    thereby controlling the flow of user interaction.
+
+    In a GUI program or somesuch, instead we say
+
+    when the user types in field a, store it in NAME
+    when the user types in field b, store it in ADDRESS
+    when the user clicks the save button, call StoreInDatabase
+
+    So now control is inverted... instead of the computer accepting user input in a
+    fixed order, the user controls the order in which the data is entered, and when
+    the data is saved in the database.
+
+    Basically, anything with an event loop, callbacks, or execute triggers falls
+    into this category.
+
 
 distutils
 =========
@@ -3149,106 +3244,7 @@ Bugs
 ----
 
 Why is Lib/site-packages not in sys.path.
-During development it can be helpful.
 If the module is a package, it cannot be executed via -m flag.
-
-
-Write about Lazy Evaluation the process as described in PEAK.
-
-
-"In other words, the typical Python class library is *not* a "component". It is
-not configurable and composable with other components because it is a single
-instance, and its connection points are hidden, rather than exposed."
-
-The difference between an object and a component is component takes
-configuration and is composable out of other components.
-
-
-PEAK
-
-PEAK is the "Python Enterprise Application Kit". If you develop "enterprise"
-applications with Python, or indeed almost any sort of application with Python,
-PEAK may help you do it faster, easier, on a larger scale, and with fewer
-defects than ever before. The key is component-based development, on a reliable
-infrastructure.
-
-PEAK is an application kit, and applications are made from components. PEAK
-provides you with a component architecture, component infrastructure, and
-various general-purpose components and component frameworks for building
-applications. As with J2EE, the idea is to let you stop reinventing
-architectural and infrastructure wheels, so you can put more time into your
-actual application.
-
-But PEAK is different from J2EE: it's a single, free implementation of simpler
-API's based on an easier-to-use language that can nonetheless scale with better
-performance than J2EE.
-
-
-# How to make Python's standard output non-buffered?
-
-sys.stdout = os.fdopen(sys.stdout.fileno(), 'a', 0)                                                                                     
-
-
-# What is the purpose of Zope Interfaces?
-
-
-You can actually test if your object or class implements your interface. For
-that you can use verify module (you would normally use it in your tests).
-
-::
-
-
-    >>> from zope.interface import Interface, Attribute, implements
-    >>> class IFoo(Interface):
-    ...     x = Attribute("The X attribute")
-    ...     y = Attribute("The Y attribute")
-
-    >>> class Foo(object):
-    ...     implements(IFoo)
-    ...     x = 1
-    ...     def __init__(self):
-    ...         self.y = 2
-
-    >>> from zope.interface.verify import verifyObject
-    >>> verifyObject(IFoo, Foo())
-    True
-
-    >>> from zope.interface.verify import verifyClass
-    >>> verifyClass(IFoo, Foo)
-    True
-
-
-Inversion of Control
-====================
-
-http://stackoverflow.com/questions/3058/what-is-inversion-of-control
-
-Inversion of Control is what you get when you program callbacks, e.g. like a
-gui program.
-
-For example, in an old school menu, you might have:
-
-print "enter your name"
-read name
-print "enter your address"
-read address
-etc...
-store in database
-
-thereby controlling the flow of user interaction.
-
-In a GUI program or somesuch, instead we say
-
-when the user types in field a, store it in NAME
-when the user types in field b, store it in ADDRESS
-when the user clicks the save button, call StoreInDatabase
-
-So now control is inverted... instead of the computer accepting user input in a
-fixed order, the user controls the order in which the data is entered, and when
-the data is saved in the database.
-
-Basically, anything with an event loop, callbacks, or execute triggers falls
-into this category.
 
 
 Links
