@@ -7,7 +7,7 @@
 # and Tools.
 
 
-roman_dict = {1:'I',5:'V',10:'X',50:'L',100:'C',500:'M',1000:'D'}
+roman_dict = {1:'I',5:'V',10:'X',50:'L',100:'C',500:'D',1000:'M'}
 
 def sep_num(n):
     num = []
@@ -16,14 +16,17 @@ def sep_num(n):
         num.append(hundreds)
         n = n%100
         tens = (n/10) * 10
-        if tens: num.append(tens)
+        if tens:
+            num.append(tens)
         ones = n%10
-        if ones: num.append(ones)
+        if ones:
+            num.append(ones)
     elif n/10:
         tens = (n/10) * 10
         num.append(tens)
         ones = n%10
-        if ones: num.append(ones)
+        if ones:
+            num.append(ones)
     else:
         ones = n
         num.append(ones)

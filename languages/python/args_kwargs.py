@@ -1,19 +1,25 @@
-#!/usr/bin/python
+def fun1(arg):
+    print arg
 
-#$Id$
-"""
-Good example for args and kwargs in a function.
-It prints
-a: a
-b: b
-args: ('c', 'd', 'e', 'f') # Note it's a tuple.
-kwargs: {'i': 'i', 'h': 'h', 'j': 'j', 'g': 'g'}
-"""
+def fun2(arg,arg2):
+    print arg, arg2
 
-def fun(a, b, *args, **kwargs):
-    print 'a:',a
-    print 'b:',b
-    print 'args:', args
-    print 'kwargs:', kwargs
+def fun3(arg, *arg2):
+    print arg, arg2
 
-fun('a','b','c','d','e','f',g='g',h='h',i='i',j='j')
+def fun4(*arg):
+    print arg
+
+def fun5(**kw):
+    print kw
+
+def fun6(*arg, **kw):
+    print arg
+
+
+fun1(10)
+fun2(10,20)
+fun3(10,20,30)
+fun4(10,20,30,40)
+fun5(a=10,b=20)
+fun6(10,20,40)
