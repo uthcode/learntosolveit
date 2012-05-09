@@ -16,6 +16,10 @@ def add_ball(space):
     space.add(body, shape)
     return shape
 
+def draw_ball(screen, ball):
+    p = int(ball.body.position.x), 600 - int(ball.body.position.y)
+    pygame.draw.circle(screen, THECOLORS["blue"], p, int(ball.radius), 2)
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((600, 600))
