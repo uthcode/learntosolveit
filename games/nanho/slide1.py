@@ -5,6 +5,17 @@ from pygame.color import *
 
 import pymunk
 
+def add_ball(space):
+    mass = 1
+    radius = 14
+    inertia = pymunk.moment_for_circle(mass, 0, radius)
+    body = pymunk.Body(mass, inertia)
+    x = random.randint(120, 380)
+    body.position = x, 550
+    shape = pymunk.Circle(body, radius)
+    space.add(body, shape)
+    return shape
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((600, 600))
