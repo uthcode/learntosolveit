@@ -1,0 +1,9 @@
+1. The idea is irrugular tetris.
+2. Instead of changing the orientation. The shape of the sprite will change.
+3. You will have to bounce it using the obstacle.
+4. The physics objects will fall down.
+
+Tutorials
+---------
+
+http://vivahate.com/tag/pymunk/
