@@ -1,4 +1,5 @@
 import sys
+import random
 import pygame
 from pygame.locals import *
 from pygame.color import *
@@ -30,13 +31,27 @@ def main():
     space = pymunk.Space()
     space.gravity = (0.0, -900.0)
 
+    balls = []
+    ticks_to_next_ball = 10
+
     while running:
         for event in pygame.event.get():
             if event.type == QUIT:
                 running = False
             elif event.type == KEYDOWN and event.key == K_ESCAPE:
                 running = False
+
+        ticks_to_next_ball -= 1
+        if ticks_to_next_ball <= 0:
+            ticks_to_next_ball = 25
+            ball_shape = add_ball(space)
+            balls.append(ball_shape)
+
         screen.fill(THECOLORS["white"])
+
+        for ball in balls:
+            draw_ball(screen, ball)
+
         space.step(1/50.0)
         pygame.display.flip()
         clock.tick(50)
