@@ -3,20 +3,18 @@
 {% block content %}
 
 <h1> Hello {{user.username}}</h1>
-<h2> You belong to {{group}} </h2>
 
-<br>
+<form method="post" action="create">
+    <div>Title <input type="text" id="title" /></div>
+    <div>Date <input type="text" id="date" /></div>
+    <div>Time <input type="text" id="time" /></div>
+    <div>Location <input type="text" id="location" /></div>
+    <input type="submit" value="submit" />
+</form>
 
-<h2>Options</h2>
-
-<ul>
-
-    <li><a href="/newmeeting">Create a New Meeting</a>
-    <li><a href="/viewmeetings">View Meetings</a>
-
-</ul>
-
-<br>
+<br/>
+<a href="/">Home</a>
+<br/>
 <a href="/logout">Logout</a>
 
 {% endblock %}
