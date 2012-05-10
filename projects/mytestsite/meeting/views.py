@@ -21,3 +21,24 @@ def index(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+def create_meeting(request):
+    t = loader.get_template('create.html')
+    c = Context({'user':request.user})
+    return HttpResponse(t.render(c))
+
+def view_meetings(request):
+    t = loader.get_template('view.html')
+    c = Context({'user':request.user})
+    return HttpResponse(t.render(c))
+
+def delete_meeting(request):
+    t = loader.get_template('delete.html')
+    c = Context({'user':request.user})
+    return HttpResponse(t.render(c))
+
+def approve_meeting(request):
+    t = loader.get_template('approve.html')
+    c = Context({'user':request.user})
+    return HttpResponse(t.render(c))
+
