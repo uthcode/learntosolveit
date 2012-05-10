@@ -4,12 +4,9 @@
 
 <h1> Hello {{user.username}}</h1>
 
-<form method="post" action="create">
-    <div>Title <input type="text" id="title" /></div>
-    <div>Date <input type="text" id="date" /></div>
-    <div>Time <input type="text" id="time" /></div>
-    <div>Location <input type="text" id="location" /></div>
-    <input type="submit" value="submit" />
+<form action="/create/" method="post"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
 </form>
 
 <br/>
