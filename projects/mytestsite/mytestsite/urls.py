@@ -5,16 +5,20 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    # Common views
     url(r'^$', 'meeting.views.index'),
     url(r'login/','django.contrib.auth.views.login', name="my_login"),
     url(r'logout/','meeting.views.logout_view'),
-    # url(r'^$', 'mytestsite.views.home', name='home'),
-    # url(r'^mytestsite/', include('mytestsite.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    # John Doe's views
+    url(r'create/','meeting.views.create_meeting'),
+    url(r'view/','meeting.views.view_meetings'),
 
-    # Uncomment the next line to enable the admin:
+    # Jane Chan's requests
+    url(r'delete/','meeting.views.delete_meeting'),
+    url(r'approve/','meeting.views.approve_meeting'),
+
+    # admin views
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )

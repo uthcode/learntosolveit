@@ -6,4 +6,4 @@ class Meeting(models.Model):
     location = models.CharField(max_length=200)
     requestor = models.CharField(max_length=20)
     approver = models.CharField(max_length=20)
-    approve = models.IntegerField()
+    approve = models.IntegerField(default=0)

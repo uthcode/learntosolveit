@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
 from meeting.forms import MeetingForm
+from meeting.models import Meeting
 
 @login_required
 def index(request):
@@ -35,8 +36,9 @@ def create_meeting(request):
     return render_to_response('create.html', {'form':form, 'user':request.user})
 
 def view_meetings(request):
+    all_meetings = Meeting.objects.all().order_by('-approve')
     t = loader.get_template('view.html')
-    c = Context({'user':request.user})
+    c = Context({'user':request.user, 'all_meetings':all_meetings})
     return HttpResponse(t.render(c))
 
 def delete_meeting(request):

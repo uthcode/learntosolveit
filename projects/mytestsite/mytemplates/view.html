@@ -3,11 +3,20 @@
 {% block content %}
 
 <h1> Hello {{user.username}}</h1>
-<h2> You belong to {{group}} </h2>
 
 <br>
 
-<h2>Options</h2>
+<h2>Meetings</h2>
+
+{% if all_meetings %}
+    <ul>
+    {% for meeting in all_meetings %}
+        <li>{{ meeting.title }} - {{meeting.approve}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No meetings set</p>
+{% endif %}
 
 <ul>
 
