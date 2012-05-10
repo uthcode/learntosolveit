@@ -1,10 +1,12 @@
 # Create your views here.
-from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render_to_response
 from django.template import Context, loader
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+
+from meeting.forms import MeetingForm
 
 @login_required
 def index(request):
@@ -23,9 +25,14 @@ def logout_view(request):
     return redirect('/')
 
 def create_meeting(request):
-    t = loader.get_template('create.html')
-    c = Context({'user':request.user})
-    return HttpResponse(t.render(c))
+    if request.method == 'POST':
+        form = MeetingForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/')
+    else:
+        form = MeetingForm()
+
+    return render_to_response('create.html', {'form':form, 'user':request.user})
 
 def view_meetings(request):
     t = loader.get_template('view.html')
