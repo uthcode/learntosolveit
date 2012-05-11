@@ -9,6 +9,8 @@ from django.contrib.auth import logout
 from meeting.forms import MeetingForm
 from meeting.models import Meeting
 
+import datetime
+
 @login_required
 def index(request):
     if request.user.is_authenticated():
@@ -29,6 +31,20 @@ def create_meeting(request):
     if request.method == 'POST':
         form = MeetingForm(request.POST)
         if form.is_valid():
+            title = form.cleaned_data['title_meeting']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+            loc = form.cleaned_data['location']
+            dt = datetime.datetime.strptime(date + "-" + time, "%d %m %Y-%H %M")
+            approve_status = 1
+
+            m = Meeting(title_meeting=title,
+                        date_time = dt,
+                        location = loc,
+                        requestor = request.user.username,
+                        approver = 'janechan',
+                        approve = approve_status)
+            m.save()
             return HttpResponseRedirect('/')
     else:
         form = MeetingForm()
