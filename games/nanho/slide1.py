@@ -8,28 +8,32 @@ import pymunk
 
 def add_ball(space):
     mass = 1
-    radius = 14
+    radius =  random.randint(10,30)
     inertia = pymunk.moment_for_circle(mass, 0, radius)
     body = pymunk.Body(mass, inertia)
     x = random.randint(120, 380)
-    body.position = x, 550
+    body.position = x, x
     shape = pymunk.Circle(body, radius)
     space.add(body, shape)
+    x, y = random.randint(-150,100), random.randint(-250,100)
+    space.gravity = (x, y)
+
     return shape
 
 def draw_ball(screen, ball):
     p = int(ball.body.position.x), 600 - int(ball.body.position.y)
-    pygame.draw.circle(screen, THECOLORS["blue"], p, int(ball.radius), 2)
+    pygame.draw.circle(screen, THECOLORS["tomato2"], p, int(ball.radius), 0)
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((600, 600))
-    pygame.display.set_caption("Joints. Just wait and the L will tip over")
+    screen = pygame.display.set_mode((600, 600), pygame.RESIZABLE)
+    pygame.display.set_caption("Nanho Game - Pyweek May 2012")
     clock = pygame.time.Clock()
     running = True
 
     space = pymunk.Space()
-    space.gravity = (0.0, -900.0)
+    x, y = random.randint(50,100), random.randint(50,100)
+    space.gravity = (x, y)
 
     balls = []
     ticks_to_next_ball = 10
@@ -47,7 +51,7 @@ def main():
             ball_shape = add_ball(space)
             balls.append(ball_shape)
 
-        screen.fill(THECOLORS["white"])
+        screen.fill(THECOLORS["lightblue"])
 
         for ball in balls:
             draw_ball(screen, ball)
