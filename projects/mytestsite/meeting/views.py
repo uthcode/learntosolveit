@@ -2,6 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render_to_response
 from django.template import Context, loader
+from django.core.context_processors import csrf
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -35,6 +36,8 @@ def create_meeting(request):
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
             loc = form.cleaned_data['location']
+            date = date.strftime("%d %m %Y")
+            time = time.strftime("%H %M")
             dt = datetime.datetime.strptime(date + "-" + time, "%d %m %Y-%H %M")
             approve_status = 1
 
@@ -49,10 +52,13 @@ def create_meeting(request):
     else:
         form = MeetingForm()
 
-    return render_to_response('create.html', {'form':form, 'user':request.user})
+    c = {'form': form, 'user': request.user}
+    c.update(csrf(request))
+
+    return render_to_response('create.html', c)
 
 def view_meetings(request):
-    all_meetings = Meeting.objects.all().order_by('-approve')
+    all_meetings = Meeting.objects.all()
     t = loader.get_template('view.html')
     c = Context({'user':request.user, 'all_meetings':all_meetings})
     return HttpResponse(t.render(c))

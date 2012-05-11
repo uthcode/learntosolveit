@@ -12,11 +12,11 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 
-<script type="text/javascript" src="https://github.com/perifer/timePicker/blob/master/jquery.timePicker.min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/perifer/timePicker/master/jquery.timePicker.min.js"></script>
 
 <script type="text/javascript">
    jQuery(function() {
-       jQuery("#id_date").datepicker({ dateFormat: 'dd mm yyyy' });
+       jQuery("#id_date").datepicker({ dateFormat: 'dd mm yy' });
        jQuery("#id_time").timepicker();
    });
 </script>
@@ -30,7 +30,7 @@
 
 <h1> Hello {{user.username}}</h1>
 
-<form action="/create/" method="post"> {% csrf_token %}
+<form action="/create/" method="post">  {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit"/>
 </form>

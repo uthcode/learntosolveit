@@ -11,21 +11,18 @@
 {% if all_meetings %}
     <ul>
     {% for meeting in all_meetings %}
-        <li>{{ meeting.title }} - {{meeting.approve}}</a></li>
+    <li>{{ meeting.title_meeting }} - {{ meeting.location}} - {{meeting.approve}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No meetings set</p>
+    <p>No meetings set</p><br/>
+    <a href="/create">Create a New Meeting</a>
 {% endif %}
 
-<ul>
 
-    <li><a href="/create">Create a New Meeting</a>
-
-</ul>
-
-<br>
+<br/>
 <a href="/">Home</a>
+<br/>
 <a href="/logout">Logout</a>
 
 {% endblock %}
