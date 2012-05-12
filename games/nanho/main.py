@@ -3,7 +3,6 @@ import random
 import math
 import pygame
 import pymunk
-import rabbyt
 
 from pygame.locals import *
 from pygame.color import *
@@ -61,8 +60,6 @@ def main():
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
     pygame.display.set_caption("Primatians  - A Nanho Games Production")
 
-    rabbyt.set_viewport((800, 500))
-    rabbyt.set_default_attribs()
 
     # make our background object
     colorBackground = Color("darkolivegreen4")
@@ -87,6 +84,20 @@ def main():
     shape.elasticity = 0.95
     space.add(body, shape)
     balls.append(shape)
+
+    # Primates
+    primates = []
+    mass = 1
+    radius = 25
+    inertia = pymunk.moment_for_circle(mass, 0, radius, (0,0))
+    body = pymunk.Body(mass, inertia)
+    x = random.randint(0,500)
+    body.position = 400, 400
+    shape = pymunk.Circle(body, radius, (0,0))
+    shape.elasticity = 0.95
+    space.add(body, shape)
+    primates.append(shape)
+
 
 
     # Walls first
@@ -185,6 +196,7 @@ def main():
     # sprites
     log_sprite = pygame.image.load('assets/wood_block1.png')
     ball_sprite = pygame.image.load('assets/banana-small.png')
+    primate1_sprite = pygame.image.load('assets/primate2.png')
 
     while running:
         for event in pygame.event.get():
@@ -245,6 +257,11 @@ def main():
 
             pygame.draw.circle(screen, THECOLORS["yellow"], p, int(ball.radius), 2)
 
+        for primate in primates:
+            p = to_pygame(primate.body.position)
+            screen.blit(primate1_sprite, p)
+
+
         r_flipper_body.position = 790, 10
         l_flipper_body.position = 10, 10
         tr_flipper_body.position = 790, 490
@@ -256,7 +273,7 @@ def main():
             ps = f.get_points()
             ps.append(ps[0])
             ps = map(to_pygame, ps)
-            color = THECOLORS["red"]
+            color = THECOLORS["burlywood4"]
 
             # we need to rotate 180 degrees because of the y coordinate flip
             angle_degrees = math.degrees(f.body.angle) + 180
@@ -267,7 +284,8 @@ def main():
             p = p - offset
             screen.blit(log_sprite, p)
 
-            pygame.draw.lines(screen, color, False, ps)
+            #pygame.draw.lines(screen, color, False, ps)
+            pygame.draw.polygon(screen,color,ps,0)
 
         # Update physics
         dt = 1.0/60.0/5
