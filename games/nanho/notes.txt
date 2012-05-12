@@ -7,3 +7,5 @@ Tutorials
 ---------
 
 http://vivahate.com/tag/pymunk/
+http://pygamewiki.tiddlyspot.com/
+http://www.alexandre-gomes.com/articles/chipmunk/
