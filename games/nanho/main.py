@@ -140,8 +140,41 @@ def main():
     s = pymunk.DampedRotarySpring(l_flipper_body, l_flipper_joint_body, -0.15, 20000000,900000)
     space.add(j, s)
 
-    r_flipper_shape.group = l_flipper_shape.group = 1
-    r_flipper_shape.elasticity = l_flipper_shape.elasticity = 0.4
+    # new flippers
+
+    #fp = [(20,-20), (-120, 0), (20,20)]
+    fp = [(100,-10), (100,10), (-10,10), (-10,-10)]
+    mass = 100
+    moment = pymunk.moment_for_poly(mass, fp)
+
+    # top-right flipper
+    tr_flipper_body = pymunk.Body(mass, moment)
+    tr_flipper_body.position = 400, 400
+    tr_flipper_shape = pymunk.Poly(tr_flipper_body, fp)
+    space.add(tr_flipper_body, tr_flipper_shape)
+
+    tr_flipper_joint_body = pymunk.Body()
+    tr_flipper_joint_body.position = tr_flipper_body.position
+    j = pymunk.PinJoint(tr_flipper_body, tr_flipper_joint_body, (0,0), (0,0))
+    #todo: tweak values of spring better
+    s = pymunk.DampedRotarySpring(tr_flipper_body, tr_flipper_joint_body, 0.15, 20000000,900000)
+    space.add(j, s)
+
+    # top-left flipper
+    tl_flipper_body = pymunk.Body(mass, moment)
+    tl_flipper_body.position = 10, 400
+    tl_flipper_shape = pymunk.Poly(tl_flipper_body, [(-x,y) for x,y in fp])
+    space.add(tl_flipper_body, tl_flipper_shape)
+
+    tl_flipper_joint_body = pymunk.Body()
+    tl_flipper_joint_body.position = tl_flipper_body.position
+    j = pymunk.PinJoint(tl_flipper_body, tl_flipper_joint_body, (0,0), (0,0))
+    s = pymunk.DampedRotarySpring(tl_flipper_body, tl_flipper_joint_body, -0.15, 20000000,900000)
+    space.add(j, s)
+
+
+    r_flipper_shape.group = l_flipper_shape.group = tr_flipper_shape.group = tl_flipper_shape.group = 1
+    r_flipper_shape.elasticity = l_flipper_shape.elasticity = tr_flipper_shape.elasticity = tl_flipper_shape.elasticity = 0.4
 
 
     while running:
@@ -154,13 +187,17 @@ def main():
                 r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100,0))
             elif event.type == KEYDOWN and event.key == K_f:
                 l_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100,0))
+            elif event.type == KEYDOWN and event.key == K_g:
+                tl_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100,0))
+            elif event.type == KEYDOWN and event.key == K_h:
+                tr_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100,0))
+
             if event.type == pygame.VIDEORESIZE:
                 screen_size = event.size
                 screen = pygame.display.set_mode(screen_size, pygame.RESIZABLE)
                 oldBg = backgroundLayer.surface.copy()
                 backgroundLayer = DrawSurf(screen, backgroundLayer.color)
                 backgroundLayer.surface.blit(oldBg, (0, 0))
-
 
         # Draw
         # backgroundLayer.draw()
@@ -193,9 +230,12 @@ def main():
 
         r_flipper_body.position = 750, 10
         l_flipper_body.position = 10, 10
-        r_flipper_body.velocity = l_flipper_body.velocity = 0,0
+        tr_flipper_body.position = 750, 450
+        tl_flipper_body.position = 10, 450
 
-        for f in [r_flipper_shape, l_flipper_shape]:
+        r_flipper_body.velocity = l_flipper_body.velocity = tr_flipper_body.velocity = tl_flipper_body.velocity = 0,0
+
+        for f in [r_flipper_shape, l_flipper_shape, tr_flipper_shape, tl_flipper_shape,]:
             ps = f.get_points()
             ps.append(ps[0])
             ps = map(to_pygame, ps)
