@@ -30,3 +30,5 @@ Limitations
 -----------
 
 1) No resize.
+2) What's the difference between surface and screen.
+
