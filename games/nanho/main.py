@@ -1,7 +1,9 @@
 import sys
 import random
+import math
 import pygame
 import pymunk
+import rabbyt
 
 from pygame.locals import *
 from pygame.color import *
@@ -58,6 +60,10 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
     pygame.display.set_caption("Primatians  - A Nanho Games Production")
+
+    rabbyt.set_viewport((800, 500))
+    rabbyt.set_default_attribs()
+
     # make our background object
     colorBackground = Color("darkolivegreen4")
     backgroundLayer = DrawSurf(screen, colorBackground)
@@ -176,6 +182,9 @@ def main():
     r_flipper_shape.group = l_flipper_shape.group = tr_flipper_shape.group = tl_flipper_shape.group = 1
     r_flipper_shape.elasticity = l_flipper_shape.elasticity = tr_flipper_shape.elasticity = tl_flipper_shape.elasticity = 0.4
 
+    # sprites
+    log_sprite = pygame.image.load('assets/wood_block1.png')
+    ball_sprite = pygame.image.load('assets/banana-small.png')
 
     while running:
         for event in pygame.event.get():
@@ -226,6 +235,14 @@ def main():
 
         for ball in balls:
             p = to_pygame(ball.body.position)
+            #angle_degrees = math.degrees(ball.body.angle) + 180
+            #rotated_logo_img = pygame.transform.rotate(ball_sprite, angle_degrees)
+            #offset = Vec2d(rotated_logo_img.get_size()) / 2.
+            #x, y = ball.get_points()[0]
+            #p = Vec2d(x,y)
+            #p = p - offset
+            screen.blit(ball_sprite, p)
+
             pygame.draw.circle(screen, THECOLORS["yellow"], p, int(ball.radius), 2)
 
         r_flipper_body.position = 790, 10
@@ -240,6 +257,16 @@ def main():
             ps.append(ps[0])
             ps = map(to_pygame, ps)
             color = THECOLORS["red"]
+
+            # we need to rotate 180 degrees because of the y coordinate flip
+            angle_degrees = math.degrees(f.body.angle) + 180
+            rotated_logo_img = pygame.transform.rotate(log_sprite, angle_degrees)
+            offset = Vec2d(rotated_logo_img.get_size()) / 2.
+            x, y = f.get_points()[0]
+            p = Vec2d(x,y)
+            p = p - offset
+            screen.blit(log_sprite, p)
+
             pygame.draw.lines(screen, color, False, ps)
 
         # Update physics
