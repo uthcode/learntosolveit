@@ -9,3 +9,24 @@ Tutorials
 http://vivahate.com/tag/pymunk/
 http://pygamewiki.tiddlyspot.com/
 http://www.alexandre-gomes.com/articles/chipmunk/
+
+Game Play
+---------
+
+1) Background - Rain Forest.
+2) Music Jungle Sound.
+3) Assets/ Shapes of monkeys.
+4) Shock Treatment.
+5) Bananas.
+
+For each monkey, feed 3 bananas and give one shock to train.
+More bananas and more shocks.
+No bananas or no shocks it is untrained.
+
+Monkeys come to game for 15 secs.
+New monkey is added every 10 sec.
+
+Limitations
+-----------
+
+1) No resize.
