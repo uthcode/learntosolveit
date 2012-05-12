@@ -7,7 +7,7 @@ from pygame.locals import *
 from pygame.color import *
 from pymunk import Vec2d
 
-__version__ = 0.1
+__version__ = 0.2
 
 def to_pygame(point):
     """Hack to convert pymunk to pygame coordinates"""
@@ -67,7 +67,7 @@ def main():
 
     # Physics stuff
     space = pymunk.Space(50)
-    space.gravity = (-900.0, -900.0)
+    space.gravity = (90, -90.0)
 
     # Balls
     balls = []
@@ -142,14 +142,14 @@ def main():
 
     # new flippers
 
-    #fp = [(20,-20), (-120, 0), (20,20)]
-    fp = [(100,-10), (100,10), (-10,10), (-10,-10)]
+    fp = [(20,-20), (-120, 0), (20,20)]
+    #fp = [(120, 0), (120,-20),(-120,0)]
     mass = 100
     moment = pymunk.moment_for_poly(mass, fp)
 
     # top-right flipper
     tr_flipper_body = pymunk.Body(mass, moment)
-    tr_flipper_body.position = 400, 400
+    tr_flipper_body.position = 750, 450
     tr_flipper_shape = pymunk.Poly(tr_flipper_body, fp)
     space.add(tr_flipper_body, tr_flipper_shape)
 
@@ -162,7 +162,7 @@ def main():
 
     # top-left flipper
     tl_flipper_body = pymunk.Body(mass, moment)
-    tl_flipper_body.position = 10, 400
+    tl_flipper_body.position = 50, 850
     tl_flipper_shape = pymunk.Poly(tl_flipper_body, [(-x,y) for x,y in fp])
     space.add(tl_flipper_body, tl_flipper_shape)
 
@@ -228,10 +228,10 @@ def main():
             p = to_pygame(ball.body.position)
             pygame.draw.circle(screen, THECOLORS["yellow"], p, int(ball.radius), 2)
 
-        r_flipper_body.position = 750, 10
+        r_flipper_body.position = 790, 10
         l_flipper_body.position = 10, 10
-        tr_flipper_body.position = 750, 450
-        tl_flipper_body.position = 10, 450
+        tr_flipper_body.position = 790, 490
+        tl_flipper_body.position = 10, 490
 
         r_flipper_body.velocity = l_flipper_body.velocity = tr_flipper_body.velocity = tl_flipper_body.velocity = 0,0
 
