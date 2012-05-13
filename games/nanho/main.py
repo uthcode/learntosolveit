@@ -9,7 +9,7 @@ from pygame.locals import *
 from pygame.color import *
 from pymunk import Vec2d
 
-__version__ = 0.3
+__version__ = 0.4
 
 def to_pygame(point):
     """Hack to convert pymunk to pygame coordinates"""
