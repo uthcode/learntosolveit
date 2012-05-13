@@ -105,7 +105,21 @@ def draw_border_walls(space):
 
 def draw_logs(space):
     static_body = pymunk.Body()
-    static_logs = [pymunk.Segment(static_body, (200, 250), (600, 250), 5)]
+    """
+    mass = 10
+    size = 50
+    points = [(-size, -size), (-size, size), (size,size), (size, -size)]
+    moment = pymunk.moment_for_poly(mass, points, (0,0))
+    body = pymunk.Body(mass, moment)
+    body.position = Vec2d(250,250)
+    log = pymunk.Poly(body, points, (0,0))
+    #banana.friction = 2
+    #banana.elasticity = 0.95
+    space.add(body, log)
+    return log
+    """
+
+    static_logs = [pymunk.Segment(static_body, (200, 300), (350, 300), 5)]
     for logs in static_logs:
         logs.elasticity = 1
         logs.group = 1
@@ -192,6 +206,7 @@ def main():
     # sprites
     banana_sprite = GameSprite('banana-small.png')
     primate1_sprite = GameSprite('primate3.png')
+    log_sprite = GameSprite("log2.png")
 
     # Game Ahoy!
 
@@ -220,13 +235,18 @@ def main():
 
         # Draw logs
 
+        #p = to_pygame(static_logs.body.position)
+        #screen.blit(log_sprite.image, p)
+
         for log in static_logs:
             body = log.body
             pv1 = body.position + log.a.rotated(body.angle)
             pv2 = body.position + log.b.rotated(body.angle)
             p1 = to_pygame(pv1)
             p2 = to_pygame(pv2)
-            pygame.draw.lines(screen, THECOLORS["brown"], False, [p1,p2])
+            screen.blit(log_sprite.image, p2)
+            #screen.blit(log_sprite.image, p2)
+            #pygame.draw.lines(screen, THECOLORS["red"], False, [p1,p2])
 
         for banana in bananas:
             p = to_pygame(banana.body.position)
