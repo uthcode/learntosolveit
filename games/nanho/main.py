@@ -1,6 +1,7 @@
 import sys
 import random
 import math
+import os
 import pygame
 import pymunk
 
@@ -14,6 +15,24 @@ def to_pygame(point):
     """Hack to convert pymunk to pygame coordinates"""
     return int(point.x), int(-point.y+500)
 
+def background_image(file_name, colorkey=None):
+    full_path = os.path.join('assets',file_name)
+    print full_path
+    try:
+        image = pygame.image.load(full_path)
+    except pygame.error, message:
+        print 'Cannot load image', full_path
+        raise SystemExit, message
+
+    image = image.convert()
+
+    if colorkey is not None:
+        if colorkey is -1:
+            colorkey = image.get_at((0,0))
+        image.set_colorkey(colorkey, RLEACCEL)
+
+    return image, image.get_rect()
+
 def main():
     # Primatians - woo
     print "Running Python version:", sys.version
@@ -23,6 +42,10 @@ def main():
 
     pygame.init()
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
+
+    bg, bg_rect = background_image('rainforest.jpg')
+    screen.blit(bg, (0,0))
+
     pygame.display.set_caption("Primatians  - A Nanho Games Production")
 
     clock = pygame.time.Clock()
@@ -137,7 +160,8 @@ def main():
         # Draw
         # backgroundLayer.draw()
 
-        screen.fill(THECOLORS["darkolivegreen"])
+        #screen.fill(THECOLORS["darkolivegreen"])
+        screen.blit(bg, (0,0))
 
         # Draw lines
 
