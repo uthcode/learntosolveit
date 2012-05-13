@@ -161,7 +161,7 @@ def main():
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
     pygame.display.set_caption("Primatians  - A Nanho Games Production")
 
-    bg, bg_rect = background_image('rainforest.jpg')
+    bg, bg_rect = background_image('rainforest.png')
 
     screen.blit(bg, (0, 0))
 
