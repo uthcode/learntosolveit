@@ -1,6 +1,7 @@
 import sys
 import random
 import os
+import math
 import pygame
 import pymunk
 
@@ -29,6 +30,7 @@ def background_image(file_name, colorkey=None):
             colorkey = image.get_at((0, 0))
         image.set_colorkey(colorkey, RLEACCEL)
 
+    # Returns a converted image and Rect obj
     return image, image.get_rect()
 
 def load_image(file_name, colorkey=None):
@@ -40,12 +42,6 @@ def load_image(file_name, colorkey=None):
         print 'Cannot load image', full_path
         raise SystemExit, message
 
-    #image = image.convert()
-    #if colorkey is not None:
-        #    if colorkey is -1:
-            #        colorkey = image.get_at((0, 0))
-            #    image.set_colorkey(colorkey, RLEACCEL)
-
     return image, image.get_rect()
 
 class GameSprite(pygame.sprite.Sprite):
@@ -53,57 +49,47 @@ class GameSprite(pygame.sprite.Sprite):
     def __init__(self, file_name, colorkey=None):
         self.image, self.rect = load_image(file_name)
 
-def main():
-    # Primatians - woo
-    print "Running Python version:", sys.version
-    print "Running PyGame version:", pygame.ver
-    print "Running PyMunk version:", pymunk.version
-    print "Running Primatians version:", __version__
+def create_bananas(space):
+    mass = 10
+    size = 50
+    points = [(-size, -size), (-size, size), (size,size), (size, -size)]
+    moment = pymunk.moment_for_poly(mass, points, (0,0))
+    body = pymunk.Body(mass, moment)
+    x = random.randint(0, 500)
+    body.position = Vec2d(x,x)
+    banana = pymunk.Poly(body, points, (0,0))
+    #banana.friction = 2
+    banana.elasticity = 0.95
+    space.add(body, banana)
 
-    pygame.init()
-    screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
+    """
+    Circular Banana
 
-    bg, bg_rect = background_image('rainforest.jpg')
-    screen.blit(bg, (0, 0))
-
-    pygame.display.set_caption("Primatians  - A Nanho Games Production")
-
-    clock = pygame.time.Clock()
-    running = True
-
-    # Physics stuff
-    space = pymunk.Space(50)
-    space.gravity = (90, -90.0)
-
-    # Balls
-    balls = []
-    mass = 1
-    radius = 25
+    radius = 10
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
     x = random.randint(0, 500)
-    body.position = 400, 400
-    shape = pymunk.Circle(body, radius, (0, 0))
-    shape.elasticity = 0.95
-    space.add(body, shape)
-    balls.append(shape)
+    body.position = x, x
+    banana = pymunk.Circle(body, radius, (0, 0))
+    banana.elasticity = 0.95
+    space.add(body, banana)
+    """
+    return banana
 
-    # Primates
-    primates = []
+def create_primate(space):
     mass = 1
     radius = 25
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
     x = random.randint(0, 500)
     body.position = 10, 10
-    shape = pymunk.Circle(body, radius, (0, 0))
-    shape.elasticity = 0.95
-    space.add(body, shape)
-    primates.append(shape)
+    primate = pymunk.Circle(body, radius, (0, 0))
+    primate.elasticity = 0.95
+    primate.friction = 25
+    space.add(body, primate)
+    return primate
 
-
-    # Walls first
-
+def draw_border_walls(space):
     static_body = pymunk.Body()
     # x1,y1, x2,y2
     static_lines = [pymunk.Segment(static_body, (0.0, 0.0), (0.0, 500.0), 5.0),
@@ -111,24 +97,23 @@ def main():
                     pymunk.Segment(static_body, (800.0, 500.0), (800.0, 0.0), 5.0),
                     pymunk.Segment(static_body, (800.0, 0.0), (0.0, 0.0), 5.0)
                    ]
-
     for line in static_lines:
         line.elasticity = 0.7
         line.group = 1
-
     space.add(static_lines)
+    return static_lines
 
-    # Some Logs
-
+def draw_logs(space):
+    static_body = pymunk.Body()
     static_logs = [pymunk.Segment(static_body, (200, 250), (600, 250), 5)]
-
     for logs in static_logs:
         logs.elasticity = 1
         logs.group = 1
-
     space.add(static_logs)
+    return static_logs
 
-    # Add Flippers ( handler tree logs)
+def draw_flippers(space):
+    # Add Flippers
 
     fp = [(20, -20), (-120, 0), (20, 20)]
     mass = 100
@@ -163,12 +148,52 @@ def main():
     r_flipper_shape.group = l_flipper_shape.group = 1
     r_flipper_shape.elasticity = l_flipper_shape.elasticity = 0.4
 
+    return r_flipper_body, r_flipper_shape, l_flipper_body, l_flipper_shape
+
+def main():
+    # Primatians - woo
+    print "Running Python version:", sys.version
+    print "Running PyGame version:", pygame.ver
+    print "Running PyMunk version:", pymunk.version
+    print "Running Primatians version:", __version__
+
+    pygame.init()
+    screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
+    pygame.display.set_caption("Primatians  - A Nanho Games Production")
+
+    bg, bg_rect = background_image('rainforest.jpg')
+
+    screen.blit(bg, (0, 0))
+
+    clock = pygame.time.Clock()
+    running = True
+
+    # Physics stuff
+    space = pymunk.Space(50)
+    space.gravity = (90, -90.0)
+
+    # Balls
+    bananas = []
+    for n in range(1):
+        b = create_bananas(space)
+        bananas.append(b)
+
+    # Primates
+    primates = []
+    p = create_primate(space)
+    primates.append(p)
+
+    static_lines = draw_border_walls(space)
+
+    static_logs = draw_logs(space)
+
+    r_flipper_body, r_flipper_shape, l_flipper_body, l_flipper_shape = draw_flippers(space)
+
     # sprites
-    ball_sprite = GameSprite('banana-small.png')
+    banana_sprite = GameSprite('banana-small.png')
     primate1_sprite = GameSprite('primate2.png')
 
-    #ball_sprite = pygame.image.load('assets/banana-small.png')
-    #primate1_sprite = pygame.image.load('assets/primate2.png')
+    # Game Ahoy!
 
     while running:
         for event in pygame.event.get():
@@ -180,10 +205,7 @@ def main():
                 l_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100, 0))
             elif event.type == KEYDOWN and event.key == K_x:
                 r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100, 0))
-        # Draw
-        # backgroundLayer.draw()
 
-        #screen.fill(THECOLORS["darkolivegreen"])
         screen.blit(bg, (0, 0))
 
         # Draw lines
@@ -206,18 +228,23 @@ def main():
             p2 = to_pygame(pv2)
             pygame.draw.lines(screen, THECOLORS["brown"], False, [p1,p2])
 
-        for ball in balls:
-            p = to_pygame(ball.body.position)
-            #angle_degrees = math.degrees(ball.body.angle) + 180
-            #rotated_logo_img = pygame.transform.rotate(ball_sprite, angle_degrees)
-            #offset = Vec2d(rotated_logo_img.get_size()) / 2.
-            #x, y = ball.get_points()[0]
+        for banana in bananas:
+            p = to_pygame(banana.body.position)
+            angle_degrees = math.degrees(banana.body.angle) + 180
+            rotated_img = pygame.transform.rotate(banana_sprite.image, angle_degrees)
+            #offset = Vec2d(rotated_img.get_size()) / 2.
+            #x, y = banana.get_points()[0]
             #p = Vec2d(x,y)
             #p = p - offset
-            screen.blit(ball_sprite.image, p)
-            ball_sprite.rect.center = p
+            screen.blit(rotated_img, p)
+            # Assigning to rect.center moves the Rect object.
+            # Useful for collision detection
+            banana_sprite.rect.center = p
 
-            pygame.draw.circle(screen, THECOLORS["yellow"], p, int(ball.radius), 2)
+            #color = THECOLORS["red"]
+            #ps = banana.get_points()
+            #ps = map(to_pygame, ps)
+            #pygame.draw.polygon(screen, color, ps, 0)
 
         for primate in primates:
             p = to_pygame(primate.body.position)
@@ -235,23 +262,11 @@ def main():
             ps.append(ps[0])
             ps = map(to_pygame, ps)
             color = THECOLORS["burlywood4"]
-
-            # we need to rotate 180 degrees because of the y coordinate flip
-            # angle_degrees = math.degrees(f.body.angle) + 180
-            # rotated_logo_img = pygame.transform.rotate(log_sprite, angle_degrees)
-            # offset = Vec2d(rotated_logo_img.get_size()) / 2.
-            # x, y = f.get_points()[0]
-            # p = Vec2d(x,y)
-            # p = p - offset
-            # screen.blit(log_sprite, p)
-
-            #pygame.draw.lines(screen, color, False, ps)
             pygame.draw.polygon(screen, color, ps, 0)
 
-        #if pygame.sprite.spritecollide(primate1_sprite, [ball_sprite], 1):
-        if pygame.sprite.collide_rect(primate1_sprite, ball_sprite):
+        if pygame.sprite.collide_rect(primate1_sprite, banana_sprite):
             print primate1_sprite.rect
-            print ball_sprite.rect
+            print banana_sprite.rect
             print 'Sprites Collide'
 
         # Update physics
