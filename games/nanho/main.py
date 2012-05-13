@@ -199,9 +199,9 @@ def main():
                 running = False
             elif event.type == KEYDOWN and event.key == K_ESCAPE:
                 running = False
-            elif event.type == KEYDOWN and event.key == K_z:
+            elif (event.type == KEYDOWN and event.key == K_z) or (event.type == KEYDOWN and event.key == K_LEFT):
                 l_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100, 0))
-            elif event.type == KEYDOWN and event.key == K_x:
+            elif (event.type == KEYDOWN and event.key == K_x) or (event.type == KEYDOWN and event.key == K_RIGHT):
                 r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100, 0))
 
         screen.blit(bg, (0, 0))
