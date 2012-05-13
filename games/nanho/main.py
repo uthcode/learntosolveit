@@ -1,6 +1,5 @@
 import sys
 import random
-import math
 import os
 import pygame
 import pymunk
@@ -16,7 +15,7 @@ def to_pygame(point):
     return int(point.x), int(-point.y+500)
 
 def background_image(file_name, colorkey=None):
-    full_path = os.path.join('assets',file_name)
+    full_path = os.path.join('assets', file_name)
     print full_path
     try:
         image = pygame.image.load(full_path)
@@ -25,13 +24,34 @@ def background_image(file_name, colorkey=None):
         raise SystemExit, message
 
     image = image.convert()
-
     if colorkey is not None:
         if colorkey is -1:
-            colorkey = image.get_at((0,0))
+            colorkey = image.get_at((0, 0))
         image.set_colorkey(colorkey, RLEACCEL)
 
     return image, image.get_rect()
+
+def load_image(file_name, colorkey=None):
+    full_path = os.path.join('assets', file_name)
+    print full_path
+    try:
+        image = pygame.image.load(full_path)
+    except pygame.error, message:
+        print 'Cannot load image', full_path
+        raise SystemExit, message
+
+    #image = image.convert()
+    #if colorkey is not None:
+        #    if colorkey is -1:
+            #        colorkey = image.get_at((0, 0))
+            #    image.set_colorkey(colorkey, RLEACCEL)
+
+    return image, image.get_rect()
+
+class GameSprite(pygame.sprite.Sprite):
+
+    def __init__(self, file_name, colorkey=None):
+        self.image, self.rect = load_image(file_name)
 
 def main():
     # Primatians - woo
@@ -44,7 +64,7 @@ def main():
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
 
     bg, bg_rect = background_image('rainforest.jpg')
-    screen.blit(bg, (0,0))
+    screen.blit(bg, (0, 0))
 
     pygame.display.set_caption("Primatians  - A Nanho Games Production")
 
@@ -59,11 +79,11 @@ def main():
     balls = []
     mass = 1
     radius = 25
-    inertia = pymunk.moment_for_circle(mass, 0, radius, (0,0))
+    inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
-    x = random.randint(0,500)
+    x = random.randint(0, 500)
     body.position = 400, 400
-    shape = pymunk.Circle(body, radius, (0,0))
+    shape = pymunk.Circle(body, radius, (0, 0))
     shape.elasticity = 0.95
     space.add(body, shape)
     balls.append(shape)
@@ -72,11 +92,11 @@ def main():
     primates = []
     mass = 1
     radius = 25
-    inertia = pymunk.moment_for_circle(mass, 0, radius, (0,0))
+    inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
-    x = random.randint(0,500)
-    body.position = 400, 400
-    shape = pymunk.Circle(body, radius, (0,0))
+    x = random.randint(0, 500)
+    body.position = 100, 100
+    shape = pymunk.Circle(body, radius, (0, 0))
     shape.elasticity = 0.95
     space.add(body, shape)
     primates.append(shape)
@@ -110,7 +130,7 @@ def main():
 
     # Add Flippers ( handler tree logs)
 
-    fp = [(20,-20), (-120, 0), (20,20)]
+    fp = [(20, -20), (-120, 0), (20, 20)]
     mass = 100
     moment = pymunk.moment_for_poly(mass, fp)
 
@@ -122,21 +142,21 @@ def main():
 
     r_flipper_joint_body = pymunk.Body()
     r_flipper_joint_body.position = r_flipper_body.position
-    j = pymunk.PinJoint(r_flipper_body, r_flipper_joint_body, (0,0), (0,0))
+    j = pymunk.PinJoint(r_flipper_body, r_flipper_joint_body, (0, 0), (0, 0))
     #todo: tweak values of spring better
-    s = pymunk.DampedRotarySpring(r_flipper_body, r_flipper_joint_body, 0.15, 20000000,900000)
+    s = pymunk.DampedRotarySpring(r_flipper_body, r_flipper_joint_body, 0.15, 20000000, 900000)
     space.add(j, s)
 
     # left flipper
     l_flipper_body = pymunk.Body(mass, moment)
     l_flipper_body.position = 10, 10
-    l_flipper_shape = pymunk.Poly(l_flipper_body, [(-x,y) for x,y in fp])
+    l_flipper_shape = pymunk.Poly(l_flipper_body, [(-x, y) for x, y in fp])
     space.add(l_flipper_body, l_flipper_shape)
 
     l_flipper_joint_body = pymunk.Body()
     l_flipper_joint_body.position = l_flipper_body.position
-    j = pymunk.PinJoint(l_flipper_body, l_flipper_joint_body, (0,0), (0,0))
-    s = pymunk.DampedRotarySpring(l_flipper_body, l_flipper_joint_body, -0.15, 20000000,900000)
+    j = pymunk.PinJoint(l_flipper_body, l_flipper_joint_body, (0, 0), (0, 0))
+    s = pymunk.DampedRotarySpring(l_flipper_body, l_flipper_joint_body, -0.15, 20000000, 900000)
     space.add(j, s)
 
 
@@ -144,8 +164,11 @@ def main():
     r_flipper_shape.elasticity = l_flipper_shape.elasticity = 0.4
 
     # sprites
-    ball_sprite = pygame.image.load('assets/banana-small.png')
-    primate1_sprite = pygame.image.load('assets/primate2.png')
+    ball_sprite = GameSprite('banana-small.png')
+    primate1_sprite = GameSprite('primate2.png')
+
+    #ball_sprite = pygame.image.load('assets/banana-small.png')
+    #primate1_sprite = pygame.image.load('assets/primate2.png')
 
     while running:
         for event in pygame.event.get():
@@ -154,14 +177,14 @@ def main():
             elif event.type == KEYDOWN and event.key == K_ESCAPE:
                 running = False
             elif event.type == KEYDOWN and event.key == K_z:
-                l_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100,0))
+                l_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100, 0))
             elif event.type == KEYDOWN and event.key == K_x:
-                r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100,0))
+                r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100, 0))
         # Draw
         # backgroundLayer.draw()
 
         #screen.fill(THECOLORS["darkolivegreen"])
-        screen.blit(bg, (0,0))
+        screen.blit(bg, (0, 0))
 
         # Draw lines
 
@@ -171,7 +194,7 @@ def main():
             pv2 = body.position + line.b.rotated(body.angle)
             p1 = to_pygame(pv1)
             p2 = to_pygame(pv2)
-            pygame.draw.lines(screen, THECOLORS["black"], False, [p1,p2])
+            pygame.draw.lines(screen, THECOLORS["black"], False, [p1, p2])
 
         # Draw logs
 
@@ -191,13 +214,13 @@ def main():
             #x, y = ball.get_points()[0]
             #p = Vec2d(x,y)
             #p = p - offset
-            screen.blit(ball_sprite, p)
+            screen.blit(ball_sprite.image, p)
 
             pygame.draw.circle(screen, THECOLORS["yellow"], p, int(ball.radius), 2)
 
         for primate in primates:
             p = to_pygame(primate.body.position)
-            screen.blit(primate1_sprite, p)
+            screen.blit(primate1_sprite.image, p)
 
 
         r_flipper_body.position = 790, 10
@@ -221,7 +244,11 @@ def main():
             # screen.blit(log_sprite, p)
 
             #pygame.draw.lines(screen, color, False, ps)
-            pygame.draw.polygon(screen,color,ps,0)
+            pygame.draw.polygon(screen, color, ps, 0)
+
+        #if pygame.sprite.spritecollide(primate1_sprite, [ball_sprite], 1):
+        if pygame.sprite.collide_circle(primate1_sprite, ball_sprite):
+            print 'Sprites Collide'
 
         # Update physics
         dt = 1.0/60.0/5
