@@ -138,6 +138,7 @@ def draw_flippers(space):
 
 def main():
     # Primatians - woo
+    num_bananas = 0
     print "Running Python version:", sys.version
     print "Running PyGame version:", pygame.ver
     print "Running PyMunk version:", pymunk.version
@@ -241,9 +242,19 @@ def main():
             pygame.draw.polygon(screen, color, ps, 0)
 
         if pygame.sprite.collide_rect(primate1_sprite, banana_sprite):
+            num_bananas += 1
             print primate1_sprite.rect
             print banana_sprite.rect
             print 'Sprites Collide'
+            print 'bananas: ', num_bananas
+            if num_bananas == 5:
+                sys.exit()
+            # Reset Sprites location
+            x = random.randint(0, 500)
+            banana.body.position = Vec2d(x,x)
+            banana.body.reset_forces()
+            banana.body.velocity = Vec2d(10, 10)
+            #banana_sprite.rect.center = to_pygame(x,x)
 
         # Update physics
         dt = 1.0/60.0/5
