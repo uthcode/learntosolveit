@@ -95,7 +95,7 @@ def main():
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
     x = random.randint(0, 500)
-    body.position = 100, 100
+    body.position = 10, 10
     shape = pymunk.Circle(body, radius, (0, 0))
     shape.elasticity = 0.95
     space.add(body, shape)
@@ -215,12 +215,14 @@ def main():
             #p = Vec2d(x,y)
             #p = p - offset
             screen.blit(ball_sprite.image, p)
+            ball_sprite.rect.center = p
 
             pygame.draw.circle(screen, THECOLORS["yellow"], p, int(ball.radius), 2)
 
         for primate in primates:
             p = to_pygame(primate.body.position)
             screen.blit(primate1_sprite.image, p)
+            primate1_sprite.rect.center = p
 
 
         r_flipper_body.position = 790, 10
@@ -247,7 +249,9 @@ def main():
             pygame.draw.polygon(screen, color, ps, 0)
 
         #if pygame.sprite.spritecollide(primate1_sprite, [ball_sprite], 1):
-        if pygame.sprite.collide_circle(primate1_sprite, ball_sprite):
+        if pygame.sprite.collide_rect(primate1_sprite, ball_sprite):
+            print primate1_sprite.rect
+            print ball_sprite.rect
             print 'Sprites Collide'
 
         # Update physics
