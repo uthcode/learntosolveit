@@ -9,7 +9,7 @@ from pygame.locals import *
 from pygame.color import *
 from pymunk import Vec2d
 
-__version__ = 0.4
+__version__ = 0.5
 
 def to_pygame(point):
     """Hack to convert pymunk to pygame coordinates"""
@@ -52,13 +52,12 @@ class GameSprite(pygame.sprite.Sprite):
 def create_bananas(space):
     mass = 10
     size = 50
-    points = [(-size, -size), (-size, size), (size,size), (size, -size)]
-    moment = pymunk.moment_for_poly(mass, points, (0,0))
+    points = [(-size, -size), (-size, size), (size, size), (size, -size)]
+    moment = pymunk.moment_for_poly(mass, points, (0, 0))
     body = pymunk.Body(mass, moment)
     x = random.randint(0, 500)
-    body.position = Vec2d(x,x)
-    banana = pymunk.Poly(body, points, (0,0))
-    #banana.friction = 2
+    body.position = Vec2d(x, x)
+    banana = pymunk.Poly(body, points, (0, 0))
     banana.elasticity = 0.95
     space.add(body, banana)
     return banana
@@ -68,7 +67,6 @@ def create_primate(space):
     radius = 25
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
-    x = random.randint(0, 500)
     body.position = 10, 10
     primate = pymunk.Circle(body, radius, (0, 0))
     primate.elasticity = 0.95
@@ -114,7 +112,6 @@ def draw_flippers(space):
     r_flipper_joint_body = pymunk.Body()
     r_flipper_joint_body.position = r_flipper_body.position
     j = pymunk.PinJoint(r_flipper_body, r_flipper_joint_body, (0, 0), (0, 0))
-    #todo: tweak values of spring better
     s = pymunk.DampedRotarySpring(r_flipper_body, r_flipper_joint_body, 0.15, 20000000, 900000)
     space.add(j, s)
 
@@ -139,8 +136,8 @@ def draw_flippers(space):
 def add_text(txt):
     if pygame.font:
         FONTCOLOR = (255, 255, 0)
-        fontfile = os.path.join('assets','arcade.ttf')
-        font = pygame.font.Font(fontfile,36)
+        fontfile = os.path.join('assets', 'arcade.ttf')
+        font = pygame.font.Font(fontfile, 36)
         text = font.render(txt, 0, FONTCOLOR)
         textpos = text.get_rect()
         return text, textpos
@@ -148,7 +145,7 @@ def add_text(txt):
 def load_music(music_file):
     if pygame.mixer:
         pygame.mixer.init()
-        music = os.path.join('assets',music_file)
+        music = os.path.join('assets', music_file)
         pygame.mixer.music.load(music)
         pygame.mixer.music.play(-1)
 
@@ -268,16 +265,15 @@ def main():
             print 'bananas: ', num_bananas
             txt = "Yummy Bananas %d" % num_bananas
             text, textpos = add_text(txt)
-            screen.blit(text, (750,450))
+            screen.blit(text, (750, 450))
             if num_bananas == 5:
                 trained = True
                 play_bg = False
             # Reset Sprites location
             x = random.randint(0, 500)
-            banana.body.position = Vec2d(x,x)
+            banana.body.position = Vec2d(x, x)
             banana.body.reset_forces()
             banana.body.velocity = Vec2d(10, 10)
-            #banana_sprite.rect.center = to_pygame(x,x)
 
         txt = "Yummy Bananas %d" % num_bananas
         text, textpos = add_text(txt)
@@ -287,7 +283,6 @@ def main():
             txt = "You've trained me. Yay!"
             text, textpos = add_text(txt)
             screen.blit(text, (400, 100))
-            #pygame.time.wait(60*10)
             banana.body.velocity = Vec2d(0, 0)
             primate.body.velocity = Vec2d(0, 0)
             banana.body.rotation = Vec2d(0, 0)
