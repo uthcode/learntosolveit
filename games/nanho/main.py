@@ -136,6 +136,15 @@ def draw_flippers(space):
 
     return r_flipper_body, r_flipper_shape, l_flipper_body, l_flipper_shape
 
+def add_text(txt):
+    if pygame.font:
+        FONTCOLOR = (255, 255, 0)
+        fontfile = os.path.join('assets','arcade.ttf')
+        font = pygame.font.Font(fontfile,36)
+        text = font.render(txt, 0, FONTCOLOR)
+        textpos = text.get_rect()
+        return text, textpos
+
 def main():
     # Primatians - woo
     num_bananas = 0
@@ -247,6 +256,9 @@ def main():
             print banana_sprite.rect
             print 'Sprites Collide'
             print 'bananas: ', num_bananas
+            txt = "Yummy Bananas %d" % num_bananas
+            text, textpos = add_text(txt)
+            screen.blit(text, (750,450))
             if num_bananas == 5:
                 sys.exit()
             # Reset Sprites location
@@ -255,6 +267,10 @@ def main():
             banana.body.reset_forces()
             banana.body.velocity = Vec2d(10, 10)
             #banana_sprite.rect.center = to_pygame(x,x)
+
+        txt = "Yummy Bananas %d" % num_bananas
+        text, textpos = add_text(txt)
+        screen.blit(text, (400, 50))
 
         # Update physics
         dt = 1.0/60.0/5
