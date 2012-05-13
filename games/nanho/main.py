@@ -17,7 +17,6 @@ def to_pygame(point):
 
 def background_image(file_name, colorkey=None):
     full_path = os.path.join('assets', file_name)
-    print full_path
     try:
         image = pygame.image.load(full_path)
     except pygame.error, message:
@@ -35,7 +34,6 @@ def background_image(file_name, colorkey=None):
 
 def load_image(file_name, colorkey=None):
     full_path = os.path.join('assets', file_name)
-    print full_path
     try:
         image = pygame.image.load(full_path)
     except pygame.error, message:
@@ -155,10 +153,6 @@ def main():
     trained = False
     play_bg = True
     load_music('bg.mp3')
-    print "Running Python version:", sys.version
-    print "Running PyGame version:", pygame.ver
-    print "Running PyMunk version:", pymunk.version
-    print "Running Primatians version:", __version__
 
     pygame.init()
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
@@ -259,10 +253,6 @@ def main():
 
         if pygame.sprite.collide_rect(primate1_sprite, banana_sprite):
             num_bananas += 1
-            print primate1_sprite.rect
-            print banana_sprite.rect
-            print 'Sprites Collide'
-            print 'bananas: ', num_bananas
             txt = "Yummy Bananas %d" % num_bananas
             text, textpos = add_text(txt)
             screen.blit(text, (750, 450))
