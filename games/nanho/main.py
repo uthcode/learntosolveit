@@ -61,19 +61,6 @@ def create_bananas(space):
     #banana.friction = 2
     banana.elasticity = 0.95
     space.add(body, banana)
-
-    """
-    Circular Banana
-
-    radius = 10
-    inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
-    body = pymunk.Body(mass, inertia)
-    x = random.randint(0, 500)
-    body.position = x, x
-    banana = pymunk.Circle(body, radius, (0, 0))
-    banana.elasticity = 0.95
-    space.add(body, banana)
-    """
     return banana
 
 def create_primate(space):
@@ -105,20 +92,6 @@ def draw_border_walls(space):
 
 def draw_logs(space):
     static_body = pymunk.Body()
-    """
-    mass = 10
-    size = 50
-    points = [(-size, -size), (-size, size), (size,size), (size, -size)]
-    moment = pymunk.moment_for_poly(mass, points, (0,0))
-    body = pymunk.Body(mass, moment)
-    body.position = Vec2d(250,250)
-    log = pymunk.Poly(body, points, (0,0))
-    #banana.friction = 2
-    #banana.elasticity = 0.95
-    space.add(body, log)
-    return log
-    """
-
     static_logs = [pymunk.Segment(static_body, (200, 300), (350, 300), 5)]
     for logs in static_logs:
         logs.elasticity = 1
@@ -128,7 +101,6 @@ def draw_logs(space):
 
 def draw_flippers(space):
     # Add Flippers
-
     fp = [(20, -20), (-120, 0), (20, 20)]
     mass = 100
     moment = pymunk.moment_for_poly(mass, fp)
@@ -235,36 +207,20 @@ def main():
 
         # Draw logs
 
-        #p = to_pygame(static_logs.body.position)
-        #screen.blit(log_sprite.image, p)
-
         for log in static_logs:
             body = log.body
-            pv1 = body.position + log.a.rotated(body.angle)
-            pv2 = body.position + log.b.rotated(body.angle)
-            p1 = to_pygame(pv1)
-            p2 = to_pygame(pv2)
-            screen.blit(log_sprite.image, p2)
-            #screen.blit(log_sprite.image, p2)
-            #pygame.draw.lines(screen, THECOLORS["red"], False, [p1,p2])
+            point = body.position + log.b.rotated(body.angle)
+            p = to_pygame(point)
+            screen.blit(log_sprite.image, p)
 
         for banana in bananas:
             p = to_pygame(banana.body.position)
             angle_degrees = math.degrees(banana.body.angle) + 180
             rotated_img = pygame.transform.rotate(banana_sprite.image, angle_degrees)
-            #offset = Vec2d(rotated_img.get_size()) / 2.
-            #x, y = banana.get_points()[0]
-            #p = Vec2d(x,y)
-            #p = p - offset
             screen.blit(rotated_img, p)
             # Assigning to rect.center moves the Rect object.
             # Useful for collision detection
             banana_sprite.rect.center = p
-
-            #color = THECOLORS["red"]
-            #ps = banana.get_points()
-            #ps = map(to_pygame, ps)
-            #pygame.draw.polygon(screen, color, ps, 0)
 
         for primate in primates:
             p = to_pygame(primate.body.position)
@@ -275,7 +231,7 @@ def main():
         r_flipper_body.position = 790, 10
         l_flipper_body.position = 10, 10
 
-        r_flipper_body.velocity = l_flipper_body.velocity = 0,0
+        r_flipper_body.velocity = l_flipper_body.velocity = 0, 0
 
         for f in [r_flipper_shape, l_flipper_shape]:
             ps = f.get_points()
