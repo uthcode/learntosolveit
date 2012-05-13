@@ -145,9 +145,19 @@ def add_text(txt):
         textpos = text.get_rect()
         return text, textpos
 
+def load_music(music_file):
+    if pygame.mixer:
+        pygame.mixer.init()
+        music = os.path.join('assets',music_file)
+        pygame.mixer.music.load(music)
+        pygame.mixer.music.play(-1)
+
 def main():
     # Primatians - woo
     num_bananas = 0
+    trained = False
+    play_bg = True
+    load_music('bg.mp3')
     print "Running Python version:", sys.version
     print "Running PyGame version:", pygame.ver
     print "Running PyMunk version:", pymunk.version
@@ -260,7 +270,8 @@ def main():
             text, textpos = add_text(txt)
             screen.blit(text, (750,450))
             if num_bananas == 5:
-                sys.exit()
+                trained = True
+                play_bg = False
             # Reset Sprites location
             x = random.randint(0, 500)
             banana.body.position = Vec2d(x,x)
@@ -271,6 +282,19 @@ def main():
         txt = "Yummy Bananas %d" % num_bananas
         text, textpos = add_text(txt)
         screen.blit(text, (400, 50))
+
+        if trained:
+            txt = "You've trained me. Yay!"
+            text, textpos = add_text(txt)
+            screen.blit(text, (400, 100))
+            #pygame.time.wait(60*10)
+            banana.body.velocity = Vec2d(0, 0)
+            primate.body.velocity = Vec2d(0, 0)
+            banana.body.rotation = Vec2d(0, 0)
+            if not play_bg:
+                pygame.mixer.quit()
+                load_music('final.wav')
+                play_bg = True
 
         # Update physics
         dt = 1.0/60.0/5
