@@ -191,7 +191,7 @@ def main():
 
     # sprites
     banana_sprite = GameSprite('banana-small.png')
-    primate1_sprite = GameSprite('primate2.png')
+    primate1_sprite = GameSprite('primate.png')
 
     # Game Ahoy!
 
