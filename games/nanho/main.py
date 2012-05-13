@@ -14,41 +14,6 @@ def to_pygame(point):
     """Hack to convert pymunk to pygame coordinates"""
     return int(point.x), int(-point.y+500)
 
-class DrawSurf(object):
-    """
-    Create a surface used for drawing to the screen.
-    """
-
-    def __init__(self, destSurf, color=None):
-        self.color = color
-        self.destSurf = destSurf
-        self.surface = self.makeSurf()
-
-    def makeSurf(self):
-        """
-        Make a new pygame.Surface same size as the given destSurf
-        """
-        layer = None
-
-        if self.color is not None:
-            layer = pygame.Surface(self.destSurf.get_size(), flags=pygame.HWSURFACE)
-            layer = layer.convert()
-            layer.fill(self.color)
-        else:
-            layer = pygame.Surface(self.destSurf.get_size(), flags=pygame.SRCALPHA|pygame.HWSURFACE, depth=32)
-            layer.convert_alpha()
-            layer.fill((0, 0, 0, 0))
-
-        return layer
-
-    def draw(self):
-        # Draw this surface to the defined drawSurface
-        self.destSurf.blit(self.surface, (0, 0))
-
-    def update(self, color):
-        self.color = color
-        self.surface.fill(self.color)
-
 def main():
     # Primatians - woo
     print "Running Python version:", sys.version
@@ -59,11 +24,6 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((800, 500), pygame.RESIZABLE)
     pygame.display.set_caption("Primatians  - A Nanho Games Production")
-
-
-    # make our background object
-    colorBackground = Color("darkolivegreen4")
-    backgroundLayer = DrawSurf(screen, colorBackground)
 
     clock = pygame.time.Clock()
     running = True
@@ -97,7 +57,6 @@ def main():
     shape.elasticity = 0.95
     space.add(body, shape)
     primates.append(shape)
-
 
 
     # Walls first
@@ -157,44 +116,11 @@ def main():
     s = pymunk.DampedRotarySpring(l_flipper_body, l_flipper_joint_body, -0.15, 20000000,900000)
     space.add(j, s)
 
-    # new flippers
 
-    fp = [(20,-20), (-120, 0), (20,20)]
-    #fp = [(120, 0), (120,-20),(-120,0)]
-    mass = 100
-    moment = pymunk.moment_for_poly(mass, fp)
-
-    # top-right flipper
-    tr_flipper_body = pymunk.Body(mass, moment)
-    tr_flipper_body.position = 750, 450
-    tr_flipper_shape = pymunk.Poly(tr_flipper_body, fp)
-    space.add(tr_flipper_body, tr_flipper_shape)
-
-    tr_flipper_joint_body = pymunk.Body()
-    tr_flipper_joint_body.position = tr_flipper_body.position
-    j = pymunk.PinJoint(tr_flipper_body, tr_flipper_joint_body, (0,0), (0,0))
-    #todo: tweak values of spring better
-    s = pymunk.DampedRotarySpring(tr_flipper_body, tr_flipper_joint_body, 0.15, 20000000,900000)
-    space.add(j, s)
-
-    # top-left flipper
-    tl_flipper_body = pymunk.Body(mass, moment)
-    tl_flipper_body.position = 50, 850
-    tl_flipper_shape = pymunk.Poly(tl_flipper_body, [(-x,y) for x,y in fp])
-    space.add(tl_flipper_body, tl_flipper_shape)
-
-    tl_flipper_joint_body = pymunk.Body()
-    tl_flipper_joint_body.position = tl_flipper_body.position
-    j = pymunk.PinJoint(tl_flipper_body, tl_flipper_joint_body, (0,0), (0,0))
-    s = pymunk.DampedRotarySpring(tl_flipper_body, tl_flipper_joint_body, -0.15, 20000000,900000)
-    space.add(j, s)
-
-
-    r_flipper_shape.group = l_flipper_shape.group = tr_flipper_shape.group = tl_flipper_shape.group = 1
-    r_flipper_shape.elasticity = l_flipper_shape.elasticity = tr_flipper_shape.elasticity = tl_flipper_shape.elasticity = 0.4
+    r_flipper_shape.group = l_flipper_shape.group = 1
+    r_flipper_shape.elasticity = l_flipper_shape.elasticity = 0.4
 
     # sprites
-    log_sprite = pygame.image.load('assets/wood_block1.png')
     ball_sprite = pygame.image.load('assets/banana-small.png')
     primate1_sprite = pygame.image.load('assets/primate2.png')
 
@@ -204,22 +130,10 @@ def main():
                 running = False
             elif event.type == KEYDOWN and event.key == K_ESCAPE:
                 running = False
-            elif event.type == KEYDOWN and event.key == K_j:
-                r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100,0))
-            elif event.type == KEYDOWN and event.key == K_f:
+            elif event.type == KEYDOWN and event.key == K_z:
                 l_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100,0))
-            elif event.type == KEYDOWN and event.key == K_g:
-                tl_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100,0))
-            elif event.type == KEYDOWN and event.key == K_h:
-                tr_flipper_body.apply_impulse(Vec2d.unit() * -40000, (-100,0))
-
-            if event.type == pygame.VIDEORESIZE:
-                screen_size = event.size
-                screen = pygame.display.set_mode(screen_size, pygame.RESIZABLE)
-                oldBg = backgroundLayer.surface.copy()
-                backgroundLayer = DrawSurf(screen, backgroundLayer.color)
-                backgroundLayer.surface.blit(oldBg, (0, 0))
-
+            elif event.type == KEYDOWN and event.key == K_x:
+                r_flipper_body.apply_impulse(Vec2d.unit() * 40000, (-100,0))
         # Draw
         # backgroundLayer.draw()
 
@@ -264,25 +178,23 @@ def main():
 
         r_flipper_body.position = 790, 10
         l_flipper_body.position = 10, 10
-        tr_flipper_body.position = 790, 490
-        tl_flipper_body.position = 10, 490
 
-        r_flipper_body.velocity = l_flipper_body.velocity = tr_flipper_body.velocity = tl_flipper_body.velocity = 0,0
+        r_flipper_body.velocity = l_flipper_body.velocity = 0,0
 
-        for f in [r_flipper_shape, l_flipper_shape, tr_flipper_shape, tl_flipper_shape,]:
+        for f in [r_flipper_shape, l_flipper_shape]:
             ps = f.get_points()
             ps.append(ps[0])
             ps = map(to_pygame, ps)
             color = THECOLORS["burlywood4"]
 
             # we need to rotate 180 degrees because of the y coordinate flip
-            angle_degrees = math.degrees(f.body.angle) + 180
-            rotated_logo_img = pygame.transform.rotate(log_sprite, angle_degrees)
-            offset = Vec2d(rotated_logo_img.get_size()) / 2.
-            x, y = f.get_points()[0]
-            p = Vec2d(x,y)
-            p = p - offset
-            screen.blit(log_sprite, p)
+            # angle_degrees = math.degrees(f.body.angle) + 180
+            # rotated_logo_img = pygame.transform.rotate(log_sprite, angle_degrees)
+            # offset = Vec2d(rotated_logo_img.get_size()) / 2.
+            # x, y = f.get_points()[0]
+            # p = Vec2d(x,y)
+            # p = p - offset
+            # screen.blit(log_sprite, p)
 
             #pygame.draw.lines(screen, color, False, ps)
             pygame.draw.polygon(screen,color,ps,0)
