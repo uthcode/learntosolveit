@@ -48,6 +48,18 @@ CPython Development Process
     * ./python -m test.regrtest -R 3:2 to check for refleaks
     * ./python -m test.regrtest --help to see all the options
     * ./python -m test -m testSourceAddress -Fv -j3 test_smtplib                                                                                          
+
+#) **Using coverage with python**
+
+    Download coveragepy and make a symlink within the python directory ``ln -s coveragepy/coverage``.
+    The execute coverage like this.::
+        
+        ./python -m coverage run --pylib Lib/test/regrtest.py
+
+     To get the html report.::
+
+        ./python -m coverage html -i --omit="*/test/*,*/tests/*"
+
                                                               
 Python Programming
 ------------------
