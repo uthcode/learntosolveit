@@ -59,3 +59,10 @@ Behaviourial Pattern
 
 * Visitor
 
+References
+----------
+
+* [http://code.activestate.com/recipes/86900/ Factory Example]
+* [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
+
+
