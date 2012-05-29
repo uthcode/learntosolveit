@@ -3276,6 +3276,12 @@ Links
 * Unicode objects by Fredrik Lundh
   http://effbot.org/zone/unicode-objects.htm
 
+Points
+======
+
+* It looks like a narrative needs a villian and people catch up fast on narratives.
+
+
 .. _Joel's article on Unicode: http://www.joelonsoftware.com/articles/Unicode.html 
 
 .. raw:: html
@@ -3291,3 +3297,5 @@ Links
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">Comments by <span class="logo-disqus">Disqus</span></a>
+
+
