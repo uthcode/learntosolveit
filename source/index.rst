@@ -16,6 +16,13 @@ engineering.
    python
    pythondesign
    pythonstart
+   pylons
+   pythonhttp
+   pythonnetworking
+   designpatterns
+   webpython
+   django
+   unicodenotes
    beingagooddeveloper
    pycon2009
    computerscience
@@ -42,10 +49,8 @@ engineering.
    paxos
    pylons
    restructuredtext
-   thanks
    techcourage
-   django
-   games
    go
    negotiating
    programmingchallenges
+   thanks
