@@ -1,5 +1,10 @@
-urllib 
-------
+=====================
+Python HTTP Libraries
+=====================
+
+------------
+urllib notes
+------------
 
 **functions**
 
@@ -657,7 +662,7 @@ normalization practices that are used.
 
 
 Use of namedtuple in py3k branch for urlparse.
-==============================================
+----------------------------------------------
 
 Dissecting urlparse:
 
@@ -873,7 +878,7 @@ Add the information on headers
 Header set Author "Senthil"
 
 Key difference between HTTP 1.0 and HTTP 1.1
-============================================
+--------------------------------------------
 
 Inspite of it's success, HTTP 1.0 is widely understood of have numerous flaws.
 HTTP 1.0 evolved from the original 0.9 version. HTTP 1.0 has never been
@@ -934,7 +939,7 @@ protocol.
 
 
 Browsers
-========
+--------
 
 The location of the resource is specified by the User using a URI.
 The rendering engine will start getting the contents from Networking layer.
@@ -945,7 +950,7 @@ Layout of the Render Tree.
 Painting the Render Tree.
 
 Links
-=====
+-----
 
 * http://stockrt.github.com/p/emulating-a-browser-in-python-with-mechanize/
 
