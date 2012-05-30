@@ -636,13 +636,11 @@ And then the images would be styled like so:
     <img src="object.gif" class="dropshadow" alt="The object casting a shadow" />
 
 
-- $(document).ready() is jQuery's version of window.onload()
-
-- $("img.dropshadow") tells jQuery to find all images with the class name
+* $(document).ready() is jQuery's version of window.onload()
+* $("img.dropshadow") tells jQuery to find all images with the class name
 "dropshadow". If you wanted to use an id instead, you could do something like
 $("img#dropshadow")
-
-- wrap() tells jQuery to use the DOM (Document Object Method Model) to wrap the
+* wrap() tells jQuery to use the DOM (Document Object Method Model) to wrap the
 images with the class="dropshadow" in the html inside the parenthesis.
 
 Exercise

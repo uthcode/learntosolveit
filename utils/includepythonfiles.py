@@ -35,7 +35,9 @@ template_value = """
 re_title = re.compile(r'\$Id:\s+([\w\.]*).*\n')
 re_rest = re.compile('"""(.*?)"""(.*)',re.DOTALL)
 
-uthcodepath = '/home/senthil/uthcode/'
+#uthcodepath = '/home/senthil/uthcode/'
+
+uthcodepath = '/las/dept/is/dev/skumaran/projects/uthcode/'
 
 date_file_list = []
 

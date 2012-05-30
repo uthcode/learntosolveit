@@ -1,3 +1,5 @@
+import pudb
+pudb.set_trace()
 class Myclass(object):
 
     def __init__(self, arg):

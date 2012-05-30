@@ -489,7 +489,7 @@ stocks, far more than it takes to buy them.
 I believe that investment courage is in short supply in the United States
 today, individually, institutionally, and nationally. Our collective failures
 of courage are, I believe, the cause of our decreasing economic success
-vis-à-vis our international competition. Long-term projects take more courage
+vis-a-vis our international competition. Long-term projects take more courage
 than short-term ones because the greater uncertainty of the distant future
 seems riskier, whether or not it really is. Our industrial and governmental
 institutions are not, I believe, making the courageous long-term investments
@@ -632,9 +632,9 @@ complex computer program and make it work. My warm-up project encouraged me to
 go on to the larger programming task involved in thesis work [7] and it
 encouraged my sponsors to support the more complex project. My point is that a
 warm-up project not only teaches, but also encourages. Some universities,
-including MIT, even require a Master's thesis, a formal warm-up project,
-before the student embarks on a Ph.D. Remember, "programs are like pancakes­
-throw the first one away." 
+including MIT, even require a Master's thesis, a formal warm-up project, before
+the student embarks on a Ph.D. Remember, "programs are like pancakes throw the
+first one away." 
 
 **3.4 Procedures**
 
