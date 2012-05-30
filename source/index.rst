@@ -7,50 +7,85 @@
 Uthcode Docs
 ============
 
+General
+=======
+
 Notes from Computer Science subjects and articles on programming and software
 engineering.
 
+
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+
+   quotes
+   philosophy
+   beingagooddeveloper
+   techcourage
+   discipline-score
+   projectideas
+   thanks
+   resume
+
+Python
+======
+
+.. toctree::
+   :maxdepth: 2
 
    python
    pythondesign
+   designpatterns
    pythonstart
-   pylons
    pythonhttp
    pythonnetworking
-   designpatterns
-   webpython
-   django
-   unicodenotes
-   beingagooddeveloper
-   pycon2009
+
+Computer Science
+================
+
+.. toctree::
+   :maxdepth: 2
+
    computerscience
    Alice_Programming
-   quotes
-   discipline-score
-   finance
+   unicodenotes
+   paxos
+   topcoder
+   programmingchallenges
+
+Languages
+=========
+
+.. toctree::
+   :maxdepth: 2
+
+   cpp
    html
    javascript
-   perl
-   philosophy
-   projectideas
-   ratpoison
-   resume
-   topcoder
-   ubuntu
-   versioncontrol
-   vim
-   appengine
-   cpp
-   lastlayer
-   mako
    node
-   paxos
-   pylons
-   restructuredtext
-   techcourage
    go
-   negotiating
-   programmingchallenges
-   thanks
+   perl
+
+Software
+========
+
+.. toctree::
+   :maxdepth: 2
+
+   vim
+   restructuredtext
+   mako
+   ratpoison
+   versioncontrol
+   ubuntu
+
+Web Frameworks
+==============
+
+.. toctree::
+   :maxdepth: 2
+
+   pylons
+   webpython
+   django
+   pycon2009
+   appengine
