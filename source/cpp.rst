@@ -4,7 +4,6 @@ C++ Programming
 
 
 Questions
-=========
 
 #) What are Virtual Tables?
 

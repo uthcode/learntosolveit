@@ -7,11 +7,16 @@
 Uthcode Docs
 ============
 
+Welcome to Uthcode Docs! You will find notes on Computer Science subjects,
+articles on programming, software enginering and business. Stay updated via
+`Uthcode blog`_
+
+.. _Uthcode blog: http://blog.uthcode.com
+
+
 General
 =======
 
-Notes from Computer Science subjects and articles on programming and software
-engineering.
 
 
 .. toctree::
