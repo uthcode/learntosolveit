@@ -1,65 +1,17 @@
-=========================================
-Technology and Courage by Ivan Sutherland
-=========================================
+======================
+Technology and Courage 
+======================
 
-**About the author**
+---------------------
+by `Ivan Sutherland`_
+---------------------
 
-::
+.. rubric::  This is my favorite essay and I have it here verbatim to read and re-read. Here is the original_
 
-    |copy| Copyright 1996 Sun Microsystems, Inc. Perspectives, a new and
-    parallel series to the Sun Microsystems Laboratories Technical Report
-    Series, is published by Sun Microsystems Laboratories, a division of Sun
-    Microsystems, Inc. Printed in U.S.A. Unlimited copying without fee is
-    permitted provided that the copies are not made nor distributed for direct
-    commercial advantage, and credit to the source is given. Otherwise, no part
-    of this work covered by copyright hereon may be reproduced in any form or
-    by any means graphic, electronic, or mechanical, including photocopying,
-    recording, taping, or storage in an information retrieval system, without
-    the prior written permission of the copyright owner. TRADEMARKS Sun, Sun
-    Microsystems, and the Sun logo are trademarks or registered trademarks of
-    Sun Microsystems, Inc. UNIX is a registered trademark in the United States
-    and other countries, exclusively licensed through X/Open Company, Ltd. All
-    SPARC trademarks, including the SCD Compliant Logo, are trademarks or
-    registered trademarks of SPARC International, Inc. SPARCstation,
-    SPARCserver, SPARCengine, SPARCworks, and SPARCompiler are licensed
-    exclusively to Sun Microsystems, Inc. All other product names mentioned
-    herein are the trademarks of their respective owners. For information
-    regarding the SunLabs Perspectives Series, contact Jeanie Treichel,
-    Editor-in-Chief <jeanie.treichel@eng.sun.com>. For distribution issues,
-    contact Amy Tashbook Hall, Assistant Editor <amy.hall@eng.sun.com>.
+.. _Ivan Sutherland:  http://en.wikipedia.org/wiki/Ivan_Sutherland
+.. _original: http://labs.oracle.com/techrep/Perspectives/smli_ps-1.pdf
 
-
-Editor's Notes
---------------
-
-*About the series*
-
-Perspectives series is a collection of essays written by individuals -- The
-from Sun Microsystems Laboratories. These essays express ideas and opinions
-held by the authors on subjects of general rather than technical interest. Sun
-Microsystems Laboratories publishes these essays as a courtesy to the authors
-to share their views with interested friends and colleagues. The opinions and
-views expressed herein are solely those of the authors, and do not in any way
-represent those of Sun Microsystems Laboratories, nor Sun Microsystems, Inc.
-
-About the author 
-----------------
-
-Dr. Ivan E. Sutherland recently won the prestigious Price Waterhouse --
-Information Technology Leadership Award for Lifetime Achievement, as well as an
-honored place in the Smithsonian's Permanent Collection of Information
-Technology (IT) Innovation. He is widely known for his pioneering contributions
-in the field of computer graphics. His 1963 MIT Ph.D. thesis, Sketchpad, first
-demonstrated the potential of computer graphics. In his work on a head-mounted
-three-dimensional display at Harvard in the mid '60s, Ivan anticipated today's
-virtual reality by 25 years. He is co-founder of Evans and Sutherland, which
-produces the most advanced computer image generators now in use. As head of the
-Computer Science Department at Caltech, he helped make integrated circuit
-design an acceptable field of academic study. Dr. Sutherland is a member of
-both the National Academy of Engineering and the National Academy of Sciences.
-He received the ACM Turing Award in 1988 and holds several honorary degrees. 
-
-In this paper, his spirit and joy are revealed.
+In this paper, the author's spirit and joy are revealed thus.
 
 *I, for one, am and will always remain a practicing technologist. When
 denied my minimum daily adult dose of technology, I get grouchy. I believe
@@ -69,40 +21,36 @@ turned down several lucrative administrative jobs because they would deny
 me that fun. If the technology you do isn't fun for you, you may wish to
 seek other employment.  Without the fun, none of us would go on.*
 
-Notes from the Author
----------------------
+**Notes from the Author**
 
 This paper is essentially the text of a lecture I gave at Carnegie Mellon
 University in 1982. It was the first, and nearly the only, non-technical
-lecture I have ever given. At the time, I was deeply concerned that the ideas
-I expressed would be of little interest or value. This paper was eventually
+lecture I have ever given. At the time, I was deeply concerned that the ideas I
+expressed would be of little interest or value. This paper was eventually
 published in the Carnegie Mellon University Computer Science 25th Anniversary
-Commemorative [15]. Continuing demand for informal copies suggests that
-people, especially young people, may garner value from it. Perhaps experience
-has something to offer youth. As I read this paper again for the first time in
-many years, it brought me face to face with my own latest failures of courage.
+Commemorative [15]. Continuing demand for informal copies suggests that people,
+especially young people, may garner value from it. Perhaps experience has
+something to offer youth. As I read this paper again for the first time in many
+years, it brought me face to face with my own latest failures of courage.
 Sadly, I have no more courage now than I had then, no better insight into
-failures of courage, and no new ways to bolster courage. I was able to add
-only citations to subsequently published work. Sun Microsystems Laboratories
-reprints this paper with permission of the ACM press as a courtesy to those
-who may wish a copy. The ideas are my own and represent no official position
-of Sun Microsystems, Inc. or Carnegie Mellon University. The text is also
-available on the World Wide Web. You may reproduce this document for any
-not-for-profit purpose. Reproduction for profit or where a royalty is paid to
-anyone requires prior permission from the author.
+failures of courage, and no new ways to bolster courage. I was able to add only
+citations to subsequently published work. Sun Microsystems Laboratories
+reprints this paper with permission of the ACM press as a courtesy to those who
+may wish a copy. The ideas are my own and represent no official position of Sun
+Microsystems, Inc. or Carnegie Mellon University. The text is also available on
+the World Wide Web. You may reproduce this document for any not-for-profit
+purpose. Reproduction for profit or where a royalty is paid to anyone requires
+prior permission from the author.
 
-Ivan Sutherland Mountain View, CA December 1995
+:Author:  Ivan Sutherland
+:Address: Mountain View, CA December 1995
+
 
 Technology and Courage
 ======================
 
-Ivan Sutherland
-===============
-
-Sun Microsystems Laboratories 2550 Garcia Avenue Mountain View, California 94043
-
-1 Introduction
---------------
+Introduction
+------------
 
 Sutherland is a Scottish name. My ancestors came from the northernmost county
 in Scotland, called Sutherlandshire, a land where cows grow long hair against
@@ -136,7 +84,8 @@ experience to draw on, this will be an intensely personal talk, revealing of my
 own failures of courage. I ask you to apply to yourselves any lessons you may
 learn. 
 
-**1.1 What is Courage?**
+What is Courage?
+................
 
 Many activities require courage, a human trait we find admirable. We admire the
 courage required to explore a wilderness and so great explorers become famous:
@@ -158,7 +107,8 @@ fact, too thin for safety. Courage is required only of a person who proceeds to
 rescue the child in full knowledge that the ice is thin.
 
 
-**1.2 Courage in Technology**
+Courage in Technology
+.....................
 
 Exploring the horizons of technology requires courage because research carries
 risks, even if we cannot always articulate them in advance. Generally they are
@@ -178,7 +128,8 @@ of research starts with the high probability that any particular attempt will
 fail and follows from the resulting experience of repeated failure. Research
 carries a special risk of discouragement. 
 
-**1.3 Failures of Courage**
+Failures of Courage
+...................
 
 When you have inadequate courage for a task, you can work up your courage,
 reduce the real risk, reduce your perception of the risk, or leave the task
@@ -194,44 +145,44 @@ own, and that by doing so you may be better able to face the difficult
 challenges technology offers.
 
 
-2 External Encouragement
-------------------------
+External Encouragement
+----------------------
 
 Because individuals are often unable to get things done without encouragement,
 society has devised many forms of encouragement. There are rewards of money,
 fame, acclaim, recognition, status, or love. Prizes, statues, certificates,
-medals, and honorary titles are some of the adult equivalents of the gold
-stars we got as children for good work. Large offices, with carpets, maybe
-with windows, and with or without a flag or fancy plants in them are also
-symbols of status. There are also punishments for inaction. Often we formalize
-such rewards and punishments in the form of written or unwritten contracts.
+medals, and honorary titles are some of the adult equivalents of the gold stars
+we got as children for good work. Large offices, with carpets, maybe with
+windows, and with or without a flag or fancy plants in them are also symbols of
+status. There are also punishments for inaction. Often we formalize such
+rewards and punishments in the form of written or unwritten contracts.
 Contracts often contain deadlines. Deadlines help inspire us to extra effort
 because the task must be done on time. In some research, deadlines are
-absolute: a space mission to study Halley's Comet must be launched on time,
-but softer, self imposed deadlines are also useful for raising the urgency of
+absolute: a space mission to study Halley's Comet must be launched on time, but
+softer, self imposed deadlines are also useful for raising the urgency of
 tasks.
 
-An architect friend of mine taught me the word "charette," meaning the
-feverish activity immediately preceding a deadline. The term comes from the
-French name for the horsedrawn carts in Paris that carried architectural
-students with their architectural models from their workshops to their
-examinations, still feverishly finishing the models "en charette." In the
-vernacular English we can speak of "having a charette," and, of course, there
-is a verb form: "charetting it up." Without a deadline there can be no
-charette. A designer friend of mine is completely unable to function without a
-deadline to work against. Several times I have asked him to do simple tasks
-for me, designing a letterhead, for example, "when he had time." Until I
-figured out that he works only against a deadline, I got no result at all. Now
-I ask him for something by a particular date and he usually delivers on time.
-Evidently, he can work only "en charette." 
+An architect friend of mine taught me the word "charette," meaning the feverish
+activity immediately preceding a deadline. The term comes from the French name
+for the horsedrawn carts in Paris that carried architectural students with
+their architectural models from their workshops to their examinations, still
+feverishly finishing the models "en charette." In the vernacular English we can
+speak of "having a charette," and, of course, there is a verb form: "charetting
+it up." Without a deadline there can be no charette. A designer friend of mine
+is completely unable to function without a deadline to work against. Several
+times I have asked him to do simple tasks for me, designing a letterhead, for
+example, "when he had time." Until I figured out that he works only against a
+deadline, I got no result at all. Now I ask him for something by a particular
+date and he usually delivers on time.  Evidently, he can work only "en
+charette." 
 
-The fellowship of people in groups offers encouragement. Groups of
-people will even do things that single individuals wouldn't do; lynchings and
-riots are an extreme form of this. Group activities seem easier. Boards and
-committees share not only knowledge, but also responsibility, and thus increase
-their participants' willingness to undertake risk. Moreover, the fellowship of
-such groups makes working more fun. Is this because man is a social animal, or
-is this why we call man a social animal? I always thought that working with a
+The fellowship of people in groups offers encouragement. Groups of people will
+even do things that single individuals wouldn't do; lynchings and riots are an
+extreme form of this. Group activities seem easier. Boards and committees share
+not only knowledge, but also responsibility, and thus increase their
+participants' willingness to undertake risk. Moreover, the fellowship of such
+groups makes working more fun. Is this because man is a social animal, or is
+this why we call man a social animal? I always thought that working with a
 partner or with a few colleagues was better than working alone, in part because
 I can rarely think about difficult subjects without verbalizing them to someone
 else. I like to collaborate with someone to whom I can express my ideas, even
@@ -240,23 +191,23 @@ my companies bear witness to my need to collaborate: the Evans and Sutherland
 Computer Company and Sutherland, Sproull, and Associates, Inc. I owe much to my
 partners in these enterprises. 
 
-**2.1 Encouragement in Academia**
+Encouragement in Academia
+.........................
 
 One of the beauties of a university such as Carnegie Mellon University is that
 it abounds with mechanisms to encourage people to do research. Some of these,
-like formal classes, reduce the risk of learning new things. Some of them,
-like observing other people at work on other research tasks, can bolster a
-graduate student's courage to do likewise. Others, like the traditional
-academic tolerance of nonconformity, reduce the social risk of entertaining
-new ideas.  The university provides mentors. My former student, Dan Cohen,
-called me for advice nearly 15 years after getting his Ph.D., asserting that
-he wanted counsel from his "faculty advisor." I demurred, claiming that I had
-stopped being his advisor more than a dozen years ago. Not so, he said, "it's
-a tenured position." Because attachments between students and faculty become
-strong, contact with the mentors provided by the university is valuable
-indeed, almost as valuable as contact with students. I have learned far more
-from my students and gained more pleasure from them than I have ever offered
-in return. 
+like formal classes, reduce the risk of learning new things. Some of them, like
+observing other people at work on other research tasks, can bolster a graduate
+student's courage to do likewise. Others, like the traditional academic
+tolerance of nonconformity, reduce the social risk of entertaining new ideas.
+The university provides mentors. My former student, Dan Cohen, called me for
+advice nearly 15 years after getting his Ph.D., asserting that he wanted
+counsel from his "faculty advisor." I demurred, claiming that I had stopped
+being his advisor more than a dozen years ago. Not so, he said, "it's a tenured
+position." Because attachments between students and faculty become strong,
+contact with the mentors provided by the university is valuable indeed, almost
+as valuable as contact with students. I have learned far more from my students
+and gained more pleasure from them than I have ever offered in return. 
 
 Formal Mechanisms Among university classes, I find the study seminar most
 interesting for several reasons. Such a seminar gathers together a group with
@@ -272,16 +223,15 @@ way to help new graduate students get started.
 It forces them to learn about what facilities are available, it gives them the
 opportunity to meet and get to know the people they may work with, and it
 introduces them to the existing research projects. By providing a broad range
-of background knowledge and forcing the students to do a small warm-up
-project, it not only reduces the risk of learning what equipment is available
-and how to use it, but it also builds confidence. I applaud the makers of the
-immigration course for finding such an effective way to launch would-be
-researchers. The university also offers formal mechanisms to encourage
-graduate students to keep going when the going gets tough. One of these in
-Computer Science at Carnegie Mellon University is called Black Friday. As I
-understand it, Black Friday is a knock-down-drag-out meeting of the faculty at
-which each and every graduate student is individually discussed to detect
-those making inadequate progress.
+of background knowledge and forcing the students to do a small warm-up project,
+it not only reduces the risk of learning what equipment is available and how to
+use it, but it also builds confidence. I applaud the makers of the immigration
+course for finding such an effective way to launch would-be researchers. The
+university also offers formal mechanisms to encourage graduate students to keep
+going when the going gets tough. One of these in Computer Science at Carnegie
+Mellon University is called Black Friday. As I understand it, Black Friday is a
+knock-down-drag-out meeting of the faculty at which each and every graduate
+student is individually discussed to detect those making inadequate progress.
 
 The laggards are then given formal notice to move forward or leave. By
 increasing the risk of inaction, the threat of Black Friday forces students to
@@ -293,44 +243,46 @@ does than that he do something. If the first two or three things don't work
 out, you can always switch to another group or another project. The key thing
 is to get involved in something, get some basic knowledge, and get started. 
 
-**2.3 Talking and Writing**
+Talking and Writing
+...................
 
-A thesis proposal can provide a starting mechanism for a thesis project: it
-can serve as a guide to the proposed research. It indicates that some thought
-has gone into what to do, even though the real work may not yet have started.
-Most important, the thesis proposal can serve as a point of discussion between
+A thesis proposal can provide a starting mechanism for a thesis project: it can
+serve as a guide to the proposed research. It indicates that some thought has
+gone into what to do, even though the real work may not yet have started.  Most
+important, the thesis proposal can serve as a point of discussion between
 proposers and their advisors, both formal faculty advisors and student
 colleagues. Accepting the thesis proposal is in and of itself a way for the
 faculty to encourage a student to get on with the work. All too often, thesis
 proposals are an afterthought to research already done, becoming at best an
 outline of the thesis document. I far prefer them earlier as a guide to the
-research itself. Academia provides mechanisms to encourage publication of
-which the strongest one is known as "publish or perish." A new, untenured
-faculty member must obtain tenure or leave the university after a fixed period
-of time, but to obtain tenure one must publish. A journal editor I know once
-remarked that she sits on the tenure committee of every university in the
-country.  Tenure itself can be encouraging. A young and talented friend of
-mine, a computer scientist by training and a tenured professor of Computer
-Science at a major institution, has recently become interested in combustion.
-He commented to me recently that he feels guilty for pursuing studies so far
-outside his departmental boundary. I hope you share my feeling that he should
-follow his interests exactly where they lead. That is, after all, precisely
-what tenure should encourage him to do. Universities also provide a host of
-places where talking about research is easy. Seminars provide a knowledgeable
-and usually friendly audience for new ideas. By providing peer pressure to
-participate and share results, seminars can encourage students to practice
-talking about their work. Even in an informal seminar, the first few
-presentations take an extra batch of courage, but with practice comes
-familiarity and skill, a better assessment of the minimal risk, and increasing
-comfort. I have often seen student speakers literally shake before and during
-their talks. Practice in teaching is a good way to learn how to present ideas
-to groups. Graduate student teachers not only staff undergraduate classes, but
-also learn to speak in public. One hopes that they do not damage the
-undergraduate students too badly. Practice in writing is also valuable,
-starting in high school or undergraduate English classes. All too often
-technical writing has to be a part of graduate education. 
+research itself. Academia provides mechanisms to encourage publication of which
+the strongest one is known as "publish or perish." A new, untenured faculty
+member must obtain tenure or leave the university after a fixed period of time,
+but to obtain tenure one must publish. A journal editor I know once remarked
+that she sits on the tenure committee of every university in the country.
+Tenure itself can be encouraging. A young and talented friend of mine, a
+computer scientist by training and a tenured professor of Computer Science at a
+major institution, has recently become interested in combustion.  He commented
+to me recently that he feels guilty for pursuing studies so far outside his
+departmental boundary. I hope you share my feeling that he should follow his
+interests exactly where they lead. That is, after all, precisely what tenure
+should encourage him to do. Universities also provide a host of places where
+talking about research is easy. Seminars provide a knowledgeable and usually
+friendly audience for new ideas. By providing peer pressure to participate and
+share results, seminars can encourage students to practice talking about their
+work. Even in an informal seminar, the first few presentations take an extra
+batch of courage, but with practice comes familiarity and skill, a better
+assessment of the minimal risk, and increasing comfort. I have often seen
+student speakers literally shake before and during their talks. Practice in
+teaching is a good way to learn how to present ideas to groups. Graduate
+student teachers not only staff undergraduate classes, but also learn to speak
+in public. One hopes that they do not damage the undergraduate students too
+badly. Practice in writing is also valuable, starting in high school or
+undergraduate English classes. All too often technical writing has to be a part
+of graduate education. 
 
-**2.4 Informal Interactions**
+Informal Interactions
+.....................
 
 One of the difficult lessons of graduate school is the lesson of autonomy from
 the faculty. At first, a graduate student may feel unable to question his
@@ -339,13 +291,12 @@ take his place as a researcher in their ranks. Graduate school is the place
 where the distinction between mentor and student begins to blur, and faculty
 and graduate students become colleagues.
 
-Informal interaction between students and faculty helps students join the
-ranks of full-fledged researchers. I recall playing with blocks at Claude
-Shannon's house when he was my thesis supervisor. Although at the time I
-thought of it as recreation, and he may also have, it provided me with courage
-because I saw his less daunting facets, his human side. He became my friend as
-well as supervisor, and this made him more approachable and raised my
-confidence.
+Informal interaction between students and faculty helps students join the ranks
+of full-fledged researchers. I recall playing with blocks at Claude Shannon's
+house when he was my thesis supervisor. Although at the time I thought of it as
+recreation, and he may also have, it provided me with courage because I saw his
+less daunting facets, his human side. He became my friend as well as
+supervisor, and this made him more approachable and raised my confidence.
 
 Universities encourage informal social interactions. Although some social
 functions may seem to be just for play, they help us get to know each other,
@@ -362,7 +313,8 @@ projects. Sometimes their sponsors withdraw support and sometimes their peers
 suggest change. More often, however, academics continue working on old things,
 turning away only when they find newer and more interesting projects. 
 
-**2.5 Encouragement in Business**
+Encouragement in Business
+.........................
 
 A person with the courage to start a new business is called an entrepreneur.
 When I was a child, my parents offered high praise for he who was
@@ -371,24 +323,24 @@ venture capital, I have observed many ways that entrepreneurs work up their
 courage to the point where they are ready to start a business. The most
 important formal mechanism, nominally intended to present the prospects of the
 business to the financial community, is called the business plan. A business
-plan is very much like a thesis proposal. It says what its proponents intend
-to do, what they plan to spend, what competition they expect, and what return
-they anticipate. Its preparation requires that the entrepreneurs do the basic
-work that is needed to assess the business risks.  Its approval encourages the
-entrepreneurs to begin by providing not only the capital required, but also
-the moral encouragement of the supporting investors.  In effect, the business
-plan records the entrepreneur's estimate of the thickness of the ice. The
-financial backers of an enterprise back it only after examining its prospects
-with "due diligence."
+plan is very much like a thesis proposal. It says what its proponents intend to
+do, what they plan to spend, what competition they expect, and what return they
+anticipate. Its preparation requires that the entrepreneurs do the basic work
+that is needed to assess the business risks.  Its approval encourages the
+entrepreneurs to begin by providing not only the capital required, but also the
+moral encouragement of the supporting investors.  In effect, the business plan
+records the entrepreneur's estimate of the thickness of the ice. The financial
+backers of an enterprise back it only after examining its prospects with "due
+diligence."
 
 Sometimes it seems to me that a plan is so obviously timely and the
-entrepreneur's ability so obviously great that little further diligence is
-due.  My venture capital friends, however, often forget what "due" means, and
-treat due diligence as if it were a single noun denoting the collection of
-paper that justifies investment in the business. They may say, "let us gather
-some due diligence," and they have files of due diligence. It seems to take
-due diligence about one inch thick per million dollars invested. Ultimately,
-the financial backers of a new business must express their faith in the
+entrepreneur's ability so obviously great that little further diligence is due.
+My venture capital friends, however, often forget what "due" means, and treat
+due diligence as if it were a single noun denoting the collection of paper that
+justifies investment in the business. They may say, "let us gather some due
+diligence," and they have files of due diligence. It seems to take due
+diligence about one inch thick per million dollars invested. Ultimately, the
+financial backers of a new business must express their faith in the
 entrepreneurs and have the courage to invest. They should exercise due
 diligence in making their own estimate of the thickness of the ice. Although
 business plans are rarely followed in any great detail, they are nevertheless
@@ -404,11 +356,12 @@ Fortunately for our society, our collective courage keeps us trying, even
 trying things that prove imprudent. Were we a more cautious lot, a much slower
 pace of scientific and industrial progress would prevail. If you don't fail
 regularly you are not trying hard enough things. The trouble, of course, is
-that it is emotionally much harder to restart after a failure because the
-risks seem clearer. This may be why the energy and enthusiasm of youth are so
+that it is emotionally much harder to restart after a failure because the risks
+seem clearer. This may be why the energy and enthusiasm of youth are so
 important in research and in new businesses. 
 
-**2.7 Business Incentives**
+Business Incentives
+...................
 
 Our system of capitalist free enterprise provides equity incentives. It is
 amazing to me how effectively stock ownership motivates hard work, and more
@@ -456,7 +409,8 @@ humor at board meetings. It may be that the number of jokes told at board
 meetings is an important, albeit unreported, leading indicator of the business
 climate.
 
-**2.8 Stopping a Business**
+Stopping a Business
+...................
 
 Unlike academia, the capitalist system of free enterprise provides a very
 clear mechanism to detect when to stop, namely lack of profits. Businesses
@@ -484,7 +438,8 @@ course, is deciding which are not to be winners. It takes courage to sell
 stocks, far more than it takes to buy them.
 
 
-**2.9 Investment Courage**
+Investment Courage
+..................
 
 I believe that investment courage is in short supply in the United States
 today, individually, institutionally, and nationally. Our collective failures
@@ -492,30 +447,30 @@ of courage are, I believe, the cause of our decreasing economic success
 vis-a-vis our international competition. Long-term projects take more courage
 than short-term ones because the greater uncertainty of the distant future
 seems riskier, whether or not it really is. Our industrial and governmental
-institutions are not, I believe, making the courageous long-term investments
-in education, training, research, development, equipment, and infrastructure
-required for long-term economic strength, and as a direct result, we are
-losing a global economic war. One reason for the shortsightedness of business
-in the Unted States today is that the profit sharing plans for executives
-consider only immediate profit and not longterm growth. Another reason for
-business shortsightedness is that the judgement of shareholders about winners
-and losers is based on quarterly results instead of long-term gains. Are you
-aware for example, that although the trading rate on the New York Stock
-Exchange is slow enough to turn over all of the securities represented in
-about two years,1 many companies trade rapidly enough to turn over in six
-months or less? I am particularly offended that pension fund holdings turn
-over quite quickly even though pension funds, above all, should take a
-long-term view. We seem unable to make the long-term investments required for
-economic strength. Is this because, as some say, our cost of capital is too
-high? John Maynard Keynes showed that investment decisions are largely
-independent of the cost of capital, but depend only on expectations of future
-return. Is our inability to face long-term investment related to our
-uncertainty about the future of a world harboring nuclear weapons? It can't
-be, for other nations make long-term investments. Is our inability to face
-long-term investment related to our ethnic diversity, our view of an end to
-our abundant supply of raw materials, or is it a symptom of a general
-breakdown in family values? I don't know the reasons, but the facts seem
-plain: we lack courage, and nations with more courage are eating our lunch.
+institutions are not, I believe, making the courageous long-term investments in
+education, training, research, development, equipment, and infrastructure
+required for long-term economic strength, and as a direct result, we are losing
+a global economic war. One reason for the shortsightedness of business in the
+Unted States today is that the profit sharing plans for executives consider
+only immediate profit and not longterm growth. Another reason for business
+shortsightedness is that the judgement of shareholders about winners and losers
+is based on quarterly results instead of long-term gains. Are you aware for
+example, that although the trading rate on the New York Stock Exchange is slow
+enough to turn over all of the securities represented in about two years,1 many
+companies trade rapidly enough to turn over in six months or less? I am
+particularly offended that pension fund holdings turn over quite quickly even
+though pension funds, above all, should take a long-term view. We seem unable
+to make the long-term investments required for economic strength. Is this
+because, as some say, our cost of capital is too high? John Maynard Keynes
+showed that investment decisions are largely independent of the cost of
+capital, but depend only on expectations of future return. Is our inability to
+face long-term investment related to our uncertainty about the future of a
+world harboring nuclear weapons? It can't be, for other nations make long-term
+investments. Is our inability to face long-term investment related to our
+ethnic diversity, our view of an end to our abundant supply of raw materials,
+or is it a symptom of a general breakdown in family values? I don't know the
+reasons, but the facts seem plain: we lack courage, and nations with more
+courage are eating our lunch.
 
 In 1990 there were 83,605,000,000 shares represented on the exchange with a
 total capital value of about $2,814,429,000,000. About 150,000,000 shares trade
@@ -528,8 +483,8 @@ governmental investment in the intellectual infrastructure of an educated
 populace confident of the long-term future. We have become a "now" nation to
 the extent of jeopardizing our future.
 
-3 Self Encouragement
---------------------
+Self Encouragement
+------------------
 
 So much for the institutional mechanisms for helping courage surmount risk. Now
 let me turn to some more personal ones. I offer the confession that I feel both
@@ -548,7 +503,8 @@ need for it and by describing some symptoms of its failure. I will offer some
 ways to reduce your need for courage, to marshal what courage you can muster,
 and to husband your store of it. 
 
-**3.1 Courage to Start**
+Courage to Start
+................
 
 It's often hard to get started. I always find it hard to start a lecture and so
 I cover my difficulty by telling a story. I select a story in advance, one that
@@ -563,7 +519,8 @@ started as a reluctance to overcome those risks. Recognizing that it takes
 courage to get started may help in identifying the excuses you have as excuses,
 and not reasons. 
 
-**3.2 What it Feels Like to Me**
+What it Feels Like to Me
+........................
 
 I feel many different risks in getting started. One common one is that, being
 ignorant in the new field, I will make a fool of myself. Many years ago when I
@@ -607,7 +564,8 @@ courage to learn a new computer program--you face the risk of frustration at
 least, and seeming stupid if you ask dumb questions. By the way, for some time
 now I have been far too busy to learn "Excel." 
 
-**3.3 Overcoming Risks**
+Overcoming Risks
+................
 
 One start-up aid I have often used is ignorance; to use this approach I avoid
 ever measuring the thickness of the ice. I have often been told that it was a
@@ -636,7 +594,8 @@ including MIT, even require a Master's thesis, a formal warm-up project, before
 the student embarks on a Ph.D. Remember, "programs are like pancakes throw the
 first one away." 
 
-**3.4 Procedures**
+Procedures
+..........
 
 I used to hate washing dishes. I would delay as long as possible. Eyeing the
 daunting pile of dishes, I would say to myself, "I'll be here forever at this
@@ -654,87 +613,88 @@ being taught to the young. Discipline relies on a practiced use of routine
 subgoals to avoid defeat by fear. Its highest form comes when the Lieutenant,
 charging up a heavily defended hill, says, "Follow me men!"--and they do. 
 
-**3.5 Courage to Go On**
+Courage to Go On
+................
 
 "When the going gets tough, the tough go shopping," is the caption to a cartoon
 mocking all inveterate shoppers. Its humor comes from our certainty that when
 the going gets tough, it takes courage to go on rather than to go shopping.
 
-**3.6 What it Feels Like to Me**
+What it Feels Like to Me
+........................
 
 When I get bogged down in a project, the failure of my courage to go on never
-feels to me like a failure of courage, but always feels like something
-entirely different. One such feeling is that my research isn't going anywhere
-anyhow, it isn't that important. Another feeling involves the urgency of
-something else. I have come to recognize these feelings as "who cares" and
-"the urgent drives out the important." For me, the urgent often takes the form
-of a crowded desk that must be cleared. All those letters to write, a
-timesheet to bring up to date, bills to pay, checkbook to balance, personal
-computer disk to back up, and a host of other easy little routine tasks are
-available to help me avoid the difficult big task at hand. Another sense I
-have is of the abundance of time remaining to think about the major research
-task; after all, the due date for my report is a year or more away.  The other
-tasks with closer time horizons seem more urgent and thus should get more
-attention. I cower behind my routine little tasks to avoid the risks of
-failure associated with working on my main projects. If your research feels
-less important than other tasks, examine your courage. Your research may
-indeed be unimportant, and it's OK to abandon projects as unsuccessful. In
-fact, I believe it takes courage to abandon projects. To remain in research,
-however, you must substitute some other research task for the abandoned one
-and not simply involve yourself in trivia, however urgent. When examined
-critically, the urgency of the little tasks is never so great as I suppose,
-nor is the risk of the big tasks so overwhelming. Many successful researchers
-recognize that and refuse to let the urgent drive out the important: Alan
-Newell of Carnegie Mellon University and Fred Brooks of the University of
-North Carolina come to my mind as examples; they share an admirable ability to
-decline trivia. 
+feels to me like a failure of courage, but always feels like something entirely
+different. One such feeling is that my research isn't going anywhere anyhow, it
+isn't that important. Another feeling involves the urgency of something else. I
+have come to recognize these feelings as "who cares" and "the urgent drives out
+the important." For me, the urgent often takes the form of a crowded desk that
+must be cleared. All those letters to write, a timesheet to bring up to date,
+bills to pay, checkbook to balance, personal computer disk to back up, and a
+host of other easy little routine tasks are available to help me avoid the
+difficult big task at hand. Another sense I have is of the abundance of time
+remaining to think about the major research task; after all, the due date for
+my report is a year or more away.  The other tasks with closer time horizons
+seem more urgent and thus should get more attention. I cower behind my routine
+little tasks to avoid the risks of failure associated with working on my main
+projects. If your research feels less important than other tasks, examine your
+courage. Your research may indeed be unimportant, and it's OK to abandon
+projects as unsuccessful. In fact, I believe it takes courage to abandon
+projects. To remain in research, however, you must substitute some other
+research task for the abandoned one and not simply involve yourself in trivia,
+however urgent. When examined critically, the urgency of the little tasks is
+never so great as I suppose, nor is the risk of the big tasks so overwhelming.
+Many successful researchers recognize that and refuse to let the urgent drive
+out the important: Alan Newell of Carnegie Mellon University and Fred Brooks of
+the University of North Carolina come to my mind as examples; they share an
+admirable ability to decline trivia. 
 
-**3.7 Overcoming Risks**
+Overcoming Risks
+................
 
-The inability to produce a new idea is a special risk in research. I have
-found that a change of scene helps to gel my thoughts on a new subject. I
-escape from the local pressures by going far away in an airplane, or not so
-far to a quiet library, or even closer to the seclusion of my study,
-particularly early in the morning. The important thing about all these
-retreats for me is that I can cast aside the urgent problems; the phone won't
-ring, the checkbook can't be balanced, and I can focus on my larger tasks with
-a fresh mind. After each of two extended "vacations" in Australia, I returned
-with patentable ideas [8, 9], and on a third such trip developed a new
-algorithm for building vector quantization code books [13]. I sometimes
-jokingly start out describing these ideas by saying, "When I was lying on the
-beach..." The combination of a change of location, rest, and lack of
-distraction seems to be effective for me. Some universities formalize such
-changes as sabbatical leave.  This kind of change of scene works locally too.
-Enjoy letting off steam with your family or your drinking buddies. Perhaps it
-will give you a fresh viewpoint on your technical problems or at least more
-courage to face them. I have often "helped" friends debug their computer
-programs merely by asking for an explanation of how the program works. Midway
-through the explanation, my friend will strike his head and say, "Oh, that's
-the bug." I did nothing but provide the encouragement for one more look at how
-the program was supposed to work. Pride offers personal encouragement. We all
-have pride in a job well done. I often feel like the child learning to tie his
-own shoes determined to do it himself. I think, "I'll show them that I can do
-it," so strongly that I must work hard at my task to satisfy my own pride.
-Take pride in your work.  When the going gets tough, discipline is another
-good mechanism for going on.  My algorithm for washing dishes continues with
-the sequence "...WHILE dishes remain, DO wash next dish..." Notice again the
-two aids offered by this procedure. First, it makes the task routine; I have a
-known procedure to apply.  Second, it limits the task to considering only the
-next dish, thus reducing my perception of the risk. Effective novelists write
-for several hours every day, successful musicians practice several hours every
-day, and successful athletes train several hours every day. Should not a
-successful researcher discipline himself to research for several hours every
-day? The novelist writes a chapter a day, the musician does his scales and his
-selections each day, and the athlete does his setting up exercises and his
-main event. Each uses routine subtasks. I believe which particular routine sub
-tasks you choose are far less important than that you discipline yourself to
-do them regularly. My technology heroes have the courage to devote a period
-each day to the important tasks, leaving the merely urgent ones to fester if
-necessary.
+The inability to produce a new idea is a special risk in research. I have found
+that a change of scene helps to gel my thoughts on a new subject. I escape from
+the local pressures by going far away in an airplane, or not so far to a quiet
+library, or even closer to the seclusion of my study, particularly early in the
+morning. The important thing about all these retreats for me is that I can cast
+aside the urgent problems; the phone won't ring, the checkbook can't be
+balanced, and I can focus on my larger tasks with a fresh mind. After each of
+two extended "vacations" in Australia, I returned with patentable ideas [8, 9],
+and on a third such trip developed a new algorithm for building vector
+quantization code books [13]. I sometimes jokingly start out describing these
+ideas by saying, "When I was lying on the beach..." The combination of a change
+of location, rest, and lack of distraction seems to be effective for me. Some
+universities formalize such changes as sabbatical leave.  This kind of change
+of scene works locally too.  Enjoy letting off steam with your family or your
+drinking buddies. Perhaps it will give you a fresh viewpoint on your technical
+problems or at least more courage to face them. I have often "helped" friends
+debug their computer programs merely by asking for an explanation of how the
+program works. Midway through the explanation, my friend will strike his head
+and say, "Oh, that's the bug." I did nothing but provide the encouragement for
+one more look at how the program was supposed to work. Pride offers personal
+encouragement. We all have pride in a job well done. I often feel like the
+child learning to tie his own shoes determined to do it himself. I think, "I'll
+show them that I can do it," so strongly that I must work hard at my task to
+satisfy my own pride.  Take pride in your work.  When the going gets tough,
+discipline is another good mechanism for going on.  My algorithm for washing
+dishes continues with the sequence "...WHILE dishes remain, DO wash next
+dish..." Notice again the two aids offered by this procedure. First, it makes
+the task routine; I have a known procedure to apply.  Second, it limits the
+task to considering only the next dish, thus reducing my perception of the
+risk. Effective novelists write for several hours every day, successful
+musicians practice several hours every day, and successful athletes train
+several hours every day. Should not a successful researcher discipline himself
+to research for several hours every day? The novelist writes a chapter a day,
+the musician does his scales and his selections each day, and the athlete does
+his setting up exercises and his main event. Each uses routine subtasks. I
+believe which particular routine sub tasks you choose are far less important
+than that you discipline yourself to do them regularly. My technology heroes
+have the courage to devote a period each day to the important tasks, leaving
+the merely urgent ones to fester if necessary.
 
 You can set your own personal deadlines and provide yourself rewards for
-meeting them. This mechanism works less well for me, but I do sometimes use
-it, often in the most childish way. If I work hard today, I'll permit myself a
+meeting them. This mechanism works less well for me, but I do sometimes use it,
+often in the most childish way. If I work hard today, I'll permit myself a
 drink before dinner or dessert afterwards. In fact, I find that when I am
 really engaged in interesting work I forget to eat, but when my work is overly
 stressful, I gain weight. Do not overlook family and friends as an explicit
@@ -746,7 +706,8 @@ best able to do creative work when I feel cared for and happy; it is as if I
 can devote my finite store of courage either to solving technical problems or
 personal ones, but not both at once. 
 
-**3.8 Courage to Talk or Write**
+Courage to Talk or Write
+........................
 
 Perhaps the hardest part of research is talking about it, writing about it and
 publishing it. Here we really get down to the big risks. When all is said and
@@ -761,7 +722,8 @@ published. I know several unpublished authors of incomplete novels. There is
 less risk in "writing the great American novel" than in sending it to a
 publisher and waiting for it to be rejected. 
 
-**3.9 What it Feels Like to Me**
+What it Feels Like to Me
+........................
 
 My own failures of courage to talk or write do not, to me, seem like failures
 of courage at all.  Rather, it seems to me that my ideas are unworthy, that no
@@ -771,19 +733,20 @@ no one would care about it that I never "bothered" to publish it until 1969
 [5]. It turned out that my 1960 work drew questions even many years after
 publication, so someone must have cared.
 
-This very talk is another example for me. The chronology of this paper is
-shown in Table 1 on the next page. I first began to think about these ideas in
-the mid 70's, but it took me until 1982 to first express them publicly. I
-wouldn't have done that except that my good friend, Marc Raibert, invited me
-to give an informal talk to some new graduate students. That being a low risk
-event, I agreed. Next thing I knew the "informal talk" had turned into a
-"distinguished lecture" complete with TV camera and an auditorium full of
-people, but I was committed, and I talked. Six years later, I finally worked
-up the courage to get the video tape transcribed. I was, and still am,
-literally too afraid to look at it myself. Now, two more years later, I am
-writing the ideas down more formally.
+This very talk is another example for me. The chronology of this paper is shown
+in Table 1 on the next page. I first began to think about these ideas in the
+mid 70's, but it took me until 1982 to first express them publicly. I wouldn't
+have done that except that my good friend, Marc Raibert, invited me to give an
+informal talk to some new graduate students. That being a low risk event, I
+agreed. Next thing I knew the "informal talk" had turned into a "distinguished
+lecture" complete with TV camera and an auditorium full of people, but I was
+committed, and I talked. Six years later, I finally worked up the courage to
+get the video tape transcribed. I was, and still am, literally too afraid to
+look at it myself. Now, two more years later, I am writing the ideas down more
+formally.
 
-**3.10 Overcoming Risks**
+Overcoming Risks
+................
 
 It may be that everyone is embarrassed by his own writing, especially at the
 start. That courage to get a paper done is made up of a subcourage to start and
@@ -826,7 +789,8 @@ reminders. Some of them have later become patents, some full-fledged papers,
 and some portions of books. Initially, however, each was just my record of some
 little idea not always well expressed. 
 
-**3.11 Learning from Others**
+Learning from Others
+....................
 
 Although it obviously takes courage to expose your ideas to criticism, it takes
 even more courage to learn from the criticism. The not-invented-here (NIH)
@@ -845,7 +809,8 @@ had heard their comments and because they got a chance to correct my notes. I
 learned this trick in a class on domestic relations, but it serves well in
 nearly any context. 
 
-**3.12 Courage to Stop**
+Courage to Stop
+...............
 
 The risk of stopping work on a project is also large. First, there's the loss
 of the goal you will never reach.  Second, there's a loss of face in giving up
@@ -854,7 +819,8 @@ have already invested in the project and the knowledge about it you have
 gained. Fourth, there is the criticism you may face for having wasted the
 investment. Finally, there is the risk of having to find something new to do. 
 
-**3.13 What it Feels Like to Me**
+What it Feels Like to Me
+........................
 
 Failures to stop don't feel like failures of courage to me. Rather they feel
 like I'm still "doing my thing." I'm involved with the people and they have
@@ -863,7 +829,8 @@ just a month or two away. I know that with just a little more effort, we can
 make something really good. The incremental reward always seems to outweigh the
 incremental effort.
 
-**3.14 Overcoming Risks**
+Overcoming Risks
+................
 
 Ted Meyer and I once noticed that every architecture for a computer display
 system can be improved for just a little more money [6].  This kind of
@@ -884,10 +851,11 @@ ever more beautiful pictures at a pace I cannot hope to match. Maybe the truth
 is that I stopped for lack of courage to compete; I don't think so, but I'll
 never know.
 
-4 Rewards
----------
+Rewards
+-------
 
-**4.1 The Emotional Side of Research**
+The Emotional Side of Research
+..............................
 
 One of the greatest thrills for me is when a new idea emerges. In 1986, at
 Imperial College in London, I was working with complementary metal oxide
@@ -954,7 +922,8 @@ risks. When I can reduce the risk in some places in my life, I can more easily
 face risk in other areas. I provide myself the courage to do some things by
 reducing my need for courage in other areas. In effect, I husband my courage.
 
-**4.2 Technology as Play**
+Technology as Play
+..................
 
 The basic personal start-up mechanism for research has to be curiosity. I find
 myself curious about how something works, or I observe something strange and
@@ -999,8 +968,8 @@ technical reports are dull third person descriptions of something far away and
 impersonal. Technology is not far away and impersonal. It's here, it's
 intensely personal, and it's great fun.
 
-5 Acknowledgements
-------------------
+Acknowledgements
+----------------
 
 This is where I get to recognize my friends, my sponsors and my sources of
 encouragement. Thanks to Sara Kiesler whose critical reading was key in making
@@ -1026,11 +995,8 @@ Edited into this paper Published by CMU Presented at the 25th anniversary
 celebration of the Computer Science Department at CMU
 
 
-Table 1: 
---------
-
 Chronology of This Document
-===========================
+...........................
 
 My pride demands that this written form of my ideas be perfect. I sought long
 and hard for an Anglo-Saxon word combining the ideas of disclose, publish,
@@ -1064,40 +1030,55 @@ distinguish cognates. I also once spelled naval incorrectly in a letter to my
 brother who was then in the Naval Reserve. Unfortunately, I put that blot on
 the outside of the envelope. 
 
+References 
+..........
 
-2. 1995 update: Still no book, but we did publish a paper [14] on the subject.
+[1] Sutherland, I.E. "Micropipelines." Communications of the ACM.  June 1989.
 
-References [1] Sutherland, I.E. "Micropipelines." Communications of the ACM.
-June 1989. [2] Sutherland, I.E., and Ullner, M.K. "Footprints in the Asphalt."
-The International Journal of Robotics Research. Vol. 3, No. 2. Summer 1984, MIT
-Press. [3] Sutherland, I.E., Sproull, R.F., and Schumacker, R.A. "A
-Characterization of Ten HiddenSurface Algorithms." Computing Surveys: Journal
-of the ACM. March 1974. Summarized in Naval Research Reviews. June 1975, pp.
-21-23. [4] Sutherland, I.E., and Oestreicher, D. "How Big Should a Printed
-Circuit Board Be?" IEEE Transactions of Computers. Vol. C22, May 1973, pp.
-537-542. [5] Sutherland, I.E. "A Method of Solving Arbitrary Wall Mazes by
-Computers." IEEE Transactions on Computers. Vol. C18, No. 12, December 1969,
-pp. 10921097. [6] Myer, T.H., and Sutherland, I.E. "On the Design of Display
-Processors." Communications of the ACM. June 1968, Vol. 11, No. 6, pp. 410-414.
+[2] Sutherland, I.E., and Ullner, M.K. "Footprints in the Asphalt".The
+    International Journal of Robotics Research. Vol. 3, No. 2. Summer 1984, MIT
+    Press. 
+
+[3] Sutherland, I.E., Sproull, R.F., and Schumacker, R.A. "A Characterization
+    of Ten HiddenSurface Algorithms." Computing Surveys: Journal of the ACM.
+    March 1974. Summarized in Naval Research Reviews. June 1975, pp.  21-23. 
+
+[4] Sutherland, I.E., and Oestreicher, D. "How Big Should a Printed Circuit
+    Board Be?" IEEE Transactions of Computers. Vol. C22, May 1973, pp.
+    537-542.
+
+[5] Sutherland, I.E. "A Method of Solving Arbitrary Wall Mazes by Computers."
+    IEEE Transactions on Computers. Vol. C18, No. 12, December 1969, pp.
+    10921097. 
+
+[6] Myer, T.H., and Sutherland, I.E. "On the Design of Display Processors."
+    Communications of the ACM. June 1968, Vol. 11, No. 6, pp. 410-414.
+
 [7] Sutherland, I.E. "Sketchpad--A ManMachine Graphical Communication System."
-Proceedings of the Spring Joint Computer Conference, Detroit, Michigan. May
-1963, and MIT Lincoln Laboratory Technical Report #296, January 1963. [8]
-Sutherland, I.E. "Asynchronous First-In-First-Out Register Structure." United
-States Patent 4,837,740, June 6, 1989. [9] Sutherland, I.E. "Reaction Control
-Valve." United States Patent 4,622,992. November 18, 1986. [10] Gouraud, H.
-"Computer Display of Curved Surfaces." University of Utah, UTEC-CSc-71-113.
-June 1971, and in IEEE Transactions C-20, 623, June 1971. [11] Phong, B.T.
-"Illumination for Computer-generated Images." University of Utah,
-UTEC-CSc-73-129, July 1973, and in CACM, 18(6):311:317, June 1975. [12] May,
-Rollo. The Courage to Create. Bantam Books, New York, 1975.
+    Proceedings of the Spring Joint Computer Conference, Detroit, Michigan. May
+    1963, and MIT Lincoln Laboratory Technical Report #296, January 1963.
 
+[8] Sutherland, I.E. "Asynchronous First-In-First-Out Register Structure."
+    United States Patent 4,837,740, June 6, 1989. 
+
+[9] Sutherland, I.E. "Reaction Control Valve." United States Patent 4,622,992.
+    November 18, 1986.
+
+[10] Gouraud, H.  "Computer Display of Curved Surfaces." University of Utah,
+     UTEC-CSc-71-113.  June 1971, and in IEEE Transactions C-20, 623, June
+     1971.
+
+[11] Phong, B.T.  "Illumination for Computer-generated Images." University of
+     Utah, UTEC-CSc-73-129, July 1973, and in CACM, 18(6):311:317, June 1975. 
+
+[12] May, Rollo. The Courage to Create. Bantam Books, New York, 1975.
 
 [13] Sutherland, I.E. and Sproull, R. "Comparison for Codebook Generation
-Techniques for Vector Quantization." [14] Sutherland, I. E. and Sproull, R.
-"Logical Effort. Designing for Speed on the Back of an Envelope," IEEE Advanced
-Research in VLSI, C. Sequin, ed. MIT Press, 1991. [15] Sutherland, I.E.
-"Technology and Courage," CMU Compter Science. A 25th Anniversary
-Commemorative. Ed. Rashid, R. ACM Press, 1991. Technology and Courage is also
-available on the World Wide Web.
+     Techniques for Vector Quantization." 
 
-.. |copy| unicode:: 0xA9 .. copyright sign
+[14] Sutherland, I. E. and Sproull, R.  "Logical Effort. Designing for Speed on
+     the Back of an Envelope," IEEE Advanced Research in VLSI, C. Sequin, ed.
+     MIT Press, 1991.
+
+[15] Sutherland, I.E.  "Technology and Courage," CMU Compter Science. A 25th
+     Anniversary Commemorative. Ed. Rashid, R. ACM Press, 1991. 
