@@ -7,7 +7,7 @@
 Uthcode Docs
 ============
 
-Welcome to Uthcode Docs! You will find notes on Computer Science subjects,
+Welcome to Uthcode. You will find information on Computer Science subjects,
 articles on programming, software enginering and business. Stay updated via
 `Uthcode blog`_
 
@@ -49,6 +49,16 @@ Projects
 .. toctree::
 
     projects
+
+
+Code
+====
+
+.. toctree::
+
+    cprogramming
+    pythonsnippets
+    contests
 
 Computer Science
 ================
