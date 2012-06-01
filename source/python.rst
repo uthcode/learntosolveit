@@ -113,7 +113,7 @@ Python Programming
     The int() function truncates negative numbers towards 0. It’s a true
     truncate function, not a floor function.
 
-#) **How are lists implemented iin Python**
+#) **How are lists implemented in Python**
 
     For lists in python, a better analogy would be the ArrayList class in Java,
     which can hold arbitrary objects and can expand dynamically as new items
@@ -1618,18 +1618,6 @@ Python Programming
 
     http://peak.telecommunity.com/DevCenter/Importing
 
-#) **What is inversion of control and dependency injection?**
-
-    http://code.google.com/p/snake-guice/
-
-    http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml#dependency-injection
-
-    http://code.activestate.com/recipes/413268-dependency-injection-the-python-way/
-
-    http://pypi.python.org/pypi/mext.context
-
-    http://en.wikipedia.org/wiki/Dependency_inversion_principle
-
 #) **dispatch**
 
   """Multiple/Predicate Dispatch Framework                                                                                                
@@ -1772,6 +1760,18 @@ Python Programming
     Basically, anything with an event loop, callbacks, or execute triggers falls
     into this category.
 
+    Other articles on Dependency Injection and Inversion of Control include
+
+    http://code.google.com/p/snake-guice/
+
+    http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml#dependency-injection
+
+    http://code.activestate.com/recipes/413268-dependency-injection-the-python-way/
+
+    http://pypi.python.org/pypi/mext.context
+
+    http://en.wikipedia.org/wiki/Dependency_inversion_principle
+
 
 #) What is the mechanism to distribute Python packages?
 
@@ -1818,18 +1818,4 @@ Links
 
 * "Sorting Mini-HOWTO", Andrew Dalke,
   http://wiki.python.org/moin/HowTo/Sorting
-
-.. raw:: html
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'uthcode';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">Comments by <span class="logo-disqus">Disqus</span></a>
 
