@@ -43,6 +43,13 @@ Python
    pythonhttp
    pythonnetworking
 
+Projects
+========
+
+.. toctree::
+
+    projects
+
 Computer Science
 ================
 
