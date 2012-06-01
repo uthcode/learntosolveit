@@ -39,7 +39,6 @@ Python
 
    python
    pythondesign
-   designpatterns
    pythonstart
    pythonhttp
    pythonnetworking
@@ -53,8 +52,8 @@ Computer Science
    computerscience
    Alice_Programming
    unicodenotes
-   paxos
    topcoder
+   games
    programmingchallenges
 
 Languages
@@ -66,8 +65,6 @@ Languages
    cpp
    html
    javascript
-   node
-   go
    perl
 
 Software
@@ -92,5 +89,4 @@ Web Frameworks
    pylons
    webpython
    django
-   pycon2009
    appengine

@@ -5,8 +5,9 @@ How to Start Learning Python ?
 
 This page is an introduction to how to get started with python.
 
-Unix/Linux
-==========
+.. notoc::
+
+**Unix/Linux**
 
 
 On Unix/Linux, the Python interpreter is inbuilt. So, if you type _python_
@@ -38,8 +39,7 @@ http://www.python.org website.
 
 Rest of the steps should be same.
 
-Windows
-=======
+**Windows**
 
 Microsoft Windows does not ship python by default.  However, there is a binary
 available from http://python.org website. It comes with an editor called IDLE
@@ -65,25 +65,22 @@ they have contribute a lot back to Python trunk too.
 
 So, it is just your convenience as how you want to Download Python on Windows.
 
-A Good Beginners Tutorial 
-=========================
+**A Good Beginners Tutorial**
 
 There are plenty of good tutorials on python available on the Internet.
 
-For Programmers
-===============
+**For Programmers**
 
 * The Tutorial at http://www.python.org 
 * The Library Reference manual at http://www.python.org 
 * Mark Pilgrim's `Dive into Python`_.
   
-For Beginners
-=============
+**For Beginners**
+
 
 * `A Byte of Python`_  by Swaroop
 
-A Good Beginners Mini Project
-=============================
+**A Good Beginners Mini Project**
 
 After you have completed reading those tutorial, I would suggest you try this
 mini-project.
@@ -95,6 +92,6 @@ So, its kind of souvenir for you for completing your first Python mini project.
 
 .. _Windows APIS: http://starship.python.net/crew/mhammond/win32/Downloads.html
 .. _ActiveState Python: http://www.activestate.com/downloads/#tab_python_stack
-.. _Dive into Python: http://www.diveintopython.com
+.. _Dive into Python: http://www.diveintopython.net
 .. _A Byte of Python: http://www.ibiblio.org/swaroopch/byteofpython/files/120/byteofpython_120.pdf
 .. _One Dimentional Life: http://www-inst.eecs.berkeley.edu/~selfpace/cs9honline/P1/

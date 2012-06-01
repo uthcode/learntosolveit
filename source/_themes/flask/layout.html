@@ -21,7 +21,9 @@
   {% endif %}
 {% endblock %}
 {% block content %}
-  {{ super() }}
+{{ super() }}
+    <div class="documentwrapper">
+    <div class="bodywrapper">
     <div class="body">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -34,7 +36,9 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">Comments by <span class="logo-disqus">Disqus</span></a>
-</div>
+    </div>
+    </div> 
+    </div>
 {% endblock %}
 
 {%- block footer %}
