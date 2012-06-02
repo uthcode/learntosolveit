@@ -1813,9 +1813,6 @@ Links
 * "Python Objects", Fredrik Lundh,
   http://www.effbot.org/zone/python-objects.htm
 
-* "Python main() functions", Guido van Rossum,
-  http://www.artima.com/weblogs/viewpost.jsp?thread=4829
-
 * "Sorting Mini-HOWTO", Andrew Dalke,
   http://wiki.python.org/moin/HowTo/Sorting
 
