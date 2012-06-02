@@ -168,6 +168,21 @@ class MainPage(webapp.RequestHandler):
                     filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
                             yesterday_todolist).filter('user =', username)
 
+                    # if the filtered_todoitem is empty
+                    # That is if there has been gap of more than one day
+                    # traverse for 30 days maximum
+                    look_behind = 2
+                    while not filtered_todoitem and look_behind <= 30:
+                        yesterday = datetime.datetime.now(user_tzinfo) - datetime.timedelta(look_behind)
+                        yesterday = yesterday.strftime('%d%m%Y')
+                        todolist_queryobj = db.Query(TodoList)
+                        yesterday_todolist = todolist_queryobj.filter('daykey =', yesterday).filter('user =', username)
+                        yesterday_todolist = yesterday_todolist.get()
+                        todoitem_queryobj = db.Query(TodoItem)
+                        filtered_todoitem = todoitem_queryobj.filter('belongs_to =',
+                            yesterday_todolist).filter('user =', username)
+
+
                     for todo in filtered_todoitem:
                         # incomplete todos from yesterday.
                         if todo.score < todo.rating:
