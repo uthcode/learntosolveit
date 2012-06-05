@@ -41,6 +41,7 @@ Topics
 9. wsgiref.py
 10. Javascript
 12. CSS
+13. Apache
 
 
 Some host providers only let you run CGI¹ scripts in a certain directory, often
@@ -141,5 +142,114 @@ site's hierarchy like a tmp directory:
 http://my_site.tld/getshellcmd.py?curl -o tmp/Django-0.95.tar.gz http://media.djangoproject.com/releases/0.95/Django-0.95.tar.gz
 
 http://my_site.tld/getshellcmd.py?tar -xzvf tmp/Django-0.95.tar.gz
+
+
+WSGI
+----
+
+What WSGI is not: a server, a python module, a framework, an API or any kind of
+software. What it is: an interface specification by which server and
+application communicate. Both server and application interface sides are
+specified. It does not exist anywhere else other than as words in the PEP 3333.
+
+If an application (or framework or toolkit) is written to the WSGI spec then it
+will run on any server written to that spec.
+
+WSGI applications (meaning WSGI compliant) can be stacked. Those in the middle
+of the stack are called middleware and must implement both sides of the WSGI
+interface, application and server. For the application in top of it it will
+behave as a server and for the application (or server) bellow as an
+application.
+
+A WSGI server (meaning WSGI compliant) only receives the request from the
+client, pass it to the application and then send the response provided by the
+application to the client. It does nothing else. All the gory details must be
+supplied by the application or middleware.
+
+It is not necessary to learn the WSGI spec to use frameworks or toolkits. To
+use middleware one must have a minimum understanding of how to stack them with
+the application or framework unless it is already integrated in the framework
+or the framework provides some kind of wrapper to integrate those that are not.
+
+Python 2.5 and later comes with a WSGI server which will be used in this
+tutorial. In 2.4 and earlier it can be installed. For anything other than
+learning I strongly recommend Apache with mod_wsgi.
+
+All the code in this tutorial is low level and has the sole purpose to be
+didactic by showing the WSGI specification at work. It is not meant for real
+use. For production code use toolkits, frameworks and middleware.
+
+http://pypi.python.org/pypi/wsgiref
+
+http://code.google.com/p/modwsgi/
+
+WSGI Application Interface
+--------------------------
+
+The WSGI application interface is implemented as a callable object: a function,
+a method, a class or an instance with a __call__ method. That callable
+
+Application Interface
+---------------------
+
+Must accept two positional parameters:
+
+* A dictionary containing CGI like variables; and
+
+* A callback function that will be used by the application to send HTTP status
+  code/message and HTTP headers to the server.
+
+and must return the response body to the server as strings wrapped in an
+iterable.
+
+Environment Dictionary
+----------------------
+
+
+Response Iterable
+-----------------
+
+If the last script worked change the return line from:
+
+   return [response_body]
+
+to:
+
+   return response_body
+
+Then run it again. Noticed it slower? What happened is that the server iterated
+over the string sending a single byte at a time to the client. So don't forget
+to wrap the response in a better performance iterable like a list.
+
+If the iterable yields more than one string the content_length will be the sum
+of all the string's lengths like in this script:
+
+
+Parsing the Request - GET
+-------------------------
+
+Handing GET request.
+
+
+Older Way
+---------
+
+If you installed mod_python from a Linux package you probably already have this
+line in your httpd.conf:
+
+    LoadModule python_module modules/mod_python.so
+
+
+    <Directory /path/to/publisher/directory>
+       SetHandler mod_python
+       PythonHandler mod_python.publisher
+       PythonDebug On
+    </Directory>
+
+
+    <Files ~ "\.(gif|html|jpg|png)$">
+       SetHandler default-handler
+    </Files>
+
 
 
