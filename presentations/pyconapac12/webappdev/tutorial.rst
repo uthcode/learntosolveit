@@ -1,3 +1,86 @@
+Introduction to Web Development
+===============================
+
+----
+
+Welcome
+=======
+
+Thanks for coming to PyCon Apac and attending this session.
+
+    - **Senthil Kumaran** 
+    - *Python Core Developer*
+    - *Engineer at Lucasfilm, Singapore*.
+
+Presentation slides available at http://www.uthcode.com
+
+.. image:: senthil_qr2.png
+
+
+---- 
+
+HTTP
+====
+
+---- 
+
+Web Architecture
+================
+
+---- 
+
+
+Simple Web sites. Complex Websites.
+===================================
+
+---- 
+
+Apache
+======
+
+---- 
+
+WSGI
+====
+
+---- 
+
+PEP 333
+=======
+
+---- 
+
+cgi.py
+======
+
+---- 
+
+wsgiref.py
+==========
+
+---- 
+
+HTML
+====
+
+---- 
+
+FORMS
+=====
+
+---- 
+
+
+Javascript
+==========
+
+---- 
+
+CSS
+===
+
+---- 
+
 Web Python Patterns
 ===================
 
@@ -17,32 +100,23 @@ The WSGI application<->server interface specification is gaining momentum
 and is today an acclamation. To use it is necessary to master web
 programming concepts and/or a framework/toolkit.
 
+---------- 
 
 Task
-----
+====
 
 #) Run the CGI HTTPServer.
 #) Write a CGI Script.
 #) Expose the CGI Variables.
 #) Execute an Involved CGI Script.
 
+---------- 
 
 Topics
-------
+======
 
-1. HTML
-2. FORMS
-3. HTTP
-4. Web Architecture.
-5. Simple Web sites. Complex Websites.
-6. WSGI
-7. PEP 333
-8. cgi.py
-9. wsgiref.py
-10. Javascript
-12. CSS
-13. Apache
 
+---------- 
 
 Some host providers only let you run CGI¹ scripts in a certain directory, often
 named cgi-bin. In this case all you have to do to run the script is to call it
@@ -91,9 +165,10 @@ If your desktop is the server then execute it like this:
 
 http://localhost/cgi-bin/my_script.py
 
+---------- 
 
 CGI
----
+===
 
 It is necessary that the script outputs the HTTP header. The HTTP header
 consists of one or more messages followed by a blank line. If the output of the
@@ -107,9 +182,10 @@ Blank Lines
 
     print "Content-Type: text/html\n"
 
+---------- 
 
 Client versus Server
---------------------
+====================
 
 When programming for the Web you are in a client-server environment. All python
 code will be executed at the server only. The client's http agent (e.g. the
@@ -133,8 +209,10 @@ This is useful not only to prevent script injection but also to make it
 possible to display HTML source code as has just been done above.
 
 
+---------- 
+
 CGI
----
+===
 
 With CGI you download it using curl or wget directly to a directory in your
 site's hierarchy like a tmp directory:
@@ -143,9 +221,10 @@ http://my_site.tld/getshellcmd.py?curl -o tmp/Django-0.95.tar.gz http://media.dj
 
 http://my_site.tld/getshellcmd.py?tar -xzvf tmp/Django-0.95.tar.gz
 
+---------- 
 
 WSGI
-----
+====
 
 What WSGI is not: a server, a python module, a framework, an API or any kind of
 software. What it is: an interface specification by which server and
@@ -183,14 +262,18 @@ http://pypi.python.org/pypi/wsgiref
 
 http://code.google.com/p/modwsgi/
 
+---------- 
+
 WSGI Application Interface
---------------------------
+==========================
 
 The WSGI application interface is implemented as a callable object: a function,
 a method, a class or an instance with a __call__ method. That callable
 
+---------- 
+
 Application Interface
----------------------
+=====================
 
 Must accept two positional parameters:
 
@@ -202,12 +285,15 @@ Must accept two positional parameters:
 and must return the response body to the server as strings wrapped in an
 iterable.
 
-Environment Dictionary
-----------------------
+---------- 
 
+Environment Dictionary
+======================
+
+---------- 
 
 Response Iterable
------------------
+=================
 
 If the last script worked change the return line from:
 
@@ -224,15 +310,17 @@ to wrap the response in a better performance iterable like a list.
 If the iterable yields more than one string the content_length will be the sum
 of all the string's lengths like in this script:
 
+---------- 
 
 Parsing the Request - GET
--------------------------
+=========================
 
 Handing GET request.
 
+---------- 
 
 Older Way
----------
+=========
 
 If you installed mod_python from a Linux package you probably already have this
 line in your httpd.conf:
@@ -253,3 +341,4 @@ line in your httpd.conf:
 
 
 
+---------- 
