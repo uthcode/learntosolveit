@@ -19,21 +19,36 @@ Presentation slides available at http://www.uthcode.com
 
 ---- 
 
-HTTP
-====
-
----- 
 
 Web Architecture
 ================
 
 ---- 
 
-
 Simple Web sites. Complex Websites.
 ===================================
 
 ---- 
+
+HTML
+====
+
+---- 
+
+FORMS
+=====
+
+---- 
+
+
+HTTP
+====
+
+* http://www.w3.org/Protocols/
+* 
+
+---- 
+
 
 Apache
 ======
@@ -57,26 +72,6 @@ wsgiref.py
 
 ---- 
 
-HTML
-====
-
----- 
-
-FORMS
-=====
-
----- 
-
-
-Javascript
-==========
-
----- 
-
-CSS
-===
-
----- 
 
 Web Python Patterns
 ===================
@@ -89,18 +84,17 @@ Two web programming models - CGI Standard and mod_python Hosting Providers.
         print "hello, world"
 
 
-
 Presenter Notes
 ---------------
 
-These are my notes hidden by default.  CGI mod_wsgi CGI is ideal to learn the
-basic web programming concepts as there is no magic running to hide those from
-the programmer. Part of the framework communities take it as obsolete but read
-those comments with caution as some are just snobbish. If you have no web
-programming experience and/or want to grow solid roots then CGI is the way to
-go.  The WSGI application<->server interface specification is gaining momentum
-and is today an acclamation. To use it is necessary to master web programming
-concepts and/or a framework/toolkit.  
+CGI is ideal to learn the basic web programming concepts as there is no magic
+running to hide those from the programmer. Part of the framework communities
+take it as obsolete but read those comments with caution as some are just
+snobbish. 
+If you have no web programming experience and/or want to grow solid roots then
+CGI is the way to go.  The WSGI application<->server interface specification is
+gaining momentum and is today an acclamation. To use it is necessary to master
+web programming concepts and/or a framework/toolkit.  
 
 ---------- 
 
@@ -118,9 +112,10 @@ Topics
 ======
 
 
----------- 
+Presenter Notes
+---------------
 
-Some host providers only let you run CGI¹ scripts in a certain directory, often
+Some host providers only let you run CGI scripts in a certain directory, often
 named cgi-bin. In this case all you have to do to run the script is to call it
 like this:
 
@@ -177,10 +172,14 @@ consists of one or more messages followed by a blank line. If the output of the
 script is to be interpreted as HTML then the content type will be text/html.
 The blank line signals the end of the header and is required.
 
+.. code-highlight:: python
+
     print "Content-Type: text/html"
     print
 
 Blank Lines
+
+.. code-highlight:: python
 
     print "Content-Type: text/html\n"
 
@@ -198,13 +197,18 @@ script were running there. You can only achieve what your python script output
 can and the http clients in general have a very restrictive security context.
 
 
-
 If the user inputed data is to be shown in a HTML document then it is necessary
 to escape it from HTML tags or else everything inside < > will be interpreted
 by the HTML parser including javascript code like
+
+.. code-highlight:: javascript
+
 <script type="text/javascript"> malicious code here </script>
 
 The cgi.escape() method will transform the above into safe HTML text:
+
+.. code-highlight:: javascript
+
 &lt;script type="text/javascript"&gt; malicious code here &lt;/script&gt;
 
 This is useful not only to prevent script injection but also to make it
@@ -219,9 +223,11 @@ CGI
 With CGI you download it using curl or wget directly to a directory in your
 site's hierarchy like a tmp directory:
 
-http://my_site.tld/getshellcmd.py?curl -o tmp/Django-0.95.tar.gz http://media.djangoproject.com/releases/0.95/Django-0.95.tar.gz
+.. code::
 
-http://my_site.tld/getshellcmd.py?tar -xzvf tmp/Django-0.95.tar.gz
+    http://my_site.tld/getshellcmd.py?curl -o tmp/Django-0.95.tar.gz http://media.djangoproject.com/releases/0.95/Django-0.95.tar.gz
+
+    http://my_site.tld/getshellcmd.py?tar -xzvf tmp/Django-0.95.tar.gz
 
 ---------- 
 
@@ -327,6 +333,8 @@ Older Way
 If you installed mod_python from a Linux package you probably already have this
 line in your httpd.conf:
 
+.. code-highlight:: apache
+
     LoadModule python_module modules/mod_python.so
 
 
@@ -340,7 +348,6 @@ line in your httpd.conf:
     <Files ~ "\.(gif|html|jpg|png)$">
        SetHandler default-handler
     </Files>
-
 
 
 ---------- 
