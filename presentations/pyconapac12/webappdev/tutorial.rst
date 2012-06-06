@@ -118,8 +118,80 @@ CGI Tutorial
 
 ---------- 
 
-Task
-====
+Hello, World
+============
+
+* Hello, World CGI Script
+* Look at SHEBANG line.
+* Content-Type header.
+
+
+Presenter Notes
+---------------
+
+Try helloworld.py
+
+Client and Server
+=================
+
+* All Python code is executed on Server.
+* Client only sees the output of Python code.
+* The output can be Text, HTML, Javascript or CSS.
+
+CGI Debugging
+=============
+
+* Catch Syntax Errors by running locally before uploading.
+* error_log and access_log are the log files.
+* cgitb module
+* handler method to handle catched exceptions.
+* Header set to text/plain
+ 
+
+Presenter Notes 
+--------------- 
+
+debugging_1.py
+debugging_2.py
+debugging_3.py
+
+Forms
+=====
+
+* FieldStorage class of cgi module is all needed to handle forms.
+* The Interface is same for GET and POST.
+
+.. code-highlight:: python
+
+    import cgi
+    form = cgi.FieldStorage()
+
+
+Forms - Unique Field Names
+==========================
+
+* Open form1.html
+* Look at process_form.py
+* If the HTML Form is changed from GET to POST, the script will still be the same.
+
+
+CGI Escape
+==========
+
+* Always Escape User Input, when taking the input from the Form.
+* This is useful  to prevent script injection 
+* Also make it possible to display HTML source code as has just been done above.
+
+.. code-highlight:: javascript
+
+    <script type="text/javascript"> malicious code here </script>
+
+The cgi.escape() method will transform the above into safe HTML text:
+
+.. code-highlight:: javascript
+
+    &lt;script type="text/javascript"&gt; malicious code here &lt;/script&gt;
+
 
 #) Run the CGI HTTPServer.
 #) Write a CGI Script.
@@ -132,107 +204,6 @@ Topics
 ======
 
 
-Presenter Notes
----------------
-
-Some host providers only let you run CGI scripts in a certain directory, often
-named cgi-bin. In this case all you have to do to run the script is to call it
-like this:
-
-http://my_server.tld/cgi-bin/my_script.py
-
-The script will have to be made executable by "others". Give it a 755
-permission or check the executable boxes if there is a graphical FTP interface.
-
-Some hosts let you run CGI scripts in any directory. In some of these hosts you
-don't have to do anything to configure the directories. In others you will have
-to add these lines to a file named .htaccess in the directory you want to run
-CGI scripts from:
-
-    Options +ExecCGI
-    AddHandler cgi-script .py
-
-If the file does not exist create it. All directories below a directory with a
-.htaccess file will inherit the configurations. So if you want to be able to
-run CGI scripts from all directories create this file in the document root.
-
-If you are using your own server then probably you won't need to do anything to
-run a CGI script at the cgi-bin directory. Just make sure there is a line like
-the next in httpd.conf and that it is not commented. The trailing slashs are
-required.
-
-    ScriptAlias /cgi-bin/ "/path/to/cgi-bin/directory/"
-
-If you are using the line above and want html files to be handled correctly in
-the cgi-bin directory add the next to httpd.conf. No trailing slash.
-
-    <Directory /path/to/cgi-bin/directory>
-       AddHandler default-handler .html .htm
-    </Directory>
-
-To run a script saved at the root:
-
-http://my_server.tld/my_script.py
-
-If it was saved in some directory:
-
-http://my_server.tld/some_dir/some_subdir/my_script.py
-
-If your desktop is the server then execute it like this:
-
-http://localhost/cgi-bin/my_script.py
-
----------- 
-
-CGI
-===
-
-It is necessary that the script outputs the HTTP header. The HTTP header
-consists of one or more messages followed by a blank line. If the output of the
-script is to be interpreted as HTML then the content type will be text/html.
-The blank line signals the end of the header and is required.
-
-.. code-highlight:: python
-
-    print "Content-Type: text/html"
-    print
-
-Blank Lines
-
-.. code-highlight:: python
-
-    print "Content-Type: text/html\n"
-
----------- 
-
-Client versus Server
-====================
-
-When programming for the Web you are in a client-server environment. All python
-code will be executed at the server only. The client's http agent (e.g. the
-browser) will never see a single line of python. In instead it will only get
-the python script output, be it text, html, css, javascript etc. So do not make
-things like trying to open a file in the client's computer as if the python
-script were running there. You can only achieve what your python script output
-can and the http clients in general have a very restrictive security context.
-
-
-If the user inputed data is to be shown in a HTML document then it is necessary
-to escape it from HTML tags or else everything inside < > will be interpreted
-by the HTML parser including javascript code like
-
-.. code-highlight:: javascript
-
-<script type="text/javascript"> malicious code here </script>
-
-The cgi.escape() method will transform the above into safe HTML text:
-
-.. code-highlight:: javascript
-
-&lt;script type="text/javascript"&gt; malicious code here &lt;/script&gt;
-
-This is useful not only to prevent script injection but also to make it
-possible to display HTML source code as has just been done above.
 
 
 ---------- 
