@@ -240,6 +240,76 @@ Safe CGI Shell
 
 http://code.google.com/p/cgpy-shell/
 
+---- 
+
+Cookies
+=======
+
+* HTTP is a stateless protocol.
+* Every time the user loads a page, it is the first time for the server.
+* Server can't say, if the user is middle of traction.
+* Already Authenticated.
+* Cookie is a Tag placed on Users computer.
+
+---- 
+
+
+Set the Cookie
+==============
+
+* Set the Cookie as an HTTP Header to sent to client.
+* Read the Cookie Returned from the client as HTTP Header.
+* Look at Set-Cookie header.
+* Cookie module - helpful in dealing with Cookies.
+
+
+Presenter Notes 
+--------------- 
+
+* cookie_1.py
+* cookie_2.py
+
+---- 
+
+Retrieving the Cookie
+=====================
+
+* HTTP_COOKIE environ variable
+
+.. code-block:: python
+
+    cookie_string = os.environ.get('HTTP_COOKIE')
+    cookie.load(cookie_string)
+
+* Look at cookie_3.py after loading twice.
+
+---- 
+
+Morsel
+======
+
+* When a new key is set for a SimpleCookie object a Morsel instance is created.
+* Morsel instance, can only have a predefined set of keys like expires, path, commnent, domain, max-age, secure and version.
+
+.. code-block:: python
+
+    >>> cookie = Cookie.SimpleCookie()
+    >>> cookie
+    <SimpleCookie: >
+    >>>
+    >>> cookie['lastvisit'] = str(time.time())
+    >>> cookie['lastvisit']
+    <Morsel: lastvisit='1159535133.33'>
+    >>>
+    >>> cookie['lastvisit'].value
+    '1159535133.33'
+
+
+* Look at morsel_1.py
+
+
+---- 
+
 
 #) Run the CGI HTTPServer.
 #) Write a CGI Script.
