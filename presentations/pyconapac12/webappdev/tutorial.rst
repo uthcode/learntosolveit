@@ -45,7 +45,6 @@ HTTP
 ====
 
 * http://www.w3.org/Protocols/
-* 
 
 ---- 
 
@@ -131,12 +130,16 @@ Presenter Notes
 
 Try helloworld.py
 
+---- 
+
 Client and Server
 =================
 
 * All Python code is executed on Server.
 * Client only sees the output of Python code.
 * The output can be Text, HTML, Javascript or CSS.
+
+---- 
 
 CGI Debugging
 =============
@@ -155,16 +158,22 @@ debugging_1.py
 debugging_2.py
 debugging_3.py
 
+---- 
+
+
 Forms
 =====
 
 * FieldStorage class of cgi module is all needed to handle forms.
 * The Interface is same for GET and POST.
 
-.. code-highlight:: python
+
+.. code-block:: python
 
     import cgi
     form = cgi.FieldStorage()
+
+---- 
 
 
 Forms - Unique Field Names
@@ -174,6 +183,7 @@ Forms - Unique Field Names
 * Look at process_form.py
 * If the HTML Form is changed from GET to POST, the script will still be the same.
 
+---- 
 
 CGI Escape
 ==========
@@ -182,15 +192,53 @@ CGI Escape
 * This is useful  to prevent script injection 
 * Also make it possible to display HTML source code as has just been done above.
 
-.. code-highlight:: javascript
+.. code-block:: javascript
 
     <script type="text/javascript"> malicious code here </script>
 
 The cgi.escape() method will transform the above into safe HTML text:
 
-.. code-highlight:: javascript
+.. code-block:: javascript
 
     &lt;script type="text/javascript"&gt; malicious code here &lt;/script&gt;
+
+---- 
+
+Multiple field Names
+====================
+
+* getlist method.
+* Open form2.html and process_check.py
+
+---- 
+
+File Upload Script
+==================
+
+* Uploading files to forms
+* **enctype** attribute should be set to multipart/form-data
+* **input** tag with **file** will create a Browse button.
+* open form3.html and save_file.py
+* Make sure you have correct permissions to write to directories.
+
+
+---- 
+
+Big File Upload
+===============
+
+* Python Generators.
+* Generators return files only in small chunks.
+* open form4.html and save_big_file.py
+
+---- 
+
+Safe CGI Shell
+==============
+
+* Have a look at CGI Shell with a brower client
+
+http://code.google.com/p/cgpy-shell/
 
 
 #) Run the CGI HTTPServer.
@@ -202,7 +250,6 @@ The cgi.escape() method will transform the above into safe HTML text:
 
 Topics
 ======
-
 
 
 
@@ -324,7 +371,7 @@ Older Way
 If you installed mod_python from a Linux package you probably already have this
 line in your httpd.conf:
 
-.. code-highlight:: apache
+.. code-block:: apache
 
     LoadModule python_module modules/mod_python.so
 
