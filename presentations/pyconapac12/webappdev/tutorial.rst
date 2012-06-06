@@ -73,8 +73,13 @@ wsgiref.py
 ---- 
 
 
-Web Python Patterns
-===================
+Web Python 
+==========
+
+* WSGI Specification.
+* CGI 
+* CGI is ideal to learn basic web programming.
+* Learning Server <-> WSGI <-> Application Interface.
 
 Two web programming models - CGI Standard and mod_python Hosting Providers.
 
@@ -87,14 +92,29 @@ Two web programming models - CGI Standard and mod_python Hosting Providers.
 Presenter Notes
 ---------------
 
-CGI is ideal to learn the basic web programming concepts as there is no magic
-running to hide those from the programmer. Part of the framework communities
-take it as obsolete but read those comments with caution as some are just
-snobbish. 
 If you have no web programming experience and/or want to grow solid roots then
-CGI is the way to go.  The WSGI application<->server interface specification is
-gaining momentum and is today an acclamation. To use it is necessary to master
-web programming concepts and/or a framework/toolkit.  
+CGI is the way to go.
+
+The WSGI application<->server interface specification is gaining momentum and
+is today an acclamation. To use it is necessary to master web programming
+concepts and/or a framework/toolkit.  
+
+---------- 
+
+CGI Tutorial
+============
+
+* cgi-bin directory.
+* Permissions 755
+* Example httpd.conf
+
+.. code-block:: apache
+
+    ScriptAlias /cgi-bin/ "/path/to/cgi-bin/directory/"
+
+    <Directory /path/to/cgi-bin/directory>
+       AddHandler default-handler .html .htm
+    </Directory>
 
 ---------- 
 
