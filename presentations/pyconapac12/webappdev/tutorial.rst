@@ -310,34 +310,33 @@ Morsel
 
 ---- 
 
+Sessions
+========
 
-#) Run the CGI HTTPServer.
-#) Write a CGI Script.
-#) Expose the CGI Variables.
-#) Execute an Involved CGI Script.
+* Cookie: Client :: Session : Server
+* Session state is kept in a file or DB on a server.
+* Session ID travels from Server to Client to Server in Query, Hidden field of Cookie.
+* Session lasts until the user leaves the site.
 
----------- 
+Cookie Based SID
+================
 
-Topics
-======
+* Lasts until cookie expires.
+* The hash of the server time makes an unique SID for each session.
+* session_1.py
 
 
+Shelve Module
+=============
 
----------- 
+.. code-block:: python
 
-CGI
-===
+    # The shelve module will persist the session data
+    # and expose it as a dictionary
+    session = shelve.open('/tmp/.session/sess_' + sid, writeback=True)
+    session.close()
 
-With CGI you download it using curl or wget directly to a directory in your
-site's hierarchy like a tmp directory:
-
-.. code::
-
-    http://my_site.tld/getshellcmd.py?curl -o tmp/Django-0.95.tar.gz http://media.djangoproject.com/releases/0.95/Django-0.95.tar.gz
-
-    http://my_site.tld/getshellcmd.py?tar -xzvf tmp/Django-0.95.tar.gz
-
----------- 
+* cookieshelve.py Example
 
 WSGI
 ====
