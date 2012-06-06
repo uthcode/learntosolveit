@@ -1,6 +1,0 @@
-Python Installed
-Apache Installed
-Download Django
-Google Account.
-Firefox with firebug
-
