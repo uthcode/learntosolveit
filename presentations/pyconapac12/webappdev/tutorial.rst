@@ -78,7 +78,8 @@ Web Python
 * WSGI Specification.
 * CGI 
 * CGI is ideal to learn basic web programming.
-* Learning Server <-> WSGI <-> Application Interface.
+* Server - WSGI - Application Interface.
+
 
 Two web programming models - CGI Standard and mod_python Hosting Providers.
 
@@ -318,12 +319,16 @@ Sessions
 * Session ID travels from Server to Client to Server in Query, Hidden field of Cookie.
 * Session lasts until the user leaves the site.
 
+---- 
+
 Cookie Based SID
 ================
 
 * Lasts until cookie expires.
 * The hash of the server time makes an unique SID for each session.
 * session_1.py
+
+---- 
 
 
 Shelve Module
@@ -338,72 +343,70 @@ Shelve Module
 
 * cookieshelve.py Example
 
+
+---- 
+
 WSGI
 ====
 
-What WSGI is not: a server, a python module, a framework, an API or any kind of
-software. What it is: an interface specification by which server and
-application communicate. Both server and application interface sides are
-specified. It does not exist anywhere else other than as words in the PEP 3333.
+* WSGI is not a Server.
+* WSGI is not a Python Module.
+* WSGI is not a Framework.
+* WSGI is not an API.
+* WSGI is not Software.
 
-If an application (or framework or toolkit) is written to the WSGI spec then it
-will run on any server written to that spec.
+---- 
 
-WSGI applications (meaning WSGI compliant) can be stacked. Those in the middle
-of the stack are called middleware and must implement both sides of the WSGI
-interface, application and server. For the application in top of it it will
-behave as a server and for the application (or server) bellow as an
-application.
+It is PEP 3333
+==============
 
-A WSGI server (meaning WSGI compliant) only receives the request from the
-client, pass it to the application and then send the response provided by the
-application to the client. It does nothing else. All the gory details must be
-supplied by the application or middleware.
+---- 
 
-It is not necessary to learn the WSGI spec to use frameworks or toolkits. To
-use middleware one must have a minimum understanding of how to stack them with
-the application or framework unless it is already integrated in the framework
-or the framework provides some kind of wrapper to integrate those that are not.
+WSGI
+====
 
-Python 2.5 and later comes with a WSGI server which will be used in this
-tutorial. In 2.4 and earlier it can be installed. For anything other than
-learning I strongly recommend Apache with mod_wsgi.
+* If an application (or framework or toolkit) is written to the WSGI spec then
+  it will run on any server written to that spec.
 
-All the code in this tutorial is low level and has the sole purpose to be
-didactic by showing the WSGI specification at work. It is not meant for real
-use. For production code use toolkits, frameworks and middleware.
+* WSGI applications (meaning WSGI compliant) can be stacked. 
 
-http://pypi.python.org/pypi/wsgiref
+* Those in the middle of the stack are called middleware and must implement
+  both sides of the WSGI interface, application and server. 
 
-http://code.google.com/p/modwsgi/
+* For the application in top of it it will behave as a server and for the
+  application (or server) bellow as an application.
 
 ---------- 
 
 WSGI Application Interface
 ==========================
 
-The WSGI application interface is implemented as a callable object: a function,
-a method, a class or an instance with a __call__ method. That callable
+* The WSGI application interface is implemented as a callable object: a
+  function, a method, a class or an instance with a __call__ method. That's
+  callable.
 
----------- 
+* Must accept two positional parameters.
 
-Application Interface
-=====================
+    * A dictionary containing CGI like variables; and
+    * A callback function that will be used by the application to send HTTP
+      status code/message and HTTP headers to the server.
 
-Must accept two positional parameters:
+* And must return the response body to the server as strings wrapped in an
+  iterable.
 
-* A dictionary containing CGI like variables; and
+* Look at app_skel.py
 
-* A callback function that will be used by the application to send HTTP status
-  code/message and HTTP headers to the server.
-
-and must return the response body to the server as strings wrapped in an
-iterable.
 
 ---------- 
 
 Environment Dictionary
 ======================
+
+* Contains CGI like variables.
+* Will be populated by the server.
+* Script will output the whole dictionary.
+* Load environment.py and visit http://localhost:8051/
+
 
 ---------- 
 
@@ -412,15 +415,21 @@ Response Iterable
 
 If the last script worked change the return line from:
 
+.. code-block:: python
+
    return [response_body]
 
 to:
 
+.. code-block:: python
+
    return response_body
 
-Then run it again. Noticed it slower? What happened is that the server iterated
-over the string sending a single byte at a time to the client. So don't forget
-to wrap the response in a better performance iterable like a list.
+* Then run it again. Noticed it slower? What happened is that the server iterated
+over the string sending a single byte at a time to the client. 
+
+* So don't forget to wrap the response in a better performance iterable like a
+  list.
 
 If the iterable yields more than one string the content_length will be the sum
 of all the string's lengths like in this script:
@@ -432,30 +441,20 @@ Parsing the Request - GET
 
 Handing GET request.
 
+* Run environment.py and access http://localhost:8051/?age=10&hobbies=software&hobbies=tunning
+* Look at parsing_get.wsgi script.
+
 ---------- 
 
-Older Way
-=========
+Parsing the Request - POST
+==========================
 
-If you installed mod_python from a Linux package you probably already have this
-line in your httpd.conf:
+* Request method is POST, the query string will be sent in the Request Body instead of URL.
+* Look at parsing_post.wsgi
+* wsgi.input file like environment variable.
+* use CONTENT_LENGTH to read from wsgi.input
 
-.. code-block:: apache
-
-    LoadModule python_module modules/mod_python.so
-
-
-    <Directory /path/to/publisher/directory>
-       SetHandler mod_python
-       PythonHandler mod_python.publisher
-       PythonDebug On
-    </Directory>
-
-
-    <Files ~ "\.(gif|html|jpg|png)$">
-       SetHandler default-handler
-    </Files>
-
+---- 
 
 Thank you!
 ==========
