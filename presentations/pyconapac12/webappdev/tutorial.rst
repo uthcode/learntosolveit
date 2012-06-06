@@ -40,18 +40,15 @@ Apache
 
 ---- 
 
+cgi.py
+======
+
+---- 
+
 WSGI
 ====
 
----- 
-
-PEP 333
-=======
-
----- 
-
-cgi.py
-======
+* PEP 3333
 
 ---- 
 
@@ -84,21 +81,26 @@ CSS
 Web Python Patterns
 ===================
 
-WSGI Specification.
-Two web programming models - CGI Standard and mod_python
-Hosting Providers
-CGI
-mod_wsgi
+Two web programming models - CGI Standard and mod_python Hosting Providers.
 
-CGI is ideal to learn the basic web programming concepts as there is no
-magic running to hide those from the programmer. Part of the framework
-communities take it as obsolete but read those comments with caution as
-some are just snobbish. If you have no web programming experience and/or
-want to grow solid roots then CGI is the way to go.
+.. code-block:: python
 
-The WSGI application<->server interface specification is gaining momentum
-and is today an acclamation. To use it is necessary to master web
-programming concepts and/or a framework/toolkit.
+    def code():
+        print "hello, world"
+
+
+
+Presenter Notes
+---------------
+
+These are my notes hidden by default.  CGI mod_wsgi CGI is ideal to learn the
+basic web programming concepts as there is no magic running to hide those from
+the programmer. Part of the framework communities take it as obsolete but read
+those comments with caution as some are just snobbish. If you have no web
+programming experience and/or want to grow solid roots then CGI is the way to
+go.  The WSGI application<->server interface specification is gaining momentum
+and is today an acclamation. To use it is necessary to master web programming
+concepts and/or a framework/toolkit.  
 
 ---------- 
 

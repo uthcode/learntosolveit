@@ -15,3 +15,10 @@ Facebook connect of App Engine App
 
 Demonstrate the difference between both the approaches.
 -------------------------------------------------------
+
+
+Resources
+---------
+
+http://backchannel.org/blog/google-app-engine
+
