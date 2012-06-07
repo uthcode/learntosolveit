@@ -3,7 +3,7 @@ import time
 
 # This is the message that contains the cookie
 # and will be sent in the HTTP header to the client
-print 'Set-Cookie: lastvisit=' + str(time.time());
+print 'Set-Cookie: lastvisit=' + str(time.time())
 
 # To save one line of code
 # we replaced the print command with a '\n'

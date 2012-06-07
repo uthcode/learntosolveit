@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import cgi
+
 import Cookie, os, time
 
 cookie = Cookie.SimpleCookie()

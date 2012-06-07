@@ -14,7 +14,7 @@ def application(environ, start_response):
                   ('Content-Length', str(len(response_body)))]
    start_response(status, response_headers)
 
-   return [response_body]
+   return response_body
 
 # Instantiate the WSGI server.
 # It will receive the request, pass it to the application
