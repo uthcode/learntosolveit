@@ -27,6 +27,13 @@ Why this talk
 
 ---- 
 
+Presentation
+============
+
+..qr: http://uthcode.googlecode.com/svn/trunk/presentations/pyconapac12/pythonweb/presentation.html
+
+----
+
 
 It's not a comparision
 ======================
@@ -89,12 +96,14 @@ Python 3
 
 ---- 
 
-But that's not the case
-=======================
+Well, you should look at
+========================
 
 * Pyramid
 * Django
-* Web3Py
+* Twisted, Tornado
+* SciPy and NumPy
+* Python 3 stdlib.
 
 
 ---- 
@@ -116,7 +125,7 @@ Django
 ======
 
 * Reusability and Pluggability
-* Admin Internets is still a **Big Win**.
+* Admin Interface is still a **Big Win**.
 
 Presenter Notes 
 ---------------
@@ -141,6 +150,7 @@ Presenter Notes
 
 Give details.
 
+----
 
 Pinterest
 =========
@@ -261,6 +271,8 @@ Pyramid and Python 3
 .. image:: python-3.png
    :align: center
 
+---- 
+
 
 Web2Py
 ======
@@ -322,8 +334,8 @@ Twisted
 
 ---- 
 
-What's News
-===========
+What New in Twisted
+===================
 
 * Twisted 12.0
 * Primary Support for IPv6 on Server Side.
@@ -331,6 +343,7 @@ What's News
 * Active Community at TwistedMatrix.com
 * Python 3 support is available in a branch and work in progress.
 
+----
 
 Tornado
 =======
@@ -340,6 +353,8 @@ Tornado
 * FriendFeed and Facebook
 * https://github.com/facebook/tornado
 * Sites like Hipmunk.com and Quora are using Tornado
+
+---- 
 
 What's New
 ==========
