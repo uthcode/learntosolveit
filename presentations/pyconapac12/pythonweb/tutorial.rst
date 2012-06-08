@@ -30,7 +30,7 @@ Why this talk
 It's not a comparision
 ======================
 
-* Because I could not compare!.
+* It is some sort of general survey.
 * All frameworks share some commonality above a certain level.
 * We will look at Basic Differences.
 * We will look at State of affairs in their world.
@@ -356,5 +356,4 @@ On the whole
 
 Thank you!
 ==========
-
 
