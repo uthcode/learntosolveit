@@ -27,6 +27,7 @@ Why this talk
 
 ---- 
 
+
 It's not a comparision
 ======================
 
@@ -38,12 +39,29 @@ It's not a comparision
 
 ---- 
 
+Technical Differences
+=====================
+
+* http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks#Python_2
+
+
+---- 
+
+Chart
+=====
+
+.. image:: Framework_Comparision.png
+   :scale: 75%
+
+---- 
+
+
 What shall we look for
 ======================
 
 * Technology - How is the progress
 * Ecosystem 
-* Community.
+* Community
 
 Presenter Notes 
 --------------- 
@@ -67,7 +85,7 @@ CPython
 Python 3
 ========
 
-.. image:: ryah.jpg
+.. image:: ryah.jpeg
 
 ---- 
 
@@ -240,7 +258,7 @@ Community
 Pyramid and Python 3
 ====================
 
-.. image:: python3.png
+.. image:: python-3.png
    :align: center
 
 
