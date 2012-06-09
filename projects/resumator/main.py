@@ -113,10 +113,14 @@ class CreatePage(webapp.RequestHandler):
             resumedoc = self.request.get("resumedoc")
             stackoverflow = self.request.get("stackoverflow")
             linkedin = self.request.get("linkedin")
-            if resumepdf: resume.resumepdf = db.Blob(resumepdf)
-            if resumedoc: resume.resumedoc = db.Blob(resumedoc)
-            if stackoverflow: resume.stackoverflow = stackoverflow
-            if linkedin: resume.linkedin = linkedin
+            if resumepdf:
+                resume.resumepdf = db.Blob(resumepdf)
+            if resumedoc:
+                resume.resumedoc = db.Blob(resumedoc)
+            if stackoverflow:
+                resume.stackoverflow = stackoverflow
+            if linkedin:
+                resume.linkedin = linkedin
             resume.put()
             self.redirect('/success')
         else:

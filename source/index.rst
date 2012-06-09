@@ -50,12 +50,12 @@ Projects
 
     projects
 
-Tutorials
-=========
+Presentations
+=============
 
 .. toctree::
 
-    tutorials
+    presentations
 
 Code
 ====
