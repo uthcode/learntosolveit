@@ -19,6 +19,14 @@ Presentation slides available at http://www.uthcode.com
 
 ---- 
 
+Location of Source Examples
+===========================
+
+http://www.uthcode.com/presentations/pyconapac12/webappdev/
+
+
+---- 
+
 
 Web Architecture
 ================
