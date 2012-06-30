@@ -8,19 +8,20 @@ Uthcode Docs
 ============
 
 Welcome to Uthcode. You will find information on Computer Science subjects,
-articles on programming, software enginering and business. Stay updated via
-`Uthcode blog`_
+articles on programming, software enginering and business. 
+
+Stay updated via `Uthcode blog`_ or follow me on twitter `@phoe6`_
 
 .. _Uthcode blog: http://blog.uthcode.com
+.. _@phoe6: http://www.twitter.com/phoe6
 
 
 General
 =======
 
 
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    quotes
    philosophy

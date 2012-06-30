@@ -20,6 +20,8 @@ Presentations
 * `Version Control with SVN`_ - High Level SVN 
 * `Internet Protocols in Python`_  - PyCon India 2010
 * `Understanding GIL`_ - SciPy 2009
+* `Python and Web`_ - PyCon APAC 2012
+* `Intro to Python Web Dev`_ - PyCon APAC 2012
 
 
 
@@ -41,3 +43,6 @@ Presentations
 .. _Understanding GIL: http://www.uthcode.com/presentations/scipy09/understanding_gil.pdf
 .. _SETI: http://uthcode.googlecode.com/files/SETI-Presentation.pdf
 .. _Version Control with SVN: http://uthcode.googlecode.com/files/Version_Control_with_Subversion.pdf
+.. _Python and Web:  http://www.uthcode.com/presentations/pyconapac12/pythonweb/presentation.html
+.. _Intro to Python Web Dev: http://www.uthcode.com/presentations/pyconapac12/webappdev/tutorial.html
+
