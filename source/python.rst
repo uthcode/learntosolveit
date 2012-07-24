@@ -1803,6 +1803,18 @@ Python Programming
 
 #) Why cannot a python package be imported like -m flag.
 
+#) Python Memory Model
+
+   During a Python program execution, the stack is utilized. Stack pushes grow
+   upward. 1 Python stack frame == 1 C stack frame. Memory problems occur when
+   stack meets the heap.
+
+#) What is meant by interning objects in Python?
+
+
+
+
+
 Links
 =====
 
