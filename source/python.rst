@@ -1828,3 +1828,7 @@ Links
 * "Sorting Mini-HOWTO", Andrew Dalke,
   http://wiki.python.org/moin/HowTo/Sorting
 
+* Python performance improvements
+
+  http://www.huyng.com/posts/python-performance-analysis/
+
