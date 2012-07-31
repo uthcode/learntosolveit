@@ -10,14 +10,10 @@ Understanding Ruby Language
 [1, 2, 3, 4, 5].map{ |i| i + 1}
 
 Ruby aliases the method Array#map and Array#collect; they can used
-interchangbly. 
+interchangbly.
 
 The Class#method syntax is the standard way to referring to Ruby methods and
 you will see a lot of it in this book.
-
-You will notice that Ruby methods with multiple words are seperated by
-underscores (_). This convention is called "snake_casing" because
-a_longer_method_often_looks_like_a_snake.
 
 In Ruby, just like in real world everything is an object. To make things happen
 in Ruby, one always puts oneself in the place of an object and then have
@@ -194,8 +190,8 @@ the metaclass related methods and variables too.
 The other important concepts in ruby was :symbols - which are like strings but
 immutable and has very some unique properties.
 
-For sending multiple arguments to the method you can pass *args. Like
-World.mystory(*characters) would send all the characters to mystory in the
+For sending multiple arguments to the method you can pass \*args. Like
+World.mystory(\*characters) would send all the characters to mystory in the
 world.
 
 The tab completion facility is provided in the irb 
