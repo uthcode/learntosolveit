@@ -2,6 +2,11 @@
 Version Control Systems
 =======================
 
+This is my short introduction to various version control systems.
+
+Git
+===
+
 1) git add .
 2) git commit
 
@@ -10,32 +15,212 @@ The currently active head is called HEAD.
 
 Continuing to work from here. This is better, instead of a new section.
 
-A Common git branching usage pattern is to have one main or trunk branch;
-and then create branches to add new features.
-Commonly the master branch is treated as the main or the trunk branch.
+A Common git branching usage pattern is to have one main or trunk branch; and
+then create branches to add new features. Commonly the master branch is treated
+as the main or the trunk branch.
 
 When you want to update your local working copy, you would do:
 
 a) fetch
 b) pull
 
-
 A command similar to svn init
 git remote -v
+
+The idea behind Git is that version control is all about manipulating this
+graph of commits. Whenever you want to perform some operation to query or
+manipulate the repository, you should be thinking, “how do I want to query or
+manipulate the graph of commits?”
+
+Switching Between Branches
+
+In order to start working on the headers, you need to set the fix-headers head
+to be the current head. This is done with git checkout:
+
+git checkout [head-name]
+
+* Points HEAD to the commit object specified by [head-name]
+* Rewrites all the files in the directory to match the files stored in the new HEAD commit.
+
+
+git diff [head1]..[head2] shows the diff between the commits referenced by head2 and head1.
+
+Remember it like this - What are the new things which have been added in head2 with respect to head1.
+
+git diff [head1]...[head2] (three dots) shows the diff between head2 and the common ancestor of head1 and head2. For example,
+
+Remember it like this - What are the new things which have been added in head2
+with respect to parent of head1.  It would be useful if you are disregarding
+head1 commit itself and you experimented with head2 and want to go ahead with
+head2.
+
+
+Use your twitter git username for credentials.
+
+For some reason, git log head1 .. head2 does not seem to work.
+
+
+Common Branching Use Patterns in Git
+-------------------------------------
+
+
+A common way to use Git branching is to maintain one “main” or “trunk” branch
+and create new branches to implement new features. Often the default Git
+branch, master, is used as the main branch. So, in the example above, it may
+have been better to leave master at (B), where the paper was submitted to the
+reviewers. You could then start a new branch to store changes regarding new
+data. Ideally, in this pattern, the master branch is always in a releaseable
+state. Other branches will contain half-finished work, new features, and so on.
+This pattern is particularly important when there are multiple developers
+working on a single project. If all developers are adding commits in sequence
+to a single branch, then new features need to be added in a single commit, in
+order not to cause the branch to become unusable. However, if each developer
+creates a new branch to make a new feature, then commits can be made at any
+time, whether or not they are unfinished.
+
+This is what Git users mean when they say that commits are cheap. If you are
+working on your own branch, there is no reason you need to be particularly
+careful about what you commit to the repository. It won’t affect anything else.
+
+Merge
+-----
+
+Merging is done by 
+
+git merge [head]
+git pull . [head]
+
+
+Note on terminology: When I say “merge head A into head B,” I mean that head B
+is the current head, and you are drawing changes from head A into it.
+
+
+Common Merge Use Patterns
+-------------------------
+
+There are two common reasons to merge two branches. The first, as explained
+above, is to draw the changes from a new feature branch into the main branch.
+
+The second use pattern is to draw the main branch into a feature branch you are
+developing. This keeps the feature branch up to date with the latest bug fixes
+and new features added to the main branch. Doing this regularly reduces the
+risk of creating a conflict when you merge your feature into the main branch.
+
+Nomenclature
+------------
+
+master is the current repository reference.
+origin is the remote repository reference.
+
+How to
+------
+
+* How to pull the newly created remote branches?
+
+git checkout --track origin/<remote_branch_name>
+
+Instead of tracking I think, it is better to do 
+
+git checkout -b test origin/test
+
+This wll create a local branch called test from the remote branch origin/test 
+
+* What to do when you get "Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded."
+
+To sync your branch with the master you can issue the following command:
+
+  git merge master
+
+  - git merge will not work. You will have to give HEAD name (which is master for the local)
+
+I had to do
+
+  git pull
+
+* It is like pull for each branch.
+
+*  What do do - git push error '[remote rejected] master -> master (branch is currently checked out)'
+
+  Anyways what is happening is that you have 2 repositories, one is the
+  original you first made, and the other the work one you just made. Right now
+  you are in your work repository, and using the "master" branch. But you also
+  happen to be "logged in" in your original repository to the same "master"
+  branch. Now since you're "logged in" in the original Git fears you might mess
+  up because you might be working on the original and screw things up. So what
+  you need to do is return to the original repository and do a "git checkout
+  someotherbranch", now you can push with no problems.
+
+* Checkout a new remote branch as local copy 
+
+  git checkout -b test origin/test
+
+* How to do a git revert to local changes?
+
+  git checkout -- file_to_revert
+
+
+Workflow
+
+git branch
+
+skumaran-tcu
+skumaran-rellog
+
+I created skumaran-rellog to work on the release log work.
+
+git checkout skumaran-rellog
+
+After making 10 commits, I did
+
+git rebase -i skumaran-tcu
+
+Then rebased all my commits and then switched branch
+
+git checkout skumaran-tcu
+
+then pulled this one rebased commit.
+
+git merge skumaran-rellog
+
+# Sweet everything is pulled as one commit.
+# It does a Fast Forward merge too.
+
+git push 
+
+# This pushed my branch to the remote.
+
+
+Adding and Deleting Branches Remotely
+-------------------------------------
+
+    git push origin new-branch
+    git checkout [some-other-branch]
+    git branch -f new-branch origin/new-branch
+    git checkout new-branch
+
+Git Workflow
+------------
+
+http://yehudakatz.com/2010/05/13/common-git-workflows/
 
 HG Terms and Concepts
 =====================
 
 Repository (repo)
-The dir named .hg in the repository root dir that contains the history f the project.
+
+The dir named .hg in the repository root dir that contains the history of the
+project.
+
 Clone
-A copy of a repository.
-Committing
+
 Saving local changes to the repository.
+
 Updating
 Applying changes from the repo to the local copy.
+
 Changeset (cset)
 An atomic collection of changes to files in a repository.
+
 Pushing/Pulling
 Exchanging changesets from a repo to another.
 
@@ -76,7 +261,6 @@ Basic usage
 * hg log -p -r hgchangesetid 
 * hg diff -p -r hgchangesetid
  
-
 
 phoe6: I use separate folders for different branches. I did  push in 2.5 and when I go to 2.6 and do a hg update 2.6 and hg merge 2.5, it says abort: merging with a working directory ancestor has no effect
 phoe6: hg incoming has the commit tough
@@ -213,4 +397,3 @@ svn propset svn:mime-type 'text/html' index.html
 .js   = svn:mime-type=text/javascript
 .gif  = svn:mime-type=image/gif
 .png  = svn:mime-type=image/png
-

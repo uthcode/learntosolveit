@@ -1812,9 +1812,6 @@ Python Programming
 #) What is meant by interning objects in Python?
 
 
-
-
-
 Links
 =====
 

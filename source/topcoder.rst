@@ -351,3 +351,10 @@ Plugins
 -------
 ExampleBuilder Plugin:
 http://community.topcoder.com/contest/classes/ExampleBuilder/ExampleBuilder.html
+
+
+Training Site
+-------------
+
+* http://www.codingdoor.com/
+
