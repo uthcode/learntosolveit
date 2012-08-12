@@ -1,0 +1,4 @@
+cron:
+-   description: daily login
+    url: /
+    schedule: every 24 hours

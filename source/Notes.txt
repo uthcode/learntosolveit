@@ -1,0 +1,2 @@
+http://stackoverflow.com/questions/3939879/constipated-python-urllib2-sockets
+http://stackoverflow.com/questions/1598331/how-to-read-continous-http-streaming-data-in-python
