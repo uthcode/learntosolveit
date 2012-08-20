@@ -397,3 +397,9 @@ svn propset svn:mime-type 'text/html' index.html
 .js   = svn:mime-type=text/javascript
 .gif  = svn:mime-type=image/gif
 .png  = svn:mime-type=image/png
+
+Version Control
+===============
+
+https://developer.mozilla.org/en-US/docs/Mercurial_Queues
+

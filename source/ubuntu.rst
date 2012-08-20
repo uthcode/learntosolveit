@@ -160,7 +160,6 @@ mutt
         ignore *
         unignore Date: From: User-Agent: X-Mailer  \
                  To: Cc: Reply-To: Subject:
-                       
         #======================================================#
         # which editor do you want to use? 
         # vim of course!
@@ -505,6 +504,11 @@ Programs for Study
 * golly
 * gplanarity
 * graphthing
+
+Setting up the DNS
+------------------
+
+http://www.no-ip.com/members/ticket/
 
 Links
 -----

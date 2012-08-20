@@ -524,3 +524,7 @@ ree-1.8.7-2012.02 :002 > require "murder"
   => false 
 ree-1.8.7-2012.02 :003 > 
 
+Understand Rake
+---------------
+
+Wondering how to run rake? bundle install; bundle exec rake -T. Super breezy.
