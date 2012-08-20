@@ -403,3 +403,11 @@ Version Control
 
 https://developer.mozilla.org/en-US/docs/Mercurial_Queues
 
+http://stevelosh.com/blog/2010/08/a-git-users-guide-to-mercurial-queues/#versioned-patch-queues
+
+http://mercurial.selenic.com/wiki/HisteditExtension
+
+I see that i can have a log of commits made to mq while doing refresh.
+I wanted to see if I go back and forth using that. 
+The idea could be that insted of doing refresh I could do hg commit --mq
+and I can go back and forth.
