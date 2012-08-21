@@ -175,7 +175,8 @@ Python Programming
     dependencies satisfied for all the modules.:: 
 
         sudo apt-get install libssl-dev libreadline-dev libgdbm-dev \ 
-        tk-dev tk-tile libsqlite3-dev libdb4.7-dev libbz2-dev
+        tk-dev tk-tile libsqlite3-dev libdb-dev libbz2-dev liblzma-dev \
+        libncurses-dev ncurses-dev
 
 #) **How do I see the System Calls when a Python program is executed?**
 
@@ -1810,6 +1811,13 @@ Python Programming
    stack meets the heap.
 
 #) What is meant by interning objects in Python?
+
+#) Is setuptools shipped with Python? If not how do you install setuptools?
+
+    The setup tools do not come installed by default. The place to install them
+    is here 
+    http://peak.telecommunity.com/DevCenter/setuptools
+
 
 
 Links
