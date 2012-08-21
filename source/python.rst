@@ -47,20 +47,19 @@ CPython Development Process
     * ./python -m test.regrtest test_foo to run test_foo
     * ./python -m test.regrtest -R 3:2 to check for refleaks
     * ./python -m test.regrtest --help to see all the options
-    * ./python -m test -m testSourceAddress -Fv -j3 test_smtplib                                                                                          
+    * ./python -m test -m testSourceAddress -Fv -j3 test_smtplib
 
 #) **Using coverage with python**
 
     Download coveragepy and make a symlink within the python directory ``ln -s coveragepy/coverage``.
     The execute coverage like this.::
-        
+
         ./python -m coverage run --pylib Lib/test/regrtest.py
 
      To get the html report.::
 
         ./python -m coverage html -i --omit="*/test/*,*/tests/*"
 
-                                                              
 Python Programming
 ------------------
 
@@ -136,7 +135,7 @@ Python Programming
     dictionary, not an empty set.
 
 #) **Behavior of Index on empty list and discard on emtpy set**
-    
+
     If you call index() method with a value that does not exist in a list, an
     IndexError exception is raised. If you call the discard() method with a
     value that doesn’t exist in the set, it does nothing. No error; it’s just a
@@ -1230,19 +1229,19 @@ Python Programming
           {
              // static method code
           }
-         
+
           public void InstanceExample()
           {
              // instance method code here
              // can use THIS
           }   
         }
-         
+
         /// Consumer of the above class:
-         
+
         // Static method is called -- no instance is involved
         ExampleClass.StaticExample();
-         
+
         // Instance method is called
         ExampleClass objMyExample = new ExampleClass();
         objMyExample.InstanceExample();
@@ -1336,9 +1335,9 @@ Python Programming
 
     Programs consist of sequence of instruction for processor. Single processor
     can run only one instruction at a time. Therefore it is impossible to run
-    more programs at the same time. Program might need some resource (input
-    ...) which has "big" delay. Program might start some slow operation (output
-    to printer ...). This all leads to processor being "idle" (unused). To use
+    more programs at the same time. Program might need some resource (input)
+    which has "big" delay. Program might start some slow operation (output to
+    printer). This all leads to processor being "idle" (unused). To use
     processor at all time the execution of such program was halted. At that
     point, a second (or nth) program was started or restarted. User perceived
     that programs run "at the same time" (hence the term, concurrent).
@@ -1568,7 +1567,7 @@ Python Programming
     Nodes are Elements. (Thus the name Element Tree)
 
     Now, if I were to structure an html document as a element tree.
-    
+
     ::
 
                     <html>
@@ -1621,15 +1620,15 @@ Python Programming
 
 #) **dispatch**
 
-  """Multiple/Predicate Dispatch Framework                                                                                                
-                                                                                                                                          
+  """Multiple/Predicate Dispatch Framework
+
     This framework refines the algorithms of Chambers and Chen in their 1999
     paper, "Efficient Multiple and Predicate Dispatching", to make them suitable
     for Python, while adding a few other enhancements like incremental index
     building and lazy expansion of the dispatch DAG.   Also, their algorithm was
     designed only for class selection and true/false tests, while this framework
     can be used with any kind of test, such as numeric ranges, or custom tests such
-    as categorization/hierarchy membership.                                                                                     
+    as categorization/hierarchy membership.
 
 
 #) **Metaclassing**
@@ -1652,7 +1651,7 @@ Python Programming
     http://stackoverflow.com/questions/68645/static-class-variables-in-python
 
 #) What would filter(None, iterable) would return?
-   
+
     It would return only the elements from the iterable which are true.
 
 #) How is OrderedDict implemented in Python?
@@ -1668,7 +1667,7 @@ Python Programming
 
 #) How to make Python's standard output non-buffered?
 
-    sys.stdout = os.fdopen(sys.stdout.fileno(), 'a', 0)                                                                                     
+    sys.stdout = os.fdopen(sys.stdout.fileno(), 'a', 0)
 
 
 #) What is the purpose of Zope Interfaces?
@@ -1824,7 +1823,6 @@ Links
 =====
 
 * Python Tutorial
-  
   http://people.csail.mit.edu/pgbovine/python/
 
 * "Python Objects", Fredrik Lundh,
@@ -1834,5 +1832,4 @@ Links
   http://wiki.python.org/moin/HowTo/Sorting
 
 * Python performance improvements
-
   http://www.huyng.com/posts/python-performance-analysis/
