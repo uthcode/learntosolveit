@@ -10,7 +10,7 @@ Understanding Ruby Language
 [1, 2, 3, 4, 5].map{ |i| i + 1}
 
 Ruby aliases the method Array#map and Array#collect; they can used
-interchangbly.
+interchangeably.
 
 The Class#method syntax is the standard way to referring to Ruby methods and
 you will see a lot of it in this book.
@@ -19,10 +19,10 @@ In Ruby, just like in real world everything is an object. To make things happen
 in Ruby, one always puts oneself in the place of an object and then have
 conversation with other objects telling them stuff to do.
 
-Roleplaying the object at the moment is an integral part of Object Oriented
+Role-playing the object at the moment is an integral part of Object Oriented
 Programming.
 
-No paranthesis is required for calling like in Python.
+No parenthesis is required for calling like in Python.
 
 When talking to an object via its methods, it is possible to give it additional
 information so it can give you an appropriate response.
@@ -31,7 +31,7 @@ This additional information is called the "arguments to a method." The name
 "argument" makes sense if you stop to think about the fact that methods are the
 paths of communication between objects.
 
-Paranthesis is required when you are sending on object as an argument.
+Parenthesis is required when you are sending on object as an argument.
 
 Boolean methods can just be suffixed with ?
 
@@ -89,10 +89,10 @@ then methods are verbs".
 Here some important language related details that I learned from this book.
 
 In ruby, if you want to call a method, just mention it's name. If you want to
-send arguments to the method, send the arguments with the paranthesis of the
+send arguments to the method, send the arguments with the parenthesis of the
 call, like method(arg1, arg2)
 
-Ruby uses some punctuation such a exclaimations and questions to enhance the
+Ruby uses some punctuation such a exclamations and questions to enhance the
 code. Methods are attached to end of variable constants by dot. The special
 Kernel methods do not require dot. Like require is a method on the Kernel class
 and that one does not require a dot.
@@ -149,7 +149,7 @@ angle bracket indicates inheritance in the below sentence.
     class Something < Object
 
 
-The object heirarchy is something like this
+The object hierarchy is something like this
 
     null
     Object
@@ -180,9 +180,9 @@ regex from string methods like .gsub. If you are doing a match, then there is a
 short-cut =~ available for match operator.
 
     =~ is a match method
-    $& would give the resulant match string.
+    $& would give the resultant match string.
 
-Just as "soemthing".match("some") would give a MatchData and then doing a .to_s
+Just as "something".match("some") would give a MatchData and then doing a .to_s
 on that MatchData would give the string back.
 
 .dup method will duplicate the class, but there is also .clone that can copy
@@ -195,7 +195,7 @@ For sending multiple arguments to the method you can pass \*args. Like
 World.mystory(\*characters) would send all the characters to mystory in the
 world.
 
-The tab completion facility is provided in the irb 
+The tab completion facility is provided in the irb
 
     irb --readline -r irb/completion
 
@@ -220,7 +220,7 @@ be required.
 Ruby Symbols
 ------------
 
-The Ruby_Newbie Guide to Symbols 
+The Ruby_Newbie Guide to Symbols.
 
 I'm writing this documentation for a specific audience: People who want to use
 Ruby but are not Ruby veterans. Maybe they've used Ruby, maybe they haven't,
@@ -349,7 +349,7 @@ The following illustrates the the use of a symbol as a name:
 
 attr_reader :length
 
-You're naming both a get method (length()) and an instance variable (@length). 
+You're naming both a get method (length()) and an instance variable (@length).
 
 However, symbols can be used to hold any sort of immutable string. It could be
 used as a constant (but you'd probably use an identifier starting with a
@@ -441,7 +441,7 @@ The following statements are handy in using (or not using) symbols:
     * A Ruby symbol is a thing that has both a number (integer) and a string.
     * The value of a Ruby symbol's string part is the name of the symbol, minus the
       leading colon.
-    * A Ruby symbol cannot be changed at runtime. 
+    * A Ruby symbol cannot be changed at runtime.
     * Neither its string representation nor its integer representation can be
       changed at runtime.
     * Ruby symbols are useful in preventing modification.
@@ -515,14 +515,14 @@ $: << File.dirname(__FILE__)
 $:.push File.expand_path("../lib", __FILE__)
 
 
-Look at this 
+Look at this
 -------------
 
 ree-1.8.7-2012.02 :001 > require 'murder'
- => true 
+ => true
 ree-1.8.7-2012.02 :002 > require "murder"
-  => false 
-ree-1.8.7-2012.02 :003 > 
+  => false
+ree-1.8.7-2012.02 :003 >
 
 Understand Rake
 ---------------

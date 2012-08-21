@@ -174,6 +174,6 @@ values of n are they faster than sequential structures?
 If you have not already read through Steve Yegge's Technical Prep Tips on his blog
 
 The Algorithm Design Manual ‐ A lot you'd want to know about designing and
-implementing lots of fundamental aglorithms Structure and Interpretation of
+implementing lots of fundamental algorithms Structure and Interpretation of
 Computer Programs ‐  (esp. Pragmatic Unit Testing, Effective Java, Code
 Complete 2, Agile Estimation and Planning).

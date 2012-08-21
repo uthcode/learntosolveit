@@ -20,7 +20,7 @@ Website: http://ratpoison.nongnu.org/
         set waitcursor 1
         set padding 0 20 0 0
         set barpadding 1 1
-        set wingravity n 
+        set wingravity n
         set transgravity center
         set bargravity nw
         set border 0
@@ -29,7 +29,7 @@ Website: http://ratpoison.nongnu.org/
 
         definekey top M-S-Return exec urxvt
         definekey top M-m exec $(dmenu_path | dmenu)
-        definekey top M-w exec ratpoison -c "select `ratpoison -c "windows" | dmenu | awk '{print $1}'`" 
+        definekey top M-w exec ratpoison -c "select `ratpoison -c "windows" | dmenu | awk '{print $1}'`"
         definekey top M-q kill
         definekey top M-C-Left exchangeleft
         definekey top M-C-Right exchangeright
