@@ -8,7 +8,7 @@ Uthcode Docs
 ============
 
 Welcome to Uthcode. You will find information on Computer Science subjects,
-articles on programming, software enginering and business. 
+articles on programming, software enginering and business.
 
 Stay updated via `Uthcode blog`_ or follow me on twitter `@phoe6`_
 
@@ -90,6 +90,7 @@ Languages
    html
    javascript
    perl
+   ruby
 
 Software
 ========
