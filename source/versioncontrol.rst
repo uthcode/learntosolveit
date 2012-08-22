@@ -85,7 +85,7 @@ careful about what you commit to the repository. It won’t affect anything else
 Merge
 -----
 
-Merging is done by 
+Merging is done by
 
 git merge [head]
 git pull . [head]
@@ -119,11 +119,11 @@ How to
 
 git checkout --track origin/<remote_branch_name>
 
-Instead of tracking I think, it is better to do 
+Instead of tracking I think, it is better to do
 
 git checkout -b test origin/test
 
-This wll create a local branch called test from the remote branch origin/test 
+This wll create a local branch called test from the remote branch origin/test
 
 * What to do when you get "Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded."
 
@@ -390,7 +390,7 @@ subversion and google code
 
 Setting the property will enable the files to be served from svn.
 
-svn propset svn:mime-type 'text/html' index.html 
+svn propset svn:mime-type 'text/html' index.html
 
 .css  = svn:mime-type=text/css
 .html = svn:mime-type=text/html
@@ -408,6 +408,6 @@ http://stevelosh.com/blog/2010/08/a-git-users-guide-to-mercurial-queues/#version
 http://mercurial.selenic.com/wiki/HisteditExtension
 
 I see that i can have a log of commits made to mq while doing refresh.
-I wanted to see if I go back and forth using that. 
-The idea could be that insted of doing refresh I could do hg commit --mq
+I wanted to see if I go back and forth using that.
+The idea could be that instead of doing refresh I could do hg commit --mq
 and I can go back and forth.
