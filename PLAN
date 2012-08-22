@@ -151,4 +151,3 @@ rsync -avze ssh .  UN@PN.sarovar.org:/var/lib/gforge/chroot/home/groups/PN/htdoc
 
 Instead of Source, Let it be Articles.
 Solutions.
-

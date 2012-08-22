@@ -95,12 +95,12 @@ call, like method(arg1, arg2)
 Ruby uses some punctuation such a exclamations and questions to enhance the
 code. Methods are attached to end of variable constants by dot. The special
 Kernel methods do not require dot. Like require is a method on the Kernel class
-and that one does not require a dot.
+and that one does not require a dot.::
 
     require "uri" instead of Kernel.require "uri"
 
-Instance methods use dot "." 
-Class methods use double-colon "::" and they are attached to variables and constants.
+Instance methods use dot ".".
+Class methods use double-colon "::" and they are attached to variables and constants.::
 
     Door::new(:oak)
 
@@ -130,13 +130,13 @@ us down.  unless allows only negative charges.
 
 print "something" if true unless false is used in ruby
 
-"==" sign is also a method.
+"==" sign is also a method.::
 
     if nil.==(true) { print "this would never see the light of the day!"}
 
 The if statement does not take a do. it is if -> elif -> elif -> else -> end.
 
-The irb command line tool is useful and has a lot of options.
+The irb command line tool is useful and has a lot of options.::
 
     irb
 
@@ -144,12 +144,12 @@ The respond_to? method is really nice and I plead that you never forget that it
 is there.
 
 In Ruby, the Object is the very central of things. It is The Original.  The
-angle bracket indicates inheritance in the below sentence.
+angle bracket indicates inheritance in the below sentence.::
 
     class Something < Object
 
 
-The object hierarchy is something like this
+The object hierarchy is something like this::
 
     null
     Object
@@ -157,19 +157,18 @@ The object hierarchy is something like this
     Class
     Instances
 
-Kernel is special kind of a module. You can find all about them by looking at the following in irb.
+Kernel is special kind of a module. You can find all about them by looking at the following in irb.::
 
     p Class::superclass
     p Kernel.class
     p Module::superclass
     p Object::superclass
 
-Modules are just an 'inn' it is not a self aware class.
-
+Modules are just an 'inn' it is not a self aware class::
 
     $: gives the path for the libraries and the interpreter.
 
-There are lot of $ short-cuts just like perl syntaxes.
+There are lot of $ short-cuts just like perl syntaxes::
 
     %q for quoted strings
     %w for quoted words from an array.
@@ -177,7 +176,7 @@ There are lot of $ short-cuts just like perl syntaxes.
 
 Regular Expressions are central part of the Ruby language too. You can use
 regex from string methods like .gsub. If you are doing a match, then there is a
-short-cut =~ available for match operator.
+short-cut =~ available for match operator::
 
     =~ is a match method
     $& would give the resultant match string.
@@ -195,16 +194,16 @@ For sending multiple arguments to the method you can pass \*args. Like
 World.mystory(\*characters) would send all the characters to mystory in the
 world.
 
-The tab completion facility is provided in the irb
+The tab completion facility is provided in the irb::
 
     irb --readline -r irb/completion
 
 There is also document browser, called 'ri' wherein you can look at any method
-by doing.
+by doing::
 
     ri Class#method
 
-The list of classes that ri knows about can be learned by doing
+The list of classes that ri knows about can be learned by doing::
 
     ri -l
 
@@ -231,7 +230,7 @@ document will enable the Ruby Newbie to use symbols correctly, every time, so
 that their code runs and does what they intend it to do. That is the sole goal
 of this documentation.
 
-Symbols can be viewed on many levels:
+Symbols can be viewed on many levels::
 
     * What do symbols look like?
     * What do they resemble in other languages?
@@ -244,18 +243,20 @@ Symbols can be viewed on many levels:
 What do symbols look like?
 
 This is the one area where everyone agrees. Most symbols looks like a colon
-followed by a non-quoted string:
+followed by a non-quoted string::
 
     :myname
 
 Another way to make a symbol is with a colon followed by a quoted string, which
-is how you make a symbol whose string representation contains spaces:
+is how you make a symbol whose string representation contains spaces::
 
     :'Steve was here and now is gone'
 
 The preceding is also a symbol. Its string representation is:
 
 "Steve was here and now is gone"
+
+::
 
     #!/usr/bin/env ruby
     puts :'I love Ruby.'
@@ -268,16 +269,16 @@ The preceding is also a symbol. Its string representation is:
 
 Symbols are immutable. Their value remains constant during the entirety of the
 program. They never appear on the left side of an assignment. You'll never see
-this:
+this::
 
-:myname = "steve"
+    :myname = "steve"
 
 If you were to try that, you'd get the following error message:
 
-Symbols ARE used like this:
+Symbols ARE used like this::
 
     mystring = :steveT
-    Or this: 
+    Or this:
     mystring = :steveT.to_s
     Or this:
     myint = :steveT.to_i
@@ -285,7 +286,7 @@ Symbols ARE used like this:
     attr_reader :steveT
 
 Now you at least know what we're talking about. Naturally, you still have
-plenty of questions. Read on...
+plenty of questions. Read on.
 
 What do they resemble in other languages?
 
@@ -298,7 +299,7 @@ What are symbols?
 A Ruby symbol is a thing that has both a number (integer) representation and a
 string representation.
 
-Let's explore further using code:
+Let's explore further using code.::
 
     #!/usr/bin/env ruby
 
@@ -309,21 +310,26 @@ Let's explore further using code:
 
 
 One last point. In a single program, every occurrence of an identically named
-symbol is actually the same object. This is not true of strings. Watch this:
+symbol is actually the same object. This is not true of strings. Watch this.
 
-[#!/usr/bin/env ruby
+::
 
-puts :myvalue.object_id
-puts :myvalue.object_id
-puts "myvalue".object_id
-puts "myvalue".object_id
+    #!/usr/bin/env ruby
+
+    puts :myvalue.object_id
+    puts :myvalue.object_id
+    puts "myvalue".object_id
+    puts "myvalue".object_id
 
 [slitt@mydesk slitt]$ ./test.rb
-2625806
-2625806
-537872172
-537872152
-[slitt@mydesk slitt]$
+
+::
+
+    2625806
+    2625806
+    537872172
+    537872152
+    [slitt@mydesk slitt]$
 
 
 A Ruby symbol is a thing that has both a number (integer) representation and a
@@ -366,7 +372,7 @@ No doubt about it, a symbol is an object, but so what. Almost everything in
 Ruby is an object, so saying a symbol is an object says nothing distinctive
 about symbols.  What can symbols do for you?
 
-A symbol is a way to pass string information, always assuming that:
+A symbol is a way to pass string information, always assuming that.::
 
     The string needn't be changed at runtime.
     The string doesn't need methods of class String.
@@ -376,11 +382,13 @@ create a string with the same value as the symbol's string representation, and
 then you can change that string at will and use all String methods.
 
 A great many applications of symbols could be handled by strings. For instance,
-you can do either the customary:
+you can do either the customary.
 
-attr_writer :length
-Or you can do the avant-garde:
-attr_writer "length"
+::
+
+    attr_writer :length
+    Or you can do the avant-garde:
+    attr_writer "length"
 
 Both preceding code statements create a setter method called length, which in
 turn creates an instance variable called @length. If this seems like magic to
@@ -389,7 +397,11 @@ symbol. The symbol (or the string equivalent) just functions as a string to
 tell attr_writer what it should name the method it creates, and what that
 method should name the instance variable it creates.
 
-To see, in a simplified manner, how attr_writer does its "magic", check out this program:
+To see, in a simplified manner, how attr_writer does its "magic", check out
+this program.
+
+::
+
 
     #!/usr/bin/env ruby
 
@@ -428,12 +440,14 @@ one argument, which is why we call it individually for both :symboll and
 "stringg".
 
 With the setters made, the application programmer can access the setters as
-example.symboll("ITS A SYMBOL"). The following is the output of the program:
+example.symboll("ITS A SYMBOL"). The following is the output of the program.
 
-[slitt@mydesk slitt]$ ./test.rb
-ITS A SYMBOL
-ITS A STRING
-[slitt@mydesk slitt]$
+::
+
+    [slitt@mydesk slitt]$ ./test.rb
+    ITS A SYMBOL
+    ITS A STRING
+    [slitt@mydesk slitt]$
 
 The following statements are handy in using (or not using) symbols:
 
