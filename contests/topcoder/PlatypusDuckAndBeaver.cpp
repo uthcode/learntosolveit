@@ -116,32 +116,69 @@ static void eq(int n, string have, string need) {
 }
 // END CUT HERE
 
-class EggCartons {
+class PlatypusDuckAndBeaver {
 public:
-         int minCartons(int n) {
-                   int res;
-                   res = 42;
-                   return res;
+         int minimumAnimals(int webbedFeet, int duckBills, int beaverTails) {
+            int T1, T2, T3;
+            int x, y, z;
+            int res;
+            T1 = webbedFeet;
+            T2 = duckBills;
+            T3 = beaverTails;
+            x = (4*T3 + 2*T2 - T1) / 2;
+            y = T3 - x;
+            z = T2 - x;
+            res = x + y + z;
+            return res;
           }
 
 };
 // BEGIN CUT HERE
 int main(int argc, char* argv[] ) {
     {
-        EggCartons theObject;
-        eq(0, theObject.minCartons(20),3);
+        PlatypusDuckAndBeaver theObject;
+        eq(0, theObject.minimumAnimals(4, 1, 1),1);
     }
     {
-        EggCartons theObject;
-        eq(1, theObject.minCartons(24),3);
+        PlatypusDuckAndBeaver theObject;
+        eq(1, theObject.minimumAnimals(0, 0, 0),0);
     }
     {
-        EggCartons theObject;
-        eq(2, theObject.minCartons(15),-1);
+        PlatypusDuckAndBeaver theObject;
+        eq(2, theObject.minimumAnimals(10, 2, 2),3);
     }
     {
-        EggCartons theObject;
-        eq(3, theObject.minCartons(4),-1);
+        PlatypusDuckAndBeaver theObject;
+        eq(3, theObject.minimumAnimals(60, 10, 10),20);
+    }
+    {
+        PlatypusDuckAndBeaver theObject;
+        eq(4, theObject.minimumAnimals(1000, 200, 200),300);
     }
 }
+
+/**
+ *  4 1 1 - Playtipus
+ *  4 0 1 - Beaver
+ *  2 1 0 - Duckbill
+ *
+ *  4x + 4y + 2z = 1
+ *  1x + 0y + 1z = 2
+ *  1x + 1y + 0z = 3
+ *
+ * x + z = 2
+ * x + y = 3
+ * z = 2 - x
+ * y = 3 - x
+ *
+ * 4*x + 4 * (T3-x) + 2 * (T2-x) = T1
+ * 4*T3 + 2*T2 -2*x = T1
+ *
+ * x = (4*T3 + 2*T2 - T1) / 2
+ * y = T3 - x
+ * z = T2 - x
+ * Result = x + y + z
+ *
+ */
 // END CUT HERE
+//
