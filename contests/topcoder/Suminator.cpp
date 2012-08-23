@@ -1,4 +1,5 @@
 // BEGIN CUT HERE
+//  *** INCOMPLETE ***
 
 // END CUT HERE
 
@@ -125,6 +126,9 @@ public:
             int elem;
             int top;
             int topminusone;
+            int lastisminusone;
+            lastisminusone = 0;
+
             stack<int> ss;
             ss.push(0);
             ss.push(0);
@@ -132,13 +136,27 @@ public:
             for (i=0; i <= program.size() - 1; i++)
             {
                 elem = program[i];
+                if (elem == 0 && i == program.size() - 1)
+                    continue;
+                if (i == program.size() - 1 && elem == -1)
+                {
+                    lastisminusone = 1;
+                    break;
+                 }
                 if (elem == 0)
                 {
                     top =  ss.top();
-                    ss.pop();
-                    topminusone = ss.top();
-                    ss.pop();
-                    ss.push(top+topminusone);
+                    if (top == -1)
+                    {
+                        ss.push(top);
+                    }
+                    else
+                    {
+                        ss.pop();
+                        topminusone = ss.top();
+                        ss.pop();
+                        ss.push(top+topminusone);
+                    }
                 }
                 else
                 {
@@ -146,9 +164,27 @@ public:
                 }
             }
 
-            res = ss.top();
+            top = ss.top();
+            ss.pop();
+            topminusone = ss.top();
 
-            return res;
+            if (top != -1 && topminusone != -1)
+            {
+                if ((top + topminusone) == wantedResult)
+                    return 0;
+                else
+                    if( lastisminusone == 1)
+                        return wantedResult;
+                    else
+                        return -1;
+            }
+            else
+            {
+                if (top == -1)
+                    return wantedResult - topminusone;
+                else
+                    return wantedResult - top;
+            }
 
           }
 
