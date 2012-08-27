@@ -58,7 +58,9 @@ class SetTimeZone(webapp.RequestHandler):
                 timezoneinfo_obj = db.Query(TimezoneInfo)
                 filtered_timezoneinfo = timezoneinfo_obj.filter('user =', username)
 
-                if not filtered_timezoneinfo.fetch(limit=1):
+                # Override the previously set timezone.
+                # Create a checkbox to verify override.
+                if filtered_timezoneinfo.fetch(limit=1):
                     settimezone = TimezoneInfo(user=username, timezoneinfo=timezoneinfo)
                     settimezone.put()
                 else:
