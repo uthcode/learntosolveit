@@ -1,11 +1,15 @@
-from argparse import ArgumentParser
+import argparse
+import filecmp
 
-parser = ArgumentParser()
-parser.add_argument('--cgi', dest='cgi_handler',
-                    action='store_true',
-                    help='Run as CGI Server')
-parser.add_argument('port',  action='store', default=8000, type=int, nargs='?',
-                   help='Specify alternative port [Default:8000]')
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Directory comparison")
+    parser.add_argument("--recurse", "-r", action="store_true", default=False)
+    parser.add_argument('dirs', nargs=2)
+    options = parser.parse_args()
 
-args = parser.parse_args()
-print args
+    dd = filecmp.dircmp(options.dirs[0], options.dirs[1])
+
+    if options.recurse:
+        dd.report_full_closure()
+    else:
+        dd.report()
