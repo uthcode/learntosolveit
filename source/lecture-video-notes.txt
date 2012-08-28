@@ -1,0 +1,8 @@
+Advanced Python or Understanding Python
+
+Old new style classes.
+Fast typing using keys.
+Actual contruction is via __new__
+It is an example of a static method.
+It is a static method, which needs to be passed explicitly.
+__new__ static method can also return existing objects.
