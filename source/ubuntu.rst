@@ -505,6 +505,21 @@ Programs for Study
 * gplanarity
 * graphthing
 
+
+Starting with Tmux
+------------------
+
+* Start by typing tmux
+* CNTL+B is the hotkey for tmux, just as CTRL+A was for screen.
+* CNTL+B is remapped to CNTL+A
+* CNTL+A ? will give you help for different things.
+* CNTL+A c will create a new window.
+* CNTL+A x will kill the window.
+* CNTL+A <num> will help you move within those windows.
+
+This is enough to get you started with tmux.
+
+
 Setting up the DNS
 ------------------
 

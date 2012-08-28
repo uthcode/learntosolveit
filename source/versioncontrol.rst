@@ -42,7 +42,6 @@ git checkout [head-name]
 * Points HEAD to the commit object specified by [head-name]
 * Rewrites all the files in the directory to match the files stored in the new HEAD commit.
 
-
 git diff [head1]..[head2] shows the diff between the commits referenced by head2 and head1.
 
 Remember it like this - What are the new things which have been added in head2 with respect to head1.
@@ -53,7 +52,6 @@ Remember it like this - What are the new things which have been added in head2
 with respect to parent of head1.  It would be useful if you are disregarding
 head1 commit itself and you experimented with head2 and want to go ahead with
 head2.
-
 
 Use your twitter git username for credentials.
 
@@ -160,6 +158,7 @@ I had to do
 
 
 Workflow
+========
 
 git branch
 
@@ -411,3 +410,8 @@ I see that i can have a log of commits made to mq while doing refresh.
 I wanted to see if I go back and forth using that.
 The idea could be that instead of doing refresh I could do hg commit --mq
 and I can go back and forth.
+
+Editing History in Mercurial - Strategies
+
+http://mercurial.selenic.com/wiki/EditingHistory
+

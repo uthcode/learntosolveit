@@ -21,20 +21,19 @@ familiar with C. ::
     Returns: int
     Method signature: int best(vector <string> towers, int x, int y)
 
-
 To solve the problem you'll need to create a class named CellTower containing a
 method best that takes three arguements (vector<string>, int, and int), and
-returns an int. 
+returns an int.
 
 Classes are defined using the class keyword. The definition follows a similar
 pattern as the C struct keyword. To define the class above we'd use the
 following code.::
 
     class CellTower {
-    public:
-        int best(vector<string> towers, int x, int y) {
-         //your code here
-    }
+        public:
+            int best(vector<string> towers, int x, int y) {
+             //your code here
+        }
     };
 
 Note how the method is defined like you would define a standard C function. The
@@ -44,10 +43,11 @@ to any object, allowing the testing process to properly execute your code.
 The STL
 
 Many of the classes and functions used in competition come from the Standard
-Type Library, also known as the STL. The STL provides a set of common libraries
-to perform everything from basic string work to complicated sorting algorithms. 
+Template Library, also known as the STL. The STL provides a set of common
+libraries to perform everything from basic string work to complicated sorting
+algorithms.
 
-To be able to compete, you'll need to be familiar with two classes: vector and string. 
+To be able to compete, you'll need to be familiar with two classes: vector and string.
 
 Includes
 
@@ -351,7 +351,6 @@ Plugins
 -------
 ExampleBuilder Plugin:
 http://community.topcoder.com/contest/classes/ExampleBuilder/ExampleBuilder.html
-
 
 Training Site
 -------------
