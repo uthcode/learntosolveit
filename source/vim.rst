@@ -2,15 +2,46 @@
 Vim Editor
 ==========
 
-Links
+Vim is my default text editor. I have tried to used multitude of editors and
+ides and I often found to revert back to vim, as I think that it captures my
+thought process well. I seem to have grown accustomed to it.
 
-* http://vimrc-dissection.blogspot.com/
-* http://docs.freebsd.org/44doc/usd/12.vi/paper.html
-* http://dancingpenguinsoflight.com/2009/02/python-and-vim-make-your-own-ide/
-* Python Indentation while using vim - http://henry.precheur.org/vim/python 
-* Seven habits of effective text editing http://www.moolenaar.net/habits.html
+I like the charityware concept of vim too.
 
-Notes to accompany the Tutorial "Introduction To Display Editing using vi" by William Joy and Mark Horton.
+Plugins
+-------
+
+I discovered this well-maintained, easy to use bunch of plugins called 'spf13'
+after discovering this, my search for good plugins / vimrc's has almost zeroed.
+The plugins are kept in git repository and easy to update as well.
+
+http://vim.spf13.com
+
+
+Seven Habits of Effective Text Editing
+--------------------------------------
+
+This is a very simple high level overview presentation given by the author of
+the vim editor. If you are first time user or a beginner, this tutorial could
+be of help to you.
+
+http://www.moolenaar.net/habits.html
+
+Breakthrough Paper
+------------------
+
+vi editor was breakthrough advancement in computer programming world. It set
+the stage for new generation for programmers to start edit on a full screen and
+directly on the system buffer. The design and keystrokes are extremely intuitive.
+
+This paper written by Computer Science pionner "Bill Joy" and "Mark Horton"
+introduces vim editor to the then CS programmers and system users.
+
+http://docs.freebsd.org/44doc/usd/12.vi/paper.html
+
+
+Concepts and Keystores
+^^^^^^^^^^^^^^^^^^^^^^
 
 Bill Joy's "Introduction to Display editing using vi" is a great tutorial to
 understand and appreciate the rationale behind the vi keystrokes. The material
@@ -19,52 +50,63 @@ is relevant for the Vim editor as well.
 These notes can serve as quick reference material to the tutorial and getting
 started with vi also.
 
-* d for delete
-* c for change
+* **d** for delete
+* **c** for change
 
-both can be applied to a word by 
+both can be applied to a word by suffixing it with **w**.
 
-* suffixing it with w.
+* **h j k l** as cursor positioning keys.
 
-To Specify the terminal types, they are not applicable to this era.
-
-* man setenv
-* man tset
-
-* hjkl as cursor positioning keys.
-
-If not sure on which state the editor is in, hitting ESC key for few times
+If not sure on which state the editor is in, hitting **ESC** key for few times
 makes the editor go in quiescent state.
 
-* / key
+* **/** key
 
 Now when you have pressed / key and the cursor is at the bottom, you can return
-to the previous position by pressing the DEL key.  Hitting the DEL or RUB key
-can be called as sending an interrupt.
+to the previous position by pressing the **DEL** key.
 
-The editor oftens echos your commands at the last line of the terminal.
+When the cursor is at the first position in the last line, then it is
+performing a computation.
 
-* When the cursor is at the first position in the last line, then it is performing a computation.
+* **ZZ** Save and quit.
+* **:q!** end the editor session.
+* **^D** Scrolls Down in a file. *D stands for Down.*
+* **^U** Scrolls UP. *U stands for Up.*
 
-* ZZ Save and quit.
-* :q! end the editor session.
-* ^D Scrolls Down in a file. D stands for Down.
-* ^U Scrolls UP. U stands for Up.
-* ^E Expose one more line at the bottom of the screen. E stands for Expose.
-* ^Y Exposes one line at the top of the screen. It is non-mnemonic, but Y is next to U.
-* ^F Forward in a file. Keeps few lines for read continuity.
-* ^B Backward in a file. Keeps few lines for read continuity.
-* / Search for a pattern. n will move the next occurrence of the word.
-* ? Search for a pattern backward direction. n will take it to the next occurrence of the word in the reverse direction. If the search string you give is not present in the file, then a diagnostic is printed in the last line and cursor is returned to where it was before.
-* /^search will search for search in the beginning of the line.
-* /end$ will search for end at the end of the line.
-* G Goes to the End of the file.
-* nG will Go to the nth line.
-* ^G state of the file
-* `` Go to the previous position in the file,mostly used when you G'ed to a different line.
-* + moves to the next line
-* - moves to the previous line. 
-* (For + you might need to press Shift whereas for - you dont) RETURN Key has the same effect as + key.
+The Up and Down commands were really mmenomic. There are few more commands
+which are similar to scrolling the file.
+
+* **^E** Expose one more line at the bottom of the screen. *E stands for Expose.*
+* **^Y** Exposes one line at the top of the screen. *It is non-mnemonic, but Y is next to U.*
+* **^F** Forward in a file. 
+* **^B** Backward in a file. 
+
+Both ^F and ^B keeps a few lines for continuity.
+
+Let's look at Search patterns using vim.
+
+* **/Search** for a pattern. **n** will move the next occurrence of the word.
+* **?Search** for a pattern backward direction. n will take it to the next occurrence of the word in the reverse direction. If the search string you give is not present in the file, then a diagnostic is printed in the last line and cursor is returned to where it was before.
+* **/^search** will search for search in the beginning of the line.
+* **/end$** will search for end at the end of the line.
+
+Search can be considered a form of navigation if you know the word you want to
+go to. But often navigations requirements are pretty generic. Like the following.
+
+* **G** Goes to the End of the file.
+* **nG** will Go to the nth line.
+* **``** Go to the previous position in the file,mostly used when you G'ed to a different line.
+
+Unrelated, but since it uses the same keystroke - 
+
+* **^G** gives the state of the file
+
+Now for some line based navigation.
+
+* **+** moves to the next line
+* **-** moves to the previous line. 
+* **RETURN** Key has the same effect as + key.
+
 * H Home
 * nH n lines from H
 * M middle of the screen.

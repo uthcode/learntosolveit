@@ -57,6 +57,13 @@ Use your twitter git username for credentials.
 
 For some reason, git log head1 .. head2 does not seem to work.
 
+Using submodules
+----------------
+
+If the project already has submodules like bloggart
+
+git submodule init
+git submodule update
 
 Common Branching Use Patterns in Git
 -------------------------------------

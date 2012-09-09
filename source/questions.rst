@@ -41,3 +41,17 @@ HG
 
 
     Note the change in single quote and double quote.
+
+8. What is a macro in C?
+
+9. Explain pointers in such a way that you will never forget.
+
+10. What could be objectimpl.h?
+
+    Object implementation details.
+
+11. Program using malloc.
+
+12. What does ifdef __cplusplus do?
+
+13. How to have vimrc with 2 space tabs for python?
