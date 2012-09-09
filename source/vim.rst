@@ -107,196 +107,247 @@ Now for some line based navigation.
 * **-** moves to the previous line. 
 * **RETURN** Key has the same effect as + key.
 
-* H Home
-* nH n lines from H
-* M middle of the screen.
-* L Last line of the screen.
-* w advance cursor to the next word of the line.
-* b move backward a word.
-* W advance cursor forward without stopping at punctuation. W think as Big Word.
-* B advance cursor backward without stoppingg at punctuaton.
-* The word keys wrap around the end of the line rathar than stopping at the end.
-* SPACE Advance by one position.
-* ^H Backspace the cursor
-* ^N Next line same column.
-* ^P Previous line same column.
-* view instead of vi will set readonly option to the file being edited.
-* i stands for insert
-* e moves to end of the word.
-* a appends. So e and then a might be helpful to pluralize the word.
-* i places the cursor to the left of the word and a places the cursor to the right of the word.
-* o inserts a line below.
-* O inserts a line above.
+Moving to screen positions.
+
+* **H** Home
+* **nH** n lines from H
+* **M** middle of the screen.
+* **L** Last line of the screen.
+
+Word based movements
+
+* **w** advance cursor to the next word of the line.
+* **b** move backward a word.
+* **W** advance cursor forward without stopping at punctuation. W think as Big Word.
+* **B** advance cursor backward without stoppingg at punctuaton.
+
+The word keys wrap around the end of the line rathar than stopping at the end.
+You also move by cursor positions like this.
+
+* **SPACE** Advance by one position.
+* **^H** Backspace the cursor
+
+And on columns without moving the cursor left or right.
+
+* **^N** Next line same column.
+* **^P** Previous line same column.
+
+**view** instead of vi will set readonly option to the file being edited. But
+it is seldom used these days. The command mostly stays for backwards
+compatibility purposes.
+
+Insertion commands from the normal mode.
+
+* **i** stands for insert
+* **e** moves to end of the word.
+* **a** appends. 
+* So **e** and then **a** might be helpful to pluralize the word.
+
+It should be noted that **i** places the cursor to the *left* of the word and
+**a** places the cursor to the *right* of the word.
+
+Inserting a line.
+
+* **o** inserts a line below your current line.
+* **O** inserts a line above your current line.
 
 Many editor related commands are invoked by the same letter key and differ
 upper case vs lower case.The main difference being the upper case letter act in
 the opposite direction than (up or backward) the lower case letter.
 
-* ^H or # is used to backspace can be used in the editor as well.
-* @,^X or ^U to kill input lines for the character you typed on the input line.
+When you are on *Input line*, the **^H** character can be used to backspace.
 
 Notice that you cannot erase a character which you have not inserted. Cannot
 backspace over end of line.
 
-* x deletes the character.
-* nx deletes n characters.
-* dw deletes the word.
-* . hitting the . keys repeats the previous command. analogous with ellipsis '...'
-* db deletes the word backwards.
-* dSPACE deletes a single character equivalent to x
-* cw changes the word
-* dd deletes the line.
-* @ signs you see are just placeholder.It helps prevent lengthy redraws of lines.
-* cc changes the whole line.
-* ndd,ncc deletes or changes n lines.
-* dnL delete upto (nlines) or including the Last line.
-* u undo command to reverse the change. u also undoes a u.
-* U restores the current line to the state before you started changing it. u does only a single character.
-* fx finds the next x character in the current line.
-* ; finds the next instance of the same character
-* F finds the character backwards.; repeats it backward.
-* tx finds the text upto the next x. helpful where you dtx - delete upto but not x;
-* T reverse of t
-* $ moves to the end of the line.
+* **x** deletes the character.
+* **nx** deletes n characters.
+* **dw** deletes the word.
+* hitting the **.** keys repeats the previous command. analogous with ellipsis '...'
 
-^V Control Characters can be brought in the file by beginning an insert and then typing a Ctrl-v before the control character.
+Deleting and Changing.
 
-* ( previous sentence
-* ) Next Sentence
-* d) Deletes upto the end of the current sentence.
-* d( If in middle of sentences deletes to the beginning. OR if at the beginning deletes the previous sentence.
-* { and } operations move over paragraphs.
-* [[ and ]] move over sections.
-* y yanks a copy of the object which follows into the unnamed buffer.
-* "xy; x can take [a-z] stands for the buffer name and take the text in the corresponding buffer.
-* p puts the text below or after the cursor.
-* P puts before or above the cursor.
-* "xP puts the content in the register x.
-* YP Makes a copy of the current line and leaves you on the copy, which is before the current line.
-* Y is convenient abbreviation for yy.
-* Yp will make a copy of the current line and place it after the current line.
-* nYP Number of lines to duplicate.
+* **db** deletes the word backwards.
+* **dSPACE** deletes a single character equivalent to **x**
+* **cw** changes the word
+* **dd** deletes the line.
 
-* "a5dd delete 5 lines and place it in a.
-* "ap at the resting place,puts the contents of the buffer a.
-* :e edit another file.
-* :q! quits editor without saving.
-* :e! re-edits the same file (starting over)
-* set autowrite
-* :n move the next file in when you do a :e to open a new file from the current file.
-* :!cmdCR Get to a shell and execute a single command. The system will run the single command cmd and system will ask you to hit Return to continue. You can give another command when it asks for a Return.
-* :sh Will give you a new shell. Do a Ctrl-D when done. (Unix)
-* mx marks the current line with a letter.
+The **@** signs you see are just placeholder.It helps prevent lengthy redraws
+of lines.
 
-::
-        * a moves to the marked position.
+Changing lines.
 
-* Ctrl-L Refreshes the Screen.
-* @ characters in the screen can be removed by pressing Ctrl-R (??)
-* zRETURN will place the line to the top of the window
-* z. will place the line under the cursor to the middle of the window.
-* set slow
-* set noslow
-* set redraw
-* set noredraw
-* options are three kinds: numeric options,string options or toggle options.
-* :set
-* :set opt?CR
-* :set allCR
-* vi -r for recovering files if the system crashed.
-* :set wm1=10CR Setting the wrap margin to 10. This causes all lines to be
-  broken at a space at least 10 columns from the right hand edge of the screen.
-* J joins the line.
+* **cc** changes the whole line.
+* **ndd** or **ncc** deletes or changes n lines.
+* **dnL** delete upto (nlines) or including the Last line.
+
+* **u** undo command to reverse the change. **u also undoes a u.**
+* **U** restores the current line to the state before you started changing it. u does only a single character.
+* **fx** finds the next x character in the current line.
+* **;** finds the next instance of the same character
+* **F** finds the character backwards. **;** repeats it backward.
+
+* **tx** finds the text upto the next x. helpful where you **dtx** - delete upto but not x;
+* **T** reverse of **t**
+
+**$** moves to the end of the line.
+
+* **^V** Control Characters can be brought in the file by beginning an insert and
+then typing a **Ctrl-v** before the control character.
+
+Sentence based navigation. Sentence is something which ends with a english sentence separator like a *.*
+
+* **(** previous sentence.
+* **)** Next Sentence.
+* **d)** Deletes upto the end of the current sentence.
+* **d(** If in middle of sentences deletes to the beginning OR if at the
+  beginning deletes the previous sentence.
+
+Movement in Chunks.
+
+* **{** and **}** operations move over paragraphs.
+* **[[** and **]]** move over sections.
+
+* **y** yanks a copy of the object which follows into the unnamed buffer.
+* **"xy**; x can take [a-z] stands for the buffer name and take the text in the corresponding buffer.
+* **p** puts the text below or after the cursor.
+* **P** puts above or before the cursor.
+
+* **"xP** puts the content in the register x.
+* **YP** Makes a copy of the current line and leaves you on the copy, which is before the current line.
+* **Y** is convenient abbreviation for yy.
+* **Yp** will make a copy of the current line and place it after the current line.
+* **nYP** Number of lines to duplicate.
+
+* **"a5dd** delete 5 lines and place it in a.
+* **"ap** at the resting place,puts the contents of the buffer a.
+
+Commands on files.
+
+* **:e** edit another file.
+* **:q!** quits editor without saving.
+* **:e!** re-edits the same file (starting over)
+
+* **set autowrite** will make it autowrite at regular intervals without prompting.
+* **:n** move the next file in when you do a **:e** to open a new file from the current file.
+* **:!cmdCR** Get to a shell and execute a single command. The system will run the single command cmd and system will ask you to hit Return to continue. You can give another command when it asks for a Return.
+* **:sh** Will give you a new shell. Do a Ctrl-D when done. (Unix)
+
+* **mx** marks the current line with a letter.
+* **a** moves to the marked position.
+
+* **Ctrl-L** Refreshes the Screen.
+
+Positioning Windows
+
+* **zRETURN** will place the line to the top of the window
+* **z.** will place the line under the cursor to the middle of the window.
+
+Options are three kinds: numeric options,string options or toggle options.
+
+You can look at the options which are set using.
+
+* **:set**
+
+All the available options via
+
+* **:set all**
+
+And see if a particular option is set or unset via
+
+* **:set opt?**
+
+**vi -r** for recovering files if the system crashed.
+
+**:set wrapmargin=10** Setting the wrap margin to 10. This causes all lines to be
+broken at a space at least 10 columns from the right hand edge of the screen.
+
 * set autoindent
 * set shiftwidth
-* << Shift One line left
-* >> Shift One line right
-* <L Shift rest of the display left
-* >L Shift rest of the display right
-* % Matching Parenthesis
-* ]] moves to the next } in a program. useful with y]]
-* !sortCR will run the sort command over the buffer or the selected list(Unix).
-* set lisp
-* =% at the beginning of the function, will realign all the lines of the function declaration.
-* :map lhs rhsCR
-* :map q :wq
-* (This is supposed to be :map q :wq^V^VCRCR;the first CR for map association and second CR for the command itself)
-* Placing a ! after the word map causes the map to be applied in the input mode rather than command mode.
-* :abbreviate (:ab)
-* :unabbreviate (:una)
-* :ab cs Computer Science
-* 5a+-----ESC
-* +-----+-----+-----+-----+-----
-* new window size is reflected when / or ? is prefixed with count. (unable to verify this)
-* dw 3. deletes 3 more words. 2. will delete two more words.
-* :x write if neccessary and then quit (same as ZZ)
-* :e name; edit file name
-* :e! reedit discarding the changes.
-* :e + n edit starting at the end.
-* :e +n edit starting at n
-* :e # edit an alternate file
-* :w filename;write filename
-* :w! filename;overwrite filename
-* :x,yw name write lines x through y to name
-* :r name read the file name to buffer
-* :n edit the next file in the arg list
-* :n! edit next file, discarding the changes to the current.
-* :n args;specify new argument list
-* :ta tag edit file containing tag. (:help ta)
-* :e +/pat
-* :e +?pat
-* :ta can be used with ctags programs. :ta <function_name> will move you to that function.
-* /pattern-n nth line before the line containing the pattern
-* /pattern+n nth line after the line containing the pattern
-* set ic ignores the case during the search
-* set noic toggles the above.
-* set nomagic the search is now NOT regex
-* Q escapes you to ex mode
-* An appendix of all the characters is presented.
-* :vimtutor
 
+Formatting lines.
+
+* **J** joins the line.
+* **<<** Shift One Indent line left
+* **>>** Shift One line right
+
+Matching Paranthesis
+
+* **%** Matching Parenthesis
+* **]]** moves to the next } in a program. useful with y]]
+* **!sort** will run the sort command over the buffer or the selected list(Unix).
+
+* **=%** at the beginning of the function, will realign all the lines of the function declaration.
+
+Mapping terms.
+* **:map q :wq** (This is supposed to be :map q :wq^V^VCRCR;the first CR for map
+  association and second CR for the command itself)
+
+Placing a ! after the word map causes the map to be applied in the input mode rather than command mode.
+
+Abbreviations as help.
+
+* *:abbreviate (:ab)*
+* *:unabbreviate (:una)*
+* **:ab cs Computer Science**
+
+Interesting Tricks.
+
+* **5a+-----ESC** will produce
+
+  ::
+        +-----+-----+-----+-----+-----
+
+* **dw 3**. deletes 3 more words. 2. will delete two more words.
+
+* **:x** write if neccessary and then quit (same as ZZ)
+* **:e + ** edit starting at the end.
+* **:e +n** edit starting at n
+* **:e** # edit an alternate file
+
+* **:w** filename will write filename
+* **:w!** filename will overwrite filename
+* **:x,yw** name write lines x through y to name
+* **:r name** read the file name to buffer
+* **:n** edit the next file in the arg list
+* **:n!** edit next file, discarding the changes to the current.
+
+* **:ta** tag edit file containing tag. (:help ta)
+* **:ta** can be used with ctags programs. :ta <function_name> will move you to that function.
+* **:e +/pat** (edit files in the buffer containing the pattern )
+* **:e +?pat** (edit files in the buffer which contained the pattern previously)
+* **/pattern-n** nth line before the line containing the pattern
+* **/pattern+n** nth line after the line containing the pattern
+
+* **set ic** ignores the case during the search
+* **set noic** toggles the above.
+* **set nomagic** the search is now NOT regex
+
+* **Q** escapes you to ex mode
 
 Vim site www.vim.org 
 
-phoe6: Is there a way to make vim "Show" the tabs and spaces by escape sequences. In my python script, its mixed up, I just want to see it.
-mgedmin: phoe6: set list
-mgedmin: I also recommend :set listchars=tab:>-,trail:.,extends:>
-mgedmin: as well as :set expandtab
-phoe6: thanks, set list did it. let me try the other suggestion.
-phoe6: this might be needed only when you want to see it. right, would be a bad bad idea to put it in vimrc
-phoe6: the second suggest was cool too. expandtab just expands tabs to equal number of spaces, am I right?
-phoe6: does using screen disturb the .vimrc in any way?
-mgedmin: phoe6: I have set list listchars=... in my .vimrc, yes
-mgedmin: epxendtab makes the <tab> key insert spaces, not tabs
-phoe6: hmm..
-mgedmin: I also recommend set softtabstop=4
-mgedmin: to convert existing tabs to spaces, use :retab
+Question
+--------
 
+**Q**: Is there a way to make vim "Show" the tabs and spaces by escape
+sequences. In my python script, its mixed up, I just want to see it.
 
-set foldexpr=getline(v:lnum)=~'^class'?'>1':'='
+**Answer**
 
-phoe6: yeah, I know. I was to try expr today
-phoe6: I have been unsuccessful with fold-expr.
-phoe6: :set fdm=expr and then setting that :set foldexpr 
-phoe6: is anythign else needed? 
-djanowski: hello all. i'm writing a function that behaves differently depending
-on the file type. how can i get the current file type into a variable?
-jnrowe: djanowski▶ &filetype already exists ;)
-graywh: phoe6, oh, i know why
-phoe6: what could be reason, graywh?
-graywh: the problem is that the lines that don't match the pattern return 0
-djanowski: jnrowe: awesome, let me check
-graywh: :set foldexpr=getline(v:lnum)=~'^class'?'>1':'='
-graywh: that will only match top-level classes, obviously
-djanowski: jnrowe: is there an equivalent to C's switch statement?
-phoe6: :) yeah..
-graywh: if you want better python folding, find a plugin that does everything
-phoe6: ^class would match and if that returns > 1 what does '=' do?
-phoe6: I mean, I am trying to understand your foldexpr. 
-graywh: keeps fold level from previous line
-graywh: :h fold-expr and keep reading
-graywh: it's in a table
-phoe6: I see. thanks graywh
-phoe6: :)
-graywh: i use this for python
-graywh: http://www.vim.org/scripts/script.php?script_id=515
+::
+
+    set list
+    "You can augument it with
+    set listchars=...
+
+or
+
+**Q** What does **:set expandtab** do?
+
+**A** expandtab makes the <tab> key insert spaces, not tabs Also, the setting
+**set softtabstop=4** makes you insert as many spaces for each tab. To convert
+existing tabs to spaces, use :**retab**
+
+**Q**: Good Python plugin for Folding Expression.
+http://www.vim.org/scripts/script.php?script_id=515
