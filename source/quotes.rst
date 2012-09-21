@@ -18,6 +18,7 @@ Life
   reward is self-respect.  --Robert A. Heinlein
 * In life, after we get past the stage of fear, I think it is a never ending
   stage of adventure.
+* Be brave to follow your heart.
 * "Now, Now", cried the Queen, "Faster,Faster".  - Alice in Wonderland. 
 * Being entirely honest with oneself is a good exercise. --Sigmund Freud 
 * When you have eliminated the impossible, whatever remains, however

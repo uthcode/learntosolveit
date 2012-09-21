@@ -9,6 +9,20 @@ Understanding Ruby Language
 
 [1, 2, 3, 4, 5].map{ |i| i + 1}
 
+
+IRB session example. Look at the list de-referencing.
+
+::
+
+    1.8.7 :001 > a, *b = [1,2,3,4,5]
+     => [1, 2, 3, 4, 5] 
+    1.8.7 :002 > a
+     => 1 
+    1.8.7 :003 > b
+     => [2, 3, 4, 5] 
+    1.8.7 :004 > 
+
+
 Ruby aliases the method Array#map and Array#collect; they can used
 interchangeably.
 
@@ -52,6 +66,7 @@ creating strings let's take a look at some of the most commonly used methods.
 
 Do remember that placeholders aren't just variables. Any valid block of Ruby
 code you place inside #{} will be evaluated and inserted at that location.
+
 Isn't that very neat?
 
 We've been using double quotes in all our string interpolation examples. A
@@ -72,9 +87,9 @@ code.
 Why's Poigant guide to Ruby
 ---------------------------
 
-Poigant means that something is s so beautiful that tears shed from eyes. In
-this case, the author says that Ruby code is so beautiful that tears will shed
-from your eyes when you read it.
+Poigant means that something is so beautiful that tears shed from eyes. In this
+case, the author says that Ruby code is so beautiful that tears will shed from
+your eyes when you read it.
 
 Yukihiro Matsumoto created Ruby in 1993 but I came to know about in the context
 of a web development framework called Rails. This book, thankfully does not
@@ -542,3 +557,37 @@ Understand Rake
 ---------------
 
 Wondering how to run rake? bundle install; bundle exec rake -T. Super breezy.
+
+
+1.8.7 :010 > if false
+1.8.7 :011?>   elsif true
+1.8.7 :012?>      p "true"
+1.8.7 :013?>   end
+"true"
+ => nil 
+1.8.7 :014 > if false
+1.8.7 :015?>   elseif true
+1.8.7 :016?>    p 'true'
+1.8.7 :017?>   end
+ => nil 
+1.8.7 :018 > 
+
+StormChaser
+
+Pig
+Oink
+Scalding.
+Kafka
+
+StormChaser
+Esper
+Finagle
+
+
+- How to create pants branch?
+- What's pants, pants.pex and pants.multi
+- There is pants.new but the executable is not there.
+- export PANTS_DEV=1
+
+
+svn.twitter.biz/maven/com/twitter/test-spiderduck-*

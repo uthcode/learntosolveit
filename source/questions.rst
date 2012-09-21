@@ -29,6 +29,9 @@ HG
 
 5. Where does mercurial store it's extension files? 
 
+   /usr/share/pyshared/hgext
+
+
 6. Why does MAC OS not able to connect to wifi?
 
 7. What is the difference between - 
@@ -41,6 +44,9 @@ HG
 
 
     Note the change in single quote and double quote.
+
+8. How to I fold and unfold in vim.
+=======
 
 8. What is a macro in C?
 
