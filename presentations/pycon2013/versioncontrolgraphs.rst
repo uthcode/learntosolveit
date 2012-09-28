@@ -17,7 +17,7 @@ Understanding the graph manipulation concepts also encourage experimentation
 and remove the fear of making mistakes, while using these DVCS software.
 
 This talk will present those concepts with mercurial and git, and suggest
-workflows which developers can adopt when working on projects at any scale.
+work flows which developers can adopt when working on projects at any scale.
 
 It's all about mastering the version control graphs.
 
@@ -33,13 +33,13 @@ Let's look at CPython and PyPy as both of them use mercurial.
 Cpython has the one default repository as the main codeline and then bug fix
 versions are 'branches' of this default repo. Managing branches was considered
 easier than creating repos for individual release branches. Having a workflow
-like starting from 2.7, 3.2, 3.3 bug-fix branch and then pushing the changes to
-the default branch, ensures that CPython's development requirements is met
+such as starting from 2.7, 3.2, 3.3 bug-fix branch and then pushing the changes
+to the default branch, ensures that CPython's development requirements is met
 consistently and bug-fixes can be tracked across branches.
 
 We shall also look at certain hooks which mercurial enables which aid in
 development when working with various branches, which can have sufficiently
-divering files for e.g 2.7 and 3.3 branches in the same repository. We can
+diverging files for e.g 2.7 and 3.3 branches in the same repository. We can
 write mercurial hooks which can help us to keep the build files separately for
 each branch and those builds can get activated as we switch branches.
 
@@ -52,9 +52,9 @@ Editing History with hg
 -----------------------
 
 A good section of this talk would discuss the facilities available with editing
-history / manipulating hg graph, which is exremely useful for work in progress.
+history / manipulating hg graph, which is extremely useful for work in progress.
 
-* mq extension and workflows can be adopted while using mq extension.
+* mq extension and workflow can be adopted while using mq extension.
 
 Hg rebase command and hg interactive rebase which should be available in latest
 version of hg would be introduced.
@@ -95,8 +95,8 @@ About Speaker
 ------------
 
 Senthil Kumaran is a CPython core developer, contributing to standard library
-of Python. He works as Software Engineer with Twitter, mostly writing build and
-release software. http://www.uthcode.com is his programming site.
+of Python. He works as Software Engineer with Twitter, mostly writing build
+related software. http://www.uthcode.com is his programming site.
 
 References
 -----------
