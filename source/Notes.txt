@@ -1,2 +1,14 @@
 http://stackoverflow.com/questions/3939879/constipated-python-urllib2-sockets
 http://stackoverflow.com/questions/1598331/how-to-read-continous-http-streaming-data-in-python
+
+Blog
+----
+Histogram Diff and Patience Diff
+
+Patience diff goes about match, first common, last common and then doing LCS on middle differing lines.
+Histogram extends the same and when doing LCS, it creates the histogram of differences to see the matches.
+
+http://bramcohen.livejournal.com/73318.html
+
+http://www.jarvana.com/jarvana/view/com/madgag/org.eclipse.jgit/0.9.9.1-UNOFFICIAL-ROBERTO-RELEASE/org.eclipse.jgit-0.9.9.1-UNOFFICIAL-ROBERTO-RELEASE-javadoc.jar!/org/eclipse/jgit/diff/HistogramDiff.html
+

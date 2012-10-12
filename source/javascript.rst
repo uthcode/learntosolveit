@@ -834,6 +834,20 @@ jsfiddle
 
     </script>
 
+Coffee Script
+-------------
+
+Coffee script seems easy to write.
+
+p = $ ->
+
+is the definition of a function
+
+p = $(arg) ->
+
+is a function which takes an arg.
+
+
 .. seealso::
 
 * `A Re-Introduction to Javascript`_
