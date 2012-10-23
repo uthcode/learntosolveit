@@ -13,8 +13,6 @@ Git
 By default, there is a head in every repository called the master.
 The currently active head is called HEAD.
 
-Continuing to work from here. This is better, instead of a new section.
-
 A Common git branching usage pattern is to have one main or trunk branch; and
 then create branches to add new features. Commonly the master branch is treated
 as the main or the trunk branch.
@@ -421,4 +419,67 @@ and I can go back and forth.
 Editing History in Mercurial - Strategies
 
 http://mercurial.selenic.com/wiki/EditingHistory
+
+Git
+---
+
+In simplified form, git object storage is "just" a DAG of objects, with a
+handful of different types of objects. They are all stored compressed and
+identified by an SHA-1 hash (that, incidentally, isn't the SHA-1 of the
+contents of the file they represent, but of their representation in git).
+
+blob
+----
+
+The simplest object, just a bunch of bytes. This is often a file, but can be a
+symlink or pretty much anything else. The object that points to the blob
+determines the semantics.
+
+tree
+----
+
+Directories are represented by tree object.
+
+git gc
+git list-found
+
+for garbage collecting and finding the list of files.
+
+commit
+------
+
+A commit refers to a tree that represents the state of the files at the time of
+the commit. It also refers to 0..n other commits that are its parents. More
+than one parent means the commit is a merge, no parents means it is an initial
+commit, and interestingly there can be more than one initial commit; this
+usually means two separate projects merged. The body of the commit object is
+the commit message.
+
+
+refs
+----
+
+References, or heads or branches, are like post-it notes slapped on a node in
+the DAG. Where as the DAG only gets added to and existing nodes cannot be
+mutated, the post-its can be moved around freely. They don't get stored in the
+history, and they aren't directly transferred between repositories. They act as
+sort of bookmarks, "I'm working here".
+
+
+The HEAD ref is special in that it actually points to another ref. It is a
+pointer to the currently active branch. Normal refs are actually in a namespace
+heads/XXX, but you can often skip the heads/ part.
+
+
+Don't rebase branches that others have created new commits on top of. It is
+possible to recover from that, it's not hard, but the extra work needed can be
+frustrating.
+
+git with merge and rebase
+
+http://eagain.net/articles/git-for-computer-scientists/
+
+http://sitaramc.github.com/gcs/
+
+
 
