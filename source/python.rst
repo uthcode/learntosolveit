@@ -1817,6 +1817,9 @@ Python Programming
     is here 
     http://peak.telecommunity.com/DevCenter/setuptools
 
+remote: notified python-checkins@python.org of incoming changeset 5e71f2712076
+remote: notified python-checkins@python.org of incoming changeset 30547e2cd04d
+remote: notified python-checkins@python.org of incoming changeset 7173ac8144b0
 
 
 Links
@@ -1833,3 +1836,4 @@ Links
 
 * Python performance improvements
   http://www.huyng.com/posts/python-performance-analysis/
+

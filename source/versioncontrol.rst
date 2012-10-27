@@ -420,6 +420,18 @@ Editing History in Mercurial - Strategies
 
 http://mercurial.selenic.com/wiki/EditingHistory
 
+hg diff -r $(hg -R $(hg root)/../../cpython id -i -r tip) > issue10836.patch
+hg root
+hg diff -r ../../cpython id -i -r tip
+hg diff -r (../../cpython id -i) -r tip
+hg diff -r tip
+hg diff -r tip^
+hg diff -r `hg -R ../../cpython id -i -r tip`
+hg diff -r `hg -R ../../cpython -r tip`
+hg diff -r `hg -R ../../cpython id -r tip`
+hg diff -r `hg -R ../../cpython id -i -r tip`
+
+=======
 Git
 ---
 
@@ -480,6 +492,4 @@ git with merge and rebase
 http://eagain.net/articles/git-for-computer-scientists/
 
 http://sitaramc.github.com/gcs/
-
-
 

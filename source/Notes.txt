@@ -1,4 +1,5 @@
 http://stackoverflow.com/questions/3939879/constipated-python-urllib2-sockets
+
 http://stackoverflow.com/questions/1598331/how-to-read-continous-http-streaming-data-in-python
 
 Blog
@@ -11,4 +12,13 @@ Histogram extends the same and when doing LCS, it creates the histogram of diffe
 http://bramcohen.livejournal.com/73318.html
 
 http://www.jarvana.com/jarvana/view/com/madgag/org.eclipse.jgit/0.9.9.1-UNOFFICIAL-ROBERTO-RELEASE/org.eclipse.jgit-0.9.9.1-UNOFFICIAL-ROBERTO-RELEASE-javadoc.jar!/org/eclipse/jgit/diff/HistogramDiff.html
+
+Starting again
+--------------
+
+* Starting again is the difficult job. But recognizing it's need and starting
+  again, working hard on it may only help to be more disciplined. I remember a
+  moment, when I realized that I had forgotten many things in history and I had
+  to start again from the first chapter and it captured my interest then.
+
 

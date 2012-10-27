@@ -37,7 +37,7 @@ together the pieces needed to run the CPython machine and makes ‘a process’
 into ‘a process with a Python interpreter in it’. Among other things, it
 creates two very important Python data-structures: the *interpreter state* and
 *thread state*. It also creates the built-in module *sys* and the module which
-hosts all builtins. 
+hosts all builtins.
 
 It will execute a single string, since we invoked it with *-c*. To execute this
 single string, ``./Python/pythonrun.c: PyRun_SimpleStringFlags`` is called.
