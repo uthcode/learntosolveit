@@ -45,6 +45,11 @@ Algorithms
 
 http://ace.delos.com/usacogate
 
+Introduction to Programming Languages
+=====================================
+
+http://www.cs.brown.edu/courses/csci1730/2012/Videos/
+
 Theory of Computation
 =====================
 

@@ -357,3 +357,8 @@ Training Site
 
 * http://www.codingdoor.com/
 
+Interesting Companies
+---------------------
+
+* http://rocketfuel.com
+* http://www.generalsentiment.com

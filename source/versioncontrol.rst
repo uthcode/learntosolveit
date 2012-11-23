@@ -493,3 +493,11 @@ http://eagain.net/articles/git-for-computer-scientists/
 
 http://sitaramc.github.com/gcs/
 
+
+GIT
+===
+
+http://excess.org/article/2008/07/ogre-git-tutorial/
+http://www.youtube.com/watch?v=8dhZ9BXQgc4
+http://ndpsoftware.com/git-cheatsheet.html#loc=workspace;
+

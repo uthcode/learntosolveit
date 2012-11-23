@@ -15,12 +15,12 @@ IRB session example. Look at the list de-referencing.
 ::
 
     1.8.7 :001 > a, *b = [1,2,3,4,5]
-     => [1, 2, 3, 4, 5] 
+     => [1, 2, 3, 4, 5]
     1.8.7 :002 > a
-     => 1 
+     => 1
     1.8.7 :003 > b
-     => [2, 3, 4, 5] 
-    1.8.7 :004 > 
+     => [2, 3, 4, 5]
+    1.8.7 :004 >
 
 
 Ruby aliases the method Array#map and Array#collect; they can used

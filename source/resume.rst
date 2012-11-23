@@ -4,7 +4,7 @@ O.R.Senthil Kumaran
 
 :Email: orsenthil@gmail.com 
 
-:Phone: **+6591816829**
+:Phone: **+1-650-516-6284**
 
 :Website: http://www.uthcode.com
 
@@ -20,7 +20,7 @@ O.R.Senthil Kumaran
 .. topic:: SKILLS AND TECHNICAL PROFICIENCY
 
         * **Python Core Developer** - Active contributer to the Python Programming Language.
-        * Programming Laguages Known - **Python, C++, C, Perl**
+        * Programming Laguages Known - **Python, Ruby, C++, C, Perl**
         * Network Programming - **Twisted, Sockets, HTTP and URLs**
         * Web Development **Pylons, Javascript, jQuery, HTML5, CSS**
         * Database Systems **SQL, SQLAlchemy**
@@ -28,6 +28,7 @@ O.R.Senthil Kumaran
         * Profeciency in writing **System Software using C++ for Linux and Windows.**
         * Expertise in **Internet Programming,Distributed Systems, Google App Engine**
         * **OpenSSL** based Secure Programming System.
+        * Deployment Solutions - **Capistrano**
         * Expertise in Designing **Test Automation and Unittest Frameworks**.
 
 
@@ -38,7 +39,9 @@ O.R.Senthil Kumaran
         +--------------------+----------------------------+------------------+
         | Organization       | Role                       |   Period         |
         +====================+============================+==================+
-        | Lucasfilm Singapore| Senior Software Engineer   | Current Employer |
+        | Twitter            | Software Developer         | 2012 - Current   |
+        |                    |                            |                  |
+        | Lucasfilm Singapore| Senior Software Engineer   | 2011 - 2012      |
         |                    |                            |                  |
         | Akamai Technologies| Senior Software Engineer   |  2008 - 2011     |
         |                    |                            |                  |
@@ -79,6 +82,26 @@ O.R.Senthil Kumaran
            * Website: uthcode_ 
            * Languages: **C, C++, Python**
            
+
+        * **Twitter Cap Utils**
+
+           Developer of Twitter Cap Utils 2.0.
+
+           Deployment Utility used for deploying to servers within Twitter.
+           Twitter Cap Utils is a extension for Capistrano which adds
+           Capabilities to deploy using Bit-torrent and log the deploys.
+
+
+        * **Pants**
+
+         Contributed to Pants Build system Project.
+
+         A Build system used by Twitter and other companies which used for
+         building java binaries, java libraries, scala libraries, scala
+         binaries and artifacts. This tool is written in Python and used by
+         Twitter for for all it's projects.
+
+
         * **Data Analyzer - A Distributed Log Analyzer project at Akamai**
 
           Data Analyzer was a platform to collect and analyze HTTP Logs and

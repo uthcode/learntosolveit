@@ -13,7 +13,8 @@ class Rectangle
     end
 end
 
-rect = Rectangle.new(10,20)
+rect = Rectangle.new(10,
+                     20)
 
 # In ruby, you initialize an object using the new method
 #
