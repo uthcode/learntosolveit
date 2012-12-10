@@ -57,7 +57,7 @@ you will see that your have developed a piano like game.
 
 These are the basics of Alice, but underneath it is teaching you the essence of
 programming too. Most often Object Oriented Programming which many people talk
-about is nothing about this and it is sometimes surprising that, many a times
+about is nothing but this and it is sometimes surprising that, many a times
 programmer use the terms without much visualization. Alice kind of
 visualization helps programmer too in understanding things better.
 

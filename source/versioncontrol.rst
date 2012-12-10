@@ -431,6 +431,10 @@ hg diff -r `hg -R ../../cpython -r tip`
 hg diff -r `hg -R ../../cpython id -r tip`
 hg diff -r `hg -R ../../cpython id -i -r tip`
 
+hg workflow
+
+http://blingcode.blogspot.com/2010/12/working-in-git-to-working-in-mercurial.html
+
 =======
 Git
 ---
@@ -492,6 +496,7 @@ git with merge and rebase
 http://eagain.net/articles/git-for-computer-scientists/
 
 http://sitaramc.github.com/gcs/
+
 
 
 GIT
