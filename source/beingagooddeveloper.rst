@@ -87,7 +87,10 @@ you become a better developer. Few things which have helped me so far.
 * Solve the questions at the end of the chapters of the book that you read.
   (FWIW, I did with my project http://www.uthcode.com/ wherein I attempted to
   solve all the exercises of Kernighan and Ritchie.)
-* Don't copy other programs. (I have to admit, I have copied, but after I understand, I try to uncopy them) (I have to aadmit, I have copied, but lafter I understand, I try to uncopy them and I would like to remove this parentised sentence in future)
+* Don't copy other programs. (I have to admit, I have copied, but after I
+  understand, I try to uncopy them) (I have to aadmit, I have copied, but
+  lafter I understand, I try to uncopy them and I would like to remove this
+  parentised sentence in future)
 * Start with toy programs. start writing small, simple and then you can move to
   bigger and more useful one later. ( வி. சு.)
 * whenever you are in doubt write a small program; this saves lots of time, and
@@ -95,23 +98,19 @@ you become a better developer. Few things which have helped me so far.
 
 **Concentrating while programming.**
 
-* That would be done with a good discipline. Ask an athlete friend of yours'
-  what does it mean to concentrate and to improve. Simple, it takes hard-work.
-
+* This part requires some personal discipline, but find the area which appeals
+  to you from within and you wont notice any effort that you are putting in.
 
 **Enjoy Programming.**
 
-* Have your favorite tool and know about it in and out. Be curious of how
-  Google works? How Internet works? How Operating System works practically.
+* Have your favorite tool and know about it in and out. How Internet works, how
+  google works, what is the design of your favorite software. Talk to people
+  who have similar interests and discuss your ideas in open. Enjoy like you
+  enjoy your favorite sport.
 
 
-These steps can help one become a better developer and thereby enjoy his time
-while he is in this field.
-
-One last thought. If you have a Computer with Internet Connection at your room
-or home, what do you use it primary for?It can be used for many different
-purposes and also for the above 4 things I shared. If we using it for the
-later, then it definitely is more enjoyable for a Computer Science student.
+I think, these would help anyone, myself included if I follow through, to
+become a better developer and enjoy the field.
 
 Thank you,
 
