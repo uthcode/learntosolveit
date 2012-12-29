@@ -88,9 +88,7 @@ you become a better developer. Few things which have helped me so far.
   (FWIW, I did with my project http://www.uthcode.com/ wherein I attempted to
   solve all the exercises of Kernighan and Ritchie.)
 * Don't copy other programs. (I have to admit, I have copied, but after I
-  understand, I try to uncopy them) (I have to aadmit, I have copied, but
-  lafter I understand, I try to uncopy them and I would like to remove this
-  parentised sentence in future)
+  understand, I try to uncopy them)
 * Start with toy programs. start writing small, simple and then you can move to
   bigger and more useful one later. ( வி. சு.)
 * whenever you are in doubt write a small program; this saves lots of time, and
