@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# Towers of Hanoi program.
+
 disks = 3
 from_tower = 'A'
 to_tower = 'C'
