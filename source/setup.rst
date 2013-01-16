@@ -4,8 +4,8 @@ My Computer Setup
 Operating System
 ----------------
 
-* Macbook Pro 
-  Given to me by Work. I like the sleep option the best. I dont have to shutdown and startup.
+Macbook Pro
+Given to me by Work. I like the sleep option the best. I dont have to shutdown and startup.
 
 
 Editor
@@ -33,7 +33,7 @@ Vagrant
 I think, everything is taken care here. I need good links for documentation for
 referring to the sources.
 
-Languages 
+Languages
 ---------
 
 Python, C and C++ - Vim ide.
@@ -42,4 +42,11 @@ Java - IDEA IDE
 
 Uthcode
 -------
+Update uthcode script to update it everyday.
+svn is best for this project.
+
+Email
+-----
+Gmail
+Web app is okay. I was used to mutt. But Gmail conversation can be faster.
 
