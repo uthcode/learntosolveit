@@ -103,7 +103,7 @@ Python Programming
 
 #) **Can you do inline assignment in Python?**
 
-    Like c, Python uses == for comparison and = for assignment. Unlike c,
+    Like C, Python uses == for comparison and = for assignment. Unlike c,
     Python does not support in-line assignment, so there’s no chance of
     accidentally assigning the value you thought you were comparing.
 
@@ -1831,4 +1831,10 @@ Links
 
 * Python performance improvements
   http://www.huyng.com/posts/python-performance-analysis/
+
+* Python Buffer Protocol and Memoryviews
+  http://eli.thegreenplace.net/2011/11/28/less-copies-in-python-with-the-buffer-protocol-and-memoryviews/
+
+* Buffers and Memoryview Objects explained for the non-C programmer
+  http://stackoverflow.com/questions/6736771/buffers-and-memoryview-objects-explained-for-the-non-c-programmer
 
