@@ -421,19 +421,40 @@ Editing History in Mercurial - Strategies
 http://mercurial.selenic.com/wiki/EditingHistory
 
 hg diff -r $(hg -R $(hg root)/../../cpython id -i -r tip) > issue10836.patch
+hg diff -r `hg -R ../../cpython id -i -r tip`
+
+These two work fine.
+
+hg diff against a revision.
+hg id -i # looks redundant but id is a shortform for identify
+-i is for global unique identifer.
+-r for revision
+tip.
+
+
+
 hg root
-hg diff -r ../../cpython id -i -r tip
 hg diff -r (../../cpython id -i) -r tip
 hg diff -r tip
 hg diff -r tip^
-hg diff -r `hg -R ../../cpython id -i -r tip`
 hg diff -r `hg -R ../../cpython -r tip`
 hg diff -r `hg -R ../../cpython id -r tip`
 hg diff -r `hg -R ../../cpython id -i -r tip`
+hg diff -r `hg -R ../../cpython id -i -r default`
 
 hg workflow
 
 http://blingcode.blogspot.com/2010/12/working-in-git-to-working-in-mercurial.html
+
+you can create 3 different patches.
+1. hg import --no-commit ../bug-fixes/something/3.2.patch
+2. hg push # this will push to 3.3
+3. cd 3.3
+4. hg pull -u ../3.2 # is just push and pull. One is no-op.
+5. hg merge 3.3 # this will merge.
+6. hg revert -ar 3.3 # this will revert only the file changes, but records the merge - Wierd HG.
+7. patch -p1 < ../bug-fixes/3.3 patch # this will work.
+8. hg commit -m "#42 merge from 3.2"
 
 =======
 Git

@@ -2,7 +2,7 @@
 Python Notes
 ============
 
-.. warning:: 
+.. warning::
 
         Work in Progress.
 
@@ -13,7 +13,7 @@ CPython Development Process
 
     * update all codelines.
     * Start working on 3.2 codeline and fix and commit and push. It will push
-      it cpython. 
+      it cpython.
     * hg pull -u ../3.2
     * hg merge 3.2
     * resolve any conflicts.
@@ -156,7 +156,7 @@ Python Programming
 #) **What is a memoryview object?**
 
     A memoryview object exposes the C level buffer interface as a Python object
-    which can then be passed around like any other object.  
+    which can then be passed around like any other object.
     class memoryview(obj) - Create a memoryview that references obj. obj must
     support the buffer protocol.  Built-in objects that support the buffer
     protocol include bytes and bytearray.
@@ -286,7 +286,7 @@ Python Programming
 
     A string is a sequence (isinstance('', Sequence) == True) and as any
     sequence it is iterable (isinstance('', Iterable)). Though hasattr('',
-    '__iter__') == False and it might be confusing. 
+    '__iter__') == False and it might be confusing.
 
 #) **How do you extending Python?**
 
@@ -630,7 +630,7 @@ Python Programming
 
     For example, if we were summing the squares of several billion integers,
     we'd run out of memory with list comprehensions, but generator expressions
-    have no problem.  This does take time, though!  
+    have no problem.  This does take time, though!
 
     ::
        total = sum(num * num
@@ -879,11 +879,11 @@ Python Programming
             this is a ä.Easy!
             >>> 
 
-    * Without an encoding, the bytestring is essentially meaningless. 
+    * Without an encoding, the bytestring is essentially meaningless.
 
     * The default encoding assumed by Python2 is ASCII and Python3 is UTF-8 For the
       Python2, source code to have a encoding other than ascii, you need to declare
-      the encoding at the top of file, using a construct such as 
+      the encoding at the top of file, using a construct such as.
       ``# -*- coding: utf-8 -*-`` this is many a times referred to as coding-cookie
       as it denotes the type of encoding being used for the source file.  With that
       declaration, all characters in the source file will be treated as having the
@@ -941,7 +941,7 @@ Python Programming
     another name which can then also be used as a function.
 
     To illustrate the function execution control flow, have a look at this
-    snippet.:: 
+    snippet.::
 
         i = 5
 
@@ -1817,6 +1817,56 @@ Python Programming
     is here 
     http://peak.telecommunity.com/DevCenter/setuptools
 
+#) Why should we need class methods in Python?
+
+    Class methods are for when you need to have methods that aren't specific to any
+    particular instance, but still involve the class in some way. The most
+    interesting thing about them is that they can be overridden by subclasses,
+    something that's simply not possible in Java's static methods or Python's
+    module-level functions.
+
+    If you have a class MyClass, and a module-level function that operates on
+    MyClass (factory, dependency injection stub, etc), make it a classmethod. Then
+    it'll be available to subclasses.
+
+http://stackoverflow.com/a/38276/18852
+
+
+    Well __new__ is a pretty important classmethod. It's where instances usually
+    come from
+
+    so dict() calls dict.__new__ of course, but there is another handy way to make
+    dicts sometimes which is the classmethod dict.fromkeys()
+
+    >>> dict.fromkeys("12345")
+    {'1': None, '3': None, '2': None, '5': None, '4': None}
+
+http://stackoverflow.com/a/5738629/18852
+
+
+Also:
+
+helper methods for initialization
+
+    class MyStream(object):
+
+        @classmethod
+        def from_file(cls, filepath, ignore_comments=False,):
+
+            with open(filepath, 'r') as fileobj:
+                for obj in cls(fileobj, ignore_comments):
+                    yield obj
+
+        @classmethod
+        def from_socket(cls,socket,ignore_comments = False
+            raise NotImplemented # Placeholder until implemented
+
+        def __init__(self, iterable, ignore_comments=False,):
+
+http://stackoverflow.com/a/5738586/18852
+
+
+
 Links
 =====
 
@@ -1837,4 +1887,7 @@ Links
 
 * Buffers and Memoryview Objects explained for the non-C programmer
   http://stackoverflow.com/questions/6736771/buffers-and-memoryview-objects-explained-for-the-non-c-programmer
+
+* Guide to Python using Games
+  http://lightbird.net/larks/
 
