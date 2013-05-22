@@ -1,5 +1,20 @@
 This file contains the design plan for uthcode.
 
+Plan and Execution
+------------------
+
+http://www.uthcode.com - All things related to uthcode.
+http://blog.uthcode.com - The only blog.
+
+Wed Oct  3 12:29:09 PDT 2012
+----------------------------
+
+uthcode.github.com - Organization.
+Will have sections for codes.
+Employees will write code and review, pull and publish.
+The published ones will be available at WWW.
+Users will be able to use it, comment on it and review it and become contributers too.
+Execution runtime provided by ideone (Writing this would be time consuming)
 Sat May 14 08:13:31 SGT 2011
 ----------------------------
 
@@ -10,6 +25,7 @@ Sat May 14 08:13:31 SGT 2011
    4. Java
    5. Javascript.
    6. Go
+
 * Have only Educational and Documented Examples in all these sections. Do not dump.
 
 * Each of these will contain well defined full programs for learning and resuing.
@@ -34,7 +50,7 @@ Books
   1. Algorithms in Python.
 
 Presentations
-  1. Archive of the presentations so far.
+  1. Presentations so far.
 
 Foundational
 
@@ -152,12 +168,4 @@ rsync -avze ssh .  UN@PN.sarovar.org:/var/lib/gforge/chroot/home/groups/PN/htdoc
 Instead of Source, Let it be Articles.
 Solutions.
 
-Wed Oct  3 12:29:09 PDT 2012
-----------------------------
 
-uthcode.github.com - Organization.
-Will have sections for codes.
-Employees will write code and review, pull and publish.
-The published ones will be available at WWW.
-Users will be able to use it, comment on it and review it and become contributers too.
-Execution runtime provided by ideone (Writing this would be time consuming)

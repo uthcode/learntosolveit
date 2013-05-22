@@ -12,6 +12,14 @@
 # serve to show the default.
 
 import sys, os
+# At the top.
+#import sphinx_bootstrap_theme
+
+# ...
+
+# Activate the theme.
+#html_theme = 'bootstrap'
+#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -34,7 +42,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'contents'
 
 # General information about the project.
 project = u'uthcode'
@@ -133,7 +141,8 @@ html_last_updated_fmt = '%d %b, %y'
 #html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars = {}
+#html_sidebars = {'index': ['indexsidebar.html', 'searchbox.html']}
+html_additional_pages = {'index': 'index.html'}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -179,10 +188,9 @@ htmlhelp_basename = 'uthcodedoc'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [
-  ('index', 'uthcode.tex', u'uthcode Documentation',
-   u'Senthil Kumaran', 'manual'),
-]
+#latex_documents = [
+#   u'Senthil Kumaran', 'manual'),
+#]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
