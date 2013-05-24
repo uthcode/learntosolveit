@@ -3,12 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-============
-Uthcode Docs
-============
-
-Welcome to Uthcode. You will find information on Computer Science subjects,
-articles on programming, software enginering and business.
+=======
+Uthcode
+=======
 
 Stay updated via `Uthcode blog`_ or follow me on twitter `@phoe6`_
 

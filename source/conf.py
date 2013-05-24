@@ -142,7 +142,7 @@ html_last_updated_fmt = '%d %b, %y'
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {'index': ['indexsidebar.html', 'searchbox.html']}
-html_additional_pages = {'index': 'index.html'}
+html_additional_pages = {'index': 'index.html', 'foo' : 'foo.html', 'bar': 'bar.html'}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
