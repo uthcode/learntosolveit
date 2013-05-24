@@ -1,17 +1,13 @@
 ======================
-Technology and Courage 
+Technology and Courage
 ======================
 
----------------------
 by `Ivan Sutherland`_
----------------------
 
-.. rubric::  This is my favorite essay and I have it here verbatim to read and re-read. Here is the original_
+.. rubric::  This is my favorite essay and I have it here verbatim to read and
+             re-read. Here is the `original`_
 
-.. _Ivan Sutherland:  http://en.wikipedia.org/wiki/Ivan_Sutherland
-.. _original: http://labs.oracle.com/techrep/Perspectives/smli_ps-1.pdf
-
-In this paper, the author's spirit and joy are revealed thus.
+`Ivan Sutherland`_ writes
 
 *I, for one, am and will always remain a practicing technologist. When
 denied my minimum daily adult dose of technology, I get grouchy. I believe
@@ -21,9 +17,7 @@ turned down several lucrative administrative jobs because they would deny
 me that fun. If the technology you do isn't fun for you, you may wish to
 seek other employment.  Without the fun, none of us would go on.*
 
-**Notes from the Author**
-
-This paper is essentially the text of a lecture I gave at Carnegie Mellon
+*This paper is essentially the text of a lecture I gave at Carnegie Mellon
 University in 1982. It was the first, and nearly the only, non-technical
 lecture I have ever given. At the time, I was deeply concerned that the ideas I
 expressed would be of little interest or value. This paper was eventually
@@ -40,14 +34,13 @@ may wish a copy. The ideas are my own and represent no official position of Sun
 Microsystems, Inc. or Carnegie Mellon University. The text is also available on
 the World Wide Web. You may reproduce this document for any not-for-profit
 purpose. Reproduction for profit or where a royalty is paid to anyone requires
-prior permission from the author.
+prior permission from the author.*
 
 :Author:  Ivan Sutherland
 :Address: Mountain View, CA December 1995
 
-
-Technology and Courage
-======================
+.. toctree::
+   :maxdepth: 2
 
 Introduction
 ------------
@@ -1069,16 +1062,21 @@ References
      1971.
 
 [11] Phong, B.T.  "Illumination for Computer-generated Images." University of
-     Utah, UTEC-CSc-73-129, July 1973, and in CACM, 18(6):311:317, June 1975. 
+     Utah, UTEC-CSc-73-129, July 1973, and in CACM, 18(6):311:317, June 1975.
 
 [12] May, Rollo. The Courage to Create. Bantam Books, New York, 1975.
 
 [13] Sutherland, I.E. and Sproull, R. "Comparison for Codebook Generation
-     Techniques for Vector Quantization." 
+     Techniques for Vector Quantization."
 
 [14] Sutherland, I. E. and Sproull, R.  "Logical Effort. Designing for Speed on
      the Back of an Envelope," IEEE Advanced Research in VLSI, C. Sequin, ed.
      MIT Press, 1991.
 
 [15] Sutherland, I.E.  "Technology and Courage," CMU Compter Science. A 25th
-     Anniversary Commemorative. Ed. Rashid, R. ACM Press, 1991. 
+     Anniversary Commemorative. Ed. Rashid, R. ACM Press, 1991.
+
+.. _Ivan Sutherland:  http://en.wikipedia.org/wiki/Ivan_Sutherland
+.. _original: http://labs.oracle.com/techrep/Perspectives/smli_ps-1.pdf
+
+
