@@ -6,6 +6,41 @@ Plan and Execution
 http://www.uthcode.com - All things related to uthcode.
 http://blog.uthcode.com - The only blog.
 
+Design:
+
+www.uthcode.com will use the bootstrap and templates.
+Will contain HTML pages for projects.
+
+www.uthcode.com/contents.html - will be the table of contents in sphinx.
+Any document will have 2 levels of TOC.
+
+.. toctree::
+   :maxdepth: 2
+
+What kind of documents will be in?
+
+* Readable.
+* Executable.
+* Consistent. Including the old material.
+
+* No Nonsense. Non-sense by definition is anything you output when like to. At
+* the moment, uthcode is majorly non-sense.
+
+* Uses only standard sphinx constructs.
+* If you want to develop a new construct, write a TODO and prioritize it after completing this rewamp project.
+* Namespaces - Directories and files.
+* Separate Code from Docs.
+* Code to be included will be in it's own namespace.
+
+Consistent Hyperlinking
+
+BACKTICKtermBACKTICKUNDERSCORE
+
+DOTDOTSPACEUNDERSCOREtermCOLONSPACEURL
+
+`term`_
+.. _term: http://www.uthcode.com
+
 Wed Oct  3 12:29:09 PDT 2012
 ----------------------------
 
