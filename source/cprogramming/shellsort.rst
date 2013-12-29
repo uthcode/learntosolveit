@@ -6,4 +6,4 @@ shellsort
 
 .. literalinclude:: ../languages/cprogs/shellsort.c
    :language: c
-   :tab-width: 4
+   :tab-width: 2
