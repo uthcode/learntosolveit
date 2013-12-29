@@ -1,40 +1,10 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
-
-=========
 Py3K PEPS
 =========
 
-.. sidebar:: Contents
-   :class: handout
+APAC PyCon 2010, Singapore
+--------------------------
 
-   .. contents:: :local:
-
-.. class:: center large
-
-   | APAC PyCon 2010, Singapore
-
-.. class:: center small
-
-   | **Senthil Kumaran**
-   | orsenthil@gmail.com
-   | http://uthcode.sarovar.org
-
-.. class:: handout
-
-        Let us look at design process of Python 3 language through the PEPs.
-
-        There are 3 versions of this presentation:
-
-        * `S5 presentation <py3kpeps.html>`__
-        * `Handout <py3kpepshandout.html>`__
-        * `reStructuredText source <py3kpeps.txt>`__
-
-        ©2010, licensed under a `Creative Commons
-        Attribution/Share-Alike (BY-SA) license
-        <http://creativecommons.org/licenses/by-sa/3.0/>`__.
-
+**Senthil Kumaran**
 
 About Me
 ========
@@ -51,11 +21,7 @@ Status of Python
 * Python 3.0 is not there!  
 * Python 2.7 (current trunk)
 * Python 2.6.5 (release26-maint)
-
-
-.. class:: handout
-        
-        http://www.python.org/dev/
+* http://www.python.org/dev/
 
 PEP 3000
 ========
@@ -66,7 +32,8 @@ PEP 3000
 * Implementation Details – Write in C.
 * Source code conversion tool (2to3), context free source to source translation.
 
-.. class:: handout
+Handout
+=======
 
         Python 3000, Python 3.0 and Py3K are all names for the same thing.
         The project is called Python 3000, or abbreviated to Py3k.  The actual
@@ -79,6 +46,9 @@ PEP 3000
         Actually Python 3.0 shippped with io module written in Python which
         caused significant performance problems. Python Core Devs recommend
         against the use of Python 3.0 for any purpose. Use Python 3.1 which is better.
+
+Handout
+=======
 
         Python 3.x will be break the backward compability, but Python 2.6 and Python
         2.7 will support forwarding compatibility in the following ways.
@@ -97,6 +67,9 @@ PEP 3000
           type inferencing, so it simply assumes that ``apply`` in this example refers
           to the old built-in function.
 
+Handout
+=======
+
         The recommended development model for a project that needs to support
         Python 2.7 and 3.2 simultaneously is as follows:
 
@@ -112,6 +85,9 @@ PEP 3000
         7. When it's time to release, release separate 2.6 and 3.2 tarballs
            (or whatever archive form you use for releases).
 
+Handout
+=======
+
         It is recommended not to edit the 3.2 source code until you are ready
         to reduce 2.6 support to pure maintenance (i.e. the moment when you
         would normally move the 2.6 code to a maintenance branch anyway).
@@ -122,20 +98,15 @@ PEP 3100
 * Brett Canon – Mischellaneous Python 3 Plans.
 * This is overall implementation details, kind of index to all the other PEPS which will detail the specific changes.
 * One PEP to Check them all.
+* PEP 238 (Changing the Division Operator)
+* PEP 328 (Imports: Multi-Line and Absolute/Relative)
+* PEP 343 (The "with" Statement)
+* PEP 352 (Required Superclass for Exceptions)
 
-.. class:: handout
+http://www.python.org/dev/peps/pep-3100/
 
-        Influencing PEPs include:
-
-        * PEP 238 (Changing the Division Operator)
-        * PEP 328 (Imports: Multi-Line and Absolute/Relative)
-        * PEP 343 (The "with" Statement)
-        * PEP 352 (Required Superclass for Exceptions)
-
-        http://www.python.org/dev/peps/pep-3100/
-
-        Python Regrets presentation:
-        http://www.python.org/doc/essays/ppt/regrets/PythonRegrets.pdf
+Python Regrets presentation:
+http://www.python.org/doc/essays/ppt/regrets/PythonRegrets.pdf
 
 PEP 3101
 ========
@@ -154,11 +125,7 @@ PEP 3101
         [[fill]align][sign][#][0][minimumwidth][.precision][type]
 
 * User defined formatting and other issues and usecases.
-
-
-.. class:: handout
-        
-        http://us.pycon.org/2010/conference/schedule/event/49/
+* http://us.pycon.org/2010/conference/schedule/event/49/
 
 PEP 3105
 ========
@@ -174,8 +141,9 @@ PEP 3105
 
 * No backwards compatible. All your python 2 code which contains print statement will break.
 
-.. class:: handout
-       
+Handout
+=======
+
 
         * ``print`` is the only application-level functionality that has a
           statement dedicated to it. Within Python's world, syntax is generally
@@ -189,6 +157,9 @@ PEP 3105
           a mess adding all those parentheses and possibly converting ``>>stream``
           style syntax.
 
+Handout
+=======
+
         * Having special syntax for ``print`` puts up a much larger barrier for
           evolution, e.g. a hypothetical new ``printf()`` function is not too
           far fetched when it will coexist with a ``print()`` function.
@@ -197,6 +168,10 @@ PEP 3105
           if one needs a different separator, not spaces, or none at all.
           Also, there's no easy way *at all* to conveniently print objects with
           some other separator than a space.
+
+
+Handout
+=======
 
         * If ``print()`` is a function, it would be much easier to replace it within
           one module (just ``def print(*args):...``) or even throughout a program
@@ -219,7 +194,8 @@ PEP 3106
 * Inspired by the Java Collections Framework.
 
 
-.. class:: handout
+handout
+=======
 
         Revamping dict.keys(), .values() and .items()
 
@@ -230,6 +206,9 @@ PEP 3106
         dictionary rather than a list which is a copy of the keys, etc.; and
         to remove the .iterkeys(), .itervalues() and .iteritems() methods.
 
+continued
+=========
+
         The approach is inspired by that taken in the Java Collections
         Framework.
 
@@ -237,6 +216,9 @@ PEP 3106
         sets.  The object returned by the values() method behaves like a much
         simpler unordered collection -- it cannot be a set because duplicate
         values are possible.
+
+continued
+=========
 
         Because of the set behavior, it will be possible to check whether two
         dicts have the same keys by simply testing::
@@ -256,10 +238,7 @@ PEP 3108
 * It is kept track as bug tracker issue.
 * http://bugs.python.org/issue2775
 * http://bugs.python.org/issue2828
-
-.. class:: handout
-
-        http://www.python.org/dev/peps/pep-3108/
+* http://www.python.org/dev/peps/pep-3108/
 
 PEP 3109
 ========
@@ -270,7 +249,8 @@ PEP 3109
 * Changes to raise exception syntax and throw method in generator object.
 * To hold exception object raise E as e
 
-.. class:: handout
+handout
+=======
 
         One of Python's guiding maxims is "there should be one -- and
         preferably only one -- obvious way to do it". Python 2.x's
@@ -278,12 +258,19 @@ PEP 3109
         ways of expressing the same thought. For example, these statements
         are equivalent:
 
+::
+
             raise E, V
 
             raise E(V)
 
-        There is a third form of the ``raise`` statement, allowing arbitrary
-        tracebacks to be attached to an exception ::
+Continued
+=========
+
+There is a third form of the ``raise`` statement, allowing arbitrary tracebacks
+to be attached to an exception.
+
+::
 
             raise E, V, T
 
@@ -299,6 +286,9 @@ PEP 3109
             e = E(V)
             e.__traceback__ = T
             raise e
+
+Continued
+=========
 
         Using these translations, we can reduce the ``raise`` statement from
         four forms to two:
@@ -336,8 +326,9 @@ PEP 3111
 * No longer input() and raw_input()
 * Its just one, which is raw_input() renamed to just the input()
 
+handout
+=======
 
-.. class:: handout
 
         Specification
 
@@ -350,6 +341,10 @@ PEP 3111
         BDFL Thoughts on this issue:
 
         http://mail.python.org/pipermail/python-3000/2006-December/005249.html
+
+
+Continued
+=========
 
         I like the exact proposal made here better than any of the alternatives
         mentioned so far.
@@ -377,9 +372,7 @@ PEP 3112
 * Literal syntax for bytes object  - b'bytes'
 * Convenient way to spell ascii strings and arbitrary binary data.
 
-.. class:: handout
-
-        Existing spellings of an ASCII string in Python 3000 include::
+::
 
             bytes('Hello world', 'ascii')
             'Hello world'.encode('ascii')
@@ -399,6 +392,9 @@ PEP 3112
             b'\x7f\x45\x4c\x46\x01\x01\x01\x00'
             b'\x7fELF\x01\x01\x01\0'
 
+
+Continued
+=========
 
         In both cases, the advantages of the new syntax are brevity, some
         small efficiency gain, and the detection of encoding errors at compile
@@ -427,7 +423,8 @@ PEP 3113
 * Introspection issues. Un informative error messages, little use-cases.
 
 
-.. class:: handout
+handout
+=======
 
         Tuple parameter unpacking is the use of a tuple as a parameter in a
         function signature so as to have a sequence argument automatically
@@ -442,6 +439,9 @@ PEP 3113
         has its values assigned to the parameters, just as if the statement
         ``b, c = [42, -13]`` had been executed in the parameter.
 
+Continued
+=========
+
         Unfortunately this feature of Python's rich function signature
         abilities, while handy in some situations, causes more issues than
         they are worth.  Thus this PEP proposes their removal from the
@@ -454,6 +454,8 @@ PEP 3113
         unpacked into the names originally used in the tuple parameter.  This
         means that the following function
 
+::
+
          def fxn((a, (b, c))):
              pass
 
@@ -462,6 +464,9 @@ PEP 3113
          def fxn(a_b_c):
              (a, (b, c)) = a_b_c
              pass
+
+Continued
+=========
 
         As tuple parameters are used by lambdas because of the single
         expression limitation, they must also be supported.  This is done by
@@ -489,7 +494,8 @@ PEP 3114
 * iter(function, sentinel) <--> next(iterator, sentinel)
 
 
-.. class:: handout
+handout
+=======
 
 
         Following this pattern, the natural way to handle ``next`` is to add a
@@ -505,6 +511,10 @@ PEP 3114
         a nice duality between ``iter`` and ``next``:
 
             iter(function, sentinel) <--> next(iterator, sentinel)
+
+
+Continued
+=========
 
         There have been a few objections to the addition of more built-ins.
         In particular, Martin von Loewis writes:
@@ -545,7 +555,8 @@ PEP 3115
 
 * http://bugs.python.org/issue1681101
 
-.. class:: handout
+handout
+=======
 
         Information on metaclass
 
@@ -638,7 +649,9 @@ PEP 3116
 * Open() factory method backwards compatible with old IO.
 
 
-.. class:: handout
+handout
+=======
+
 
         Python allows for a variety of stream-like (a.k.a. file-like) objects
         that can be used via ``read()`` and ``write()`` calls.  Anything that
@@ -683,8 +696,9 @@ PEP 3119
 * What makes a set, mapping, sequence?
 * Companion PEP 3141 for numeric types.
 
-.. class:: handout
-        
+handout
+=======
+
         ABCs are simply Python classes that are added into an object's
         inheritance tree to signal certain features of that object to an external
         inspector. Tests are done using isinstance(), and the presence of a particular
@@ -710,7 +724,8 @@ PEP 3120
 * Default Source Encoding of Python scripts from ASCII to UTF-8.
 * IDLE Changed to use UTF-8 as default encoding.
 
-.. class:: handout
+handout
+=======
 
         The parser needs to be changed to accept bytes > 127 if no source
         encoding is specified; instead of giving an error, it needs to check
@@ -727,7 +742,9 @@ PEP 3129
 * To make certain constructs more easily expressed and less reliant on Cpython Interpretor implementation.
 * Its simpler than using metaclasses for class to acheive the same purpose.
 
-.. class:: handout
+handout
+=======
+
         
         It is an extension to the function and method decorators introduced in
         PEP 318.
