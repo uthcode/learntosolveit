@@ -1,16 +1,8 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
-
-================
 Python Ecosystem
 ================
 
-.. class:: center large
 
    | `APAC PyCon 2011`_
-
-.. class:: center small
 
    | Senthil Kumaran
    | - CPython Core Developer 
@@ -73,7 +65,7 @@ Framework Supports
 Jython
 ======
 
-.. image:: jython.png
+.. image:: https://dl.dropbox.com/s/egr0vf9wmftvrmc/jython.png
 
 * Jython is implementation of the Python programming language written in Java.
 * The language syntax and semantics will be same as Python.
@@ -241,17 +233,17 @@ How will you code in PyPy
 PyPy Architecture
 =================
 
-.. image:: pypy1.jpg
+.. image:: https://dl.dropboxusercontent.com/s/95z2hs5qg7byuae/pypy1.jpg
 
 PyPy Architecture
 =================
 
-.. image:: pypy2.png
+.. image:: https://dl.dropboxusercontent.com/s/w1toa4i8qortk1a/pypy2.png
 
 PyPy Architecture
 =================
 
-.. image:: pypy3.png
+.. image:: https://dl.dropboxusercontent.com/s/5nprqn51l6la2nc/pypy3.png
 
 Release
 =======
@@ -271,7 +263,7 @@ Framework Compatiblity
 Performance
 ===========
 
-.. image:: pypy4.png
+.. image:: https://dl.dropboxusercontent.com/s/oeu2rp6bqzaq63n/pypy4.png
 
 Speed,Speed,Speed
 =================
