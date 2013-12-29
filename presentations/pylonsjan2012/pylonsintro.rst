@@ -1,8 +1,3 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
-
-======
 Pylons 
 ======
 
@@ -15,23 +10,12 @@ Pylons
 
    | - Senthil Kumaran
 
-
-.. container:: handout
-
-    This presentation gives an overview of Pylons web development framework.
-
-.. contents::
-   :class: handout
-
-.. footer:: 
-    http://www.uthcode.com
-
 Pylons
 ======
 
 A pylon is a monumental portal to an ancient Egyptian temple.
 
-.. image:: pylons_ramesesseum.jpg
+.. image:: https://dl.dropboxusercontent.com/s/o7irxjjeotrsq72/pylons_ramesesseum.jpg
    :align: center
    :target: http://en.wikipedia.org/wiki/Pylon_%28architecture%29
 
@@ -325,7 +309,7 @@ Pylons Resources
 
 Pylons Book
 
-.. image:: cover.jpg
+.. image:: https://dl.dropboxusercontent.com/s/c7lhtpqt1i91jll/pylons_cover.jpg
    :align: center
    :target: http://pylonsbook.com/en/1.1/
 
