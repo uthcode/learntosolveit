@@ -28,7 +28,7 @@ Paxos Algorithm
 Paxos
 =====
 
-.. image:: paxos.jpg
+.. image:: https://dl.dropboxusercontent.com/s/7y89olv1btnuqs9/paxos.jpg
    :align: center
    :height: 300px
    :width: 400px
