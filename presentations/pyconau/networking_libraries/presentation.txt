@@ -1,42 +1,11 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
-
-=============================
 Networking Libraries - Python
 =============================
 
-.. sidebar:: Contents
-   :class: handout
-
-   .. contents:: :local:
-
-.. class:: center large
-
    | PyCon Australia 2011
-
-.. class:: center small
 
    | **Senthil Kumaran**
    | senthil@uthcode.com 
    | http://www.uthcode.com
-
-.. class:: handout
-
-        Let us look at the some of Python Standard Library modules which
-        formulate and make available various Internet Protocol and help us
-        build good Internet Applications.
-
-        There are 3 versions of this presentation:
-
-        * `S5 presentation <presentation.html>`__
-        * `Plain HTML handout <handout.html>`__
-        * `reStructuredText source <presentation.txt>`__
-
-        ©2010, licensed under a `Creative Commons
-        Attribution/Share-Alike (BY-SA) license
-        <http://creativecommons.org/licenses/by-sa/3.0/>`__.
-
 
 About Me & Why this talk
 ========================
@@ -54,7 +23,8 @@ Internet Protocols and Support
 * They are highlevel modules implmenting Specifications mostly from RFC.
 * Provide commonly used helper functions.
 
-.. class:: handout
+handout
+=======
 
     In Computing, Network Programming is essentially identified as socket
     programming or client-server programming, involves writing computer
@@ -69,6 +39,11 @@ Internet Protocols and Support
     communication. Sockets are usually implemented by an API library such a
     Berkeley sockets, first introduced in 1983. The example functions provided
     by the API library include:
+
+handout
+=======
+
+::
 
     * socket() - creates a new socket of certain type, identified by the
       integer number and allocates system resources to it.
@@ -120,8 +95,6 @@ urllib package in python3
 * urllib2 **->** urllib.request, urllib.response, urllib.parse
 * urlparse **->** urllib.parse
 
-.. class:: handout
-
         http://www.python.org/dev/peps/pep-3108/
 
 
@@ -134,7 +107,6 @@ http package in python3
 * BaseHTTPServer **->** http.server
 * SimpleHTTPServer **->** http.server
 * CGIHTTPServer **->** http.server
-
 * SocketServer **->** socketserver
 
 xmlrpc package in python3
@@ -172,17 +144,14 @@ Design Patterns in urllib2
 
 * Builder Design Pattern
 
-.. image:: ./static/Builder2.png
+.. image:: https://dl.dropboxusercontent.com/s/h8xf08gg7qrgz1u/Builder2.png
    :height: 480px
    :width: 800px
    :align: center
 
-
-.. class:: handout
-    
-    * http://stackoverflow.com/questions/757743/what-is-the-difference-between-builder-design-pattern-and-factory-design-pattern
-    * http://en.wikipedia.org/wiki/Builder_pattern
-    * http://en.wikipedia.org/wiki/Factory_method_pattern
+* http://stackoverflow.com/questions/757743/what-is-the-difference-between-builder-design-pattern-and-factory-design-pattern
+* http://en.wikipedia.org/wiki/Builder_pattern
+* http://en.wikipedia.org/wiki/Factory_method_pattern
 
 
 Examples 
@@ -324,7 +293,9 @@ Example - Twisted
         reactor.run()
 
 
-.. class:: handout
+handout
+=======
+
 
     Twisted framework provides the facility to build an asynchronous,
     event-driven applications for Distributed Network Environment. You will
@@ -334,6 +305,9 @@ Example - Twisted
     Twisted Framework is its network layer, which can be used to integrate any
     existing  protocol as well as model new ones.  Twisted is a pure python
     framework. 
+
+handout
+=======
 
     Twisted supports Asynchronous programming and deferred abstraction, which
     symbolizes a promised result and which can pass eventual result to  handler
@@ -347,6 +321,9 @@ Example - Twisted
     go for reading or writing - commonly known as asynchronous, event based,
     callback based programming.  
 
+handout
+=======
+
     In synchronous programming, a function requests data, waits for the data,
     and then processes it. In asynchronous programming, a function requests the
     data, and lets the library call the callback function when the data is
@@ -359,6 +336,9 @@ Example - Twisted
     other task cannot get CPU but also waits until the first tasks finishes.
     The typical asynchronous model to notify an application that some data is
     ready is called as callback.
+
+handout
+=======
 
     Twisted uses Deferred objects to managed callback sequence.  Libraries know
     that they make their results available by using Deferred.callback and
@@ -375,6 +355,9 @@ Example - Twisted
     to tell the deffered what to do when the data arrives is by defining a
     callback - asking the deferred to call a function once the data arrives.  
 
+handout
+=======
+
     Deferreds are an object which represent a promise of something; Like
     getPage() returned a Deferred object, which means that when the getPage is
     called ( It may not be called sequentially, because it is  asynchronous); a
@@ -389,6 +372,9 @@ Example - Twisted
     not guarantee that you have asynchronous functions.What Differeds dont do:
     Make your code asynchronous!.
 
+handout
+=======
+
     twisted.internet.defer.Deferred is a promise that the function at some
     point in time will have a result.
 
@@ -397,6 +383,9 @@ Example - Twisted
     synchronous functions to return Deferred. Sometimes you want to be notified
     after several different events have all happened, rather than waiting for
     each one individually.
+
+handout
+=======
 
     You may want to wait for all connections in a list to close.
 
@@ -411,6 +400,9 @@ Example - Twisted
     Deferred object.  Requesting method attaches callbacks to the Deferred
     object, 
 
+handout
+=======
+
     Twisted also provides facility to run the blocking function in a separate
     thread instead of blocking them.
 
@@ -419,6 +411,9 @@ Example - Twisted
     event as they arrive from network.In the Twisted client, an instance of the
     Protocol class will be instantiated when you connect to the Server and will
     go away when the connection is finished.
+
+handout
+=======
 
     Interface classes are a way of specifying what methods and attributes a
     Protocol provides.
@@ -436,6 +431,9 @@ Example - Twisted
 
     * The service handler then demultiplexes the incoming requests and
       dispatches them synchronously to associated request handlers.
+
+handout
+=======
 
     The event loop almost always operates asynchronously with the message
     originator.  The event loop forms the central constuct flow of the program,
@@ -463,14 +461,15 @@ Thank you. :)
 Senthil Kumaran <senthil@uthcode.com>
 
 
-.. container:: handout
+handout
+=======
 
-        SocketServer
 
-        * Handling synchronous network requests.
-        * Helper classes for Mixins.
+SocketServer
 
-        .. class:: handout
+* Handling synchronous network requests.
+* Helper classes for Mixins.
+
 
         ::
 
@@ -488,39 +487,42 @@ Senthil Kumaran <senthil@uthcode.com>
                 | UDPServer |------->| UnixDatagramServer |
                 +-----------+        +--------------------+
 
-        Other Servers
+Other Servers
+=============
 
-        * BaseHTTPServer
-        * SimpleHTTPServer
-        * CGIHTTPServer
+* BaseHTTPServer
+* SimpleHTTPServer
+* CGIHTTPServer
 
-        ::
+::
 
-                python -m SimpleHTTPServer 8000
+        python -m SimpleHTTPServer 8000
 
-        SimpleXMLRPCServer
+SimpleXMLRPCServer
+==================
 
-        ::
+::
 
-                import xmlrpclib
-                from SimpleXMLRPCServer import SimpleXMLRPCServer
+        import xmlrpclib
+        from SimpleXMLRPCServer import SimpleXMLRPCServer
 
-                def is_even(n):
-                    return n%2 == 0
+        def is_even(n):
+            return n%2 == 0
 
-                server = SimpleXMLRPCServer(("localhost", 8000))
-                print "Listening on port 8000..."
-                server.register_function(is_even, "is_even")
-                server.serve_forever()
+        server = SimpleXMLRPCServer(("localhost", 8000))
+        print "Listening on port 8000..."
+        server.register_function(is_even, "is_even")
+        server.serve_forever()
 
 
-        xmlrpclib
+xmlrpclib
+=========
 
-        * XML-RPC client code; it handles all the details of translating between conformable Python objects and XML on the wire.
+* XML-RPC client code; it handles all the details of translating between conformable Python objects and XML on the wire.
 
-        ::
+::
 
-                import xmlrpclib
-                proxy = xmlrpclib.ServerProxy("http://localhost:8000/")
-                print "3 is even: %s" % str(proxy.is_even(3))
-                print "100 is even: %s" % str(proxy.is_even(100))
+        import xmlrpclib
+        proxy = xmlrpclib.ServerProxy("http://localhost:8000/")
+        print "3 is even: %s" % str(proxy.is_even(3))
+        print "100 is even: %s" % str(proxy.is_even(100))
