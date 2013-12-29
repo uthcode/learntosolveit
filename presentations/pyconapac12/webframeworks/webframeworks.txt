@@ -27,7 +27,7 @@ Pylons
 
 A pylon is a monumental portal to an ancient Egyptian temple.
 
-.. image:: pylons_ramesesseum.jpg
+.. image:: https://dl.dropboxusercontent.com/s/o7irxjjeotrsq72/pylons_ramesesseum.jpg
    :align: center
    :target: http://en.wikipedia.org/wiki/Pylon_%28architecture%29
 
@@ -226,7 +226,7 @@ Middleware which provide Session, Caching with Database layer and passes the
 information to templates such as Mako.
 
 paster
-=====
+======
 
 This is a very useful script that uses the Paste Script package and has a
 number of subcommands including paster create and paster serve,that are for
