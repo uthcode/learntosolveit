@@ -48,13 +48,6 @@ Projects
 
     projects
 
-Presentations
-=============
-
-.. toctree::
-
-    presentations
-
 Code
 ====
 
