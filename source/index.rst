@@ -48,12 +48,18 @@ Projects
 
     projects
 
+C Programming Language
+======================
+
+.. toctree::
+   cprogramming/index
+
+
 Code
 ====
 
 .. toctree::
 
-    cprogramming
     pythonsnippets
     contests
 
