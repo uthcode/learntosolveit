@@ -17,6 +17,7 @@ If you like that book or like to learn C, you may find this interesting.
    dcl
    entab
    example1
+   myatoi
    getline_woandr
    mined1
    mygetchar-2
