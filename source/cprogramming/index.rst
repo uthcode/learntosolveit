@@ -87,3 +87,4 @@ K & R
    ungets
    val_limits
    wumpus
+   mycp
