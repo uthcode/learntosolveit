@@ -1,12 +1,5 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
-
-=====================
 Python Web Frameworks
 =====================
-
-.. class:: center large
 
    | `APAC PyCon 2012`_
 
@@ -34,7 +27,7 @@ Pylons
 
 A pylon is a monumental portal to an ancient Egyptian temple.
 
-.. image:: pylons_ramesesseum.jpg
+.. image:: https://dl.dropboxusercontent.com/s/o7irxjjeotrsq72/pylons_ramesesseum.jpg
    :align: center
    :target: http://en.wikipedia.org/wiki/Pylon_%28architecture%29
 
@@ -46,11 +39,8 @@ Pylons Web Framework
 * Emphasizes flexiblity
 * Rapid development of web applications 
 * Uses standard tools from the Python community.
-
-.. container:: handout
-
-    * It does not suffer from Not-Invented-Here Syndrome.
-    * It uses specific tools and the project has spawned off self-contained tools 
+* It does not suffer from Not-Invented-Here Syndrome.
+* It uses specific tools and the project has spawned off self-contained tools 
 
 Motivation for you
 ==================
@@ -74,7 +64,8 @@ Web Development
 * Memory hungry because it loads up the entire interpreter.
 * *They* were using CGI
 
-.. container:: handout
+handout
+=======
 
     Web frameworks such as Django and Ruby on Rails have become extremely popular
     in recent years because they provide a structure that allows you to quickly
@@ -111,7 +102,8 @@ Pylons Environment
 * Activate it ``source bin/activate``
 * find | less
 
-.. container:: handout
+handout
+=======
 
     There are other ways to setup like compiling the code directly from the
     mercurial repository. But having a dedicated environment setup is probably
@@ -233,94 +225,105 @@ Pylons glues together those Routes to Paste based Request Handlers, WSGI
 Middleware which provide Session, Caching with Database layer and passes the
 information to templates such as Mako.
 
-.. container:: handout
+paster
+======
 
-    **paster**
-
-    This is a very useful script that uses the Paste Script package and has a
-    number of subcommands including paster create and paster serve,that are for
-    creating a new Pylons project and serving a Pylons application, respectively.
-    Youâ€™ll also see paster make-config and paster  setup-app, which are for
-    handling the creation of a config file from a distributed Pylons project and
-    for setting it up.
-
-
-    **Pylons**
-
-    This is where everything needed to glue together the other components of Pylons
-    is found. Pylons itself is relatively small, so if you are the curious type,
-    feel free to look at its code to get a feel for how everything works.
-
-    **Setuptools and Eggs**
-
-    This contains the methods used by the easy_install script to provide all of its
-    features and allow the use of egg files. Eggs, package format, but is simply a
-    zip file with some meta-data such as dependency used distutils packing system.
-    It is commonly used way for packaging in Python.
-
-    **simplejson**
-
-    This package converts data back and forth between JSON and Python formats and
-    is used by the @jsonify decorator mentioned earlier. Pylons application
-    developers also occasionally use simplejson directly in their controllers.
-
-    **decorator**
-
-    This is a simple tool used by Pylons to create the @validate and @jsonify
-    decorators. 
-
-    **Beaker**
-
-    Beaker is a piece of software used internally by Pylons to implement its
-    Caching and session functionality but you would never normally interact with
-    Beaker yourself directly.
-
-    **Tempita**
-
-    Tempita is a small template language that is a dependency of Paste. It is used
-    only behind the scenes for simple variable substitutions when you create a new
-    Pylons project directory with the paster create command described later in this
-    chapter.
-
-    **Mako**
-
-    Mako is one of the three template languages that Pylons 0.9.7 supports out of
-    the box. The others are Genshi (an XML template language) and Jinja (based on
-    Djangoâ€™s template system). You have to install Genshi and Jinja separately if
-    you want to use them, whereas Mako is included in the default Pylons
-    installation because it is the recommended template language to use.
-
-    **WebOb**
-
-    This provides the new pylons.request and pylons.response objects in Pylons
-    0.9.7. 
-
-    **WebError**
+This is a very useful script that uses the Paste Script package and has a
+number of subcommands including paster create and paster serve,that are for
+creating a new Pylons project and serving a Pylons application, respectively.
+You will also see paster make-config and paster  setup-app, which are for
+handling the creation of a config file from a distributed Pylons project and
+for setting it up.
 
 
-    WebError provides Pylonsâ€™ powerful interactive debugging and traceback
-    functionality described in Chapter 4.
+Pylons
+======
 
-    **WebHelpers**
+This is where everything needed to glue together the other components of Pylons
+is found. Pylons itself is relatively small, so if you are the curious type,
+feel free to look at its code to get a feel for how everything works.
 
-    WebHelpers is a collection of stand-alone functions and classes that provide
-    useful functionality such as generating common HTML tags and form fields,
-    handling multiple pages of results, and doing much more.
+Setuptools and Eggs
+===================
 
-    **FormEncode**
+This contains the methods used by the easy_install script to provide all of its
+features and allow the use of egg files. Eggs, package format, but is simply a
+zip file with some meta-data such as dependency used distutils packing system.
+It is commonly used way for packaging in Python.
 
-    FormEncode is a library for validating form submissions from web sites.
-    Although Pylons doesnâ€™t use it internally, Pylons users work with it so often
-    that it is considered an essential part of Pylons. The FormEncode package also
-    includes a module named formencode.htmlfill that can be used to populate a
-    string containing HTML fields with values and error messages. Together
-    FormEncode and HTML Fill make an ideal tool set for handling forms in a Pylons
-    application. 
+simplejson
+==========
 
-    **nose**
+This package converts data back and forth between JSON and Python formats and
+is used by the @jsonify decorator mentioned earlier. Pylons application
+developers also occasionally use simplejson directly in their controllers.
 
-    This provides tools to help you write and run automated unit tests.
+decorator
+=========
 
+This is a simple tool used by Pylons to create the @validate and @jsonify
+decorators. 
+
+Beaker
+======
+
+Beaker is a piece of software used internally by Pylons to implement its
+Caching and session functionality but you would never normally interact with
+Beaker yourself directly.
+
+Tempita
+=======
+
+Tempita is a small template language that is a dependency of Paste. It is used
+only behind the scenes for simple variable substitutions when you create a new
+Pylons project directory with the paster create command described later in this
+chapter.
+
+Mako
+====
+
+Mako is one of the three template languages that Pylons 0.9.7 supports out of
+the box. The others are Genshi (an XML template language) and Jinja (based on
+Djangoâ€™s template system). You have to install Genshi and Jinja separately if
+you want to use them, whereas Mako is included in the default Pylons
+installation because it is the recommended template language to use.
+
+WebOb
+=====
+
+This provides the new pylons.request and pylons.response objects in Pylons
+0.9.7. 
+
+WebError
+========
+
+
+WebError provides Pylonsâ€™ powerful interactive debugging and traceback
+functionality described in Chapter 4.
+
+WebHelpers
+==========
+
+WebHelpers is a collection of stand-alone functions and classes that provide
+useful functionality such as generating common HTML tags and form fields,
+handling multiple pages of results, and doing much more.
+
+FormEncode
+==========
+
+
+FormEncode is a library for validating form submissions from web sites.
+Although Pylons doesnâ€™t use it internally, Pylons users work with it so often
+that it is considered an essential part of Pylons. The FormEncode package also
+includes a module named formencode.htmlfill that can be used to populate a
+string containing HTML fields with values and error messages. Together
+FormEncode and HTML Fill make an ideal tool set for handling forms in a Pylons
+application. 
+
+nose
+====
+
+This provides tools to help you write and run automated unit tests.
 
 
 Pylons Resources
@@ -328,7 +331,7 @@ Pylons Resources
 
 Pylons Book
 
-.. image:: cover.jpg
+.. image:: https://dl.dropboxusercontent.com/s/c7lhtpqt1i91jll/pylons_cover.jpg
    :align: center
    :target: http://pylonsbook.com/en/1.1/
 

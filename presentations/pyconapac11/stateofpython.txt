@@ -1,0 +1,281 @@
+Python Ecosystem
+================
+
+
+   | `APAC PyCon 2011`_
+
+   | Senthil Kumaran
+   | - CPython Core Developer 
+   | - Engineer at Lucasfilm, Singapore.
+
+
+.. _APAC PyCon 2011: http://apac.pycon.org
+
+
+Python
+======
+
+Seeing Python as a language reference.
+
+``CPython is only one of the implementation``
+``So is PyPy, Jython, IronPython, CLPython``
+``And some language implementation that you can write too``
+
+
+Python Reference Implementation
+===============================
+
+* It is called ``CPython``
+* Also known as Python, naturally.
+
+CPython Release Schedule
+========================
+
+* 3.3   - Under Development at http://hg.python.org/cpython
+* 3.2.1 - Mid June, 2011 - Georg Brandl
+* 2.7.2 - Mid June, 2011 - Benjamin Peterson
+* 3.1.4 - Mid June, 2011 - Benjamin Peterson
+* 2.6.7 - 3 - June, 2011 - Barry Warsaw
+* Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.
+
+Python3
+=======
+
+* Breaking from it's roots.
+* Moving away from it's C Background.
+* Modern Frameworks and Advanced Applications.
+* Taking good points from Java and others.
+* Fixing a lot of Language warts.
+
+
+Python3 Progress
+================
+
+* http://py3ksupport.appspot.com/
+
+
+Framework Supports
+==================
+
+* Numpy Supports
+* Support not fast in WebFramework world because of the need to sort out WSGI spec.
+* Support is steady and moving forward. 
+* People use it (and ask questions at various forums)
+
+Jython
+======
+
+.. image:: https://dl.dropbox.com/s/egr0vf9wmftvrmc/jython.png
+
+* Jython is implementation of the Python programming language written in Java.
+* The language syntax and semantics will be same as Python.
+
+Java and Jython
+===============
+
+* Import and use any Java class. 
+* Except for some standard modules, Jython programs use Java classes instead of Python modules
+
+Why Jython
+==========
+
+* You are from the Java world and do not want to feel away from home.
+* Dynamic compilation to Java bytecodes.
+* Ability to extend existing Java classes in Jython.
+* Optional static compilation - Applets, Servlets and beans
+
+Jython's features
+=================
+
+* Prototyping (using Java semantics)
+* Java investigation of classes.
+* Glues together libraries already written in Java.
+* Runs on any JVM above 1.1
+* Truly multi-threaded (no GIL) and Java garbage collected.
+
+Java Introspection
+==================
+
+::
+
+	>>> from java.util import Date
+	>>> d = Date()
+	>>> print d
+	Fri Jun 10 09:08:58 SGT 2011
+	>>> import sys
+	>>> sys.path
+
+        # [..,'__classpath__', ... ]
+
+
+Subclassing java
+================
+
+::
+
+	from java import awt
+
+	class SpamListener(awt.event.ActionListener):
+	    def actionPerformed(self,event):
+		if event.getActionCommand() == "Spam":
+		    print 'Spam and eggs!'
+
+	f = awt.Frame("Subclassing Example")
+	b = awt.Button("Spam")
+	b.addActionListener(SpamListener())
+	f.add(b, "Center")
+	f.pack()
+	f.setVisible(1)
+
+
+How is Jython doing?
+====================
+
+* Current Jython is compatible with CPython reference implementation 2.5.2
+* Supports Popular Python frameworks such as Django, Pylons, or SQLAlchemy.
+* Scripting support in IBM WebLogic and Websphere application server.
+* ZK Java Ajax Framework Support.
+* virtualenv, easy_install
+
+Jython Platform Support
+=======================
+
+* apt-get install jython
+* Or Download and java -jar jython-2.5.2.jar
+* On All platforms which support Java Standard Edition.
+* Not Java Mobile Edition, so not for Android.
+
+Performance
+===========
+
+Performance to CPython is comparable to slower in general.
+Multi-threaded applications can be faster.
+
+The good news is, it is not just an extension language, but complete programming language suitable for application development.
+
+IronPython
+==========
+
+IronPython is an implementation of the Python programming language targeting the .NET Framework and Mono.
+
+Features
+========
+
+* IronPython can use the .NET Framework and Python libraries, and other .NET languages can use Python code just as easily.
+* Release 2.7 was released on March 12, 2011 and it targets CPython 2.7.
+
+Installation
+============
+
+* IronPython 2.7 installer available for Windows Platform, as Desktop and Server Apps.
+* Pre-requisite include .NET 4.0 or Silverlight 4.
+* Also supports Browser apps development via Silverlight - Browser App for Mac and Windows.
+* via Mono - desktop app for Linux and Mac.  
+* via Moonlight plugin - as browser app for Linux.
+
+
+Why should you be interested?
+=============================
+
+* Corporate credibility, when company uses .Net technologies.
+* No GlobalInterpreterLock - IronPython has no GIL and multi-threaded code can use multi core processors
+* The .NET framework library is very big. Windows Forms support.
+* Easier to extend than CPython (C# is memory managed and C# types can be used directly in IronPython with no wrapping)
+* An extensibility layer to application frameworks written in a .NET language. 
+* Silverlight!
+
+
+Example code
+============
+
+::
+
+	import clr
+	clr.AddReference("System.Windows.Forms")
+	 
+	from System.Windows.Forms import MessageBox
+	MessageBox.Show("Hello World")
+
+
+FrameWork Support
+=================
+
+* Numpy, and Scipy support via IronClad_
+* Django_ on only with lot of hacks
+
+
+.. _IronClad: http://code.google.com/p/ironclad/
+.. _Django: https://bitbucket.org/jdhardy/django-ironpython/wiki/Run_the_Test_Suite
+
+Example Applications
+====================
+
+* http://www.silverlight.net/learn/dynamic-languages/#example_applications
+* http://ironpython.net/try
+
+Also supported in:
+
+* The Microsoft Robotics Kit
+* XNA: 3D and Games Programming Framework
+
+PyPy
+====
+
+PyPy is a Python Interpreter written in Python and it is a JIT Compiler. It focusses on Speed, Efficiency and 100% CPython compatibility.
+
+
+How will you code in PyPy
+=========================
+
+* It is just your normal pure python code!
+* Just run it against pypy interpreter.
+
+PyPy Architecture
+=================
+
+.. image:: https://dl.dropboxusercontent.com/s/95z2hs5qg7byuae/pypy1.jpg
+
+PyPy Architecture
+=================
+
+.. image:: https://dl.dropboxusercontent.com/s/w1toa4i8qortk1a/pypy2.png
+
+PyPy Architecture
+=================
+
+.. image:: https://dl.dropboxusercontent.com/s/5nprqn51l6la2nc/pypy3.png
+
+Release
+=======
+
+* CPython 2.7.1 compatible. It runs on 32- and 64-bit Intel x86 architecture and includes a JIT compiler.
+
+
+Framework Compatiblity
+======================
+
+* A plenty. Pylons, Pyglet, Nevow and Django.
+* Almost anything that does not involve ctypes module.
+* Tkinter and IDLE with PyPy
+* Numpy integration is in progress.
+
+
+Performance
+===========
+
+.. image:: https://dl.dropboxusercontent.com/s/oeu2rp6bqzaq63n/pypy4.png
+
+Speed,Speed,Speed
+=================
+
+* It's all about Speed.
+
+http://speed.pypy.org/
+
+The Future
+==========
+
+* It's Python Language!
+* Choose the implementation which suits you most
+* Work alongside other languages and frameworks.
+

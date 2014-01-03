@@ -1,41 +1,10 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
+Python Standard Library
+=======================
 
-================
-Standard Library
-================
+What's new and interesting in Python Standard Library 2.7, 3.2 and 3.3
+----------------------------------------------------------------------
 
-.. sidebar:: Contents
-   :class: handout
-
-   .. contents:: :local:
-
-.. class:: center small
-
-   | What's new and interesting in Python Standard Library 2.7, 3.2 and 3.3
-   | http://bit.ly/pycon2012stdlib
-
-.. class:: center small
-
-   | **Senthil Kumaran**
-   | Python Core Developer
-   | senthil@uthcode.com
-   | http://www.uthcode.com
-
-.. class:: handout
-
-        What is coming up new in Python 2.7, 3.2 and 3.3 versions
-
-        There are 3 versions of this presentation:
-
-        * `S5 presentation <index.html>`__
-        * `Handout <handout.html>`__
-        * `reStructuredText source <index.rst>`__
-
-        ©2010, licensed under a `Creative Commons
-        Attribution/Share-Alike (BY-SA) license
-        <http://creativecommons.org/licenses/by-sa/3.0/>`__.
+**Senthil Kumaran**
 
 CPython
 =======
@@ -67,11 +36,7 @@ signals.
 
 * It is version 3.3 and was contributed by Victor Stinner.
 
-.. class:: handout
-
-    More information available at 
-
-    http://blog.python.org/2011/05/new-faulthandler-module-in-python-33.html
+http://blog.python.org/2011/05/new-faulthandler-module-in-python-33.html
 
 lzma
 ====
@@ -79,14 +44,10 @@ lzma
 * The newly-added lzma module provides data compression and decompression using
   the LZMA algorithm, including support for the .xz and .lzma file formats.
 * lzma compression is usually better than bz2.
-* Python 3.3
 * Per Øyvind Karlsen, Nadeem Vawda and others.
-
-.. class:: handout
-
-    * http://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm
-    * http://bugs.python.org/issue6715
-    * http://docs.python.org/dev/library/lzma.html#examples
+* http://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm
+* http://bugs.python.org/issue6715
+* http://docs.python.org/dev/library/lzma.html#examples
 
 bz2 module
 ==========
@@ -98,23 +59,22 @@ bz2 module
   bz2.BZ2File can now also be used to create this type of file, using the 'a'
   (append) mode. (Nir Aides)
 
+* http://bugs.python.org/issue5863
+* http://bugs.python.org/issue1625
 
-.. class:: handout
+bz2 continued
+=============
 
-    * http://bugs.python.org/issue5863
-    * http://bugs.python.org/issue1625
+* Behavior is similar to bunzip2 utility. Like gzip, you can concatenate two
+  bzip2 files.
 
+* bzip2 -c /etc/passwd >/tmp/pass.bz2
+* bzip2 -c /etc/passwd >>/tmp/pass.bz2
 
-    Behavior is similar to bunzip2 utility. Like gzip, you can concatenate two
-    bzip2 files.
+* bunzip2 will output both parts, generating two copies of the file.
 
-    bzip2 -c /etc/passwd >/tmp/pass.bz2
-    bzip2 -c /etc/passwd >>/tmp/pass.bz2
-
-    bunzip2 will output both parts, generating two copies of the file.
-
-    So nothing needs to be done on compression, but uncompression needs to
-    look for another chunk of compressed data after finishing one chunk.
+* So nothing needs to be done on compression, but uncompression needs to look
+  for another chunk of compressed data after finishing one chunk.
 
 
 os module
@@ -123,22 +83,13 @@ os module
 * sendfile() function which provides an efficent “zero-copy” way for copying
   data from one file (or socket) descriptor to another. ( Ross Lagerwall and
   Giampaolo Rodola')
-
 * Use of sendfile instead of send provides 1.5x speed up!
-
 * fwalk() function similar to walk() except that it also yields file
   descriptors referring to the directories visited. (Interesting!)
-
 * **Since 3.2** - The os module provides two new functions, fsencode()
   and fsdecode(), for encoding and decoding filenames based on file-system
   encoding.
-
-
-.. class:: handout
-
-        Some benchmarks - 
-
-        http://code.google.com/p/pyftpdlib/issues/detail?id=152#c5
+* http://code.google.com/p/pyftpdlib/issues/detail?id=152#c5
 
 
 packaging
@@ -153,10 +104,7 @@ packaging
 
 * New features from packaging will be available under distutils2 in PyPI.
 
-
-.. class:: handout
-
-    http://docs.python.org/dev/library/packaging.html#module-packaging
+http://docs.python.org/dev/library/packaging.html#module-packaging
 
 
 signal module
@@ -170,7 +118,8 @@ signal module
 
 * Jean-Paul Calderone, Antoine Pitrou and others.
 
-.. class:: handout
+Details
+=======
 
         http://docs.python.org/dev/library/signal.html
         man sigprocmask
@@ -195,10 +144,7 @@ ssl module
 * RAND_bytes(): generate cryptographically strong pseudo-random bytes.
 * RAND_pseudo_bytes(): generate pseudo-random bytes. (Both by Victor Stinner)
 * Query the SSL compression algorithm used by an SSL socket, thanks to its new compression() method. You can also supress Compression. ( Antoine Pitrou)
-
-.. class:: handout
-
-    http://bugs.python.org/issue13634
+* http://bugs.python.org/issue13634
 
 sys module
 ==========
@@ -239,8 +185,10 @@ argparse - 3.2
 * argparse has the ability to define subparsers, each with their own argument patterns and help displays:
 
 
-.. class:: handout
+argparse
+========
 
+::
 
         import argparse
 
@@ -282,7 +230,10 @@ from concurrent import futures - 3.2
 * status checks (running or done), timeouts, cancellations, adding callbacks, and access to results or exceptions
 
 
-.. class:: handout
+from concurrent import futures - 3.2
+====================================
+
+::
 
         The primary offering of the new module is a pair of executor classes
         for launching and managing calls. The goal of the executors is to make

@@ -1,18 +1,13 @@
 Python and Web
 ==============
 
-----
-
-Welcome
-=======
-
 Thanks for coming to PyCon Apac 2012.
 
     - **Senthil Kumaran** 
     - *Python Core Developer*
     - *Engineer at Lucasfilm, Singapore*.
 
-.. image:: senthil_qr2.png
+.. image:: https://dl.dropboxusercontent.com/s/2vu4fr5fe2440tg/senthil_qr2.png
 
 
 ---- 
@@ -26,14 +21,6 @@ Why this talk
 * A wider understanding may help us more.
 
 ---- 
-
-Presentation
-============
-
-..qr: http://uthcode.googlecode.com/svn/trunk/presentations/pyconapac12/pythonweb/presentation.html
-
-----
-
 
 It's not a comparision
 ======================
@@ -57,7 +44,7 @@ Technical Differences
 Chart
 =====
 
-.. image:: Framework_Comparision.png
+.. image:: https://dl.dropboxusercontent.com/s/p8ys9j0ipe5gft8/Framework_Comparision.png
    :scale: 75%
 
 ---- 
@@ -72,7 +59,7 @@ What shall we look for
 
 Presenter Notes 
 --------------- 
-
+https://dl.dropboxusercontent.com/s/p8ys9j0ipe5gft8/Framework_Comparision.png
 Technology means how the progress with new features and bug fixes. Ecosystem
 involves other dependent libraries and their progress. Community aspects
 involve adoption, participation and mindshare.
@@ -92,7 +79,7 @@ CPython
 Python 3
 ========
 
-.. image:: ryah.jpeg
+.. image:: https://dl.dropboxusercontent.com/s/vj8h83nw3jgnq6c/ryah.jpeg
 
 ---- 
 
@@ -268,7 +255,7 @@ Community
 Pyramid and Python 3
 ====================
 
-.. image:: python-3.png
+.. image:: https://dl.dropboxusercontent.com/s/pire1sw0ygbo2tu/python-3.png
    :align: center
 
 ---- 

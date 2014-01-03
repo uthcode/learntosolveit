@@ -1,29 +1,10 @@
-.. -*- coding: utf-8 -*-
-.. include:: <s5defs.txt>
-.. |==>| unicode:: U+02794 .. thick rightwards arrow
-
-===============
 State of Python
 ===============
 
-.. class:: center
-
    | `PyCon Australia 2011`_
-
-.. class:: right small
 
    | - Senthil Kumaran
    | - CPython Core Developer
-
-.. This document has been placed in the public domain.
-
-.. container:: handout
-
-    This presentation gives overview of State of Python Language and it's
-    reference implementation as of August, 2011.
-
-.. contents::
-   :class: handout
 
 .. _PyCon Australia 2011: http://pycon-au.org
 
@@ -48,13 +29,7 @@ Reference Implementation
 CPython Release Schedule
 ========================
 
-.. class:: tiny
-
-.. sidebar:: Process
-
    alphas, betas, rc1, rc2 and release!
-
-.. class:: small
 
 ========== =============  =================
 Release     Date           RM
@@ -65,8 +40,6 @@ Release     Date           RM
 3.1.4      June, 2011     Benjamin Peterson
 2.6.7      June, 2011     Barry Warsaw
 ========== =============  =================
-
-.. class:: small
 
 * Windows Installers by Martin and Mac Installers by Ronald or Ned Deily.
 
@@ -101,12 +74,8 @@ Python Launcher for Windows (PEP 397)
 * "shebang" line on Windows.
 * Will be distributed with Windows Installers.
 * Download - https://bitbucket.org/vinay.sajip/pylauncher/
-
-
-.. container:: handout
-
-    * The shebang concept is decribed in man 2 execve
-    * http://www.python.org/dev/peps/pep-0397/
+* The shebang concept is decribed in man 2 execve
+* http://www.python.org/dev/peps/pep-0397/
 
 Faulthandler module
 ===================
@@ -116,12 +85,9 @@ Faulthandler module
 * Can be Enabled for **SIGSEGV, SIGFPE, SIGABRT, SIGBUS and SIGILL**
 * **PYTHONFAULTHANDLER** or using **-X faulthandler**
 * Implemented in C, tracebacks can be dumped on a crash or when Python is deadlocked.
-
-.. container:: handout
-    
-    * http://docs.python.org/dev/library/faulthandler.html
-    * Compatible with Apport or Windows Default Fault Handler.
-    * Use alternative stacks, if signalstack() is available to dump traceback even on StackOverflow.
+* http://docs.python.org/dev/library/faulthandler.html
+* Compatible with Apport or Windows Default Fault Handler.
+* Use alternative stacks, if signalstack() is available to dump traceback even on StackOverflow.
 
 Framework Supports
 ==================
@@ -136,7 +102,7 @@ Framework Supports
 Jython
 ======
 
-.. image:: jython.png
+.. image:: https://dl.dropboxusercontent.com/s/egr0vf9wmftvrmc/jython.png
    :align: center
    :height: 300px
    :width: 400px
@@ -164,10 +130,7 @@ Why Jython
 * Ability to extend existing Java classes in Jython.
 * Optional static compilation - Applets, Servlets and beans
 * You are Python programmer and ``You want to learn Java``
-
-.. class:: handout
-
-    * http://wiki.python.org/jython/LearningJython
+* http://wiki.python.org/jython/LearningJython
 
 Jython's features
 =================
@@ -179,7 +142,7 @@ Jython's features
 * Truly multi-threaded (no GIL) and Java garbage collected.
 * It is all about concurrency.  Its dicts are
   built on top of Java's ConcurrentHashMap.
-                                                          
+
 Java Introspection
 ==================
 
@@ -215,23 +178,24 @@ Subclassing java
 	f.setVisible(1)
 
 
-.. class:: handout
+Continued
+=========
 
-        # Use of javax swing::
+# Use of javax swing::
 
-                from javax.swing import *
+        from javax.swing import *
 
-                def hello(event):
-                   print "Hello, world!"
+        def hello(event):
+           print "Hello, world!"
 
-                frame = JFrame("Hello Jython")
+        frame = JFrame("Hello Jython")
 
-                button = JButton("Hello", actionPerformed = hello)
-                frame.add(button)
+        button = JButton("Hello", actionPerformed = hello)
+        frame.add(button)
 
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
-                frame.setSize(300, 300)
-                frame.show()
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+        frame.setSize(300, 300)
+        frame.show()
 
 How is Jython doing?
 ====================
@@ -265,7 +229,8 @@ IronPython
 
 IronPython is an implementation of the Python programming language targeting the .NET Framework and Mono.
 
-.. class:: handout
+handout
+=======
 
     IronPython is an excellent addition to the .NET Framework, providing Python
     developers with the power of the .NET framework. Existing .NET developers
@@ -350,7 +315,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
 * Just run your existing pure python code against pypy interpreter.
 
 
-.. container:: handout
+handout
+=======
+
 
         What is a Just in Time Compiler
 
@@ -366,6 +333,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         the first; Java and C# are more recent examples. Eventually the term P-Code was
         replaced with bytecode, since most of the pseudo-operations are a byte long.
 
+handout
+=======
+
         A Just-In-Time (JIT) compiler is a feature of the run-time interpreter, that
         instead of interpreting bytecode every time a method is invoked, will compile
         the bytecode into the machine code instructions of the running machine, and
@@ -380,6 +350,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         PyPy is, in a sense, a toolbox for the creation of just-in-time compilers for
         dynamic languages; Python is just the start - but it's an interesting start.
 
+handout
+=======
+
         PyPy is ready for prime time; it implements the (Python 2.x) language
         faithfully, and it is **fast**.
 
@@ -390,6 +363,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         somewhat slow, but that is not how things are meant to be done. When running in
         its native mode, PyPy can be surprising.
 
+handout
+=======
+
         PyPy is actually written in a subset of Python called RPython ("restricted
         Python"). Many of the features and data types of Python are available, but
         there are rules. Variables are restricted to data of one type. Only built-in
@@ -397,6 +373,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         run time, and the generator feature is not supported. And so on. The result is
         a version of the language which, while still clearly Python, looks a bit more
         like C.
+
+handout
+=======
 
         Running the RPython-based interpreter in CPython is supported; it is fully
         functional, if a bit slow. Running in this mode can be good for debugging. But
@@ -408,6 +387,8 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         Java virtual machines as well. That means that the PyPy interpreter can be
         easily targeted to whatever runtime environment works best.
 
+handout
+=======
         It only runs on 32-bit x86 systems, it is described as "memory-hungry," and
         Python 3 support seems to be a relatively distant goal.
 
@@ -415,6 +396,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         mode which supports microthreaded, highly-concurrent applications. There is a
         sandboxed mode which intercepts all external library calls and hands them over
         to a separate policy daemon for authorization.
+
+handout
+=======
 
         What really catches your eye, though, is the concept of PyPy as a
         generalized compiler for the creation of JITs for high-level languages. The
@@ -426,6 +410,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         number of other languages, including Prolog, SmallTalk, and JavaScript.
 
         GIL is present in PyPy too.
+
+handout
+=======
 
         Modules built with cython (such as the excellent LXML bindings to libxml2)
         don't work with pypy.
@@ -443,6 +430,9 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         just-in-time compiler into the interpreter, given a few annotations in the
         interpreter source code. The generated JIT compiler is a tracing JIT
 
+handout
+=======
+
         Supported backends
 
         C - the RPython code can be translated to C and run as a native program, and this is the standard operation mode;
@@ -456,6 +446,8 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
         http://lwn.net/Articles/442268/ (General Introduction at the latest)
         http://wiki.python.org/moin/PyPy
 
+handout
+=======
         PyPy Website
 
         PyPy is a fast, compliant alternative implementation of the Python language
@@ -485,7 +477,7 @@ focusses on Speed, Efficiency and 100% CPython compatibility.
 PyPy Architecture
 =================
 
-.. image:: pypy1.jpg
+.. image:: https://dl.dropboxusercontent.com/s/95z2hs5qg7byuae/pypy1.jpg
    :align: center
    :height: 600px
    :width: 800px
@@ -493,7 +485,7 @@ PyPy Architecture
 PyPy Architecture
 =================
 
-.. image:: pypy2.png
+.. image:: https://dl.dropboxusercontent.com/s/w1toa4i8qortk1a/pypy2.png
    :align: center
    :height: 600px
    :width: 800px
@@ -501,7 +493,7 @@ PyPy Architecture
 PyPy Architecture
 =================
 
-.. image:: pypy3.png
+.. image:: https://dl.dropboxusercontent.com/s/5nprqn51l6la2nc/pypy3.png
    :align: center
    :height: 600px
    :width: 800px
@@ -524,7 +516,7 @@ Framework Compatiblity
 Performance
 ===========
 
-.. image:: pypy4.png
+.. image::  https://www.dropbox.com/s/oeu2rp6bqzaq63n/pypy4.png
    :align: center
    :height: 600px
    :width: 800px
@@ -548,8 +540,9 @@ The Future
 * Choose the implementation which suits you most
 * Work alongside other languages and frameworks.
 
+handout
+=======
 
-.. container:: handout
 
     This presentation gives overview of State of Python Language and it's
     reference implementation as of August, 2011.
@@ -571,6 +564,8 @@ The Future
 
     Cython
 
+handout
+=======
 
     Cython is a pretty cool tool in itself, well worth learning, and is
     surprisingly close to the Python syntax. If you do any scientific computing
@@ -602,7 +597,10 @@ The Future
     out not to be the tool you're looking for.
 
     http://docs.cython.org/src/userguide/limitations.html
-        
+
+handout
+=======
+       
     I almost always recommend Cython over ctypes. The reason is that it has a
     much smoother upgrade path. If you use ctypes, many things will be simple
     at first, and it's certainly cool to write your FFI code in plain Python,
@@ -617,6 +615,9 @@ The Future
     and start rewriting parts of your code, potentially reverse engineering
     your Python/ctypes code into plain C, thus spoiling the whole benefit of
     writing your code in plain Python in the first place.
+
+handout
+=======
 
     With Cython, OTOH, you're completely free to make the wrapping and calling
     code as thin or thick as you want. You can start with simple calls into
@@ -636,6 +637,9 @@ The Future
     critical parts of it in C (or C++ or Fortran) and call it from your Cython
     code naturally and natively. But then, this really becomes the last resort
     instead of the only option.
+
+handout
+=======
 
     So, ctypes is nice to do simple things and to quickly get something
     running.  However, as soon as things start to grow, you'll most likely come
