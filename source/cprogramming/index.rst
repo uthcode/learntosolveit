@@ -2,10 +2,9 @@
 C Programming Language
 ======================
 
-This is the C programming language section
+This is the C programming language section. Our intention is to present the programs of Kernighan and Ritchie here with explaination.
+If you like that book or like to learn C, you may find this interesting.
 
-K & R
-=====
 
 .. toctree::
    :maxdepth: 1
