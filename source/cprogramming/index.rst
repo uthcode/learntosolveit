@@ -89,27 +89,27 @@ If you like that book or like to learn C, you may find this interesting.
    wumpus
    mycp
    mycat
-myatoi-2
-modentab
-moddetab
-minprintf
-makedir
-lowercondit
-lower
-lower-upper
-long_extnal
-likegrep
-likefind
-lengt80
-leap
-justcp
-itob
-itoav2
-itoa
-itoa-3
-itoa-2
-invert
-intostr
-htoi
-helloworld
-glat17
+   myatoi-2
+   modentab
+   moddetab
+   minprintf
+   makedir
+   lowercondit
+   lower
+   lower-upper
+   long_extnal
+   likegrep
+   likefind
+   lengt80
+   leap
+   justcp
+   itob
+   itoav2
+   itoa
+   itoa-3
+   itoa-2
+   invert
+   intostr
+   htoi
+   helloworld
+   glat17
