@@ -2,7 +2,7 @@
 any
 ===
 
-*any.c* - On 21 Jan,2012.
+*any.c* 
 
 .. literalinclude:: ../../languages/cprogs/any.c
    :language: c
