@@ -113,3 +113,4 @@ If you like that book or like to learn C, you may find this interesting.
    htoi
    helloworld
    glat17
+   fahr2cel
