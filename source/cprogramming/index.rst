@@ -114,3 +114,47 @@ If you like that book or like to learn C, you may find this interesting.
    helloworld
    glat17
    fahr2cel
+   getpass1
+   getopv2
+   getlinev2
+   getint
+   getfloat
+   getch_static
+   getch_getline
+   getbits
+   fsize_1
+   fsize
+   fork1
+   fold
+   findpattern
+   exprcmd
+   expand
+   escape
+   eratosthenes
+   eofval
+   endian
+   detab
+   dcl-funcargs
+   dcl-errorec
+   day_datev3
+   day_datev2
+   day_date
+   counts
+   condientab
+   calloc
+   cal_limits
+   buf1c
+   bitcount2s
+   bfree
+   atoiv2
+   atofwitheE
+   anylonglinelen
+   alloc_afree
+   TbsBkSpaces
+   SinBlank
+   Nofbtn
+   LongLine
+   Hist_Freq
+   His_Vertical
+   His_Horizontal
+   Fibonacci
