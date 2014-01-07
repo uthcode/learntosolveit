@@ -1,6 +1,0 @@
-//First Program By C.Giridhar and O.R.Senthil Kumaran on 25/02/2001
-int main(void)
-{
- printf("Hello,World\n");
- getch();
-}
