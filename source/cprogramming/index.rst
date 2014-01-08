@@ -15,7 +15,6 @@ If you like that book or like to learn C, you may find this interesting.
    atof
    conddetab
    dcl
-   entab
    example1
    myatoi
    getline_woandr
@@ -111,11 +110,10 @@ If you like that book or like to learn C, you may find this interesting.
    invert
    intostr
    htoi
-   helloworld
    glat17
+   helloworld
    fahr2cel
-   fahr2celheading
-   cel2fahr
+   entab
    getpass1
    getopv2
    getlinev2
