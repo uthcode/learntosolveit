@@ -1,5 +1,24 @@
-========
+========================================
+1.2 Variables and Arithmetic Expressions
+========================================
+
 fahr2cel
+========
+
+
+Question
+========
+
+This program uses the formula oC=(5/9)(oF-32) to print the Fahrenheit temperatures and
+their centigrade or Celsius equivalents
+
+
+::
+
+     fahr2cel
+
+
+Solution
 ========
 
 *fahr2cel.c* 
