@@ -113,6 +113,7 @@ If you like that book or like to learn C, you may find this interesting.
    glat17
    helloworld
    fahr2cel
+   fahr2celheading
    entab
    getpass1
    getopv2
