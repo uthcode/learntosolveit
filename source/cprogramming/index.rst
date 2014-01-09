@@ -114,6 +114,7 @@ If you like that book or like to learn C, you may find this interesting.
    helloworld
    fahr2cel
    fahr2celheading
+   cel2fahr
    entab
    getpass1
    getopv2
