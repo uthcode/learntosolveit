@@ -114,6 +114,8 @@ If you like that book or like to learn C, you may find this interesting.
    helloworld
    glat17
    fahr2cel
+   fahr2celheading
+   cel2fahr
    getpass1
    getopv2
    getlinev2
