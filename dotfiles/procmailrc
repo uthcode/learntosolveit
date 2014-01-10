@@ -1,9 +1,0 @@
-# Environment variable assignments
-PATH=/bin:/usr/bin:/usr/local/bin 
-VERBOSE=off                   # Turn on for verbose log
-MAILDIR=$HOME/Mail            # Where Procmail recipes deliver
-LOGFILE=$HOME/.procmaillog    # Keep a log for troubleshooting.
-# Recipes
-:0:
-* ^TOmutt-user
-mutt
