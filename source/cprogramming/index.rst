@@ -114,7 +114,10 @@ If you like that book or like to learn C, you may find this interesting.
    helloworld
    fahr2cel
    fahr2celheading
+   symbolic
    cel2fahr
+   reverse
+   inp2ou
    entab
    getpass1
    getopv2
