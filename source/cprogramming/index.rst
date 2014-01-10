@@ -118,6 +118,9 @@ If you like that book or like to learn C, you may find this interesting.
    cel2fahr
    reverse
    inp2ou
+   Ex1.6_verifyeof
+   Ex1.7_eofvalue
+   Ex1.9_SinBlank
    entab
    getpass1
    getopv2
@@ -156,7 +159,6 @@ If you like that book or like to learn C, you may find this interesting.
    anylonglinelen
    alloc_afree
    TbsBkSpaces
-   SinBlank
    Nofbtn
    LongLine
    Hist_Freq
