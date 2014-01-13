@@ -119,7 +119,7 @@ If you like that book or like to learn C, you may find this interesting.
    reverse
    inp2ou
    Ex1.6_verifyeof
-   Ex1.7_eofvalue
+   Ex1.7_eofval
    Ex1.8_count_blanks_etc
    Ex1.9_SinBlank
    entab
