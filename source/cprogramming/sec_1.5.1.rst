@@ -5,9 +5,9 @@ Section 1.5.1 File Copying
 Program
 -------
 
-*sec_1_5_1.c* 
+*sec_1.5.1.c* 
 
-.. literalinclude:: ../../languages/cprogs/sec_1_5_1.c
+.. literalinclude:: ../../languages/cprogs/sec_1.5.1.c
    :language: c
    :tab-width: 4
 

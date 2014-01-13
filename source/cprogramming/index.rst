@@ -118,9 +118,9 @@ If you like that book or like to learn C, you may find this interesting.
    cel2fahr
    reverse
    inp2ou
-   sec_1_5_1
-   sec_1_5_2
-   sec_1_5_2v2
+   sec_1.5.1
+   sec_1.5.2
+   sec_1.5.2v2
    Ex1.6_verifyeof
    Ex1.7_eofval
    Ex1.8_count_blanks_etc
