@@ -1,9 +1,20 @@
-========
-SinBlank
-========
+============
+Exercise 1.9
+============
 
-*SinBlank.c* 
+Question
+--------
+
+
+Write a program to copy its input to its output, replacing each string of one or more blanks by a
+single blank.
+
+Solution
+--------
 
 .. literalinclude:: ../../languages/cprogs/Ex_1.9_SinBlank.c
    :language: c
-   :tab-width: 4
+   :tab-width: 2
+
+Explaination
+------------
