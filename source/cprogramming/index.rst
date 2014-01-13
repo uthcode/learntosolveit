@@ -121,11 +121,21 @@ If you like that book or like to learn C, you may find this interesting.
    sec_1.5.1
    sec_1.5.2
    sec_1.5.2v2
+   sec_1.5.3
+   sec_1.5.4
+   sec_1.6
+   sec_1.7
+   sec_1.9
    Ex1.6_verifyeof
    Ex1.7_eofval
    Ex1.8_count_blanks_etc
    Ex_1.9_SinBlank
    Ex1.10_TbsBlnkSpaces
+   Ex.1.12_word_per_line
+   Ex1.13_His_Horizontal
+   Ex1.13.2_His_vertical
+   Ex.1.15_tempconv
+   Ex.1.16_LongLine
    entab
    getpass1
    getopv2
