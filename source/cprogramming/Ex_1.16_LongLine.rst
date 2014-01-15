@@ -12,9 +12,9 @@ long input lines, and as much as possible of the text
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex.1.16_LongLine.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.16_LongLine.c
    :language: c
-   :tab-width: 2
+   :tab-width: 4
 
 Explaination
 ------------

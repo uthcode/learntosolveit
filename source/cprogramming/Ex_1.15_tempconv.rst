@@ -11,7 +11,7 @@ Rewrite the temperature conversion program of Section 1.2 to use a function for 
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex.1.15_tempconv.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.15_tempconv.c
    :language: c
    :tab-width: 2
 

@@ -11,7 +11,7 @@ This makes tabs and backspaces visible in an unambiguous way.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex1.10_TbsBlnkSpaces.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.10_TbsBlnkSpaces.c
    :language: c
    :tab-width: 2
 

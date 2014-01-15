@@ -10,7 +10,7 @@ Write a Program to print the value of EOF.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex1.7_eofval.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.7_eofval.c
    :language: c
    :tab-width: 2
 

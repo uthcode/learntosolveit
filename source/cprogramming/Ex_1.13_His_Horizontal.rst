@@ -12,7 +12,7 @@ histogram with the bars horizontal.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex1.13_His_Horizontal.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.13_His_Horizontal.c
    :language: c
    :tab-width: 2
 

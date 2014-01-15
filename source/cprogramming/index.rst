@@ -123,19 +123,20 @@ If you like that book or like to learn C, you may find this interesting.
    sec_1.5.2v2
    sec_1.5.3
    sec_1.5.4
+   Ex_1.11_test_word_count
    sec_1.6
    sec_1.7
    sec_1.9
-   Ex1.6_verifyeof
-   Ex1.7_eofval
-   Ex1.8_count_blanks_etc
+   Ex_1.6_verifyeof
+   Ex_1.7_eofval
+   Ex_1.8_count_blanks_etc
    Ex_1.9_SinBlank
-   Ex1.10_TbsBlnkSpaces
-   Ex.1.12_word_per_line
-   Ex1.13_His_Horizontal
-   Ex1.13.2_His_vertical
-   Ex.1.15_tempconv
-   Ex.1.16_LongLine
+   Ex_1.10_TbsBlnkSpaces
+   Ex_1.12_word_per_line
+   Ex_1.13_His_Horizontal
+   Ex_1.13.2_His_vertical
+   Ex_1.15_tempconv
+   Ex_1.16_LongLine
    entab
    getpass1
    getopv2

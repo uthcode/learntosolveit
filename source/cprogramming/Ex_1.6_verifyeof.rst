@@ -10,7 +10,7 @@ Verify the expression `getchar() !=EOF` is 0 or 1.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex1.6_verifyeof.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.6_verifyeof.c
    :language: c
    :tab-width: 2
 
