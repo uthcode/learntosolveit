@@ -1,5 +1,5 @@
 =============
-Exercise 1-21
+Exercise 1.21
 =============
 
 Question
@@ -13,11 +13,9 @@ suffice to reach a tab stop, which should be given preference?
 Solution
 --------
 
-*entab.c*
-
-.. literalinclude:: ../../languages/cprogs/entab.c
+.. literalinclude:: ../../languages/cprogs/Ex_1.21_entab.c
    :language: c
-   :tab-width: 2
+   :tab-width: 4
 
 
 Explaination

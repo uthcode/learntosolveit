@@ -135,9 +135,17 @@ If you like that book or like to learn C, you may find this interesting.
    Ex_1.12_word_per_line
    Ex_1.13_His_Horizontal
    Ex_1.13.2_His_vertical
+   Ex_1.14_Hist_Freq
    Ex_1.15_tempconv
    Ex_1.16_LongLine
-   entab
+   Ex_1.17_lengt80
+   Ex_1.18_remtrailbt
+   Ex_1.19_reversestr
+   Ex_1.20_detab
+   Ex_1.21_entab
+   Ex_1.22_fold
+   Ex_1.23_remcomments
+   Ex_1.24_synerrors
    getpass1
    getopv2
    getlinev2
