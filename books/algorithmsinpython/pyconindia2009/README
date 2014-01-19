@@ -1,8 +1,0 @@
-1. The Presentation Slides are PyConIndia2009-AlgorithmsinPython.pdf
-2. src/py31 - contains the examples of the algorithms in Python 3.1
-3. src/py26 - contains the examples of the algorithms in Python 2.6
-4. src/*.rst are the source of the slides. If you use sphnix documentation
-   generator. you can do make latexpdf to generate the pdf.
-
-Thanks!
-O.R.Senthil Kumaran <orsenthil@gmail.com>

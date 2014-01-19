@@ -1,6 +1,0 @@
-=====
-Heaps
-=====
-
-Python Garbage collection
--------------------------
