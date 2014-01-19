@@ -41,7 +41,7 @@ _DEBUG = False
 
 
 # Add our custom Django template filters to the built in filters
-template.register_template_library('templatefilters')
+#template.register_template_library('templatefilters')
 
 
 class TaskList(db.Model):
