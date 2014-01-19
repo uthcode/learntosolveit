@@ -12,11 +12,11 @@ int main(void)
 {
 	int c,d;
 
+	printf(" To Check /* Quoted String */ \n");
+
 	while((c=getchar())!=EOF)
 		rcomment(c);
 
-	printf(" To Check /* Quoted String */ \n");
-	d = 'how';
 	return 0;
 }
 
