@@ -1,2 +1,0 @@
-Chrome: mozilla/5.0 (x11; linux x86_64) applewebkit/534.24 (khtml, like gecko) chrome/11.0.696.57 safari/534.24
-Firefox: mozilla/5.0 (x11; u; linux x86_64; en-us; rv:1.9.2.17) gecko/20110422 ubuntu/10.10 (maverick) firefox/3.6.17
