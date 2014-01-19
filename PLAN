@@ -3,56 +3,18 @@ This file contains the design plan for uthcode.
 Plan and Execution
 ------------------
 
-http://www.uthcode.com - All things related to uthcode.
+http://www.uthcode.com
 http://blog.uthcode.com - The only blog.
 
-Design:
-
-www.uthcode.com will use the bootstrap and templates.
-Will contain HTML pages for projects.
-
-www.uthcode.com/contents.html - will be the table of contents in sphinx.
-Any document will have 2 levels of TOC.
-
-.. toctree::
-   :maxdepth: 2
-
-What kind of documents will be in?
-
+* C programming and Python Programming will be using Restructured Text.
 * Readable.
 * Executable.
+  * Integrate Idone: http://ideone.com/
 * Consistent. Including the old material.
-
-* No Nonsense. Non-sense by definition is anything you output when like to. At
-* the moment, uthcode is majorly non-sense.
-
+* No Nonsense. 
 * Uses only standard sphinx constructs.
-* If you want to develop a new construct, write a TODO and prioritize it after completing this rewamp project.
-* Namespaces - Directories and files.
 * Separate Code from Docs.
 * Code to be included will be in it's own namespace.
-
-Consistent Hyperlinking
-
-BACKTICKtermBACKTICKUNDERSCORE
-
-DOTDOTSPACEUNDERSCOREtermCOLONSPACEURL
-
-`term`_
-.. _term: http://www.uthcode.com
-
-Wed Oct  3 12:29:09 PDT 2012
-----------------------------
-
-uthcode.github.com - Organization.
-Will have sections for codes.
-Employees will write code and review, pull and publish.
-The published ones will be available at WWW.
-Users will be able to use it, comment on it and review it and become contributers too.
-Execution runtime provided by ideone (Writing this would be time consuming)
-Sat May 14 08:13:31 SGT 2011
-----------------------------
-
 * Have Programming Languages Section
    1. C
    2. Python
@@ -75,6 +37,12 @@ These will contain full programs for learning and resusing.
 Projects
   1. Repo of all projects with Sources.
 
+Future Work
+------------
+
+* www.uthcode.com will be using Wordpress site in future.
+* blog.uthcode.com will be on appengine.
+
 Articles
 
   1. 100 Questions in Python. Theoretical learning
@@ -84,123 +52,21 @@ Books
 
   1. Algorithms in Python.
 
-Presentations
-  1. Presentations so far.
 
-Foundational
+How to Hyperlink
+-----------------
 
-  1. Translation of Khan Academy Videos.
+* Consistent Hyperlinking
 
-Quote and Advice for self.
+BACKTICKtermBACKTICKUNDERSCORE
+
+DOTDOTSPACEUNDERSCOREtermCOLONSPACEURL
+
+`term`_
+.. _term: http://www.uthcode.com
 
 - The point is in execution.
 - No Hyperlink collections. It is not useful.
 
 
-Tue Dec  1 21:31:10 IST 2009
-----------------------------
-Presentations
-
-* Each page to contain well writen notes and snippets
-* Integrate Idone: http://ideone.com/
-* Have a similar look and feel through out uthcode.
-
-Example of a Template
-
-
-########
-tutorial
-########
-
-.. autofunction:: io.open
-
-
-*******
-Chapter
-*******
-
-Chapter 1
-
-.. literalinclude:: pythonex.py
-   :linenos:
-   :tab-width: 4
-   :prepend: #!/usr/bin/python
-   :append: # End of Code
-
-This file can be downloaded :download:`pythonex.py`
-
-.. literalinclude:: 1.c
-   :linenos:
-   :language: c
-
-
-Section 1
-=========
-
-Section 1
-
-Section 2
-=========
-
-Section 1
-
-SubSection 1
-------------
-
-SubSection 1
-
-SubSection 2
-------------
-
-SubSection 2
-
-SubSubSection
-^^^^^^^^^^^^^
-SubSubSection 1
-
-Paragraphs
-""""""""""
-Paragraphs
-
-Paragraphs
-""""""""""
-Paragraphs
-
-Paragraphs
-""""""""""
-Paragraphs
-
-.. hlist::
-   :columns: 3
-
-   * A list of
-   * short items
-   * that should be
-   * displayed
-   * horizontally
-   * And This makes it even.
-
-.. literalinclude:: pythonex.py
-   :linenos:
-   :tab-width: 4
-   :prepend: #!/usr/bin/python
-   :append: # End of Code
-
-This file can be downloaded :download:`pythonex.py`
-
-.. literalinclude:: 1.c
-   :linenos:
-   :language: c
-
-This file can be downloaded :download:`1.c`
-
-This document was updated on |today|.
-
-
-rsync instruction:
-rsync -avze ssh .  UN@PN.sarovar.org:/var/lib/gforge/chroot/home/groups/PN/htdocs/
-
-Instead of Source, Let it be Articles.
-Solutions.
-
-
+This document was updated on |today| by |author|.
