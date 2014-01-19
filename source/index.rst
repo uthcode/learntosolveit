@@ -40,6 +40,7 @@ Python
    pythonstart
    pythonhttp
    pythonnetworking
+   pycon2009
 
 Projects
 ========
@@ -75,6 +76,7 @@ Computer Science
    topcoder
    games
    programmingchallenges
+   knuth_lecture
 
 Languages
 =========
@@ -100,6 +102,7 @@ Software
    ratpoison
    versioncontrol
    ubuntu
+   questions
 
 Web Frameworks
 ==============

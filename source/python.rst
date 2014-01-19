@@ -1866,6 +1866,62 @@ helper methods for initialization
 http://stackoverflow.com/a/5738586/18852
 
 
+Python Design Patterns
+======================
+
+
+*Creational Pattern*
+
+* Abstract Factory
+
+* Builder
+
+* Factory Method
+
+* Prototype
+
+* Singleton
+
+
+*Structural Pattern*
+
+* Adapter
+
+* Bridge
+
+* Composite
+
+* Decorator
+
+* Facade
+
+* Flyweight
+
+* Proxy
+
+*Behaviourial Pattern*
+
+* Chain of Responsiblity
+* Command
+* Interpreter
+* Iterator
+* Mediator
+* Mememto
+* Observer
+* State
+
+* Strategy
+
+* Template Method
+
+* Visitor
+
+References
+----------
+
+* [http://code.activestate.com/recipes/86900/ Factory Example]
+* [http://www.suttoncourtenay.org.uk/duncan/accu/pythonpatterns.html Python Patterns]
+
 
 Links
 =====
@@ -1890,4 +1946,8 @@ Links
 
 * Guide to Python using Games
   http://lightbird.net/larks/
+
+* http://stackoverflow.com/questions/3939879/constipated-python-urllib2-sockets
+* http://stackoverflow.com/questions/1598331/how-to-read-continous-http-streaming-data-in-python
+
 

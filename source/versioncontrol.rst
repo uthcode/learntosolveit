@@ -527,3 +527,50 @@ http://excess.org/article/2008/07/ogre-git-tutorial/
 http://www.youtube.com/watch?v=8dhZ9BXQgc4
 http://ndpsoftware.com/git-cheatsheet.html#loc=workspace;
 
+Git diff
+========
+
+Histogram Diff and Patience Diff
+
+Patience diff goes about match, first common, last common and then doing LCS on middle differing lines.
+Histogram extends the same and when doing LCS, it creates the histogram of differences to see the matches.
+
+http://bramcohen.livejournal.com/73318.html
+
+http://www.jarvana.com/jarvana/view/com/madgag/org.eclipse.jgit/0.9.9.1-UNOFFICIAL-ROBERTO-RELEASE/org.eclipse.jgit-0.9.9.1-UNOFFICIAL-ROBERTO-RELEASE-javadoc.jar!/org/eclipse/jgit/diff/HistogramDiff.html
+
+HG
+==
+
+1. How to get a set of defaults to hg when you clone?
+
+   Create your .hgrc file.
+
+2. How to switch between different patch queues.
+   hg qpop -a
+   hg qqueue <another_queue>
+   # start working.
+   hg qrefresh
+   hg qpop -a
+   hg qqueue orig-queue
+   hg qpush -a
+
+3. In hg. the patches grow from the bottom.
+
+    $ hg qseries
+    0 A patch1
+    1 A patch2
+    $ hg qnew patch3
+    $ hg qseries
+    0 A patch1
+    1 A patch2
+    2 A patch3
+
+4. You can add a file in hg queue and then push and pop it?
+
+5. Where does mercurial store it's extension files? 
+
+   /usr/share/pyshared/hgext
+
+
+
