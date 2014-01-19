@@ -1,1 +1,0 @@
-Probability of getting at least one shot in the 3 independent shots given by percentage is 80%.
