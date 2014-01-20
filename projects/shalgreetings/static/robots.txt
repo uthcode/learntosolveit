@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /ecard
-Disallow: /mail
-Disallow: /upload
-Disallow: /submit
-Disallow: /sendit
