@@ -112,6 +112,8 @@ If you like that book or like to learn C, you may find this interesting.
    htoi
    glat17
    helloworld
+   Ex_1.1_exp_helloworld
+   Ex_1.2_exp_printf_c
    fahr2cel
    fahr2celheading
    symbolic
