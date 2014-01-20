@@ -31,3 +31,5 @@ For invalid Inputs, an unclosed file which does not have EOF, which is tricky to
 A unicode character file can be given and see if getchar() handles it properly. We tested it and it works.
 
 
+----
+

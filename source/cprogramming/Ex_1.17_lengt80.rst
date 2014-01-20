@@ -17,3 +17,7 @@ Solution
 
 Explaination
 ------------
+
+---- 
+
+This document was updated on |today|

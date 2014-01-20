@@ -1,5 +1,5 @@
 ============
-Exercise 1-6
+Exercise 1.6
 ============
 
 Question
@@ -37,6 +37,10 @@ Explaination
     0
 
 4. We see that when char is not EOF, it is printing 1 and when it is EOF, 0 is printed.
+
+---- 
+
+This document was updated on |today|
 
 
 
