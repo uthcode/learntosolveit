@@ -1,4 +1,4 @@
-//A program print Fahrenheit-Celsius
+printf(A program print Fahrenheit-Celsius)
 /* Temperature Conversion Program, Fahrenheit to Celsius */
 
 #include<stdio.h>
@@ -25,4 +25,3 @@ int main()
 
 	return 0;
 }
-

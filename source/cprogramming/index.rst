@@ -111,38 +111,40 @@ If you like that book or like to learn C, you may find this interesting.
    intostr
    htoi
    glat17
-   helloworld
+   sec_1.1_helloworld
    Ex_1.1_exp_helloworld
    Ex_1.2_exp_printf_c
-   fahr2cel
-   fahr2celheading
-   symbolic
-   cel2fahr
-   reverse
-   inp2ou
-   sec_1.5.1
-   sec_1.5.2
-   sec_1.5.2v2
-   sec_1.5.3
-   sec_1.5.4
-   Ex_1.11_test_word_count
-   sec_1.6
-   sec_1.7
-   sec_1.9
+   sec_1.2_fahr2cel
+   Ex_1.3_fahr2celheading
+   Ex_1.4_cel2fahr
+   sec_1.3_for_loop
+   Ex_1.5_reverse
+   sec_1.4_symbolic
+   sec_1.5_inp2ou
+   sec_1.5.1_File_Copying
    Ex_1.6_verifyeof
    Ex_1.7_eofval
+   sec_1.5.2_Character_Counting
+   sec_1.5.2_Character_Counting2
+   sec_1.5.3
    Ex_1.8_count_blanks_etc
    Ex_1.9_SinBlank
    Ex_1.10_TbsBlnkSpaces
+   sec_1.5.4
+   Ex_1.11_test_word_count
    Ex_1.12_word_per_line
+   sec_1.6
    Ex_1.13_His_Horizontal
    Ex_1.13.2_His_vertical
    Ex_1.14_Hist_Freq
+   sec_1.7
    Ex_1.15_tempconv
+   sec_1.9
    Ex_1.16_LongLine
    Ex_1.17_lengt80
    Ex_1.18_remtrailbt
    Ex_1.19_reversestr
+   sec_1.10_external_variables
    Ex_1.20_detab
    Ex_1.21_entab
    Ex_1.22_fold
