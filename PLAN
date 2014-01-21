@@ -32,11 +32,6 @@ http://blog.uthcode.com - The only blog.
    1. CodeJam
    2. TopCoder
 
-These will contain full programs for learning and resusing.
-
-Projects
-  1. Repo of all projects with Sources.
-
 Future Work
 ------------
 
@@ -65,8 +60,5 @@ DOTDOTSPACEUNDERSCOREtermCOLONSPACEURL
 `term`_
 .. _term: http://www.uthcode.com
 
-- The point is in execution.
-- No Hyperlink collections. It is not useful.
 
-
-This document was updated on |today| by |author|.
+This document was updated on |today|.
