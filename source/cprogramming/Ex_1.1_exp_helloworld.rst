@@ -22,7 +22,8 @@ built-in function printf.
 
 ::
 
-    
+    helloworld.c:5: warning: incompatible implicit declaration of built-in function ‘printf’
+
 
 2. Leaving out `int` or `void` or *both*
 
