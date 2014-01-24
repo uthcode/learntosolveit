@@ -2,17 +2,17 @@
 Section 1.6 Arrays
 ==================
 
+
 Program
--------
+=======
 
-*sec_1.6.c* 
-
-.. literalinclude:: ../../languages/cprogs/sec_1.6.c
+.. literalinclude:: ../../languages/cprogs/sec_1.6_arrays.c
    :language: c
    :tab-width: 4
 
-Explanation
------------
+
+Explaination
+============
 
 ---- 
 
