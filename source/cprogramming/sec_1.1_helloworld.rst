@@ -20,3 +20,7 @@ Solution
 .. literalinclude:: ../../languages/cprogs/sec_1.1_helloworld.c
    :language: c
    :tab-width: 4
+
+.. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
+   :language: c
+   :codesite: codepad
