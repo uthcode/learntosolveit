@@ -1,4 +1,3 @@
-printf(A program print Fahrenheit-Celsius)
 /* Temperature Conversion Program, Fahrenheit to Celsius */
 
 #include<stdio.h>
@@ -7,6 +6,7 @@ printf(A program print Fahrenheit-Celsius)
 
 int main()
 {
+	printf("A program print Fahrenheit-Celsius");
 	int lower,upper,step;
 	int celsius,fahr;
 

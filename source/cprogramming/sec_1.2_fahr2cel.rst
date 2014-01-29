@@ -18,6 +18,10 @@ Program
    :tab-width: 4
 
 
+.. runcode:: ../../languages/cprogs/sec_1.2_fahr2cel.c
+   :language: c
+   :codesite: codepad
+
 Explaination
 ============
 
