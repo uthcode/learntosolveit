@@ -18,7 +18,10 @@ Solution
 Explaination
 ------------
 
-This Program counts words per lines. The program does the counting by setting c to getchar in the beginning. As the program enters while loop condition c != EOF The body of the while consists of an if, which in turn controls c == ' ') { putchar('\n')The if statement tests the parenthesized condition, and if the condition is true, executes the statements that follows thus printing the number of words present in the input after the new-line.
+In this program, we read the one character at a time and check if the character
+is a space ' ', we print newline character, '\n' thus going to next line in the
+output, otherwise we simply print the character c.
+
 
 ---- 
 

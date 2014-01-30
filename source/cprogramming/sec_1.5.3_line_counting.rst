@@ -13,8 +13,11 @@ Program
 Explaination
 ============
 
-This Program counts input lines. 
-The program does the counting by setting n1 to 0 in the beginning. As the program enters while loop condition ((c = getchar()) != EOF).  The body of the while now consists of an if, which in turn controls the increment ++nl. The if statement tests the parenthesized condition, and if the condition is true, executes the statements that follows thus printing the number of lines present in the input after the new-line.
+This Program counts input lines. The program does that counting by setting a
+variable nl to 0 in the beginning.  As the program one character at a time in
+the while loop  ((c = getchar()) != EOF) till the EOF.  If the character is
+newline character '\n' the number of lines variable is incremented, ++nl. At the
+end, the number of lines, nl, is printed.
 
 ---- 
 
