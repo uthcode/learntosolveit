@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 #define MAXLINE 1000
-#define LIMIT 20
+#define LIMIT 80
 
 int getline(char line[],int lim);
 

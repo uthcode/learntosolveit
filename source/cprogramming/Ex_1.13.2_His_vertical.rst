@@ -16,6 +16,13 @@ Solution
    :language: c
    :tab-width: 2
 
+
+.. runcode:: ../../languages/cprogs/Ex_1.13.2_His_vertical.c
+   :language: c
+   :codesite: ideone
+
+
+
 Explaination
 ------------
 

@@ -16,6 +16,11 @@ Solution
    :language: c
    :tab-width: 4
 
+.. runcode:: ../../languages/cprogs/Ex_1.4_cel2fahr.c
+   :language: c
+   :codesite: ideone
+
+
 Explaination
 ------------
 In the previous exercise we converted Fahrenheit temperature to Celsius temperature.

@@ -17,6 +17,12 @@ Solution
    :language: c
    :tab-width: 4
 
+.. runcode:: ../../languages/cprogs/Ex_1.14_Hist_Freq.c
+   :language: c
+   :codesite: ideone
+
+
+
 Explaination
 ------------
 

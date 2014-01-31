@@ -32,7 +32,8 @@ import sys, os
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
               'sphinx.ext.todo', 'sphinx.ext.coverage',
-              'sphinx.ext.pngmath', 'sphinxcontrib.runcode']
+              'sphinx.ext.extlinks', 'sphinx.ext.pngmath',
+              'sphinxcontrib.runcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -48,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'uthcode'
-copyright = u'2012, Senthil Kumaran'
+copyright = u'2014, Senthil Kumaran'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -95,6 +96,21 @@ pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
+
+# Links for edit
+
+# :c-suggest-improve:`name.c`
+# :c-better-explain:`name.rst`
+
+extlinks = {'c-suggest-improve': 
+	('https://github.com/uthcode/uthcode/blob/Chapter-1/languages/cprogs/%s',
+	"Suggest a Code Improvement: "),
+			'c-better-explain':
+	('https://github.com/uthcode/uthcode/tree/Chapter-1/source/cprogramming/%s',
+	"Suggest a better explaination of ")
+}
+
+
 
 
 # -- Options for HTML output ---------------------------------------------------

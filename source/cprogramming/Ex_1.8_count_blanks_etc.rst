@@ -14,6 +14,13 @@ Solution
    :language: c
    :tab-width: 4
 
+.. runcode:: ../../languages/cprogs/Ex_1.8_count_blanks_etc.c
+   :language: c
+   :codesite: ideone
+
+:c-suggest-improve:`Ex_1.8_count_blanks_etc.c`
+
+
 Explaination
 ------------
 
@@ -26,6 +33,8 @@ Blanks: 4
 Tabs: 0
 Newlines: 1
 
+
+:c-better-explain:`Ex_1.8_count_blanks_etc.rst`
 
 ---- 
 

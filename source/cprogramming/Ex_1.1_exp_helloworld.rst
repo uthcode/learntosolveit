@@ -12,6 +12,15 @@ of the program, to see what error messages you get.
    :language: c
    :tab-width: 4
 
+
+.. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
+   :language: c
+   :codesite: codepad
+
+
+
+:c-suggest-improve:`sec_1.1_helloworld.c`
+
 Explaination
 ============
 
@@ -47,6 +56,6 @@ For e.g. After removing **;** in the above program, we got the compilation error
 
     error: expected `;` before the '}' token
 
-----
+:c-better-explain:`Ex_1.1_exp_helloworld.rst`
 
-This document was updated on |today|
+----

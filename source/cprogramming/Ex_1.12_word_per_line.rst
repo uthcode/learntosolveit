@@ -15,6 +15,11 @@ Solution
    :language: c
    :tab-width: 2
 
+
+.. runcode:: ../../languages/cprogs/Ex_1.12_word_per_line.c
+   :language: c
+   :codesite: ideone
+
 Explaination
 ------------
 

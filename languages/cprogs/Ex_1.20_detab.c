@@ -15,7 +15,7 @@ int main(void)
 	{
 		if( c == '\t')
 		{
-			nb = TABINC - ( pos - 1) % TABINC;
+			nb = TABINC - (( pos - 1) % TABINC);
 
 			while( nb > 0)
 			{

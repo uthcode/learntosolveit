@@ -19,6 +19,13 @@ Solution
    :language: c
    :tab-width: 4
 
+.. runcode:: ../../languages/cprogs/Ex_1.22_fold.c
+   :language: c
+   :codesite: ideone
+
+
+:c-suggest-improve:`Ex_1.22_fold.c`
+
 Explaination
 ------------
 
@@ -39,6 +46,8 @@ When we are folding, we should not be folding in between the word. So we have to
 3. We determine the new position based the return value of getblank. If the return value of getblank was greater than MAXCOL, then our new position is 0, which is a newline. We will replace the contents of line starting from 0, mark this as `i`, and place the folded contents by the last `for loop` in the program and after placing the folded contents we return the new value of `i`, which is our updated `pos`.
 
 With our new position we continue with the rest of the program. 
+
+:c-better-explain:`Ex_1.22_fold.rst`
 
 ---- 
 

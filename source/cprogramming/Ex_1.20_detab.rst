@@ -17,16 +17,62 @@ Solution
    :language: c
    :tab-width: 2
 
+.. runcode:: ../../languages/cprogs/Ex_1.20_detab.c
+   :language: c
+   :codesite: ideone
+
+:c-suggest-improve:`Ex_1.20_detab.c`
+
 Explaination
 ------------
 
-We declare TABINC as 8 in #define TABINC 8 as the number of spaces which make a TAB.
-We declare two variables nb for number of spaces and pos for number of tabs.
-We get the current character by calling getchar() and storing it in variable c and keep track of the position.
-As soon as a space character is found, we increment the number of spaces or number of tabs. We increment the spaces by pos, if the space is not divisible by TABINC. If the space occurance is divisible by TABINC, we increment the number of tabs. This step collects the minimum number of tabs and blanks.
-In the else part, when non space is found, we first print the all remaining tabs, then remaining spaces, then print the character. And We reset the position accordingly. If it is a newline, we reset the pos, if it is a tab character, we reset it to previous tab character - This step replaces the spaces with minimum tabs and spaces.
+We declare TABINC as 8 in #define TABINC 8 as the number of spaces which make a
+TAB.
+
+We start counting the pos from 1 for every new line and we increment pos for all
+the characters and print the character, which are not tabs.  This is
+demonstrated by the else statements in our program.
+
+When we hit a tab \t character, then we need to determine how many spaces we
+need to replace the \t with.
+
+For e.g.::
+
+	hello   | I press a tab and reach |
+	hello###| It should be substibuted with 3 #, 
+		  	 
+The way 3 # is calculated by `TABINC - length of ('hello')`
+that is 8 - 5 = 3.
+
+This explains well, if hello is the starting word. The way to determine the tabs
+to spaces later in the line is by keeping track of the number of characters in
+the line (that is variable pos in our program.)
+
+For e.g
+
+::
+
+	hello   world   is      great
+	hello###world###is######great
 
 
----- 
+To determine the number of tabs to spaces between **is** and **great**
 
-This document was updated on |today|
+We track the pos till **s**, we encounter the tab position at be 19.
+
+::
+
+	nb = TABINC - (( pos - 1) % TABINC);
+	nb = TABINC - ((19 - 1))  % TABINC);
+	nb = TABINC - (18 % TABINC);
+	nb = TABINC - (18 % 8);
+	nb = TABINC - 2;
+	nb = 8 - 2;
+	nb = 6
+
+Once we determine the nb, we simply print # character to denote a visible space
+and increment the position each character.
+
+:c-better-explain:`Ex_1.20_detab.rst`
+
+----

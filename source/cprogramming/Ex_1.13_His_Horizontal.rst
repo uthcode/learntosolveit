@@ -16,6 +16,11 @@ Solution
    :language: c
    :tab-width: 2
 
+.. runcode:: ../../languages/cprogs/Ex_1.13_His_Horizontal.c
+   :language: c
+   :codesite: ideone
+
+
 Explaination
 ------------
 
