@@ -4,14 +4,15 @@
 #define MAXLINE 1000
 #define LIMIT 80
 
-int getline(char line[],int lim);
+/* we call it ngetline, for new getline so that it does not conflict with system function getline */
+int ngetline(char line[],int lim);
 
 int main(void)
 {
 	int len;
 	char line[MAXLINE];
 
-	while((len=getline(line,MAXLINE)) > 0)
+	while((len=ngetline(line,MAXLINE)) > 0)
 	{
 		if( len > LIMIT )
 			printf("%s",line);
@@ -20,7 +21,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int ngetline(char s[],int lim)
 {
 	int i,c;
 	
