@@ -102,11 +102,11 @@ pygments_style = 'sphinx'
 # :c-suggest-improve:`name.c`
 # :c-better-explain:`name.rst`
 
-extlinks = {'c-suggest-improve': 
-	('https://github.com/uthcode/uthcode/blob/Chapter-1/languages/cprogs/%s',
+extlinks = {'c-suggest-improve':
+	('https://github.com/uthcode/uthcode/blob/master/languages/cprogs/%s',
 	"Suggest a Code Improvement: "),
 			'c-better-explain':
-	('https://github.com/uthcode/uthcode/tree/Chapter-1/source/cprogramming/%s',
+	('https://github.com/uthcode/uthcode/tree/master/source/cprogramming/%s',
 	"Suggest a better explaination of ")
 }
 
