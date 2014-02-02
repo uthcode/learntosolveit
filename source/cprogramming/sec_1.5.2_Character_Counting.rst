@@ -11,6 +11,10 @@ Program
    :language: c
    :tab-width: 4
    
+.. runcode:: ../../languages/cprogs/sec_1.5.2_Character_Counting.c
+   :language: c
+   :codesite: ideone   
+   
 
 Explanation
 -----------

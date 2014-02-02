@@ -6,10 +6,12 @@ This is the C programming language section. Our intention is to present the prog
 If you like that book or like to learn C, you may find this interesting.
 
 
+Chapter 1
+=========
+
 .. toctree::
    :maxdepth: 1
 
-   example1
    sec_1.1_helloworld
    Ex_1.1_exp_helloworld
    Ex_1.2_exp_printf_c
@@ -49,6 +51,13 @@ If you like that book or like to learn C, you may find this interesting.
    Ex_1.22_fold
    Ex_1.23_remcomments
    Ex_1.24_synerrors
+
+Chapter 2 and Further
+=====================
+
+.. toctree::
+   :maxdepth: 1
+
    rightrot
    any
    atof

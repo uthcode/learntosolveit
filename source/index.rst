@@ -53,6 +53,8 @@ C Programming Language
 ======================
 
 .. toctree::
+   :maxdepth: 2
+
    cprogramming/index
 
 
