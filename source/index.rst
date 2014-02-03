@@ -101,7 +101,6 @@ Software
    vim
    restructuredtext
    mako
-   ratpoison
    versioncontrol
    ubuntu
    questions

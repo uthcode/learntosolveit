@@ -572,22 +572,3 @@ Wondering how to run rake? bundle install; bundle exec rake -T. Super breezy.
  => nil 
 1.8.7 :018 > 
 
-StormChaser
-
-Pig
-Oink
-Scalding.
-Kafka
-
-StormChaser
-Esper
-Finagle
-
-
-- How to create pants branch?
-- What's pants, pants.pex and pants.multi
-- There is pants.new but the executable is not there.
-- export PANTS_DEV=1
-
-
-svn.twitter.biz/maven/com/twitter/test-spiderduck-*

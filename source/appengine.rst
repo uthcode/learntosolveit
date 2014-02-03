@@ -110,6 +110,5 @@ Symbolic links in /usr/local/bin have been created for the following commands:
 * gen_protorpc.py
 * google_sql.py
 * remote_api_shell.py 
-* 
 * /usr/local/google_appengine points to the SDK.
 
