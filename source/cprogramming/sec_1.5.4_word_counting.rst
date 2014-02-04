@@ -10,9 +10,17 @@ Program
    :language: c
    :tab-width: 4
 
+.. runcode:: ../../languages/cprogs/sec_1.5.4_word_counting.c
+   :language: c
+   :codesite: ideone
+   
+:c-suggest-improve:`sec_1.5.4_word_counting.c`
+
 
 Explaination
 ============
+
+:c-better-explain:`sec_1.5.4_word_counting.rst`
 
 ---- 
 
