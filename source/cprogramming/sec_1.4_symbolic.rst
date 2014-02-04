@@ -8,6 +8,12 @@ Program
 .. literalinclude:: ../../languages/cprogs/sec_1.4_symbolic.c
    :language: c
    :tab-width: 4
+   
+.. runcode:: ../../languages/cprogs/sec_1.4_symbolic.c
+   :language: c
+   :codesite: ideone
+
+:c-suggest-improve:`sec_1.4_symbolic.c`
 
 
 Explaination
@@ -23,6 +29,8 @@ fahr <= UPPER, and the increments fahr using STEP in each iteration.
 
 *symbolic constants* are substituted inline in the program during pre-processing
 phase of compilation.
+
+:c-better-explain:`sec_1.4_symbolic.rst`
 
 ---- 
 

@@ -21,6 +21,8 @@ Solution
    :language: c
    :codesite: ideone
 
+:c-suggest-improve:`Ex_1.13.2_His_vertical.c`
+
 
 
 Explaination
@@ -99,15 +101,6 @@ we will have hit the bottom of the histogram::
 
 Combing them all, we would have drawn the horizontal histogram like above.
 
-
-
-
-
-
-
-
-
-
-
+:c-better-explain:`Ex_1.13.2_His_vertical.rst`
 
 This document was updated on |today|

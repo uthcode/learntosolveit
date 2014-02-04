@@ -20,7 +20,11 @@ Program
 .. runcode:: ../../languages/cprogs/sec_1.3_for_loop.c
    :language: c
    :codesite: codepad
+
+:c-suggest-improve:`sec_1.3_for_loop.c`
    
    
 Explaination
 ============
+
+:c-better-explain:`sec_1.3_for_loop.rst`

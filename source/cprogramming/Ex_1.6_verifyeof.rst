@@ -18,6 +18,8 @@ Solution
    :language: c
    :codesite: ideone
 
+:c-suggest-improve:`Ex_1.6_verifyeof.c`
+
 
 Explaination
 ------------
@@ -42,6 +44,8 @@ Explaination
     0
 
 4. We see that when char is not EOF, it is printing 1 and when it is EOF, 0 is printed.
+
+:c-better-explain:`Ex_1.6_verifyeof.rst`
 
 ---- 
 
