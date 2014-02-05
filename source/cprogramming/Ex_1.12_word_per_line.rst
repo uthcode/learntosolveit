@@ -20,7 +20,7 @@ Solution
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`Ex_1.12_word_per_line.c`
+
 
 Explaination
 ------------
@@ -29,9 +29,8 @@ In this program, we read the one character at a time and check if the character
 is a space ' ', we print newline character, '\n' thus going to next line in the
 output, otherwise we simply print the character c.
 
-:c-better-explain:`Ex_1.12_word_per_line.rst`
 
+.. seealso::
 
----- 
-
-This document was updated on |today|
+   * :c-suggest-improve:`Ex_1.12_word_per_line.c`
+   * :c-better-explain:`Ex_1.12_word_per_line.rst`

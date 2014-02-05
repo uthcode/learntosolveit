@@ -14,17 +14,6 @@ You can expect questions that evaluate your skills in three primary areas:
 
 1. Coding
 
-- You should know at least one programming language really well, and it should
-preferably be an object-oriented language, ideally C++ or Java (C# is OK since
-it’s similar to Java)
-
-- You should know a fair amount of detail about your favourite language,
-including justifying why it’s your favourite
-
-- If your favourite language is C or Python, you might be better suited as a
-Software Engineer in Site Reliability Engineering (talk to your Recruiter about
-this)
-
 - Sample topics: construct / traverse data structures, implement system
 routines, distill large data sets to single values, transform one data set to
 another.
@@ -47,29 +36,6 @@ least one type of balanced binary tree
 
 - Know the classic computer science problems (Shortest Path, Traveling
 Salesman, Knapsack, etc)
-
-Interview Hints
-
-- Talk through your thought processes. Our engineers are evaluating not only
-your technical abilities but how you approach & solve problems
-
-- Ask clarifying questions if you do not understand the problem or need more
-information. Many of the questions asked in Google interviews are deliberately
-underspecified because our engineers are looking to see how you engage the
-problem. In particular, they are looking to see which areas leap to your mind
-as the most important piece of the technological puzzle you've been presented
-
-- Think about ways to improve the solution you'll present. In many cases, the
-first answer that springs to mind isn't the most elegant solution & may need
-some refining. It's definitely worthwhile to talk about your initial thoughts
-to a question, but jumping immediately into presenting a brute force solution
-will be received less well than taking time to compose a more efficient
-solution.
-
-- Show an interest in Google products. What is your favourite product, and how
-would you improve it?
-
-Videos
 
 Classic problems
 

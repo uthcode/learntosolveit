@@ -77,7 +77,6 @@ Computer Science
    unicodenotes
    topcoder
    games
-   programmingchallenges
    knuth_lecture
 
 Languages

@@ -25,36 +25,6 @@ b) pull
 A command similar to svn init
 git remote -v
 
-The idea behind Git is that version control is all about manipulating this
-graph of commits. Whenever you want to perform some operation to query or
-manipulate the repository, you should be thinking, “how do I want to query or
-manipulate the graph of commits?”
-
-Switching Between Branches
-
-In order to start working on the headers, you need to set the fix-headers head
-to be the current head. This is done with git checkout:
-
-git checkout [head-name]
-
-* Points HEAD to the commit object specified by [head-name]
-* Rewrites all the files in the directory to match the files stored in the new HEAD commit.
-
-git diff [head1]..[head2] shows the diff between the commits referenced by head2 and head1.
-
-Remember it like this - What are the new things which have been added in head2 with respect to head1.
-
-git diff [head1]...[head2] (three dots) shows the diff between head2 and the common ancestor of head1 and head2. For example,
-
-Remember it like this - What are the new things which have been added in head2
-with respect to parent of head1.  It would be useful if you are disregarding
-head1 commit itself and you experimented with head2 and want to go ahead with
-head2.
-
-Use your twitter git username for credentials.
-
-For some reason, git log head1 .. head2 does not seem to work.
-
 Using submodules
 ----------------
 
@@ -65,7 +35,6 @@ git submodule update
 
 Common Branching Use Patterns in Git
 -------------------------------------
-
 
 A common way to use Git branching is to maintain one “main” or “trunk” branch
 and create new branches to implement new features. Often the default Git
@@ -140,28 +109,6 @@ I had to do
 
   git pull
 
-* It is like pull for each branch.
-
-*  What do do - git push error '[remote rejected] master -> master (branch is currently checked out)'
-
-  Anyways what is happening is that you have 2 repositories, one is the
-  original you first made, and the other the work one you just made. Right now
-  you are in your work repository, and using the "master" branch. But you also
-  happen to be "logged in" in your original repository to the same "master"
-  branch. Now since you're "logged in" in the original Git fears you might mess
-  up because you might be working on the original and screw things up. So what
-  you need to do is return to the original repository and do a "git checkout
-  someotherbranch", now you can push with no problems.
-
-* Checkout a new remote branch as local copy 
-
-  git checkout -b test origin/test
-
-* How to do a git revert to local changes?
-
-  git checkout -- file_to_revert
-
-
 Workflow
 ========
 
@@ -233,15 +180,6 @@ HG is a DVCS
 * distributed
 * peer-to-peer
 * doesn't require a network for most of the operation
-
-SVN is a VCS
-------------
-
-* centralized
-* client-server
-* requires a network for most of the operation
-* Two different tools, two different approaches
-* check hginit for an SVN re-education: http://hginit.com/00.html
 
 HG Basic Usage
 --------------
@@ -571,6 +509,3 @@ HG
 5. Where does mercurial store it's extension files? 
 
    /usr/share/pyshared/hgext
-
-
-
