@@ -1,6 +1,6 @@
-============
-Exercise 1.6
-============
+======================================
+Exercise 1.6 - Verify the value of EOF
+======================================
 
 Question
 --------
@@ -24,7 +24,9 @@ Solution
 Explaination
 ------------
 
-1. This program is similar to the previous one Ex 1.5, wherein after it gets the input, it prints the value of the expression getchar() != EOF.
+1. This program is similar to the previous one Ex 1.5, wherein after it gets the
+input, it prints the value of the expression getchar() != EOF. 
+
 2. For a file with this contents
 
 ::
