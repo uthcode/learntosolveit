@@ -57,7 +57,8 @@ Chapter 2 and Further
 
 .. toctree::
    :maxdepth: 1
-
+   
+   Ex_2.1_cal_limits
    rightrot
    any
    atof
