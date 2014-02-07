@@ -20,9 +20,6 @@ Solution
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`Ex_1.13_His_Horizontal.c`
-
-
 Explaination
 ------------
 
@@ -41,7 +38,10 @@ The way it is accomplished in the above program, read each character using
 getchar, if it is special character like a space, tab or newline,  go to next
 line by printing `\n` otherwise print a `*` character.
 
-:c-better-explain:`Ex_1.13_His_Horizontal.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.13_His_Horizontal.c`
+   * :c-better-explain:`Ex_1.13_His_Horizontal.rst`
 
 ---- 
 

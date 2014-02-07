@@ -21,10 +21,10 @@ Program
    :language: c
    :codesite: codepad
 
-:c-suggest-improve:`sec_1.3_for_loop.c`
-   
-   
 Explaination
 ============
 
-:c-better-explain:`sec_1.3_for_loop.rst`
+.. seealso::
+
+   * :c-suggest-improve:`sec_1.3_for_loop.c`
+   * :c-better-explain:`sec_1.3_for_loop.rst`

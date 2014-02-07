@@ -59,6 +59,7 @@ Chapter 2 and Further
    :maxdepth: 1
    
    Ex_2.1_cal_limits
+   Ex_2.2_getline_without_and_or
    rightrot
    any
    atof

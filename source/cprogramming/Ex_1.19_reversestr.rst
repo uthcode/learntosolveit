@@ -21,9 +21,6 @@ Solution
    :language: c
    :codesite: ideone
 
-
-:c-suggest-improve:`Ex_1.19_reversestr.c`
-
 Explaination
 ------------
 
@@ -52,7 +49,10 @@ The crux of the program is this::
       }
 
 
-:c-better-explain:`Ex_1.19_reversestr.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.19_reversestr.c`
+   * :c-better-explain:`Ex_1.19_reversestr.rst`
 
 ---- 
 

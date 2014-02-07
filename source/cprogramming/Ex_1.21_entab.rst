@@ -22,10 +22,6 @@ Solution
    :language: c
    :codesite: ideone
 
-
-
-:c-suggest-improve:`Ex_1.21_entab.c`
-
 Explaination
 ------------
 
@@ -42,7 +38,10 @@ Explaination
    This step replaces the spaces with minimum tabs and spaces.
 
    
- :c-better-explain:`Ex_1.21_entab.rst`
+ .. seealso::
+
+   * :c-suggest-improve:`Ex_1.21_entab.c`
+   * :c-better-explain:`Ex_1.21_entab.rst`
 
 ---- 
 

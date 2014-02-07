@@ -13,9 +13,6 @@ Program
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`sec_1.5.3_line_counting.c`
-
-
 Explaination
 ============
 
@@ -25,8 +22,11 @@ the while loop  ((c = getchar()) != EOF) till the EOF.  If the character is
 newline character '\n' the number of lines variable is incremented, ++nl. At the
 end, the number of lines, nl, is printed.
 
-:c-better-explain:`sec_1.5.3_line_counting.rst`
+.. seealso::
 
+   * :c-suggest-improve:`sec_1.5.3_line_counting.c`
+   * :c-better-explain:`sec_1.5.3_line_counting.rst`
+   
 ---- 
 
 This document was updated on |today|

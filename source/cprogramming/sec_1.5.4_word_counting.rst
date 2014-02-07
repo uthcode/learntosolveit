@@ -14,14 +14,14 @@ Program
    :language: c
    :codesite: ideone
    
-:c-suggest-improve:`sec_1.5.4_word_counting.c`
-
-
 Explaination
 ============
 
-:c-better-explain:`sec_1.5.4_word_counting.rst`
+.. seealso::
 
+   * :c-suggest-improve:`sec_1.5.4_word_counting.c`
+   * :c-better-explain:`ssec_1.5.4_word_counting.rst`
+   
 ---- 
 
 This document was updated on |today|

@@ -13,9 +13,6 @@ Program
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`sec_1.5_inp2ou.c`
-
-
 Explanation
 -----------
 
@@ -23,8 +20,11 @@ Input : In any programming language input means to feed some data into program. 
 
 Output : In any programming language output means to display some data on screen, printer or in any file. C programming language provides a set of built-in functions to output required data.
 
-:c-better-explain:`sec_1.5_inp2ou.rst`
+.. seealso::
 
+   * :c-suggest-improve:`sec_1.5_inp2ou.c`
+   * :c-better-explain:`sec_1.5_inp2ou.rst`
+   
 ---- 
 
 This document was updated on |today|

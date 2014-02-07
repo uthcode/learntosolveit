@@ -18,9 +18,6 @@ Solution
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`Ex_1.8_count_blanks_etc.c`
-
-
 Explaination
 ------------
 
@@ -34,7 +31,10 @@ Tabs: 0
 Newlines: 1
 
 
-:c-better-explain:`Ex_1.8_count_blanks_etc.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.8_count_blanks_etc.c`
+   * :c-better-explain:`Ex_1.8_count_blanks_etc.rst`
 
 ---- 
 

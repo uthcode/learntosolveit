@@ -21,9 +21,6 @@ Solution
    :language: c
    :codesite: ideone
 
-
-:c-suggest-improve:`Ex_1.16_LongLine.c`
-
 Explaination
 ------------
 
@@ -39,8 +36,10 @@ At the end of the program, whichever was the longest line that was copied in
 maxline array, we just print that.
 
 
-:c-better-explain:`Ex_1.16_LongLine.rst`
+.. seealso::
 
+   * :c-suggest-improve:`Ex_1.16_LongLine.c`
+   * :c-better-explain:`Ex_1.16_LongLine.rst`
 
 ---- 
 

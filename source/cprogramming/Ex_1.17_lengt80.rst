@@ -20,8 +20,6 @@ Solution
    :codesite: ideone
 
 
-:c-suggest-improve:`Ex_1.17_lengt80.c`
-
 Explaination
 ------------
 
@@ -36,7 +34,10 @@ changes the function makes will be available to the main program.
 `getline returns the length of the line and in our main program, if the length
 `is greater than 80 characters we print it.
 
-:c-better-explain:`Ex_1.17_lengt80.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.17_lengt80.c`
+   * :c-better-explain:`Ex_1.17_lengt80.rst`
 
 ---- 
 

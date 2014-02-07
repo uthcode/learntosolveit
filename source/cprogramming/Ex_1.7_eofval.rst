@@ -18,16 +18,16 @@ Solution
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`Ex_1.7_eofval.c`
-
-
 Explaination
 ------------
 
 1. Since EOF is an integer, we can print it with %d format in the printf.
 2. EOF value is printed as -1.
 
-:c-better-explain:`Ex_1.7_eofval.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.7_eofval.c`
+   * :c-better-explain:`Ex_1.7_eofval.rst`
 
 ---- 
 

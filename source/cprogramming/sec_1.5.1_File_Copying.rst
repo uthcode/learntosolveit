@@ -9,10 +9,19 @@ Program
 .. literalinclude:: ../../languages/cprogs/sec_1.5.1_File_Copying.c
    :language: c
    :tab-width: 4
+
+.. runcode:: ../../languages/sec_1.5.1_File_Copying.c
+   :language: c
+   :codesite: ideone 
    
 
 Explanation
 -----------
+
+.. seealso::
+
+   * :c-suggest-improve:`sec_1.5.1_File_Copying.c`
+   * :c-better-explain:`sec_1.5.1_File_Copying.rst`
 
 ---- 
 

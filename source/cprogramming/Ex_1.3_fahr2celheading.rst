@@ -20,9 +20,6 @@ Solution
    :language: c
    :codesite: ideone
 
-:c-suggest-improve:`Ex_1.3_fahr2celheading.c`
-
-
 
 Explaination
 ------------
@@ -33,7 +30,10 @@ The variables in this program are: lower,upper,step, celsius,fahr.
 The variable lower is assigned the value 0 similarly upper to 300, step to 20, and fahr to lower.
 So when the program enters the while loop it checks whether fahr <= upper is true, if it is true then it assigns the variable celsius 5 * (fahr - 32) / 9 and then it prints output.  
 
-:c-better-explain:`Ex_1.3_fahr2celheading.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.3_fahr2celheading.c`
+   * :c-better-explain:`Ex_1.3_fahr2celheading.rst`
 
 ---- 
 

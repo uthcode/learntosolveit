@@ -24,3 +24,8 @@ Solution
 .. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
    :language: c
    :codesite: codepad
+
+.. seealso::
+
+   * :c-suggest-improve:`sec_1.1_helloworld.c`
+   * :c-better-explain:`sec_1.1_helloworld.rst`

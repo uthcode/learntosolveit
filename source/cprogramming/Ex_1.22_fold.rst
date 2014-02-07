@@ -23,9 +23,6 @@ Solution
    :language: c
    :codesite: ideone
 
-
-:c-suggest-improve:`Ex_1.22_fold.c`
-
 Explaination
 ------------
 
@@ -47,7 +44,10 @@ When we are folding, we should not be folding in between the word. So we have to
 
 With our new position we continue with the rest of the program. 
 
-:c-better-explain:`Ex_1.22_fold.rst`
+.. seealso::
+
+   * :c-suggest-improve:`Ex_1.22_fold.c`
+   * :c-better-explain:`Ex_1.22_fold.rst`
 
 ---- 
 
