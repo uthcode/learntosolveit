@@ -14,13 +14,15 @@ Program
    :language: c
    :codesite: ideone
    
-:c-suggest-improve:`sec_1.7_functions.c`
-
 Explaination
 ============
 
-:c-better-explain:`sec_1.7_functions.rst`
+This program is a simple demonstration of functions. A function `power` is
+declared to take two integer arguments and return an int value. In the program
+we send a number, base and a  number, n to power, and the program returns the
+value of base raised to power n.
 
----- 
 
-This document was updated on |today|
+.. seealso::
+   :c-better-explain:`sec_1.7_functions.rst`
+   :c-suggest-improve:`sec_1.7_functions.c`
