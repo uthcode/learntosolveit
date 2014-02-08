@@ -20,7 +20,7 @@ Explaination
 .. seealso::
 
    * :c-suggest-improve:`sec_1.5.4_word_counting.c`
-   * :c-better-explain:`ssec_1.5.4_word_counting.rst`
+   * :c-better-explain:`sec_1.5.4_word_counting.rst`
    
 ---- 
 

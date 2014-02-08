@@ -18,7 +18,7 @@ Solution
 
 .. runcode:: ../../languages/cprogs/Ex_1.2_exp_printf_c.c
    :language: c
-   :codesite: codepad
+   :codesite: ideone
    
 
 

@@ -35,10 +35,10 @@ print them.
 
 If / is followed by any other character, we simply print them.
 
-.. seealso::
+..  seealso::
 
-   * :c-suggest-improve:`Ex_1.23_recomments.c`
-   * :c-better-explain:`Ex_1.23_recomments.rst`
+   * :c-suggest-improve:`Ex_1.23_remcomments.c`
+   * :c-better-explain:`Ex_1.23_remcomments.rst`
 
 ---- 
 

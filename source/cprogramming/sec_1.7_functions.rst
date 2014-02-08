@@ -23,6 +23,8 @@ we send a number, base and a  number, n to power, and the program returns the
 value of base raised to power n.
 
 
+
 .. seealso::
-   :c-better-explain:`sec_1.7_functions.rst`
-   :c-suggest-improve:`sec_1.7_functions.c`
+
+   * :c-suggest-improve:`sec_1.7_functions.c`
+   * :c-better-explain:`sec_1.7_functions.rst`

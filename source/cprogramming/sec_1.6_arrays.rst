@@ -30,6 +30,7 @@ In the end, we print the values stored in the array.
 
 
 .. seealso::
-   :c-suggest-improve:`sec_1.6_arrays.c`
-   :c-better-explain:`sec_1.6_arrays.rst`
+
+   * :c-suggest-improve:`sec_1.6_arrays.c`
+   * :c-better-explain:`sec_1.6_arrays.rst`
 

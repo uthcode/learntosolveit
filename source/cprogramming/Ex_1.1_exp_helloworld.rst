@@ -14,7 +14,7 @@ of the program, to see what error messages you get.
 
 .. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
    :language: c
-   :codesite: codepad
+   :codesite: ideone
 
 Explaination
 ============

@@ -28,5 +28,6 @@ demonstrated by copying line to the longest and then printing the longest in the
 main program.
 
 .. seealso::
-   :c-suggest-improve:`sec_1.9_character_arrays.c`
-   :c-better-explain:`sec_1.9_character_arrays.rst`
+
+   * :c-suggest-improve:`sec_1.9_character_arrays.c`
+   * :c-better-explain:`sec_1.9_character_arrays.rst`

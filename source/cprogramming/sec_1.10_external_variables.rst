@@ -30,8 +30,7 @@ return the length from getline, because sharing of those is accomplished by
 sharing of the variable themselves.
 
 
-
-
 .. seealso::
-   :c-suggest-improve:`sec_1.10_external_variables.c`
-   :c-better-explain:`sec_1.10_external_variables.rst`
+
+   * :c-suggest-improve:`sec_1.10_external_variables.c`
+   * :c-better-explain:`sec_1.10_external_variables.rst`
