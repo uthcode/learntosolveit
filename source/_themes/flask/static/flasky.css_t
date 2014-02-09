@@ -10,6 +10,7 @@
 {% set sidebar_width = '220px' %}
  
 @import url("basic.css");
+@import url("button.css");
  
 /* -- page layout ----------------------------------------------------------- */
  
