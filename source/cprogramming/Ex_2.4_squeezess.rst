@@ -8,8 +8,7 @@ Question
 Write an alternative version of squeeze(s1,s2) that deletes each character in s1 that
 matches any character in the string s2.
 
-
-.. literalinclude:: ../../languages/cprogs/EEx_2.4_squeezess.c
+.. literalinclude:: ../../languages/cprogs/Ex_2.4_squeezess.c
    :language: c
    :tab-width: 4
 
