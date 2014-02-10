@@ -62,6 +62,7 @@ Chapter 2 and Further
    Ex_2.2_getline_without_and_or
    Ex_2.3_htoi
    Ex_2.4_squeezess
+   Ex_2.5_any
    rightrot
    any
    atof
