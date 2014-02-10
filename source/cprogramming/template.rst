@@ -14,7 +14,7 @@ ADDQUESTION
 
 .. runcode:: ../../languages/cprogs/PROGRAMNAME.c
    :language: c
-   :codesite: codepad
+   :codesite: ideone
 
 Explaination
 ============
