@@ -4,7 +4,7 @@
 #define YES 1
 #define NO 0
 
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 int htoi(char s[]);
 
 int main(void)
@@ -12,7 +12,7 @@ int main(void)
 	char line[MAXLINE];
 	int value;
 		
-	getline(line,MAXLINE);
+	mgetline(line,MAXLINE);
 	value=htoi(line);
 
 	printf("The value of %s is %d",line,value);
@@ -20,7 +20,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int c,i;
 
