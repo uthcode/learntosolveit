@@ -14,7 +14,8 @@ int main(void)
 	printf("Minimum Signed Char %d\n",-(char)((unsigned char) ~0 >> 1) - 1);
 	printf("Maximum Signed Char %d\n",(char) ((unsigned char) ~0 >> 1));
 
-	printf("Minimum Signed Short %d\n",-(short)((unsigned short)~0 >>1) -1);	printf("Maximum Signed Short %d\n",(short)((unsigned short)~0 >> 1));
+	printf("Minimum Signed Short %d\n",-(short)((unsigned short)~0 >>1) -1);
+	printf("Maximum Signed Short %d\n",(short)((unsigned short)~0 >> 1));
 
 	printf("Minimum Signed Int %d\n",-(int)((unsigned int)~0 >> 1) -1);
 	printf("Maximum Signed Int %d\n",(int)((unsigned int)~0 >> 1));
