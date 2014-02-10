@@ -4,7 +4,7 @@
 #include<stdio.h>
 #define MAXLINE 1000
 
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 void squeeze(char s1[],char s2[]);
 
 int main(void)
@@ -13,11 +13,11 @@ int main(void)
 	
 	putchar('s');
 	putchar('1');
-	getline(s1,MAXLINE);
+	mgetline(s1,MAXLINE);
 
 	putchar('s');
 	putchar('2');
-	getline(s2,MAXLINE);
+	mgetline(s2,MAXLINE);
 
 	squeeze(s1,s2);
 
@@ -26,7 +26,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 	

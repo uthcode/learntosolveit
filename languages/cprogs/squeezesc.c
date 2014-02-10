@@ -4,14 +4,14 @@
 #define MAXLINE 1000
 
 void squeeze(char s[],int c);
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 
 int main(void)
 {
 	char line[MAXLINE];
 	int c;
 
-	getline(line,MAXLINE);
+	mgetline(line,MAXLINE);
 
 	putchar('#');
 	c=getchar();
@@ -23,7 +23,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 	
