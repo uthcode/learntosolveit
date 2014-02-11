@@ -1,5 +1,5 @@
 ===================================================================================
-Exercise 2.8 returns the value of the integer x rotated to the right by n positions
+Exercise 2.8-returns the value of the integer x rotated to the right by n positions
 ===================================================================================
 
 Question
