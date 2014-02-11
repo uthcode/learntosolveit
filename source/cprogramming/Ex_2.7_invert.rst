@@ -1,5 +1,5 @@
 ==================================================
-Exercise 2.7 Setting bits at a position n Inverted
+Exercise 2.7-Setting bits at a position n Inverted
 ==================================================
 
 Question
