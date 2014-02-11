@@ -67,6 +67,7 @@ Chapter 2 and Further
    Ex_2.7_invert
    Ex_2.8_rightrot
    Ex_2.9_bitcount2s
+   Ex_2.10_lower
    rightrot
    any
    atof
