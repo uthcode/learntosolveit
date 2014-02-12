@@ -52,8 +52,8 @@ Chapter 1
    Ex_1.23_remcomments
    Ex_1.24_synerrors
 
-Chapter 2 and Further
-=====================
+Chapter 2 
+=========
 
 .. toctree::
    :maxdepth: 1
@@ -68,8 +68,19 @@ Chapter 2 and Further
    Ex_2.8_rightrot
    Ex_2.9_bitcount2s
    Ex_2.10_lowercondit
+
+Chapter 3 and Further
+=====================
+
+.. toctree::
+   :maxdepth: 1
+   
+   Ex_3.1_binsearch-2
    Ex_3.2_escape
    Ex_3.3_expand
+   Ex_3.4_itoa-2
+   Ex_3.5_itob
+   Ex_3.6_itoa-3
    rightrot
    any
    atof

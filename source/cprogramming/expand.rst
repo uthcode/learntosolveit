@@ -11,15 +11,14 @@ string s1 into the equivalent complete list abc...xyz in s2. Allow for letters o
 .. literalinclude:: ../../languages/cprogs/Ex_3.3_expand.c
    :language: c
    :tab-width: 4
-   
 
 .. runcode:: ../../languages/cprogs/Ex_3.3_expand.c
    :language: c
    :codesite: ideone
-   
 
 Explaination
 ============
+
 
 
 .. seealso::
