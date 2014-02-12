@@ -69,6 +69,7 @@ Chapter 2 and Further
    Ex_2.9_bitcount2s
    Ex_2.10_lowercondit
    Ex_3.2_escape
+   Ex_3.3_expand
    rightrot
    any
    atof
