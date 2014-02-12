@@ -3,7 +3,7 @@ the other direction as well,converting the escape sequences into the real charac
 
 #include<stdio.h>
 #define MAXLINE 1000
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 void escape(char s[],char t[]);
 
 
@@ -12,7 +12,7 @@ int main(void)
 	char s[MAXLINE],t[MAXLINE];
 
 	putchar('t');
-	getline(t,MAXLINE);
+	mgetline(t,MAXLINE);
 
 	escape(s,t);
 
@@ -52,7 +52,7 @@ void escape(char s[],char t[])
 	s[j]='\0';
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 
