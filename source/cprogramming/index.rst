@@ -71,6 +71,7 @@ Chapter 2 and Further
    Ex_3.2_escape
    Ex_3.3_expand
    Ex_3.4_itoa-2
+   Ex_3.5_itob
    rightrot
    any
    atof
