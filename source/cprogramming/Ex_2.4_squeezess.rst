@@ -22,6 +22,7 @@ Explaination
 Let's take the two inputs strings as:
 
     s1: HelloWorld
+    
     s2: ol
   
 Our desired output is::
