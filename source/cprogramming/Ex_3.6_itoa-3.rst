@@ -1,5 +1,5 @@
 ============
-Exercise 3.5
+Exercise 3.6
 ============
 
 Question
