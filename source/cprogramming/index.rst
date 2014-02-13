@@ -70,6 +70,7 @@ Chapter 2 and Further
    Ex_2.10_lowercondit
    Ex_3.2_escape
    Ex_3.3_expand
+   Ex_3.4_itoa-2
    rightrot
    any
    atof
