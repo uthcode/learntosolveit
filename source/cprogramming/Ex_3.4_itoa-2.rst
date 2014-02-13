@@ -1,11 +1,19 @@
-============
-Exercise 3.4
-============
+======================================================
+Exercise 3.4 - itoa to handle largest negative integer
+======================================================
 
 Question
 ========
 
-In a two's complement number representation, our version of itoa does not handle the largest negative number, that is, the value of n equal to -(2wordsize-1). Explain why not. Modify it to print that value correctly, regardless of the machine on which it runs.
+In a two's complement number representation, our version of itoa does not handle the largest negative number, 
+that is, the value of n equal to -(2wordsize-1). Explain why not. Modify it to print that value correctly, 
+regardless of the machine on which it runs.
+
+The previous version of itoa was this::
+
+    void itoa() {
+    
+    }
 
 .. literalinclude:: ../../languages/cprogs/Ex_3.4_itoa-2.c
    :language: c
