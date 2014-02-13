@@ -1,6 +1,6 @@
-============
-Exercise 3.6
-============
+====================================
+Exercise 3.6 - itoa with field width
+====================================
 
 Question
 ========
@@ -20,6 +20,7 @@ make it wide enough.
 Explaination
 ============
 
+Note: For negative numbers the negative sign is written close to the number instead of before the padded width.
 
 
 .. seealso::
