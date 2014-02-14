@@ -5,13 +5,13 @@
 #define MAXLINE 100
 
 double myatof(char s[]);
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 
 int main(void)
 {
 	char str[MAXLINE];
 	double num;
-	getline(str,MAXLINE);
+	mgetline(str,MAXLINE);
 
 	num=myatof(str);
 	printf("%f",num);
@@ -63,7 +63,7 @@ double myatof(char s[])
 		return sign * (val / pow) * power(10,exp);
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 
