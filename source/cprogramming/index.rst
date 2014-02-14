@@ -92,6 +92,7 @@ Chapter 4
    Ex_4.1_strindexv2
    sec_4.2
    Ex_4.2_atofwitheE
+   sec_4.3
    rightrot
    any
    atof
