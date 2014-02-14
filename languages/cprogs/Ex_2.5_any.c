@@ -13,13 +13,13 @@ int main(void)
 {
 	char s1[MAXLINE],s2[MAXLINE];
 	int val;
-
-	putchar('s');
-	putchar('1');
+	
+	/* Give the first string s1 */
+	
 	mgetline(s1,MAXLINE);
+	
+	/* Give the second string s2 */
 
-	putchar('s');
-	putchar('1');
 	mgetline(s2,MAXLINE);
 
 	val = any(s1,s2);
