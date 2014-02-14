@@ -13,13 +13,13 @@ int main(void)
 {
 	char s1[MAXLINE],s2[MAXLINE];
 	int val;
-
-	putchar('s');
-	putchar('1');
+	
+	/* Give the first string s1 */
+	
 	mgetline(s1,MAXLINE);
+	
+	/* Give the second string s2 */
 
-	putchar('s');
-	putchar('1');
 	mgetline(s2,MAXLINE);
 
 	val = any(s1,s2);
@@ -42,19 +42,22 @@ int mgetline(char s[],int lim)
 
 int any(char s1[],char s2[])
 {
-	int i,j,next;
+	int i,j,check_next_char;
 
-	next=1;
+	check_next_char=1;
 
-	for(i=0;s1[i]!='\0'&& (next);++i)
+	for(i=0;s1[i]!='\0'&& (check_next_char);) 
 	{
-		for(j=0;s2[j]!='\0'&& (s1[i]!=s2[j]);++j)
-			;
+		// iterate through s2 while trying to find matching character from s1
+		for(j=0;s2[j]!='\0'&& (s1[i]!=s2[j]);++j) 
+			; // continue
 
-		if(s2[j]=='\0')
-			next=1;
+		if(s2[j]=='\0') {
+			check_next_char=1;
+			i++; // go for the next char in s1
+		}
 		else
-			next=0;
+			check_next_char=0; // match found
 	}
 
 	if(s1[i]=='\0')

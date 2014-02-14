@@ -19,6 +19,14 @@ Extend atof to handle scientific notation of the form
 Explaination
 ============
 
+For the input::
+
+   1.0e10
+
+We might get the output::
+
+   1410065408.000000
+
 
 
 .. seealso::
