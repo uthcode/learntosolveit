@@ -51,6 +51,9 @@ If give input as F then the output should be 15.  This is done by the htoi funct
     }
     return n;
     }
+In the above fragment of the program we declare some variables such as hexdigit,i,inhex,n.  
+In the For loop assign inhex to YES and increment the I.  Then we check each character 0 to 9 and a to f.  Then we check the input and multiply each character by the base of 16 and give the output 
+    
 
 
 
