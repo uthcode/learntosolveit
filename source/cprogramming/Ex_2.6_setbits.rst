@@ -47,8 +47,8 @@ Reducing it further, it becomes::
 
 	(x & (Expected bits marked as 0) | (Expected bits marked as 1 in y and rest as 0);
 
-So in x we switch off the expected bits by **and**ing it to 0. And and in y, we just
-get expected bits we want by **and**ing it to 1 and we OR the two expressions and
+So in x we switch off the expected bits by **and** ing it to 0. And and in y, we just
+get expected bits we want by **and** ing it to 1 and we OR the two expressions and
 thus get the result.
 
 
@@ -70,7 +70,7 @@ In order to do this, we get two bits at the right most position::
 	~(~0 << n)
 	0000 0011
 
-And then we shift it by position 4 using the expression p+1-n
+And then we shift it by position 4 using the expression p+1-n::
 
 	~(~0 << n) << (4+1-n)
 	0000 0011 << (5-2)
@@ -82,19 +82,19 @@ So we determined our expected bits and we can follow the rest for the program.
 
 
 
-Let's get concrete and work out the program using the values.
+Let's get concrete and work out the program using the values::
 
-x = 1111 1111 (= 255 )
-p = 3
-y = 0000 0000 (= 0)
-n = 4
+    x = 1111 1111 (= 255 )
+    p = 3
+    y = 0000 0000 (= 0)
+    n = 4
 
 ::
 
 	setbits(unsigned x,int p,int n,unsigned y);
 
 Right most 4 bits of y = 0000
-So, we our return value should be
+So, we our return value should be::
 
   = 1111 0000
   = 240
