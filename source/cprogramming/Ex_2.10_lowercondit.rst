@@ -29,7 +29,9 @@ When the program enters the while loop it checks for the condition::
     	}
 
 The getchar checks for all the uppercase characters up to the end of file.
-Then putchar prints all the characters into lowercase.    	
+This is done by the return statement where it checks for all the uppercase characters and prints everything in the lowercase::
+
+  return c>='A' && c<='Z'? c+'a'-'A':c;    	
 
 
 .. seealso::
