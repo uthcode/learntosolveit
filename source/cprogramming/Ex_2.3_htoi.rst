@@ -22,7 +22,7 @@ In this program we are going to convert a string of hexadecimal digits into Inte
 If give input as F then the output should be 15.  This is done by the htoi function::
 
 	int htoi(char s[])
-{
+    {
     int hexdigit,i,inhex,n;
     i = 0;
     if( s[i] == '0')
@@ -50,7 +50,7 @@ If give input as F then the output should be 15.  This is done by the htoi funct
             n = 16 * n + hexdigit;
     }
     return n;
-}
+    }
 
 
 
