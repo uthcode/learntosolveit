@@ -19,6 +19,19 @@ Program
 Explaination
 ============
 
+This program searches particular pattern in a given string.  As per the program we are going to search for the pattern ould and print the line which has the same.  
+Let us say that we give the input as::
+
+	This line would print
+	This line will not print
+
+The output would be::
+
+	This line would print
+
+It contains the pattern ould.  
+This is achieved by
+
 
 .. seealso::
 
