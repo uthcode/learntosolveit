@@ -4,7 +4,7 @@ int mgetline(char line[], int max);
 int strindex(char source[], char searchfor[]);
 char pattern[] = "ould"; /* pattern to search for */
 /* find all lines matching pattern */
-main()
+int main()
 {
 	char line[MAXLINE];
 	int found = 0;

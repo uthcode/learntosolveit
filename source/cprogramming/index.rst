@@ -93,6 +93,15 @@ Chapter 4
    sec_4.2
    Ex_4.2_atofwitheE
    sec_4.3
+   Ex_4.3_rpn-1
+   Ex_4.4_rpn-2
+   Ex_4.5_rpn-3
+   Ex_4.6_rpn-4
+   Ex_4.7_ungets
+   Ex_4.8_buf1c
+   Ex_4.9_eof_getch
+   Ex_4.10_getch_getline
+   Ex_4.11_getch_static
    rightrot
    any
    atof
