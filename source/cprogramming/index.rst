@@ -96,6 +96,7 @@ Chapter 4
    Ex_4.3_rpn-1
    Ex_4.4_rpn-2
    Ex_4.7_ungets
+   Ex_4.8_buf1c
    rightrot
    any
    atof
