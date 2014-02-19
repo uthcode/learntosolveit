@@ -94,6 +94,7 @@ Chapter 4
    Ex_4.2_atofwitheE
    sec_4.3
    Ex_4.3_rpn-1
+   Ex_4.4_rpn-2
    rightrot
    any
    atof
