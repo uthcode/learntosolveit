@@ -99,6 +99,7 @@ Chapter 4
    Ex_4.6_rpn-4
    Ex_4.7_ungets
    Ex_4.8_buf1c
+   Ex_4.9_eof_getch
    rightrot
    any
    atof
