@@ -7,7 +7,7 @@ Question
 
 Our getch and ungetch do not handle a pushed-back EOF correctly. Decide what their properties ought to be if an EOF is pushed back, then implement your design.
 
-.. literalinclude:: ../../languages/cprogs/Ex_4.9_eof_getch/.c
+.. literalinclude:: ../../languages/cprogs/Ex_4.9_eof_getch.c
    :language: c
    :tab-width: 4
 
