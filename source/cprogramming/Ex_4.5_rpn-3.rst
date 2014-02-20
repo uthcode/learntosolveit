@@ -7,7 +7,7 @@ Question
 
 Add access to library functions like sin, exp, and pow.
 
-.. literalinclude:: ../../languages/cprogs/EEx_4.5_rpn-3.c
+.. literalinclude:: ../../languages/cprogs/Ex_4.5_rpn-3.c
    :language: c
    :tab-width: 4
 
