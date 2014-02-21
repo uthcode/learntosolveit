@@ -98,7 +98,7 @@ Chapter 4
    Ex_4.5_calculator_math_functions
    Ex_4.6_calculator_variables
    Ex_4.7_ungets
-   Ex_4.8_buf1c
+   Ex_4.8_getch_ungetch_pushback
    Ex_4.9_eof_getch
    Ex_4.10_getch_getline
    Ex_4.11_getch_static
