@@ -20,14 +20,3 @@ int bitcount(unsigned x)
 
 	return b;
 }
-
-/* Explaination.
-
-- if x is 10 , then x-1 is 01.
-- x & x-1 always sets the rightmost 1 bit to zero.
-	for eg x & x-1 " 10 & 01 = 00, sets the rightmost 1 bit x to 0.
-- We iterate this in a loop and find the number of 1 bits in x
-- this is faster than ordinary bit count,coz we need not shift for each bit,but every 
-right most 1 bit is accounted and result obtained.
-
-*/
