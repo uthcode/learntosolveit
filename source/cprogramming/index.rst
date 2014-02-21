@@ -89,7 +89,7 @@ Chapter 4
    :maxdepth: 1
    
    sec_4.1
-   Ex_4.1_strindexv2
+   Ex_4.1_strindex_rightmost
    sec_4.2
    Ex_4.2_atofwitheE
    sec_4.3
