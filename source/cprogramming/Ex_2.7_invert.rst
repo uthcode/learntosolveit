@@ -30,7 +30,8 @@ Let's take n as 3::
  This sets the last n bits to 1 and rest to 0
 
  The given position p  0 indexed and the number of bits, n is 1 indexed.
- So in order to change the bits starting at position, p, we need to shift our streams 1s to position p and we accomplish that by left shifting the stream of 1s to position (p+1-n)
+ So in order to change the bits starting at position, p, we need to shift our 
+ streams 1s to position p and we accomplish that by left shifting the stream of 1s to position (p+1-n)
 
  For the position 3
 
