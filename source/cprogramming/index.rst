@@ -96,7 +96,7 @@ Chapter 4
    Ex_4.3_rpn_modulus_negative   
    Ex_4.4_rpn_top_two_elements
    Ex_4.5_calculator_math_functions
-   Ex_4.6_rpn-4
+   Ex_4.6_calculator_variables
    Ex_4.7_ungets
    Ex_4.8_buf1c
    Ex_4.9_eof_getch
