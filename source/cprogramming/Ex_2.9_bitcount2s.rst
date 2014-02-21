@@ -77,9 +77,9 @@ In order to represent, -4, we can use two's complement.
 	-4 + 5 = 1111 1100
 	       + 0000 0101
 	       -----------
-			 0000 0001
+	         0000 0001
 
-			with 1 overflow which is ignored.
+        with 1 overflow which is ignored.
 
 	So the answer is 0000 0001 = 1 that we expected.
 
@@ -100,10 +100,10 @@ To get concrete::
 	x = 1 = 0000 0001
 
 	x-1 =   0000 0001
-		  - 0000 0001
-		  ------------
-		    0000 0000
-		  ------------
+	      - 0000 0001
+	      ------------
+		0000 0000
+              ------------
 
 	x = 2 = 0000 0010
 
@@ -142,7 +142,7 @@ References
 ==========
 
 * `Ones complement`_
-* `Twos complemeent`_
+* `Twos complement`_
 
 .. _Ones complement: http://foldoc.org/ones+complement
 .. _Twos complement: http://foldoc.org/twos+complement
