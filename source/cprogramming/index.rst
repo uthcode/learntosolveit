@@ -91,7 +91,7 @@ Chapter 4
    sec_4.1
    Ex_4.1_strindex_rightmost
    sec_4.2
-   Ex_4.2_atofwitheE
+   Ex_4.2_atof_scientific
    sec_4.3
    Ex_4.3_rpn-1
    Ex_4.4_rpn-2
