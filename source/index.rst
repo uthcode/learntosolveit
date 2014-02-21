@@ -86,7 +86,6 @@ Languages
    :maxdepth: 2
 
    cpp
-   html
    javascript
    perl
    ruby
@@ -99,7 +98,6 @@ Software
 
    vim
    restructuredtext
-   mako
    versioncontrol
    ubuntu
    questions
@@ -112,5 +110,3 @@ Web Frameworks
 
    pylons
    webpython
-   django
-   appengine
