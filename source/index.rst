@@ -112,4 +112,3 @@ Web Frameworks
 
    pylons
    webpython
-   django
