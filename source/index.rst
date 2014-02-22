@@ -86,7 +86,6 @@ Languages
    :maxdepth: 2
 
    cpp
-   html
    javascript
    perl
    ruby
