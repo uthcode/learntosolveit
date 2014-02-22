@@ -98,7 +98,6 @@ Software
 
    vim
    restructuredtext
-   mako
    versioncontrol
    ubuntu
    questions
