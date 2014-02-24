@@ -22,29 +22,33 @@ Explaination
 
 The essence of this program is to make the new-line (\n) and tab(\t) visible in the output of the program.
 This is done by:: 
+	The essence of this program is to make the new-line (\n) and tab(\t) visible in the output of the program.
+This is done by:: 
 
-1.		while(t[i] != '\0')
-2.		{
-3.			switch(t[i])
-4.			{
-5.				case '\t':
-6.						s[j]='\\';
-7.						++j;
-8.						s[j]='t';
-9.						break;
-10.				case '\n':
-11.						s[j]='\\';
-12.						++j;
-13.						s[j]='n';
-14.						break;
-15.				default:
-16.						s[j]=t[i];
-17.						break;
-18.			}
-19.			++i;
-20.			++j;
-21.		}
-
+	while(t[i] != '\0')
+    {
+        switch(t[i])
+        {
+            case '\t':
+                    s[j]='\\';
+                    ++j;
+                    s[j]='t';
+                    break;
+            case '\n':
+                    s[j]='\\';
+                    ++j;
+                    s[j]='n';
+                    break;
+            default:
+                    s[j]=t[i];
+                    break;
+        }
+        ++i;
+        ++j;
+    }
+    
+    s[j]='\0';
+}
 
 
 
