@@ -11,7 +11,6 @@ int main(void)
 {
 	char s[MAXLINE],t[MAXLINE];
 
-	putchar('t');
 	mgetline(t,MAXLINE);
 
 	escape(s,t);
@@ -54,14 +53,10 @@ void escape(char s[],char t[])
 
 int mgetline(char s[],int lim)
 {
-	int i,c;
+    int i,c;
 
-	for(i=0;i<lim-1 && (c=getchar())!=EOF && c !='\n';++i)
-		s[i]=c;
+    for(i=0;i<lim-1 && (c=getchar())!=EOF;++i)
+        s[i]=c;
 
-	if(c=='\n')
-		s[i++]=c;
-	
-	s[i]='\0';
+    s[i]='\0';
 }
-
