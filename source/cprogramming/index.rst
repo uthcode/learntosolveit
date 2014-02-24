@@ -103,6 +103,7 @@ Chapter 4
    Ex_4.10_calculator_getline
    Ex_4.11_getch_static
    Ex_4.12_recursive_itoa
+   Ex_4.13_reverse_string
    rightrot
    any
    atof

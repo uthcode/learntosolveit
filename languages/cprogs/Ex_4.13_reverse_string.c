@@ -5,14 +5,14 @@
 
 #define MAXLINE 100
 
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 void reverse(char s[]);
 
 int main(void)
 {
 	char s[MAXLINE];
 
-	getline(s,MAXLINE);
+	mgetline(s,MAXLINE);
 
 	reverse(s);
 
@@ -21,7 +21,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 
