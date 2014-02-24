@@ -20,6 +20,35 @@ other direction as well, converting escape sequences into the real characters.
 Explaination
 ============
 
+The essence of this program is to make the new-line (\n) and tab(\t) visible in the output of the program.
+This is done by:: 
+
+	while(t[i] != '\0')
+    {
+        switch(t[i])
+        {
+            case '\t':
+                    s[j]='\\';
+                    ++j;
+                    s[j]='t';
+                    break;
+            case '\n':
+                    s[j]='\\';
+                    ++j;
+                    s[j]='n';
+                    break;
+            default:
+                    s[j]=t[i];
+                    break;
+        }
+        ++i;
+        ++j;
+    }
+    
+    s[j]='\0';
+}
+
+
 
 
 .. seealso::

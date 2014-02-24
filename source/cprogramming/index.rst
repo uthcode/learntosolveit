@@ -102,6 +102,9 @@ Chapter 4
    Ex_4.9_getch_ungetch_eof
    Ex_4.10_calculator_getline
    Ex_4.11_getch_static
+   Ex_4.12_recursive_itoa
+   Ex_4.13_reverse_string
+   Ex_4.14_swap_t_x_y
    rightrot
    any
    atof
