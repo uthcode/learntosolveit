@@ -22,8 +22,6 @@ Explaination
 
 The essence of this program is to make the new-line (\n) and tab(\t) visible in the output of the program.
 This is done by:: 
-	The essence of this program is to make the new-line (\n) and tab(\t) visible in the output of the program.
-This is done by:: 
 
 	while(t[i] != '\0')
     {
