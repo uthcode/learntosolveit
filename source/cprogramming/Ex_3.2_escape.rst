@@ -24,28 +24,38 @@ The essence of this program is to make the new-line (\n) and tab(\t) visible in 
 This is done by:: 
 
 	while(t[i] != '\0')
+  {
+    switch(t[i])
     {
-        switch(t[i])
-        {
-            case '\t':
-                    s[j]='\\';
-                    ++j;
-                    s[j]='t';
-                    break;
-            case '\n':
-                    s[j]='\\';
-                    ++j;
-                    s[j]='n';
-                    break;
-            default:
-                    s[j]=t[i];
-                    break;
-        }
-        ++i;
-        ++j;
+      case '\t':
+          s[j]='\\';
+          ++j;
+          s[j]='t';
+          break;
+      case '\n':
+          s[j]='\\';
+          ++j;
+          s[j]='n';
+          break;
+      default:
+          s[j]=t[i];
+          break;
     }
-    
-    s[j]='\0';
+    ++i;
+    ++j;
+  }
+  
+  s[j]='\0';
+}
+
+int mgetline(char s[],int lim)
+{
+    int i,c;
+
+    for(i=0;i<lim-1 && (c=getchar())!=EOF;++i)
+        s[i]=c;
+
+    s[i]='\0';
 }
 
 
