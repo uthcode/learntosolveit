@@ -27,7 +27,6 @@ General
    discipline-score
    projectideas
    thanks
-   resume
 
 Python
 ======
