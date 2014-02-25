@@ -20,42 +20,10 @@ other direction as well, converting escape sequences into the real characters.
 Explaination
 ============
 
-The essence of this program is to make the new-line (\n) and tab(\t) visible in the output of the program.
-This is done by:: 
+C Program interpreters `\n` and `\t` as space characters and outputs them. Our intention is to capture the `\n` and `\t` characters and display them visibly as **\n** or **\t**. In order to do that we need to *escape* them, the escaping is done by adding `\` character.
 
-	while(t[i] != '\0')
-  {
-    switch(t[i])
-    {
-      case '\t':
-          s[j]='\\';
-          ++j;
-          s[j]='t';
-          break;
-      case '\n':
-          s[j]='\\';
-          ++j;
-          s[j]='n';
-          break;
-      default:
-          s[j]=t[i];
-          break;
-    }
-    ++i;
-    ++j;
-  }
-  
-  s[j]='\0';
-}
+So in the program as soon as we see a `\n` character, in the array where we are copying to, we copy `\\` character and add a `n` character and similarly, when we see a `\t` character, in the array where we are copying to, we copy `\\` character and add a `t` character. 
 
-
-When the program enters the while loop it checks for the condition ** (t[i] !=
-'\0')** if the condition is true,  then it enters switch condition where the 1st
-case it checks for the number of tabs present in the input.  In the 2nd case it
-checks for the number of new lines present in the input and then prints the
-output.  In the beginning of the program the function **escape** has two
-character arrays namely ** s ** and ** t** When the program finishes checking
-for the newlines tabs it stores the data in s and prints it.
 
 
 
