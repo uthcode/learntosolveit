@@ -48,16 +48,14 @@ This is done by::
   s[j]='\0';
 }
 
-  int mgetline(char s[],int lim)
-  {
-      int i,c;
 
-      for(i=0;i<lim-1 && (c=getchar())!=EOF;++i)
-          s[i]=c;
-  
-      s[i]='\0';
-  }
-
+When the program enters the while loop it checks for the condition ** (t[i] !=
+'\0')** if the condition is true,  then it enters switch condition where the 1st
+case it checks for the number of tabs present in the input.  In the 2nd case it
+checks for the number of new lines present in the input and then prints the
+output.  In the beginning of the program the function **escape** has two
+character arrays namely ** s ** and ** t** When the program finishes checking
+for the newlines tabs it stores the data in s and prints it.
 
 
 
