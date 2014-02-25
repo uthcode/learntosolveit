@@ -48,15 +48,15 @@ This is done by::
   s[j]='\0';
 }
 
-int mgetline(char s[],int lim)
-{
-    int i,c;
+  int mgetline(char s[],int lim)
+  {
+      int i,c;
 
-    for(i=0;i<lim-1 && (c=getchar())!=EOF;++i)
-        s[i]=c;
-
-    s[i]='\0';
-}
+      for(i=0;i<lim-1 && (c=getchar())!=EOF;++i)
+          s[i]=c;
+  
+      s[i]='\0';
+  }
 
 
 
