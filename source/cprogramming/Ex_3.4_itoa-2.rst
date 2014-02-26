@@ -26,6 +26,17 @@ The previous version of itoa was this::
 Explaination
 ============
 
+In this version of itoa, which involves a largest negative number, we first
+store the number itself in an integer called sign. Then get numbers from
+unittest by doing `n%10`, get the unsigned number by doing a `abs` value and get
+character by adding it to `0`.
+
+Thus we go about converting each digit starting from unit place to a character.
+Once this process is over. We check if we were converting negative number, by
+checking if the sign is less than 0, if it was, we add a `-` to the string.
+
+And then we do a simple `reverse` of the string to get our `itoa`.
+
 
 
 .. seealso::
