@@ -112,8 +112,9 @@ Chapter 5
 .. toctree::
    :maxdepth: 1
 
-   
+
    Ex_5.1_getint
+   Ex_5.2_getfloat
    rightrot
    any
    atof
