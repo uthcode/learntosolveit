@@ -105,6 +105,14 @@ Chapter 4
    Ex_4.12_recursive_itoa
    Ex_4.13_reverse_string
    Ex_4.14_swap_t_x_y
+
+Chapter 5
+=========   
+
+.. toctree::
+   :maxdepth: 1
+
+   Ex_5.1_getint
    rightrot
    any
    atof
