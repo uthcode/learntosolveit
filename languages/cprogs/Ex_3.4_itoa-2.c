@@ -1,9 +1,11 @@
-/*Modified version of itoa; to handle the situation of MIN_INT of limits.h
-in the previous number = -2147483648 would fail at n =-n,coz max value of integer is 2147483647
+/* Modified version of itoa; to handle the situation of MIN_INT of limits.h
+in the previous number = -2147483648 would fail at n =-n,because the max value of integer is 2147483647
 
-modifying itoa to handle these situations. sign is stored as  the number itself, absolute value of each digit is stored in the string and while loop is tested not for 0
+modifying itoa to handle these situations. 
+sign is stored as  the number itself, absolute value of each digit is stored in the string and 
+while loop is tested not for 0
 
- itoa: convert an integer to string */
+itoa: convert an integer to string */
 
 #include<stdio.h>
 #include<string.h>
