@@ -1,5 +1,5 @@
 /* a function of itoa, which accepts the third argument as the width of the number.
-   the string representation is padded with blanks in the left to get the  required width */
+the string representation is padded with blanks in the left to get the  required width */
 
 #include<stdio.h>
 #include<string.h>
