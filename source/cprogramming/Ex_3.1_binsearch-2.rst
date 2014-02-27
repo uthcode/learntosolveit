@@ -16,10 +16,19 @@ more tests outside.) Write a version with only one test inside the loop and meas
    :language: c
    :codesite: ideone
 
-Explaination
+Explanation
 ============
 
-
+ The program demonstrates a binsearch function which 
+ takes element (x) to search for, an array of integers and the length of the array as arguments.
+ 
+ The program determines the position of the element(x) by doing a binary search. Binary search can only
+ be used for sorted arrays. Program compares search element (x) with mid element of the given array. If mid element is greater than search 
+ element then search continues among the rest of the elements towards left of current mid element. 
+ Search continues in similar fashion. If found, program returns the position of search element in the array.
+ 
+ In the example above search element is 9. Program returns 4 which is the position of search element 
+ in the given array. 
 
 .. seealso::
 
