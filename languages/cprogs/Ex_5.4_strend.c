@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MAXLINE 1000
 
-int getline(char s[],int max);
+int mgetline(char s[],int max);
 int strend(char *s,char *t);
 int mystrlen(char *t);
 
@@ -11,17 +11,17 @@ int main(void)
 	int ret;
 	putchar('s');
 	putchar(':');
-	getline(s,MAXLINE);
+	mgetline(s,MAXLINE);
 	putchar('t');
 	putchar(':');
-	getline(t,MAXLINE);
+	mgetline(t,MAXLINE);
 	ret = strend(s,t);
 	printf("%d",ret);
 
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int c,i;
 	
