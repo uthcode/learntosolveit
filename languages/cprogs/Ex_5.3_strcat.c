@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MAXLINE 1000
 
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 void mystrcat(char *,char *);
 
 int main(void)
@@ -11,11 +11,11 @@ int main(void)
 
 	putchar('s');
 	putchar(':');
-	getline(s,MAXLINE);
+	mgetline(s,MAXLINE);
 	
 	putchar('t');
 	putchar(':');
-	getline(t,MAXLINE);
+	mgetline(t,MAXLINE);
 	
 	mystrcat(s,t);
 
@@ -24,7 +24,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int c,i;
 	
