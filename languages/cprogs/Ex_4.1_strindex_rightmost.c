@@ -1,30 +1,36 @@
+/* strindex which returns rightmost occurance */
+
 #include<stdio.h>
-int strindex(char *s,char *t);
+
+int mstrindex(char source[],char searchfor[]);
 
 int main(void)
 {
-	char *s="This is a line";
-	char *t="is";
-	int ret;
+    char line[] = "abcdedfabcde";
+    char pattern[] = "abc";
 
-	ret=strindex(s,t);
-	printf("%d",ret);
+    int found;
 
-	return 0;
+    /* It should match the a the 7th position. */
+
+    found = mstrindex(line, pattern);
+
+    printf("Found the right index: %d\n", found);
+
 }
 
-int strindex(char *s,char *t)
+int mstrindex(char s[],char t[])
 {
-	char *b=s;
-	char *p,*r;
+    int i,j,k, result;
 
-	for(;*s!='\0';s++)
-	{
-		for(p=s,r=t;*r!='\0' && *p==*r;p++,r++)
-			;
+    result = -1;
 
-			if(r>t && *r == '\0')
-				return s-b;
-	}
-	return -1;
+    for(i=0;s[i]!='\0';i++)
+    {
+        for(j=i,k=0;t[k]!='\0' && s[j]==t[k];j++,k++)
+            ;
+        if(k>0 && t[k] == '\0')
+            result = i;
+    }
+    return result;
 }

@@ -40,6 +40,8 @@ Python
    pythonhttp
    pythonnetworking
    pycon2009
+   pylons
+ 
 
 Projects
 ========
@@ -76,7 +78,6 @@ Computer Science
    unicodenotes
    topcoder
    games
-   knuth_lecture
 
 Languages
 =========
@@ -100,12 +101,3 @@ Software
    versioncontrol
    ubuntu
    questions
-
-Web Frameworks
-==============
-
-.. toctree::
-   :maxdepth: 2
-
-   pylons
-   webpython

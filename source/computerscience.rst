@@ -1112,6 +1112,160 @@ used by anyone wanting to treat a file as a filesystem.
 Demonstrate the correctness of your routines by writing a demo
 program that lets one manipulate files interactively.
 
+
+Knuth Lecture
+-------------
+
+Tree
+----
+
+A directed acyclic graph; i.e. a graph wherein there is only one route between
+any pair of nodes, and there is a notion of "toward top of the tree" (i.e. the
+root node), and its opposite direction, toward the leaves. A tree with n nodes
+has n-1 edges.
+
+Although maybe not part of the widest definition of a tree, a common constraint
+is that no node can have more than one parent. Moreover, for some applications,
+it is necessary to consider a node's daughter nodes to be an ordered list,
+instead of merely a set.
+
+As a data structure in computer programs, trees are used in everything from
+B-trees in databases and file systems, to game trees in game theory, to syntax
+trees in a human or computer languages.
+
+
+Graph
+-----
+
+
+A collection of nodes and edges.
+
+Chordal Graph
+-------------
+
+In the mathematical area of graph theory, a graph is chordal if each of its
+cycles of four or more nodes has a chord, which is an edge joining two nodes
+that are not adjacent in the cycle.
+
+In graph theory, the term cycle may refer to one of two types of specific
+cycles: a closed walk or simple path. If repeated vertices are allowed, it is
+more often called a closed walk. If the path is a simple path, with no repeated
+vertices or edges other than the starting and ending vertices, it may also be
+called a simple cycle, circuit, circle, or polygon. A cycle in a directed graph
+is called a directed cycle.
+
+
+Classic problems
+----------------
+
+Mostly while preparing for technical interviews.
+
+Towers of Hanoi
+
+There's a temple in the middle of Hanoi. In that temple, there are three very
+large diamond-encrusted posts, and on those posts are sixty-four disks, all of
+a different size. There are a set of priests in that temple, and their task is
+to move the entire stack of sixty-four disks from one post to a second post.
+The rules, though, are, they can only move one disk at a time, and they can
+never cover up a smaller disk with a larger disk. Write a  recursive program to
+solve this problem. What is the complexity?
+
+Searching and sorting algorithms
+
+Write code to search a sorted list.  Write a binary search algorithm.  Write a
+selection sort algorithm.  Write code to create a hash table of size 256
+
+Shortest path problem
+Write an algorithm to plan a route by minimising distance or time (eg Google Maps)
+
+Traveling salesman
+Write an algorithm to determine the least cost round-trip, given multiple
+cities and varying costs of flights
+
+Knapsack problem
+Write an algorithm to optimize the value of items you can fit into a backpack
+based on weight and volume
+
+Sorting algorithms - know how they work, average/worst case running times,
+stack space
+
+* Insertion sort
+* Quicksort
+* Mergesort
+* Heapsort
+
+
+Searching algorithms: know how they work, average/worst case running times,
+stack space
+
+* Sequential search
+* Binary search
+* Hashing
+* Binary search trees
+* Key indexing
+
+Other algorithms
+
+* Priority queues
+
+Back of the envelope calculations
+Know your powers of 2 (binary)
+Be able to express mega/giga/etc in binary and/or scientific notation
+Know cycle times and disk seek times for CPUs
+
+Sample questions from Programming Pearls
+
+1. How do you sort 10 million 7-digit phone numbers with ~1MB RAM? How would
+you solve this using one pass and no intermediate files? What if 1MB RAM was a
+firm limit?
+
+2. Given a sequential file that contains at most four billion 32-bit integers
+in random order, find a 32-bit integer that isn’t in the file (and there must
+be at least one missing...why?). How would you solve this with unlimited main
+memory? How would you solve it if you could use several external files but only
+a few bytes of main memory?
+
+3. Rotate a one-dimensional vector of n elements left by i positions. For
+instance, with n=8 and i=3, the vector abcdefg is rotated to defghabc. Simple
+code uses an n-element intermediate vector to do the job in n steps. Can you
+rotate the vector in time proportional to n using only a few dozen extra bytes
+of storage?
+
+4. Given a dictionary of English words, find sets of anagrams. For instance,
+“pots”, “stop”, and “tops” are all anagrams of one another because each can be
+found by permuting the letters of the others.
+
+5. Write functions for the following date problems: given two dates, compute
+the number of days between them; given a date, return it’s day of the week;
+given a month and year, produce a calendar of the month as an array of
+characters
+
+6. Given a very long sequence (say, billions or trillions) of bytes, how would
+you efficiently count the total number of one bits? (i.e. how many bits are
+turned on in the entire sequence)
+
+7. Although Quicksort uses only O(logn) stack space on the average, it can use
+linear space in the worst case. Explain why, then modify the program to use
+only logarithmic space in the worst case.
+
+8. Write a program for finding the kth-smallest element in the array x[0...n-1]
+in O(n) expected time. Your algorithm may permute the elements of x.
+
+9. Build the fastest possible complete function to generate a sorted array of
+random integers without duplicates. (You need feel constrained to use any
+prescribed interface for set representation)
+
+10.Implement heap-based priority queues to run as quickly as possible; at what
+values of n are they faster than sequential structures?
+
+If you have not already read through Steve Yegge's Technical Prep Tips on his blog
+
+The Algorithm Design Manual ‐ A lot you'd want to know about designing and
+implementing lots of fundamental algorithms Structure and Interpretation of
+Computer Programs ‐  (esp. Pragmatic Unit Testing, Effective Java, Code
+Complete 2, Agile Estimation and Planning).
+
+
 Sites
 -----
 

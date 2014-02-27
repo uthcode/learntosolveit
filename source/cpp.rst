@@ -4,13 +4,14 @@ C++ Programming
 
 
 Questions
+---------
 
 #) What are Virtual Tables?
 
 #) What is const-correctness?
 
-Snippet 1
----------
+Simple Class Example
+--------------------
 ::
 
     #include<iostream>
@@ -36,8 +37,8 @@ Snippet 1
         CLASSNAME obj;
     }
 
-Snippet 2
----------
+double and float
+----------------
 ::
 
     #include <iostream>
@@ -66,8 +67,8 @@ Snippet 2
 
 
 
-Snippet 3
----------
+vector and pairs
+----------------
 ::
 
     typedef vector<int> vi; 
@@ -99,8 +100,8 @@ Snippet 3
             cout<<it->first<<" "<<it->second<<endl;
     }
 
-Snippet 4
----------
+Example iterator
+----------------
 ::
 
     #include<map>
@@ -121,8 +122,8 @@ Snippet 4
     }
 
 
-Snippet 5
----------
+Example map
+-----------
 
 ::
 
@@ -143,8 +144,8 @@ Snippet 5
     }
 
 
-Snippet 6
----------
+String from vector elements
+---------------------------
 
 ::
 
@@ -183,8 +184,8 @@ Snippet 6
     }
 
 
-Snippet 7
----------
+Vector demonstration
+--------------------
 ::
 
     #include<vector>

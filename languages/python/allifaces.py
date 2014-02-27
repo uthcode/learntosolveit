@@ -2,7 +2,6 @@
 # $Id$
 """
 List Network Interfaces
------------------------
 
 **Purpose**: This program  provides list of network interfaces available on
 your machine.
