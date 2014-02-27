@@ -117,6 +117,7 @@ Chapter 5
    Ex_5.2_getfloat
    Ex_5.3_strcat
    Ex_5.4_strend
+   Ex_5.5_strncpy
    rightrot
    any
    atof
