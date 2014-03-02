@@ -26,6 +26,7 @@ identify the rightmost occurance which happens at position 7.
 This is done by our `mstringindex` function and in this loop.
 
 ::
+
     result = -1;
 
     for(i=0;s[i]!='\0';i++)
