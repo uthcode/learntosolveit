@@ -21,6 +21,7 @@ Explaination
 
 In this program we are going to convert upper case letters to lower case.
 We do this by
+
 :: 
    while((c=getchar())!=EOF)
 	  {
