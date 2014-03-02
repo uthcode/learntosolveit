@@ -13,20 +13,22 @@ Stay updated via `Uthcode blog`_ or follow me on twitter `@phoe6`_
 .. _@phoe6: http://www.twitter.com/phoe6
 
 
-General
-=======
-
+C Programming Language
+======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   quotes
-   philosophy
-   beingagooddeveloper
-   techcourage
-   discipline-score
-   projectideas
-   thanks
+   cprogramming/index
+
+Python Programming
+==================
+
+.. toctree::
+   :maxdepth: 2
+
+   python/index
+
 
 Python
 ======
@@ -41,31 +43,6 @@ Python
    pythonnetworking
    pycon2009
    pylons
- 
-
-Projects
-========
-
-.. toctree::
-
-    projects
-
-C Programming Language
-======================
-
-.. toctree::
-   :maxdepth: 2
-
-   cprogramming/index
-
-
-Code
-====
-
-.. toctree::
-
-    pythonsnippets
-    contests
 
 Computer Science
 ================
@@ -89,6 +66,14 @@ Languages
    javascript
    perl
    ruby
+ 
+Projects
+========
+
+.. toctree::
+
+    projects
+
 
 Software
 ========
@@ -101,3 +86,19 @@ Software
    versioncontrol
    ubuntu
    questions
+   
+General
+=======
+
+
+.. toctree::
+   :maxdepth: 1
+
+   quotes
+   philosophy
+   beingagooddeveloper
+   techcourage
+   discipline-score
+   projectideas
+   thanks
+
