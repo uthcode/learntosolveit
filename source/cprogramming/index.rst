@@ -118,6 +118,13 @@ Chapter 5
    Ex_5.3_strcat
    Ex_5.4_strend
    Ex_5.5_strncpy
+   Ex_5.8_day_date
+   Ex_5.9_day_date_using_pointers
+   Ex_5.10_exprcmd
+   Ex_5.11_conddetab
+   Ex_5.12_condientab
+   Ex_5.13_tailn
+   Ex_5.14_sortrevnum
    rightrot
    any
    atof
