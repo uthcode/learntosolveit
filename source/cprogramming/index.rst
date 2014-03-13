@@ -125,6 +125,9 @@ Chapter 5
    Ex_5.12_condientab
    Ex_5.13_tailn
    Ex_5.14_sortrevnum
+   Ex_5.15_sortfnr
+   Ex_5.16_sort_dfnr
+   Ex_5.17_sortdfnr-withoption
    rightrot
    any
    atof
