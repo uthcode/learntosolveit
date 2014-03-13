@@ -1,4 +1,11 @@
-/* Adding the Modulus operator and provision for negative numbers */
+/* Adding the Modulus operator and provision for negative numbers 
+* Program is given the input in a single and and it print the output upon
+* getting a \n character.
+* For e.g:
+*
+* 10 10 + 100 + 2 *
+*		240
+*/
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -56,6 +63,7 @@ int main(void)
 				default:
 						printf("error: unknown command %s\n",s);
 						break;
+
 		}
 	}
 	return 0;
