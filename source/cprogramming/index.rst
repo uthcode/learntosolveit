@@ -128,6 +128,9 @@ Chapter 5
    Ex_5.15_sortfnr
    Ex_5.16_sort_dfnr
    Ex_5.17_sortdfnr-withoption
+   Ex_5.18_dcl-errorec
+   Ex_5.19_undcl
+   Ex_5.20_dcl-funcargs
    rightrot
    any
    atof
