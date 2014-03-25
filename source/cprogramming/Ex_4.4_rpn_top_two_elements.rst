@@ -36,13 +36,13 @@ two numbers in the stack and operate on it and push the result back into the
 stack. When it encounters a n it will pop out the last stored number in the
 stack and gives the result.
 
-On d, 
+On d, It doubles the characters.
 
-On s,
+On s, It swaps the characters.
 
-On c,
+On c, It clears the characters in the stack.
 
-On ?,
+On ?, It goes to the top element of the stack.
 
 So here is how the expression is evaluated.
 
@@ -65,3 +65,4 @@ So when we input `?` and enter. We get the top element `2` out. And then pressin
 
    * :c-suggest-improve:`Ex_4.4_rpn_top_two_elements.c`
    * :c-better-explain:`Ex_4.4_rpn_top_two_elements.rst`
+   
