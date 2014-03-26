@@ -20,6 +20,7 @@ Explaination
 
 The main part of this program is the `itoa` routine, which takes an `integer n` and `string s` and is called recursively.
 
+::
 
     void itoa(int n,char s[])
     {
