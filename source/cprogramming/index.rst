@@ -131,6 +131,13 @@ Chapter 5
    Ex_5.18_dcl-errorec
    Ex_5.19_undcl
    Ex_5.20_dcl-funcargs
+
+Chapter 6
+=========   
+
+.. toctree::
+   :maxdepth: 1
+
    rightrot
    any
    atof
