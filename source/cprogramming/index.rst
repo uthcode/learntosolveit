@@ -118,6 +118,8 @@ Chapter 5
    Ex_5.3_strcat
    Ex_5.4_strend
    Ex_5.5_strncpy
+   Ex_5.6
+   Ex_5.7
    Ex_5.8_day_date
    Ex_5.9_day_date_using_pointers
    Ex_5.10_exprcmd
@@ -138,6 +140,8 @@ Chapter 6
 .. toctree::
    :maxdepth: 1
 
+   Ex_6.1
+   Ex_6.2
    rightrot
    any
    atof
