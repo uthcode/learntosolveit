@@ -142,6 +142,8 @@ Chapter 6
 
    Ex_6.1
    Ex_6.2
+   Ex_6.3
+   Ex_6.4
    rightrot
    any
    atof
