@@ -109,8 +109,13 @@ extlinks = {'c-suggest-improve':
     "Suggest a Code Improvement: "),
             'c-better-explain':
     ('https://github.com/uthcode/uthcode/tree/combined/source/cprogramming/%s',
-    "Suggest a better explaination of ")
-
+    "Suggest a better explanation for "),
+            'python-suggest-improve':
+    ("https://github.com/uthcode/uthcode/blob/combined/languages/python/%s",
+        "Suggest a Code Improvement:"),
+             'python-better-explain':
+    ("https://github.com/uthcode/uthcode/blob/combined/source/python/%s",
+        "Suggest a better explanation for ")
 }
 
 

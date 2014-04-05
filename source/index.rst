@@ -72,7 +72,6 @@ Code
 
 .. toctree::
 
-    pythonsnippets
     contests
 
 Computer Science
