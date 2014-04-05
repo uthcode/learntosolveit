@@ -14,7 +14,7 @@ int buf[MAXBUF];
 int getch(void); 
 void ungetch(int c);
 void ungets(char s[]);
-int getline(char line[],int maxline);
+int mgetline(char line[],int maxline);
 
 
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
 	char line[MAXLINE];
 	int c;
 
-	getline(line,MAXLINE);
+	mgetline(line,MAXLINE);
 
 	ungets(line);
 
@@ -32,7 +32,7 @@ int main(void)
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 	
@@ -50,7 +50,8 @@ void ungets(char s[])
 	int i;
 	
 	i = strlen(s);
-	
+
+
 	while(i>0)
 		ungetch(s[--i]);
 }

@@ -6,7 +6,7 @@ Life, Universe and Everything
 
 .. todo:
 
-    Make the quote available within a good CSS diaglog.
+    Make the quote available within a good CSS dialog.
 
 Life
 ====

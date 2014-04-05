@@ -5,8 +5,7 @@ Pylons
 Pylons is a lightweight web framework emphasizing flexibility and rapid
 development using standard tools from the Python community.
 
-Problems with CGI Scripts
--------------------------
+**Problems with CGI Scripts**
 
 Here are some problems with writing CGI scripts, especially when writing big
 web applications.
@@ -31,8 +30,7 @@ form /cgi-bin/path/to/script.cgi?controller=page&action=view&id=3
 do not readily reflect the structure of your web application and are not as
 natural to a user as a URL such as /page/view/3.
 
-Solution - MVC
---------------
+**Solution - MVC**
 
 The Model View Controller architecture is a result of the recognition that, at
 their heart, most web applications:
@@ -43,8 +41,7 @@ their heart, most web applications:
 * Execute logic code to manipulate the data and control how it is interacted
   with (the controllers)
 
-Web Frameworks
---------------
+**Web Frameworks**
 
 Web frameworks such as Django and Ruby on Rails have become extremely popular
 in recent years because they provide a structure that allows you to quickly
@@ -59,8 +56,7 @@ yourself.
 
 Pylons is a collection of very carefully chosen 3rd party software.
 
-Pylons
-------
+**Pylons**
 
 In Pylons, Requests, usually made via browser intially, are dispatched to a
 controller, which is an ordinary Python class with methods called actions that
@@ -77,11 +73,10 @@ starts over again.
 The model and controller don’t contain code for generating HTML, and the view
 templates shouldn’t interact directly with the model.
 
-Exploring Pylons
-================
+**Exploring Pylons**
 
-Routes
-------
+
+**Routes**
 
 Currently the only widely used URL dispatcher for Pylons is Routes, a Python
 reimplementation of Ruby on Rails' URL dispatching, although any
@@ -93,8 +88,7 @@ controller class and method should be used to handle the request. At the same
 time, Routes allows you to specify a set of variables and have a URL generated
 from them so that you never need to hard-code URLs into your application. 
 
-Templates
----------
+**Templates**
 
 Templating Language, Mako is text-based (as opposed to XML-based), and support
 includes, inheritance and embedding arbitrary Python code.
@@ -102,14 +96,12 @@ includes, inheritance and embedding arbitrary Python code.
 Mako is significantly more powerful than Django, with arbitrary expressions,
 defs, template inheritance (beyond layouts).
 
-Database
---------
+**Database**
 
 Pylons has no default database library. Both SQLObject and SQLAlchemy  are
 known to be used.
 
-WSGI Standard
--------------
+**WSGI Standard**
 
 The WSGI standard is an interface that allows applications to use Python code
 to handle HTTP requests. A WSGI application is passed a Python representation
@@ -126,8 +118,7 @@ This is analogous to the function of pipes on Unix systems. Functionality
 provided by WSGI middleware may include authentication, logging, url
 redirection, creation of sessions, and compression.
 
-Paste
------
+**Paste**
 
 Paste helps in developing such WSGI middleware systems used in the Pylons web
 application framework.
@@ -151,8 +142,7 @@ have their own version numbers. They include:
 Pylons applications are usually given a package name in CamelCase, but the
 application directory itself is the lowercase version of the package name. 
 
-Scripts 
--------
+**Scripts**
 
 *paster*
 
@@ -164,51 +154,44 @@ handling the creation of a config file from a distributed Pylons project and
 for setting it up.
 
 
-Pylons
-------
+**Pylons**
 
 This is where everything needed to glue together the other components of Pylons
 is found. Pylons itself is relatively small, so if you are the curious type,
 feel free to look at its code to get a feel for how everything works.
 
-Setuptools and Eggs
--------------------
+**Setuptools and Eggs**
 
 This contains the methods used by the easy_install script to provide all of its
 features and allow the use of egg files. Eggs, package format, but is simply a
 zip file with some meta-data such as dependency used distutils packing system.
 It is commonly used way for packaging in Python.
 
-simplejson
-----------
+**simplejson**
 
 This package converts data back and forth between JSON and Python formats and
 is used by the @jsonify decorator mentioned earlier. Pylons application
 developers also occasionally use simplejson directly in their controllers.
 
-decorator
----------
+**decorator**
 
 This is a simple tool used by Pylons to create the @validate and @jsonify
 decorators. 
 
-Beaker
-------
+**Beaker**
 
 Beaker is a piece of software used internally by Pylons to implement its
 `Caching`_ and session functionality but you would never normally interact with
 Beaker yourself directly.
 
-Tempita
--------
+**Tempita**
 
 Tempita is a small template language that is a dependency of Paste. It is used
 only behind the scenes for simple variable substitutions when you create a new
 Pylons project directory with the paster create command described later in this
 chapter.
 
-Mako
-----
+**Mako**
 
 Mako is one of the three template languages that Pylons 0.9.7 supports out of
 the box. The others are Genshi (an XML template language) and Jinja (based on
@@ -216,27 +199,23 @@ Django’s template system). You have to install Genshi and Jinja separately if
 you want to use them, whereas Mako is included in the default Pylons
 installation because it is the recommended template language to use.
 
-WebOb
------
+**WebOb**
 
 This provides the new pylons.request and pylons.response objects in Pylons
 0.9.7. 
 
-WebError
---------
+**WebError**
 
 WebError provides Pylons’ powerful interactive debugging and traceback
 functionality described in Chapter 4.
 
-WebHelpers
-----------
+**WebHelpers**
 
 WebHelpers is a collection of stand-alone functions and classes that provide
 useful functionality such as generating common HTML tags and form fields,
 handling multiple pages of results, and doing much more.
 
-FormEncode
-----------
+**FormEncode**
 
 FormEncode is a library for validating form submissions from web sites.
 Although Pylons doesn’t use it internally, Pylons users work with it so often
@@ -246,20 +225,15 @@ string containing HTML fields with values and error messages. Together
 FormEncode and HTML Fill make an ideal tool set for handling forms in a Pylons
 application. 
 
-nose
-----
+**nose**
 
 This provides tools to help you write and run automated unit tests.
 
 
-Examples to look
-----------------
+*Examples to look*
 
 http://www.rexx.com/~dkuhlman/pylons_quick_site.html
 http://code.google.com/p/pyatl-pylons/
-
-Large Scale Application with Source for Motivation
---------------------------------------------------
 
 https://github.com/reddit/reddit/wiki
 

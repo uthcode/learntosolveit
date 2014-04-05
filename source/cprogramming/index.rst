@@ -118,6 +118,34 @@ Chapter 5
    Ex_5.3_strcat
    Ex_5.4_strend
    Ex_5.5_strncpy
+   Ex_5.6
+   Ex_5.7
+   Ex_5.8_day_date
+   Ex_5.9_day_date_using_pointers
+   Ex_5.10_exprcmd
+   Ex_5.11_conddetab
+   Ex_5.12_condientab
+   Ex_5.13_tailn
+   Ex_5.14_sortrevnum
+   Ex_5.15_sortfnr
+   Ex_5.16_sort_dfnr
+   Ex_5.17_sortdfnr-withoption
+   Ex_5.18_dcl-errorec
+   Ex_5.19_undcl
+   Ex_5.20_dcl-funcargs
+
+Chapter 6
+=========   
+
+.. toctree::
+   :maxdepth: 1
+
+   Ex_6.1
+   Ex_6.2
+   Ex_6.3
+   Ex_6.4
+   Ex_6.5
+   Ex_6.6
    rightrot
    any
    atof

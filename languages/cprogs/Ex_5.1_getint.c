@@ -9,13 +9,17 @@ void ungetch(int);
 
 int main(void)
 {
-	int n,array[SIZE],getint(int *);
+	int n,s,array[SIZE],getint(int *);
 
-	for(n=0;n<SIZE && getint(&array[n]) !=EOF; n++)
-		;
+	for(n=0;n<SIZE && getint(&array[n]) !=EOF; n++){
+	   /* For debug purposes */
+	   printf("storing in n = %d, getint %d\n", n, array[n]);
+	}
+	
+	printf("storing in n = %d, getint %d\n", n, array[n]);
 
-	for(;n>=0; n--)
-		printf("%d",array[n]);
+	for(s=0;s<=n; s++)
+		printf("%d",array[s]);
 
 	return 0;
 }

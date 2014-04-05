@@ -1,4 +1,5 @@
-//
+/*Write a program to get next float from input to *pn */
+
 #include<stdio.h>
 #include<ctype.h>
 
