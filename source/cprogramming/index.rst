@@ -156,6 +156,7 @@ Chapter 7
    Ex_7.1_lower-upper
    Ex_7.2_nongraphic
    Ex_7.3_minprintf
+   Ex_7.4
    rightrot
    any
    atof
