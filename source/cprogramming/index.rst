@@ -154,6 +154,7 @@ Chapter 7
    :maxdepth: 1
 
    Ex_7.1_lower-upper
+   Ex_7.2_nongraphic
    rightrot
    any
    atof
