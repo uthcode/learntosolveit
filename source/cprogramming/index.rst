@@ -146,6 +146,13 @@ Chapter 6
    Ex_6.4
    Ex_6.5
    Ex_6.6
+
+Chapter 7
+=========   
+
+.. toctree::
+   :maxdepth: 1
+
    rightrot
    any
    atof
