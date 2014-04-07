@@ -1,4 +1,6 @@
-/* Write a Program that will print arbitrary input in a sensible way.As a minimum,it should prrint non-graphic character in octal or hexadecimal according to the local customer and break long text lines */
+/* Write a Program that will print arbitrary input in a sensible way.As a
+/* minimum,it should prrint non-graphic character in octal or hexadecimal
+/* according to the local customer and break long text lines */
 
 #include<stdio.h>
 #include<ctype.h>
