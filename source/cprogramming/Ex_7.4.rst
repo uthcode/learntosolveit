@@ -1,0 +1,27 @@
+===================
+Exercise 7.4 - TODO
+===================
+
+Question
+========
+
+Write a private version of scanf analogous to minprintf from the previous
+section.
+
+.. literalinclude:: ../../languages/cprogs/Ex_7.4.c
+   :language: c
+   :tab-width: 4
+
+.. runcode:: ../../languages/cprogs/Ex_7.4.c
+   :language: c
+   :codesite: ideone
+
+Explaination
+============
+
+
+
+.. seealso::
+
+   * :c-suggest-improve:`Ex_7.4.c`
+   * :c-better-explain:`Ex_7.4.rst`
