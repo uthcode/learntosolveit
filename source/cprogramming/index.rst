@@ -153,6 +153,7 @@ Chapter 7
 .. toctree::
    :maxdepth: 1
 
+   Ex_7.1_lower-upper
    rightrot
    any
    atof
