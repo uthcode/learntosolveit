@@ -157,6 +157,7 @@ Chapter 7
    Ex_7.2_nongraphic
    Ex_7.3_minprintf
    Ex_7.4
+   Ex_7.5
    rightrot
    any
    atof
