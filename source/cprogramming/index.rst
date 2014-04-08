@@ -118,7 +118,7 @@ Chapter 5
    Ex_5.3_strcat
    Ex_5.4_strend
    Ex_5.5_strncpy
-   Ex_5.6
+   Ex_5.6_findpattern
    Ex_5.7
    Ex_5.8_day_date
    Ex_5.9_day_date_using_pointers
@@ -157,6 +157,20 @@ Chapter 7
    Ex_7.2_nongraphic
    Ex_7.3_minprintf
    Ex_7.4
+   Ex_7.5
+   Ex_7.6
+   Ex_7.7
+   Ex_7.8
+   Ex_7.9
+
+Chapter 8
+=========   
+
+.. toctree::
+   :maxdepth: 1
+   
+   Ex_8.1_mycat
+   Ex_8.2
    rightrot
    any
    atof
