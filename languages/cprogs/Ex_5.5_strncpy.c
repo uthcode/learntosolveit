@@ -4,7 +4,7 @@
 
 #define MAXSIZE 1000
 void mystrncpy(char *s,char *t,int n);
-char * mystrncat(char *s, char *t, int n);
+char *mystrncat(char *s, char *t, int n);
 
 int main(void)
 {
@@ -44,7 +44,7 @@ void mystrncpy(char *s,char *t,int n)
         *s++ = '\0';
 }
 
-char * mystrncat(char *s, char *t, int n) 
+char *mystrncat(char *s, char *t, int n) 
 {
     char *r;
 
@@ -52,6 +52,12 @@ char * mystrncat(char *s, char *t, int n)
         printf("unable to allocate memory \n");
         return -1;
     }
+
+    *r = 'a';
+
+    return r;
+
+    /*
 
     int orig_n = n;
 
@@ -67,5 +73,5 @@ char * mystrncat(char *s, char *t, int n)
         *r++='\0';
 
     return r;
+    */
 }
-
