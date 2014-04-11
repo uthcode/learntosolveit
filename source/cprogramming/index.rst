@@ -162,6 +162,13 @@ Chapter 7
    Ex_7.7
    Ex_7.8
    Ex_7.9
+
+Chapter 8
+=========   
+
+.. toctree::
+   :maxdepth: 1
+
    rightrot
    any
    atof
