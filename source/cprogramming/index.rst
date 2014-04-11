@@ -161,6 +161,7 @@ Chapter 7
    Ex_7.6
    Ex_7.7
    Ex_7.8
+   Ex_7.9
    rightrot
    any
    atof
