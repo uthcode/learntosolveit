@@ -168,7 +168,8 @@ Chapter 8
 
 .. toctree::
    :maxdepth: 1
-
+   
+   Ex_8.1_mycat
    rightrot
    any
    atof
