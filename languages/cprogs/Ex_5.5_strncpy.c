@@ -12,6 +12,8 @@ int main(void)
     char *s="This is a string";
     char *t="Another String";
 
+    /* Use this only after understanding */
+    
     if ((s = (char *) malloc(sizeof(char) * strlen(t) + strlen(s))) == NULL) {
         printf("unable to allocate memory \n");
         return -1;
