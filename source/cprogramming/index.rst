@@ -170,6 +170,7 @@ Chapter 8
    :maxdepth: 1
    
    Ex_8.1_mycat
+   Ex_8.2
    rightrot
    any
    atof
