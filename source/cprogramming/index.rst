@@ -173,6 +173,7 @@ Chapter 8
    Ex_8.2
    Ex_8.3
    Ex_8.4
+   Ex_8.5_fsize
    rightrot
    any
    atof
