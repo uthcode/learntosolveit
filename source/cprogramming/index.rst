@@ -172,6 +172,7 @@ Chapter 8
    Ex_8.1_mycat
    Ex_8.2
    Ex_8.3
+   Ex_8.4
    rightrot
    any
    atof
