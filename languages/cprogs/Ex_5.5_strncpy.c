@@ -1,79 +1,52 @@
+/* Write versions of the library functions strncpy, strncat, and strncmp, which
+operate on at most the first n characters of their argument strings.*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
 #define MAXSIZE 1000
 void mystrncpy(char *s,char *t,int n);
-char *mystrncat(char *s, char *t, int n);
 
-int main(void)
+int main(int argc, char *argv[])
 {
     
-    char *s="This is a string";
-    char *t="Another String";
+    char s[6]="ABCDEF";
+    char t[6]="GHIJ";
 
-    /* Use this only after understanding */
-    
-    if ((s = (char *) malloc(sizeof(char) * strlen(t) + strlen(s))) == NULL) {
-        printf("unable to allocate memory \n");
-        return -1;
-    }
+    /*TODO:
+    Make it work for
+    char *s = "abcd";
+    char *t = "efgh";
+    */
 
-    mystrncpy(s,t,10);
+    mystrncpy(s,t,4);
     printf("%s\n",s);
-    free(s);
-
-    char *s1="ABCDEF";
-    char *t1="ABCDEF";
-    char *r = mystrncat(s1, t1, 3);
-    printf("%s", r); /* ABCABC */
-
-    //char *s="ABCD";
-    //char *t="ABC";
-    //int result;
-    //result = mystrncmp(s,t, 3);
-    //printf("%d", result); /* 0 */
 
     return 0;
 }
 
 void mystrncpy(char *s,char *t,int n)
 {
+
+	int mystrlen(char *s);
+
     while(*t && n-- > 0)
         *s++ = *t++;
 
-    while(n-- > 0)
-        *s++ = '\0';
+    int extra = mystrnlen(s) - n;
+
+    while (extra-- > 0) {
+    	*s++;
+    }
+
+    *s = '\0';
 }
 
-char *mystrncat(char *s, char *t, int n) 
-{
-    char *r;
-
-    if ((r = (char *) malloc(sizeof(char) * strlen(s) + strlen(t))) == NULL) {
-        printf("unable to allocate memory \n");
-        return -1;
-    }
-
-    *r = 'a';
-
-    return r;
-
-    /*
-
-    int orig_n = n;
-
-    while(*s && n-- > 0)
-        *r++ = *s++;
-
-    if (n == 0) {
-        while(*t && orig_n-- > 0)
-            *r++ = *t++;
-    }
-
-    while(orig_n-- > 0)
-        *r++='\0';
-
-    return r;
-    */
+int mystrnlen(char *s) {
+	char *p = s;
+	while (*s != '\0') {
+		s = s + 1;
+	}
+	return s - p;
 }
