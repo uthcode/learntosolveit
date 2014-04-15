@@ -1,11 +1,14 @@
-===============================
-Exercise 5.6 - Find the pattern
-===============================
+==============================================
+Exercise 5.6 - Find the pattern using pointers
+==============================================
 
 Question
 ========
 
-Rewrite appropriate programs from earlier chapters and exercises with pointers instead of array indexing. Good possibilities include getline (Chapters 1 and 4), atoi, itoa, and their variants (Chapters 2, 3, and 4), reverse (Chapter 3), and strindex and getop (Chapter 4).
+Rewrite appropriate programs from earlier chapters and exercises with pointers
+instead of array indexing. Good possibilities include getline (Chapters 1 and
+4), atoi, itoa, and their variants (Chapters 2, 3, and 4), reverse (Chapter 3),
+and strindex and getop (Chapter 4).
 
 .. literalinclude:: ../../languages/cprogs/Ex_5.6_findpattern.c
    :language: c

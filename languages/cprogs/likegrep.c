@@ -1,3 +1,5 @@
+/* Ex5.6 */
+
 #include<stdio.h>
 #include<string.h>
 #define MAXLINE 1000

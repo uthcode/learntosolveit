@@ -1,3 +1,5 @@
+/* EX5.6 */
+
 #include<stdio.h>
 #include<string.h>
 void itoav2(int n,char *s);

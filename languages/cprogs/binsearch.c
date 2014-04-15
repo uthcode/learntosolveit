@@ -1,4 +1,4 @@
-/* binsearch: Implementation fo Binary Search,In the array v[],search for n in the binary way*/
+/* binsearch: Implementation of Binary Search,In the array v[],search for n in the binary way*/
 
 #include<stdio.h>
 
@@ -34,4 +34,3 @@ int binsearch(int x,int v[],int n)
 	}
 	return -1;
 }
-
