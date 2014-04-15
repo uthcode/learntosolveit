@@ -25,4 +25,4 @@ Explaination
 .. seealso::
 
    * :c-suggest-improve:`Ex_8.6_calloc.c`
-   * :c-better-explain:`Ex_8.6_calloc mostly.rst`
+   * :c-better-explain:`Ex_8.6_calloc.rst`

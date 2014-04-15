@@ -175,6 +175,7 @@ Chapter 8
    Ex_8.4
    Ex_8.5_fsize
    Ex_8.6_calloc
+   Ex_8.7_malloc
    rightrot
    any
    atof
