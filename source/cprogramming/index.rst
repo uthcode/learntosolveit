@@ -174,6 +174,7 @@ Chapter 8
    Ex_8.3
    Ex_8.4
    Ex_8.5_fsize
+   Ex_8.6_calloc
    rightrot
    any
    atof
