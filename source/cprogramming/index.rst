@@ -171,6 +171,12 @@ Chapter 8
    
    Ex_8.1_mycat
    Ex_8.2
+   Ex_8.3
+   Ex_8.4
+   Ex_8.5_fsize
+   Ex_8.6_calloc
+   Ex_8.7_malloc
+   Ex_8.8_bfree
    rightrot
    any
    atof
