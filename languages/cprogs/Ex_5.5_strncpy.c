@@ -7,30 +7,33 @@ operate on at most the first n characters of their argument strings.*/
 
 #define MAXSIZE 1000
 void mystrncpy(char *s,char *t,int n);
-void mystrncat(char *s, char *t, int n);
+void mystrncat(char *s, char *t, char *d, int n);
 int mystrncmp(char *s, char *t, int n);
 
 int mystrlen(char *s);
 
 int main(int argc, char *argv[])
 {
-    
+
     char s[]="ABCDEF";
     char t[]="GHIJ";
-
-    /*TODO:
-    Make it work for
-    char *s = "abcd";
-    char *t = "efgh";
-    */
 
     mystrncpy(s,t,4);
     printf("%s\n",s);
 
-    char s1[] = "ABCD";
+    char s1[]= "ABCD";
+    char t1[]= "EFGHIJ";
+    char *d;
 
-    mystrncat(s1,t,4);
-    printf("%s\n", s1);
+    /* We store the result in a new string d */
+
+    if ((d = (char *) malloc(sizeof(char) * (strlen(s) + + 4 + 1))) == NULL) {
+            printf("unable to allocate memory \n");
+            return -1;
+        }
+
+    mystrncat(s1,t,d, 4);
+    printf("%s\n", d); /* ABCDEFGH */
 
     char s2[]= "ABCDEF";
     char t2[]= "ABC";
@@ -44,10 +47,16 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void mystrncat(char *s, char *t, int n) {
-	/* We are advancing the pointer in s*/
-	/* Figure out how to advance the pointer properly */
-	mystrncpy(s, t, n);
+void mystrncat(char *s, char *t, char *d, int n) {
+	while(*s) {
+		*d++ = *s++;
+	}
+
+	while(n-- >0) {
+		*d++ = *t++;
+	}
+
+	*d = '\0';
 }
 
 void mystrncpy(char *s,char *t,int n)
