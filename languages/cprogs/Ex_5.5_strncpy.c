@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
     mystrncat(s1,t,d, 4);
     printf("%s\n", d); /* ABCDEFGH */
 
+    free(d);
+
     char s2[]= "ABCDEF";
     char t2[]= "ABC";
     int result;
