@@ -119,7 +119,8 @@ Chapter 5
    Ex_5.4_strend
    Ex_5.5_strncpy
    Ex_5.6_findpattern
-   Ex_5.7
+   sec_5.6_pointer_arrays
+   Ex_5.7_readlines_using_array
    Ex_5.8_day_date
    Ex_5.9_day_date_using_pointers
    Ex_5.10_exprcmd
