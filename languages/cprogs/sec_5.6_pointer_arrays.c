@@ -4,9 +4,8 @@
 #define MAXLINES 5000   /* max #lines to be sorted */
 
 char *lineptr[MAXLINES];
-char linestor[MAXLINES];
 
-int readlines(char *lineptr[],char *linestor,int nlines);
+int readlines(char *lineptr[],int nlines);
 void writelines(char *lineptr[],int nlines);
 
 void qsort(char *lineptr[],int left,int right);
@@ -16,8 +15,8 @@ void qsort(char *lineptr[],int left,int right);
 int main(void)
 {
     int nlines; /* number of input lines read */
-
-    if((nlines = readlines(lineptr,linestor,MAXLINES)) >= 0)
+    
+    if((nlines = readlines(lineptr,MAXLINES)) >= 0)
     {
         qsort(lineptr,0,nlines-1);
         writelines(lineptr,nlines);
@@ -31,30 +30,25 @@ int main(void)
 }
 
 #define MAXLEN 1000 /* max length of any input line */
-#define MAXSTOR 5000
-
-int mgetline(char *,int);
+int getline(char *,int);
 char *alloc(int);
 
 /* readlines: read input lines */
-int readlines(char *lineptr[],char *linestor,int maxlines)
+int readlines(char *lineptr[],int maxlines)
 {
     int len,nlines;
-    char line[MAXLEN];
-    char *p = linestor;
-    char *linestop = linestor + MAXSTOR;
+    char *p,line[MAXLEN];
 
     nlines=0;
 
-    while((len=mgetline(line,MAXLEN)) > 0)
-        if(nlines >= maxlines || p+len > linestop)
+    while((len=getline(line,MAXLEN)) > 0)
+        if(nlines >= maxlines || (p=alloc(len)) == NULL)
             return -1;
         else
         {
             line[len-1] = '\0';
             strcpy(p,line);
             lineptr[nlines++]=p;
-            p+=len;
         }
     return nlines;
 }
@@ -72,13 +66,13 @@ void qsort(char *v[],int left,int right)
 {
     int i,last;
     void swap(char *v[],int i,int j);
-
+    
     if(left >= right)
         return;
     swap(v,left,(left+right)/2);
 
     last = left;
-
+    
     for(i=left+1;i<=right;i++)
         if(strcmp(v[i],v[left])<0)
             swap(v,++last,i);
@@ -92,7 +86,7 @@ void qsort(char *v[],int left,int right)
 void swap(char *v[],int i,int j)
 {
     char *temp;
-
+    
     temp=v[i];
     v[i]=v[j];
     v[j]=temp;
@@ -114,11 +108,11 @@ char *alloc(int n)  /* return pointer to n characters */
         return 0;
 }
 
-int mgetline(char *s,int lim)
+int getline(char *s,int lim)
 {
     int c;
     char *t=s;
-
+    
     while(--lim >0 && (c=getchar())!=EOF && c!='\n')
         *s++ = c;
     if( c == '\n')
