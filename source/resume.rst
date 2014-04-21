@@ -8,29 +8,23 @@ O.R.Senthil Kumaran
 
 :Website: http://www.uthcode.com
 
+:Location: Walnut Creek, CA
+
 ---- 
 
 .. topic:: OBJECTIVE
         
-        Programmer willing to tackle hard problems and design beautiful
-        solutions. I like to design and implement solutions which are useful
-        and make our lives easy. I look forward to work in Engineering roles
-        with organizations which has strong Engineering focus.
+        Software Developer, prefer working on large scale system problems with
+        an organization having strong engineering focus.
+
 
 .. topic:: SKILLS AND TECHNICAL PROFICIENCY
 
-        * **Python Core Developer** - Active contributer to the Python Programming Language.
-        * Programming Laguages Known - **Python, Java, C **
+        * Programming Laguages Known - **Python, Java, C**
         * Network Programming - **Twisted, Sockets, HTTP and URLs**
-        * Web Development **Pylons, Javascript, jQuery, HTML5, CSS**
-        * Database Systems **SQL, SQLAlchemy**
-        * Revision Control Systems - **CVS, SVN, Perforce, git and Mercurial**
-        * Profeciency in writing **System Software using C++ for Linux and Windows.**
-        * Expertise in **Internet Programming,Distributed Systems, Google App Engine**
-        * **OpenSSL** based Secure Programming System.
-        * Deployment Solutions - **Capistrano**
-        * Expertise in Designing **Test Automation and Unittest Frameworks**.
-        * Java Build Technologies.
+        * **Python Core Developer** - Contributer to the Python Programming Language.
+        * Revision Control Systems - **Git and Mercurial**
+        * Build, Release and Deployment Technologies.
 
 
 .. topic:: WORK EXPERIENCE
@@ -44,9 +38,9 @@ O.R.Senthil Kumaran
         |                    |                            |                  |
         | Lucasfilm Singapore| Senior Software Engineer   | 2011 - 2012      |
         |                    |                            |                  |
-        | Akamai Technologies| Senior Software Engineer   |  2008 - 2011     |
+        | Akamai Technologies| Senior Software Engineer   | 2008 - 2011      |
         |                    |                            |                  |
-        | Dell India R&D     | Senior Engineering Analyst |  2002 - 2008     |
+        | Dell India R&D     | Senior Engineering Analyst | 2002 - 2008      |
         +--------------------+----------------------------+------------------+
 
 .. topic:: EDUCATION
@@ -77,10 +71,10 @@ O.R.Senthil Kumaran
 
         * **git-review**
 
-        Tool used to facilitate code review process at Twitter. This ensures
-        that a code review is posted, and review is provided by at least one
-        other developer and when code is committed, triggers our system tests
-        and if successful, merges it into master.
+          Tool used to facilitate code review process at Twitter. This ensures
+          that a code review is posted, and review is provided by at least one
+          other developer and when code is committed, triggers our system tests
+          and if successful, merges it into master.
 
 
         * **Twitter Cap Utils**
@@ -92,7 +86,7 @@ O.R.Senthil Kumaran
            Capabilities to deploy using Twitter specific strategies and log the
            deploys.
 
-        **Open Source Projects**
+      **Open Source Projects**
 
         * **urllib - Python Standard Library Module**
 
@@ -113,7 +107,7 @@ O.R.Senthil Kumaran
            * Languages: **C, C++, Python**
            
 
-
+      **Akamai Projects**
 
 
         * **Data Analyzer - A Distributed Log Analyzer project at Akamai**
@@ -125,14 +119,19 @@ O.R.Senthil Kumaran
 
           * Role: Built the core asynchronous engine and the underlying request
             and response mechanism.
-          * Languages and Technologies: **Python, Twisted, XML, C++, Asynchronous Servers, Large Volume Data Processing**
+          * Languages and Technologies: Python, Twisted, XML, 
+            C++, Asynchronous Servers, Large Volume Data Processing
+
+
+      **Previous Projects**
 
         * **Web Development - Lucasfilm Singapore**
 
           Member of a team contributing to web development efforts building
           internal webapps.
           
-          * Languages and Technologies: **Python, Pylons, jQuery. Test Framework using Jenkins and pytest**
+          * Languages and Technologies: Python, Pylons, jQuery.
+            Test Framework using Jenkins and pytest
 
 
         * **BIOS and Framework Test Automation Suite**
@@ -142,7 +141,7 @@ O.R.Senthil Kumaran
           was developed using Python.
 
           * Role: Test Automation Engineer. Build and Release of Software
-          * Languages: **Python, C, Silk Test**
+          * Languages: Python, C, Silk Test
 
         * **Event Simulator Tool**
 
@@ -151,7 +150,7 @@ O.R.Senthil Kumaran
           Systems Management Software which look out for events from event
           manager.
 
-          * Languages: **Microsoft Visual C++**
+          * Languages: Microsoft Visual C++
 
         * **Linux Server Configuration Tool**
 
@@ -159,7 +158,7 @@ O.R.Senthil Kumaran
           databases and populate with a set of test values. These scripts were
           used for load testing the servers.
 
-          * Language: **BASH Scripting, Python.**
+          * Language: BASH Scripting, Python.
 
         * **RollBack CD**
          
@@ -168,7 +167,7 @@ O.R.Senthil Kumaran
           software.  This project was helpful in saving a countless man hours
           in testing the upgrade manager.
 
-          * Language: **Windows Batch Scripting**
+          * Language: Windows Batch Scripting
 
         * **ngwallpaper**
 
@@ -230,14 +229,11 @@ O.R.Senthil Kumaran
         * Methods of Installing Open Manage Software on Linux Operating Systems. `Power Solutions - 2007`_
 
 .. topic:: CONFERENCE PRESENTATIONS
- 
-        * Taught Python Standard Library Overview at `PyCon 2009 Conference`_,
-          Chicago, USA.
-        * Teaching "How to Solve it using Python" Programming methodologies
-          using Python at `PyCon 2010 Conference`_, Atlanta, USA.
-        * Presentation on "Python 3 Language" at APAC PyCon, Singapore.
 
-.. topic:: OPEN SOURCE CONTRIBUTIONS
+        * http://slides.com/senthilkumaran
+ 
+
+.. topic:: OPEN SOURCE CONTRIBUTIONS.
 
         * Libsmbios_ and patch for skipping tests.
         * Guest Editor for entries in FOLDOC_.
@@ -245,15 +241,13 @@ O.R.Senthil Kumaran
         * Feature implementations in Rapple_ - A Standards based Website generator.
 
 
-.. topic:: Social Web
+.. topic:: StackOverFlow
 
-    `Resume Online`_
-
-    StackOverFlow 
+        * mostly python answers. 
 
 .. raw:: html
 
-    <p><ul><li><a href="http://stackoverflow.com/users/18852/senthil-kumaran"><img src="http://stackoverflow.com/users/flair/18852.png?theme=clean" width="208" height="58" alt="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></li></ul></p>
+    <p><a href="http://stackoverflow.com/users/18852/senthil-kumaran"><img src="http://stackoverflow.com/users/flair/18852.png?theme=clean" width="208" height="58" alt="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Senthil Kumaran at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></p>
 
 
 .. _Commit Stats: http://www.ohloh.net/p/python/contributors/111669178856
