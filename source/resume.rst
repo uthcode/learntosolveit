@@ -20,7 +20,7 @@ O.R.Senthil Kumaran
 .. topic:: SKILLS AND TECHNICAL PROFICIENCY
 
         * **Python Core Developer** - Active contributer to the Python Programming Language.
-        * Programming Laguages Known - **Python, Ruby, C++, C, Perl**
+        * Programming Laguages Known - **Python, Java, C **
         * Network Programming - **Twisted, Sockets, HTTP and URLs**
         * Web Development **Pylons, Javascript, jQuery, HTML5, CSS**
         * Database Systems **SQL, SQLAlchemy**
@@ -30,11 +30,12 @@ O.R.Senthil Kumaran
         * **OpenSSL** based Secure Programming System.
         * Deployment Solutions - **Capistrano**
         * Expertise in Designing **Test Automation and Unittest Frameworks**.
+        * Java Build Technologies.
 
 
 .. topic:: WORK EXPERIENCE
 
-        **Total Experience: 10 Years**
+        **Total Experience: 12 Years**
 
         +--------------------+----------------------------+------------------+
         | Organization       | Role                       |   Period         |
@@ -63,12 +64,41 @@ O.R.Senthil Kumaran
 
 .. topic:: PROJECT DETAILS
 
+      **Twitter Projects**
+
+        * **Pants Build System**
+
+         Developer working Pants Build system Project.
+
+         A Build system used by Twitter and other companies which used for
+         building java binaries, java libraries, scala libraries, scala
+         binaries and artifacts. This tool is written in Python and used by
+         Twitter for building its jvm targets.
+
+        * **git-review**
+
+        Tool used to facilitate code review process at Twitter. This ensures
+        that a code review is posted, and review is provided by at least one
+        other developer and when code is committed, triggers our system tests
+        and if successful, merges it into master.
+
+
+        * **Twitter Cap Utils**
+
+           Developer of Twitter Cap Utils 2.0.
+
+           Deployment Utility used for deploying to servers within Twitter.
+           Twitter Cap Utils is a extension for Capistrano which adds
+           Capabilities to deploy using Twitter specific strategies and log the
+           deploys.
+
+        **Open Source Projects**
 
         * **urllib - Python Standard Library Module**
 
-           Current Maintainer of the urllib module of *Python Standard Library*.
-           This module is at the core of handling any URLS in the web
-           programming. This is Pure Python module.
+           Maintainer of the urllib.* modules of *Python Standard Library*. This
+           module is at the core of handling any URLS in the web programming.
+           This is a Pure Python module.
 
            * `Commit Stats`_
            * `Tracker Stats`_
@@ -83,23 +113,7 @@ O.R.Senthil Kumaran
            * Languages: **C, C++, Python**
            
 
-        * **Twitter Cap Utils**
 
-           Developer of Twitter Cap Utils 2.0.
-
-           Deployment Utility used for deploying to servers within Twitter.
-           Twitter Cap Utils is a extension for Capistrano which adds
-           Capabilities to deploy using Bit-torrent and log the deploys.
-
-
-        * **Pants**
-
-         Contributed to Pants Build system Project.
-
-         A Build system used by Twitter and other companies which used for
-         building java binaries, java libraries, scala libraries, scala
-         binaries and artifacts. This tool is written in Python and used by
-         Twitter for for all it's projects.
 
 
         * **Data Analyzer - A Distributed Log Analyzer project at Akamai**
