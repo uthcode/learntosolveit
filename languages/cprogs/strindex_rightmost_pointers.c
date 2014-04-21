@@ -1,3 +1,5 @@
+/* Ex5.6 */
+
 #include<stdio.h>
 int strindex(char *s,char *t);
 
