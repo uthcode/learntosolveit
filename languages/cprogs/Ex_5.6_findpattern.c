@@ -1,9 +1,36 @@
 /* pattern matching program */
 #include<stdio.h>
-#define MAXLINE 1000
+#include<ctype.h>
+#include<string.h>
+#include<stdlib.h>
 
-int getline(char line[],int maxline);
-int strindex(char source[],char searchfor[]);
+int getch(void);
+void ungetch(int);
+
+#define NUMBER '0' /* signal that a number was found */
+#define MAXVAL 100 /* maximum depth of val stack */
+
+#define MAXOP 100
+#define NUMBER '0'
+
+int getop(char *);
+void push(double);
+double pop(void);
+
+int sp = 0;
+double val[MAXVAL];
+
+int mgetline(char *line,int max);
+int strindex(char *s,char *t);
+int atoiv2(char *);
+void itoav2(int n,char *s);
+void reverse(char *);
+
+char buf[BUFSIZE];
+int bufp = 0;
+
+#define BUFSIZE 100
+#define MAXLINE 1000
 
 char pattern[] = "ould"; /* pattern to search for */
 
@@ -21,35 +48,234 @@ int main(void)
             printf("%s",line);
             found++;
         }
+
+   	char *s="1234";
+	int ret;
+
+	ret=atoiv2(s);
+
+	printf("%d",ret);
+
+	char s[100];
+	int i=12345;
+	itoav2(i,s);
+	reverse(s);
+	printf("%s",s); 
+
+
+	char *s="This is a line";
+	char *t="is";
+	int ret;
+
+	ret=strindex(s,t);
+	printf("%d",ret);
+
     return found;
+
+    /* mgetline */
+
+   	char line[MAXLINE];
+	int found = 0;
+
+	if(argc!=2)
+		printf("Usage:find pattern\n");
+	else
+		while(mgetline(line,MAXLINE)>0)
+			if(strstr(line,argv[1]) != NULL)
+			{
+				printf("%s",line);
+				found++;
+			}
+	return found;
+
+
+	int type;
+	double op2;
+	char s[MAXOP];
+
+	while((type = getop(s)) != EOF)
+	{
+		switch(type)
+		{
+			case NUMBER:
+					push(atof(s));
+					break;
+			case '+':
+					push(pop() + pop());
+					break;
+			case '*':
+					push(pop() * pop());
+					break;
+			case '-':
+					op2 = pop();
+					push(pop() - op2);
+					break;
+			case '/':
+					op2 = pop();
+					if( op2 != 0.0)
+						push(pop() / op2);
+					else
+						printf("error: zero divisor\n");
+					break;
+			case '\n':
+					printf("\t%.8g\n",pop());
+					break;
+			default:
+					printf("error: unknown command %s\n",s);
+					break;
+		}
+	}
+	return 0;
+
 }
 
-int getline(char s[],int lim)
+
+int atoiv2(char *s)
 {
-    int c,i;
+	int n,sign;
 
-    i=0;
+	for(;isspace(*s);s++)	/* skip white space */
+		;
+	sign = ( *s =='-')? -1:1;
 
-    while(--lim > 0 && (c=getchar())!=EOF && c !='\n')
-        s[i++] =c;
-    if(c=='\n')
-        s[i++]=c;
-    s[i]='\0';
-
-    return i;
+	if(*s=='+' || *s=='-')
+		s++;
+	for(n=0;isdigit(*s);s++)
+		n = 10 *n + *s - '0';
+	
+	return sign * n;
 }
 
-int strindex(char s[],char t[])
+/* reverse polish calculator */
+
+/* push: push f onto value stack */
+void push(double f)
 {
-    int i,j,k;
-
-    for(i=0;s[i]!='\0';i++)
-    {
-        for(j=i,k=0;t[k]!='\0' && s[j]==t[k];j++,k++)
-            ;
-        if(k>0 && t[k] == '\0')
-            return i;
-    }
-    return -1;
+	if(sp < MAXVAL)
+		val[sp++] = f;
+	else
+		printf("error: stack full,can't push %g\n",f);
 }
 
+/* pop: pop and return top value from stack */
+double pop(void)
+{
+	if( sp > 0)	
+		return val[--sp];
+	else
+	{
+		printf("error: stack empty \n");
+		return 0.0;
+	}
+}
+
+/* getop: get next operator or numeric operand  pointer version */
+
+/* getop */
+int getop(char *s)
+{
+	int c;
+	
+	while((*s=c=getch()) == ' ' || c == '\t')
+		;
+	*(s+1) = '\0';
+
+	if(!isdigit(c) && c!='.')
+		return c;		/* not a number */
+	if(isdigit(c))
+	while(isdigit(*++s = c = getch()))
+		;
+
+	if(c == '.')
+	while(isdigit(*++s = c = getch()))
+		;
+
+	*s = '\0';
+
+	if(c != EOF)
+		ungetch(c);
+	return NUMBER;
+}
+
+int getch(void)
+{
+	return (bufp > 0) ? buf[--bufp]:getchar();
+}
+
+void ungetch(int c)
+{
+	if(bufp >= BUFSIZE)
+		printf("ungetch: too many characters\n");
+	else
+		buf[bufp++]=c;
+}
+
+/* itoa */
+
+void itoav2(int n,char *s)
+{
+	int sign;
+	char *t=s;
+	
+	if((sign = n) < 0)
+		n = -n;
+
+	do
+	{
+		*s++ = n % 10 + '0';
+	} while ((n /= 10) > 0);
+
+	if(sign < 0)
+		*s++ = '-';
+	*s='\0';
+
+}
+
+/* reverse */
+
+void reverse(char *s)
+{
+	int c;
+	char *t;
+
+	for(t=s+(strlen(s)-1);s<t;s++,t--)
+	{
+		c=*s;
+		*s=*t;
+		*t=c;
+	}
+}
+/* mgetline */
+
+int mgetline(char *s,int lim)
+{
+	int c;
+	char *t=s;
+
+	while(--lim > 0 && (c=getchar())!=EOF && c!='\n')
+		*s++=c;
+
+	if(c=='\n')
+		*s++=c;
+	*s='\0';
+
+	return s-t;
+}
+
+/* strindex */
+
+int strindex(char *s,char *t)
+{
+	char *b=s;
+	char *p,*r;
+
+	for(;*s!='\0';s++)
+	{
+		for(p=s,r=t;*r!='\0' && *p==*r;p++,r++)
+			;
+
+			if(r>t && *r == '\0')
+				return s-b;
+	}
+	return -1;
+}
