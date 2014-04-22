@@ -6,7 +6,7 @@
 
 int main()
 {
-	printf("A program print Fahrenheit-Celsius");
+	printf("A program print Fahrenheit-Celsius"\n);
 	int lower,upper,step;
 	int celsius,fahr;
 
