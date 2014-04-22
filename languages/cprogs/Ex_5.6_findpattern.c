@@ -38,6 +38,7 @@ int main(void)
 
     int found=0;
 
+    /* mgetline ends when a newline starts with X */
     while((mgetline(line,MAXLINE)) > 0)
         if(strindex(line,pattern) >= 0) {
             printf("%s\n",line);
@@ -55,23 +56,23 @@ int main(void)
     reverse(s1);
     printf("%s\n",s1); 
 
-    *s="This is a line";
+    char *s2="This is a line";
     char *t="is";
     ret=0;
 
-    ret=strindex(s,t);
+    ret=strindex(s2,t);
     printf("%d\n",ret);
 
     int type;
     double op2;
-    char s2[MAXOP];
+    char s3[MAXOP];
 
-    while((type = getop(s2)) != EOF)
+    while((type = getop(s3)) != EOF)
     {
         switch(type)
         {
             case NUMBER:
-                    push(atof(s2));
+                    push(atof(s3));
                     break;
             case '+':
                     push(pop() + pop());
@@ -225,7 +226,7 @@ int mgetline(char *s,int lim)
     int c;
     char *t=s;
 
-    while(--lim > 0 && (c=getchar())!=EOF && c!='\n')
+    while(--lim > 0 && (c=getchar())!='X' && c!='\n')
         *s++=c;
 
     if(c=='\n')
