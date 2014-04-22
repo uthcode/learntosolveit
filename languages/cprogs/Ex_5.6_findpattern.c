@@ -24,7 +24,7 @@ void itoav2(int n,char *s);
 void reverse(char *);
 
 int sp = 0;
-int sp = 0;
+int bufp = 0;
 double val[MAXVAL];
 char buf[BUFSIZE];
 
