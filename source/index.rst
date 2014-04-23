@@ -21,15 +21,6 @@ C Programming Language
 
    cprogramming/index
 
-Python Programming
-==================
-
-.. toctree::
-   :maxdepth: 2
-
-   python/index
-
-
 Python
 ======
 
