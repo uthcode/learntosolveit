@@ -4,7 +4,7 @@
 #include<stdio.h>
 #define MAXLINE 1000
 
-int getline(char line[],int lim);
+int mgetline(char line[],int lim);
 int removetrail(char rline[]);
 
 int main(void)
@@ -12,14 +12,14 @@ int main(void)
 	int len;
 	char line[MAXLINE];
 	
-	while((len=getline(line,MAXLINE))>0)
+	while((len=mgetline(line,MAXLINE))>0)
 		if(removetrail(line) > 0)
 			printf("%s",line);
 
 	return 0;
 }
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 

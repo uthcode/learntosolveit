@@ -3,7 +3,7 @@
 #include<stdio.h>
 #define MAXLINE 1000
 
-int getline(char line[],int lim);
+int mgetline(char line[],int lim);
 void copy(char to[],char from[]);
 
 
@@ -14,7 +14,7 @@ int main(void)
 
 	max =0;
 
-	while((len=getline(line,MAXLINE)) > 0)
+	while((len=mgetline(line,MAXLINE)) > 0)
 	{
 		if(len > max)
 		{
@@ -28,7 +28,7 @@ int main(void)
 }
 	
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int i,c;
 
