@@ -1,5 +1,17 @@
+#include <stdio.h>
 #include <ctype.h>
+
 /* atof: convert string s to double */
+
+double atof(char s[]);
+
+int main(int argc, char *argv[]) {
+	char s[8]="1234.45";
+	double d;
+	d = atof(s);
+	printf("%f", d);
+}
+
 double atof(char s[])
 {
 	double val, power;

@@ -115,7 +115,10 @@ extlinks = {'c-suggest-improve':
         "Suggest a Code Improvement:"),
              'python-better-explain':
     ("https://github.com/uthcode/uthcode/blob/combined/source/python/%s",
-        "Suggest a better explanation for ")
+        "Suggest a better explanation for "),
+              'use-local-compiler':
+    ('http://www.seas.upenn.edu/cets/answers/gcc.html',
+              'Please use a local c compiler to run this program.'),
 }
 
 

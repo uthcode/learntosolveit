@@ -10,7 +10,7 @@ Program
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/sec_1.5.1_File_Copying.c
+.. runcode:: ../../languages/cprogs/sec_1.5.1_File_Copying.c
    :language: c
    :codesite: ideone 
    

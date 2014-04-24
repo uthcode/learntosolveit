@@ -20,6 +20,10 @@ Solution
    :language: c
    :codesite: ideone
 
+.. seealso::
+
+   * :use-local-compiler:
+
 Explaination
 ------------
 
