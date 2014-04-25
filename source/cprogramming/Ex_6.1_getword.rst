@@ -1,6 +1,6 @@
-===================
-Exercise 6.1 - TODO
-===================
+======================
+Exercise 6.1 - getword
+======================
 
 Question
 ========
@@ -8,11 +8,11 @@ Question
 Our version of getword does not properly handle underscores, string constants,
 comments, or preprocessor control lines. Write a better version.
 
-.. literalinclude:: ../../languages/cprogs/Ex_6.1.c
+.. literalinclude:: ../../languages/cprogs/Ex_6.1_getword.c
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.1.c
+.. runcode:: ../../languages/cprogs/Ex_6.1_getword.c
    :language: c
    :codesite: ideone
 
