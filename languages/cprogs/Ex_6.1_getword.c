@@ -15,11 +15,11 @@ struct key {
     "const", 0,
     "continue", 0,
     "default", 0,
+    "printf", 0,
     "unsigned", 0,
     "void", 0,
     "volatile", 0,
     "while", 0,
-    "printf", 0, /* Figure out why printf is a special case */
 };
 
 
@@ -66,6 +66,11 @@ int binsearch(char *word, struct key tab[], int n)
 }
 
 /* getword: get next word or character from input */
+
+/* TODO: Handle underscore, string constants, comments, preprocessor control lines. */
+/* #define, #include, #undef, #if, #error, #line */
+
+
 int mgetword(char *word, int lim)
 {
     int c, getch(void);
