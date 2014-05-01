@@ -27,6 +27,10 @@ struct key {
 
 int mgetword(char *, int);
 int binsearch(char *, struct key *, int);
+int isunderscore(char);
+int iscomment(char);
+int ispreprocessstart(char);
+int ispreprocessor(char *);
 
 /* count C keywords */
 int main(int argc, char *argv[])
@@ -34,15 +38,15 @@ int main(int argc, char *argv[])
     int n;
     char word[MAXWORD];
 
-    while (mgetword(word, MAXWORD) != EOF) 
-        if (isalpha(word[0])) 
+    while (mgetword(word, MAXWORD) != EOF)
+        if (isalpha(word[0]))
             if ((n = binsearch(word, keytab, NKEYS)) >= 0)
                 keytab[n].count++;
             for (n = 0; n < NKEYS; n++)
                 if (keytab[n].count > 0)
                     printf("%4d %s\n", keytab[n].count, keytab[n].word);
                 return 0;
-            
+
 }
 
 /* binsearch: find word in tab[0]...tab[n-1] */
@@ -67,8 +71,41 @@ int binsearch(char *word, struct key tab[], int n)
 
 /* getword: get next word or character from input */
 
-/* TODO: Handle underscore, string constants, comments, preprocessor control lines. */
+/* TODO: Handle string constants */
 /* #define, #include, #undef, #if, #error, #line */
+
+int isunderscore(char c) {
+	if (c == '_')
+		return 1;
+	return 0;
+
+}
+
+int iscomment(char c) {
+	if (c == '*' || c == '/')
+		return 1;
+	return 0;
+}
+
+int ispreprocessstart(char c) {
+	if ( c== '#')
+		return 1;
+	return 0;
+}
+
+int ispreprocessor(char *check) {
+
+	if ((strcmp(check, "#define") == 0)\
+			|| (strcmp(check, "#include") == 0)\
+			|| (strcmp(check, "#undef") == 0)\
+			|| (strcmp(check, "#if") == 0)\
+			|| (strcmp(check, "#error") == 0)\
+			|| (strcmp(check, "#line") == 0)) {
+		return 1;
+	return 0;
+
+	}
+}
 
 
 int mgetword(char *word, int lim)
@@ -76,21 +113,37 @@ int mgetword(char *word, int lim)
     int c, getch(void);
     void ungetch(int);
     char *w = word;
+
+    /** TODO: Where should we check
+
+    if (ispreprocessor(word))
+    	return word[0];
+    */
+
     while (isspace(c = getch()))
         ;
+
     if (c != EOF)
         *w++ = c;
-    if (!isalpha(c)) {
+
+    /* TODO: How and where to check it
+    * || !isunderscore(c) ) { || !iscomment(c) || !ispreprocessstart(c)) { *
+    */
+
+    if (!isalpha(c) ) { 
         *w = '\0';
         return c;
     }
-    for ( ; --lim > 0; w++)
-        if (!isalnum(*w = getch())) {
+    for ( ; --lim > 0; w++) {
+        *w = getch();
+        if (!isalnum(*w)) {
             ungetch(*w);
             break;
         }
-        *w = '\0';
-        return word[0];
+    }
+
+    *w = '\0';
+    return word[0];
 }
 
 #define BUFSIZE  100
