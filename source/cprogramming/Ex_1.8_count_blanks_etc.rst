@@ -21,8 +21,11 @@ Solution
 Explaination
 ------------
 
-In this program we are going to count the number of Blanks, tabs and new lines present in the input.  To do this the program, while reading the characters checks for the condition c = getchar !=EOF which means if the character is not end of file continue counting Blanks tabs and newlines.
-Example input:
+In this program we are going to count the number of Blanks, tabs and new lines
+present in the input.  To do this the program, while reading the characters
+checks for the condition c = getchar !=EOF which means if the character is not
+end of file continue counting Blanks tabs and newlines. Example input:
+
 I like programming
 In C
 And the out put shall be:

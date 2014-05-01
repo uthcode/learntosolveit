@@ -6,7 +6,7 @@ Question
 ========
 
 Write the function strindex(s,t) which returns the position of the rightmost
-occurrence of t in s, or -1 if there is none
+occurrence of t in s, or -1 if there is none.
 
 .. literalinclude:: ../../languages/cprogs/Ex_4.1_strindex_rightmost.c
    :language: c
@@ -40,8 +40,8 @@ This is done by our `mstringindex` function and in this loop.
 The outer loop goes over each character in string `s` and in the inner we check
 if we find a substring `t` matching in the outer loop. If we find a substring
 match, we **dont break** the loop, but record the position `i` and proceed
-further. Thus our right most match is noted.
-If no search is found, then the result, `-1` is returned.
+further. Thus our right most match is noted. If no search is found, then the
+result, `-1` is returned.
 
 
 .. seealso::

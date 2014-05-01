@@ -6,7 +6,7 @@ Question
 ========
 
 Suppose that there will never be more than one character of pushback. Modify
-getch and ungetch accordingly
+getch and ungetch accordingly.
 
 
 .. literalinclude:: ../../languages/cprogs/Ex_4.8_getch_ungetch_pushback.c

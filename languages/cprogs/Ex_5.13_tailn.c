@@ -10,7 +10,7 @@ by an optional argument so that tail -n */
 #define MAXLEN	100	/* maximum length of an input line */
 
 void error(char *);
-int getline(char *,int);
+int mgetline(char *,int);
 
 /* print the last n lines of the input */
 
@@ -46,7 +46,7 @@ int main(int argc,char *argv[])
 	last = 0;
 	nlines = 0;
 
-	while((len = getline(line,MAXLEN)) > 0)
+	while((len = mgetline(line,MAXLEN)) > 0)
 	{
 		if(p+len+1 >= bufend)
 			p = buf;
@@ -82,9 +82,9 @@ void error(char *s)
 	exit(1);
 }
 
-/* getline: read a line into s and return length */
+/* mgetline: read a line into s and return length */
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int c,i;
 	

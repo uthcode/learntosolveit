@@ -5,8 +5,9 @@ Exercise 4.2 - Extend atof to handle scientific notation
 Question
 ========
 
-Extend atof to handle scientific notation of the form
-123.45e-6 where a floating-point number may be followed by e or E and an optionally signed exponent.
+Extend atof to handle scientific notation of the form 123.45e-6 where a
+floating-point number may be followed by e or E and an optionally signed
+exponent.
 
 .. literalinclude:: ../../languages/cprogs/Ex_4.2_atof_scientific.c
    :language: c

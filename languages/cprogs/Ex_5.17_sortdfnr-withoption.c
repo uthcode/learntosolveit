@@ -235,7 +235,7 @@ void myqsort(void *v[],int left,int right,int (*comp)(void *,void *))
 
 
 #define MAXLEN	1000		/* max length of any input line  */
-int getline(char *,int);
+int mgetline(char *,int);
 char *alloc(int);
 
 /* readlines: read input lines */
@@ -245,7 +245,7 @@ int readlines(char *lineptr[],int maxlines)
 	char *p,line[MAXLEN];
 	
 	nlines=0;
-	while((len=getline(line,MAXLEN))>0)
+	while((len=mgetline(line,MAXLEN))>0)
 		if(nlines >= maxlines || (p = alloc(len)) == NULL)
 			return -1;
 		else
@@ -290,9 +290,9 @@ void afree(char *p)		/* free storage pointed to by p */
 }
  
 
-/* getline: read a line into s,return length */
+/* mgetline: read a line into s,return length */
 
-int getline(char s[],int lim)
+int mgetline(char s[],int lim)
 {
 	int c,i;
 
