@@ -141,8 +141,9 @@ Chapter 6
 .. toctree::
    :maxdepth: 1
 
-   Ex_6.1
+   Ex_6.1_getword
    Ex_6.2
+   sec_6.3_getword
    Ex_6.3
    Ex_6.4
    Ex_6.5
