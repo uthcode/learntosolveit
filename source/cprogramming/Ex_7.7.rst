@@ -5,9 +5,9 @@ Exercise 7.7 - TODO
 Question
 ========
 
-Modify the pattern finding program of Chapter 5 to take its input from a set of named files
-or, if no files are named as arguments, from the standard input. Should the file name be printed when a
-matching line is found?
+Modify the pattern finding program of Chapter 5 to take its input from a set of
+named files or, if no files are named as arguments, from the standard input.
+Should the file name be printed when a matching line is found?
 
 .. literalinclude:: ../../languages/cprogs/Ex_7.7.c
    :language: c

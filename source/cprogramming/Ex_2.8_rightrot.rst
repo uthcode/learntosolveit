@@ -5,8 +5,8 @@ Exercise 2.8-returns the value of the integer x rotated to the right by n positi
 Question
 ========
 
-Write a function rightrot(x,n) that returns the value of the integer x rotated to the
-right by n positions.
+Write a function rightrot(x,n) that returns the value of the integer x rotated
+to the right by n positions.
 
 .. literalinclude:: ../../languages/cprogs/Ex_2.8_rightrot.c
    :language: c
@@ -31,8 +31,9 @@ most. This is done by first capturing wordlength() and then left shifting the x
 
  The resultant value will be something like 1000 0000 for any right most bit of 1.
 
-Once we get the right most bit, in order to rotate the value of x, we right shift x
-and then OR the result of x with the rbit determined in the previous step.
+Once we get the right most bit, in order to rotate the value of x, we right
+shift x and then OR the result of x with the rbit determined in the previous
+step.
 
 ::
 

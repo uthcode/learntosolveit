@@ -5,8 +5,8 @@ Exercise 7.9 - TODO
 Question
 ========
 
-Functions like isupper can be implemented to save space or to save time. Explore both
-possibilities.
+Functions like isupper can be implemented to save space or to save time. Explore
+both possibilities.
 
 .. literalinclude:: ../../languages/cprogs/Ex_7.9.c
    :language: c

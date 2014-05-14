@@ -8,6 +8,7 @@ Question
 Modify the fsize program to print the other information contained in the inode
 entry.
 
+
 .. literalinclude:: ../../languages/cprogs/Ex_8.5_fsize.c
    :language: c
    :tab-width: 4
@@ -18,6 +19,8 @@ entry.
 
 Explaination
 ============
+
+
 
 
 

@@ -5,7 +5,8 @@ Exercise 5.3 - strcat(s,t) copies the string t to the end of s
 Question
 ========
 
-Write a pointer version of the function strcat that we showed in Chapter 2: strcat(s,t) copies the string t to the end of s. 
+Write a pointer version of the function strcat that we showed in Chapter 2:
+strcat(s,t) copies the string t to the end of s.
 
 .. literalinclude:: ../../languages/cprogs/Ex_5.3_strcat.c
    :language: c
@@ -18,11 +19,14 @@ Write a pointer version of the function strcat that we showed in Chapter 2: strc
 Explaination
 ============
 
-This is a string concatenation program using pointers. The function mystrcat is defined to take two strings as
-character pointers `mystrcat(char *s, char *t)` and this function returns the concatenated string in `s` itself.
+This is a string concatenation program using pointers. The function mystrcat is
+defined to take two strings as character pointers `mystrcat(char *s, char *t)`
+and this function returns the concatenated string in `s` itself.
 
-The way it does is, the position in `s` is advanced till we meet a `\0` character and then we append the characters
-from the string `t` to `s`, starting from the `\0` character till we hit the end of the string `t` which is a `\0` again.
+The way it does is, the position in `s` is advanced till we meet a `\0`
+character and then we append the characters from the string `t` to `s`, starting
+from the `\0` character till we hit the end of the string `t` which is a `\0`
+again.
 
 
 

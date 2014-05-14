@@ -5,7 +5,7 @@ Exercise 8.4 - TODO
 Question
 ========
 
-The standard library function
+The standard library function.
 
 .. literalinclude:: ../../languages/cprogs/Ex_8.4.c
    :language: c
