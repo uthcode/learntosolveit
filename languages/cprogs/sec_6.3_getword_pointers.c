@@ -4,6 +4,8 @@
 
 #define MAXWORD 100
 
+/* TODO: Senthil Kumaran - Fix this program */
+
 struct key {
 	char *word;
 	int count;

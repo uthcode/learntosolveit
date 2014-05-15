@@ -23,5 +23,5 @@ Explaination
 
 .. seealso::
 
-   * :c-suggest-improve:`Ex_6.1.c`
-   * :c-better-explain:`Ex_6.1.rst`
+   * :c-suggest-improve:`Ex_6.1_getword.c`
+   * :c-better-explain:`Ex_6.1_getword.rst`

@@ -15,11 +15,11 @@ struct key {
     "const", 0,
     "continue", 0,
     "default", 0,
-    "printf", 0,
     "unsigned", 0,
     "void", 0,
     "volatile", 0,
     "while", 0,
+    "printf", 0, /* Figure out why printf is a special case */
 };
 
 
@@ -27,10 +27,6 @@ struct key {
 
 int mgetword(char *, int);
 int binsearch(char *, struct key *, int);
-int isunderscore(char);
-int iscomment(char);
-int ispreprocessstart(char);
-int ispreprocessor(char *);
 
 /* count C keywords */
 int main(int argc, char *argv[])
@@ -71,79 +67,110 @@ int binsearch(char *word, struct key tab[], int n)
 
 /* getword: get next word or character from input */
 
-/* TODO: Handle string constants */
-/* #define, #include, #undef, #if, #error, #line */
+/* The requirement is to skip underscore, comments and pre-processor directive */
+#define IN 1
+#define OUT 0
 
-int isunderscore(char c) {
-	if (c == '_')
-		return 1;
-	return 0;
-
-}
-
-int iscomment(char c) {
-	if (c == '*' || c == '/')
-		return 1;
-	return 0;
-}
-
-int ispreprocessstart(char c) {
-	if ( c== '#')
-		return 1;
-	return 0;
-}
-
-int ispreprocessor(char *check) {
-
-	if ((strcmp(check, "#define") == 0)\
-			|| (strcmp(check, "#include") == 0)\
-			|| (strcmp(check, "#undef") == 0)\
-			|| (strcmp(check, "#if") == 0)\
-			|| (strcmp(check, "#error") == 0)\
-			|| (strcmp(check, "#line") == 0)) {
-		return 1;
-	return 0;
-
-	}
-}
 
 
 int mgetword(char *word, int lim)
 {
-    int c, getch(void);
+    int c, d, getch(void), comment, string, directive;
     void ungetch(int);
     char *w = word;
 
-    /** TODO: Where should we check
-
-    if (ispreprocessor(word))
-    	return word[0];
-    */
+    comment = string = directive = OUT;
 
     while (isspace(c = getch()))
         ;
 
-    if (c != EOF)
-        *w++ = c;
+    /* Check if inside a comment */
 
-    /* TODO: How and where to check it
-    * || !isunderscore(c) ) { || !iscomment(c) || !ispreprocessstart(c)) { *
-    */
-
-    if (!isalpha(c) ) { 
-        *w = '\0';
-        return c;
-    }
-    for ( ; --lim > 0; w++) {
-        *w = getch();
-        if (!isalnum(*w)) {
-            ungetch(*w);
-            break;
+    if (c == '/') {
+        if ((d = getch()) == '*') {
+            comment = IN;
+        } else {
+            comment = OUT;
+            ungetch(d);
         }
     }
 
-    *w = '\0';
-    return word[0];
+    /* Check if inside a quote */
+
+    if ( c == '\"') {
+        string = IN;
+    }
+
+    /* Check if inside a directive */
+
+    if (c == '#') {
+            directive = IN;
+    }
+
+    if ( c == '\\') {
+        c = getch(); /* ignore the \\ character */
+    }
+
+    if (comment == OUT && string == OUT && directive == OUT) {
+
+        if (c != EOF)
+            *w++ = c;
+
+        if (!isalnum(c) && c !='_' ) {
+            *w = '\0';
+            return c;
+        }
+
+        for ( ; --lim > 0; w++) {
+            *w = getch();
+            if (!isalnum(*w) && *w != '_') {
+                ungetch(*w);
+                break;
+            }
+        }
+        *w = '\0';
+        return word[0];
+    }
+    else if ( comment == IN) {
+        *w++ = c;
+        *w++ = d;
+
+        while ((*w++ = c = getch())) {
+            if ( c == '*' ) {
+                if ( (c = getch()) == '/' ) {
+                    *w++ = c;
+                    comment = OUT;
+                    break;
+                } else {
+                    ungetch(c);
+                }
+            }
+        }
+        *w = '\0';
+
+    }
+    else if ( string == IN) {
+        *w++ = c;
+        while ((*w++ = getch()) != '\"') {
+            if ( *w == '\\')  /* Take care of escaped quotes */
+                *w++ = getch();
+        }
+        string = OUT;
+        *w = '\0';
+    }
+    else if (directive == IN) {
+        *w++ = c;
+        while ((*w++ = getch()) != '\n') {
+            if ( c == '\\') { /* Take care of continuation line escape */
+                *w++ = getch();
+            }
+        }
+        directive = OUT;
+        *w = '\0';
+    }
+
+    return c;
+
 }
 
 #define BUFSIZE  100
