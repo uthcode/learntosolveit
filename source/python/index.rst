@@ -12,7 +12,8 @@ This is an implementation of a well known CS algorithm.
 .. toctree::
    :maxdepth: 1
 
-   text_manipulation_argparse1
+   algorithm_binary_representation
+   algorithm_binary_search
 
 
 Design

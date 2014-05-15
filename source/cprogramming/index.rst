@@ -142,7 +142,7 @@ Chapter 6
    :maxdepth: 1
 
    Ex_6.1_getword
-   Ex_6.2
+   Ex_6.2_identical_variables
    sec_6.3_getword
    Ex_6.3
    Ex_6.4
