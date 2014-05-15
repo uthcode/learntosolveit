@@ -5,7 +5,9 @@ Exercise 5.11 - entab and detab which accepts arguments
 Question
 ========
 
-Modify the program entab and detab (written as exercises in Chapter 1) to accept a list of tab stops as arguments. Use the default tab settings if there are no arguments.
+Modify the program entab and detab (written as exercises in Chapter 1) to accept
+a list of tab stops as arguments. Use the default tab settings if there are no
+arguments.
 
 .. literalinclude:: ../../languages/cprogs/Ex_5.11_conddetab.c
    :language: c

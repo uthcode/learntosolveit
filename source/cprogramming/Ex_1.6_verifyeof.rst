@@ -22,7 +22,7 @@ Explaination
 ------------
 
 1. This program is similar to the previous one Ex 1.5, wherein after it gets the
-input, it prints the value of the expression getchar() != EOF. 
+input, it prints the value of the expression getchar() != EOF.
 
 2. For a file with this contents
 
@@ -42,7 +42,8 @@ input, it prints the value of the expression getchar() != EOF.
 
     0
 
-4. We see that when char is not EOF, it is printing 1 and when it is EOF, 0 is printed.
+4. We see that when char is not EOF, it is printing 1 and when it is EOF, 0 is
+printed.
 
 .. seealso::
 

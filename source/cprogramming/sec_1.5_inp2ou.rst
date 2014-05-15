@@ -16,9 +16,16 @@ Program
 Explanation
 -----------
 
-Input : In any programming language input means to feed some data into program. This can be given in the form of file or from command line. C programming language provides a set of built-in functions to read given input and feed it to the program as per requirement.  In this program getchar is a function of reading the input from the user character by character.  
+Input : In any programming language input means to feed some data into program.
+This can be given in the form of file or from command line. C programming
+language provides a set of built-in functions to read given input and feed it to
+the program as per requirement.  In this program getchar is a function of
+reading the input from the user character by character.
 
-Output : In any programming language output means to display some data on screen, printer or in any file. C programming language provides a set of built-in functions to output required data.  Similarly putchar is a function which gives the output.
+Output : In any programming language output means to display some data on
+screen, printer or in any file. C programming language provides a set of built-
+in functions to output required data.  Similarly putchar is a function which
+gives the output.
 
 .. seealso::
 

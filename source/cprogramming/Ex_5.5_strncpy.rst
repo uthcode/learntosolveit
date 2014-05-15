@@ -5,7 +5,8 @@ Exercise 5.5 - simple versions of strncpy, strncat, and strncmp
 Question
 ========
 
-Write versions of the library functions strncpy, strncat, and strncmp, which operate on at most the first n characters of their argument strings.
+Write versions of the library functions strncpy, strncat, and strncmp, which
+operate on at most the first n characters of their argument strings.
 
 .. literalinclude:: ../../languages/cprogs/Ex_5.5_strncpy.c
    :language: c

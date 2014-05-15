@@ -5,7 +5,8 @@ Exercise 5.10 - expr, evaluate rpn from command line
 Question
 ========
 
-Write the program expr, which evaluates a reverse Polish expression from the command line, where each operator or operand is a separate argument.
+Write the program expr, which evaluates a reverse Polish expression from the
+command line, where each operator or operand is a separate argument.
 
 .. literalinclude:: ../../languages/cprogs/Ex_5.10_exprcmd.c
    :language: c
