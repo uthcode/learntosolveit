@@ -1,5 +1,5 @@
 /*
- * Exercise 6-2 in K&R2 on page 143.  By: Barrett Drawdy
+ * Exercise 6-2 in K&R2 on page 143.  Original By: Barrett Drawdy
  * Write a program that reads a C program and prints in alphabetical
  * order each group of variable names that are identical in the first
  * 6 characters, but different somewhere thereafter.  Don't count words
@@ -51,7 +51,7 @@ struct simword
 
 struct tnode *addtree(struct tnode *, char *);
 void treeprint(const struct tnode *);
-int getword(char *, int);
+int mgetword(char *, int);
 struct simroot *addroot(struct simroot *, struct tnode *, int);
 struct simroot *parse(struct tnode *, int);
 void printlist(struct simroot *, int);
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
     /* get all the words */
     root = NULL;
-    while(getword(word, MAXWORD) != EOF)
+    while(mgetword(word, MAXWORD) != 'x')
         if(isalpha(word[0]))
             root = addtree(root, word);
 
@@ -219,105 +219,113 @@ struct simword *walloc(struct simword *p, struct tnode *n)
     return p;
 }
 
-/*
- * getword:  Modified from the original on page 136 of K&R2 for exercise
- * 6-1.  Get next word or character from input.
- * Returns EOF, first character of word for strings, or other non-alpha
- * characters.  The function ignores pre-processor directives, ANSI C
- * style comments, and string literals.
- */
-int getword(char *word, int lim)
+/* mgetword from Ex6.1 */
+
+#define IN 1
+#define OUT 0
+
+
+
+int mgetword(char *word, int lim)
 {
-    int c, getch(void);
+    int c, d, getch(void), comment, string, directive;
     void ungetch(int);
     char *w = word;
-    static int line_beg = 1;    /* 1 at beginning of a new line */
-    static int after_slash = 0; /* 1 after '\' */
-    int after_star = 0;         /* 1 after '*' */
 
-    if(isspace(c = getch()))
-        after_slash = 0;
-    while(isspace(c)) {
-        if(c == '\n')
-            line_beg = 1;
-        c = getch();
+    comment = string = directive = OUT;
+
+    while (isspace(c = getch()))
+        ;
+
+    /* Check if inside a comment */
+
+    if (c == '/') {
+        if ((d = getch()) == '*') {
+            comment = IN;
+        } else {
+            comment = OUT;
+            ungetch(d);
+        }
     }
 
-    if(c != EOF)
-        *w++ = c;
+    /* Check if inside a quote */
 
-    if(c == '#' && line_beg == 1) {            /* preprocessor directive */
-        while((c = getch()) != '\n' && c != EOF)    /* go to end of line */
-            ;
-        return getword(word, lim);              /* start over */
-    }
-    line_beg = 0;
-
-    if(c == '\\')                              /* set after_slash flag */
-        after_slash = after_slash ? 0 : 1;         /*ignore \\ */
-
-    else if(c == '/' ) {
-        if((c = getch()) == '*' && !after_slash) {  /* comment beginning */
-            while((c = getch()) != EOF) {
-                if(c == '/') {
-                    if(after_star)                 /* end of comment */
-                        return getword(word, lim); /* start over */
-                }
-                else if(c == '*' && !after_slash)
-                    after_star = 1;
-                else if(c == '\\')
-                    after_slash = after_slash ? 0 : 1;    /*ignore \\ */
-                else {
-                    after_star = 0;
-                    after_slash = 0;
-                }
-            }
-        }                                     /* end comment block */
-
-        after_slash = 0;       /* not after slash anymore */
-        if(c != EOF)
-            ungetch(c);
+    if ( c == '\"') {
+        string = IN;
     }
 
-    else if(c == '\"') {
-        if(!after_slash) {                  /* string literal begin */
-            --w;                            /* reset w */
-            while((c = getch()) != EOF) {
-                if(c == '\"' && !after_slash)
-                    break;
-                else if(c == '\\')
-                    after_slash = after_slash ? 0 : 1;    /*ignore \\ */
-                else
-                    after_slash = 0;
-                *w++ = c;
-            }
+    /* Check if inside a directive */
+
+    if (c == '#') {
+            directive = IN;
+    }
+
+    if ( c == '\\') {
+        c = getch(); /* ignore the \\ character */
+    }
+
+    if (comment == OUT && string == OUT && directive == OUT) {
+
+        if (c != EOF)
+            *w++ = c;
+
+        if (!isalnum(c) && c !='_' ) {
             *w = '\0';
-            if(c == EOF)
-                return EOF;
-            else
-                return getword(word, lim);            /* start over */
+            return c;
         }
-        after_slash = 0;                  /* not after a slash anymore */
-    }
 
-    if(!isalpha(c) && c != '_') {           /* it's a symbol */
+        for ( ; --lim > 0; w++) {
+            *w = getch();
+            if (!isalnum(*w) && *w != '_') {
+                ungetch(*w);
+                break;
+            }
+        }
         *w = '\0';
-        if(c != '\\')
-            after_slash = 0;
-        return c;
+        return word[0];
+    }
+    else if ( comment == IN) {
+        *w++ = c;
+        *w++ = d;
+
+        while ((*w++ = c = getch())) {
+            if ( c == '*' ) {
+                if ( (c = getch()) == '/' ) {
+                    *w++ = c;
+                    comment = OUT;
+                    break;
+                } else {
+                    ungetch(c);
+                }
+            }
+        }
+        *w = '\0';
+
+    }
+    else if ( string == IN) {
+        *w++ = c;
+        while ((*w++ = getch()) != '\"') {
+            if ( *w == '\\')  /* Take care of escaped quotes */
+                *w++ = getch();
+        }
+        string = OUT;
+        *w = '\0';
+    }
+    else if (directive == IN) {
+        *w++ = c;
+        while ((*w++ = getch()) != '\n') {
+            if ( c == '\\') { /* Take care of continuation line escape */
+                *w++ = getch();
+            }
+        }
+        directive = OUT;
+        *w = '\0';
     }
 
-    /* reset this flag since a slash would have just returned */
-    after_slash = 0;
+    return c;
 
-    for( ; --lim > 0; ++w)                  /* it's a word or letter */
-        if(!isalnum(*w = getch()) && *w != '_') {
-            ungetch(*w);
-            break;
-        }
-    *w = '\0';
-    return word[0];
-} /* end getword() */
+}
+
 
 
 /***************************************************************************
