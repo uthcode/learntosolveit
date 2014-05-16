@@ -3,10 +3,12 @@ Section Name
 ============
 
 Question
-========
+--------
 
 ADDQUESTION
 
+Solution
+--------
 
 .. literalinclude:: ../../languages/python/PROGRAMNAME.py
    :language: python
@@ -17,7 +19,7 @@ ADDQUESTION
    :codesite: ideone
 
 Explaination
-============
+------------
 
 ADDEXPLAINATION
 
