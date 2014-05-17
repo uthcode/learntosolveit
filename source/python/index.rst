@@ -14,7 +14,7 @@ This is an implementation of a well known CS algorithm.
 
    algorithm_binary_representation
    algorithm_binary_search
-
+   binary_to_octal
 
 Design
 ======
