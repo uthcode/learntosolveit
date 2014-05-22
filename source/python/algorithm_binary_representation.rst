@@ -5,7 +5,8 @@ Binary Representation
 Question
 --------
 
-ADDQUESTION
+Write a program to display the binary representation of various integers.
+
 
 Solution
 --------
