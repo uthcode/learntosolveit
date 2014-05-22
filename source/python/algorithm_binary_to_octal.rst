@@ -5,7 +5,8 @@ binary to octal
 Question
 --------
 
-ADDQUESTION
+Convert the given binary number to octal.
+
 
 Solution
 --------
