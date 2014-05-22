@@ -1,11 +1,11 @@
-===================
-Algorithm Bipartite
-===================
+===============
+Bipartite Match
+===============
 
 Question
 --------
 
-ADDQUESTION
+Program to find the bipartite match.
 
 Solution
 --------
