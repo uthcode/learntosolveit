@@ -5,7 +5,8 @@ Binary Search
 Question
 --------
 
-ADDQUESTION
+Implement and demonstrate the Binary search algorithm.
+
 
 Solution
 --------
