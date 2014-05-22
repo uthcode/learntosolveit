@@ -16,6 +16,14 @@ This is an implementation of a well known CS algorithm.
    algorithm_binary_search
    algorithm_binary_to_octal
    algorithm_bipartite
+   algorithm_cellauto
+   algorithm_checking_string_text_or_binary
+   algorithm_countingsort
+   algorithm_depth_first_search
+   algorithm_eratosthenes
+   algorithm_euclid
+   algorithm_fact_with_memo
+   algorithm_fact2
 
 Design
 ======
