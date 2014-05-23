@@ -1,5 +1,5 @@
 ===============
-binary to octal
+Binary to Octal
 ===============
 
 Question
