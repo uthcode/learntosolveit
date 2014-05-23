@@ -1,11 +1,11 @@
-============
-Countingsort
-============
+=============
+Counting Sort
+=============
 
 Question
 --------
 
-ADDQUESTION
+This program illustrates the counting sort algorithm.
 
 Solution
 --------
