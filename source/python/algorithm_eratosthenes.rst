@@ -1,11 +1,11 @@
-============
-Eratosthenes
-============
+==================================
+Eratosthenes method to find primes
+==================================
 
 Question
 --------
 
-ADDQUESTION
+Illustrate the sieve of eratosthenes method to find out prime numbers.
 
 Solution
 --------
