@@ -1,11 +1,11 @@
-=====
-fact2
-=====
+=========================
+Factorial of a number - 2
+=========================
 
 Question
 --------
 
-ADDQUESTION
+Find the factorial (n!) of a number n.
 
 Solution
 --------

@@ -1,11 +1,11 @@
-==============
-Fact With Memo
-==============
+========================
+Factorial with Memoizing
+========================
 
 Question
 --------
 
-ADDQUESTION
+Illustrate finding the factorial of a given number, which memoizes the intermediate results.
 
 Solution
 --------

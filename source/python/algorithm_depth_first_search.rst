@@ -5,7 +5,7 @@ Depth First Search
 Question
 --------
 
-ADDQUESTION
+This program illustrates the depth first search algorithm.
 
 Solution
 --------

@@ -5,7 +5,8 @@ Checking String Text Or Binary
 Question
 --------
 
-ADDQUESTION
+Program to verify if a given stream of continous bytes represent a valid text (Human readable) or is it a binary (like image / video / audio).
+
 
 Solution
 --------
