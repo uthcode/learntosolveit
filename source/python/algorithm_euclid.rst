@@ -1,11 +1,11 @@
-======
-Euclid
-======
+=========================
+Euclid method to find GCD
+=========================
 
 Question
 --------
 
-ADDQUESTION
+Euclid's method to determine the greatest common divisor between two numbers.
 
 Solution
 --------
