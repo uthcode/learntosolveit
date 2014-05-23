@@ -1,11 +1,15 @@
-========
-Cellauto
-========
+=================
+Cellular Automata
+=================
 
 Question
 --------
 
-ADDQUESTION
+This generates a beautiful cellular automata pattern, following the rules of cellular automata evolution.
+
+
+..image:: https://lh4.googleusercontent.com/_ny1HYbb2lDw/Tazon5TsgXI/AAAAAAAAKgU/ud6v_XhcHB0/s288/bs.png
+
 
 Solution
 --------
