@@ -20,6 +20,36 @@ like ``the,'' ``and,'' and so on.
 Explaination
 ============
 
+Here is an example execution of this program.
+
+This is a
+cross reference
+word
+document
+creator
+lists words and their line numbers.
+Gets the word and puts their line numbers.
+x
+
+Words with line numbers
+
+Gets :6,
+This :0,
+a :0,
+and :5,6,
+creator :4,
+cross :1,
+document :3,
+is :0,
+line :5,6,
+lists :5,
+numbers :5,6,
+puts :6,
+reference :1,
+the :6,
+their :5,6,
+word :2,6,
+words :5,
 
 
 .. seealso::
