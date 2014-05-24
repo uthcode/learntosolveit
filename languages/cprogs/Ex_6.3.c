@@ -1,7 +1,17 @@
-/* Write a cross-referencer that prints a list of all words in a document,
- * and for each word, a list of the line numbers  
- * on which it occurs. Remove noise words like "the" and "and" so on.  
+ /*
+ * Write a cross-referencer that prints a list of all words in a document, and for each word, a list of the line numbers
+ * on which it occurs. Remove noise words like "the" and "and" so on.
+ *
+ */
+
+
+/*
+ * 1. Add all the word structures (word structure will have word and line numbers to the tree.
+ * 2. A word can occur in more than one line, if the same word is found and the new line number to the line numbers.
+ * 3. So line numbers should be a linked list of numbers.
+ * 4. Print it.
  * */
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +19,7 @@
 #include <string.h>
 #include <limits.h>
 
-#define MAXWORD 1000     /* longest word that can be read by getword */
+#define MAXWORD 1000     /* longest word that can be read by mgetword */
 #define DEFAULT_COMP_LEN 8  /* default length to compare */
 
 /*
@@ -20,9 +30,14 @@ struct tnode
 {
     char *word;
     int count;
-    int linenumber;
+    struct linenumber *linenumbers;
     struct tnode *left;
     struct tnode *right;
+};
+
+struct linenumber {
+    int *number;
+    struct linenumber *nextnumber;
 };
 
 /*
@@ -50,16 +65,13 @@ struct simword
 struct tnode *addtree(struct tnode *, char *, int);
 void treeprint(const struct tnode *);
 int mgetword(char *, int, int *);
-struct simroot *addroot(struct simroot *, struct tnode *, int);
-struct simroot *parse(struct tnode *, int);
-void printlist(struct simroot *, int);
-void printwords(struct simword *);
+struct linenumber *lnumberalloc(void);
+struct linenumber *addlinenumber(struct linenumber *, int);
 
 int main(int argc, char *argv[])
 {
     struct tnode *root;
     char word[MAXWORD];
-    struct simroot *listroot;
     int len;
     int lineno = 0;
 
@@ -79,153 +91,20 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    /* parse the tree to find similar words and populate list */
-    listroot = NULL;
-    listroot = parse(root, len);
+    printf("Words with line numbers\n");
+
     treeprint(root);               /* prints all the words */
-    printf("\nDuplicate list:\n\n");
-    printlist(listroot, len);      /* prints the similar words */
 
     return 0;
 } /* end of main() */
 
-/*
- * parse: Reads the tree created by getword.  It finds words that are
- * similar in the first len letters and places them in the list structure
- * that it creates.
- */
-struct simroot *parse(struct tnode *node, int len)
-{
-    struct tnode *temp; /* pointer to the children of the node */
-    int this_len;       /* length of the word in the current node */
-    static struct simroot *root = NULL; /* points to the root of the tree */
-
-    if(node == NULL)
-        return NULL;
-
-    this_len = strlen(node->word);
-
-    parse(node->left, len); /* start in the left subtree */
-
-    temp = node->left;      /* find the closest left child and compare */
-    if(temp != NULL) {
-        while(temp->right != NULL)
-            temp = temp->right;
-        /* if the word matches, put both words in the list */
-        if(this_len >= len && strncmp(temp->word, node->word, len) == 0) {
-            root = addroot(root, temp, len);
-            addroot(root, node, len);
-        }
-    }
-
-    temp = node->right;    /* find the closest right child and compare */
-    if(temp != NULL) {
-        while(temp->left != NULL)
-            temp = temp->left;
-        /* if the word matches, put both words in the list */
-        if(this_len >= len && strncmp(temp->word, node->word, len) == 0) {
-            root = addroot(root, node, len);
-            addroot(root, temp, len);
-        }
-    }
-
-    parse(node->right, len);  /* continue on to right subtree */
-
-    return root;
-}
-
-/*
- * printlist: Prints the roots that were similar, followed by the list
- * of words.
- */
-void printlist(struct simroot *p, int len)
-{
-    int i;
-    if(p == NULL)
-        return;
-    for(i = 0; i < len; ++i)    /* print the root */
-        putchar(p->firstword->word[i]);
-    putchar('\n');
-    printwords(p->firstword);   /* print the list of words */
-    printlist(p->nextroot, len); /* print the next root/list */
-}
-
-/*
- * printword: Prints the list of words with the same roots.
- */
-void printwords(struct simword *p)
-{
-    printf("Line number: %d\n",p->linenumber);
-    if(p->nextword != NULL)
-        printwords(p->nextword);
-}
-
 struct tnode *talloc(void);
 char *mstrdup(char *);
-struct simword *walloc(struct simword *, struct tnode *);
-void addword(struct simword *, struct tnode *);
-
-/*
- * addroot: When a node n is passed to addroot, n->word is compared to the
- * first word in ps list.  If they have are the same for the first 'len'
- * characters, then the word is added to that list.  Otherwise, it is passed
- * along the simroots until it reaches the end, where a new simroot is
- * created if the word has a new root.
- */
-struct simroot *addroot(struct simroot *p, struct tnode *n, int len)
-{
-    /* end of list, create a new root */
-    if(p == NULL) {
-        p = (struct simroot *) malloc(sizeof(struct simroot));
-        p->nextroot = NULL;
-        p->firstword = walloc(p->firstword, n);
-    }
-    /* word belongs to this list, add it */
-    else if(strncmp(p->firstword->word, n->word, len) == 0)
-        addword(p->firstword, n);
-    /* haven't found the right root or end yet */
-    else
-        p->nextroot = addroot(p->nextroot, n, len);
-    return p;
-}
-
-/*
- * addword: Compares the word from n to the word in p.  If they are the same,
- * the word was already added and it returns.  This continues down the list
- * until the end, where a new node is created if the word is new.
- */
-void addword(struct simword *p, struct tnode *n)
-{
-    /* word was already added */
-    if(strcmp(p->word, n->word) == 0)
-        return;
-    /* end of list. create a new node */
-    if(p->nextword == NULL)
-        p->nextword = walloc(p->nextword, n);
-    /* haven't reached the end yet */
-    else
-        addword(p->nextword, n);
-}
-
-/* walloc: Creates a new simword node. */
-struct simword *walloc(struct simword *p, struct tnode *n)
-{
-    p = (struct simword *) malloc(sizeof(struct simword));
-    if(p != NULL) {
-        p->word = n->word;
-        p->count = n->count;
-        p->linenumber = n->linenumber;
-        p->nextword = NULL;
-    }
-    return p;
-}
 
 /* mgetword from Ex6.1 */
 
 #define IN 1
 #define OUT 0
-
-
 
 int mgetword(char *word, int lim, int *lineno_addr)
 {
@@ -236,11 +115,11 @@ int mgetword(char *word, int lim, int *lineno_addr)
     comment = string = directive = OUT;
 
     while (isspace(c = getch())) {
-    	if (c == '\n') {
+        if (c == '\n') {
 
-    		*lineno_addr = *lineno_addr +1;
+            *lineno_addr = *lineno_addr +1;
 
-    	}
+        }
     }
 
     /* Check if inside a comment */
@@ -350,12 +229,13 @@ struct tnode *addtree(struct tnode *p, char *w, int linenumber)
         p = talloc();
         p->word = mstrdup(w);
         p->count = 1;
-        p->linenumber = linenumber;
+        p->linenumbers = NULL;
+        p->linenumbers = addlinenumber(p->linenumbers, linenumber);
         p->left = p->right = NULL;
     }
     else if((cond = strcmp(w, p->word)) == 0) {
         p->count++;
-        /* Deal with duplicate words */
+        p->linenumbers = addlinenumber(p->linenumbers, linenumber);
     }
     else if(cond < 0)
         p->left = addtree(p->left, w, linenumber);
@@ -364,13 +244,38 @@ struct tnode *addtree(struct tnode *p, char *w, int linenumber)
     return p;
 }
 
+struct linenumber *addlinenumber(struct linenumber *p, int linenumber) {
+    if (p == NULL) {
+        p = lnumberalloc();
+        p->number = linenumber;
+        p->nextnumber = NULL;
+    } else {
+        p->nextnumber = addlinenumber(p->nextnumber, linenumber);
+    }
+
+    return p;
+}
+
+struct linenumber *lnumberalloc(void)
+{
+    return (struct linenumber *) malloc(sizeof(struct linenumber));
+}
+
 /* treeprint: From K&R2 page 142. Prints tree p in-order. */
 void treeprint(const struct tnode *p)
 {
     if(p != NULL) {
         treeprint(p->left);
-        printf("%s -> %4d\n", p->word, p->linenumber);
+        printf("\n%s :", p->word);
+        printnumbers(p->linenumbers);
         treeprint(p->right);
+    }
+}
+
+void printnumbers(const struct linenumber *p) {
+    if (p != NULL) {
+        printf("%d,", p->number);
+        printnumbers(p->nextnumber);
     }
 }
 
