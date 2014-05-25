@@ -19,6 +19,23 @@ decreasing order of frequency of occurrence. Precede each word by its count.
 Explaination
 ============
 
+::
+
+    ab
+    ab
+    bc
+    cd
+    ef
+    gh
+    ab
+    x
+    Words and their frequencies:
+    bc->1
+    cd->1
+    ef->1
+    gh->1
+    ab->3
+
 
 
 .. seealso::
