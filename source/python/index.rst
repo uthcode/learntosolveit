@@ -24,6 +24,10 @@ This is an implementation of a well known CS algorithm.
    algorithm_euclid
    algorithm_fact_with_memo
    algorithm_fact2
+   algorithm_fibo
+   algorithm_fibo2
+   algorithm_fri_13
+   algorithm_graph
 
 Design
 ======
