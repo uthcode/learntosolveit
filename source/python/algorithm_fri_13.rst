@@ -1,11 +1,12 @@
-=====
-fri13
-=====
+===============
+Friday the 13th
+===============
 
 Question
 --------
 
-ADDQUESTION
+Calculate the number of Friday the 13th from 1900 to 2009.
+
 
 Solution
 --------
