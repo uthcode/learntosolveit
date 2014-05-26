@@ -1,11 +1,12 @@
-====
-hist
-====
+==================
+Vertical Histogram
+==================
 
 Question
 --------
 
-ADDQUESTION
+Given a sentence, write a program that prints the vertical histogram of frequency of words in the sentence.
+
 
 Solution
 --------

@@ -1,6 +1,6 @@
-===================
-Exercise 6.5 - TODO
-===================
+===========================================================
+Exercise 6.5 - undef: remove name and definition from table
+===========================================================
 
 Question
 ========
@@ -19,8 +19,19 @@ maintained by lookup and install.
 Explaination
 ============
 
+Sample run of this program.
 
+::
 
+	key1->value1
+	key2->value2
+	key3->value3
+	key not found
+	key1->value1
+	key2->value2
+	key not found
+
+	
 .. seealso::
 
    * :c-suggest-improve:`Ex_6.5.c`

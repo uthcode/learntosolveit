@@ -1,6 +1,6 @@
-===================
-Exercise 6.6 - TODO
-===================
+===============================
+Exercise 6.6 - define processor
+===============================
 
 Question
 ========
@@ -19,6 +19,13 @@ also find getch and ungetch helpful.
 
 Explaination
 ============
+
+Example output.
+
+::
+
+	#define key value x
+	key->value
 
 
 

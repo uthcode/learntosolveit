@@ -1,11 +1,11 @@
-=======
-Hexlify
-=======
+==============================
+Encode a String to Hexadecimal
+==============================
 
 Question
 --------
 
-ADDQUESTION
+Write a program to encode a string to hexadecimal.
 
 Solution
 --------
