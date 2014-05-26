@@ -28,6 +28,15 @@ This is an implementation of a well known CS algorithm.
    algorithm_fibo2
    algorithm_fri_13
    algorithm_graph
+   algorithm_hanoi
+   algorithm_hanoi1
+   algorithm_hexlify
+   algorithm_hist
+   algorithm_insertion
+   algorithm_int_to_roman
+   algorithm_is_combination
+   algorithm_is_sorted
+   algorithm_leibniz
 
 Design
 ======

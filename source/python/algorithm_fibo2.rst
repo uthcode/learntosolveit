@@ -1,11 +1,11 @@
-=====
-fibo2
-=====
+=============
+Fibonacci - 2
+=============
 
 Question
 --------
 
-ADDQUESTION
+Implement the fibonacci series.
 
 Solution
 --------
