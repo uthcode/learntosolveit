@@ -6,8 +6,8 @@ This is the C programming language section. Our intention is to present the prog
 If you like that book or like to learn C, you may find this interesting.
 
 
-Chapter 1
-=========
+Chapter 1. A Tutorial Introduction
+==================================
 
 .. toctree::
    :maxdepth: 1
@@ -52,8 +52,8 @@ Chapter 1
    Ex_1.23_remcomments
    Ex_1.24_synerrors
 
-Chapter 2 
-=========   
+Chapter 2. Types, Operators and Expressions
+===========================================
 
 .. toctree::
    :maxdepth: 1
@@ -69,8 +69,8 @@ Chapter 2
    Ex_2.9_bitcount2s
    Ex_2.10_lowercondit
 
-Chapter 3
-=========
+Chapter 3. Control Flow
+=======================
 
 .. toctree::
    :maxdepth: 1
@@ -82,8 +82,8 @@ Chapter 3
    Ex_3.5_itob
    Ex_3.6_itoa-3
 
-Chapter 4
-=========   
+Chapter 4. Functions and Program Structure
+==========================================
 
 .. toctree::
    :maxdepth: 1
@@ -106,8 +106,8 @@ Chapter 4
    Ex_4.13_reverse_string
    Ex_4.14_swap_t_x_y
 
-Chapter 5
-=========   
+Chapter 5. Pointers and Arrays
+==============================
 
 .. toctree::
    :maxdepth: 1
@@ -135,8 +135,8 @@ Chapter 5
    Ex_5.19_undcl
    Ex_5.20_dcl-funcargs
 
-Chapter 6
-=========   
+Chapter 6. Structures
+=====================   
 
 .. toctree::
    :maxdepth: 1
@@ -149,8 +149,8 @@ Chapter 6
    Ex_6.5
    Ex_6.6
 
-Chapter 7
-=========   
+Chapter 7. Input and Output
+===========================  
 
 .. toctree::
    :maxdepth: 1
@@ -165,8 +165,8 @@ Chapter 7
    Ex_7.8
    Ex_7.9
 
-Chapter 8
-=========   
+Chapter 8. The Unix System Interface
+====================================   
 
 .. toctree::
    :maxdepth: 1
@@ -179,6 +179,13 @@ Chapter 8
    Ex_8.6_calloc
    Ex_8.7_malloc
    Ex_8.8_bfree
+
+Interesting Unclassfied Programs
+================================
+
+.. toctree::
+   :maxdepth: 1
+   
    rightrot
    any
    atof
