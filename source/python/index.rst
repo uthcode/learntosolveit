@@ -24,6 +24,19 @@ This is an implementation of a well known CS algorithm.
    algorithm_euclid
    algorithm_fact_with_memo
    algorithm_fact2
+   algorithm_fibo
+   algorithm_fibo2
+   algorithm_fri_13
+   algorithm_graph
+   algorithm_hanoi
+   algorithm_hanoi1
+   algorithm_hexlify
+   algorithm_hist
+   algorithm_insertion
+   algorithm_int_to_roman
+   algorithm_is_combination
+   algorithm_is_sorted
+   algorithm_leibniz
 
 Design
 ======
