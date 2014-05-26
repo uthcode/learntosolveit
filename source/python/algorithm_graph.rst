@@ -1,12 +1,12 @@
-=====
-graph
-=====
+====================
+Representing a Graph
+====================
 
 Question
 --------
 
-ADDQUESTION
-
+Represent a Graph of V nodes and E edges in Python.
+ 
 Solution
 --------
 
