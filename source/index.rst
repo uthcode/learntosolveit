@@ -7,10 +7,22 @@
 Uthcode
 =======
 
-Stay updated via `Uthcode blog`_ or follow me on twitter `@phoe6`_
+Uthcode is a platform to learn programming using problem solving approach.
+
+A language is learnt by writing code, solving problems which demonstrate the
+features of the language and also lend to certian amount of creative problem
+solving. The problems and solutions in Uthcode can easily be verified by running
+on ideone sandbox. And collabration and improvement is possible by sending a
+pull request via Github.
+
+
+Happy Hacking!
+
+
+Stay updated via `Uthcode blog`_ or follow uthcode on twitter `@uthcode`_
 
 .. _Uthcode blog: http://blog.uthcode.com
-.. _@phoe6: http://www.twitter.com/phoe6
+.. _@phoe6: http://www.twitter.com/uthcode
 
 
 C Programming Language
