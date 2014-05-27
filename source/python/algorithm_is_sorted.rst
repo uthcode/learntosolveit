@@ -1,11 +1,11 @@
-=========
-Is Sorted
-=========
+===================
+Is the list Sorted?
+===================
 
 Question
 --------
 
-ADDQUESTION
+Without using the builtin sorted function or list sort method, can you find if a given list is sorted?
 
 Solution
 --------
