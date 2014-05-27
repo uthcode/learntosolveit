@@ -5,6 +5,11 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+
+/*undef will be if it is just hashtable. Remove it.
+ * If it is in linked list, delete from linked list.
+ */
+
 /* nlist from K&R Page 144 */
 
 struct nlist { 				/* table entry: */
@@ -68,16 +73,60 @@ struct nlist *install(char *name, char *defn)
 	return np;
 }
 
+struct nlist *undef(char *name) {
+	struct nlist *found;
+
+	found = lookup(name);
+
+	if (found == NULL) /* not found and nothing to do */
+		return NULL;
+	else {
+		if (found->next != NULL) {
+			found->next = found->next->next;
+			found = found->next;
+		} else {
+			hashtab[hash(name)] = NULL;
+			free((void *) found);
+		}
+	}
+	return found;
+}
+
 
 int main(int argc, char *argv[])
 {
-	struct nlist *n;
+	struct nlist *table[4] = {
+			(install("key", "value")),
+			(install("key1", "value1")),
+			(install("key2", "value2")),
+			(install("key3", "value3"))
+	};
 
-	n = install("key", "value");
-	n = install("key1", "value1");
+	int i;
 
-	for(; n !=NULL; n=n->next) {
-		printf("%s->%s", n->name, n->defn);
+	for (i=0; i < 4; i++) {
+		printf("%s->%s\n", table[i]->name, table[i]->defn);
 	}
 
+	undef("key");
+	undef("key3");
+
+	struct nlist *result;
+
+	char *keys[4] = {
+			"key",
+			"key1",
+			"key2",
+			"key3"
+	};
+
+	for (i = 0; i < 4; i++) {
+		if ((result = lookup(keys[i])) == NULL) {
+			printf("key not found\n");
+		} else {
+			printf("%s->%s\n", result->name, result->defn);
+		}
+	}
+
+	return 0;
 }
