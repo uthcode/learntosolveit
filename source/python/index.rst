@@ -37,6 +37,15 @@ This is an implementation of a well known CS algorithm.
    algorithm_is_combination
    algorithm_is_sorted
    algorithm_leibniz
+   algorithm_lexical_analyzer_1
+   algorithm_locate
+   algorithm_maxsort
+   algorithm_mergesort
+   algorithm_npuzzle
+   algorithm_number_sets
+   algorithm_peepholeoptimization
+   algorithm_prime_1
+   algorithm_py3AES
 
 Design
 ======
