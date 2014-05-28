@@ -180,8 +180,8 @@ Chapter 8. The Unix System Interface
    Ex_8.7_malloc
    Ex_8.8_bfree
 
-Interesting Unclassfied Programs
-================================
+Interesting Uncategorized Programs
+==================================
 
 .. toctree::
    :maxdepth: 1
