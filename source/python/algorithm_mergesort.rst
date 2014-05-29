@@ -5,7 +5,7 @@ Mergesort
 Question
 --------
 
-ADDQUESTION
+Demonstrate the merge sort sorting algorithm in Python.
 
 Solution
 --------

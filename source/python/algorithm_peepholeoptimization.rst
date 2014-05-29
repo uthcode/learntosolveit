@@ -1,11 +1,11 @@
-====================
-Peepholeoptimization
-====================
+======================
+Peep hole optimization
+======================
 
 Question
 --------
 
-ADDQUESTION
+Demonstrate peep hole optimization using Python.
 
 Solution
 --------

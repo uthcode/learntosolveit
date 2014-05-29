@@ -5,7 +5,24 @@ Lexical Analyzer
 Question
 --------
 
-ADDQUESTION
+Write a Lexical Analyzer for the tokens.
+
+::
+
+   # Write the lexical analyzer for the tokens:
+   # Regular Expression    Tokens  Attribute-Value
+   # ws                    -       -
+   # if                    if      -
+   # then                  then    -
+   # else                  else    -
+   # id                    id      pointer to table entry
+   # num                   num     pointer to table entry
+   # <                     relop   LT
+   # <=                    relop   LE
+   # =                     relop   EQ
+   # <>                    relop   NE
+   # >                     relop   GT
+   # >=                    relop   GE
 
 Solution
 --------

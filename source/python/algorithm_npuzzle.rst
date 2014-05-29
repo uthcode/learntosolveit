@@ -5,7 +5,7 @@ Npuzzle
 Question
 --------
 
-ADDQUESTION
+Implement an N-Puzzle solver in Python.
 
 Solution
 --------
