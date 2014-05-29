@@ -42,7 +42,6 @@ This is an implementation of a well known CS algorithm.
    algorithm_maxsort
    algorithm_mergesort
    algorithm_npuzzle
-   algorithm_number_sets
    algorithm_peepholeoptimization
    algorithm_prime_1
    algorithm_py3AES
