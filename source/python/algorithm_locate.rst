@@ -5,7 +5,7 @@ Locate
 Question
 --------
 
-ADDQUESTION
+Write a program to locate a given file in the file system.
 
 Solution
 --------
