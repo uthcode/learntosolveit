@@ -1,11 +1,12 @@
-=======
-Maxsort
-=======
+===================================
+Maxsort - Selection Sort in reverse
+===================================
 
 Question
 --------
 
-ADDQUESTION
+Demonstrate selection sort, but sort using the max value.
+
 
 Solution
 --------
