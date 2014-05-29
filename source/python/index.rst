@@ -45,6 +45,16 @@ This is an implementation of a well known CS algorithm.
    algorithm_peepholeoptimization
    algorithm_prime_1
    algorithm_py3AES
+   algorithm_py3rsa
+   algorithm_pyex_multiprocessing
+   algorithm_pyex2_multiprocessing
+   algorithm_pyrsa
+   algorithm_quick_select
+   algorithm_quick_sort
+   algorithm_quicksort
+   algorithm_quicksort2
+   algorithm_scrmable
+   algorithm_sorting_ex1
 
 Design
 ======
