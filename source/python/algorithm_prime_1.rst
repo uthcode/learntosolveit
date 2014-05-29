@@ -1,11 +1,11 @@
-=======
-Prime 1
-=======
+=====================
+Prime Numbers Example
+=====================
 
 Question
 --------
 
-ADDQUESTION
+Generate first n prime numbers.
 
 Solution
 --------
