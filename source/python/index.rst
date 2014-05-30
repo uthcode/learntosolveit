@@ -54,6 +54,16 @@ This is an implementation of a well known CS algorithm.
    algorithm_quicksort
    algorithm_scrmable
    algorithm_sorting_ex1
+   algorithm_spelling
+   algorithm_splitter
+   algorithm_subtract_hexadecimals
+   algorithm_syllablecount
+   algorithm_textreplace
+   algorithm_token_bucket
+   algorithm_toss_coins
+   algorithm_traversal
+   algorithm_tree
+   algorithm_tree2
 
 Design
 ======
