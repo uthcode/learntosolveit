@@ -5,7 +5,7 @@ Quick Select
 Question
 --------
 
-ADDQUESTION
+Select the n greatest number using quick select algorithm.
 
 Solution
 --------
