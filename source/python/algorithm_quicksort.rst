@@ -5,7 +5,8 @@ Quicksort
 Question
 --------
 
-ADDQUESTION
+Implement Quicksort algorithm; Implement the pivot element section.
+
 
 Solution
 --------

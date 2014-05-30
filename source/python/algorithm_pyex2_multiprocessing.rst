@@ -5,7 +5,7 @@ Pyex2 Multiprocessing
 Question
 --------
 
-ADDQUESTION
+Compute the factorial of number. Demonstrate the use of multiprocessing.
 
 Solution
 --------

@@ -5,7 +5,7 @@ Pyex Multiprocessing
 Question
 --------
 
-ADDQUESTION
+Compute the factorial of a number. Demonstrate use of multiprocessing Pool.
 
 Solution
 --------

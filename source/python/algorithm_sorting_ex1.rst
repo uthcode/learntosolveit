@@ -5,7 +5,7 @@ Sorting Ex1
 Question
 --------
 
-ADDQUESTION
+Demonstrate sorting and the use of key parameter.
 
 Solution
 --------

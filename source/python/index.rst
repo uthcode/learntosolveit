@@ -52,7 +52,6 @@ This is an implementation of a well known CS algorithm.
    algorithm_quick_select
    algorithm_quick_sort
    algorithm_quicksort
-   algorithm_quicksort2
    algorithm_scrmable
    algorithm_sorting_ex1
 
