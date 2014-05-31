@@ -58,7 +58,6 @@ This is an implementation of a well known CS algorithm.
    algorithm_splitter
    algorithm_subtract_hexadecimals
    algorithm_syllablecount
-   algorithm_textreplace
    algorithm_token_bucket
    algorithm_toss_coins
    algorithm_traversal
