@@ -1,1 +1,2 @@
 https://dl.dropbox.com/s/v89f46qwspl9lpp/sphinxcontrib-runcode-0.0.5.tar.gz
+https://dl.dropbox.com/s/jdlfg1gvgkvl76p/sphinx-git-10.tar.gz

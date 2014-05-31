@@ -43,7 +43,6 @@ Python
    python
    pythondesign
    pythonstart
-   pythonhttp
    pythonnetworking
    pycon2009
    pylons
@@ -60,17 +59,7 @@ Computer Science
    topcoder
    games
 
-Languages
-=========
-
-.. toctree::
-   :maxdepth: 2
-
-   cpp
-   javascript
-   perl
-   ruby
- 
+   
 Projects
 ========
 
@@ -105,4 +94,6 @@ General
    discipline-score
    projectideas
    thanks
+
+.. git_changelog::
 
