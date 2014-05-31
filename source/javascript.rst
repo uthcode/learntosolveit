@@ -127,16 +127,18 @@ types
 
 types in javascript are
 
-* Numbers
-* Strings
-* Boolean
-* Objects
-   * Functions
-   * Arrays
-   * Dates
-   * Regular Expression.
-* Undefined
-* Null
+::
+
+    * Numbers
+    * Strings
+    * Boolean
+    * Objects
+       * Functions
+       * Arrays
+       * Dates
+       * Regular Expression.
+    * Undefined
+    * Null
 
 New variables in JavaScript are declared using the var keyword. Variable names
 in JavaScript is case sensitive.  And it's scope remains local to that block.
@@ -195,11 +197,13 @@ Javascript Objects are simply collections of name-value pairs.  The name part
 is a string and value is a primitive (or trivial primitive) or another
 Javascript object.The keys of the object are also called object's properties.
 
-* Dictionaries in Python
-* Hashes in Perl and Python
-* Hash Tables in C and C++
-* HashMaps in Java
-* Associative arrays in PHP
+::
+
+    * Dictionaries in Python
+    * Hashes in Perl and Python
+    * Hash Tables in C and C++
+    * HashMaps in Java
+    * Associative arrays in PHP
 
 There are 3 primitives:  number, string, and boolean. Trivial primitives are
 null and undefined And don't confuse number with Number and string with String
@@ -250,20 +254,22 @@ to the function.
 
 The nameless functions are useful and clever because it allows you to put a
 function in the place where an expression would be desirable. The "named
-anonymous function" concept is what I see all the while in the Javascript.::
+anonymous function" concept is what I see all the while in the Javascript.
 
-        function makePerson(first, last) {
-                return {
-                        first: first,
-                        last: last,
-                        fullName: function() {
-                                return this.first + this.last;
-                                },
-                        fullNameReversed: function() {
-                                return this.last + this.first;
-                                }
-                       }
-        }
+::
+
+    function makePerson(first, last) {
+            return {
+                    first: first,
+                    last: last,
+                    fullName: function() {
+                            return this.first + this.last;
+                            },
+                    fullNameReversed: function() {
+                            return this.last + this.first;
+                            }
+                   }
+    }
 
 functions attached to parent function is part of the lookup chain. The special
 name for it is "prototype chain". Javascript allows you to call functions
@@ -275,18 +281,18 @@ Since arguments.callee is the current function and all functions are objects,
 you can use arguments.callee to save information across multiple calls to the
 same function.
 
-        ::
+::
 
-                function Person(first, last) {
-                    this.first = first;
-                    this.last = last;
-                }
-                Person.prototype.fullName = function() {
-                    return this.first + ' ' + this.last;
-                }
-                Person.prototype.fullNameReversed = function() {
-                    return this.last + ', ' + this.first;
-                }
+    function Person(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+    Person.prototype.fullName = function() {
+        return this.first + ' ' + this.last;
+    }
+    Person.prototype.fullNameReversed = function() {
+        return this.last + ', ' + this.first;
+    }
 
 Person.prototype is an object shared by all instances of Person. It forms part
 of a lookup chain (that has a special name, "prototype chain"): any time you
@@ -299,33 +305,32 @@ existing objects at runtime.
 
 ::
 
-
-        > s = new Person("Simon", "Willison");
-        > s.firstNameCaps();
-        TypeError on line 1: s.firstNameCaps is not a function
-        > Person.prototype.firstNameCaps = function() {
-            return this.first.toUpperCase()
-        }
-        > s.firstNameCaps()
-        SIMON
+    > s = new Person("Simon", "Willison");
+    > s.firstNameCaps();
+    TypeError on line 1: s.firstNameCaps is not a function
+    > Person.prototype.firstNameCaps = function() {
+        return this.first.toUpperCase()
+    }
+    > s.firstNameCaps()
+    SIMON
 
 Can add prototypes for the built-in JavaScript objects. Lets add a method to
 the string which returns the string in reverse.
 
 :: 
 
-        > var s = "Simon";
-        > s.reversed()
-        TypeError on line 1: s.reversed is not a function
-        > String.prototype.reversed = function() {
-            var r = "";
-            for (var i = this.length - 1; i >= 0; i--) {
-                r += this[i];
-            }
-            return r;
+    > var s = "Simon";
+    > s.reversed()
+    TypeError on line 1: s.reversed is not a function
+    > String.prototype.reversed = function() {
+        var r = "";
+        for (var i = this.length - 1; i >= 0; i--) {
+            r += this[i];
         }
-        > s.reversed()
-        nomiS
+        return r;
+    }
+    > s.reversed()
+    nomiS
 
 And this works on string literals too. Wow.
 
@@ -511,21 +516,21 @@ Javascript Coding Standards
 Questions
 =========
 
-var name = o && o.getName()  What will this be set to?
-------------------------------------------------------
+**var name = o && o.getName()  What will this be set to?**
 
-How is the below expression evaluated?
---------------------------------------
+**How is the below expression evaluated?**
 
-``$('.task-edit .parent-entity-fields input').removeAttr('disabled');`` What is happening here with .task-edit, .parent-entity-fields??
+::
+
+    $('.task-edit .parent-entity-fields input').removeAttr('disabled');
+
+    What is happening here with .task-edit, .parent-entity-fields??
 
 These are all classes which are searched from left to right.
 
-How do you implement namespaces in Javascript?
-----------------------------------------------
+**How do you implement namespaces in Javascript?**
 
-What is this.something in javascript?
--------------------------------------
+**What is this.something in javascript?**
 
 Code
 ----
@@ -537,7 +542,6 @@ This snippet returns the Date object.
 * new Date
 
 It should return - (object) Sat Aug 27 2011 04:04:22 GMT-0400 (EDT)
-
 
 Converting the Date() to int. The following are equivalent.
 
@@ -556,23 +560,25 @@ more of) in prodcast.  In brief
 - javascript modules exposing clean, minimal interfaces
 - pubsub or events to avoid direct dependencies between modules
 
-    http://addyosmani.com/largescalejavascript/
+* http://addyosmani.com/largescalejavascript/
 
 
 15 days of JQuery
 -----------------
 
-http://15daysofjquery.com/quicker/4/
+* http://15daysofjquery.com/quicker/4/
 
 Sometimes window.onload is not quick enough and you want to javascript
 immediate after DOM is ready. That is why jQuery's $(document).ready() comes
 into picture.
 
-$(document).ready(
+::
 
-// Write javascript functions
+    $(document).ready(
 
-)
+    // Write javascript functions
+
+    )
 
 You can use it to launch any kind of javascript you like. It does not have to
 be reserved for jQuery style coding and there is nothing wrong with telling
@@ -581,43 +587,45 @@ init function, but just a damn lot faster.
 
 Zebra stripping made easy
 
-http://docs.jquery.com/Tutorials:Zebra_Striping_Made_Easy
+* http://docs.jquery.com/Tutorials:Zebra_Striping_Made_Easy
 
 Excellent Introduction to Jquery
 --------------------------------
 
 By doing a Zebra table showdown
 
-http://blog.jquery.com/2006/10/18/zebra-table-showdown/
+* http://blog.jquery.com/2006/10/18/zebra-table-showdown/
 
 Move way from table layouts and do the table in CSS.
 
 Jquery
 ------
 
-Lochlan: phoe6; have you googled, javascript magnifier, or jquery magnifier
-Senthil: Lochlan: I should do that. thanks.
-eighty4: phoe6: looks like a standard js zoomer
-Lochlan: phoe6: no worries, that's how i get by just type 'jquery + verb'
-Lochlan: usually works :)
-eighty4: phoe6: all it does is basically tracking x,y on the main image and overlaying that with a bigger image
-Senthil: yeah, got it. http://jdbartlett.com/loupe/
-Senthil: it is brilliant.
-Lochlan: phoe6: good stuff
-Lochlan: too easy
-Senthil: I discovered jquery (as a programmer) who weeks ago only and I should say that I am falling in love with it.
-Senthil: the idea of dom manipulation is amazing. just today I looked at the 2006 tutorials (some were broken) and I felt, wow It took is me so long to get into this.
-Lochlan: phoe6: i'm not a programmer, but damn jquery is easy
-Senthil: Lochlan: seriously? i don't get that when you say it. jquery, I think is serious programming stuff.
-Senthil: perhaps you are downplaying yourself. :)
-Lochlan: phoe6: i've just rolled with it, first used plugins.. then starting reading plugins to modify, then started writing it myself, now i just write everything from scratch and barely use other people's code
-Senthil: wonderful, that's good to know.
-Lochlan: phoe6: story of my life
-Senthil: :)
-Lochlan: i just wrote quite large web app using jquery, before that all i had evr done was basic dom manipulation
-Lochlan: it's a start up and they have no $$ so i'm not getting paid anymore :/
-Lochlan: just use google and a bit of logic and you can work it all out
-Lochlan: if you know css you're halfway to jquery anyway
+::
+
+    Lochlan: phoe6; have you googled, javascript magnifier, or jquery magnifier
+    Senthil: Lochlan: I should do that. thanks.
+    eighty4: phoe6: looks like a standard js zoomer
+    Lochlan: phoe6: no worries, that's how i get by just type 'jquery + verb'
+    Lochlan: usually works :)
+    eighty4: phoe6: all it does is basically tracking x,y on the main image and overlaying that with a bigger image
+    Senthil: yeah, got it. http://jdbartlett.com/loupe/
+    Senthil: it is brilliant.
+    Lochlan: phoe6: good stuff
+    Lochlan: too easy
+    Senthil: I discovered jquery (as a programmer) who weeks ago only and I should say that I am falling in love with it.
+    Senthil: the idea of dom manipulation is amazing. just today I looked at the 2006 tutorials (some were broken) and I felt, wow It took is me so long to get into this.
+    Lochlan: phoe6: i'm not a programmer, but damn jquery is easy
+    Senthil: Lochlan: seriously? i don't get that when you say it. jquery, I think is serious programming stuff.
+    Senthil: perhaps you are downplaying yourself. :)
+    Lochlan: phoe6: i've just rolled with it, first used plugins.. then starting reading plugins to modify, then started writing it myself, now i just write everything from scratch and barely use other people's code
+    Senthil: wonderful, that's good to know.
+    Lochlan: phoe6: story of my life
+    Senthil: :)
+    Lochlan: i just wrote quite large web app using jquery, before that all i had evr done was basic dom manipulation
+    Lochlan: it's a start up and they have no $$ so i'm not getting paid anymore :/
+    Lochlan: just use google and a bit of logic and you can work it all out
+    Lochlan: if you know css you're halfway to jquery anyway
 
 Here's how jQuery attacks the problem.
 
@@ -637,14 +645,11 @@ And then the images would be styled like so:
 
 
 * $(document).ready() is jQuery's version of window.onload()
-* $("img.dropshadow") tells jQuery to find all images with the class name
-"dropshadow". If you wanted to use an id instead, you could do something like
-$("img#dropshadow")
-* wrap() tells jQuery to use the DOM (Document Object Method Model) to wrap the
-images with the class="dropshadow" in the html inside the parenthesis.
+* $("img.dropshadow") tells jQuery to find all images with the class name "dropshadow". If you wanted to use an id instead, you could do something like $("img#dropshadow")
+* wrap() tells jQuery to use the DOM (Document Object Method Model) to wrap the images with the class="dropshadow" in the html inside the parenthesis.
 
-Exercise
---------
+
+**Exercise**
 
 Explain the behavior of these jQuery methods append(), prepend(), before(),
 after(), html(), and remove().
@@ -685,8 +690,8 @@ containing the string ‘style’”.
 
 ::
 
-                this.disabled = true;
-                if (this.getAttribute('title') == styleName) this.disabled = false;
+    this.disabled = true;
+    if (this.getAttribute('title') == styleName) this.disabled = false;
 
 “Disable every stylesheet link but then un-disable any link where the “title”
 attribute is the same as the value passed to the switchStylestyle function”
@@ -702,16 +707,16 @@ clicked.
 
 Whew!
 
-JQuery style switcher example - http://www.kelvinluck.com/assets/jquery/styleswitch/toggle.html
+JQuery style switcher example 
 
+* http://www.kelvinluck.com/assets/jquery/styleswitch/toggle.html
 
 How would we take a html and use jQuery to clean up the code?
 
 First we need a “hook” – a unique html element, or an id, or a class name – to
 tell jQuery to target.
 
-Rounded box example
--------------------
+**Rounded box example**
 
 ::
 
@@ -792,26 +797,22 @@ jQuery’s flexibility allows me to use CSS and XPath descriptions to target spe
 
 thickbox
 
-http://jquery.com/demo/thickbox/
+* http://jquery.com/demo/thickbox/
 
-JQuery Interface Plugins
-------------------------
+**JQuery Interface Plugins**
 
-http://interface.eyecon.ro/download
+* http://interface.eyecon.ro/download
 
-Puzzle demo
------------
+**Puzzle demo**
 
-http://madrobby.github.com/scriptaculous/puzzle-demo/
+* http://madrobby.github.com/scriptaculous/puzzle-demo/
 
 Pretty useful for what I think for uthcode.
 
-CSS
----
+**CSS**
 
-http://designinfluences.com/fluid960gs/
-
-http://960.gs/
+* http://designinfluences.com/fluid960gs/
+* http://960.gs/
 
 
 jsfiddle
@@ -839,16 +840,21 @@ Coffee Script
 
 Coffee script seems easy to write.
 
-p = $ ->
+::
+
+    p = $ ->
 
 is the definition of a function
 
-p = $(arg) ->
+::
+
+    p = $(arg) ->
 
 is a function which takes an arg.
 
 
-.. seealso::
+References
+----------
 
 * `A Re-Introduction to Javascript`_
 * `Introduction to Object Oriented Javascript`_
