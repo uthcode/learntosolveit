@@ -95,3 +95,5 @@ General
    projectideas
    thanks
 
+.. git_changelog::
+
