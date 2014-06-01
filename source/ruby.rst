@@ -5,9 +5,14 @@ Understanding Ruby Language
 [1, 2, 3, 4, 5, "woot"]
 [1, 2, 3, 4, 5].append('woot')
 
-<<< is a common way to add elements to the array too.
+::
+    <<< is a common way to add elements to the array too.
 
-[1, 2, 3, 4, 5].map{ |i| i + 1}
+Operate on all the elements of the array.
+
+::
+
+    [1, 2, 3, 4, 5].map{ |i| i + 1}
 
 
 IRB session example. Look at the list de-referencing.
@@ -128,10 +133,10 @@ for everything that is a Door.
 Any code that is surrounding a curly braces is a block. Curly braces can be
 traded for "do ... end" and usually good if the code is longer than a line.
 
-Block arguments are set of variables surrounded by |pipe| characters and
+Block arguments are set of variables surrounded by `|pipe|` characters and
 separated by commas. Block arguments are used at the begining of the block.
 
-{ |x, y| x + y} The pipe characters are like a tunnel. The variables are passed
+`{ |x, y| x + y}` The pipe characters are like a tunnel. The variables are passed
 into this chute to the tunnel.
 
 For list slices, two dots are used. If you find three dots, then the last digit
@@ -534,41 +539,55 @@ Ruby Gems
 
 Ruby Gems Reference - Master it.
 
-http://docs.rubygems.org/read/chapter/10
+* http://docs.rubygems.org/read/chapter/10
 
 
 Which is idiomatic ?
 --------------------
 
-$: << File.dirname(__FILE__)
-$:.push File.expand_path("../lib", __FILE__)
+::
+
+    $: << File.dirname(__FILE__)
+    $:.push File.expand_path("../lib", __FILE__)
 
 
 Look at this
 -------------
 
-ree-1.8.7-2012.02 :001 > require 'murder'
- => true
-ree-1.8.7-2012.02 :002 > require "murder"
-  => false
-ree-1.8.7-2012.02 :003 >
+::
+
+    ree-1.8.7-2012.02 :001 > require 'murder'
+     => true
+    ree-1.8.7-2012.02 :002 > require "murder"
+      => false
+    ree-1.8.7-2012.02 :003 >
 
 Understand Rake
 ---------------
 
-Wondering how to run rake? bundle install; bundle exec rake -T. Super breezy.
+Wondering how to run rake? 
+
+::
+
+    bundle install; bundle exec rake -T. Super breezy.
 
 
-1.8.7 :010 > if false
-1.8.7 :011?>   elsif true
-1.8.7 :012?>      p "true"
-1.8.7 :013?>   end
-"true"
- => nil 
-1.8.7 :014 > if false
-1.8.7 :015?>   elseif true
-1.8.7 :016?>    p 'true'
-1.8.7 :017?>   end
- => nil 
-1.8.7 :018 > 
+
+true and false
+--------------
+
+::
+
+    1.8.7 :010 > if false
+    1.8.7 :011?>   elsif true
+    1.8.7 :012?>      p "true"
+    1.8.7 :013?>   end
+    "true"
+     => nil 
+    1.8.7 :014 > if false
+    1.8.7 :015?>   elseif true
+    1.8.7 :016?>    p 'true'
+    1.8.7 :017?>   end
+     => nil 
+    1.8.7 :018 > 
 
