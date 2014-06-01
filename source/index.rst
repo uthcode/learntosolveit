@@ -43,7 +43,6 @@ Python
    python
    pythondesign
    pythonstart
-   pythonhttp
    pythonnetworking
    pycon2009
    pylons
