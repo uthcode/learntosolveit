@@ -67,7 +67,6 @@ Languages
    :maxdepth: 2
 
    cpp
-   perl
  
 Projects
 ========
