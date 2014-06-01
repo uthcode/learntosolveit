@@ -60,14 +60,7 @@ Computer Science
    topcoder
    games
 
-Languages
-=========
-
-.. toctree::
-   :maxdepth: 2
-
-   cpp
- 
+   
 Projects
 ========
 
