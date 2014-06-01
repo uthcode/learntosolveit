@@ -68,7 +68,6 @@ Languages
 
    cpp
    perl
-   ruby
  
 Projects
 ========
