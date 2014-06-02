@@ -74,7 +74,17 @@ demonstrates how it is done.
 .. toctree::
    :maxdepth: 1
 
-   text_manipulation_argparse1
+   design_args_kwargs
+   design_ast_example1
+   design_atexit_1
+   design_caseinsensitivedict
+   design_class_same_object
+   design_closure
+   design_closure_eg
+   design_closure_example1
+   design_closure1
+   design_context_2
+   design_context_manager_1
 
 
 Networking
