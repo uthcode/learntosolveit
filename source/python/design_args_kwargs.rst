@@ -5,7 +5,8 @@ Args Kwargs
 Question
 --------
 
-ADDQUESTION
+Show the use of `*args` and `**kwargs` in a Python program.
+
 
 Solution
 --------

@@ -5,7 +5,8 @@ caseinsensitivedict
 Question
 --------
 
-ADDQUESTION
+Example of a case insensitive dictionary in Python.
+
 
 Solution
 --------

@@ -1,11 +1,12 @@
-========
-Context2
-========
+===============
+Context Manager
+===============
 
 Question
 --------
 
-ADDQUESTION
+Using context manager
+
 
 Solution
 --------

@@ -80,7 +80,6 @@ demonstrates how it is done.
    design_caseinsensitivedict
    design_class_same_object
    design_closure
-   design_closure_eg
    design_closure_example1
    design_closure1
    design_context_2

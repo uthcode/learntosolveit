@@ -1,11 +1,11 @@
-================
-context Manager1
-================
+===================
+Context manager - 1 
+===================
 
 Question
 --------
 
-ADDQUESTION
+Demonstration of context manager.
 
 Solution
 --------
