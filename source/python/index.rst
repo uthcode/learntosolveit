@@ -85,6 +85,27 @@ demonstrates how it is done.
    design_closure1
    design_context_2
    design_context_manager_1
+   design_contextmanager
+   design_contextmanager_ex
+   design_decorator
+   design_decorator2
+   design_default_not_shared
+   design_dict_list
+   design_ex_iterable27
+   design_func_args
+   design_gen1
+   design_gen2
+   design_generator
+   design_generator_countdown
+   design_generator_countdown2
+   design_generator_example1
+   design_generator_execution
+   design_generator_follow
+   design_getattribute_example1
+   design_getattribute_example2
+   design_hextobin
+   design_inheritance
+   design_ipy
 
 
 Networking
