@@ -5,7 +5,7 @@ Class Same object
 Question
 --------
 
-ADDQUESTION
+Method calls on an object.
 
 Solution
 --------

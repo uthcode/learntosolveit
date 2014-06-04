@@ -5,7 +5,8 @@ Closure
 Question
 --------
 
-ADDQUESTION
+Example of a closure function.
+
 
 Solution
 --------

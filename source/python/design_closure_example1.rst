@@ -1,11 +1,11 @@
-================
-Closure Example1
-================
+=================
+Closure Example 1
+=================
 
 Question
 --------
 
-ADDQUESTION
+Example of closure in Python.
 
 Solution
 --------

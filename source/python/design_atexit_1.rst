@@ -1,11 +1,11 @@
-=======
-Atexit1
-=======
+======
+Atexit
+======
 
 Question
 --------
 
-ADDQUESTION
+Demonstrate *atexit* call using an example.
 
 Solution
 --------

@@ -5,16 +5,17 @@ Ast Example1
 Question
 --------
 
-ADDQUESTION
+Example of the Abstract Syntax Tree representation.
+
 
 Solution
 --------
 
-.. literalinclude:: ../../languages/python/design_ast_example1 .py
+.. literalinclude:: ../../languages/python/design_ast_example1.py
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/design_ast_example1 .py
+.. runcode:: ../../languages/python/design_ast_example1.py
    :language: python
    :codesite: ideone
 
