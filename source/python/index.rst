@@ -86,8 +86,7 @@ demonstrates how it is done.
    design_context_manager_1
    design_contextmanager
    design_contextmanager_ex
-   design_decorator
-   design_decorator2
+   design_decorator3
    design_default_not_shared
    design_dict_list
    design_ex_iterable27

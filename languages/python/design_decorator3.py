@@ -1,5 +1,4 @@
-﻿#!/usr/bin/python
-# Best Example of Decorator
+#!/usr/bin/python
 
 def my_decorator(fun):
     def wrapper(*args):
@@ -14,4 +13,3 @@ def hello_world(x):
     print x
 
 hello_world(10)
-
