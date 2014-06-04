@@ -1,11 +1,11 @@
-=========
-Generator
-=========
+============================
+Sending value to a Generator
+============================
 
 Question
 --------
 
-ADDQUESTION
+Sending value to a generator.
 
 Solution
 --------

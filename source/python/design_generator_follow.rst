@@ -1,11 +1,12 @@
-================
-Generator Follow
-================
+=======================================
+Generator - Writing a tail like utility
+=======================================
 
 Question
 --------
 
-ADDQUESTION
+Writing a `tail` like utility to read a file using generator.
+
 
 Solution
 --------

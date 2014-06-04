@@ -5,7 +5,7 @@ Decorator
 Question
 --------
 
-ADDQUESTION
+Decorator Example.
 
 Solution
 --------

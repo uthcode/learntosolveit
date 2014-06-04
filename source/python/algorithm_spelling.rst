@@ -1,11 +1,11 @@
-========
-Spelling
-========
+===============
+Spell Corrector
+===============
 
 Question
 --------
 
-ADDQUESTION
+Spell Corrector in Python.
 
 Solution
 --------

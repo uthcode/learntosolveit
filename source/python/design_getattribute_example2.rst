@@ -1,11 +1,13 @@
-=====================
-Getattribute Example2
-=====================
+====================================================
+Getattribute Example - Override access one attribute
+====================================================
 
 Question
 --------
 
-ADDQUESTION
+Override access to one of the attribute of the object and return
+all other attributes from Super class.
+
 
 Solution
 --------

@@ -1,11 +1,11 @@
-==================
-Generator Example1
-==================
+=============================================
+Generator Example - Infinite Fibonacci Series
+=============================================
 
 Question
 --------
 
-ADDQUESTION
+Infinite fibonacci series using generators.
 
 Solution
 --------

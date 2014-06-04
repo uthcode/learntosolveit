@@ -5,7 +5,7 @@ Token bucket
 Question
 --------
 
-ADDQUESTION
+Token bucket implementation.
 
 Solution
 --------

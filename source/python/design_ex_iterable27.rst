@@ -1,11 +1,11 @@
-=============
-Ex Iterable27
-=============
+================
+Example Iterable
+================
 
 Question
 --------
 
-ADDQUESTION
+Creating an Iterable in Python.
 
 Solution
 --------

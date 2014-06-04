@@ -5,7 +5,7 @@ Generator countdown2
 Question
 --------
 
-ADDQUESTION
+Countdown from n  generator.
 
 Solution
 --------

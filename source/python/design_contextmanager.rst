@@ -5,7 +5,8 @@ contextmanager
 Question
 --------
 
-ADDQUESTION
+Example of a context manager.
+
 
 Solution
 --------

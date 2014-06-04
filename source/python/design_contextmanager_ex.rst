@@ -5,7 +5,7 @@ Contextmanager ex
 Question
 --------
 
-ADDQUESTION
+Making file open function as a context manager.
 
 Solution
 --------

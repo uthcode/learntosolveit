@@ -5,7 +5,7 @@ Inheritance
 Question
 --------
 
-ADDQUESTION
+Demonstrating Inheritance in Python.
 
 Solution
 --------

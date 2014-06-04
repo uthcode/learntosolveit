@@ -1,11 +1,11 @@
-====
-gen1
-====
+===================
+Generator Example 1
+===================
 
 Question
 --------
 
-ADDQUESTION
+Example of a generator.
 
 Solution
 --------

@@ -5,7 +5,7 @@ Tree
 Question
 --------
 
-ADDQUESTION
+Demonstrate creation of a node in the Tree.
 
 Solution
 --------
