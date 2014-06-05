@@ -103,7 +103,6 @@ demonstrates how it is done.
    design_getattribute_example2
    design_hextobin
    design_inheritance
-   design_ipy
    design_iterator_ex1
    design_iterator_ex2
    design_object_size
