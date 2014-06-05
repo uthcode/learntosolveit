@@ -5,7 +5,7 @@ Toss Coins
 Question
 --------
 
-ADDQUESTION
+Tossing a fair coin and looking the probability of HEADS and TAILS
 
 Solution
 --------

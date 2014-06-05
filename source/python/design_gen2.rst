@@ -1,11 +1,11 @@
-====
-gen2
-====
+=================
+Generator Example
+=================
 
 Question
 --------
 
-ADDQUESTION
+Generator Example with a conditional.
 
 Solution
 --------

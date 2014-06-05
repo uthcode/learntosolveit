@@ -5,7 +5,7 @@ Subtract Hexadecimals
 Question
 --------
 
-ADDQUESTION
+Routine to subtract two hexadecimal numbers.
 
 Solution
 --------

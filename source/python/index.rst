@@ -103,7 +103,6 @@ demonstrates how it is done.
    design_getattribute_example2
    design_hextobin
    design_inheritance
-   design_ipy
 
 
 Networking

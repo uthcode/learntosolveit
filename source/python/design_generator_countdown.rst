@@ -5,7 +5,7 @@ Generator countdown
 Question
 --------
 
-ADDQUESTION
+Generator demonstrating countdown from a particular value.
 
 Solution
 --------

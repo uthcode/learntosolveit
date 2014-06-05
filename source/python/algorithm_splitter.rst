@@ -1,11 +1,12 @@
-========
-Splitter
-========
+=============
+File Splitter
+=============
 
 Question
 --------
 
-ADDQUESTION
+Split a Big file into propotional chunks.
+
 
 Solution
 --------

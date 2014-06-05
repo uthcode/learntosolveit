@@ -5,7 +5,7 @@ Func Args
 Question
 --------
 
-ADDQUESTION
+Ways to send arguments to functions.
 
 Solution
 --------

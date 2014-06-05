@@ -1,11 +1,11 @@
-=====================
-Getattribute Example1
-=====================
+====================
+Getattribute Example
+====================
 
 Question
 --------
 
-ADDQUESTION
+Demonstrate `__getattribute__` function.
 
 Solution
 --------

@@ -1,11 +1,11 @@
-========
-Hextobin
-========
+===========================
+Partial function - Hextobin
+===========================
 
 Question
 --------
 
-ADDQUESTION
+Hexadecimal to Binary - using a partial function.
 
 Solution
 --------

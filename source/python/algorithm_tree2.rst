@@ -1,11 +1,11 @@
-=====
-Tree2
-=====
+==============
+Tree Traversal
+==============
 
 Question
 --------
 
-ADDQUESTION
+Demonstrate In-order, Pre-order and Post-order Tree traversal.
 
 Solution
 --------
