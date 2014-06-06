@@ -107,6 +107,17 @@ demonstrates how it is done.
    design_iterator_ex2
    design_object_size
    design_oop1
+   design_optimization2
+   design_python_objects_type
+   design_python3_meta_ex1
+   design_restricter_class
+   design_simple_closure
+   design_simple_stmt
+   design_sizeofobj
+   design_slice_ellipses
+   design_sorted_loop
+   design_sorted_loop2
+   design_space_efficient_dict
 
 
 Networking
