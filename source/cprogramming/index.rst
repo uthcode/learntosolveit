@@ -173,6 +173,7 @@ Chapter 8. The Unix System Interface
    
    sec_8.2_read_write
    sec_8.2_getchar
+   sec_8.3_open_creat
    Ex_8.1_mycat
    Ex_8.2
    Ex_8.3
