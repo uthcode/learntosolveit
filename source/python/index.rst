@@ -118,6 +118,17 @@ demonstrates how it is done.
    design_sorted_loop
    design_sorted_loop2
    design_space_efficient_dict
+   design_spammmodule
+   design_stack
+   design_stackinspection
+   design_stmt_execution
+   design_stmt_func
+   design_struct_calcsize
+   design_struct_example
+   design_total_ordering
+   design_total_ordering2
+   design_traceit
+   design_try_except
 
 
 Networking
