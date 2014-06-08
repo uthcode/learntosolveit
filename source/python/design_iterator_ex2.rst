@@ -1,11 +1,11 @@
-==================
-Iterator Example 2
-==================
+=====================
+Iterator - Dictionary
+=====================
 
 Question
 --------
 
-ADDQUESTION
+Iterate over a dictionary
 
 Solution
 --------

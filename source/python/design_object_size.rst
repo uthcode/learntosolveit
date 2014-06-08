@@ -5,7 +5,7 @@ Object Size
 Question
 --------
 
-ADDQUESTION
+Function to determine the size of an object.
 
 Solution
 --------

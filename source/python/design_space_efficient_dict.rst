@@ -5,7 +5,8 @@ Space Efficient Dict
 Question
 --------
 
-ADDQUESTION
+Designing a space efficient dictionary.
+
 
 Solution
 --------

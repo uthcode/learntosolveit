@@ -5,7 +5,7 @@ Stack
 Question
 --------
 
-ADDQUESTION
+Stack operations in Python.
 
 Solution
 --------

@@ -1,11 +1,11 @@
 ===========
-Spammmodule
+Spam module
 ===========
 
 Question
 --------
 
-ADDQUESTION
+Writing a C Builtin Module for Python.
 
 Solution
 --------

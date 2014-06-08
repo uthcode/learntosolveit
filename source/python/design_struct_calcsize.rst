@@ -5,7 +5,7 @@ Struct Calcsize
 Question
 --------
 
-ADDQUESTION
+Calculate the size of a structure in Python.
 
 Solution
 --------

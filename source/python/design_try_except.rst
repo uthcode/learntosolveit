@@ -5,7 +5,7 @@ Try Except
 Question
 --------
 
-ADDQUESTION
+Demonstrate try except statement in python.
 
 Solution
 --------

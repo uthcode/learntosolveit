@@ -5,7 +5,10 @@ Exercise 8.4 - TODO
 Question
 ========
 
-The standard library function.
+The standard library function:
+	
+	int fseek(FILE *fp, long offset, int origin)
+
 
 .. literalinclude:: ../../languages/cprogs/Ex_8.4.c
    :language: c

@@ -113,7 +113,6 @@ demonstrates how it is done.
    design_restricter_class
    design_simple_closure
    design_simple_stmt
-   design_sizeofobj
    design_slice_ellipses
    design_sorted_loop
    design_sorted_loop2
@@ -121,8 +120,6 @@ demonstrates how it is done.
    design_spammmodule
    design_stack
    design_stackinspection
-   design_stmt_execution
-   design_stmt_func
    design_struct_calcsize
    design_struct_example
    design_total_ordering

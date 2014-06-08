@@ -1,11 +1,12 @@
-===========
-Simple Stmt
-===========
+=============================
+Automatic Coercion of strings
+=============================
 
 Question
 --------
 
-ADDQUESTION
+This program demonstrates the automatic coerciion of strings.
+
 
 Solution
 --------

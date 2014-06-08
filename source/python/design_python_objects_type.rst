@@ -1,11 +1,11 @@
-===================
-Python Objects Type
-===================
+==================================
+Difference between type and object
+==================================
 
 Question
 --------
 
-ADDQUESTION
+Difference between type and an object in python using isinstance and issubclass
 
 Solution
 --------

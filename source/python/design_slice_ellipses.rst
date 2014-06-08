@@ -1,11 +1,11 @@
-==============
-slice Ellipses
-==============
+==================
+Ellipses in Python
+==================
 
 Question
 --------
 
-ADDQUESTION
+Use of Ellipses in Python.
 
 Solution
 --------
