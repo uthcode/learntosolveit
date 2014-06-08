@@ -1,11 +1,11 @@
-==================
-Iterator Example 1
-==================
+=====================================
+Iterator Example - Fibonacci Sequence
+=====================================
 
 Question
 --------
 
-ADDQUESTION
+Example of an iterator generating Fibonacci sequence
 
 Solution
 --------

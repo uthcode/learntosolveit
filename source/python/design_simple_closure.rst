@@ -5,7 +5,8 @@ Simple Closure
 Question
 --------
 
-ADDQUESTION
+Simple closure function in python.
+
 
 Solution
 --------

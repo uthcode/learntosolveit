@@ -1,11 +1,11 @@
-======================
-Python3 Meta Example 1
-======================
+=================
+Python3 metaclass
+=================
 
 Question
 --------
 
-ADDQUESTION
+Python3 metaclass example.
 
 Solution
 --------

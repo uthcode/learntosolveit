@@ -5,7 +5,7 @@ Struct Example
 Question
 --------
 
-ADDQUESTION
+Using the structure module in python for serialization and deserialization.
 
 Solution
 --------

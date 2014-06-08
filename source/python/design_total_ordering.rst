@@ -5,7 +5,7 @@ Total Ordering
 Question
 --------
 
-ADDQUESTION
+Demonstrate the use of functools.total_ordering in Python.
 
 Solution
 --------

@@ -5,7 +5,7 @@ Traceit
 Question
 --------
 
-ADDQUESTION
+Trace the execution of a python program.
 
 Solution
 --------

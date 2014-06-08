@@ -1,11 +1,11 @@
-===============
-stackinspection
-===============
+================
+Stack Inspection
+================
  
 Question
 --------
 
-ADDQUESTION
+Inspecting the Stack in Python.
 
 Solution
 --------

@@ -1,11 +1,11 @@
-================
-Restricter Class
-================
+============================
+Restrict an attribute access
+============================
 
 Question
 --------
 
-ADDQUESTION
+Restrict the access to an attribute in a class.
 
 Solution
 --------

@@ -1,11 +1,11 @@
-==============
-Optimization 2
-==============
+============
+Dis-assemble
+============
 
 Question
 --------
 
-ADDQUESTION
+Dis-assemble a nested sequence
 
 Solution
 --------

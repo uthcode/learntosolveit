@@ -5,7 +5,7 @@ Sorted Loop2
 Question
 --------
 
-ADDQUESTION
+Sorted Loop comparision with the previous program.
 
 Solution
 --------

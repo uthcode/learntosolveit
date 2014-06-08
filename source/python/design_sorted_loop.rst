@@ -5,7 +5,7 @@ Sorted Loop
 Question
 --------
 
-ADDQUESTION
+Measure the sorted builtin function performance.
 
 Solution
 --------
