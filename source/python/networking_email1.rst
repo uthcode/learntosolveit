@@ -5,7 +5,7 @@ Email 1
 Question
 --------
 
-ADDQUESTION
+Demonstrate sending of an email.
 
 Solution
 --------

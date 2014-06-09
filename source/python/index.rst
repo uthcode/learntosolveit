@@ -160,7 +160,7 @@ servers and clients.
    networking_twisted3
    networking_twisted4
    networking_twisted5
-   networking_udp_timel
+   networking_udp_time
    networking_udp1
    networking_udp2
 
@@ -174,7 +174,7 @@ make money, you will need to take care of these aspects.
 .. toctree::
    :maxdepth: 1
 
-   text_manipulation_argparse1
+   software_engineering_copy_files_unicode
    
 
 Text Manipulation

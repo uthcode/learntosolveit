@@ -1,11 +1,11 @@
-============
-Googlesearch
-============
+=============
+Google Search
+=============
 
 Question
 --------
 
-ADDQUESTION
+Google Search using AJAX APIs
 
 Solution
 --------

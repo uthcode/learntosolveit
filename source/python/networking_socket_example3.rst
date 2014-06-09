@@ -5,7 +5,7 @@ Socket Example3
 Question
 --------
 
-ADDQUESTION
+Different types of socket constants.
 
 Solution
 --------

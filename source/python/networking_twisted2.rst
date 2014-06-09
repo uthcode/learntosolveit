@@ -5,7 +5,7 @@ Twisted2
 Question
 --------
 
-ADDQUESTION
+Use of getProcessOutput in twisted.
 
 Solution
 --------

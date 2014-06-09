@@ -5,7 +5,8 @@ Socket Example1
 Question
 --------
 
-ADDQUESTION
+Socket example 1 for getservbyname
+
 
 Solution
 --------

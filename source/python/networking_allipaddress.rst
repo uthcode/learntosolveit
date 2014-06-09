@@ -1,11 +1,12 @@
-============
-Allipaddress
-============
+============================
+All Ipaddress of your system
+============================
 
 Question
 --------
 
-ADDQUESTION
+The program gets all the ipaddress assigned to all the interfaces
+in your machine.
 
 Solution
 --------

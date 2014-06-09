@@ -5,7 +5,7 @@ Email 2
 Question
 --------
 
-ADDQUESTION
+Email sending program 2
 
 Solution
 --------

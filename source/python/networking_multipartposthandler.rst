@@ -5,16 +5,16 @@ MultipartPostHandler
 Question
 --------
 
-ADDQUESTION
+Enables the use of Multipart/form-data for posting forms.
 
 Solution
 --------
 
-.. literalinclude:: ../../languages/python/networking_multipartPostHandler.py
+.. literalinclude:: ../../languages/python/networking_multipartposthandler.py
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/networking_multipartPostHandler.py
+.. runcode:: ../../languages/python/networking_multipartposthandler.py
    :language: python
    :codesite: ideone
 
@@ -29,6 +29,6 @@ ADDEXPLAINATION
 
 .. seealso::
 
-   * :python-suggest-improve:`networking_multipartPostHandler.py`
-   * :python-better-explain:`networking_multipartPostHandler.rst`
+   * :python-suggest-improve:`networking_multipartposthandler.py`
+   * :python-better-explain:`networking_multipartposthandler.rst`
 

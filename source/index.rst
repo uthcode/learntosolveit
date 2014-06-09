@@ -30,70 +30,15 @@ C Programming Language
 ======================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    cprogramming/index
 
-Python
-======
+Python Programming Language
+===========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   python
-   pythondesign
-   pythonstart
-   pythonnetworking
-   pycon2009
-   pylons
-
-Computer Science
-================
-
-.. toctree::
-   :maxdepth: 2
-
-   computerscience
-   Alice_Programming
-   unicodenotes
-   topcoder
-   games
-
-   
-Projects
-========
-
-.. toctree::
-
-    projects
-
-
-Software
-========
-
-.. toctree::
-   :maxdepth: 1
-
-   vim
-   restructuredtext
-   versioncontrol
-   ubuntu
-   questions
-   
-General
-=======
-
-
-.. toctree::
-   :maxdepth: 1
-
-   quotes
-   philosophy
-   beingagooddeveloper
-   techcourage
-   discipline-score
-   projectideas
-   thanks
-
-.. git_changelog::
+   python/index
 

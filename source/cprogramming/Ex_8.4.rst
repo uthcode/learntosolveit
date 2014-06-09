@@ -1,6 +1,6 @@
-===================
-Exercise 8.4 - TODO
-===================
+==============================
+Exercise 8.4 - implement fseek
+==============================
 
 Question
 ========
@@ -8,6 +8,8 @@ Question
 The standard library function:
 	
 	int fseek(FILE *fp, long offset, int origin)
+
+**inprogress**
 
 
 .. literalinclude:: ../../languages/cprogs/Ex_8.4.c
