@@ -5,7 +5,7 @@ Socket Client
 Question
 --------
 
-ADDQUESTION
+Example creation of socket client.
 
 Solution
 --------

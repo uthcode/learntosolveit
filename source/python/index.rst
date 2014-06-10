@@ -160,7 +160,7 @@ servers and clients.
    networking_twisted3
    networking_twisted4
    networking_twisted5
-   networking_udp_timel
+   networking_udp_time
    networking_udp1
    networking_udp2
 

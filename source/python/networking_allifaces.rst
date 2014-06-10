@@ -1,11 +1,11 @@
-=========
-Allifaces
-=========
+=========================
+All Networking Interfaces
+=========================
 
 Question
 --------
 
-ADDQUESTION
+List Network Interfaces
 
 Solution
 --------

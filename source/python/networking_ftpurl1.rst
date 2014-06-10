@@ -1,11 +1,12 @@
-=======
-ftpurl1
-=======
+======
+ftpurl
+======
 
 Question
 --------
 
-ADDQUESTION
+Use urllib with ftp url.
+
 
 Solution
 --------

@@ -1,11 +1,11 @@
-=======
-Email 3
-=======
+======================
+Email - Multipart Mime
+======================
 
 Question
 --------
 
-ADDQUESTION
+Send an email with Multipart Mime content.
 
 Solution
 --------

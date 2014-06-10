@@ -5,7 +5,7 @@ Socket Example2
 Question
 --------
 
-ADDQUESTION
+Create a dictionary mapping socket module constants to their names.
 
 Solution
 --------

@@ -1,11 +1,13 @@
-=================
-Bug Gethostbyname
-=================
+=============
+Gethostbyname
+=============
 
 Question
 --------
 
-ADDQUESTION
+Generate a random domain name and see if it actually exists by doing a
+gethostbyname call.
+
 
 Solution
 --------
