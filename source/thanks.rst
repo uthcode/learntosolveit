@@ -1,5 +1,0 @@
-=========
-Thank You
-=========
-
-* Alan Gauld 

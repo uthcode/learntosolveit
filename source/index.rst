@@ -80,20 +80,6 @@ Software
    ubuntu
    questions
    
-General
-=======
-
-
-.. toctree::
-   :maxdepth: 1
-
-   quotes
-   philosophy
-   beingagooddeveloper
-   techcourage
-   discipline-score
-   projectideas
-   thanks
-
+   
 .. git_changelog::
 
