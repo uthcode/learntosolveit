@@ -74,11 +74,7 @@ Software
 .. toctree::
    :maxdepth: 1
 
-   vim
-   restructuredtext
    versioncontrol
-   ubuntu
-   questions
    
    
 .. git_changelog::
