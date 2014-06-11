@@ -322,8 +322,6 @@ http://wwwasd.web.cern.ch/wwwasd/lhc++/RW/stdlibcr/classref.htm
 
 http://www.sgi.com/tech/stl/
 
-http://www.cplusplus.com/reference/
-
 General Advice by Steven Skeina
 -------------------------------
 
@@ -331,13 +329,9 @@ My Advice for Your Future You are all awesome and will be successful – but
 follow my advice to maximize your success:
 
 * Look out for yourself and your career, since no one else is going to do it for you.
-
 * Look for where the big challenges are happening, and then focus on setting the agenda.
-
 * Avoid self-destructive behavior/career-limiting moves.
-
 * Learn to communicate.
-
 * Always keep learning and growing.
 
 If you are interested in algorithms and advanced computer science, you should
@@ -356,9 +350,3 @@ Training Site
 -------------
 
 * http://www.codingdoor.com/
-
-Interesting Companies
----------------------
-
-* http://rocketfuel.com
-* http://www.generalsentiment.com

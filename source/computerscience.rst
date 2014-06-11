@@ -28,23 +28,6 @@ Found this at TAOCP_ page.
 
 .. _TAOCP: http://www-cs-faculty.stanford.edu/%7Euno/taocp.html
 
-Unix Operating System Documents
-===============================
-
-http://docs.freebsd.org/44doc/
-
-Assignments
-===========
-
-http://nifty.stanford.edu/
-
-Assignments help in learning new stuff. This page provides some.
-
-Algorithms
-==========
-
-http://ace.delos.com/usacogate
-
 Introduction to Programming Languages
 =====================================
 
@@ -409,24 +392,6 @@ Video Lecture 2: Closure and Non-Determinism
 * Regular sets can be pumped out at Regular Intervals and are identified by pumping lemma. 
 * Thus Pumping lemmas are yet another test for FSM.. 
 
-ACM Meeting
-===========
-
-* Assertion Checking Problem - It is not solvable.
-* YOGI reaches the close points by Static Verification.
-* Basic block profiling, Edge Profiling and Tracing.
-* Acyclic, Intra Procedure Path finding.
-* http://research.microsoft.com/~tball Ball Laurus Algorithm - Linear time complexity.
-* Preferential Path profiling.
-* Holmes - Automated Root Cause Analysis.
-* CNF SAT - Area for Research
-* www.satcompetition.org
-* QBF - Valid or Not Valid - Area for Research - Quantified Boolean Formula Satisfiablity.
-* www.qbflib.org  
-* Complexity Analysis of Concurrent Data Structures - Area for research again.
-* When asked about the advice for pursing a PhD, he suggested the path of MS and PhD.
-* I could also sense or felt, that if I want something, I should know how to get it. 
-
 Pumping Lemma
 -------------
 
@@ -503,7 +468,6 @@ Big O Notation
   in general.
 
 What is Amortized time?
-
 What is inverse Akerman function or even straight Akerman function?
 
 disjoint set?
