@@ -68,14 +68,5 @@ Projects
     projects
 
 
-Software
-========
-
-.. toctree::
-   :maxdepth: 1
-
-   versioncontrol
-   
-   
 .. git_changelog::
 
