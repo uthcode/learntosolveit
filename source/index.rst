@@ -40,7 +40,7 @@ Python
 .. toctree::
    :maxdepth: 2
 
-   pythondesign
+   python/index
 
 .. git_changelog::
 
