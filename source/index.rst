@@ -54,7 +54,6 @@ Computer Science
    :maxdepth: 2
 
    computerscience
-   topcoder
    games
 
    
