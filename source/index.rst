@@ -34,8 +34,8 @@ C Programming Language
 
    cprogramming/index
 
-Python
-======
+Python Programming Language
+===========================
 
 .. toctree::
    :maxdepth: 2
