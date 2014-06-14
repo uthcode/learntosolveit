@@ -47,14 +47,6 @@ Python
    pycon2009
    pylons
 
-Computer Science
-================
-
-.. toctree::
-   :maxdepth: 2
-
-   computerscience
-
    
 Projects
 ========
