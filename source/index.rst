@@ -40,12 +40,7 @@ Python
 .. toctree::
    :maxdepth: 2
 
-   python
    pythondesign
-   pythonstart
-   pythonnetworking
-   pycon2009
 
-   
 .. git_changelog::
 
