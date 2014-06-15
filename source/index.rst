@@ -30,7 +30,7 @@ C Programming Language
 ======================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    cprogramming/index
 
@@ -38,9 +38,7 @@ Python Programming Language
 ===========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    python/index
-
-.. git_changelog::
 
