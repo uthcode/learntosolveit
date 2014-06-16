@@ -175,7 +175,16 @@ make money, you will need to take care of these aspects.
    :maxdepth: 1
 
    software_engineering_copy_files_unicode
-   
+   software_engineering_createtempfiles
+   software_engineering_doctest_example
+   software_engineering_elementtree_1
+   software_engineering_encoding_unicode_xml_html
+   software_engineering_exceptions_testing
+   software_engineering_fcntl_1
+   software_engineering_fctrl2
+   software_engineering_fortune_card
+   software_engineering_freev
+   software_engineering_gtk1
 
 Text Manipulation
 =================
