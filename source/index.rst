@@ -7,15 +7,16 @@
 Uthcode
 =======
 
-Uthcode is a platform to learn programming using problem solving approach.
+Uthcode is a platform to learn programming using problem solving.
 
 A language is learnt by writing code; solving problems which demonstrate the
-features of the language lend to certian amount of creative problem solving joy
-using that language.
+features of the language. These also lend the developer to certain creative
+problem solving joy using that language.
 
 The problems and solutions in Uthcode can easily be verified by running on
-ideone sandbox. And collabration and improvement most welcome by sending a pull
-request via Github.
+ideone sandbox and collabration is most welcome by sending a pull request via
+Github. Choose a problem in your favorite language below and experience the flow
+yourself.
 
 Happy Hacking!
 
