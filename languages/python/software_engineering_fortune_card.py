@@ -1,4 +1,4 @@
-﻿import textwrap
+import textwrap
 import subprocess
 from PIL import Image, ImageFont, ImageDraw
 import glob, os
