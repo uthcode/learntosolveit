@@ -185,6 +185,25 @@ make money, you will need to take care of these aspects.
    software_engineering_fortune_card
    software_engineering_freev
    software_engineering_gtk1
+   software_engineering_htmlformatter
+   software_engineering_htmlwriter
+   software_engineering_ideone_post
+   software_engineering_logging1
+   software_engineering_logging2
+   software_engineering_logging3
+   software_engineering_logging4
+   software_engineering_logging5
+   software_engineering_mp3
+   software_engineering_multiprocessing_1
+   software_engineering_os_exec1
+   software_engineering_provide_warnings
+   software_engineering_ptags
+   software_engineering_python3k_json
+   software_engineering_run_under_strace
+   software_engineering_runningtime
+   software_engineering_runningtime_intaddition
+   software_engineering_runningtime_intvsfloat
+   software_engineering_simple_subprocess
 
 Text Manipulation
 =================
