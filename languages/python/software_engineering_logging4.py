@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 
 logger1 = logging.getLogger('package1.module1')
 logger2 = logging.getLogger('package1.module2')
