@@ -213,6 +213,9 @@ make money, you will need to take care of these aspects.
    software_engineering_subprocess4
    software_engineering_subprocess5
    software_engineering_subprocess6
+   software_engineering_test_codec01
+   software_engineering_test_codec02
+   software_engineering_test_codec03
 
 Text Manipulation
 =================
