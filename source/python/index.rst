@@ -204,6 +204,15 @@ make money, you will need to take care of these aspects.
    software_engineering_runningtime_intaddition
    software_engineering_runningtime_intvsfloat
    software_engineering_simple_subprocess
+   software_engineering_simple_threading1
+   software_engineering_sqlite3
+   software_engineering_stringio
+   software_engineering_subprocess1
+   software_engineering_subprocess2
+   software_engineering_subprocess3
+   software_engineering_subprocess4
+   software_engineering_subprocess5
+   software_engineering_subprocess6
 
 Text Manipulation
 =================
