@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 senthil@kevin:~$ python3 
 Python 3.3a0 (default:979ae5972604+, Mar 19 2011, 11:42:31) 
 [GCC 4.4.5] on linux2
