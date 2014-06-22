@@ -221,7 +221,6 @@ make money, you will need to take care of these aspects.
    software_engineering_time_converter
    software_engineering_tkintertimer
    software_engineering_twitter_phidget
-   software_engineering_unicode1
    software_engineering_updateuthcode
    software_engineering_xmlrpcclient
    software_engineering_xmlrpcserver
