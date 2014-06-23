@@ -246,5 +246,13 @@ These deal with websites, webapplications and work on top of networking layer.
 .. toctree::
    :maxdepth: 1
 
-   text_manipulation_argparse1
-
+   web_cgi_ex
+   web_codepad_post
+   web_crawl
+   web_crawl2
+   web_http_auth_header_code
+   web_httplib_example_1
+   web_httplib_example_2
+   web_httplib_example_3
+   web_httplib_head
+   web_scan_web
