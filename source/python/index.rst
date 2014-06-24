@@ -256,3 +256,17 @@ These deal with websites, webapplications and work on top of networking layer.
    web_httplib_example_3
    web_httplib_head
    web_scan_web
+   web_server
+   web_simple_http_processor
+   web_urllib1
+   web_urllib2_add_data
+   web_urllib2_auth_ex1
+   web_urllib2_basic_digest1
+   web_urllib2_basic1
+   web_urllib2_basic2
+   web_urllib2_basic3
+   web_urllib2_binary_upload
+   web_urllib2_debug_headers
+   web_urllib2_digest
+   web_urllib2_digest2
+   web_urllib2_headers_ex1
