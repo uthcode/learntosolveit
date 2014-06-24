@@ -259,6 +259,7 @@ These deal with websites, webapplications and work on top of networking layer.
    web_server
    web_simple_http_processor
    web_urllib1
+   web_urllib2_1
    web_urllib2_add_data
    web_urllib2_auth_ex1
    web_urllib2_basic_digest1
@@ -270,3 +271,9 @@ These deal with websites, webapplications and work on top of networking layer.
    web_urllib2_digest
    web_urllib2_digest2
    web_urllib2_headers_ex1
+   web_urllib2_proxy_auth
+   web_urllib2_pycall1
+   web_urllib2_test
+   web_urllib2_1
+   web_urlopen_passwd
+   web_urlretrieve
