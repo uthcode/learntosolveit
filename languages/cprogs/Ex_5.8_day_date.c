@@ -6,7 +6,7 @@ static char daytab[2][13]={
 };
 
 int day_of_year(int year,int month,int day);
-void month_day(int year,int yearday,int *pmonth,int *pday);
+void month_day(int year,int yearday);
 
 int main(void)
 {
@@ -14,9 +14,7 @@ int main(void)
 
 	day=day_of_year(1988,2,29);
 	printf("%d\n",day);
-	month_day(1988,60,&mo,&dat);
-	printf("%d,%d\n",mo,dat);
-
+	month_day(1988,60);
 	return 0;
 }
 
@@ -36,7 +34,7 @@ int day_of_year(int year,int month,int day)
 
 /* month_day: set month,day from day of year */
 
-void month_day(int year,int yearday,int *pmonth,int *pday)
+void month_day(int year,int yearday)
 {
 	int i,leap;
 
@@ -45,7 +43,7 @@ void month_day(int year,int yearday,int *pmonth,int *pday)
 	for(i=1;yearday > daytab[leap][i];i++)
 		yearday -= daytab[leap][i];
 
-	*pmonth = i;
-	*pday = yearday;
+	printf("Month: %d, Day: %d\n", i, yearday);
+
 }
 
