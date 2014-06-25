@@ -33,12 +33,10 @@ In day_of_year, we add the days in eac month till our current month and then add
 remain days and return.
 
 In the `month_day` function, we subtract days of each month from the day, till
-the day is lesser than days in that month and then we return the month in the
-pointers `*pmonth` and day in the month in `*pday`.
+the day is lesser than days in that month and then print the result that we got
+after conversion.
 
 .. git-changelog::
-
-
 
 .. seealso::
 

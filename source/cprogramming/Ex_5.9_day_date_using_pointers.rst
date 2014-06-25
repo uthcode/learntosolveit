@@ -19,7 +19,14 @@ indexing.
 Explaination
 ============
 
+This program is same as the previous program Exercise 5.8 and we calculate the
+day of the year as before and return it to be printed in the main function.
 
+In the month_day, we send two additional pointers `int *pmonth,int *pday` and
+after calculating the number of months and days, we return it using the pointers
+itself to the main function instead of printing them in the function.
+
+.. git-changelog::
 
 .. seealso::
 
