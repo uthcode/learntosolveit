@@ -13,12 +13,12 @@ the relative speeds of the two versions.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.1_mycat.c
-   :language: c
-   :codesite: ideone
 
 Explaination
 ============
+
+
+.. use-local-compiler
 
 
 
