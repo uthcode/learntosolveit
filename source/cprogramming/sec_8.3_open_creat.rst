@@ -19,7 +19,8 @@ Demonstrate the `cp` like program which copies the contents of one file to anoth
 Explaination
 ============
 
-ADDEXPLAINATION
+.. use-local-compiler::
+
 
 .. git_changelog::
 
