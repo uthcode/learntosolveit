@@ -25,6 +25,7 @@ and returns the character `return (read(0, &c, 1) == 1) ? (unsigned char) c : EO
 The buffered version of getchar, sets aside a buffer for reading the characters.
 
 ::
+
    static char buf[BUFSIZ];
    static char *bufp = buf;
    
