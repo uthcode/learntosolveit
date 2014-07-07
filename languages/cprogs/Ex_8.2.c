@@ -10,8 +10,6 @@
 #undef NULL
 #endif
 
-
-
 #define NULL 0
 #define EOF (-1)
 #define BUFSIZ 1024
@@ -32,11 +30,11 @@ extern FILE _iob[OPEN_MAX];
 #define stderr	(&_iob[2])
 
 enum _flags {
-	_READ = 01,		/* file open for reading */
-	_WRITE = 02,	/* file open for writing */
-	_UNBUF = 03,	/* file is unbuffered */
-	_EOF	= 010,	/* EOF has occurred on this file */
-	_ERR	= 020,	/* error occurred on this file */
+	_READ = 01,		/* file open for reading */  /* binary 1 */
+	_WRITE = 02,	/* file open for writing */  /* binary 10 */
+	_UNBUF = 03,	/* file is unbuffered */     /* binary 11 */
+	_EOF = 010,		/* EOF has occurred on this file */ /* binary 1000 */
+	_ERR = 020,		/* error occurred on this file */ /* binary 10000*/
 };
 
 int _fillbuf(FILE *);
