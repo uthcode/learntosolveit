@@ -191,7 +191,6 @@ Interesting Uncategorized Programs
    
    rightrot
    any
-   atof
    conddetab
    dcl
    example1
