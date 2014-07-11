@@ -326,7 +326,6 @@ Interesting Uncategorized Programs
    anylonglinelen
    alloc_afree
    TbsBkSpaces
-   Nofbtn
    LongLine
    Hist_Freq
    His_Vertical
