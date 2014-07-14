@@ -34,11 +34,10 @@ changes the function makes will be available to the main program.
 `getline returns the length of the line and in our main program, if the length
 `is greater than 80 characters we print it.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.17_lengt80.c`
    * :c-better-explain:`Ex_1.17_lengt80.rst`
 
----- 
-
-This document was updated on |today|

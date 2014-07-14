@@ -35,11 +35,9 @@ print them.
 
 If / is followed by any other character, we simply print them.
 
+.. git_changelog::
+
 ..  seealso::
 
    * :c-suggest-improve:`Ex_1.23_remcomments.c`
    * :c-better-explain:`Ex_1.23_remcomments.rst`
-
----- 
-
-This document was updated on |today|

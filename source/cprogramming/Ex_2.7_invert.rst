@@ -54,7 +54,7 @@ position onwards by
 									= 0000 1111
 									= 15
 
-
+.. git_changelog::
 
 .. seealso::
 

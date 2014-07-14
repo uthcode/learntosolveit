@@ -52,12 +52,10 @@ References
 .. _Discussion on U Codepoint: http://stackoverflow.com/questions/21241224/unicode-codepoint-of-the-format-unnnnnnnn/
 .. _Valid escape characters: http://en.cppreference.com/w/cpp/language/escape
 
+.. git_changelog::
 
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.2_exp_printf_c.c`
    * :c-better-explain:`Ex_1.2_exp_printf_c.rst`
-
-----
-
-This document was updated on |today|
+   

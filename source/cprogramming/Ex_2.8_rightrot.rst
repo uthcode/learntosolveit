@@ -70,6 +70,7 @@ So we have got the right most bit set. Now we right x by 1 and OR the rbit with 
 
 Which is our expected result.
 
+.. git_changelog::
 
 .. seealso::
 

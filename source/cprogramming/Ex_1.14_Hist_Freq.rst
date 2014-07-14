@@ -33,12 +33,10 @@ We print the histogram at the end, by looping through the characters of the
 array, printing the character and then printing `*` for number of times that
 character had occurred.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.14_Hist_Freq.c`
    * :c-better-explain:`Ex_1.14_Hist_Freq.rst`
 
-
----- 
-
-This document was updated on |today|

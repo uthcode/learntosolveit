@@ -34,11 +34,11 @@ Celsius to lower. So when the program enters the while loop it checks whether
 celsius <= upper is true if it is true then it assigns the variable fahr
 (9.0/5.0) * celsius + 32.0 and then it prints out put.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.5_reverse.c`
    * :c-better-explain:`Ex_1.5_reverse.rst`
 
----- 
 
-This document was updated on |today|
