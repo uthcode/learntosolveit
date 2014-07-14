@@ -30,11 +30,10 @@ back to the find the character which is not a space, tab and then replace it
 with \0. This eliminates the trailing blanks in a line. For the empty lines
 whose length is 0, we simply skip that from output and thus removing it.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.18_remtrailbt.c`
    * :c-better-explain:`Ex_1.18_remtrailbt.rst`
 
----- 
-
-This document was updated on |today|

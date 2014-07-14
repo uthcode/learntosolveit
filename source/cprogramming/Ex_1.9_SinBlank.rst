@@ -35,12 +35,10 @@ This means that if the last character is not a blank, *only* then print it. We
 store the last character in the lastc variable in the line `lastc = c`. For rest
 of the characters we simplying print it by `putchar (c)`.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.9_SinBlank.c`
    * :c-better-explain:`Ex_1.9_SinBlank.rst`
 
-
----- 
-
-This document was updated on |today|

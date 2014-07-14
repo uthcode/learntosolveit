@@ -64,11 +64,10 @@ our updated `pos`.
 
 With our new position we continue with the rest of the program.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.22_fold.c`
    * :c-better-explain:`Ex_1.22_fold.rst`
 
----- 
-
-This document was updated on |today|

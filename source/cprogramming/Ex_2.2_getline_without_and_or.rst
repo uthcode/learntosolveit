@@ -51,6 +51,8 @@ undesirable condition, we simply break out of the for loop.
 This is equivalent to the for loop above in the question which uses && condition
 to check.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_2.2_getline_without_and_or.c`

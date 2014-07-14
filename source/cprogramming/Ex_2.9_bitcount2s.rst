@@ -147,9 +147,7 @@ References
 .. _Ones complement: http://foldoc.org/ones+complement
 .. _Twos complement: http://foldoc.org/twos+complement
 	
-
-
-
+.. git_changelog::
 
 .. seealso::
 

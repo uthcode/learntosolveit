@@ -49,14 +49,10 @@ accordingly. If it is a newline, we reset the pos, if it is a tab character, we
 reset it to previous tab character - 1. This step replaces the spaces with
 minimum tabs and spaces.
 
+.. git_changelog::
    
- .. seealso::
+.. seealso::
 
-   * :c-suggest-improve:`Ex_1.21_entab.c`
-   * :c-better-explain:`Ex_1.21_entab.rst`
-
----- 
-
-This document was updated on |today|
-
+  * :c-suggest-improve:`Ex_1.21_entab.c`
+  * :c-better-explain:`Ex_1.21_entab.rst`
 

@@ -48,12 +48,10 @@ The crux of the program is this::
         ++j;
       }
 
+.. git_changelog::  
 
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.19_reversestr.c`
    * :c-better-explain:`Ex_1.19_reversestr.rst`
 
----- 
-
-This document was updated on |today|
