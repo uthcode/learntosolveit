@@ -45,14 +45,13 @@ input, it prints the value of the expression getchar() != EOF.
 4. We see that when char is not EOF, it is printing 1 and when it is EOF, 0 is
 printed.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.6_verifyeof.c`
    * :c-better-explain:`Ex_1.6_verifyeof.rst`
    
----- 
-
-This document was updated on |today|
 
 
 

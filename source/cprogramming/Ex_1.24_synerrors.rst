@@ -44,11 +44,9 @@ parenthesis, we mark it as -1 and when we find it's match, we negate it back to
 0. If these values end up being anythign other than 0, we say that we found a
 mismatch.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.24_synerrors.c`
    * :c-better-explain:`Ex_1.24_synerrors.rst`
-
----- 
-
-This document was updated on |today|

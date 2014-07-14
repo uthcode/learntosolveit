@@ -33,12 +33,10 @@ Blanks: 4
 Tabs: 0
 Newlines: 1
 
+.. git_changelog::
 
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.8_count_blanks_etc.c`
    * :c-better-explain:`Ex_1.8_count_blanks_etc.rst`
 
----- 
-
-This document was updated on |today|

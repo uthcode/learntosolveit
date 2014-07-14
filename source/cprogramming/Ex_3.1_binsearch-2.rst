@@ -31,7 +31,9 @@ Explanation
  In the example above search element is 9. Program returns 4 which is the position of search element 
  in the given array. 
 
-.. seealso::
+ .. git_changelog::
 
-   * :c-suggest-improve:`Ex_3.1_binsearch-2.c`
-   * :c-better-explain:`Ex_3.1_binsearch-2.rst`
+ .. seealso::
+
+    * :c-suggest-improve:`Ex_3.1_binsearch-2.c`
+    * :c-better-explain:`Ex_3.1_binsearch-2.rst`

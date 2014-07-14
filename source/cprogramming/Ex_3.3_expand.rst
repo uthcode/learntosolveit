@@ -36,9 +36,9 @@ the end character, storing all the characters in s2.
 
 s2 will now have the expanded string.
 
+.. git_changelog::
 
-
-.. seealso::
+ .. seealso::
 
    * :c-suggest-improve:`Ex_3.3_expand.c`
    * :c-better-explain:`Ex_3.3_expand.rst`
