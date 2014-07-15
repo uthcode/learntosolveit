@@ -29,6 +29,7 @@ line and the longest as arguments to getline and copy, and neither we have to
 return the length from getline, because sharing of those is accomplished by
 sharing of the variable themselves.
 
+.. git_changelog::
 
 .. seealso::
 

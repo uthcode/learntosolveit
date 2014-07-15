@@ -18,7 +18,7 @@ Make dcl recover from input errors.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

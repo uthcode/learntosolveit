@@ -21,7 +21,7 @@ Compare code size and execution speed.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

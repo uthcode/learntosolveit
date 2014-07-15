@@ -27,5 +27,10 @@ number to the stack. If it getop returns an operator like `+`, `-`, `*` or `/`,
 it will `pop` two numbers out of the stack and operate on it. When it encounters
 a `/`, it ensures that the second operand is not 0 and disallows.
 
+
+.. git_changelog::
+
+.. seealso::
+
    * :c-suggest-improve:`sec_4.3.c`
    * :c-better-explain:`sec_4.3.rst`

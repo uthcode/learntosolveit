@@ -25,6 +25,8 @@ Solution
    :language: c
    :codesite: codepad
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`sec_1.1_helloworld.c`

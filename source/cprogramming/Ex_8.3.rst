@@ -20,7 +20,7 @@ Design and write _flushbuf, fflush, and fclose.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

@@ -36,7 +36,7 @@ Explaination
     gh->1
     ab->3
 
-
+.. git_changelog::
 
 .. seealso::
 

@@ -59,6 +59,7 @@ and thus the correct float value is obtained.
 The float value is stored in the array index that was sent from the main
 program.
 
+.. git_changelog::
 
 .. seealso::
 

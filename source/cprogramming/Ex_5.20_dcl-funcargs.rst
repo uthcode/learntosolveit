@@ -19,7 +19,7 @@ const, and so on.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

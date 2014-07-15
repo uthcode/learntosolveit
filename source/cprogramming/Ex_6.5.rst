@@ -31,6 +31,7 @@ Sample run of this program.
 	key2->value2
 	key not found
 
+.. git_changelog::
 	
 .. seealso::
 

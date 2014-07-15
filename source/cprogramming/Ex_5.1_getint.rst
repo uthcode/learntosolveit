@@ -78,6 +78,7 @@ find EOF, we store that EOF, so that the program terminates correctly.
 Once the getint sees an EOF, we end the program and print the contents of the
 array.
 
+.. git_changelog::
 
 .. seealso::
 

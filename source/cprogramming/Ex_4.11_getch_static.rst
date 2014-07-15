@@ -79,8 +79,7 @@ The program execution looks like this.
 	201 305 + 20 *
 	        10120
 
-
-
+.. git_changelog::
 
 .. seealso::
 

@@ -20,7 +20,7 @@ routines so they make more pains with error checking.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

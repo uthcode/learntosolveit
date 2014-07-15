@@ -29,6 +29,8 @@ the power value too as multiples of 10. For e.g 10.21 will be gotten as value =
 1021 and power = 100, So that when we return, we can send as `1021/100`. We
 multiply the final by the stored `sign` and return the result.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`sec_4.2.c`

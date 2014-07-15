@@ -19,7 +19,7 @@ comments, or preprocessor control lines. Write a better version.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 
