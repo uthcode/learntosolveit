@@ -25,6 +25,7 @@ character from the input. The function `ungetch(c)` when called places the
 character in the input and `getch()`, if it finds the character in the buf,
 returns it or it calls `getchar` to get character from the user.
 
+.. git_changelog::
 
 .. seealso::
 

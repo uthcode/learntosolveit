@@ -38,6 +38,7 @@ So, when we write something like this.
 The first sentence is read as input and placed in the BUF and the next sentence
 is read using `getch()` from the BUF array.
 
+.. git_changelog::
 
 .. seealso::
 

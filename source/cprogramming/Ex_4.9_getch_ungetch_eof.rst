@@ -27,6 +27,7 @@ can be solved by declaring our buf to be of integer type, like `int
 buf[BUFSIZE]` and `ungetch(c)` will store the character c, including EOF, now in
 an integer array.
 
+.. git_changelog::
 
 .. seealso::
 

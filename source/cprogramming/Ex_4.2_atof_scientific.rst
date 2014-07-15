@@ -28,7 +28,7 @@ We might get the output::
 
    1410065408.000000
 
-
+.. git_changelog::
 
 .. seealso::
 
