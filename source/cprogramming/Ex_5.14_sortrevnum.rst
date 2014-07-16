@@ -19,7 +19,7 @@ Modify the sort program to handle a -r flag, which indicates sorting in reverse
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

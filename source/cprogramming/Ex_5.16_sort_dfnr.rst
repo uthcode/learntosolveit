@@ -19,7 +19,7 @@ letters, numbers and blanks. Make sure it works in conjunction with -f.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

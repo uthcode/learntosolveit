@@ -21,7 +21,7 @@ numbers.)
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 
