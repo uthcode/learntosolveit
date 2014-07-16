@@ -27,6 +27,8 @@ screen, printer or in any file. C programming language provides a set of built-
 in functions to output required data.  Similarly putchar is a function which
 gives the output.
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`sec_1.5_inp2ou.c`

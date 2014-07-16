@@ -22,7 +22,7 @@ Make 6 a parameter that can be set from the command line.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

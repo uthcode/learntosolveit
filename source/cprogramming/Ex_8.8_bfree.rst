@@ -20,7 +20,7 @@ a static or external array to the free list at any time.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

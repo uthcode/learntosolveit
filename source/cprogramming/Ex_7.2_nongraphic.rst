@@ -20,7 +20,7 @@ local custom, and break long text lines.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

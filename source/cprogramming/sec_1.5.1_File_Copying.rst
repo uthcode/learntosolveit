@@ -18,6 +18,8 @@ Program
 Explanation
 -----------
 
+.. git_changelog::
+
 .. seealso::
 
    * :c-suggest-improve:`sec_1.5.1_File_Copying.c`

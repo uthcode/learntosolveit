@@ -18,7 +18,7 @@ Program
 Explaination
 ============
 
----- 
+.. git_changelog:: 
 
 .. seealso::
 

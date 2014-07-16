@@ -20,7 +20,7 @@ section.
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 

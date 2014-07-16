@@ -17,6 +17,7 @@ the relative speeds of the two versions.
 Explaination
 ============
 
+.. git_changelog::
 
 .. use-local-compiler
 

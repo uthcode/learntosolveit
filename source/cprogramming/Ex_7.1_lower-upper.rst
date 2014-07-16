@@ -19,7 +19,7 @@ depending on the name it is invoked with, as found in argv[0]
 Explaination
 ============
 
-
+.. git_changelog::
 
 .. seealso::
 
