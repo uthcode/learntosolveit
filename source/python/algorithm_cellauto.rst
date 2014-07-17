@@ -27,6 +27,7 @@ Explaination
 
 ADDEXPLAINATION
 
+.. git_changelog::
 
 .. seealso::
 
