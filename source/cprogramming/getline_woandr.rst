@@ -8,3 +8,10 @@ getline_woandr
    :language: c
    :tab-width: 4
 
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`getline_woandr.c`
+	* :c-better-explain:`getline_woandr.rst`

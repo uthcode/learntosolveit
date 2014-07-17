@@ -7,3 +7,10 @@ day_datev3
 .. literalinclude:: ../../languages/cprogs/day_datev3.c
    :language: c
    :tab-width: 4
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`day_datev3.c`
+	* :c-better-explain:`day_datev3.rst`

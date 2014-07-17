@@ -7,3 +7,10 @@ prepro1
 .. literalinclude:: ../../languages/cprogs/prepro1.c
    :language: c
    :tab-width: 4
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`prepro1.c`
+	* :c-better-explain:`prepro1.rst`

@@ -331,3 +331,10 @@ Interesting Uncategorized Programs
    His_Vertical
    His_Horizontal
    Fibonacci
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`index.c`
+	* :c-better-explain:`index.rst`

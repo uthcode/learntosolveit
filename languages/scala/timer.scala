@@ -1,5 +1,5 @@
 object TimerExample {
-  /** Runs the passed in function pausing approxmimately oen second in between calls.
+  /** Runs the passed in function pausing approxmimately one second in between calls.
    * as long as the function returns true. 
    */
   def oncePerSecond(callback: () => Boolean) {
