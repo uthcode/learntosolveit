@@ -27,3 +27,10 @@ ADDEXPLAINATION
    * :c-suggest-improve:`PROGRAMNAME.c`
    * :c-better-explain:`PROGRAMNAME.rst`
 
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`template.c`
+	* :c-better-explain:`template.rst`

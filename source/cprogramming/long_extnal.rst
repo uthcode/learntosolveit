@@ -7,3 +7,10 @@ long_extnal
 .. literalinclude:: ../../languages/cprogs/long_extnal.c
    :language: c
    :tab-width: 4
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`long_extnal.c`
+	* :c-better-explain:`long_extnal.rst`

@@ -7,3 +7,10 @@ val_limits
 .. literalinclude:: ../../languages/cprogs/val_limits.c
    :language: c
    :tab-width: 4
+
+.. git_changelog::
+
+.. seealso::
+
+	* :c-suggest-improve:`val_limits.c`
+	* :c-better-explain:`val_limits.rst`
