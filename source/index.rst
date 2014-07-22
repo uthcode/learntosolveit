@@ -43,3 +43,11 @@ Python Programming Language
 
    python/index
 
+Ruby Programming Language
+=========================
+
+.. toctree::
+   :maxdepth: 3
+
+   ruby/index
+
