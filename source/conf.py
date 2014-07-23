@@ -116,8 +116,6 @@ extlinks = {'c-suggest-improve':
              'python-better-explain':
     ("https://github.com/uthcode/uthcode/blob/combined/source/python/%s",
         "Suggest a better explanation for "),
-<<<<<<< HEAD
-=======
             'ruby-suggest-improve':
     ("https://github.com/uthcode/uthcode/blob/combined/languages/ruby/%s",
         "Suggest a Code Improvement:"),
@@ -142,7 +140,6 @@ extlinks = {'c-suggest-improve':
              'go-better-explain':
     ("https://github.com/uthcode/uthcode/blob/combined/source/go/%s",
         "Suggest a better explanation for "),
->>>>>>> deec69245d05966d1cb192166303a09508aca108
               'use-local-compiler':
     ('http://www.seas.upenn.edu/cets/answers/gcc.html',
               'Please use a local c compiler to run this program.'),
