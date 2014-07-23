@@ -12,6 +12,7 @@ Uthcode is a platform to learn programming using problem solving.
 A language is learnt by writing code; solving problems which demonstrate the
 features of the language. These also lend the developer to certain creative
 problem solving joy using that language.
+<<<<<<< HEAD
 
 The problems and solutions in Uthcode can easily be verified by running on
 ideone sandbox and collabration is most welcome by sending a pull request via
@@ -23,6 +24,19 @@ Happy Hacking!
 
 Stay updated via `Uthcode blog`_ or follow uthcode on twitter `@uthcode`_
 
+=======
+
+The problems and solutions in Uthcode can easily be verified by running on
+ideone sandbox and collabration is most welcome by sending a pull request via
+Github. Choose a problem in your favorite language below and experience the flow
+yourself.
+
+Happy Hacking!
+
+
+Stay updated via `Uthcode blog`_ or follow uthcode on twitter `@uthcode`_
+
+>>>>>>> deec69245d05966d1cb192166303a09508aca108
 .. _Uthcode blog: http://blog.uthcode.com
 .. _@uthcode: http://www.twitter.com/uthcode
 
@@ -42,4 +56,15 @@ Python Programming Language
    :maxdepth: 3
 
    python/index
+<<<<<<< HEAD
+=======
+
+Ruby Programming Language
+=========================
+
+.. toctree::
+   :maxdepth: 3
+
+   ruby/index
+>>>>>>> deec69245d05966d1cb192166303a09508aca108
 

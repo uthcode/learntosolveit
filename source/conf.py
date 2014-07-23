@@ -116,6 +116,33 @@ extlinks = {'c-suggest-improve':
              'python-better-explain':
     ("https://github.com/uthcode/uthcode/blob/combined/source/python/%s",
         "Suggest a better explanation for "),
+<<<<<<< HEAD
+=======
+            'ruby-suggest-improve':
+    ("https://github.com/uthcode/uthcode/blob/combined/languages/ruby/%s",
+        "Suggest a Code Improvement:"),
+             'ruby-better-explain':
+    ("https://github.com/uthcode/uthcode/blob/combined/source/ruby/%s",
+        "Suggest a better explanation for "),
+            'java-suggest-improve':
+    ("https://github.com/uthcode/uthcode/blob/combined/languages/java/%s",
+        "Suggest a Code Improvement:"),
+             'java-better-explain':
+    ("https://github.com/uthcode/uthcode/blob/combined/source/java/%s",
+        "Suggest a better explanation for "),
+            'scala-suggest-improve':
+    ("https://github.com/uthcode/uthcode/blob/combined/languages/scala/%s",
+        "Suggest a Code Improvement:"),
+             'scala-better-explain':
+    ("https://github.com/uthcode/uthcode/blob/combined/source/scala/%s",
+        "Suggest a better explanation for "),
+            'go-suggest-improve':
+    ("https://github.com/uthcode/uthcode/blob/combined/languages/go/%s",
+        "Suggest a Code Improvement:"),
+             'go-better-explain':
+    ("https://github.com/uthcode/uthcode/blob/combined/source/go/%s",
+        "Suggest a better explanation for "),
+>>>>>>> deec69245d05966d1cb192166303a09508aca108
               'use-local-compiler':
     ('http://www.seas.upenn.edu/cets/answers/gcc.html',
               'Please use a local c compiler to run this program.'),
