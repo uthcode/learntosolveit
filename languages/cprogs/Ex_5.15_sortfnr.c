@@ -1,9 +1,11 @@
-/* Add the option -f to fold upper and lower cases together, so that case distinctions are not made clearly during sorting;For eg:a and A compare equal */
+/* Add the option -f to fold upper and lower cases together, so that case
+ * distinctions are not made clearly during sorting;For eg:a and A compare equal
+ * */
 
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
-
+#include<stdlib.h>
 
 #define NUMERIC 1	/* numeric sort */
 #define DECR	2	/* sort in decreasing order */
@@ -27,7 +29,7 @@ int main(int argc,char *argv[])
 	int nlines;		/* number of input lines read */
 	int c,rc=0;
 
-	while(--argc > 0 && (*++argv[0] == '-'))
+	while(--argc > 0 && (*++argv)[0] == '-') {
 		while(c = *++argv[0])
 			switch(c)
 			{
@@ -46,6 +48,7 @@ int main(int argc,char *argv[])
 						rc=-1;
 						break;
 			}
+	}
 	if (argc)
 		printf("Usage: sort -fnr \n");
 	else
@@ -54,7 +57,7 @@ int main(int argc,char *argv[])
 		{
 			if(option & NUMERIC)
 				myqsort((char **)lineptr,0,nlines-1,(int (*)(void *,void *))numcmp);
-			else if ( option & FOLD)
+			else if (option & FOLD)
 				myqsort((char **)lineptr,0,nlines-1,(int (*)(void *,void *))charcmp);
 			else
 				myqsort((char **)lineptr,0,nlines-1,(int (*)(void *,void *))strcmp);
@@ -70,6 +73,7 @@ int main(int argc,char *argv[])
 	return rc;
 	
 	}
+}
 
 /* charcmp: return < 0 if s <t, =0 if s =t,> 0 if s > t */
 int charcmp(char *s,char *t)
@@ -80,7 +84,6 @@ int charcmp(char *s,char *t)
 	return tolower(*s) - tolower(*t);
 }
 
-#include<stdlib.h>
 /* numcmp: compare s1 and s2 numerically */
 int numcmp(char *s1,char *s2)
 {
@@ -122,7 +125,7 @@ int readlines(char *lineptr[],int maxlines)
 
 /* myqsort: sort v[left] ... v[right] into increasing order */
 
-void myqsort(char *v[],int left,int right)
+void myqsort(char *v[],int left,int right, int (*comp)(void *,void *))
 {
 	int i,last;
 	void swap(char *v[],int i,int j);
@@ -135,11 +138,11 @@ void myqsort(char *v[],int left,int right)
 	last=left;
 
 	for(i = left + 1; i <=right;i++)
-		if(strcmp(v[i],v[left]) < 0)
+		if((*comp)(v[i],v[left])<0)
 			swap(v,++last,i);
 	swap(v,left,last);
-	myqsort(v,left,last-1);
-	myqsort(v,last+1,right);
+	myqsort(v,left,last-1, comp);
+	myqsort(v,last+1,right, comp);
 }
 
 /* swap: interchange v[i] and v[j] */
@@ -155,7 +158,7 @@ void swap(char *v[],int i,int j)
 
 /* writelines: write output line */
 
-void writelines(char *lineptr[],int nlines)
+void writelines(char *lineptr[],int nlines, int decr)
 {
 	int i;
 	for(i=0;i<nlines;i++)

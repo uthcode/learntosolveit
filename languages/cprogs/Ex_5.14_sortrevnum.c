@@ -1,4 +1,4 @@
-/* Modify the sort program to handle a -r flag, which indicates sorting in 
+/* Modify the sort program to handle a -r flag, which indicates sorting in
 	reverse ( decreasing) order. Be sure that -r works with -n */
 
 #include<stdio.h>
@@ -76,7 +76,7 @@ void writelines(char *lineptr[],int nlines,int decr)
 int numcmp(char *s1,char *s2)
 {
 	double v1,v2;
-	
+
 	v1 = atof(s1);
 	v2 = atof(s2);
 
@@ -138,10 +138,10 @@ void myqsort(void *v[],int left,int right,int (*comp)(void *,void *))
 {
 	int i,last;
 	void swap(void *v[],int,int);
-	
+
 	if(left >= right)
 		return;
-	
+
 	swap(v,left,(left+right)/2);
 
 	last = left;
@@ -168,7 +168,7 @@ void swap(void *v[],int i,int j)
 int mgetline(char s[],int lim)
 {
 	int c,i;
-	
+
 	for(i=0;i<lim-1 && (c=getchar())!= EOF && c!='\n';++i)
 		s[i] = c;
 	if( c == '\n')

@@ -20,8 +20,6 @@ distinctions are not made during sorting; for example, a and A compare equal.
 Explaination
 ============
 
-*  :use-local-compiler:  
-
 
 .. git_changelog::
 
@@ -29,3 +27,4 @@ Explaination
 
    * :c-suggest-improve:`Ex_5.15_sortfnr.c`
    * :c-better-explain:`Ex_5.15_sortfnr.rst`
+   * :use-local-compiler:  
