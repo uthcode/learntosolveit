@@ -13,4 +13,4 @@ This is an implementation of a well known CS algorithm.
    :maxdepth: 1
 
    forloop
-
+   being_rescue_else_ensure
