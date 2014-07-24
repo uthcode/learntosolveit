@@ -141,7 +141,7 @@ extlinks = {'c-suggest-improve':
     ("https://github.com/uthcode/uthcode/blob/combined/source/go/%s",
         "Suggest a better explanation for "),
               'use-local-compiler':
-    ('http://www.seas.upenn.edu/cets/answers/gcc.html',
+    ('http://www.seas.upenn.edu/cets/answers/%s.html',
               'Please use a local c compiler to run this program.'),
 }
 

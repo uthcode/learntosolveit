@@ -17,6 +17,8 @@ distinctions are not made during sorting; for example, a and A compare equal.
    :codesite: ideone
 
 
+:use-local-compiler:`gcc`
+
 Explaination
 ============
 
@@ -27,4 +29,3 @@ Explaination
 
    * :c-suggest-improve:`Ex_5.15_sortfnr.c`
    * :c-better-explain:`Ex_5.15_sortfnr.rst`
-   * :use-local-compiler:  

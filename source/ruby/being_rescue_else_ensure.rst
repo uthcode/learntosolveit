@@ -11,11 +11,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/being_rescue_else_ensure.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/being_rescue_else_ensure.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination
