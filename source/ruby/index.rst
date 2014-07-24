@@ -12,5 +12,10 @@ This is an implementation of a well known CS algorithm.
 .. toctree::
    :maxdepth: 1
 
-   forloop
    being_rescue_else_ensure
+   check_nil
+   class_and_object
+   conditionals
+   constant_assignment
+   forloop
+   handle_exceptions
