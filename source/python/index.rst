@@ -42,6 +42,7 @@ This is an implementation of a well known CS algorithm.
    algorithm_maxsort
    algorithm_mergesort
    algorithm_npuzzle
+   algorithm_number_sets
    algorithm_peepholeoptimization
    algorithm_prime_1
    algorithm_py3AES
@@ -69,7 +70,7 @@ Design
 
 These programs demonstrate software design ascepts. These can be pretty
 deep as, "why" it is done so is not obvious, but the program usually
-demonstrates how it is done. 
+demonstrates how it is done.
 
 .. toctree::
    :maxdepth: 1
@@ -126,6 +127,8 @@ demonstrates how it is done.
    design_total_ordering2
    design_traceit
    design_try_except
+   design_decorator
+   design_ipy
 
 
 Networking
@@ -164,7 +167,6 @@ servers and clients.
    networking_udp1
    networking_udp2
 
-   
 Software_engineering
 ====================
 
@@ -199,6 +201,7 @@ make money, you will need to take care of these aspects.
    software_engineering_provide_warnings
    software_engineering_ptags
    software_engineering_python3k_json
+   software_engineering_remove_old_eggs
    software_engineering_run_under_strace
    software_engineering_runningtime
    software_engineering_runningtime_intaddition
@@ -221,6 +224,7 @@ make money, you will need to take care of these aspects.
    software_engineering_time_converter
    software_engineering_tkintertimer
    software_engineering_twitter_phidget
+   software_engineering_unicode1
    software_engineering_updateuthcode
    software_engineering_xmlrpcclient
    software_engineering_xmlrpcserver

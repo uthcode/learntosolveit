@@ -232,10 +232,13 @@ Interesting Uncategorized Programs
    anylonglinelen
    alloc_afree
    Fibonacci
+   binsearch
+   bitcount
+   getbits
 
 .. git_changelog::
 
 .. seealso::
 
-	* :c-suggest-improve:`index.c`
-	* :c-better-explain:`index.rst`
+* :c-suggest-improve:`index.c`
+* :c-better-explain:`index.rst`

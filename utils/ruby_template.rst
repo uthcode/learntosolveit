@@ -11,11 +11,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/PROGRAMNAME.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/PROGRAMNAME.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination
@@ -31,4 +31,5 @@ ADDEXPLAINATION
 
    * :ruby-suggest-improve:`PROGRAMNAME.rb`
    * :ruby-better-explain:`PROGRAMNAME.rst`
+
 
