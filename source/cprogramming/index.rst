@@ -189,147 +189,48 @@ Interesting Uncategorized Programs
 .. toctree::
    :maxdepth: 1
    
-   rightrot
-   any
-   conddetab
    dcl
-   example1
-   myatoi
    getline_woandr
    mined1
-   mygetchar-2
    mygetchar
-   mymalloc
-   mystrcat
-   mystrcmp-1
-   mystrcmp
-   mystrcpy-2
-   mystrcpy-3
-   mystrcpy-4
-   mystrcpy
-   mystrlen-1
-   mystrlen
-   mystrncat
-   mystrncmp
-   mystrncpy
-   nongraphic
    numlinesort
-   numsort
    pgechov1
    pgechov2
    pgechov3
-   pngetint
    prepro1
    prepro2
    printd
    quicksort
-   recuritoa
-   recurreverse
-   remcomments
-   remtrailbt
-   reversecomma
    reversestr
-   rightstrindex
    rot13
-   rpn-1
-   rpn-2
-   rpn-3
-   rpn-4
-   rpn
-   rudicalci
-   setbits
    shellsort
    sizeof_various
-   sort-dfnr
    sort
-   sortdfnr-withoption
-   sortfnr
-   sortrevnum
    sortv2
-   sqrt
    squeezesc
-   squeezess
-   strend
-   strendv2
-   strindexv2
-   swap
-   swap_t_x_y
    synerrors
-   tailn
-   tempconv
-   trim
-   undcl-1
-   undcl
    unescape
-   ungets
    val_limits
    wumpus
    mycp
-   mycat
    myatoi-2
-   modentab
-   moddetab
-   minprintf
    makedir
-   lowercondit
-   lower
-   lower-upper
    long_extnal
    likegrep
    likefind
-   lengt80
    leap
-   justcp
-   itob
-   itoav2
-   itoa
-   itoa-3
-   itoa-2
-   invert
-   intostr
-   htoi
    glat17
    getpass1
-   getopv2
-   getlinev2
-   getint
-   getfloat
-   getch_static
-   getch_getline
-   getbits
-   fsize_1
    fsize
    fork1
-   fold
-   findpattern
-   exprcmd
-   expand
-   escape
    eratosthenes
    eofval
    endian
-   detab
-   dcl-funcargs
-   dcl-errorec
    day_datev3
-   day_datev2
-   day_date
    counts
-   condientab
-   calloc
-   cal_limits
-   buf1c
-   bitcount2s
-   bfree
    atoiv2
-   atofwitheE
    anylonglinelen
    alloc_afree
-   TbsBkSpaces
-   LongLine
-   Hist_Freq
-   His_Vertical
-   His_Horizontal
    Fibonacci
 
 .. git_changelog::
