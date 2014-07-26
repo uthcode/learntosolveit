@@ -31,5 +31,3 @@ ADDEXPLAINATION
 
    * :ruby-suggest-improve:`module_mixin.rb`
    * :ruby-better-explain:`module_mixin.rst`
-
-
