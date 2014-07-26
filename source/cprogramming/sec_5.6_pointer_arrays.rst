@@ -31,7 +31,7 @@ ascending order the string from , the strings from left to pivot element, last
 and then we recursively qsort(v, left, last-1) and qsort(v, last+1, right).
 
 
-.. git-changelog::
+.. git_changelog::
 
 .. seealso::
 

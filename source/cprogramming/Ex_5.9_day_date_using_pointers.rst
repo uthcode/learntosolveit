@@ -26,7 +26,7 @@ In the month_day, we send two additional pointers `int *pmonth,int *pday` and
 after calculating the number of months and days, we return it using the pointers
 itself to the main function instead of printing them in the function.
 
-.. git-changelog::
+.. git_changelog::
 
 .. seealso::
 

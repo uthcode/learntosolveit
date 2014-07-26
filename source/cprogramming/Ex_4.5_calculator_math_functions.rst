@@ -50,7 +50,7 @@ The curx of program is in this function.
    }
 
 
-.. git-changelog::
+.. git_changelog::
 
 
 .. seealso::

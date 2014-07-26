@@ -36,7 +36,7 @@ In the `month_day` function, we subtract days of each month from the day, till
 the day is lesser than days in that month and then print the result that we got
 after conversion.
 
-.. git-changelog::
+.. git_changelog::
 
 .. seealso::
 

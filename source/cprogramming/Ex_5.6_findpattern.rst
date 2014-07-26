@@ -73,7 +73,7 @@ read when our condition fails (that is we have completely read the NUMBER) In
 that case, we do a ungetch, to return the character back to buffer and return
 that we found a NUMBER.
 
-.. git-changelog::
+.. git_changelog::
 
 
 .. seealso::

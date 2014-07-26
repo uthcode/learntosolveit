@@ -43,7 +43,7 @@ criteria and we return 0. Otherwise, it returns the difference between lhs
 character and rhs character, which will be 0 if they are equal,  negative if lhs
 is smaller than rhs or positive value if lhs is greater than rhs.
 
-.. git-changelog::
+.. git_changelog::
 
 
 .. seealso::
