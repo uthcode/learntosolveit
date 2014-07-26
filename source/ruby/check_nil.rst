@@ -11,11 +11,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/check_nil.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/check_nil.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination

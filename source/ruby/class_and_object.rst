@@ -11,11 +11,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/class_and_object.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/class_and_object.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination

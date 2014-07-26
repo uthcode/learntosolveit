@@ -8,11 +8,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/forloop.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/forloop.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination

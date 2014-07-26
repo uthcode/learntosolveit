@@ -11,11 +11,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/handle_exceptions.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/handle_exceptions.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination

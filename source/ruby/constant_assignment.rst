@@ -11,11 +11,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/ruby/constant_assignment.rb
-   :language: Ruby
+   :language: ruby
    :tab-width: 4
 
 .. runcode:: ../../languages/ruby/constant_assignment.rb
-   :language: Ruby
+   :language: ruby
    :codesite: ideone
 
 Explaination
