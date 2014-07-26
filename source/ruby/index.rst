@@ -19,3 +19,13 @@ This is an implementation of a well known CS algorithm.
    constant_assignment
    forloop
    handle_exceptions
+   if_statement
+   include_modules
+   introspect
+   iterate_each
+   kernel_method
+   module_mixin
+   modules_with_methods
+   open_url
+   puts_examples
+   puts_functionname
