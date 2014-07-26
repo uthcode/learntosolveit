@@ -74,7 +74,7 @@ Chapter 3. Control Flow
 
 .. toctree::
    :maxdepth: 1
-   
+
    Ex_3.1_binsearch-2
    Ex_3.2_escape
    Ex_3.3_expand
@@ -87,13 +87,13 @@ Chapter 4. Functions and Program Structure
 
 .. toctree::
    :maxdepth: 1
-   
+
    sec_4.1
    Ex_4.1_strindex_rightmost
    sec_4.2
    Ex_4.2_atof_scientific
    sec_4.3
-   Ex_4.3_rpn_modulus_negative   
+   Ex_4.3_rpn_modulus_negative
    Ex_4.4_rpn_top_two_elements
    Ex_4.5_calculator_math_functions
    Ex_4.6_calculator_variables
@@ -136,7 +136,7 @@ Chapter 5. Pointers and Arrays
    Ex_5.20_dcl-funcargs
 
 Chapter 6. Structures
-=====================   
+=====================
 
 .. toctree::
    :maxdepth: 1
@@ -150,7 +150,7 @@ Chapter 6. Structures
    Ex_6.6
 
 Chapter 7. Input and Output
-===========================  
+===========================
 
 .. toctree::
    :maxdepth: 1
@@ -166,11 +166,11 @@ Chapter 7. Input and Output
    Ex_7.9
 
 Chapter 8. The Unix System Interface
-====================================   
+====================================
 
 .. toctree::
    :maxdepth: 1
-   
+
    sec_8.2_read_write
    sec_8.2_getchar
    sec_8.3_open_creat
@@ -188,7 +188,7 @@ Interesting Uncategorized Programs
 
 .. toctree::
    :maxdepth: 1
-   
+
    dcl
    getline_woandr
    mined1
