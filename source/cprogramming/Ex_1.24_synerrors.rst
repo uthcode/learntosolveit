@@ -33,10 +33,10 @@ comment, in-quote and rest of the program text. We don't to have worry about the
 part when we are in-comment or in-quote because we can find non-matching
 brankets or braces in those parts. It is only the rest that we care about.
 
-When a two sequence characters starts with  `/*` we enter in-comment block and
-continue till we end up with '*/'
+When a two sequence characters starts with  ``/*`` we enter in-comment block and
+continue till we end up with ``*/``
 
-When a single quote `'` or a double quote `"` character is found, we do the same
+When a single quote ``'`` or a double quote ``"`` character is found, we do the same
 and continue till we find it's match.
 
 For the rest of the program, when we first match a brace, bracket or

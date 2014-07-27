@@ -23,4 +23,4 @@ Explaination
 .. seealso::
 
    * :c-suggest-improve:`sec_6.3_getword.c`
-   * :c-better-explain:`sec_6.3_getword.rst
+   * :c-better-explain:`sec_6.3_getword.rst`

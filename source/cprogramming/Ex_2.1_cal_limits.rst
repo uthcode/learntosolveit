@@ -89,7 +89,7 @@ bit in the sequence.
 
 (unsigned short)~0 >> 1) 
 
-Take this portion `1111 1111 1111 111`1  and place it as **1111 1111 1111 111**
+Take this portion ``1111 1111 1111 111`` 1  and place it as **1111 1111 1111 111**
 And then add 0 to the left **0** 1111 1111 1111 111
 Rearranging we get **0111 1111 1111 1111**
 

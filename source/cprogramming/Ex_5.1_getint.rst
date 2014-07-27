@@ -19,16 +19,16 @@ representation of zero. Fix it to push such a character back on the input.
 Explaination
 ============
 
-We are to explain the function `getint(int *)` which takes a pointer to an
-integer as the argument. We also use `getch` and `ungetch` as two functions,
-from chapter 4, which work on `buf` of `BUFSIZE` sharing a global variable
-called `bufp`. `ungetch` function returns the character read to `buf` while
-`getch` tries to read that character to our program and if no character is
-present, it uses `getchar` to get the character.
+We are to explain the function ``getint(int *)`` which takes a pointer to an
+integer as the argument. We also use ``getch`` and ``ungetch`` as two functions,
+from chapter 4, which work on ``buf`` of ``BUFSIZE`` sharing a global variable
+called ``bufp``. ``ungetch`` function returns the character read to ``buf`` while
+``getch`` tries to read that character to our program and if no character is
+present, it uses ``getchar`` to get the character.
 
-In this program, we declare an `array` of size of 1000, and we send each digit
-of the array to getint using a call like `getint(&array[n])`. Our intention is
-to load the characters in array with a valid integer format like `+/-1234EOF`,
+In this program, we declare an ``array`` of size of 1000, and we send each digit
+of the array to getint using a call like ``getint(&array[n])``. Our intention is
+to load the characters in array with a valid integer format like ``+/-1234EOF``,
 that is + or - 1234 and ending with EOF character.
 
 In getint function, we get a character and if it's space, we simply ignore it.
@@ -63,16 +63,16 @@ And if we get any invalid input.
 Then the program will immediately end.
 
 
-So, on a valid input, the initial check is done to see if there is a `sign` and
-if yes, it stores the `sign` and then it goes about finding the next digit in a
+So, on a valid input, the initial check is done to see if there is a ``sign`` and
+if yes, it stores the ``sign`` and then it goes about finding the next digit in a
 for loop and calculates the number using this expression.
 
 ::
     
     *pn = 10 * *pn + (c-'0')
     
-This is responsible for converting the character like `1` to integer 1 and store
-it in *pn, the place in the array. We multiply the number by sign and when we
+This is responsible for converting the character like ``1`` to integer 1 and store
+it in ``*pn``, the place in the array. We multiply the number by sign and when we
 find EOF, we store that EOF, so that the program terminates correctly.
 
 Once the getint sees an EOF, we end the program and print the contents of the

@@ -28,8 +28,8 @@ utilize the ascii table property that the second character is higher than the
 first character and it is incremental.
 
 In the outer while loop, we get the character in c, and then check if the next
-character is `-` and character beyond that (i+1) is greater than c. With this
-check, we ascertain that we are in a range like `a-z`.
+character is ``-`` and character beyond that (i+1) is greater than c. With this
+check, we ascertain that we are in a range like ``a-z``.
 
 To expand the range, we keep incrementing the character in **c**, till it hits
 the end character, storing all the characters in s2.
@@ -38,7 +38,7 @@ s2 will now have the expanded string.
 
 .. git_changelog::
 
- .. seealso::
+.. seealso::
 
    * :c-suggest-improve:`Ex_3.3_expand.c`
    * :c-better-explain:`Ex_3.3_expand.rst`

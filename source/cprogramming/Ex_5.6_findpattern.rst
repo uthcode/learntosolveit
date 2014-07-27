@@ -21,7 +21,7 @@ and strindex and getop (Chapter 4).
 Explaination
 ============
 
-mgetline takes a string (char *) and MAXLINE, the maximum length of the line. It
+mgetline takes a string ``(char *)`` and MAXLINE, the maximum length of the line. It
 gets one character at a time using getchar() and as long as we are under limit
 (less than MAXLINE) and it is not \n character. It stores the charaacters in the
 line, advancing the pointer for each character.
@@ -51,17 +51,17 @@ the assignments are done, it adds a null character to form a valid C string::
     *s='\0';
 
 
-reverse takes a `char *s` as argument and uses a temporary string `char *t`, to
+reverse takes a ``char *s`` as argument and uses a temporary string ``char *t``, to
 swap the characters from the end to the front. It uses another intermediate
-character `c` to do the swap.
+character ``c`` to do the swap.
 
-strindex takes two strings `char *s` and `char *t` and determines the start of
+strindex takes two strings ``char *s`` and ``char *t`` and determines the start of
 the string t in s. It stores the s position in the base, b and then advances s
 and for each advance checks if the substring t is contained in s. If the
-substring is contained, it returns the current position - base position, that `s
--b`, otherwise it returns -1.
+substring is contained, it returns the current position - base position, that ``s
+-b``, otherwise it returns -1.
 
-getop works by taking a `char *s` as it's argument. It reads the character and
+getop works by taking a ``char *s`` as it's argument. It reads the character and
 stores it in s. It skips the whitespaces and then checks if it isdigit.
 If it not a digit, it closes the string using \0 and returns the character.
 

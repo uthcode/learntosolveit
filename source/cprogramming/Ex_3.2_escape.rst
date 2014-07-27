@@ -21,15 +21,15 @@ sequences into the real characters.
 Explaination
 ============
 
-C Program interpreters `\n` and `\t` as space characters and outputs them. Our
-intention is to capture the `\n` and `\t` characters and display them visibly as
+C Program interpreters ``\n`` and ``\t`` as space characters and outputs them. Our
+intention is to capture the ``\n`` and ``\t`` characters and display them visibly as
 **\n** or **\t**. In order to do that we need to *escape* them, the escaping is
-done by adding `\` character.
+done by adding ``\`` character.
 
-So in the program as soon as we see a `\n` character, in the array where we are
-copying to, we copy `\\` character and add a `n` character and similarly, when
-we see a `\t` character, in the array where we are copying to, we copy `\\`
-character and add a `t` character.
+So in the program as soon as we see a ``\n`` character, in the array where we are
+copying to, we copy ``\\`` character and add a ``n`` character and similarly, when
+we see a ``\t`` character, in the array where we are copying to, we copy ``\\``
+character and add a ``t`` character.
 
 .. git_changelog::
 

@@ -201,19 +201,15 @@ Interesting Uncategorized Programs
    prepro2
    printd
    quicksort
-   reversestr
    rot13
    shellsort
    sizeof_various
    sort
    sortv2
    squeezesc
-   synerrors
    unescape
    val_limits
    wumpus
-   mycp
-   myatoi-2
    makedir
    long_extnal
    likegrep
@@ -224,7 +220,6 @@ Interesting Uncategorized Programs
    fsize
    fork1
    eratosthenes
-   eofval
    endian
    day_datev3
    counts
@@ -235,10 +230,3 @@ Interesting Uncategorized Programs
    binsearch
    bitcount
    getbits
-
-.. git_changelog::
-
-.. seealso::
-
-* :c-suggest-improve:`index.c`
-* :c-better-explain:`index.rst`

@@ -7,7 +7,7 @@ Question
 
 The standard library function:
 	
-	int fseek(FILE *fp, long offset, int origin)
+	``int fseek(FILE *fp, long offset, int origin)``
 
 **inprogress**
 

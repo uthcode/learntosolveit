@@ -5,7 +5,7 @@ Section 8.3 open and create calls
 Question
 ========
 
-Demonstrate the `cp` like program which copies the contents of one file to another.
+Demonstrate the ``cp`` like program which copies the contents of one file to another.
 
 
 .. literalinclude:: ../../languages/cprogs/sec_8.3_open_creat.c
@@ -19,7 +19,7 @@ Demonstrate the `cp` like program which copies the contents of one file to anoth
 Explaination
 ============
 
-.. use-local-compiler::
+.. use_local_compiler::
 
 
 .. git_changelog::
