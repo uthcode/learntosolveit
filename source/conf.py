@@ -105,40 +105,40 @@ pygments_style = 'sphinx'
 # :python-better-explain:`name.rst`
 
 extlinks = {'c-suggest-improve':
-    ('https://github.com/uthcode/uthcode/blob/combined/languages/cprogs/%s',
+    ('https://github.com/uthcode/uthcode/blob/version1/languages/cprogs/%s',
     "Suggest a Code Improvement: "),
             'c-better-explain':
-    ('https://github.com/uthcode/uthcode/tree/combined/source/cprogramming/%s',
+    ('https://github.com/uthcode/uthcode/tree/version1/source/cprogramming/%s',
     "Suggest a better explanation for "),
             'python-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/combined/languages/python/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/languages/python/%s",
         "Suggest a Code Improvement:"),
              'python-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/combined/source/python/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/source/python/%s",
         "Suggest a better explanation for "),
             'ruby-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/combined/languages/ruby/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/languages/ruby/%s",
         "Suggest a Code Improvement:"),
              'ruby-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/combined/source/ruby/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/source/ruby/%s",
         "Suggest a better explanation for "),
             'java-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/combined/languages/java/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/languages/java/%s",
         "Suggest a Code Improvement:"),
              'java-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/combined/source/java/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/source/java/%s",
         "Suggest a better explanation for "),
             'scala-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/combined/languages/scala/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/languages/scala/%s",
         "Suggest a Code Improvement:"),
              'scala-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/combined/source/scala/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/source/scala/%s",
         "Suggest a better explanation for "),
             'go-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/combined/languages/go/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/languages/go/%s",
         "Suggest a Code Improvement:"),
              'go-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/combined/source/go/%s",
+    ("https://github.com/uthcode/uthcode/blob/version1/source/go/%s",
         "Suggest a better explanation for "),
               'use-local-compiler':
     ('http://www.seas.upenn.edu/cets/answers/%s.html',
