@@ -1,4 +1,0 @@
-title=Grizzly
-author=yourgameauthor
-api=1
-orientation=landscape
