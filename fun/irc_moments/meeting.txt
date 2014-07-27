@@ -1,5 +1,0 @@
-(03:46:58 AM) hynek: hey phoe6
-(03:47:29 AM) ***hynek had to giggle when I imagined your dinner with kennethreitz ;)
-(03:48:02 AM) __ap__: do you think they found a compatible HTTP subset to communicate with each other?
-(03:49:34 AM) Senthil: Hi hynek
-(03:50:13 AM) Senthil: __ap__:  haha.
