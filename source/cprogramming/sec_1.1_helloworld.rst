@@ -23,7 +23,7 @@ Solution
 
 .. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
    :language: c
-   :codesite: codepad
+   :codesite: ideone
 
 .. git_changelog::
 

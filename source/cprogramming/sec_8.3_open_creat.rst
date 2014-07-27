@@ -19,7 +19,7 @@ Demonstrate the ``cp`` like program which copies the contents of one file to ano
 Explaination
 ============
 
-.. use_local_compiler::
+.. use-local-compiler::
 
 
 .. git_changelog::
