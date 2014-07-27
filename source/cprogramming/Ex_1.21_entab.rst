@@ -22,9 +22,7 @@ Solution
    :language: c
    :codesite: ideone
 
-.. seealso::
-
-   * :use-local-compiler:
+:use-local-compiler:`gcc`
 
 Explaination
 ------------

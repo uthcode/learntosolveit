@@ -16,10 +16,12 @@ Demonstrate the ``cp`` like program which copies the contents of one file to ano
    :language: c
    :codesite: ideone
 
+
+:use-local-compiler:`gcc`
+
 Explaination
 ============
 
-.. use-local-compiler::
 
 
 .. git_changelog::

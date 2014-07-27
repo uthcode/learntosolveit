@@ -14,13 +14,12 @@ the relative speeds of the two versions.
    :tab-width: 4
 
 
+:use-local-compiler:`gcc`
+
 Explaination
 ============
 
 .. git_changelog::
-
-.. use-local-compiler
-
 
 
 .. seealso::
