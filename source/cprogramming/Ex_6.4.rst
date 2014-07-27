@@ -16,8 +16,8 @@ decreasing order of frequency of occurrence. Precede each word by its count.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 ::
 

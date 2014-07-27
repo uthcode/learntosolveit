@@ -15,8 +15,8 @@ Revise minprintf to handle more of the other facilities of printf.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

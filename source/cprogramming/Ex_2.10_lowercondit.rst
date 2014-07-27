@@ -16,8 +16,8 @@ with a conditional expression instead of if-else.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 In this program we are going to convert upper case letters to lower case. We
 declare a function called lower in the beginning of the program. When the

@@ -22,8 +22,8 @@ Solution
    :codesite: ideone
 
 
-Explaination
-------------
+Explanation
+===========
 
 In the removetrail function, we go to the very end of the line and the trace
 back to the find the character which is not a space, tab and then replace it

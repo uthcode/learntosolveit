@@ -18,8 +18,8 @@ returns a pointer to the location.)
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 
 The important part of the program is the function `any` which takes two strings

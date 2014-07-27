@@ -23,8 +23,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 1. We determine the column to fold in the MAXCOL variable.
 

@@ -17,8 +17,8 @@ Design and write _flushbuf, fflush, and fclose.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

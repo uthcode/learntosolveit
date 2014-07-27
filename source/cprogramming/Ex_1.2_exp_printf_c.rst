@@ -22,8 +22,8 @@ Solution
    
 
 
-Explaination
-============
+Explanation
+===========
 
 For the invalid characters, the compiler will output a warning statement.
 

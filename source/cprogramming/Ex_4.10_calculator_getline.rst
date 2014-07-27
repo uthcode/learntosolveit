@@ -16,8 +16,8 @@ getch and ungetch unnecessary. Revise the calculator to use this approach.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program uses `mgetline` to get the characters and operands from the input
 and and proceeds with the RPN calculator logic.

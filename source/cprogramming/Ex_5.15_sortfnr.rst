@@ -19,8 +19,8 @@ distinctions are not made during sorting; for example, a and A compare equal.
 
 :use-local-compiler:`gcc`
 
-Explaination
-============
+Explanation
+===========
 
 
 .. git_changelog::

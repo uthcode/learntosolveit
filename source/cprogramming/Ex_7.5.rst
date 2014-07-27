@@ -16,8 +16,8 @@ input and number conversion.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

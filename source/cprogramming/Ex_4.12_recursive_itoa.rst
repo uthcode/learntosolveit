@@ -16,8 +16,8 @@ an integer into a string by calling a recursive routine.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The main part of this program is the `itoa` routine, which takes an `integer n`
 and `string s` and is called recursively.

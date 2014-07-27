@@ -14,8 +14,8 @@ Program
    :language: c
    :codesite: ideone
    
-Explaination
-============
+Explanation
+===========
 
 This program is a simple demonstration of functions. A function `power` is
 declared to take two integer arguments and return an int value. In the program

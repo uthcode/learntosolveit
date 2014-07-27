@@ -21,8 +21,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 We define a label TNOCHAR 128 for total number of printable characters in ascii
 tabel (0 to 127) and we create an array ` int character[TNOCHAR]` to hold the

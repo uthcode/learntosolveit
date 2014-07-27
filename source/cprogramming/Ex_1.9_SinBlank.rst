@@ -20,8 +20,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 The essence of this program is, while reading the characters, if the last
 character that we encoutered is a blank, then we skip printing it.

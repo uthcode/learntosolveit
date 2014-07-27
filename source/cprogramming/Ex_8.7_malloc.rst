@@ -17,8 +17,8 @@ routines so they make more pains with error checking.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

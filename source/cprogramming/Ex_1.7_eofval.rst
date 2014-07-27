@@ -18,8 +18,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 1. Since EOF is an integer, we can print it with %d format in the printf. 2. EOF
 value is printed as -1.

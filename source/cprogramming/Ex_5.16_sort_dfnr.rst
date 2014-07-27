@@ -16,8 +16,8 @@ letters, numbers and blanks. Make sure it works in conjunction with -f.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

@@ -18,8 +18,8 @@ Compare code size and execution speed.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

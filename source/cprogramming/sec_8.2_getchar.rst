@@ -16,8 +16,8 @@ Demonstrate buffered and unbuffered getchar using the system read function.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The un-buffered getchar, uses the system read and stores each character that is read in a character, c
 and returns the character `return (read(0, &c, 1) == 1) ? (unsigned char) c : EOF;`

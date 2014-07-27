@@ -24,8 +24,8 @@ The previous version of itoa was this::
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 In this version of itoa, which involves a largest negative number, we first
 store the number itself in an integer called sign. Then get numbers from

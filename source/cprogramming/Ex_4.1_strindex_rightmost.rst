@@ -16,8 +16,8 @@ occurrence of t in s, or -1 if there is none.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 We find the rightmost of index of our substring in this program.  If we ask to
 look for pattern "abc" in the line "abcdedfabcde", the program should correctly

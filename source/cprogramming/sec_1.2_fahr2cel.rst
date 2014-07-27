@@ -22,8 +22,8 @@ Program
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 In this program we are going to convert a given Fahrenheit temperature to
 Celsius temperature using the formula C=(5/9)(F-32) To do this we declare some

@@ -15,8 +15,8 @@ Modify undcl so that it does not add redundant parentheses to declarations.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

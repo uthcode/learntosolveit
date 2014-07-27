@@ -16,8 +16,8 @@ strcat(s,t) copies the string t to the end of s.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This is a string concatenation program using pointers. The function mystrcat is
 defined to take two strings as character pointers `mystrcat(char *s, char *t)`

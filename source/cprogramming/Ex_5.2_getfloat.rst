@@ -16,8 +16,8 @@ return as its function value?
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The function `getfloat` is similar to the `getint` function, wherein instead of
 getting an integer, we get a float value.

@@ -16,8 +16,8 @@ to the right by n positions.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 We need to get the right most bit of the number provided.
 

@@ -16,8 +16,8 @@ representation of zero. Fix it to push such a character back on the input.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 We are to explain the function ``getint(int *)`` which takes a pointer to an
 integer as the argument. We also use ``getch`` and ``ungetch`` as two functions,

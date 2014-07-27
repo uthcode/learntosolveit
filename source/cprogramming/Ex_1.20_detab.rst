@@ -24,8 +24,8 @@ Solution
 
 :use-local-compiler:`gcc`
 
-Explaination
-------------
+Explanation
+===========
 
 We declare TABINC as 8 in #define TABINC 8 as the number of spaces which make a
 TAB.

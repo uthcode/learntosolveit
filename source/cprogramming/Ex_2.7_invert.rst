@@ -17,8 +17,8 @@ unchanged.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Let's take n as 3::
 

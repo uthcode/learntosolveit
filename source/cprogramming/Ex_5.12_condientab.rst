@@ -15,8 +15,8 @@ Extend entab and detab to accept the shorthand.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program is similar to the Exercise 5.11, where we send the arguments to
 entab and detab. So the main program accepts argc and argv. The program is to

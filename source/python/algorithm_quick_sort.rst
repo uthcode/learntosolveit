@@ -30,10 +30,10 @@ Version 2
    :codesite: ideone
 
 
-Explaination
-------------
+Explanation
+===========
 
-ADDEXPLAINATION
+
 
 .. git_changelog::
 

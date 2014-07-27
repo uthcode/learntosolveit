@@ -17,8 +17,8 @@ calling alloc to maintain storage. How much faster is the program?
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This uses the same qsort program. But instead of calculating the memory required
 using the alloc operator. It sends a predefined amount of memory from the main

@@ -15,8 +15,8 @@ Write a program to compare two files, printing the first line where they differ.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

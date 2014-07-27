@@ -16,10 +16,10 @@ ADDQUESTION
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
-ADDEXPLAINATION
+
 
 
 .. seealso::

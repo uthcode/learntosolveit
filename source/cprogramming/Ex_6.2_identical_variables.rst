@@ -19,8 +19,8 @@ Make 6 a parameter that can be set from the command line.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

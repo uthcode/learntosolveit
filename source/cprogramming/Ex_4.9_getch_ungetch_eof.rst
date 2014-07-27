@@ -17,8 +17,8 @@ design.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The previous `getch` and `ungetch` functions declared buf as `char buf[BUFSIZ]`.
 This has a limitation wherein the when an `EOF` character is encountered, it

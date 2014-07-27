@@ -21,8 +21,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 The objective of this program is the print a vertical histogram.
 For e.g. if the same input as the previous program is given.

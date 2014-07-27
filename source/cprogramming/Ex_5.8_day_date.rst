@@ -15,8 +15,8 @@ There is no error checking in day_of_year or month_day. Remedy this defect.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Given a calendar date, we will determine how many days from the start of the
 year is that date; we will also do the reverse, wherein give the days from the

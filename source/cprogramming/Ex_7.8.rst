@@ -17,8 +17,8 @@ with a title and a running page count for each file.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

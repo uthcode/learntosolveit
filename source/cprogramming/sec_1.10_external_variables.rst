@@ -15,8 +15,8 @@ Program
    
 
 
-Explaination
-============
+Explanation
+===========
 
 This program is same as finding the length of the longest line. The special
 thing here is we use external variables declared outside of any functions in the

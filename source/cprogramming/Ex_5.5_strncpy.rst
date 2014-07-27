@@ -16,8 +16,8 @@ operate on at most the first n characters of their argument strings.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 mystrlen assigns the address of s to p in `char *p = s` and then goes one
 character at a time, till it reaches \0. When it is at the end of the word, it

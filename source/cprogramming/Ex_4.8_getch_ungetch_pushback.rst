@@ -17,8 +17,8 @@ getch and ungetch accordingly.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program maintains a character buffer `char buf=0` which holds a single
 character from the input. The function `ungetch(c)` when called places the

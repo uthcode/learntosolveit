@@ -20,8 +20,8 @@ The standard library function:
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

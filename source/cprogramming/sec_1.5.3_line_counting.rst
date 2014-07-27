@@ -13,8 +13,8 @@ Program
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This Program counts input lines. The program does that counting by setting a
 variable nl to 0 in the beginning.  As the program one character at a time in

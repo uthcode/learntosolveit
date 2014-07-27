@@ -22,8 +22,8 @@ Solution
 
 
 
-Explaination
-------------
+Explanation
+===========
 
 In this program, we read the one character at a time and check if the character
 is a space ' ', we print newline character, '\n' thus going to next line in the

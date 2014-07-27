@@ -25,8 +25,8 @@ Solution
    :codesite: ideone
 
 
-Explaination
-------------
+Explanation
+===========
 
 We divide the program up into 3 parts. The text of the program when it is in-
 comment, in-quote and rest of the program text. We don't to have worry about the

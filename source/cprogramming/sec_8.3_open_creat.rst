@@ -19,8 +19,8 @@ Demonstrate the ``cp`` like program which copies the contents of one file to ano
 
 :use-local-compiler:`gcc`
 
-Explaination
-============
+Explanation
+===========
 
 
 

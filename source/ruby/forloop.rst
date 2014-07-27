@@ -15,8 +15,8 @@ Solution
    :language: ruby
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 Iterating using the construct `for x in container` will iterate through the
 values of the array.

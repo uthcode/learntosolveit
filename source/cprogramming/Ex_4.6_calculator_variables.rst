@@ -16,8 +16,8 @@ with single-letter names.) Add a variable for the most recently printed value.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This adds variables to our RPN calculator. An example execution goes like this.
 

@@ -17,8 +17,8 @@ local custom, and break long text lines.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

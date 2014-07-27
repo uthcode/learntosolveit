@@ -17,8 +17,8 @@ as a hexadecimal integer in s.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 
 In this, we are specifically targetting the conversion to base 16, though we

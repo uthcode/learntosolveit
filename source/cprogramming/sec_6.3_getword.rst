@@ -15,8 +15,8 @@ Program
    :codesite: ideone
 
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog:: 
 

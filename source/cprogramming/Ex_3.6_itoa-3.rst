@@ -17,8 +17,8 @@ blanks on the left if necessary to make it wide enough.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Note: For negative numbers the negative sign is written close to the number
 instead of before the padded width. This is ``itoa`` conversion with padding. We

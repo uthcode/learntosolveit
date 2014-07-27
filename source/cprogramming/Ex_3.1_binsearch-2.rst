@@ -18,7 +18,7 @@ loop and measure the difference in runtime.
    :codesite: ideone
 
 Explanation
-============
+===========
 
  The program demonstrates a binsearch function which 
  takes element (x) to search for, an array of integers and the length of the array as arguments.

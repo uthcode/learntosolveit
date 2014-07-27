@@ -16,8 +16,8 @@ Should ungets know about buf and bufp, or should it just use ungetch?
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program defines `ungets(s)`, which takes a string as an input and and
 removes one character at a time from the back of the string and puts them into a

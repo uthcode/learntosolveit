@@ -14,8 +14,8 @@ Program
    :language: c
    :codesite: ideone
    
-Explaination
-============
+Explanation
+===========
 
 We need to count the number of characters, the number of words and the newlines
 in the program. We store the characters in a variable `c`, it's count in nc, the

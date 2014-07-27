@@ -18,8 +18,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 In this program we are going to count the number of Blanks, tabs and new lines
 present in the input.  To do this the program, while reading the characters

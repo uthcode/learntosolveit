@@ -15,8 +15,8 @@ Add access to library functions like sin, exp, and pow.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The RPN calculator has addition features like doing mathematical functions. In the input, if a string is given then the
 calculator identifies it as a NAME and goes to the mathfun.

@@ -16,8 +16,8 @@ Program
    :codesite: ideone
 
 
-Explaination
-============
+Explanation
+===========
 
 In this program, we do the float conversion, by capturing the entire input as
 decimal first, following the same procedure as converting `atoi`, that is we

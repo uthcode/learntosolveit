@@ -14,8 +14,8 @@ order, a stripped down version of unix sort program.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 In this program, Pointer to Arrays, we intend to a sort a list of lines which is
 sent to the program as `char *lineptr[MAXLINES]`. The sort function uses a quick

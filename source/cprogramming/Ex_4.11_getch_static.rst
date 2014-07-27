@@ -16,8 +16,8 @@ static variable.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The point of illustration of this program is the static variable, `lastc`, which
 gets initialized once as a static variable and maintains its state at each

@@ -17,8 +17,8 @@ exponent.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 For the input::
 

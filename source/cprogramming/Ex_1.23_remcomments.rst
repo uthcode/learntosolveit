@@ -21,8 +21,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 If two subsequent characters start with `/` and `*`, we say we are in-comment,
 If we find two characters which are `/` and `/`, we will print the first

@@ -17,8 +17,8 @@ arguments.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program is about accepting the arguments for entab and entab as command
 line args. So the main program accepts argc and argv.

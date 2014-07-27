@@ -14,8 +14,8 @@ Program
    :codesite: ideone
 
 
-Explaination
-============
+Explanation
+===========
 
 This program has number of helper functions like `getop`, `push` and `pop`,
 which we use to the implement the reverse polish notation calculator.

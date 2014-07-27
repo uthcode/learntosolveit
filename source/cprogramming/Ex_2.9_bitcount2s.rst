@@ -16,8 +16,8 @@ x. Explain why. Use this observation to write a faster version of bitcount.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 **ones** complement is a system used in some computers to represent negative
 numbers. To negate a number, each bit of the number is inverted (zeros are

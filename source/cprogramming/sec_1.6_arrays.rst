@@ -14,8 +14,8 @@ Program
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This section introduces arrays. Arrays in C hold a number of same typed
 variables into a one entity and are indexed by their position. In this program

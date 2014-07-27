@@ -24,8 +24,8 @@ Write a loop equivalent to the for loop above without using && or ||.
    :codesite: ideone
 
 
-Explaination
-============
+Explanation
+===========
 
 We use mgetline instead of getline, so that our compiler does not get confused
 with the builtin getline function.

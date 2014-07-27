@@ -17,8 +17,8 @@ allowable digits are 0 through 9, a through f,and A through F.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 In this program we are going to convert a string of hexadecimal digits into
 integer value. If give input as `F` then the output should be 15.  This is done

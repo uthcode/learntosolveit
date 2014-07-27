@@ -18,10 +18,10 @@ Solution
    :language: ruby
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
-ADDEXPLAINATION
+
 
 
 .. git_changelog::

@@ -18,8 +18,8 @@ and strindex and getop (Chapter 4).
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 mgetline takes a string ``(char *)`` and MAXLINE, the maximum length of the line. It
 gets one character at a time using getchar() and as long as we are under limit

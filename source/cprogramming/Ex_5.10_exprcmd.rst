@@ -16,8 +16,8 @@ command line, where each operator or operand is a separate argument.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program reads the input to our rpn calculator from the command line itself.
 `2 3 4 + *` and then goes about doing the RPN caculator work on it.

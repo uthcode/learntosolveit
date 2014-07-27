@@ -18,10 +18,10 @@ Solution
    :language: python
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
-ADDEXPLAINATION
+
 
 .. git_changelog::
 

@@ -20,8 +20,8 @@ and -a-z. Arrange that a leading or trailing -is taken literally.
    :codesite: ideone
    
 
-Explaination
-============
+Explanation
+===========
 
 Here we expand the strings like a-z from s1 into an expanded form in s2. We
 utilize the ascii table property that the second character is higher than the

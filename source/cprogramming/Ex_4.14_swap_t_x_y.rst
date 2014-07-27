@@ -15,8 +15,8 @@ Define a macro swap(t,x,y) that interchanges two arguments of type t.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 There are two types of macros in C namely object-like and function-like. In
 object type, we do substitution and in function macros we can send a variable as

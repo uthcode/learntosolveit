@@ -16,8 +16,8 @@ comments, or preprocessor control lines. Write a better version.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

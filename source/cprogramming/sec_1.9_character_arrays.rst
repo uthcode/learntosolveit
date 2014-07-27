@@ -15,8 +15,8 @@ Program
    :codesite: ideone
    
 
-Explaination
-============
+Explanation
+===========
 
 In C, strings are nothing but a character arrays which end with a special
 character `\0`. In this program, we declare character arrays `char line[]`  in

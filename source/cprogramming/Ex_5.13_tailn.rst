@@ -15,8 +15,8 @@ Write the program tail, which prints the last n lines of its input.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program is to print the last n lines of a file, with default being last 10
 lines. The program sets aside an array of character pointers (strings) to store

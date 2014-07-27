@@ -17,8 +17,8 @@ Should the file name be printed when a matching line is found?
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

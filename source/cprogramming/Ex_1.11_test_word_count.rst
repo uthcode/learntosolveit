@@ -20,8 +20,8 @@ Program
    :codesite: ideone
 
 
-Explaination
-============
+Explanation
+===========
 
 Testing the word count program involves, giving three kinds of inputs.
 

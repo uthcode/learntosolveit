@@ -21,8 +21,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 A string in C is a character array which ends in `\0`. **getline** is a function
 in our program, which reads one character at a time using getchar and stores it

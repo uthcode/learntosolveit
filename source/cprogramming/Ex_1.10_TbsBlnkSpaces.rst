@@ -22,8 +22,8 @@ Solution
 
 :use-local-compiler:`gcc`
 
-Explaination
-------------
+Explanation
+===========
 
 If the program encounters a special character like ``\t`` (tab) or ``\b`` (blank) or
 ``\\`` (backslash), we explicitly handle that and print a ``\`` , using

@@ -16,8 +16,8 @@ end of the string s, and zero otherwise.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program determines if the string `t` occurs at the end of string `s`. So
 the output of the program will look like.

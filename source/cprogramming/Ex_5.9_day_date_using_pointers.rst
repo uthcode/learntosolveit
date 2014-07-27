@@ -16,8 +16,8 @@ indexing.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program is same as the previous program Exercise 5.8 and we calculate the
 day of the year as before and return it to be printed in the main function.

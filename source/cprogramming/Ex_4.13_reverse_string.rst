@@ -16,8 +16,8 @@ s in place.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The main part of this program is the reverser function.
 

@@ -16,8 +16,8 @@ of the program, to see what error messages you get.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 1. Leaving out `#include<stdio.h>`
 

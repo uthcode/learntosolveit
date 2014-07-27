@@ -16,8 +16,8 @@ Copy input to output by using read and write system calls.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This uses the read and write system calls to copy input to output.
 

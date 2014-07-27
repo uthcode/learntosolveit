@@ -18,8 +18,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 1. This program is similar to the previous one Ex 1.5, wherein after it gets the
 input, it prints the value of the expression getchar() != EOF.

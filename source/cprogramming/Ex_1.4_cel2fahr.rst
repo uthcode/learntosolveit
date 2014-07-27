@@ -21,8 +21,8 @@ Solution
    :codesite: ideone
 
 
-Explaination
-------------
+Explanation
+===========
 
 In the previous exercise we converted Fahrenheit temperature to Celsius
 temperature. In this program we are going to convert a given Celsius temperature

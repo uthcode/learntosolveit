@@ -17,8 +17,8 @@ also find getch and ungetch helpful.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Example output.
 

@@ -20,8 +20,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 We desire the histogram like the following.
 

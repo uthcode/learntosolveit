@@ -18,8 +18,8 @@ sequences into the real characters.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 C Program interpreters ``\n`` and ``\t`` as space characters and outputs them. Our
 intention is to capture the ``\n`` and ``\t`` characters and display them visibly as

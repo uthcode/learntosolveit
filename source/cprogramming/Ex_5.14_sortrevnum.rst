@@ -16,8 +16,8 @@ Modify the sort program to handle a -r flag, which indicates sorting in reverse
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 This program when executed with flags `-nr` and when given an input in any order
 will sort the arguments and print the numbers in reverse order.

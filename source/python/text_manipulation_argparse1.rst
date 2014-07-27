@@ -13,7 +13,7 @@ Question
    :language: python
    :codesite: ideone
 
-Explaination
+Explanation
 ============
 
 .. git_changelog::

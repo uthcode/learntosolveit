@@ -16,8 +16,8 @@ maintained by lookup and install.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Sample run of this program.
 

@@ -16,8 +16,8 @@ the relative speeds of the two versions.
 
 :use-local-compiler:`gcc`
 
-Explaination
-============
+Explanation
+===========
 
 .. git_changelog::
 

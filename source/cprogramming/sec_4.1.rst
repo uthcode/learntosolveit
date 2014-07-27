@@ -16,8 +16,8 @@ Program
    :codesite: ideone
 
 
-Explaination
-============
+Explanation
+===========
 
 This program searches particular pattern in a given string.  As per the program
 we are going to search for the pattern **ould** and print the line which has the

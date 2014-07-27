@@ -17,8 +17,8 @@ like ``the, and`` and so on.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Here is an example execution of this program.
 

@@ -16,8 +16,8 @@ that matches any character in the string s2.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 Let's take the two inputs strings as:
 

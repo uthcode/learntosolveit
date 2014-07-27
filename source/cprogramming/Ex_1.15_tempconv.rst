@@ -20,8 +20,8 @@ Solution
    :language: c
    :codesite: ideone
 
-Explaination
-------------
+Explanation
+===========
 
 
 In this program we are going to convert a given Fahrenheit temperature to

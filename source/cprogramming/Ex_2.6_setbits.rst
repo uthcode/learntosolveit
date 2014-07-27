@@ -16,8 +16,8 @@ position p set to the rightmost n bits of y, leaving the other bits unchanged.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 The important piece of the program is this::
 

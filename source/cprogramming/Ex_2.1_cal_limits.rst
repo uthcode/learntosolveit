@@ -19,8 +19,8 @@ the various floating-point types.
    :language: c
    :codesite: ideone
 
-Explaination
-============
+Explanation
+===========
 
 
 The execution of the above program will give::
