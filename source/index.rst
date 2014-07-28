@@ -18,9 +18,11 @@ The solution can easily be verified by running on ideone sandbox and
 collabration is most welcome by sending a pull request via Github. 
 
 Stay updated via `Uthcode blog`_ or follow uthcode on twitter `@uthcode`_
+Discuss about the project itself and post your requests at `Uthcode Discussion Forums`_
 
 .. _Uthcode blog: http://blog.uthcode.com
 .. _@uthcode: http://www.twitter.com/uthcode
+.. _Uthcode Discussion Forums: http://uthcode-forums.appspot.com/discuss
 
 
 C Programming Language
