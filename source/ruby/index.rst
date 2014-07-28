@@ -29,3 +29,15 @@ This is an implementation of a well known CS algorithm.
    open_url
    puts_examples
    puts_functionname
+   rbeautify
+   require_stmt
+   ruby_function
+   ruby5
+   ruby7
+   ruby16
+   see_backtrace
+   simpleNumber
+   string_methods
+   string_templates
+   string_times
+   tc_simpleNumber
