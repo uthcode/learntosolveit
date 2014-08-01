@@ -48,3 +48,19 @@ Ruby Programming Language
    :maxdepth: 3
 
    ruby/index
+
+Java Programming Language
+=========================
+
+.. toctree::
+   :maxdepth: 3
+
+   java/index
+
+Scala Programming Language
+==========================
+
+.. toctree::
+   :maxdepth: 3
+
+   scala/index
