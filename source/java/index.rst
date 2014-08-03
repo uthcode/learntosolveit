@@ -9,4 +9,19 @@ programing tasks using Java.  Our intention is to present the programs using
 .. toctree::
    :maxdepth: 1
 
+   1.2_Example
+   AutoBoxingUnboxing
+   Comments
+   Concatenate
+   ConversionPrimitive
+   CountEs
+   Describe
+   EqualityStrings
+   HelloUnicode
+   HelloWorld
+   IfTest
+   Layout
+   Lexicographic
+   VariableDeclaration
+
   
