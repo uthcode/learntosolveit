@@ -15,3 +15,13 @@ Our intention is to present the programs using
    :maxdepth: 1
 
    CaseClassInheritance
+   CompanianObject
+   FibonacciLister
+   HelloClassCaseClass
+   HelloObject
+   HelloObjectPlusClass
+   HelloWorld
+   TermTest
+   Timer
+   Today
+   TraitsTest
