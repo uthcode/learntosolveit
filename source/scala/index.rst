@@ -5,8 +5,8 @@ Scala Programming Examples
 This is Uthcode's Scala programming section, which illustrates how to do various
 programing tasks using Scala.  
 
-Programmes
-==========
+Programs
+========
 
 Our intention is to present the programs using
 'Scala by Example and Scala for the Impatient' books here with explanation.
