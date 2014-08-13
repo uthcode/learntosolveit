@@ -1,4 +1,4 @@
-public class AutoBoxingUnboxing {
+class AutoBoxingUnboxing {
 
   public static void main(String[] args) {
     Boolean bb1 = false, bb2 = !bb1; // Boxing to false, true
