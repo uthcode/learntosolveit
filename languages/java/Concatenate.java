@@ -1,8 +1,7 @@
-/* javac Concatenate.java
-   java arg1 arg2
-   Output:
-   arg1arg2
+/**
+ * Example 9 Concatenating all Command Line Arguments.
  */
+
 class Concatenate {
   public static void main(String[] args) {
     String res = "";

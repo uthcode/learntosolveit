@@ -1,4 +1,6 @@
-/* Layout of a class */
+/**
+ * Example 2  Recommended program Layout Style
+ */
 class Layout { // Class Declaration
   int x;
 

@@ -1,4 +1,6 @@
-/* Count the number of E's */
+/**
+ * Example 10 Counting the Number of e's in a String.
+ */
 class CountEs {
   static int ecount(String s) {
     int ecount = 0;

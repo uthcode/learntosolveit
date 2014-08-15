@@ -1,3 +1,6 @@
+/**
+ * Example 11 Determining whether String occurs in Lexicographically increasing Order.
+ */
 public class Lexicographic {
   static boolean sorted(String[] a) {
     for(int i = 1; i < a.length; i++)

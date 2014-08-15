@@ -1,3 +1,6 @@
+/**
+ * Example 7 Equality of Strings and the Subtlety of (+) Operator.
+ */
 class EqualityStrings {
   public static void main(String[] args) {
     String s1 = "abc";

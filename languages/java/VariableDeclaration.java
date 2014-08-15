@@ -1,4 +1,6 @@
-/* Example of declaring the various kinds of variables in Java */
+/**
+ * Example 6 Variable Declaration
+ */
 
 class VariableDeclaration {
 

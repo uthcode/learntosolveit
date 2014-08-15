@@ -1,4 +1,7 @@
-public class Comments {
+/**
+ * Example 1 - Comments
+ */
+class Comments {
   //This is single line comment
 
   /*
