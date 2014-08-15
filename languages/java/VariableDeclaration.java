@@ -1,4 +1,6 @@
-public class VariableDeclaration {
+/* Example of declaring the various kinds of variables in Java */
+
+class VariableDeclaration {
 
   public static void main(String[] args) {
     int a, b, c;

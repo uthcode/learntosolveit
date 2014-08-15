@@ -1,4 +1,4 @@
-public class ConversionPrimitive {
+class ConversionPrimitive {
   private static void floatdouble(float f, double d) {
     System.out.println(f + " " + d);
   }

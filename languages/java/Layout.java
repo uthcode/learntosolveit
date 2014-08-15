@@ -1,4 +1,5 @@
-public class Layout { // Class Declaration
+/* Layout of a class */
+class Layout { // Class Declaration
   int x;
 
   Layout(int x) {
