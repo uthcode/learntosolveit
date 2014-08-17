@@ -8,25 +8,32 @@ programing tasks using Java.
 Programs
 ========
 
-Our intention is to present the programs using
-'Java Precisely' book here with explanation.
+Our intention is to present the programs from the 'Java Precisely' book here 
+with explanation.
+
+.. toctree::
+   :maxdepth: 1
+
+   Comments
+   Layout
+   AutoBoxingUnboxing
+   ConversionPrimitive
+   VariableDeclaration
+   Scope
+   EqualityStrings
+   Concatenate
+   CountEs
+   Lexicographic
+
+
+Interesting Programs
+====================
 
 .. toctree::
    :maxdepth: 1
 
    1.2_Example
-   AutoBoxingUnboxing
-   Comments
-   Concatenate
-   ConversionPrimitive
-   CountEs
    Describe
-   EqualityStrings
    HelloUnicode
    HelloWorld
    IfTest
-   Layout
-   Lexicographic
-   VariableDeclaration
-
-  
