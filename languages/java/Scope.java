@@ -3,7 +3,7 @@
  *
  * TODO: Senthil Kumaran - Make it a complete working example
  */
-public class Scope {
+class Scope {
 
     void m1(int x) {
         System.out.printf("%d #1 in scope", x);
