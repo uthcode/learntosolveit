@@ -32,7 +32,6 @@ Interesting Programs
 .. toctree::
    :maxdepth: 1
 
-   1.2_Example
    Describe
    HelloUnicode
    HelloWorld
