@@ -1,7 +1,7 @@
 /**
  * Example 24 - Class Declaration
  */
-public class Point {
+class Point {
 
     int x, y;
 
