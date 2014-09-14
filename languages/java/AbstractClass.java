@@ -1,7 +1,7 @@
 /**
  * Example 27 - Abstract Classes, Subclasses, and Overriding
  */
-public class AbstractClass {
+class AbstractClass {
 
     abstract class Vessel {
         double contents;
