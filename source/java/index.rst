@@ -24,6 +24,7 @@ with explanation.
    Concatenate
    CountEs
    Lexicographic
+   AlignNumbers
 
 
 Interesting Programs
