@@ -1,6 +1,4 @@
 import httplib
-import pudb
-pudb.set_trace()
 
 USER_AGENT = "httplib-example-1.py"
 
