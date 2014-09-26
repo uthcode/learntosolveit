@@ -67,6 +67,6 @@ Explanation
 
 .. seealso::
 
-   * :scala-suggest-improve:`PROGRAMNAME.scala`
-   * :scala-better-explain:`PROGRAMNAME.rst`
+   * :scala-suggest-improve:`Interactive.scala`
+   * :scala-better-explain:`Interactive.rst`
 
