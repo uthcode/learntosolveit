@@ -3,13 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=======
-Uthcode
-=======
+=================
+Learn To Solve It
+=================
 
-Uthcode is a platform to learn programming in a straight forward way. Choose a
-problem, solve it using the language, learn the syntax, explain the approach,
-gather feedback and improve.
+::
+
+    Project name change. Former uthcode.com project is now called
+    learntosolveit.com. Please update your bookmarks.
+
+`Learn To Solve It` is a platform to learn programming in straight forward way.
+Choose a problem problem, solve it using the language, learn the syntax,
+explain the approach, gather feedback and improve.
 
 We have attempted to solve commonly occurring problems, frequently encountered
 tasks which form building blocks of large projects in multiple languages.
@@ -23,6 +28,8 @@ Discuss about the project itself and post your requests at `Uthcode Discussion F
 .. _Uthcode blog: http://blog.uthcode.com
 .. _@uthcode: http://www.twitter.com/uthcode
 .. _Uthcode Discussion Forums: http://uthcode-forums.appspot.com/discuss
+.. _Learn To Solve It: http://www.learntosolveit.com
+
 
 
 C Programming Language
