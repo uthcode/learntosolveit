@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'uthcode'
+project = u'Learn To Solve It'
 copyright = u'2014, Senthil Kumaran'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -105,40 +105,40 @@ pygments_style = 'sphinx'
 # :python-better-explain:`name.rst`
 
 extlinks = {'c-suggest-improve':
-    ('https://github.com/uthcode/uthcode/blob/version1/languages/cprogs/%s',
+    ('https://github.com/uthcode/learntosolveit/blob/version1/languages/cprogs/%s',
     "Suggest a Code Improvement: "),
             'c-better-explain':
-    ('https://github.com/uthcode/uthcode/tree/version1/source/cprogramming/%s',
+    ('https://github.com/uthcode/learntosolveit/tree/version1/source/cprogramming/%s',
     "Suggest a better explanation for "),
             'python-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/version1/languages/python/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/languages/python/%s",
         "Suggest a Code Improvement:"),
              'python-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/version1/source/python/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/source/python/%s",
         "Suggest a better explanation for "),
             'ruby-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/version1/languages/ruby/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/languages/ruby/%s",
         "Suggest a Code Improvement:"),
              'ruby-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/version1/source/ruby/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/source/ruby/%s",
         "Suggest a better explanation for "),
             'java-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/version1/languages/java/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/languages/java/%s",
         "Suggest a Code Improvement:"),
              'java-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/version1/source/java/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/source/java/%s",
         "Suggest a better explanation for "),
             'scala-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/version1/languages/scala/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/languages/scala/%s",
         "Suggest a Code Improvement:"),
              'scala-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/version1/source/scala/%s",
+    ("https://github.com/uthcode/learntsolveit/blob/version1/source/scala/%s",
         "Suggest a better explanation for "),
             'go-suggest-improve':
-    ("https://github.com/uthcode/uthcode/blob/version1/languages/go/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/languages/go/%s",
         "Suggest a Code Improvement:"),
              'go-better-explain':
-    ("https://github.com/uthcode/uthcode/blob/version1/source/go/%s",
+    ("https://github.com/uthcode/learntosolveit/blob/version1/source/go/%s",
         "Suggest a better explanation for "),
               'use-local-compiler':
     ('http://www.seas.upenn.edu/cets/answers/%s.html',
