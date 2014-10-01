@@ -13,13 +13,20 @@
 
 import sys, os
 # At the top.
-#import sphinx_bootstrap_theme
+import sphinx_bootstrap_theme
 
 # ...
 
 # Activate the theme.
-#html_theme = 'bootstrap'
-#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+html_theme = 'bootstrap'
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+
+html_theme_options = {
+        'navbar_sidebarrel' : False,
+        'navbar_pagenav': False,
+        'bootswatch_theme': "united",
+        'navbar_site_name': "Navigator"
+}
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -56,7 +63,7 @@ copyright = u'2014, Senthil Kumaran'
 # built documents.
 #
 # The short X.Y version.
-version = '0.1'
+version = ''
 # The full version, including alpha/beta/rc tags.
 release = '0.1'
 
@@ -92,7 +99,7 @@ exclude_trees = []
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'friendly'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -152,9 +159,9 @@ extlinks = {'c-suggest-improve':
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-sys.path.append(os.path.abspath('_themes'))
-html_theme_path = ['_themes']
-html_theme = 'flask'
+#sys.path.append(os.path.abspath('_themes'))
+#html_theme_path = ['_themes']
+#html_theme = 'flask'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -173,7 +180,7 @@ html_short_title = 'Learn To Solve It'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/learntosolveit.png'
+# html_logo = '_static/learntosolveit2.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -196,6 +203,9 @@ html_last_updated_fmt = '%d %b, %y'
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {'index': ['indexsidebar.html', 'searchbox.html']}
 #html_additional_pages = {'index': 'index.html', 'foo' : 'foo.html', 'bar': 'bar.html'}
+
+html_sidebars = {'**': ['logo.html','localtoc.html']}
+
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.

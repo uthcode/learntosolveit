@@ -3,10 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=================
-Learn To Solve It
-=================
-
 ::
 
     Project name change. Former uthcode.com project is now called
