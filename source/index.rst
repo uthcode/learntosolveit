@@ -13,7 +13,7 @@ Learn To Solve It
     learntosolveit.com. Please update your bookmarks.
 
 `Learn To Solve It` is a platform to learn programming in straight forward way.
-Choose a problem problem, solve it using the language, learn the syntax,
+Choose a problem, solve it using a programming language, learn the syntax,
 explain the approach, gather feedback and improve.
 
 We have attempted to solve commonly occurring problems, frequently encountered
