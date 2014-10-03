@@ -2,199 +2,150 @@
 #include <ctype.h>
 #include <string.h>
 
-#define MAXWORD 100
-
 struct key {
     char *word;
     int count;
-}keytab[] = {
-        "auto", 0,
-        "break", 0,
-        "case", 0,
-        "char", 0,
-        "const", 0,
-        "continue", 0,
-        "default", 0,
-        "printf", 0,
-        "unsigned", 0,
-        "void", 0,
-        "volatile", 0,
-        "while", 0
+} keytab[] = {
+    "auto", 0,
+    "break", 0,
+    "case", 0,
+    "char", 0,
+    "const", 0,
+    "continue", 0,
+    "default", 0,
+    "do", 0,
+    "double", 0,
+    "else", 0,
+    "enum", 0,
+    "extern", 0,
+    "float", 0,
+    "for", 0,
+    "goto", 0,
+    "if", 0,
+    "int", 0,
+    "long", 0,
+    "register", 0,
+    "return", 0,
+    "short", 0,
+    "signed", 0,
+    "sizeof", 0,
+    "static", 0,
+    "struct", 0,
+    "switch", 0,
+    "typedef", 0,
+    "union", 0,
+    "unsigned", 0,
+    "void", 0,
+    "volatite", 0,
+    "while", 0
 };
 
-#define NKEYS (sizeof keytab / sizeof (struct key))
+int mygetword(char *, int);
+int binsearch(char *, struct key*, int);
 
-int mgetword(char *, int);
-struct key *binsearch(char *, struct key *, int);
+#define NKEYS (sizeof(keytab)/sizeof(keytab[0]))
+#define MAXWORD 100
 
-/* count C keywords: pointer version */
-
-int main(int argc, char *argv[]) {
-    char word[MAXWORD];
-    struct key *p;
+int main(int argc, char *argv[])
+{   
     int n;
+    char word[MAXWORD];
 
-    /* If you want to use an IDE which does not support EOF, replace EOF with a character like x */
-    while (mgetword(word, MAXWORD) !=  EOF) {
-        if (isalpha(word[0])) {
-            if ((p = binsearch(word, keytab, NKEYS)) != NULL) {
-                p->count++;
-            }
-        }
-    }
-
-    for (p = keytab; p < keytab + NKEYS; p++) {
-        if (p->count > 0)
-            printf("%4d %s\n", p->count, p->word);
-    }
-
-    return 0;
+    while (mygetword(word, MAXWORD) != EOF)
+       if (isalpha(word[0]))
+            if ((n = binsearch(word, keytab, NKEYS)) >= 0)
+                keytab[n].count++;
+    for (n = 0; n < NKEYS; n++)
+        if (keytab[n].count > 0)
+            printf("%4d %s\n",
+                keytab[n].count, keytab[n].word);
 }
 
-/* binsearch: find word in tab[0] ... tab[n-1] */
-
-struct key *binsearch(char *word, struct key *tab, int n) {
+int binsearch(char *word, struct key keytab[], int n)
+{
     int cond;
-    struct key *low = &tab[0];
-    struct key *high = &tab[n];
-    struct key *mid;
+    int low, high, mid;
 
-    while (low < high) {
-        mid = low + (high - low) / 2;
-        if ((cond = strcmp(word, mid->word)) < 0)
-            high = mid;
+    low = 0;
+    high = n -1;
+    while (low <= high) {
+        mid = (low+high) /2;
+        if ((cond = strcmp(word, keytab[mid].word)) < 0 )
+            high = mid - 1;
         else if (cond > 0)
             low = mid + 1;
         else
             return mid;
     }
-    return NULL;
-
+    return -1;
 }
 
-
-/* getword: get next word or character from input */
-
-/* The requirement is to skip underscore, comments and pre-processor directive */
-#define IN 1
-#define OUT 0
-
-
-
-int mgetword(char *word, int lim)
+int mygetword(char *word, int lim)
 {
-    int c, d, getch(void), comment, string, directive;
+    int c, getch(void);
     void ungetch(int);
     char *w = word;
+    int t;
 
-    comment = string = directive = OUT;
-
-    while (isspace(c = getch()))
+    while (isspace(c=getch()))
         ;
-
-    /* Check if inside a comment */
-
-    if (c == '/') {
-        if ((d = getch()) == '*') {
-            comment = IN;
-        } else {
-            comment = OUT;
-            ungetch(d);
+    if (c != EOF)
+        *w++ = c;
+    if (!isalpha(c)) {
+        if (c == '\"') { /*string constant*/
+            for(c=getch(); c!= '\"'; c=getch()) 
+                ; 
         }
-    }
-
-    /* Check if inside a quote */
-
-    if ( c == '\"') {
-        string = IN;
-    }
-
-    /* Check if inside a directive */
-
-    if (c == '#') {
-            directive = IN;
-    }
-
-    if ( c == '\\') {
-        c = getch(); /* ignore the \\ character */
-    }
-
-    if (comment == OUT && string == OUT && directive == OUT) {
-
-        if (c != EOF)
-            *w++ = c;
-
-        if (!isalnum(c) && c !='_' ) {
-            *w = '\0';
-            return c;
+        else if (c == '#') { /*preprocessor*/
+            for(c=getch(); c!= '\n'; c=getch()) 
+                ;
         }
-
-        for ( ; --lim > 0; w++) {
-            *w = getch();
-            if (!isalnum(*w) && *w != '_') {
+        else if (c == '/')  /*comment*/
+            if ((c=getch()) == '/') { /*single comment*/
+                for(c=getch(); c!= '\n'; c=getch()) 
+                    ;
+            }
+            else if (c == '*') { /*mutiline comment*/
+                for(c=getch(),t=getch(); c!= '*' && t!= '/'; c=getch(), t=getch()) 
+                    ungetch(t);
+            }
+            else ungetch(c);
+        else /*underscore*/
+            for( ; !isspace(c) && c!=EOF; c=getch()) 
+                ;
+        if (c != '\"' && c!='\n' && c!='/') 
+            ungetch(c);
+        *w = '\0';
+        return c;
+    }
+    
+    for ( ; --lim > 0; w++)
+        if (!isalnum(*w = getch())) {
+            if (!isspace(*w)){
+                ungetch(*w);
+                return (*w);
+            }
+            else {
                 ungetch(*w);
                 break;
             }
         }
-        *w = '\0';
-        return word[0];
-    }
-    else if ( comment == IN) {
-        *w++ = c;
-        *w++ = d;
-
-        while ((*w++ = c = getch())) {
-            if ( c == '*' ) {
-                if ( (c = getch()) == '/' ) {
-                    *w++ = c;
-                    comment = OUT;
-                    break;
-                } else {
-                    ungetch(c);
-                }
-            }
-        }
-        *w = '\0';
-
-    }
-    else if ( string == IN) {
-        *w++ = c;
-        while ((*w++ = getch()) != '\"') {
-            if ( *w == '\\')  /* Take care of escaped quotes */
-                *w++ = getch();
-        }
-        string = OUT;
-        *w = '\0';
-    }
-    else if (directive == IN) {
-        *w++ = c;
-        while ((*w++ = getch()) != '\n') {
-            if ( c == '\\') { /* Take care of continuation line escape */
-                *w++ = getch();
-            }
-        }
-        directive = OUT;
-        *w = '\0';
-    }
-
-    return c;
-
+    *w = '\0';
+    return word[0];
 }
 
-#define BUFSIZE  100
+#define BUFSIZE 100
+char buf[BUFSIZE];
+int bufp = 0;
 
-char buf[BUFSIZE];  /* buffer for ungetch */
-int bufp = 0;       /* next free position in buf */
-
-int getch(void)     /* get a (possibly pushed back) character */
+int getch(void)
 {
-    return ( bufp > 0)? buf[--bufp] : getchar();
+    return (bufp>0) ? buf[--bufp] :getchar();
 }
 
-void ungetch(int c)     /* push a character back on input */
+void ungetch(int c)
 {
-    if(bufp >= BUFSIZE)
-        printf("ungetch: too many characters \n");
-    else
-        buf[bufp++] = c;
+    if (bufp >= BUFSIZE)
+        printf("ungetch: too many characters\n");
+        else buf[bufp++] = c;
 }
