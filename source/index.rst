@@ -3,10 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-::
 
-    Project name change. Former uthcode.com project is now called
-    learntosolveit.com. Please update your bookmarks.
 
 `Learn To Solve It` is a platform to learn programming in straight forward way.
 Choose a problem, solve it using a programming language, learn the syntax,
