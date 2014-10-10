@@ -25,6 +25,8 @@ with explanation.
    CountEs
    Lexicographic
    AlignNumbers
+   AbstractClass
+   AligningStrings
 
 
 Interesting Programs
