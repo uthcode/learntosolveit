@@ -27,6 +27,14 @@ with explanation.
    AlignNumbers
    AbstractClass
    AligningStrings
+   AllPathsTryCatchFinally
+   AnimatedCanvas
+   ArithmeticOperators
+   ArrayAssignmentTypeCheck
+   AssignmentNoCopyObjects
+   BinaryOutput
+   BinarySearchSortedArray
+   BitwiseOperators
 
 
 Interesting Programs
