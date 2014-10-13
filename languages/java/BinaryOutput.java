@@ -32,7 +32,6 @@ class BinaryOutput {
         out.writeLong(12345L);
         out.writeShort(32000);
         out.writeUTF("foo");
-        out.writeUTF("áéíóú");
         out.writeByte(-1);
         out.writeShort(-1);
     }
