@@ -1,7 +1,7 @@
 /**
  * Example 45 - Arithmetic Operators
  */
-public class ArithmeticOperators {
+class ArithmeticOperators {
 
     public static void main(String[] args) {
         int max = 2147483647;
