@@ -1,7 +1,7 @@
 /**
  * Example 75 - Using do-while to Roll a Die and Compute Sum Until 5 or 6 Comes up
  */
-public class DoWhileRollaDie {
+class DoWhileRollaDie {
 
     public static void main(String[] args) {
         int sum = 0, eyes;
