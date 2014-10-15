@@ -10,11 +10,11 @@ ADDQUESTION
 Solution
 ========
 
-.. literalinclude:: ../../languages/scala/Timer.scala
+.. literalinclude:: ../../languages/scala/timer.scala
    :language: scala
    :tab-width: 4
 
-.. runcode:: ../../languages/scala/Timer.scala
+.. runcode:: ../../languages/scala/timer.scala
    :language: scala
    :codesite: ideone
 
@@ -29,6 +29,6 @@ Explanation
 
 .. seealso::
 
-   * :scala-suggest-improve:`Timer.scala`
+   * :scala-suggest-improve:`timer.scala`
    * :scala-better-explain:`Timer.rst`
 
