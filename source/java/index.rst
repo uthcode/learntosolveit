@@ -55,6 +55,26 @@ with explanation.
    EmptyStatement
    EnhancedForStatement
    EqualsMethod
+   ExplicitIterable
+   ExplicitIterableWhileLoop
+   FieldAccess
+   FieldDeclarations
+   FieldInitializers
+   FloatingPointFactorial
+   FormattingDateAndTime
+   ForStatementIterable
+   GaussianPseudoRandom
+   GenericArrayLists
+   GenericClassLogging
+   GenericClassType
+   GenericInterfaceFunction
+   GenericLinkedList
+   GenericList
+   GenericMethodGenericClass
+   GenericQuickSort
+   GenericQuicksortComparable
+   GenericsLimitation
+   InefficientReplacement
 
 
 Interesting Programs
