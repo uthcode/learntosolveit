@@ -75,6 +75,16 @@ with explanation.
    GenericQuicksortComparable
    GenericsLimitation
    InefficientReplacement
+   InitializedArray
+   InnerObjects
+   InputOutputExamples
+   IntegerComparator
+   InternalPipes
+   IterationOverIterable
+   IteratorAnonymous
+   JavaFiveFeatures
+   LinkedHashSetRemoveDuplicates
+   LocaleSpecificDate
 
 
 Interesting Programs
