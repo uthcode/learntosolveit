@@ -85,6 +85,16 @@ with explanation.
    JavaFiveFeatures
    LinkedHashSetRemoveDuplicates
    LocaleSpecificDate
+   LocaleSpecificNumbers
+   LocalInnerClassInterator
+   LogicalOperators
+   MathematicalFunctions
+   MemberAccessModifiers
+   MemberClasses
+   MethodNameOverloading
+   MethodOverloadingHiding
+   MethodOverloadingParameterArray
+   MethodReturningIterable
 
 
 Interesting Programs
