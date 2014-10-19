@@ -95,6 +95,15 @@ with explanation.
    MethodOverloadingHiding
    MethodOverloadingParameterArray
    MethodReturningIterable
+   MultiDimensionalArray
+   MultipleThreads
+   MutualExclusion
+   NestedForLoops
+   NonGenericArrayList
+   ObjectsAndClasses
+   ObjectsWithMultipleFields
+   ObtainedSubMap
+   OneDimensionalArray
 
 
 Interesting Programs
