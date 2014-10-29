@@ -122,6 +122,16 @@ with explanation.
    ReflectiveRetrieval
    ReplaceOccurances
    RepresentingWeekdays
+   SequenceIfElse
+   SerializationDistinctObject
+   SerializationSameObject
+   SetMembership
+   SetsKeysinHashMap
+   SeveralFieldsSameName
+   SingleIfElse
+   SocketCommunication
+   SpecifyingOutputEncoding
+   StoringResultsDatabase
    
 
 
