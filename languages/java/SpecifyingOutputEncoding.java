@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 class SpecifyingOutputEncoding {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        String s = "áéíóú";
+        String s = "Give a non ascii string";
         String enc = "UTF-8";
         OutputStreamWriter osw = new OutputStreamWriter(System.out, enc);
         PrintWriter pw = new PrintWriter(osw);
