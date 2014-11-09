@@ -132,6 +132,47 @@ with explanation.
    SocketCommunication
    SpecifyingOutputEncoding
    StoringResultsDatabase
+   StringArrayFile
+   StringComparator
+   StringFromCharArray
+   SubtypeRelations
+   SuperclassConstructor
+   SwitchOnEnum
+   SwitchStatement
+   SwitchStatementStrings
+   SynchronizedMethods
+   ThreeInterfaces
+   ThrowingExceptionFailure
+   TimeComparable
+   TopLevelClass
+   ToString
+   TreeSetRange
+   TryCatch
+   TryFinally
+   TypeErasure
+   TypeParameter
+   UncheckedCast
+   UnderstandingCollectionsbinarySearch
+   UnderstandingCollectionscopy
+   UniqueClassObject
+   UsingAppendableInterface
+   Usingassert
+   UsingassertsCheckAlgorithm
+   UsingBreakToExitLabeled
+   UsingBreakToTerminateLoop
+   UsingContinueStartIteration
+   UsingCustomAnnotation
+   UsingInterfacesAsTypes
+   UsingMultidimentionalArrays
+   UsingReturntoTerminateLoop
+   Usingthis
+   UsingthisObject
+   VesselHeirarchy
+   WeekdayNametoNumberHashMap
+   WhileLoop
+   WideningNarrowing
+   WildcardTypes
+   WorklistAlgorithm
    
 
 
