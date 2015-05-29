@@ -1,7 +1,7 @@
 # This is an example of simple decorator using only the concepts of closure.
 import time
 
-def retry(ExceptionToCheck, tries=4, delay=3, backoff=2, logger=None):
+def retry(ExceptionToCheck, tries=4, delay=3, backoff=2):
 
     def _retry(fn):
 
