@@ -1,5 +1,4 @@
 #!/usr/bin/python
-#$Id$
 
 """
 Given an integer, covert to binary and convert to octal.

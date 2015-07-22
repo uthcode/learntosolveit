@@ -1,5 +1,4 @@
 #!/usr/bin/python
-#!$Id$
 """
 Program to do binary representation of various interesting ints.
 """
