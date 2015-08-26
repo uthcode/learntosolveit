@@ -1,7 +1,5 @@
 import threading
 import urllib
-import pudb
-pudb.set_trace()
 
 class MultiUrl(threading.Thread):
     def __init__(self, url):

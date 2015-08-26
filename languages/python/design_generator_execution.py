@@ -1,6 +1,3 @@
-import pudb
-pudb.set_trace()
-
 def normfunc():
     iterable = range(10)
     for item in iterable:

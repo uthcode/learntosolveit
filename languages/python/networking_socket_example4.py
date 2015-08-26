@@ -1,7 +1,5 @@
 import socket
 import os
-import pudb
-pudb.set_trace()
 
 parent, child = socket.socketpair()
 

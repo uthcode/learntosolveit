@@ -1,7 +1,4 @@
 import urllib2
-import pdb
-
-pdb.set_trace()
 authinfo = urllib2.HTTPBasicAuthHandler()
 opener = urllib2.build_opener(authinfo)
 urllib2.install_opener(opener)
