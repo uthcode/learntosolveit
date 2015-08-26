@@ -41,7 +41,7 @@ int mgetline(char s[],int lim)
 
 void squeeze(char s1[],char s2[])
 {
-	int i,j,k,found;
+	int i,j,k;
 	k=0;
 
 	for(i=0;s1[i]!='\0';++i)
