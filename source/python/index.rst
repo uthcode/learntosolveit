@@ -15,7 +15,6 @@ This is an implementation of a well known CS algorithm.
    algorithm_binary_representation
    algorithm_binary_search
    algorithm_binary_to_octal
-   algorithm_bipartite
    algorithm_cellauto
    algorithm_checking_string_text_or_binary
    algorithm_countingsort
@@ -34,8 +33,6 @@ This is an implementation of a well known CS algorithm.
    algorithm_hist
    algorithm_insertion
    algorithm_int_to_roman
-   algorithm_is_combination
-   algorithm_is_sorted
    algorithm_leibniz
    algorithm_lexical_analyzer_1
    algorithm_locate
@@ -43,10 +40,7 @@ This is an implementation of a well known CS algorithm.
    algorithm_mergesort
    algorithm_npuzzle
    algorithm_number_sets
-   algorithm_peepholeoptimization
    algorithm_prime_1
-   algorithm_py3AES
-   algorithm_py3rsa
    algorithm_pyex_multiprocessing
    algorithm_pyex2_multiprocessing
    algorithm_pyrsa
@@ -59,7 +53,6 @@ This is an implementation of a well known CS algorithm.
    algorithm_splitter
    algorithm_subtract_hexadecimals
    algorithm_syllablecount
-   algorithm_token_bucket
    algorithm_toss_coins
    algorithm_traversal
    algorithm_tree
@@ -113,21 +106,16 @@ demonstrates how it is done.
    design_python3_meta_ex1
    design_restricter_class
    design_simple_closure
-   design_simple_stmt
    design_slice_ellipses
    design_sorted_loop
    design_sorted_loop2
    design_space_efficient_dict
-   design_spammmodule
    design_stack
    design_stackinspection
-   design_struct_calcsize
    design_struct_example
    design_total_ordering
-   design_total_ordering2
    design_traceit
    design_try_except
-   design_ipy
 
 
 Networking
@@ -149,7 +137,6 @@ servers and clients.
    networking_fetchrfc
    networking_ftpurl1
    networking_googlesearch
-   networking_multipartposthandler
    networking_socket_client
    networking_socket_example1
    networking_socket_example2
@@ -199,7 +186,6 @@ make money, you will need to take care of these aspects.
    software_engineering_os_exec1
    software_engineering_provide_warnings
    software_engineering_ptags
-   software_engineering_python3k_json
    software_engineering_remove_old_eggs
    software_engineering_run_under_strace
    software_engineering_runningtime
@@ -273,8 +259,5 @@ These deal with websites, webapplications and work on top of networking layer.
    web_urllib2_digest2
    web_urllib2_headers_ex1
    web_urllib2_proxy_auth
-   web_urllib2_pycall1
    web_urllib2_test
    web_urllib2_1
-   web_urlopen_passwd
-   web_urlretrieve
