@@ -5,18 +5,17 @@
 
 
 
-`Learn To Solve It` is a platform to learn programming in straight forward way.
-Choose a problem, solve it using a programming language, learn the syntax,
-explain the approach, gather feedback and improve.
+`Learn To Solve It` is a platform to learn programming in a straight forward way.
 
-We have attempted to solve commonly occurring problems, frequently encountered
-tasks which form building blocks of large projects in multiple languages.
+My attempt is to choose a book and solve the exercises presented by the author in an easy to
+understand manner. The emphasis is on understanding the problem solving approach.
 
-The solution can easily be verified by running on ideone sandbox and
-collabration is most welcome by sending a pull request via Github. 
+The programs can be run directly on `ideone` sandbox and collaboration is most welcome
+by sending a pull request via `Github`.
 
 .. _Learn To Solve It: http://www.learntosolveit.com
-
+.. _ideone: http://www.ideone.com
+.. _Github: http://www.github.com
 
 
 C Programming Language
