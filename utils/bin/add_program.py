@@ -14,7 +14,9 @@ LANGUAGE_PATH = '../../languages/'
 NOW_FORMAT = '%d-%m-%Y %H:%M'
 PROGRAM_NAME_TEMPLATE = 'PROGRAMNAME'
 SOURCE_PATH = '../../source/'
+TEMPLATE_FORMAT = '../{0}_template.rst'
 INVALID_EXIT = -1
+PROGRAM_DIR = os.path.abspath(os.path.dirname(__file__))
 
 USAGE = """
 add_program.py program_name
@@ -51,15 +53,21 @@ def _program_folder_name(language):
 
 def get_language_dir(language):
     return os.path.abspath(
-        os.path.join(LANGUAGE_PATH, _program_folder_name(language)))
+        os.path.join(
+            PROGRAM_DIR,
+            LANGUAGE_PATH,
+            _program_folder_name(language)))
 
 def get_source_dir(language):
     return os.path.abspath(
-        os.path.join(SOURCE_PATH, _source_folder_name(language)))
+        os.path.join(
+            PROGRAM_DIR,
+            SOURCE_PATH,
+            _source_folder_name(language)))
 
 def get_template_file(language):
-    template_path = '../{0}_template.rst'.format(_source_folder_name(language))
-    return os.path.abspath(template_path)
+    template_path = TEMPLATE_FORMAT.format(_source_folder_name(language))
+    return os.path.abspath(os.path.join(PROGRAM_DIR, template_path))
 
 def create_program(filename):
     ext = filename.split('.')[1]
