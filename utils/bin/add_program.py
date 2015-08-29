@@ -69,6 +69,12 @@ def create_program(filename):
             os.path.basename(filename),
             _now()))
 
+def _program_name(program):
+    return program.split('.')[0]
+
+def _rst_filename(program):
+    return _program_name(program) + '.rst'
+
 def create_source(template, filename, program):
     with open(template) as template_file:
         with open(filename, 'w') as source_file:
@@ -78,7 +84,7 @@ def create_source(template, filename, program):
 
 def update_index_file(filename, program):
     with open(filename, 'a') as f:
-        f.write('   %s' % program)
+        f.write('   %s\n\n' % program)
 
 def get_index_file(language):
     return os.path.abspath(os.path.join(get_source_dir(language), 'index.rst'))
@@ -105,13 +111,13 @@ def main(args):
 
     path = get_source_dir(language)
     exit_if_not_exists(path)
-    source_file = os.path.abspath(os.path.join(path, program))
+    source_file = os.path.abspath(os.path.join(path, _rst_filename(program)))
     create_source(get_template_file(language), source_file, program)
     print 'Created {0}'.format(source_file)
 
     filename = get_index_file(language)
     exit_if_not_exists(filename)
-    update_index_file(filename, program)
+    update_index_file(filename, _program_name(program))
     print 'Updated {0}'.format(filename)
 
 if __name__ == '__main__':
