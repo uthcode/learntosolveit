@@ -5,17 +5,30 @@
 
 
 
-`Learn To Solve It` is a platform to learn programming in a straight forward way.
 
-My attempt is to choose a book and solve the exercises presented by the author in an easy to
-understand manner. The emphasis is on understanding the problem solving approach.
 
-The programs can be run directly on `ideone` sandbox and collaboration is most welcome
-by sending a pull request via `Github`.
+`Learn To Solve It`_ is a platform to learn programming in a straight forward
+way.
+
+My approach is to choose a good programming book, code examples, solve the
+exercises presented by the author and explain the solution. In addition, I have
+included a number of programs which demonstrate features of language and
+standard library which provide a good language and the style.
+
+The programs can be run directly on `ideone`_ sandbox and I welcome
+collaboration via `Github`_ pull requests, which is possibly directly from these
+pages.
+
+**Reference Books**
+
+* C Programming Language by Kernighan and Ritchie.
+* Python Cookbook by Alex Martelli, Anna Martelli Ravenscroft and David Ascher.
+* Java Precisely by Peter Sestoft.
+
 
 .. _Learn To Solve It: http://www.learntosolveit.com
 .. _ideone: http://www.ideone.com
-.. _Github: http://www.github.com
+.. _Github: https://github.com/uthcode/learntosolveit
 
 
 C Programming Language
