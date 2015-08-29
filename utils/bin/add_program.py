@@ -120,7 +120,11 @@ def main(args):
     path = get_source_dir(language)
     exit_if_not_exists(path)
     source_file = os.path.abspath(os.path.join(path, _rst_filename(program)))
-    create_source(get_template_file(language), source_file, program)
+    create_source(
+        get_template_file(language),
+        source_file,
+        _program_name(program))
+
     print 'Created {0}'.format(source_file)
 
     filename = get_index_file(language)

@@ -10,11 +10,11 @@ Read a specified line number from a file.
 Solution
 --------
 
-.. literalinclude:: ../../languages/python/files_read_specific_line.py.py
+.. literalinclude:: ../../languages/python/files_read_specific_line.py
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/files_read_specific_line.py.py
+.. runcode:: ../../languages/python/files_read_specific_line.py
    :language: python
    :codesite: ideone
 
