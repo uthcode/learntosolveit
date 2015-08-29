@@ -28,12 +28,10 @@ This is an implementation of a well known CS algorithm.
    algorithm_fri_13
    algorithm_graph
    algorithm_hanoi
-   algorithm_hanoi1
    algorithm_hexlify
    algorithm_hist
    algorithm_insertion
    algorithm_int_to_roman
-   algorithm_leibniz
    algorithm_lexical_analyzer_1
    algorithm_locate
    algorithm_maxsort
@@ -43,9 +41,7 @@ This is an implementation of a well known CS algorithm.
    algorithm_prime_1
    algorithm_pyex_multiprocessing
    algorithm_pyex2_multiprocessing
-   algorithm_pyrsa
    algorithm_quick_select
-   algorithm_quick_sort
    algorithm_quicksort
    algorithm_scrmable
    algorithm_sorting_ex1
@@ -73,15 +69,12 @@ demonstrates how it is done.
    design_atexit_1
    design_caseinsensitivedict
    design_class_same_object
-   design_closure
    design_closure_example1
    design_closure1
    design_context_2
-   design_context_manager_1
    design_contextmanager
    design_contextmanager_ex
    design_decorator3
-   design_default_not_shared
    design_dict_list
    design_ex_iterable27
    design_func_args
@@ -135,7 +128,6 @@ servers and clients.
    networking_email2
    networking_email3
    networking_fetchrfc
-   networking_ftpurl1
    networking_googlesearch
    networking_socket_client
    networking_socket_example1
@@ -165,14 +157,11 @@ make money, you will need to take care of these aspects.
    software_engineering_copy_files_unicode
    software_engineering_createtempfiles
    software_engineering_doctest_example
-   software_engineering_elementtree_1
    software_engineering_encoding_unicode_xml_html
    software_engineering_exceptions_testing
    software_engineering_fcntl_1
    software_engineering_fctrl2
    software_engineering_fortune_card
-   software_engineering_freev
-   software_engineering_gtk1
    software_engineering_htmlformatter
    software_engineering_htmlwriter
    software_engineering_ideone_post
@@ -181,12 +170,10 @@ make money, you will need to take care of these aspects.
    software_engineering_logging3
    software_engineering_logging4
    software_engineering_logging5
-   software_engineering_mp3
    software_engineering_multiprocessing_1
    software_engineering_os_exec1
    software_engineering_provide_warnings
    software_engineering_ptags
-   software_engineering_remove_old_eggs
    software_engineering_run_under_strace
    software_engineering_runningtime
    software_engineering_runningtime_intaddition
@@ -200,7 +187,6 @@ make money, you will need to take care of these aspects.
    software_engineering_subprocess3
    software_engineering_subprocess4
    software_engineering_subprocess5
-   software_engineering_subprocess6
    software_engineering_test_codec01
    software_engineering_test_codec02
    software_engineering_test_codec03
@@ -261,6 +247,5 @@ These deal with websites, webapplications and work on top of networking layer.
    web_urllib2_proxy_auth
    web_urllib2_test
    web_urllib2_1
-   test_program
    files_read_specific_line
 

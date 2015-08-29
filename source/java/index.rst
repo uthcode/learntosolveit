@@ -2,8 +2,8 @@
 Java Programming Examples
 =========================
 
-This is Uthcode's Java programming section, which illustrates how to do various
-programing tasks using Java.  
+Java programming section, which illustrates how to do various programing tasks
+using Java programming language.
 
 Programs
 ========
@@ -186,3 +186,6 @@ Interesting Programs
    HelloUnicode
    HelloWorld
    IfTest
+   ObjectCreation
+   OneDimensionalArray
+   ParameterPassing

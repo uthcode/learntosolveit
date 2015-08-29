@@ -2,8 +2,8 @@
 Ruby Programming Examples
 =========================
 
-This is Uthcode's Ruby programming section, which illustrates how to do
-various programing tasks using Ruby.
+Ruby programming section, illustrates how to do various programing tasks using
+Ruby programming language.
 
 Common Programming Tasks
 ========================
@@ -29,11 +29,11 @@ This is an implementation of a well known CS algorithm.
    open_url
    puts_examples
    puts_functionname
-   rbeautify
    require_stmt
    ruby_function
    ruby5
    ruby7
+   ruby13
    ruby16
    see_backtrace
    simpleNumber
