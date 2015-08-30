@@ -1,11 +1,11 @@
-====================
-Sets Keysin Hash Map
-====================
+=====================
+Sets Keys in Hash Map
+=====================
 
 Question
 ========
 
-ADDQUESTION
+Demonstrate the Set types as keys in Hashmap.
 
 Solution
 ========
@@ -21,6 +21,7 @@ Solution
 Explanation
 ===========
 
+Sets can be used as  keys in Hashmap. The example demonstrates this feature.
 
 
 
