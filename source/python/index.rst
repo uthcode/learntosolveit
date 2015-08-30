@@ -249,3 +249,5 @@ These deal with websites, webapplications and work on top of networking layer.
    web_urllib2_1
    files_read_specific_line
 
+   files_count_lines_large_file
+
