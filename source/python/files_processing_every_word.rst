@@ -26,7 +26,7 @@ to find all the words matching the regular expression in a line.
 
 Running the program over itself produces the output like this.
 
-.. raw::
+::
 
     import
     re
