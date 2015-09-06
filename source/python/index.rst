@@ -253,3 +253,5 @@ These deal with websites, webapplications and work on top of networking layer.
    files_random_access_input_output
    files_reading_zipfile
 
+   files_import_zip_with_py
+
