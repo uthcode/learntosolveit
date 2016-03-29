@@ -27,7 +27,7 @@ reference the `to` array further from the main program itself. This is
 demonstrated by copying line to the longest and then printing the longest in the
 main program.
 
-.. git_changelog::
+
 
 .. seealso::
 

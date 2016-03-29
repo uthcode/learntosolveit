@@ -27,7 +27,7 @@ characters. Loading in chunks takes care of reading a huge file part.
 
 
 
-.. git_changelog::
+
 
 
 .. seealso::

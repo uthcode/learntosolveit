@@ -43,7 +43,7 @@ match, we **dont break** the loop, but record the position `i` and proceed
 further. Thus our right most match is noted. If no search is found, then the
 result, `-1` is returned.
 
-.. git_changelog::
+
 
 .. seealso::
 

@@ -38,7 +38,7 @@ The way it is accomplished in the above program, read each character using
 getchar, if it is special character like a space, tab or newline,  go to next
 line by printing `\n` otherwise print a `*` character.
 
-.. git_changelog::
+
 
 .. seealso::
 

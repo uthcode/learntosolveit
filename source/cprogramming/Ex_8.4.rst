@@ -23,7 +23,7 @@ The standard library function:
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

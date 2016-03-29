@@ -33,7 +33,7 @@ Blanks: 4
 Tabs: 0
 Newlines: 1
 
-.. git_changelog::
+
 
 .. seealso::
 

@@ -32,7 +32,7 @@ functions fahrtocelsius and celsiustofhar are used to make the program more
 dynamic by giving choices to the users for conversion between 1 - Fahrenheit to
 Celsius Conversion 2 - Celsius to Fahrenheit Converion.
 
-.. git_changelog::
+
 
 .. seealso::
 

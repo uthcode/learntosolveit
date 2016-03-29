@@ -52,7 +52,7 @@ References
 .. _Discussion on U Codepoint: http://stackoverflow.com/questions/21241224/unicode-codepoint-of-the-format-unnnnnnnn/
 .. _Valid escape characters: http://en.cppreference.com/w/cpp/language/escape
 
-.. git_changelog::
+
 
 .. seealso::
 

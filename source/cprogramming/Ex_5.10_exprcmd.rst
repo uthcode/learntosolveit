@@ -33,7 +33,7 @@ operand, using the push function, we push it to the stack and  when we find a
 operator in the input, we pop() the two operands out of the stack and do the
 operation.
 
-.. git_changelog::
+
 
 .. seealso::
 

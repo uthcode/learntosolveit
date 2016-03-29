@@ -35,7 +35,7 @@ print them.
 
 If / is followed by any other character, we simply print them.
 
-.. git_changelog::
+
 
 ..  seealso::
 

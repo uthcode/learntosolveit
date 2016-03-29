@@ -64,7 +64,7 @@ our updated ``pos``.
 
 With our new position we continue with the rest of the program.
 
-.. git_changelog::
+
 
 .. seealso::
 

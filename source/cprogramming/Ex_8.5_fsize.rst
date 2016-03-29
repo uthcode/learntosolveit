@@ -20,7 +20,7 @@ entry.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

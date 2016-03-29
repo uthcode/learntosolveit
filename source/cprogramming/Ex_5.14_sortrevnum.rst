@@ -108,7 +108,7 @@ The curx of the program is in `myqsort`` function and once that is sorted, the
 program displays the  output as we desire.
 
 
-.. git_changelog::
+
 
 .. seealso::
 

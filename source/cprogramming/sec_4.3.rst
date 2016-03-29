@@ -28,7 +28,7 @@ it will `pop` two numbers out of the stack and operate on it. When it encounters
 a `/`, it ensures that the second operand is not 0 and disallows.
 
 
-.. git_changelog::
+
 
 .. seealso::
 

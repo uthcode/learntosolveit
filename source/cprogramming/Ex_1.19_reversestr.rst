@@ -48,7 +48,7 @@ The crux of the program is this::
         ++j;
       }
 
-.. git_changelog::  
+
 
 .. seealso::
 

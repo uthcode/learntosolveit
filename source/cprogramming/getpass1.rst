@@ -8,7 +8,7 @@ getpass1
    :language: c
    :tab-width: 4
 
-.. git_changelog::
+
 
 .. seealso::
 

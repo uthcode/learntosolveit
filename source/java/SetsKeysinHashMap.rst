@@ -25,7 +25,7 @@ Sets can be used as  keys in Hashmap. The example demonstrates this feature.
 
 
 
-.. git_changelog::
+
 
 
 .. seealso::

@@ -39,7 +39,7 @@ when a sentence is read with detab, the function consults `tabpos` function to
 see if it s tab. If it is tab, then till it meets the next tab, it will output
 space ' ', thus converting the tabs to spaces.
 
-.. git_changelog::
+
 
 .. seealso::
 

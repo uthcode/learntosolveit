@@ -19,7 +19,7 @@ the relative speeds of the two versions.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 
 .. seealso::

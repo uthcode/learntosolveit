@@ -67,7 +67,7 @@ the position **i**.
 
 In the main program, if we find the position greater than 0, we print the line.
 
-.. git_changelog::
+
 
 .. seealso::
 

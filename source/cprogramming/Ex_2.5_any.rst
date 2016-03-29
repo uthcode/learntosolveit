@@ -35,7 +35,7 @@ check_next_char to 0. That is we found a match at **i** and we return that.
 If we dont find a match in s2, we increment i and take the next character from
 s1. If dont find a match at all, then we return -1.
 
-.. git_changelog::
+
 
 .. seealso::
 

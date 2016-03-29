@@ -22,7 +22,7 @@ declared to take two integer arguments and return an int value. In the program
 we send a number, base and a  number, n to power, and the program returns the
 value of base raised to power n.
 
-.. git_changelog::
+
 
 .. seealso::
 

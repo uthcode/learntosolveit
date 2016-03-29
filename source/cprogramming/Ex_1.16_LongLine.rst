@@ -35,7 +35,7 @@ length of the line is greater than `max`, then we copy that line into the
 At the end of the program, whichever was the longest line that was copied in
 maxline array, we just print that.
 
-.. git_changelog::
+
 
 .. seealso::
 

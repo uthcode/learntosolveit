@@ -20,7 +20,7 @@ with a title and a running page count for each file.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

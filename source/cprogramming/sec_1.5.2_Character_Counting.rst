@@ -23,7 +23,7 @@ input. The program does the counting by setting nc to 0 in the beginning. As the
 program enters while loop condition (getchar() != EOF).  When nc hits end of the
 document it prints the number of characters in the file.
 
-.. git_changelog::
+
 
 .. seealso::
 

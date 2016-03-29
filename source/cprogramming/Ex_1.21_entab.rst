@@ -47,7 +47,7 @@ accordingly. If it is a newline, we reset the pos, if it is a tab character, we
 reset it to previous tab character - 1. This step replaces the spaces with
 minimum tabs and spaces.
 
-.. git_changelog::
+
    
 .. seealso::
 

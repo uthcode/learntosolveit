@@ -74,7 +74,7 @@ We track the pos till **s**, we encounter the tab position at be 19.
 Once we determine the nb, we simply print # character to denote a visible space
 and increment the position each character.
 
-.. git_changelog::
+
 
 .. seealso::
 

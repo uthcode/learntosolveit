@@ -91,7 +91,7 @@ For example to convert **0XAF**.
 
 **175**
 
-.. git_changelog::       
+
 
 .. seealso::
 

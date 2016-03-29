@@ -38,7 +38,7 @@ the above expression.
 Then `A B +` acts as if we are acting on two numbers. A special variable `v` is
 used to assign to the last printed value.
 
-.. git_changelog::
+
 
 .. seealso::
 

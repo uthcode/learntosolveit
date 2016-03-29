@@ -47,7 +47,7 @@ again.
 
 The construct `while((*s=*t)!='\0')` assigns the character in `t` to `s` and then checks if the character is `\0`.
 
-.. git_changelog::
+
 
 .. seealso::
 

@@ -37,7 +37,7 @@ and fahr to lower. So when the program enters the while loop it checks whether
 fahr <= upper is true if it is true then it assigns the variable celsius 5 *
 (fahr - 32) / 9 and then it prints out put.
 
-.. git_changelog::
+
 
 .. seealso::
 

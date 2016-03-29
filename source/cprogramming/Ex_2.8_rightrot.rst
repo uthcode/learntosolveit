@@ -80,7 +80,7 @@ The result should be correct too!
 The result will mirror the function,the rightrot(x,n) function will move the left most n(n > 0)bits to the right
 side ，the function should called leftrot(x,n).
 
-.. git_changelog::
+
 
 .. seealso::
 

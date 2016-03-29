@@ -30,7 +30,7 @@ we saw a new word) and we increment `nw`. For every character we read, we
 increment `nc` and for every `\n` we read, we increment `nl`.  The program in
 the end prints, the *nl*, *nw* and *nc*.
 
-.. git_changelog::
+
 
 .. seealso::
 

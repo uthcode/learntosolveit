@@ -8,7 +8,7 @@ shellsort
    :language: c
    :tab-width: 2
 
-.. git_changelog::
+
 
 .. seealso::
 

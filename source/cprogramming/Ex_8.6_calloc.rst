@@ -20,7 +20,7 @@ or by modifying it.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

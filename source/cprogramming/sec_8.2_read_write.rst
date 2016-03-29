@@ -21,7 +21,7 @@ Explanation
 
 This uses the read and write system calls to copy input to output.
 
-.. git_changelog::
+
 
 .. seealso::
 

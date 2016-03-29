@@ -51,7 +51,7 @@ For e.g. After removing **;** in the above program, we got the compilation error
 
     error: expected `;` before the '}' token
 
-.. git_changelog::
+
 
 
 .. seealso::
