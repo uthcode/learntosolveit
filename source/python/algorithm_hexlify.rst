@@ -29,4 +29,3 @@ Explanation
 
    * :python-suggest-improve:`algorithm_hexlify.py`
    * :python-better-explain:`algorithm_hexlify.rst`
-
