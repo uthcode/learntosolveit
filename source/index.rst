@@ -5,8 +5,8 @@
 
 
 
-Programming Languages - C, Python, Java, Ruby, Scala
-----------------------------------------------------
+Programming Languages - C, Python, Java, Ruby and Scala
+-------------------------------------------------------
 
 `Learn To Solve It`_ helps you learn programming in a straight forward
 way.
