@@ -5,26 +5,28 @@
 
 
 
+Programming Languages - C, Python, Java, Ruby, Scala
+----------------------------------------------------
 
-
-`Learn To Solve It`_ is a platform to learn programming in a straight forward
+`Learn To Solve It`_ helps you learn programming in a straight forward
 way.
 
-My approach is to choose a good programming book, code examples, solve the
-exercises presented by the author and explain the solution. In addition, I have
-included a number of programs which demonstrate features of language and
-standard library which provide a good language and the style.
+Our approach is to choose a good programming book, code examples, solve the
+exercises presented by the author, and explain the solution. We also include
+many snippets which demonstrate features of the language, standard library
+which can you use as building blocks for your project.
 
-The programs can be run directly on `ideone`_ sandbox and I welcome
-collaboration via `Github`_ pull requests, which is possibly directly from these
-pages.
+The programs can be run directly on `ideone`_ sandbox.
+
+Please help us improve this website by adding programs, improving explanations
+and collaborating via `Github`_ pull requests, which is possible directly from
+these pages.
 
 **Reference Books**
 
 * C Programming Language by Kernighan and Ritchie.
-* Python Cookbook by Alex Martelli, Anna Martelli Ravenscroft and David Ascher.
+* Python Cookbook by Alex Martelli, Anna Martelli Ravenscroft, and David Ascher.
 * Java Precisely by Peter Sestoft.
-
 
 .. _Learn To Solve It: http://www.learntosolveit.com
 .. _ideone: http://www.ideone.com
