@@ -40,7 +40,7 @@ html_theme_options = {
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
               'sphinx.ext.todo', 'sphinx.ext.coverage',
               'sphinx.ext.extlinks', 'sphinx.ext.pngmath',
-              'sphinxcontrib.runcode', 'sphinx_git']
+              'sphinxcontrib.runcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
