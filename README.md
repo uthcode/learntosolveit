@@ -1,7 +1,7 @@
-uthcode
-=======
+learntosolveit
+==============
 
-the main uthcode website with all the source code snippets and documentation.
+This is the main site with all the source code snippets and documentation.
 
 
 directives used
