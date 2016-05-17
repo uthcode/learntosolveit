@@ -1,5 +1,4 @@
 /* Temperature Conversion.Floating point,Symbolic Constant.Functions */
-/* There are some warnings with the compilation */
 
 #include<stdio.h>
 
@@ -8,7 +7,7 @@
 #define STEP 20
 
 void fahrtocelsius(void);
-void celsiustofhar(void);
+void celsiustofahr(void);
 
 int main(void)
 {
@@ -16,7 +15,7 @@ int main(void)
 
 	printf("Temperature Conversion Table\n");
 	printf("1 - Fahrenheit to Celsius Conversion\n");	
-	printf("2 - Celsius to Fahrenheit Converion\n");
+	printf("2 - Celsius to Fahrenheit Conversion\n");
 	printf("- Enter your Choice\n");
 
 		c = getchar();
