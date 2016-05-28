@@ -4,19 +4,13 @@
    contain the root `toctree` directive.
 
 
-
 Programming Languages
 ---------------------
 
-`Learn To Solve It`_ helps you learn programming in a straight forward
-way.
+`Learn To Solve It`_ helps you learn Computer Science and Programing in a straight forward way.
 
 Collection of good problems and solutions from various high quality reference materials. The programs can be run
-directly on `ideone`_ sandbox.
-
-Please help us improve this website by adding programs, improving explanations
-and collaborating via `Github`_ pull requests, which is possible directly from
-these pages.
+directly on `ideone`_ sandbox. Improvements to website can be submitted via `Github`_ pull requests.
 
 **Reference Books**
 
