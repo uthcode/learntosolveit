@@ -72,3 +72,19 @@ Scala Programming Language
    :maxdepth: 3
 
    scala/index
+
+
+Georgia Tech
+------------
+
+This section has notes and reference material useful for students who are taking `Georgia Tech OMSCS Program`_
+
+.. _Georgia Tech OMSCS Program: http://www.omscs.gatech.edu
+
+Online Masters in Computer Science
+==================================
+
+.. toctree::
+   :maxdepth: 3
+
+   omscs/cs6301/index
