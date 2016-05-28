@@ -5,18 +5,14 @@
 
 
 
-Programming Languages - C, Python, Java, Ruby and Scala
--------------------------------------------------------
+Programming Languages
+---------------------
 
 `Learn To Solve It`_ helps you learn programming in a straight forward
 way.
 
-Our approach is to choose a good programming book, code examples, solve the
-exercises presented by the author, and explain the solution. We also include
-many snippets which demonstrate features of the language, standard library
-which can you use as building blocks for your project.
-
-The programs can be run directly on `ideone`_ sandbox.
+Collection of good problems and solutions from various high quality reference materials. The programs can be run
+directly on `ideone`_ sandbox.
 
 Please help us improve this website by adding programs, improving explanations
 and collaborating via `Github`_ pull requests, which is possible directly from
