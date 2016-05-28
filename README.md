@@ -19,4 +19,3 @@ For the suggest-improve and better-explain C programming contents
 
     :c-suggest-improve:`filename.c`
     :c-better-explain:`filename.rst`
-
