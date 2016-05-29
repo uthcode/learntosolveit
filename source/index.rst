@@ -63,6 +63,14 @@ Scala Programming Language
 
    scala/index
 
+Computer Science Papers
+-----------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   papers/index
+
 
 Georgia Tech
 ------------
@@ -75,6 +83,6 @@ Online Masters in Computer Science
 ==================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    omscs/cs6301/index
