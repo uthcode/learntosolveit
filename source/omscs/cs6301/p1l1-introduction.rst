@@ -16,18 +16,10 @@ P1L1 Introduction
 
 Hello and welcome to CS 6310, Software Architecture and Design.
 
-
-My name is Spencer Rugaber, and I will be your guide through this material.
-
-
-This lesson tells you about the course. What its subjective are?
-
-
-How it is structured? And what its policies are? A written description of the course can be found at the link in the
-instructor's notes for this lesson.
-
-
-But let's begin with some introductions, both of myself and of Jared Parks.
+My name is Spencer Rugaber, and I will be your guide through this material. This lesson tells you about the course. What
+its subjective are? How it is structured? And what its policies are? A written description of the course can be found at
+the link in the instructor's notes for this lesson. But let's begin with some introductions, both of myself and of Jared
+Parks.
 
 
 02 - Introductions
@@ -38,12 +30,9 @@ course. In terms of software experience,
 
 
 I've worked in a number of different places in my career. I've worked in a telecommunications company, and there I
-tested and programmed new features for
-
-
-VDSL routing equipment. I've also programmed a number of small video games and prototypes for the biotech community. And
-I own a web and mobile development company with my twin brother James. More importantly though, is I want to help
-Spencer bring a new exciting feel to this course.
+tested and programmed new features for VDSL routing equipment. I've also programmed a number of small video games and
+prototypes for the biotech community. And I own a web and mobile development company with my twin brother James. More
+importantly though, is I want to help Spencer bring a new exciting feel to this course.
 
 
 03 - Course
@@ -277,7 +266,7 @@ class form. I consider this course, itself, as a design project. Although it has
 necessarily been adapted to deal with the constraints of web-based delivery and a large number of students. Therefore, I
 expect some elements will work better than others. I specifically would like to solicit your contributions, such as the
 following. First, any bugs in the material. These can be as trivial as typos, or as vague as questions about unclear
-lesson content. [BLANK_AUDIO]
+lesson content.
 
 
 If you have any suggestions for additional content, as long as the suggestions fit within the general intent of the
