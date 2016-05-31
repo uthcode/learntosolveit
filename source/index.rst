@@ -85,4 +85,5 @@ Online Masters in Computer Science
 .. toctree::
    :maxdepth: 3
 
+   omscs/index
    omscs/cs6301/index

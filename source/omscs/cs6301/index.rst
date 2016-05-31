@@ -2,11 +2,18 @@
 Software Architecture & Design
 ==============================
 
-Notes from Software Architecture and Design Course.
+Notes from Software Architecture and Design Course. These contain links to Piazza forums, and private Google Drive.
+If you are not a student of this course during this duration, you won't be able to access them.
+
+If you find some link is exposed, which should not be, please report it.
+
 
 .. toctree::
    :maxdepth: 3
 
+   setup
+   office_hours
+   projects
    p1l1-introduction
    p1l2-text-browser-exercise-analysis
    p1l3-design-concepts

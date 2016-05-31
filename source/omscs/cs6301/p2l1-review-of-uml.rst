@@ -11,6 +11,14 @@ P2L1 Review of UML
 ==================
 
 
+Student Provided Notes
+----------------------
+
+* `All UML Diagrams in a single pdf`_
+
+.. _All UML Diagrams in a single pdf: https://d1b10bmlvqabco.cloudfront.net/attach/io7x94vh5gz42w/idfwkbgtu6i3ff/iostzz8hjr24/P2L1UMLDiagramTypes.pdf
+
+
 01 - Diagrams
 -------------
 
