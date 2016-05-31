@@ -7,6 +7,10 @@ If you are not a student of this course during this duration, you won't be able 
 
 If you find some link is exposed, which should not be, please report it.
 
+`Readings Associated with the Course`_
+
+.. _Readings Associated with the Course: https://www.udacity.com/wiki/saad/text#!#required-readings
+
 
 .. toctree::
    :maxdepth: 3
