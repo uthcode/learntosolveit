@@ -15,7 +15,6 @@ P1L3 Design Concepts
 
 Good day, class. Today's concept is design concepts. And design is everywhere.
 
-
 From super complex manufactured artifacts like the International Space Station, to the dinner party you were planning
 for next week. In the course, although we are going to be specifically concerned with software design, many of the
 concepts of design in general are going to play a role, so we'd like to get into that. Let's start with a few
@@ -27,7 +26,6 @@ definitions.
 
 For this quiz, I've listed four different terms, along with their definitions.
 
-
 The terms are overlapping, and include design, engineering, craft, and art. See if you can connect, the definition to
 the term that's being defined.
 
@@ -37,23 +35,15 @@ the term that's being defined.
 
 What is design? Design is deliberative, purposive planning.
 
-
 As far as software is concerned, this translates into solving some problem.
 
-
 Given in a, as a set of requirements. What is engineering?
-
 
 Engineering adds in the element of science and mathematics. And we're going to see the role of formal methods play in
 software design.
 
-
-What is craft? Craft is some sort of skilled occupation.
-
-
-Those skills come from long experience, and we'll see that with software design, the more experience you have on a
-particular kind of problem the better.
-
+What is craft? Craft is some sort of skilled occupation. Those skills come from long experience, and we'll see that with
+software design, the more experience you have on a particular kind of problem the better.
 
 And what is art? Art is the conscious use of skills. Taste and creative imagination in the production of aesthetic
 objects. And later in this lesson, we'll see that, certain design principles and aesthetic principles can play a role in
@@ -63,82 +53,33 @@ software design.
 04 - Programming or Design Quiz
 -------------------------------
 
-1
+1. Another quiz for you.
 
-
-Another quiz for you.
-
-
-2
-
-
-Think for a minute about the difference between software design and programming.
+2. Think for a minute about the difference between software design and programming.
 
 
 05 - Programming or Design Quiz Solution
 ----------------------------------------
 
-1
+1. Here are two important differences.
 
+2. One difference is scale.
 
-Here are two important differences.
+3. When you're doing software design, iit's probably because you are dealing with a big problem that's going to have a
+big solution.
 
+4. If you're doing programming, you're more likely concerned with programs that are going to end up being 100 or 1,000,
+or maybe even 10,000 lines.
 
-2
+5. The International Space Station has 30 million lines of code.
 
+6. Another key difference between programming and design, software design, is the role that non-functional requirements
+play.
 
-One difference is scale.
+7. For programs, you may at a, occasionally be concerned with performance but by and large, non-functional requirements
+don't play a big role.
 
-
-3
-
-
-When you're doing software design, iit's probably because you
-
-
-4 are dealing with a big problem that's going to have a big solution.
-
-
-5
-
-
-If you're doing programming, you're more likely concerned with programs that
-
-
-6 are going to end up being 100 or 1,000, or maybe even 10,000 lines.
-
-
-7
-
-
-The International Space Station has 30 million lines of code.
-
-
-8
-
-
-Another key difference between programming and
-
-
-9 design, software design, is the role that non-functional requirements play.
-
-
-10
-
-
-For programs, you may at a, occasionally be concerned with performance but
-
-
-11 by and large, non-functional requirements don't play a big role.
-
-
-12
-
-
-With software design, the whole story is how you
-
-
-13 are going to deal with trade-offs among non-functional requirements.
+8. With software design, the whole story is how you are going to deal with trade-offs among non-functional requirements.
 
 
 06 - Software Design
@@ -152,12 +93,9 @@ up the programs into components and assigning responsibilities for aspects of be
 about how the components are going to interact with each other. We're going to spend a great deal of time in this course
 talking about architectural design.
 
-
 Detail design is the process of dealing with the individual components.
 
-
 Particularly, with respect to their data structures and their algorithms.
-
 
 Let's look for a minute at some of the aspects of detail design.
 
@@ -165,19 +103,16 @@ Let's look for a minute at some of the aspects of detail design.
 07 - Design Notation
 --------------------
 
-Here's a quote from Tony Wasserman about detail design. [BLANK_AUDIO]
-
+Here's a quote from Tony Wasserman about detail design.
 
 The primary activity during detail design, is designing the data structures that are there and by implication the
 algorithms that are going to work on those data structures. As far as those algorithms are concerned, sometimes you may
 wish to represent them using some kind of design notation.
 
-
 Here are a few that have been used in the past in which you may have little familiarity. Their pseudo code, which is
 like writing a programming language algorithm without the programming language. There's structured programming, which is
 a set of control structures, which allow you to organize the algorithm into sequences, conditions, repetition, and
-chunking in the form of calling subprocedures.
-
+chunking in the form of calling sub-procedures.
 
 Flow charts and call graphs are graphic representations of programs, that may be useful in helping you understand how
 that program is going to, going to work. And in some cases decision tables, which are lists of rules and the conditions
@@ -188,7 +123,6 @@ under which those rules are going to apply, can be useful in helping to understa
 -----------------
 
 Here's a little quiz for you that deals with detail design.
-
 
 Imagine that you were writing a program to predict the weather. The way that these programs normally work is by taking
 some geographical area and carving it up into a rectangular grid or mesh. That is, there are numerous cells and each
@@ -202,7 +136,6 @@ will be. If you had to develop a weather prediction program you might have the c
 
 The main reason for choosing arrays is performance.
 
-
 Arrays have been part of programming languages since Fortran in the 1950s. And those programming languages have been
 tuned to take advantage of the hardware architecture available in order to do array computations very rapidly. Objects
 on the other hand are a little slower, but they're much more flexible. If, for example, your weather program changed
@@ -215,18 +148,15 @@ oriented representation may allow you to deal with that situation more flexibly.
 
 There are many approaches to software design.
 
-
 Some espouse a particular point of view as to how best to structure a system, such as object orientated design. Some of
 them are intended for a particular class of application. That is the design of real time systems. And some of them are
 structured to deal with only a part of an application, such as user interface design. All approaches to design however,
 include three aspects that may be compared, the design method, the design representation, and how that design is going
 to be validated.
 
-
 Let's first look at design method. A method is a systematic series of steps by which you undertake to do your design and
 solve your problem. Typically, a design method suggests a particular way of viewing the problem. With object oriented
 design, we view the problem in terms of a set of cooperating objects.
-
 
 Only later do we assign the services or functions that each of those objects are going to be able to provide to the
 system. Other methods that we may be mentioning during the course of the term include structure design, and role based
@@ -240,19 +170,15 @@ implementers, forcing them how to organize their thoughts and and activities in 
 There are, however, some issues with design methods. You as a architect or designer have to make some choice. Are you
 going to go do things top down, bottom up, inside out? There are a variety of choices there.
 
-
 Are you going to begin by thinking of the procedures and functions? Or are you going to begin by thinking in terms of
-the nouns and objects like you would with objectory development. A topic which we'll come back to later in the lesson is
+the nouns and objects like you would with object development. A topic which we'll come back to later in the lesson is
 the issue of conceptual integrity versus cooperative development.
-
 
 An important decision in many, software development shops is the trade off or the tension between doing a design that
 takes a little bit more time.
 
-
 In order to save yourself effort and money in the long term, by supporting maintainable and general structures. Or are
 you going to be dominated by short term delivery schedule. And finally, is the role of tools.
-
 
 What, what tools are you going to use in terms of your particular design.
 
@@ -260,47 +186,22 @@ What, what tools are you going to use in terms of your particular design.
 12 - Design Review Quiz
 -----------------------
 
-1
+1. So imagine in your shop that you have a design method, and you've, you've chosen a design representation, and you've
+done a design.
 
+2. The result is some artifact expressed in the design notation.
 
-So imagine in your shop that you have a design method, and
+3. Now typically, these days, that representation is reviewed by a team, that is, there's some validation the design in
+fact meets it, the system's requirements.
 
-
-2 you've, you've chosen a design representation, and you've done a design.
-
-
-3
-
-
-The result is some artifact expressed in the design notation.
-
-
-4
-
-
-Now typically, these days, that representation is reviewed by a team, that is,
-
-
-5 there's some validation the design in fact meets it, the system's requirements.
-
-
-6
-
-
-The question for this particular quiz is,
-
-
-7 why bother with the validation now if you're going to build the program and
-
-
-8 have tests, many of which may be automated, to check it for you?
+4. The question for this particular quiz is, why bother with the validation now if you're going to build the program and
+have tests, many of which may be automated, to check it for you?
 
 
 13 - Design Review Quiz Solution
 --------------------------------
 
 The key reason of course is that the earlier you find problems, the less expensive it is to fix them.
-
 
 Particularly if you've got a design problem and you don't detect it until you're about to deliver to the customers, it
 can be quite expensive to fix.
@@ -311,50 +212,31 @@ can be quite expensive to fix.
 
 The third important aspect of approaches to design, is how they are validated.
 
-
-As I just said, typically that means some kind of review, walk through, inspection by a team.
-
-
-It could also be the case that the tools that you're using, to represent the design can do some checking for you.
-
-
-Some issues arise with design validation.
-
-
-And a key one is the independence of the validators.
-
+As I just said, typically that means some kind of review, walk through, inspection by a team. It could also be the case
+that the tools that you're using, to represent the design can do some checking for you. Some issues arise with design
+validation. And a key one is the independence of the validators.
 
 The problem here is that if you have the design team, doing its own validation.
 
-
 They may be blind to particular issues.
-
 
 If they didn't think about them when they were doing the design, they may not think about them when they're inspecting
 the design.
 
-
 Bringing in independent val, validators can help with the effectiveness of the design review.
-
 
 Second issue that arises is the, dependence of the design validation on the design method.
 
-
 For structured design, there's a complete set of rules associating metrics with each of the design artifacts.
-
 
 On the class resource page, there's some guidelines that I've written up concerning the things that you can ask about
 during a object oriented design review.
 
-
 A third key issue with validation is when do you do it?
-
 
 One strategy is to do it as you go along.
 
-
 That is, on a daily or weekly basis, review what you have and make adjustments.
-
 
 An alternative is to wait until you get to ma, major milestones, have design reviews and make your changes at that
 point.
