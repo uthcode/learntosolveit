@@ -6,6 +6,7 @@ PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
 
 import sys
 import pyperclip
+import sqlite3
 
 
 def get_password(account):

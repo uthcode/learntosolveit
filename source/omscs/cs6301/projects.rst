@@ -1,5 +1,5 @@
-Projects
-========
+Projects And Assignments
+========================
 
 `The Elements of Style`_ for good writing advice.
 
@@ -7,6 +7,10 @@ Projects
 
 
 1. Project 1 - https://drive.google.com/file/d/0Bw223ejhCropR1pCdXcyODBjNWM/view?usp=sharing
+
+2. Assignment 3 - https://drive.google.com/file/d/0Bw223ejhCropbEJHS29TdW5uMU0/view?usp=sharing
+
+
 
 
 Gurobi

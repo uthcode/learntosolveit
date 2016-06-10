@@ -415,116 +415,43 @@ condition
 31 - RORDERED Postcondition
 ---------------------------
 
-1
-
-
 Now, see if you can take that quantified expression we had before.
 
+>> Mm-hm.
 
-2
-
-
->> Mm-hm. >> Okay, as far as the post condition is concerned and
-
-
-3 play with it a little bit to get a post condition.
-
-
-4
-
+>> Okay, as far as the post condition is concerned and play with it a little bit to get a post condition.
 
 And this one, I'll give you a hint, is going to be different.
 
-
-5
-
-
 Okay, it better be different.
 
+>> Mm-hm.
 
-6
-
-
->> Mm-hm. >> Or otherwise we're specifying ordered again.
-
-
-7
-
+>> Or otherwise we're specifying ordered again.
 
 See what you can do with it.
 
+>> So, very much like our other post condition, we will start by saying for every element i.
 
-8
+That of, is index of, of a integer y from one all the way to the element one less than the cardinality of the vector y.
 
-
->> So, very much like our other post condition, we will start by saying for
-
-
-9 every element i.
-
-
-10
-
-
-That of, is index of, of a integer y from one all the way to the element
-
-
-11 one less than the cardinality of the vector y.
-
-
-12
-
-
-It better be the case that, if we're looking at Y sub i
-
-
-13 that it is greater than or equal to the element that-
-
-
-14
-
+It better be the case that, if we're looking at Y sub i that it is greater than or equal to the element that-
 
 >> Succeeds it.
 
-
-15
-
-
 >> Succeeds it, sorry.
 
-
-16 [LAUGH] >> Comes in, comes [INAUDIBLE], okay?
-
-
-17
-
+[LAUGH] >> Comes in, comes [INAUDIBLE], okay?
 
 That's precision is, is what this is all about.
 
+>> Mm.
 
-18
+>> So exactly right.
 
-
->> Mm. >> So exactly right.
-
-
-19
-
-
-In fact, the only change is that instead of a less than or
-
-
-20 equal, we have a greater than or equal, okay?
-
-
-21
-
+In fact, the only change is that instead of a less than or equal, we have a greater than or equal, okay?
 
 And notice that we could've done this same thing with j.
-
-
-22
-
 
 The exact letter that we use, doesn't make any difference.
 
@@ -532,9 +459,10 @@ The exact letter that we use, doesn't make any difference.
 32 - SAME-ELEMENTS-AS Signature
 -------------------------------
 
->> Mm-hm. >> So as I said before, the actual letter that we use doesn't make any difference as long as we're
-consistently use it.
+>> Mm-hm.
 
+>> So as I said before, the actual letter that we use doesn't make any difference as long as we're
+consistently use it.
 
 So we could say here bool y, we could say bool z, as long as is, it's different than those input names that we used.
 
@@ -543,7 +471,6 @@ So we could say here bool y, we could say bool z, as long as is, it's different 
 --------------------------------
 
 >> Okay. And it points out a choice that you have as a specifier here.
-
 
 We could if we were given a a vector of length three and a vector of length 10, say no they, they don't have the same
 elements and remember by same elements as, we're talking about the same number of occurrence as. Or, we could treat it
@@ -597,10 +524,11 @@ or in this case, identical signature except for the name of the, name of the fun
 37 - PERMUTATION Postcondition
 ------------------------------
 
->> It is. >> Okay, so special case number one, the length of the input vector is
+>> It is.
 
+>> Okay, so special case number one, the length of the input vector is
 
-0. We will say in fact that the output is a permutation of the input
+We will say in fact that the output is a permutation of the input
 
 
 38 - Non Empty Case
@@ -737,7 +665,9 @@ defining x to be a permutation of y.
 43 - All Together
 -----------------
 
->> Okay. >> Okay? So I, I, I did state it incorrectly.
+>> Okay.
+
+>> Okay? So I, I, I did state it incorrectly.
 
 
 44 - Some Questions
@@ -786,10 +716,6 @@ OCL doesn't have vectors, it has sequences, but those are essentially the same.
 
 To summarize all this, sometimes you need a means to precisely express exactly what the functionality of a required
 system is. There are a variety of formal languages, and accompanying tools exist for writing such specification.
-
-
 Many of these are industrial strength. That means they're used in industry, and there's tool suites that come with them.
 Although using them requires you to think hard about exactly what you want to say. The effort can save you a lot of
 rework, resulting from misunderstood requirements
-
-

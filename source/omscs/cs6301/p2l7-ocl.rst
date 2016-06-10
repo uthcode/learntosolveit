@@ -13,26 +13,16 @@ P2L7 OCL
 01 - OCL
 --------
 
-The topic today is the Object Constraint Language, a part of UML.
-
-
-So far when we've looked at UML we've been looking at diagrams. But diagrams don't tell the whole story. There are
-places in the specifications and the designs of your system where you need more details. And that is what OCL was
-designed to provide to designers.
-
+The topic today is the Object Constraint Language, a part of UML. So far when we've looked at UML we've been looking at
+diagrams. But diagrams don't tell the whole story. There are places in the specifications and the designs of your system
+where you need more details. And that is what OCL was designed to provide to designers.
 
 OCL is a language, it's not a programming language, it's a specification language. It's declarative, it's strongly
 typed, and allows you to specify the functional details of system properties.
 
-
-OCL consists of a means to express constraints plus some collection classes.
-
-
-And an ability to navigate around the various classes of relationships in your diagrams. OCL's a mature technology is
-part, an official part of UML and supported by various tools. Such as Rational Rose,
-
-
-ArgoUML, Eclipse, Poseidon, Enterprise Architect and so on
+OCL consists of a means to express constraints plus some collection classes. And an ability to navigate around the
+various classes of relationships in your diagrams. OCL's a mature technology is part, an official part of UML and
+supported by various tools. Such as Rational Rose, ArgoUML, Eclipse, Poseidon, Enterprise Architect and so on
 
 
 02 - Why Do We Need OCL
@@ -40,14 +30,10 @@ ArgoUML, Eclipse, Poseidon, Enterprise Architect and so on
 
 Why do we need, a language that goes beyond the diagrams?
 
-
-The diagrams are great, at describing structural relationships.
-
-
-We'll see with state charts, that they can also describe some behavior, but there's, there're times when you need to be
-more precise, particularly about the functional details. Of exactly what it means for this particular component, to do
-this particular task. OCL extends UML, with class in variance.
-
+The diagrams are great, at describing structural relationships. We'll see with state charts, that they can also describe
+some behavior, but there's, there're times when you need to be more precise, particularly about the functional details.
+Of exactly what it means for this particular component, to do this particular task. OCL extends UML, with class in
+variance.
 
 With descriptions, precise descriptions of operations in terms of pre and post conditions. And they can also be used as
 guards on transitions in state chart diagrams, which we'll see, subsequently in the term.
@@ -63,7 +49,6 @@ statements, instead it, it specifies assertions or constraints or properties, us
 strongly typed and it comes with some primitive types that you might expect in terms of reals and integers and so on.
 And the neat thing about OCL is it only has one key concept involved with it. And that's the concept of a constraint.
 
-
 A constraint is some formal assertion of system properties.
 
 
@@ -73,12 +58,9 @@ A constraint is some formal assertion of system properties.
 You can use OCL for a variety of voices. You can specify invariants on classes in your class model diagrams. You can
 describe pre and post conditions on the operations, in your diagrams. You can specify derivation rules for derived
 attributes. Remember them? You can describe guards on transitions in statecharts. You can specify the targets for
-messages and actions, you can speci, specify type invariants for stereotypes, which we'll describe a little bit later.
-You can even use it as a query language. Class model diagram is describing a set of.
-
-
-Possible instances, and you might wish to query those instances for certain things, OCL can be used as a query language
-in that sense.
+messages and actions, you can specify type invariants for stereotypes, which we'll describe a little bit later. You can
+even use it as a query language. Class model diagram is describing a set of Possible instances, and you might wish to
+query those instances for certain things, OCL can be used as a query language in that sense.
 
 
 05 - Syntax
@@ -86,19 +68,15 @@ in that sense.
 
 Here's the Syntax. There's only one statement in the language.
 
-
 It's a statement which is a constraint. The constraint has a couple of keywords in it, and a couple of expressions. The
 first keyword is context.
 
-
 And it's followed by an identifier. That identifier gives a name to the context.
-
 
 The context is where you are in a diagram. Usually this means a class, so it's the name of a class. It might be the name
 of a particular method in a class. Then there comes another keyword which is the kind of constraint, and we'll see that
 there's three kinds of constraints. One is invariance, one is pre, preconditions, and one is post conditions. And then
 comes a Boolean expression, which is the actual constraint that the statement is expressing.
-
 
 From what I've just said you can infer correctly that OCL constraints are inherently connected with UML class model
 diagrams, and you probably will have already developed the class model diagram. And then gone into details by specifying
@@ -108,20 +86,15 @@ the details with the OCL constraints
 06 - Invariants
 ---------------
 
-An invariant is a statement of a property that's always true.
-
-
-You can think of it as an expression of a key system requirement.
-
+An invariant is a statement of a property that's always true. You can think of it as an expression of a key system
+requirement.
 
 Might be an essential relationship among the values of objects in, in your system. The keyword that's used to indicate
-that, you know, you're expressing an invariant constraint is inv. For example, you might say in large companies that the
-official definition of a large company is a company that has more than 50 employees.
-
+that, you know, you're expressing an invariant constraint is **inv**. For example, you might say in large companies that
+the official definition of a large company is a company that has more than 50 employees.
 
 And you could express a constraint that says that in OCL by having in the context of the large company class. An
 invariant that says its number of employee's attribute must be greater than 50.
-
 
 07 - Role of Invariants
 -----------------------
@@ -130,7 +103,6 @@ If you're familiar with the relational databases, you may have come across the i
 integrity constraints are just another name for invariants. For example, in a database, you wouldn't want to have a
 record for a, a person saying that they work for a company, and that company has gone bankrupt and is no longer in the
 database. In programming terms that's a dangling pointer.
-
 
 You want to make sure that your database or your system, never gets in situations where there's those. There are those
 kinds of integrity violations.
@@ -174,15 +146,12 @@ any attributes of the classes that take place because of the operation has been 
 For example of pre and post conditions think about an operation for taking a square root. In English we might say
 something as far as a precondition is concerned, the argument had better be a non-negative number.
 
-
 As far as a post condition is confirmed something like the square of the computed results must equal the argument.
 That's a little bit backwards way of thinking about things but in fact it is a true expression of equality okay, that
 must, must be the case if square root has the meaning we expect it to have.
 
-
 If we were to express these particular constraints in OCL, we might do them in the context of the built-in class reel.
 And having, adding an operation called square root, that returns as a result, a real answer.
-
 
 The precondition is that the argument which is, in, in this case, is the number we're taking a square root of had better
 be better than or equal to zero. And the post condition is that the argument should be equal to the result when
@@ -196,38 +165,26 @@ The square root example has to do with specifying the properties of the results 
 also consider situations where the effect of a particular operation is to change the attribute values for some class.
 How might we do that? Well, let's consider the example of a bank account.
 
-
 And has an attribute which is the current balance and has operations for deposits and withdraws. We might wish to
 guarantee that the balance, the current balance reflects any deposits that are made and any withdrawals that are taken
 out. How might we express such a constraint?
-
 
 Well here's an example, if we have a deposit operation in the account class, that takes a real argument. Which is the
 amount being deposited and as the sanity check we make sure that the amount is greater than 0, that's the precondition.
 We might try to express the post-condition with something like saying the balance equals balance plus the amount.
 
-
 However, remember that the OCL is a declarative language. An equal sign here means equality it doesn't mean assignment.
 So what we're saying with this as the way that it's written is the balance equals the balance plus the amount.
 
+Well, that can't be the case. All right, that doesn't make sense. Fortunately, OCL has a mechanism for allowing us to
+express these sorts of situations where we're changing, changing values. And that particular mechanism is, consists of
+an @ sign followed by the, the word pre.
 
-Well, that can't be the case. All right, that doesn't make sense. Fortunately,
-
-
-OCL has a mechanism for allowing us to express these sorts of situations where we're changing, changing values. And that
-particular mechanism is, consists of an @ sign followed by the, the word pre.
-
-
-And what that denotes is the value before the operation executed.
-
-
-If we don't use @pre than what we're seeing when we express balance or deposit is the value afterwards. So we can
-express the post-condition this time correctly by saying that balance equals balance @pre plus amount.
-
+And what that denotes is the value before the operation executed. If we don't use @pre than what we're seeing when we
+express balance or deposit is the value afterwards. So we can express the post-condition this time correctly by saying
+that balance equals balance @pre plus amount.
 
 That is, we take the previous ba the previous balance, add in the amount being deposited and we get the new balance.
-
-
 Looks like an assignment segment, but it's really an equality.
 
 
@@ -245,12 +202,8 @@ interchanged.
 
 It's even easier in OCL than it would be in a programming language.
 
-
-You don't have to use some temporary variable to hold one of the results.
-
-
-You could say simply the post-condition is that a's resultant value is b's previous value. And similarly, b's resultant
-value is a's previous value.
+You don't have to use some temporary variable to hold one of the results. You could say simply the post-condition is
+that a's resultant value is b's previous value. And similarly, b's resultant value is a's previous value.
 
 
 15 - OCL Built in Types
@@ -258,14 +211,10 @@ value is a's previous value.
 
 And that's pretty much all there is to the basics of OCL.
 
-
-We have some Built-in Types, Booleans, Integers, Reals, and
-
-
-Strings. We have the ability to express literals of those types. And we have some Built-in Operations on those types. So
-we can combine Booleans with your favorite, Boolean operators ands, and ors, and so on. We can add and subtract and
-multiply integers and reals. And we can we can deal with strings, we can convert them to upper case or we can
-concatenate them together.
+We have some Built-in Types, Booleans, Integers, Reals, and Strings. We have the ability to express literals of those
+types. And we have some Built-in Operations on those types. So we can combine Booleans with your favorite, Boolean
+operators ands, and ors, and so on. We can add and subtract and multiply integers and reals. And we can we can deal with
+strings, we can convert them to upper case or we can concatenate them together.
 
 
 16 - OCL Keywords
@@ -274,29 +223,24 @@ concatenate them together.
 The entire OCL language has a small set of keywords. We've already seen invariant, pre, and post. There's an if-then-
 else if you need that to, describe conditional expressions. There are Boolean operators.
 
-
 There's a packaging mechanism that reflects UML's ability to partition things into packages. The context keywords you've
 seen. There's, several key words that allow you to do some definitions. Definitions can be useful to save you typing
 effort if define something to use the short version there's ability to indicate that your computing the value of derived
 attribute the derived key word. There's the ability to indicate that you're specifying an initial value, we, and we've
 already seen result and self.
 
-
 17 - Let Clause
 ---------------
 
 Let's just have a look for a minute at the let clause, which is way of doing a local abbreviation or a local definition.
 
-
 Say you have you a relatively complex computation that you're going to include in one of your constraints, and you're
 going to use it more than once.
-
 
 Now, you could type it out more than once, but that's extra effort and you might make a mistake. So instead, you could
 use a let clause to introduce a new identifier that has the value of that expression, and then use that identifier in a
 subsequent constraint. So for example, if our income is expressed in terms of the sum of our of our salaries for all of
 our jobs, okay, we could use a let clause which says exactly that.
-
 
 We could introduce a new variable, or identifier called income and then we could have expression, in this case is an if
 then else expression that says if someone is unemployed then their income is less than 100 else their income is greater
