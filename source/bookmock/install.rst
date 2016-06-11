@@ -147,3 +147,6 @@ Using GPG.
     >>> decrypted = gpg.decrypt(str(encrypted))
     >>> decrypted.data
     b'mypassword'
+
+Make sure that it is encrypted using your private key and can be decrypted only using your private key.
+
