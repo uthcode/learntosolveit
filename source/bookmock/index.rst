@@ -8,4 +8,5 @@ reference when you are writing your mock tests.
    :maxdepth: 3
 
    start
+   install
    passwordman
