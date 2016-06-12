@@ -24,8 +24,14 @@ UML, to fill in the gaps.
 02 - Library Problem Requirements
 ---------------------------------
 
-As a reminder, here are the requirements.
+.. image::  https://dl.dropbox.com/s/x8rjyw9m9xgxrv8/Screenshot%202016-06-11%2009.14.15.png
+   :align: center
+   :height: 300
+   :width: 450
 
+
+
+As a reminder, here are the requirements.
 
 A simple set of 11 sentences that describe possible behaviors, and elements of the information system we're trying to
 design.
@@ -38,7 +44,6 @@ And here's the Class Model diagram we, derived from it. You, you recall, it had 
 Loanable Item, and we had to invent a Title class, in order to be able to correctly deal with the user's requests to
 reserve a a book.
 
-
 Along the way we also came up with several associations, one for making requests and the other that recorded the actual
 checking out of the loanable items.
 
@@ -46,16 +51,8 @@ checking out of the loanable items.
 04 - Requirements Quiz
 ----------------------
 
-1
-
-
-As a first quiz on this, I'd like you to look through the set of 11 requirements
-
-
-2 and determine which of these the diagram is able to, by itself,
-
-
-3 adequately address and which of these requires something more to be said.
+As a first quiz on this, I'd like you to look through the set of 11 requirements and determine which of these the
+diagram is able to, by itself, adequately address and which of these requires something more to be said.
 
 
 05 - Requirements Quiz Solution
@@ -237,7 +234,7 @@ What's the, what's the context, and what kind of invariances is it?
 >> So very similar to the, very similar to the previous one.
 
 
-This one doesn't have to be a conditional, conditional. Because there's only one possibility here.
+This one doesn't have to be a conditional. Because there's only one possibility here.
 
 
 16 - Operations
@@ -247,35 +244,27 @@ So in the, the previous two examples we were talking about the value of an attri
 straightforward. Let's now talk about operations. OCL provides a way to specify operations using pre and post-condition
 constraints. These are different keywords in the language.
 
-
 In this case, we're going to look at requirement three, which describes some query operations. Now by query operation, I
 mean an operation that is asking about the value of an attribute, but not changing anything. So, in this case, it should
 be straightforward to have an operation that returns that value.
-
 
 So, the requirement itself says, in addition, at any particular point in time, the library may need to know or to
 calculate. The items a patron has checked out, when they are due and any outstanding overdue fines. So, let's
 concentrate on a part about the items a patron has currently checked out.
 
-
 So, previously when we did our analysis, we associated this text with an operation class patron called items currently
 checked out.
 
-
 What we need to do now is to say something about that particular operation.
-
 
 We need to make it stated more precisely then just saying that it exists. And in fact, we have to say that the value
 computed by this operation corresponds to just those items that are checked out for that patron. Recall that we have a,
 an association between patron and loanable item.
 
-
 And that association is going to record what items are checked out.
-
 
 And now we're talking about the operation in patrons, so essentially that operation is querying the association, and we
 want to make sure that what the operation returns is in fact, what's appropriately expressed in the association.
-
 
 17 - CheckedOut Operation
 -------------------------

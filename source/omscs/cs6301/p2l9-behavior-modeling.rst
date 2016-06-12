@@ -17,16 +17,11 @@ P2L9 Behavior Modeling
 The structural models that we have been looking at so far express properties of systems that are true at all times.
 Although, these models are general, they fail to convey interesting behavioral aspects of the systems.
 
-
 That is how the systems respond to external stimuli. UML provides a variety of alternative diagrams that do support the
 behavioral modeling of systems.
 
-
 We will look at these and later we will also go into detail on the state chart diagramming technique. Which is the one
-which provides you the ability to.
-
-
-Precisely describe the system properties.
+which provides you the ability to precisely describe the system properties.
 
 
 02 - States
@@ -35,16 +30,13 @@ Precisely describe the system properties.
 First, let's start with two key concepts, states and events. Both of these are abstract but nevertheless useful in
 describing system behavior.
 
-
 A state is an abstract description of a set of system values at a given point of time. For example, it's raining
 outside.
-
 
 This is actually some estimation or abstraction over the amount of precipitation in the air at a given point in time.
 Let's imagine a slightly more complex situation in the imaginary town of Des Cartes Iowa, that has ten streets and eight
 avenues laid out in an orthogonal grid. And let's say we were trying to imagine the state of the town that had one car
 in it.
-
 
 The position of that car in this imaginary scenario is at third street and fifth avenue. The number of possible states
 it could be in is 80, ten streets, eight avenues. For two cars though, the number of possible states, goes up with a
@@ -79,24 +71,17 @@ Well if you do the multiplication it comes out to be 3 to the 9th or
 The second key concept is the event. Once again it's an abstraction, and we'll say it's a single, instantaneous,
 noticeable occurrence. And also, and also, think of it as some kind of stimulus because the system is going to respond
 to it. Events in these kinds of systems can either be asynchronous or synchronous. Asynchronous events you can think of
-as kind of randomly occurring, they can come in bursts, they can be spread out.
-
-
-Synchronous events are more likely to come at periodic intervals, often the system has some sort of clock or event loop
-that controls.
-
+as kind of randomly occurring, they can come in bursts, they can be spread out. Synchronous events are more likely to
+come at periodic intervals, often the system has some sort of clock or event loop that controls.
 
 The current events when they can be dealt with in our approach to modeling these systems the events can serve as the
 reason or the stimulus for a change of state in the system.
 
-
 That, that change of state is sometimes called a state transition. For example, when you got your envelope through the
 mail that said you were admitted to college, that's a significant state transition in your life. Events can occur as the
 results of user actions like hitting a, hitting a button on the, on the graphical user interface. They can occur because
-of changes in the data, in the, in the state space the temperature getting above 90 degrees.
-
-
-Or they can be queued by the passage of time.
+of changes in the data, in the, in the state space the temperature getting above 90 degrees. Or they can be queued by
+the passage of time.
 
 
 06 - UML Event Taxonomy
@@ -105,9 +90,7 @@ Or they can be queued by the passage of time.
 UML supports, several different kinds of events which you can use in your modelling. These include, signals, which are
 asynchronous notifications.
 
-
 Method calls, which are, which are synchronous. State changes in the data.
-
 
 Also called data conditions, and the passage of time.
 
@@ -115,64 +98,17 @@ Also called data conditions, and the passage of time.
 07 - State vs Event Quiz
 ------------------------
 
-1
-
-
 Okay, here are a list of descriptions of situations.
 
-
-2
-
-
-And for each of these, determine whether it's a state, an event, or neither.
-
-
-3
-
-
-Jesse Jones won the Olympic 100 meter in 1936 in Berlin.
-
-
-4
-
-
-The color magenta.
-
-
-5
-
-
-A building's sprinkler system turning on due to a fire.
-
-
-6
-
-
-Your telephone ringing.
-
-
-7
-
-
-A rainy day.
-
-
-8
-
-
-Big Ben chiming.
-
-
-9
-
-
-The International Space Station.
-
-
-10
-
-
-The screen saver on your laptop turning on.
+* And for each of these, determine whether it's a state, an event, or neither.
+* Jesse Jones won the Olympic 100 meter in 1936 in Berlin.
+* The color magenta.
+* A building's sprinkler system turning on due to a fire.
+* Your telephone ringing.
+* A rainy day.
+* Big Ben chiming.
+* The International Space Station.
+* The screen saver on your laptop turning on.
 
 
 08 - State vs Event Quiz Solution
@@ -180,47 +116,21 @@ The screen saver on your laptop turning on.
 
 For Jesse Owens, that was an important state in his life.
 
-
 It was a state as far as the Olympics are concerned.
-
-
 And it turned out, it was an important state as far as world events were concerned.
-
-
 The color magenta, however, is neither.
-
-
 It's not an event or it's not a state.
-
-
 It's just the value of an attribute.
-
-
 The building's sprinkler system turning on due to a fire.
-
-
 That's an event, an instantaneous change of state.
-
-
 Telephone ringing is also an event.
-
-
 Rainy day is a state.
-
-
 Big Ben chiming, now I know it takes a long time for it to chime, but let's just think of it as being the start of
 chiming, that's an event.
 
-
 Once again, an abstraction over that whole sequence of chimes.
 
-
-The Inter, International Space Station is neither.
-
-
-You can think of it as a very, very, very complex object itself.
-
-
+The International Space Station is neither. You can think of it as a very, very, very complex object itself.
 And the screen saver on your laptop turning on, event.
 
 
@@ -233,21 +143,15 @@ kinds of systems that you would normally build, in which it's the system in char
 things happen. Here is the external world which supplies the stimuli that are causing things to happen in the system,
 the system has to react to them.
 
-
-In general there are a variety of different approaches to modeling behavior.
-
-
-We're going to go through from the simplest, which is combinatorial systems.
-
+In general there are a variety of different approaches to modeling behavior. We're going to go through from the
+simplest, which is combinatorial systems.
 
 Through sequential systems, to the most complex and concurrent systems. In combinatorial systems, we're just concerned
 with states no events. Sequential systems have states, that is they have memory, but they're linearly ordered one state
 after another. And then concurrent systems.
 
-
 Particularly asynchronous concurrent systems have lots of states and lots of events and the events are happening at
 unpredictable moments of time.
-
 
 10 - Combinatorial Modeling
 ---------------------------
@@ -257,7 +161,6 @@ expresses the logic of simple combinatorial systems. In these systems, only the 
 states determines subsequent states. We'll look for a second at two equivalent forms of combinatorial modeling. Called
 decision trees and decision tables.
 
-
 11 - Decision Tables
 --------------------
 
@@ -266,9 +169,7 @@ there are various different, states that can affect ultimate behavior of the sys
 tables in terms of input conditions and and, and, and responses to those inputs. That is combinations of inputs yielding
 results.
 
-
 That's where the term netwire comes from. The table will have columns.
-
 
 Some of which correspond to the inputs and the remainder will correspond to the outputs. And then each of the rows is
 going to correspond to a different combination of input values. Let's imagine that we have a workshop and there are
@@ -276,9 +177,7 @@ three switches, okay. Each of the switches can have on and off as possible value
 columns and eight rows. Where did the eight come from? Well, if we have three switches, two possible values for each
 switch, that's two to the third or eight. Let's assume that the three switches control two output devices.
 
-
 Maybe an overhead light and maybe a, a power drill.
-
 
 The third switch is a master switch which controls all the electricity in the workshop. Well here's the, here's the
 decision table for this situation.
@@ -411,11 +310,9 @@ history or memory of what happened before.
 
 
 You were in a previous state and based upon that state and whatever events occur you move to a new state. Systems like
-this are sometimes called finite state systems because we're going to limit the number of states that they can have.
-
-
-To a finite number. Okay, and if you recall from your theory course we're going to take advantage of finite state
-machines as a way of doing the modelling.
+this are sometimes called finite state systems because we're going to limit the number of states that they can have to a
+finite number. Okay, and if you recall from your theory course we're going to take advantage of finite statemachines as
+a way of doing the modelling.
 
 
 14 - State Transition Table STT
@@ -423,19 +320,15 @@ machines as a way of doing the modelling.
 
 We can represent these finite state machines in a variety of ways.
 
-
 Let's start with a tabular form called a state transition table.
-
 
 Here the rows correspond to states and there are four columns. One column for the name of the state. Another for the
 input event which is going to cause a transition. The third for whatever output action is going to be taken upon the
 transition, and the fourth for the next state. That is, the state transition table is going to capture the idea that a
 system in a given state, when given a certain stimulus, and when a stimulus occurs.
 
-
 Is possibly going to produce some action or response, and leave itself in a in a state, possibly the same or possibly a
 different state.
-
 
 To see how this works, let's imagine a garage door opening system. In fact, a, a simplified version of my garage door
 opening system. Okay. It's gotta motor and that motor can be lifting the door up, it can be pushing the door down, or it
@@ -680,28 +573,20 @@ around a filled in a filled in circle.
 -----------------------------------
 
 Statecharts add quite a few features. We're going to be looking at the first two because they're the ones that give the
-greatest benefit. But
-
-
-I'll mention also some of the others, okay?
-
+greatest benefit. But I'll mention also some of the others, okay?
 
 In particular number one thing is statecharts offer nesting or depth, okay?
 
-
 That is, a particular state in a statechart can be its own state machine.
-
 
 And you can zoom in that way. Secondly, they offer concurrency. Imagine that you have two things going on, each of which
 can have a number of states.
-
 
 Recall from state transition diagrams that in order to model that we have to multiply the number of states. Statecharts
 allow you to treat those separately, okay? Therefore, only getting an additive number of states rather than a
 multiplicative number of states. Of course once you've done that, that is separated the concurrent machines into two
 parts, you still have to synchronize them. That is, they still have to cooperate somehow, and statecharts offers a way
 of doing that called broadcast events.
-
 
 We'll look at that. And of course you could also use data conditions which are globally available to both machines.
 We'll look at entry exit actions, we'll look at event parameters, we'll look at history, and of course the default
@@ -714,9 +599,7 @@ states that we've already seen the icons for.
 I have asked you to have a look at, at Harel's original paper. In there, he has several abstract diagrams laying out the
 various features of the state chart notation. On the left, there is a a state machine that has three states.
 
-
 Notice the default state is the top one and, with the line coming into it, and there are transitions among the states.
-
 
 Totally, there are six transitions there.
 

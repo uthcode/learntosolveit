@@ -22,56 +22,42 @@ the behavior of a common clock radio.
 02 - Description
 ----------------
 
-The radio is powered by electricity from a wall socket at not a battery.
-
-
-It can be controlled by two manual knobs. One for volume on the top right and one for tuning on the right side. The
-chosen frequency is displayed on the right side of the front panel with a small vertical white bar.
-
+The radio is powered by electricity from a wall socket at not a battery. It can be controlled by two manual knobs. One
+for volume on the top right and one for tuning on the right side. The chosen frequency is displayed on the right side of
+the front panel with a small vertical white bar.
 
 The display features a twelve hour clock on the left front and two small lights. The light in the upper left hand corner
 of the display labeled AM indicates whether the displayed time is in the morning, when the light is off or in the
 afternoon or evening when the light is on.
 
-
 The light in the lower right hand corner of the display is labeled wake.
-
 
 If it is lit indicates you have armed the alarm. In addition to the above, the radio has two switches and five buttons.
 One of the switches on the top edge of the back determines whether the frequency band is set to AM or FM.
 
-
 The second switch found in the center front of the top has four positions.
-
 
 The switch slides horizontally from left to right. In order, the positions indicate whether the radio is on, off, armed
 for wake by radio or armed for wake via a beeping sound. Four buttons are found on the left side of the top of the
 radio. They can be used to set various timers in the clock.
-
 
 They are labeled hour, min, wake, and sleep. By pressing the wake button, you can set the time you wish the alarm to go
 off. By pressing the sleep button, you can set how long you would like the radio to play before automatically shutting
 off. Using this feature allows you to fall asleep with the radio playing. If neither button is pressed you can set the
 current time of day.
 
-
 You've actually set these three timers using the other two button on the front left of the top of the radio, they are
 labeled hour and min. By pressing hour you increment the hour of, of the respective timer, the wake, sleep or time of
 day timer. Similarly for min, if you wish to be awakened 15 minutes later tomorrow morning than you were this morning
 you would hold down the wake button while pressing the min button 15 times. The final button is the snooze button.
 
-
 It is the large button found in the center front of the top of the radio.
-
 
 The snooze button is useful when the alarm is trying to wake you up.
 
-
-Each time you hit the snooze button the alarm shuts off for
-
-
-10 minutes. The final feature to note about the radio is that the alarm will automatically turn itself off after one
-hour, to prevent the situation where you forgot to turn it off and it was audible all day long.
+Each time you hit the snooze button the alarm shuts off for 10 minutes. The final feature to note about the radio is
+that the alarm will automatically turn itself off after one hour, to prevent the situation where you forgot to turn it
+off and it was audible all day long.
 
 
 03 - Exercise Introduction
@@ -80,10 +66,8 @@ hour, to prevent the situation where you forgot to turn it off and it was audibl
 >> Okay clearly there are lots of other ones, like just listening to the radio, turning it on and just listening to it
 or getting shocked out of bed by the beeper going off lots of possibilities here.
 
-
 And ultimately our state chart model, needs to be able to cover all the pos, all the cases that might, might arise
 including error cases.
-
 
 Including situations where what you had hoped to happen doesn't happen, and the radio has to respond in that situation.
 
@@ -104,21 +88,18 @@ Typically a device's output and some of its input comprise its percepts.
 05 - Percepts Quiz Solution
 ---------------------------
 
->> So we definitely are going to have to model the fact that when the snooze button is hit, something happens with the,
+So we definitely are going to have to model the fact that when the snooze button is hit, something happens with the,
 with the speaker. So to summarize the various precepts that are involved here. The speaker. The time display we just
 went through. those, along with those indicator lights on the, on the time display, saying whether the alarm is is
 turned on.
-
 
 And the AM, FM percept. There's also as we indicated the rotational position of the tuning knob. The horizontal
 position. The left and right position of the vertical frequency bar. Rotational position of the volume dial. The current
 setting of the switch which is the AM/FM band and the current setting of the slide switch, which is on off radio or
 alarm.
 
-
 Think of it as a mode switch there. The other devices that the, the various buttons are in fact that. They don't retain
 any state.
-
 
 But you can still use them to cause other effects in the clock radio
 
