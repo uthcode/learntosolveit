@@ -33,8 +33,7 @@ resizable viewing window resource capable of displaying lines of text which we c
 
 And you have a controlling device which we call the ScrollBar capable of selecting a discrete value via handle, where
 the purpose of it controlling which lines have actually appear on the screen. The objective of, of this case study is to
-specify the properties of a text browser, choose an architecture, and assemble the components together
-
+specify the properties of a text browser, choose an architecture, and assemble the components together.
 
 03 - Exercise
 -------------
@@ -72,7 +71,8 @@ browser, can move the handle that's in the tray, and then also resize the text b
 
 >> events?
 
-The movement of the handle's an event, the resizing of the window's also an event. Viewing's kind of like a continuous process, there's no kind of instantaneous event that's happening.
+The movement of the handle's an event, the resizing of the window's also an event. Viewing's kind of like a continuous
+process, there's no kind of instantaneous event that's happening.
 
 >> Well but the system is not doing the viewser, viewing, the use is doing the viewing, so.
 
@@ -178,7 +178,8 @@ requirements.
 09 - Phase 1 Diagram
 --------------------
 
-So, in this particular slide we have the results of our analysis model. There were classes corresponding to our three major elements and then there were associations among the elements.
+So, in this particular slide we have the results of our analysis model. There were classes corresponding to our three
+major elements and then there were associations among the elements.
 
 There was one binary association having to do with displaying the contents.
 
@@ -324,8 +325,8 @@ this layered implicit invocation, architectural style.
 18 - Layered  Implicit Invocation
 ---------------------------------
 
-For this style we will organize the components into layers. For the higher level components register their interest in lower level events and are then called back when the events
-occur.
+For this style we will organize the components into layers. For the higher level components register their interest in
+lower level events and are then called back when the events occur.
 
 In particular, the upper level components don't know the identity of the lower level components providing the events.
 
@@ -793,4 +794,3 @@ This lecture has presented an architectural design process using the text browse
 breakdown of system functionality into components. Also, the components are assigned responsibility for maintaining
 important system invariants. However, we haven't yet dealt with with the non-functional requirements, which is a major
 concern of software, software architectural design. We will address this issue in a later lesson.
-
