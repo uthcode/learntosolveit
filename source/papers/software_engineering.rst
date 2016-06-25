@@ -12,5 +12,11 @@ for building a scalable system.
 .. _`Software Engineering and Middleware: A Roadmap`: https://s3.amazonaws.com/content.udacity-data.com/courses/gt-cs6310/readings/gt-sad-emmerich-paper.pdf
 
 
+* `Design patterns for container-based distributed systems`_ Authors: Brendan Burns David Oppenheimer
+
+This paper talks about the container based architectures that is common when using various container and orchestration systems.
+
+.. `Design patterns for container-based distributed systems`_: https://www.usenix.org/system/files/conference/hotcloud16/hotcloud16_burns.pdf
+
 
 
