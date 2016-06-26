@@ -16,7 +16,7 @@ for building a scalable system.
 
 This paper talks about the container based architectures that is common when using various container and orchestration systems.
 
-.. `Design patterns for container-based distributed systems`_: https://www.usenix.org/system/files/conference/hotcloud16/hotcloud16_burns.pdf
+.. _`Design patterns for container-based distributed systems`: https://www.usenix.org/system/files/conference/hotcloud16/hotcloud16_burns.pdf
 
 
 
