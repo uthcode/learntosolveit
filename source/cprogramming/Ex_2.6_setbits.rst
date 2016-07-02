@@ -21,7 +21,7 @@ Explanation
 
 The important piece of the program is this::
 
-	(x & ~(~(~0 << n) << (p+1-n))) | (( y & ~(~0<<n)) << (p+1-n));
+	(x & ~(~(~0 << n) << (p+1-n))) | ( y & (~(~0<<n) << (p+1-n)));
 
 Let's look at some inner terms. The expression `~(~0<<n)` will thus always yield
 right most n bits set to 1. And (p+1-n) will give a integer  value for the n
