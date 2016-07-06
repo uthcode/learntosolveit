@@ -14,13 +14,12 @@ P3L6 Connectors
 01 - Connectors
 ---------------
 
-Recall our terminology for describing architecture in terms of components, connectors and configurations. The components are mainly determined by the system's functionality, with a few invented to handle non, some non-functional
+Recall our terminology for describing architecture in terms of components, connectors and configurations. The
+components are mainly determined by the system's functionality, with a few invented to handle non, some non-functional
 requirements. Now it's time to take a look at connectors.
-
 
 The main material for this lesson comes from the [UNKNOWN] paper, which I have asked you to read. There is also some
 material in the optional text by Taylor [UNKNOWN] on software architecture foundations.
-
 
 According to Shaw and Garlan, connectors are responsible for mediating the interactions among the components. They
 establish the rules that govern component interaction and specify any auxiliary mechanisms required.
@@ -575,8 +574,8 @@ As with components there is a design step required, particularly if you're build
 the overall architecture, of course you determine your components and the required interactions among them. Then for
 each interaction, determine what required services that interaction needs.
 
-Once you've done that you can select a con, connector type that provides that service. Each of the connector types has a
-variant of dimensions, variation dimensions, that you can choose which of those variants you would like to have.
+Once you've done that you can select a con, connector type that provides that service. Each of the connector types has
+a variant of dimensions, variation dimensions, that you can choose which of those variants you would like to have.
 
 And from that, define your connector. And then you need to validate. And we'll have one in a minute we'll, we'll
 describe some of the rules you can use for checking whether or not the, the choices you made will work out.
@@ -590,15 +589,15 @@ You may not find one in the catalog or in available libraries that you can use.
 ---------------------
 
 One category of validation rules are requirement requirements placed by the value on one dimension on the values of
-another dimension. For example, if you've got event connectors that require delivery notification, then you also need to
-be concerned with the cardinality rules, synchronization rules, and mode rules. Might be situations where it's not a
+another dimension. For example, if you've got event connectors that require delivery notification, then you also need
+to be concerned with the cardinality rules, synchronization rules, and mode rules. Might be situations where it's not a
 strict rule, but it's some kind of caution. Certain combinations may be unstable or unreliable.
 
 
 That is they're dynamic, the dynamics of that particular situation may not work in all circumstances having to do with
 concurrency and locality. There may be restrictions. 'Kay, certain combinations may be invalid, for example, passing by
-name and transient can't be used together. And there might be prohibitions. Total incompatibility of dimensions, such as
-streams and atomicity
+name and transient can't be used together. And there might be prohibitions. Total incompatibility of dimensions, such
+as streams and atomicity
 
 
 23 - Linux Case Study
@@ -660,5 +659,3 @@ streams and atomicity
 It's easy to think that after you have determined the components of a system that your job is done. Just as vital is
 determining how those components will correctly interact. Treating connectors as first-class part of the design process
 can further that end.
-
-
