@@ -237,7 +237,6 @@ capable of dealing with. As far as the connector is concerned, there are propert
 maximum number of roles that that connector can have and for a particular protocol, in this case, using the Wright, as
 in Frank Lloyd Wright, architectural description language.
 
-
 15 - Families
 -------------
 
@@ -246,7 +245,6 @@ would use within Acme to describe architectural styles.
 
 That is they're defining new terms that describe sets of architectures. You can encode style rules as properties, that
 describe how to use a particular family.
-
 
 16 - Example Family
 -------------------
