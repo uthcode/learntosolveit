@@ -87,3 +87,4 @@ Online Masters in Computer Science
 
    omscs/index
    omscs/cs6301/index
+   omscs/cs6400/index
