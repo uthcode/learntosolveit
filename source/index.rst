@@ -88,7 +88,7 @@ Knowledge Based AI
 ==================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    omscs/cs7637/index
 
@@ -97,7 +97,7 @@ Software Architecture and Design
 ================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    omscs/cs6301/index
 
@@ -105,6 +105,6 @@ Database Systems Concepts and Design
 ====================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    omscs/cs6400/index

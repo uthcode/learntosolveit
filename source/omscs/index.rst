@@ -1,6 +1,5 @@
-General Instructions
-====================
-
+General Notes
+=============
 
 Georgia Tech Academic Calendar for Reference: http://www.registrar.gatech.edu/calendar/
 
@@ -9,7 +8,12 @@ Georgia Tech Academic Calendar for Reference: http://www.registrar.gatech.edu/ca
 * `Safari Books`_ Accessible when logged in via VPN
 * `Student Software`_ - Logged in via VPN
 * `Student Perks`_ - List of Student Perks shared in one spreadsheet.
+* `OMSCS Slack Group`_ - Slack Channel used by OMSCS Students.
 
+.. toctree::
+   :maxdepth: 3
+
+   vpn
 
 .. target-notes::
 
@@ -18,9 +22,4 @@ Georgia Tech Academic Calendar for Reference: http://www.registrar.gatech.edu/ca
 .. _ACM Access: http://dl.acm.org.prx.library.gatech.edu/advsearch.cfm
 .. _Student Software: https://software.oit.gatech.edu/
 .. _Student Perks: https://docs.google.com/spreadsheets/d/1Gk3IPDd7_WyKeSfyuxXWrh4Hkk80As82CnaOO2m750M/edit#gid=0
-
-
-.. toctree::
-   :maxdepth: 3
-
-   vpn
+.. _OMSCS Slack Group: https://omscs-study.slack.com
