@@ -7,3 +7,4 @@ Notes for the Database systems concepts and design course.
    :maxdepth: 3
 
    syllabus
+   officehours

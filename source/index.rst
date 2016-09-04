@@ -84,6 +84,15 @@ This section has notes and reference material useful for students who are taking
 
    omscs/index
 
+Knowledge Based AI
+==================
+
+.. toctree::
+   :maxdepth: 3
+
+   omscs/cs7637/index
+
+
 Software Architecture and Design
 ================================
 
