@@ -79,12 +79,23 @@ This section has notes and reference material useful for students who are taking
 
 .. _Georgia Tech OMSCS Program: http://www.omscs.gatech.edu
 
-Online Masters in Computer Science
-==================================
-
 .. toctree::
    :maxdepth: 3
 
    omscs/index
+
+Software Architecture and Design
+================================
+
+.. toctree::
+   :maxdepth: 3
+
    omscs/cs6301/index
+
+Database Systems Concepts and Design
+====================================
+
+.. toctree::
+   :maxdepth: 3
+
    omscs/cs6400/index
