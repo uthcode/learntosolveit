@@ -75,36 +75,4 @@ Computer Science Papers
 Georgia Tech
 ------------
 
-This section has notes and reference material useful for students who are taking `Georgia Tech OMSCS Program`_
-
-.. _Georgia Tech OMSCS Program: http://www.omscs.gatech.edu
-
-.. toctree::
-   :maxdepth: 3
-
-   omscs/index
-
-Knowledge Based AI
-==================
-
-.. toctree::
-   :maxdepth: 1
-
-   omscs/cs7637/index
-
-
-Software Architecture and Design
-================================
-
-.. toctree::
-   :maxdepth: 1
-
-   omscs/cs6301/index
-
-Database Systems Concepts and Design
-====================================
-
-.. toctree::
-   :maxdepth: 1
-
-   omscs/cs6400/index
+This section is moved to https://omscs-transcend.readthedocs.io
