@@ -62,17 +62,3 @@ Scala Programming Language
    :maxdepth: 3
 
    scala/index
-
-Computer Science Papers
------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   papers/index
-
-
-Georgia Tech
-------------
-
-This section is moved to https://omscs-transcend.readthedocs.io
