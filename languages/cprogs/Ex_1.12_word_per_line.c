@@ -2,15 +2,17 @@
 #include<stdio.h>
 
 int main() {
-    int c;
-    c = getchar();
-    while (c != EOF) {
-        if (c == ' ') {
-            putchar('\n');
-        }
-        else {
-            putchar(c);
-        }
-        c = getchar();
-    }
+	int c, ccount;
+	ccount = 0;
+	while((c = getchar()) != EOF) {
+		if(c == '\n' || c == '\t' || c == ' ') {
+			if (ccount > 0) {
+				putchar('\n');
+			}
+			ccount = 0;
+		} else {
+			ccount++;
+			putchar(c);
+		}
+	}	
 }
