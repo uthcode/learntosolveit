@@ -1,43 +1,49 @@
-"""
-Sending gmail with attachment.
-"""
 import smtplib
 
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email.MIMEText import MIMEText
 from email import Encoders
+import os
+import time
 
-me = 'Senthil Kumaran <orsenthil@gmail.com>'
-you = 'senthil@uthcode.com'
+me = 'Name <email@gmail.com>'
 
-username = 'orsenthil'
-password = 'something'
+username = ''
+password = 'password'
 textfile = 'message.txt'
-attachment = 'something.pdf'
+attachment = 'picture.png'
 
-msg = MIMEMultipart()
+def send_email(name, to_email):
+	you = to_email
+	msg = MIMEMultipart()
 
-msg['From'] = me
-msg['To'] = you
-msg['Subject'] = 'The contents of %s' % textfile
+	msg['From'] = me
+	msg['To'] = you
+	msg['Subject'] = 'Subject'
 
-fp = open(textfile, 'rb')
-msg.attach(MIMEText(fp.read()))
-fp.close()
+	fp = open(textfile, 'rb')
+	contents = fp.read()
+	contents = contents.format(friend=name)
+	msg.attach(MIMEText(contents))
+	fp.close()
 
-email_attachment = MIMEBase('application','octet-stream')
-email_attachment.set_payload(open(attachment, 'rb').read())
-Encoders.encode_base64(email_attachment)
-email_attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(attach))
+	email_attachment = MIMEBase('application','octet-stream')
+	email_attachment.set_payload(open(attachment, 'rb').read())
+	Encoders.encode_base64(email_attachment)
+	email_attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(attachment))
 
-msg.attach(email_attachment)
+	msg.attach(email_attachment)
 
+	server = smtplib.SMTP('smtp.gmail.com:587')
+	server.ehlo()
+	server.starttls()
+	server.ehlo()
+	server.login(username, password)
+	server.sendmail(me, [you], msg.as_string())
+	server.close()
 
-server = smptlib.SMTP('smtp.gmail.com:587')
-server.ehlo()
-server.starttls()
-server.ehlo()
-server.login(username, password)
-server.sendmail(me, [you], msg.as_string())
-server.close()
+if __name__ == '__main__':
+	name = "recipient name"
+	email = "recipient email"
+	send_email(name, email)
