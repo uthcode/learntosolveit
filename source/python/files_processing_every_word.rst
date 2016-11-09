@@ -73,7 +73,7 @@ Running the program over itself produces the output like this.
     '__main__'
     main
 
-.. git_changelog::
+
 
 
 .. seealso::

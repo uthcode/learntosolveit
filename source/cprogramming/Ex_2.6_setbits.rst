@@ -152,7 +152,7 @@ We write the entire expression::
 
 Converting 1111 0000 to decimal gives us 240 and that is answer.
 
-.. git_changelog::
+
 
 .. seealso::
 

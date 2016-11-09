@@ -34,7 +34,7 @@ changes the function makes will be available to the main program.
 ``getline`` returns the length of the line and in our main program, if the length
 is greater than 80 characters we print it.
 
-.. git_changelog::
+
 
 .. seealso::
 

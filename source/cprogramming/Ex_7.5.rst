@@ -19,7 +19,7 @@ input and number conversion.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

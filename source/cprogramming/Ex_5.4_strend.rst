@@ -77,7 +77,7 @@ If the string t exhausts, that is, it's length, len becomes 0, then we known
 that string `t` occurs at the end of  string `s` and we return 1. Otherwise, we
 return 0.
 
-.. git_changelog::
+
 
 .. seealso::
 

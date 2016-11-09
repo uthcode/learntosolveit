@@ -95,7 +95,7 @@ we will have hit the bottom of the histogram::
 
 Combing them all, we would have drawn the horizontal histogram like above.
 
-.. git_changelog::
+
 
 .. seealso::
 

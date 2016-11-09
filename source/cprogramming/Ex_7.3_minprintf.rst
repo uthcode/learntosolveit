@@ -18,7 +18,7 @@ Revise minprintf to handle more of the other facilities of printf.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

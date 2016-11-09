@@ -4,27 +4,19 @@
    contain the root `toctree` directive.
 
 
+Programming Languages
+---------------------
 
+`Learn To Solve It`_ helps you learn Computer Science and Programing in a straight forward way.
 
-
-`Learn To Solve It`_ is a platform to learn programming in a straight forward
-way.
-
-My approach is to choose a good programming book, code examples, solve the
-exercises presented by the author and explain the solution. In addition, I have
-included a number of programs which demonstrate features of language and
-standard library which provide a good language and the style.
-
-The programs can be run directly on `ideone`_ sandbox and I welcome
-collaboration via `Github`_ pull requests, which is possibly directly from these
-pages.
+Collection of good problems and solutions from various high quality reference materials. The programs can be run
+directly on `ideone`_ sandbox. Improvements to website can be submitted via `Github`_ pull requests.
 
 **Reference Books**
 
 * C Programming Language by Kernighan and Ritchie.
-* Python Cookbook by Alex Martelli, Anna Martelli Ravenscroft and David Ascher.
+* Python Cookbook by Alex Martelli, Anna Martelli Ravenscroft, and David Ascher.
 * Java Precisely by Peter Sestoft.
-
 
 .. _Learn To Solve It: http://www.learntosolveit.com
 .. _ideone: http://www.ideone.com

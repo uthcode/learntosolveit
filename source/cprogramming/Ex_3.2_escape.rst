@@ -31,7 +31,7 @@ copying to, we copy ``\\`` character and add a ``n`` character and similarly, wh
 we see a ``\t`` character, in the array where we are copying to, we copy ``\\``
 character and add a ``t`` character.
 
-.. git_changelog::
+
 
 .. seealso::
 

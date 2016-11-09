@@ -53,7 +53,7 @@ Here is an example execution of this program.
    word :2,6,
    words :5,
 
-.. git_changelog::
+
 
 .. seealso::
 

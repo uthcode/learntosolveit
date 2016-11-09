@@ -20,7 +20,7 @@ Should the file name be printed when a matching line is found?
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

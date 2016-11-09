@@ -40,7 +40,7 @@ References
 
 .. _More on C macros: http://en.wikipedia.org/wiki/C_preprocessor#Macro_definition_and_expansion
 
-.. git_changelog::
+
 
 .. seealso::
 

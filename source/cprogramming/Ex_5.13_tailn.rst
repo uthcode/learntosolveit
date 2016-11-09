@@ -45,7 +45,7 @@ first value of line and as long as the the line number count represented by n
 exists, we print the line, decrementing the count at each step.
 
 
-.. git_changelog::
+
 
 .. seealso::
 

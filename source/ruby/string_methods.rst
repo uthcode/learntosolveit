@@ -24,7 +24,7 @@ Explanation
 
 
 
-.. git_changelog::
+
 
 
 .. seealso::

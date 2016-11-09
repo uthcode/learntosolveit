@@ -34,7 +34,7 @@ subtract 10 from it and add 'a' to get the hexadecimal representation of 10 to
 We store these in a string and it number was a negative number, we append '-'
 sign to it. We get the result, by reversing the string which we constructed.
 
-.. git_changelog::
+
 
 .. seealso::
 

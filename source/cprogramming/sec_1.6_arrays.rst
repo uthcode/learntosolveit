@@ -28,7 +28,7 @@ we increment array index at that value.
 
 In the end, we print the values stored in the array.
 
-.. git_changelog::
+
 
 .. seealso::
 

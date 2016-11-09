@@ -33,7 +33,7 @@ Note that I have imported `import hello` using a module name as the name of
 the zipfile and accessed a function inside it. This demonstrates only ability
 to package python files and run it as a package.
 
-.. git_changelog::
+
 
 
 .. seealso::

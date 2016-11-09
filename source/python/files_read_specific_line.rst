@@ -24,7 +24,7 @@ Explanation
 This introduces a linecache module from the standard library which provides an
 api to read a line number directly.
 
-.. git_changelog::
+
 
 
 .. seealso::

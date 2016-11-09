@@ -10,7 +10,7 @@ dcl
 
 ----
 
-.. git_changelog::
+
 
 .. seealso::
 

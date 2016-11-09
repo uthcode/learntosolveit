@@ -36,7 +36,7 @@ it is simply returned::
 
   return c>='A' && c<='Z'? c+'a'-'A':c;    	
 
-.. git_changelog::
+
 
 .. seealso::
 

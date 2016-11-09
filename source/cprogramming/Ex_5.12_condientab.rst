@@ -55,7 +55,7 @@ so that our position, `pos`, now becomes 0. When we encounter a tab character,
 we increment the position (pos) to the next tab, so that when we encounter the
 next space, we can verify it for the new position.
 
-.. git_changelog::
+
 
 .. seealso::
 

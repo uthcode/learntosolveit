@@ -27,7 +27,7 @@ Example output.
 	#define key value x
 	key->value
 
-.. git_changelog::
+
 
 .. seealso::
 

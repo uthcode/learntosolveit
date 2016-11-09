@@ -36,7 +36,7 @@ the end character, storing all the characters in s2.
 
 s2 will now have the expanded string.
 
-.. git_changelog::
+
 
 .. seealso::
 

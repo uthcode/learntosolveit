@@ -31,7 +31,7 @@ Explanation
  In the example above search element is 9. Program returns 4 which is the position of search element 
  in the given array. 
 
- .. git_changelog::
+
 
  .. seealso::
 

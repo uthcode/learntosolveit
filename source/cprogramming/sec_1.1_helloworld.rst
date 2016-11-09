@@ -25,7 +25,7 @@ Solution
    :language: c
    :codesite: ideone
 
-.. git_changelog::
+
 
 .. seealso::
 

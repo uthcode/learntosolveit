@@ -44,7 +44,7 @@ The second **if condtion** will fail too as s2 is not iterated till the end, so
 we do not place the character in **s1[k++]** and we have successfully skipped
 it.
 
-.. git_changelog::
+
 
 .. seealso::
 

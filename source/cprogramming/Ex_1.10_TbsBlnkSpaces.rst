@@ -30,8 +30,6 @@ If the program encounters a special character like ``\t`` (tab) or ``\b`` (blank
 putchar('\\') and then the literal character. For rest of the characters we
 simply putchar that.
 
-.. git_changelog::
-
 .. seealso::
 
    * :c-suggest-improve:`Ex_1.10_TbsBlnkSpaces.c`

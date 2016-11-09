@@ -19,7 +19,7 @@ both possibilities.
 Explanation
 ===========
 
-.. git_changelog::
+
 
 .. seealso::
 

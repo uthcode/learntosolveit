@@ -64,7 +64,7 @@ will now be `2`. We push 3 to the stack and `s` swaps it. Our stack will be `3
 2`. So when we input `?` and enter. We get the top element `2` out. And then
 pressing `?` again will pop next element `3`.
 
-.. git_changelog::
+
 
 .. seealso::
 

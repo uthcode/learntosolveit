@@ -1,7 +1,7 @@
-uthcode
-=======
+learntosolveit
+==============
 
-the main uthcode website with all the source code snippets and documentation.
+This is the main site with all the source code snippets and documentation.
 
 
 directives used
@@ -19,4 +19,3 @@ For the suggest-improve and better-explain C programming contents
 
     :c-suggest-improve:`filename.c`
     :c-better-explain:`filename.rst`
-

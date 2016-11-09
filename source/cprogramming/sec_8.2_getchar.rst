@@ -49,7 +49,7 @@ To execute this program, give the input in the following manner.
    this is unbuffered getchar 
 
 
-.. git_changelog::
+
 
 
 .. seealso::

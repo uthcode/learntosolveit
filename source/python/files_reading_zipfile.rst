@@ -39,7 +39,7 @@ Here is a sample run of this program.
     has 406 bytes
 
 
-.. git_changelog::
+
 
 
 .. seealso::

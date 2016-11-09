@@ -30,7 +30,7 @@ the remaining digits, for ``i < w``, we append the space character " ".
 
 We reverse the string thus constructed for our result.
 
-.. git_changelog::
+
 
 .. seealso::
 

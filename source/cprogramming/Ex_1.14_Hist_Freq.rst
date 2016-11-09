@@ -33,7 +33,7 @@ We print the histogram at the end, by looping through the characters of the
 array, printing the character and then printing `*` for number of times that
 character had occurred.
 
-.. git_changelog::
+
 
 .. seealso::
 

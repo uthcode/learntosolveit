@@ -26,7 +26,7 @@ The file seek call, seeks to a particular position in the file. The read
 method then reads the block of text.
 
 
-.. git_changelog::
+
 
 .. seealso::
 
