@@ -25,7 +25,10 @@ html_theme_options = {
         'navbar_sidebarrel' : False,
         'navbar_pagenav': False,
         'bootswatch_theme': "united",
-        'navbar_site_name': "Navigator"
+        'navbar_site_name': "Navigator",
+        'navbar_links': [
+            ("Online Tutor", "https://goo.gl/forms/I3NahMbRcAct2TRy2", True),
+        ],
 }
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -226,48 +229,6 @@ html_show_sourcelink = False
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = True
 
-# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
-
-# If true, an OpenSearch description file will be output, and all pages will
-# contain a <link> tag referring to it.  The value of this option must be the
-# base URL from which the finished HTML is served.
-#html_use_opensearch = ''
-
-# If nonempty, this is the file name suffix for HTML files (e.g. ".xhtml").
-#html_file_suffix = ''
-
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'uthcodedoc'
 
-
-# -- Options for LaTeX output --------------------------------------------------
-
-# The paper size ('letter' or 'a4').
-#latex_paper_size = 'letter'
-
-# The font size ('10pt', '11pt' or '12pt').
-#latex_font_size = '10pt'
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, documentclass [howto/manual]).
-#latex_documents = [
-#   u'Senthil Kumaran', 'manual'),
-#]
-
-# The name of an image file (relative to this directory) to place at the top of
-# the title page.
-#latex_logo = None
-
-# For "manual" documents, if this is true, then toplevel headings are parts,
-# not chapters.
-#latex_use_parts = False
-
-# Additional stuff for the LaTeX preamble.
-#latex_preamble = ''
-
-# Documents to append as an appendix to all manuals.
-#latex_appendices = []
-
-# If false, no module index is generated.
-#latex_use_modindex = True
