@@ -11,8 +11,10 @@ int main(void)
 	
 	nb = 0;
 	nt = 0;
+	pos = 0;
 	
-	for(pos=1;(c=getchar())!=EOF;++pos)
+	while((c=getchar())!=EOF) {
+		++pos;
 		if( c == ' ')
 		{
 			if((pos % TABINC) != 0)
@@ -35,10 +37,8 @@ int main(void)
 			
 			putchar(c);
 			
-			if(c == '\n')
+			if(c == '\n' || c == '\t')
 				pos = 0;
-			else if ( c == '\t')
-				pos = pos + ( TABINC - (pos -1) % TABINC) - 1;
 		}
 
 	return 0;
