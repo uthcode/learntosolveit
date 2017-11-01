@@ -52,8 +52,6 @@ For e.g. After removing **;** in the above program, we got the compilation error
     error: expected `;` before the '}' token
 
 
-
-
 .. seealso::
 
    * :c-suggest-improve:`sec_1.1_helloworld.c`

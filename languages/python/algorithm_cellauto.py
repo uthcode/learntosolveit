@@ -20,6 +20,7 @@ Fills up an initial cell and runs a particular rule of Cellular Automata.
 import getopt,sys
 from random import randint
 
+
 def ca_data(height,width,dorandom,rulenum):
     # Create the first row, either randomly, or with a single 1
     if dorandom:
