@@ -3,6 +3,7 @@
 Program to do binary representation of various interesting ints.
 """
 
+
 def convert_to_binary(n):
     binary = []
     while n:
@@ -11,13 +12,14 @@ def convert_to_binary(n):
     binary.reverse()
     return "".join(binary)
 
+
 for i in range(20,30):
-    print i, convert_to_binary(i)
+    print(i, convert_to_binary(i))
 
 hexa_values = ['0','1','A','FF','DEADBEEF','CAFEBABE']
 for each in hexa_values:
     dec = int(each, 16)
-    print each, convert_to_binary(dec)
+    print(each, convert_to_binary(dec))
 
 """
 Find out if the machine is storing it in the one's complement or two's
@@ -26,17 +28,19 @@ complement.
 -1 in 1's complement is 1111 1110
 -1 in 2's complement is 1111 1111
 """
+
 import struct
+
 if (ord(struct.pack('b',-1)[0]) == 255):
-    print 'twos complement'
+    print('twos complement')
 else:
-    print 'ones complement'
+    print('ones complement')
 
 for i in range(200,255):
-    print hex(i)
+    print(hex(i))
 
 for i in range(0,256):
-    print chr(i), i, hex(i)
+    print(chr(i), i, hex(i))
 
 """
 Binary Addition and Subtraction
@@ -105,8 +109,8 @@ def sub_bin(a, b):
     return result[::-1]
 
 
-print 'a', a, a_bin
-print 'b', b, b_bin
+print('a', a, a_bin)
+print('b', b, b_bin)
 
-print 'a+b ',sum_bin(a_bin, b_bin)
-print 'a-b ',sub_bin(a_bin, b_bin)
+print('a+b ',sum_bin(a_bin, b_bin))
+print('a-b ',sub_bin(a_bin, b_bin))

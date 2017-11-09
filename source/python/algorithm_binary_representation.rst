@@ -12,11 +12,11 @@ Solution
 --------
 
 .. literalinclude:: ../../languages/python/algorithm_binary_representation.py
-   :language: python
+   :language: python3
    :tab-width: 4
 
 .. runcode:: ../../languages/python/algorithm_binary_representation.py
-   :language: python
+   :language: python3
    :codesite: ideone
 
 Explanation
