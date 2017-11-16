@@ -9,5 +9,5 @@ def lcm(a, b):
 
 a = 80
 b = 72
-print gcd(a, b)
-print lcm(a, b)
+print(gcd(a, b))
+print(lcm(a, b))
