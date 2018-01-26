@@ -1,16 +1,25 @@
-/*Write a program that prints its input one word per line.*/
+/**
+ *
+ * Exercise 1.11 - Write a program that prints its input one word per line.
+ *
+ * */
+
 #include<stdio.h>
 
 int main() {
-    int c;
-    c = getchar();
-    while (c != EOF) {
-        if (c == ' ') {
+    int _char;
+
+    _char = getchar();
+
+    while (_char != EOF) {
+
+        if (_char == ' ') {
             putchar('\n');
         }
         else {
-            putchar(c);
+            putchar(_char);
         }
-        c = getchar();
+
+        _char = getchar();
     }
 }

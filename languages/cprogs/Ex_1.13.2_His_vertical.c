@@ -1,16 +1,17 @@
 /* Vertical Histogram of words in a Sentence */
 
 #include<stdio.h>
+
 #define MAXWL 20  /* Maximum length of a word */
 #define MAXNO 25 /* Maximum No of words in a sentence */
 
 int main(void)
 {
 	int word[MAXNO];
-	int i,c,j,nc,nw;
+	int i, c, j, nc, nw;
 
-	for(i=0;i<MAXNO;++i)
-		word[i]=0;
+	for (i = 0;i < MAXNO; ++i)
+		word[i] = 0;
 
 	nc = nw = 0;
 
@@ -19,9 +20,13 @@ int main(void)
 		++nc;
 		if( c ==' ' || c =='\n' || c =='\t')
 		{
-			word[nw] = nc -1; /* -1 for excluding the space in the word length */
+			/* -1 for excluding the space in the word length */
+			word[nw] = nc -1;
+
 			++nw;
-			nc = 0; /* resetting the word-length for the next word */
+
+			/* resetting the word-length for the next word */
+			nc = 0;
 		}
 	
 	}
@@ -34,10 +39,9 @@ int main(void)
 				putchar('*');
 			else	
 				putchar(' ');
-			}
-	putchar('\n');
+		}
+		putchar('\n');
 	}
 
-return 0;
+	return 0;
 }
-
