@@ -1,4 +1,8 @@
-/* Vertical Histogram of words in a Sentence */
+/**
+ *
+ * Vertical Histogram of words in a Sentence
+ *
+ **/
 
 #include<stdio.h>
 
@@ -24,11 +28,9 @@ int main(void)
 			word[nw] = nc -1;
 
 			++nw;
-
 			/* resetting the word-length for the next word */
 			nc = 0;
 		}
-	
 	}
 
 	for( i = MAXWL; i >= 1; --i)

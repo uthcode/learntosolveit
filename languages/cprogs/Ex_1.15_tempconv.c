@@ -1,4 +1,8 @@
-/* Temperature Conversion.Floating point,Symbolic Constant.Functions */
+/**
+ *
+ * Temperature Conversion.Floating point,Symbolic Constant. Functions
+ *
+ **/
 
 #include<stdio.h>
 
@@ -45,4 +49,3 @@ void celsiustofahr()
 	for(celsius=LOWER;celsius<=UPPER;celsius=celsius+STEP)
 		printf("%3.0f%6.1f\n",celsius,(9.0*celsius)/5.0+32);
 }
-
