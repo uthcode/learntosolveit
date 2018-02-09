@@ -1,20 +1,26 @@
-/* Write a Program to print the longest line input */
+/*
+ * Exercise 1.16
+ * Write a Program to print the longest line input
+ *
+ ***/
 
 #include<stdio.h>
+
 #define MAXLINE 1000
 
 int mgetline(char line[],int lim);
+
 void copy(char to[],char from[]);
 
 
 int main(void)
 {
 	int len,max;
-	char line[MAXLINE],maxline[MAXLINE];
+	char line[MAXLINE], maxline[MAXLINE];
 
 	max =0;
 
-	while((len=mgetline(line,MAXLINE)) > 0)
+	while((len = mgetline(line, MAXLINE)) > 0)
 	{
 		if(len > max)
 		{
