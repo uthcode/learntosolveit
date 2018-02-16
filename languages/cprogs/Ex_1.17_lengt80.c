@@ -1,6 +1,7 @@
 /*
- * Exercise 1.17 -  Program to print the length of all input lines greater
- * than 80 characters
+ * Exercise 1.17 -  Program to print the length of all input lines
+ * greater than 80 characters
+ *
  **/
 
 #include<stdio.h>

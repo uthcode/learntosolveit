@@ -1,8 +1,9 @@
-/*
+/**
  * Exercise 1.16
+ *
  * Write a Program to print the longest line input
  *
- ***/
+ **/
 
 #include<stdio.h>
 

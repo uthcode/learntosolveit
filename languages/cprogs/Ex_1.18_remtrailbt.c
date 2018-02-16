@@ -1,5 +1,8 @@
-/* Write a Program to remove the trailing blanks and tabs from each input line
-	and to delete entirely blank lines */
+/***
+ *
+ * Write a Program to remove the trailing blanks and tabs
+ * from each input line and to delete entirely blank lines
+ */
 
 #include<stdio.h>
 #define MAXLINE 1000
@@ -18,6 +21,7 @@ int main(void)
 
 	return 0;
 }
+
 
 int mgetline(char s[],int lim)
 {
@@ -57,4 +61,3 @@ int removetrail(char s[])
 	}
 	return i;
 }
-
