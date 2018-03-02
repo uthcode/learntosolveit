@@ -1,4 +1,10 @@
-/* fold, to fold long lines after a specified Column */
+/**
+ *
+ * Exercise 1.22
+ *
+ * fold, to fold long lines after a specified Column
+ *
+ **/
 
 #include<stdio.h>
 

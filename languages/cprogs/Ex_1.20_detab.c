@@ -1,5 +1,13 @@
-/* Write a Program detab,which replaces tabs in the input with a proper 
-	number of blanks to spaces */
+/**
+ * Exercise 1.20 -
+ *
+ * Write a Program detab, which replaces tabs in the input with a
+ * proper number of blanks to spaces
+ *
+ **/
+
+
+
 
 #include<stdio.h>
 #define TABINC 8
@@ -38,4 +46,3 @@ int main(void)
 
 	return 0;
 }
-
