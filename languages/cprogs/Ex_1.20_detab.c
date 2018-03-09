@@ -7,8 +7,6 @@
  **/
 
 
-
-
 #include<stdio.h>
 #define TABINC 8
 

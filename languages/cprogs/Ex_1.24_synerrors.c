@@ -1,4 +1,11 @@
-/* Program to check rudimentary syntax errors like unmatch braces,brakets or parenthesis */
+/**
+ *
+ * Exercise 1.24 - Syntax Errors.
+ *
+ * Program to check rudimentary syntax errors like un-match braces,
+ * brackets or parenthesis.
+ *
+ **/
 
 #include<stdio.h>
 

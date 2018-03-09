@@ -1,4 +1,11 @@
-/* Program to print maximum,minimum limits of char,int,long using calculation */
+/***
+ *
+ * Exercise 2.1
+ *
+ * Program to print maximum, minimum limits of char, int, long using
+ * calculation
+ *
+ ***/
 
 /* The logic used is
 * ~0 will give bits in 1s.
@@ -32,4 +39,3 @@ int main(void)
 
 	return 0;
 }
-
