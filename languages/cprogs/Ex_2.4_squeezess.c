@@ -1,5 +1,7 @@
-/* Let us write a Version of squeeze(s1,s2) that deletes each character in the string 1 that matches any character in 
-    the string s2 */
+/**
+ * Let us write a version of squeeze(s1,s2) that deletes each character in
+ * the string 1 that matches any character in the string s2
+ **/
 
 #include<stdio.h>
 #define MAXLINE 1000

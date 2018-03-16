@@ -3,7 +3,7 @@
  * Program to remove comments from a C Program.
  *
  * Program should echo quotes and character constants properly
- * C Comments do not nest
+ * C comments do not nest
  *
  */
 

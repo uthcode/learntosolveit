@@ -19,7 +19,7 @@ int main(void)
 {
 	int c;
 	
-	extern int brace,brack,paren;
+	extern int brace, brack, paren;
 
 	while((c=getchar())!=EOF)
 		if( c == '/')

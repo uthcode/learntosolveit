@@ -24,13 +24,13 @@ int main(void)
 
 		c = getchar();
 
-	
 		if( c == '1')
 			fahrtocelsius();
 		else if( c == '2')
 			celsiustofahr();
 		else 
 			printf("Invalid Choice\n");
+
 	return 0;
 }
 
