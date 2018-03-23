@@ -1,8 +1,9 @@
-/***
+/**
  *
- * Write a Program to remove the trailing blanks and tabs
+ * Exercise 1.18 - Write a Program to remove the trailing blanks and tabs
  * from each input line and to delete entirely blank lines
- */
+ *
+ **/
 
 #include<stdio.h>
 #define MAXLINE 1000

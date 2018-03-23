@@ -13,6 +13,7 @@
 
 int ngetline(char line[],int lim);
 
+
 int main(void)
 {
 	int len;
@@ -26,6 +27,7 @@ int main(void)
 
 	return 0;
 }
+
 
 int ngetline(char s[],int lim)
 {
