@@ -1,3 +1,8 @@
+/**
+ * Exercise 2.3 - htoi program.
+ *
+ */
+
 #include<stdio.h>
 #define MAXLINE 100
 
