@@ -5,11 +5,13 @@
  **/
 
 #include<stdio.h>
+
 #define MAXLINE 1000
 
 int mgetline(char line[], int lim);
 
 void reverse(char rline[]);
+
 
 int main(void)
 {
@@ -24,6 +26,7 @@ int main(void)
 
 	return 0;
 }
+
 
 int mgetline(char s[],int lim)
 {
@@ -41,6 +44,7 @@ int mgetline(char s[],int lim)
 
 	return i;
 }
+
 
 void reverse(char rline[])
 {
