@@ -5,7 +5,7 @@ Closure1
 Question
 --------
 
-ADDQUESTION
+Show an example of using closure using Python.
 
 Solution
 --------
