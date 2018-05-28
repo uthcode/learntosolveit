@@ -32,7 +32,7 @@ int main(void)
     if(max>0)
         printf("%s",maxline);
 }
-    
+
 int mgetline(char s[],int lim)
 {
     int i,c;
