@@ -6,21 +6,24 @@
 
 #include<stdio.h>
 
-#define TNOCHAR 128  /* Total Number of characters is 128: 0 - 127 */
+#define TOTAL_CHARS 128  /* Total Number of characters is 128: 0 - 127 */
 
 int main(void)
 {
 	int c, i, j;
 
-	int _char[TNOCHAR];
+	int _char[TOTAL_CHARS];
 
-	for(i=0; i < TNOCHAR; ++i)
+	for(i=0; i < TOTAL_CHARS; ++i) {
 		_char[i] = 0;
-	
-	while((c=getchar()) != EOF)
-		++_char[c];
+	}
 
-	for(i=0; i<TNOCHAR; ++i)
+	
+	while((c=getchar()) != EOF) {
+		_char[c] = _char[c] + 1;
+	}
+
+	for(i=0; i<TOTAL_CHARS; ++i)
 	{
 		putchar(i);
 		
