@@ -1,4 +1,8 @@
-/* pattern matching program */
+/**
+ *
+ * pattern matching program
+ *
+ **/
 
 #include<stdio.h>
 #include<ctype.h>
