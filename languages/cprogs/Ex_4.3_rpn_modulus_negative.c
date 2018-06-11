@@ -100,7 +100,7 @@ double pop(void)
 int getch(void);
 void ungetch(int);
 
-int getop(char s[]) {	/* book version */
+int getop(char s[]) {
 	int i, c;
 	while ((s[0] = c = getch()) == ' ' || c == '\t')
 		;
