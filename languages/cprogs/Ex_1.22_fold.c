@@ -65,6 +65,7 @@ int printline(int pos)
 		putchar(line[i]);
 	if( pos > 0)
 		putchar('\n');
+	return 0;
 }
 
 int getblank(int pos)
