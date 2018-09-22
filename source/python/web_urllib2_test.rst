@@ -5,7 +5,7 @@ Urllib2 Test
 Question
 --------
 
-ADDQUESTION
+An example of using python urllib2 using `HTTPDigestAuthHandler`
 
 Solution
 --------
