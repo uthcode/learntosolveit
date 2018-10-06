@@ -19,7 +19,9 @@ typedef struct {
 } MYDIR;
 
 MYDIR *myopendir(char *dirname);
+
 Dirent *myreaddir(MYDIR *dfd);
+
 void myclosedir(MYDIR *dfd);
 
 

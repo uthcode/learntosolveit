@@ -1,14 +1,28 @@
-# Simplest possible graph.
+"""
+Simplest possible graph representation.abs
+
+In theory, Graph is represented with vertices "V" and edges "E". We use the same notation here.
+
+Expected Output
+---------------
+
+['a', 'c', 'b']
+True
+True
+"""
 
 class Graph:
-    def __init__(self , d):
-        self.d = d
-    def v(self):
-        return self.d.keys()
-    def e(self, a, b):
-        return b in self.d[a]
+    def __init__(self , g):
+        self.g = g
 
-gobject = Graph({"a":["b","c"],"b":["e","c"],"c":["a","b"]})
-print gobject.v()
-print gobject.e("a","c")
-print gobject.e("b","e")
+    def V(self):
+        return self.g.keys()
+
+    def E(self, node1, node2):
+        return node2 in self.g[node1]
+
+if __name__ == '__main__':
+    gobject = Graph({"a":["b","c"],"b":["e","c"],"c":["a","b"]})
+    print(gobject.V())
+    print(gobject.E("a","c"))
+    print(gobject.E("b","e"))

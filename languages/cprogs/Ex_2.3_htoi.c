@@ -1,22 +1,27 @@
+/**
+ * Exercise 2.3 - htoi program, character to integer program.
+ *
+ */
+
 #include<stdio.h>
 #define MAXLINE 100
 
 #define YES 1
 #define NO 0
 
-int mgetline(char line[],int maxline);
+int mgetline(char line[], int maxline);
 int htoi(char s[]);
 
 int main(void)
 {
 	char line[MAXLINE];
 	int value;
-		
-	mgetline(line,MAXLINE);
+
+	mgetline(line, MAXLINE);
 	value=htoi(line);
 
 	printf("The value of %s is %d",line,value);
-	
+
 	return 0;
 }
 
@@ -24,8 +29,9 @@ int mgetline(char s[],int lim)
 {
 	int c,i;
 
-	for(i=0;i<lim-1 &&(c=getchar())!=EOF && c!='\n';++i)
+	for(i=0; i < lim-1 && (c=getchar()) != EOF && c!='\n'; ++i)
 		s[i] =c;
+
 	if(c=='\n')
 	{
 		s[i] =c;
@@ -46,7 +52,7 @@ int htoi(char s[])
 		if(s[i] == 'x' || s[i] == 'X')
 			++i;
 	}
-	
+
 	n = 0;
 	inhex = YES;
 
@@ -60,11 +66,9 @@ int htoi(char s[])
 			hexdigit= s[i] -'A' + 10;
 		else
 			inhex = NO;
-		
+
 		if(inhex == YES)
 			n = 16 * n + hexdigit;
 	}
 	return n;
 }
-	
-	

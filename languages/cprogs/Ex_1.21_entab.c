@@ -1,8 +1,14 @@
-/* Write a Program entab that replaces strings of blanks by the minimum 
-	number of tabs and blanks to acheive the same spacing.
-   Use the same tab stops as for detab.
-*/
+/**
+ *
+ * Exercise 1.21 - Write a Program entab that replaces strings of blanks by
+ * the minimum number of tabs and blanks to achieve the same spacing.
+ *
+ * Use the same tab stops as for detab.
+ *
+ **/
+
 #include<stdio.h>
+
 #define TABINC 8
 
 int main(void)
@@ -43,4 +49,3 @@ int main(void)
 
 	return 0;
 }
-

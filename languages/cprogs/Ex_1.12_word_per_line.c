@@ -1,10 +1,15 @@
-/*Write a program that prints its input one word per line.*/
+/**
+ *
+ * Exercise 1.11 - Write a program that prints its input one word per line.
+ *
+ * */
+
 #include <stdio.h>
 #define IN 1
 #define OUT 0
 
 /* This program counts the number of lines, characters and words */
-main (){
+int main (int argc, char *argv[]) {
 	int c,state;
 	state = IN;
 	while((c=getchar()) != EOF) {
@@ -19,5 +24,4 @@ main (){
 		else
 			putchar(c);
 	}
-
-	}
+}

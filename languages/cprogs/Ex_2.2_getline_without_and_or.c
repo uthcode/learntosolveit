@@ -1,5 +1,10 @@
-/* Write a loop equivalent for getline without using && and ||
-   This program prints the longest line in the given inputs */
+/**
+ * Exercise 2.2
+ *
+ * Write a loop equivalent for getline without using && and ||
+ * This program prints the longest line in the given inputs
+ *
+ **/
 
 #include<stdio.h>
 #define MAXLINE 1000
@@ -27,7 +32,6 @@ int main(void)
     if(max>0)
         printf("%s",maxline);
 }
-    
 
 int mgetline(char s[],int lim)
 {
@@ -60,4 +64,3 @@ void copy(char to[],char from[])
     while((to[i]=from[i]) != '\0')
     ++i;
 }
-        

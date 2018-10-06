@@ -1,7 +1,12 @@
-/* Experiment to find out what happens when prints's argument string contains \c, where c is some
-character not listed above. */
+/***
+ *
+ * Experiment to find out what happens when prints's argument string
+ * contains \c, where c is some character not listed above.
+ *
+ ***/
 
 #include<stdio.h>
+
 int main(void)
 {
     printf("a:\a"); /* valid */
@@ -73,7 +78,7 @@ int main(void)
     printf("Y:\Y");
     printf("Z:\Z");
     printf("0:\0");
-    printf("1:\1"); /* valid */+
+    printf("1:\1"); /* valid */
     printf("2:\2"); /* valid */
     printf("3:\3"); /* valid */
     printf("4:\4"); /* valid */
@@ -116,4 +121,3 @@ int main(void)
     printf("?:\?"); /* valid */
     printf("/:\/");
 }
-
