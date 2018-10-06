@@ -8,7 +8,7 @@ class IntComparator implements Comparator<Integer> {
 
     @Override
     public int compare(Integer v1, Integer v2) {
-        return v1 < v2 ? -1 : v1 > v2 ? +1 : 0;
+        return v1 - v2;
     }
 }
 
@@ -34,7 +34,7 @@ class IntegerComparator {
             } while (i <= j);
 
             qsort(arr, cmp, a, j);
-            qsort(arr, cmp, i, b);
+            v1 < v2 ? -1 : v1 > v2 ? +1 : 0qsort(arr, cmp, i, b);
         }
     }
 
