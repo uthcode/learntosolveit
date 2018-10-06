@@ -28,7 +28,7 @@ character that we encoutered is a blank, then we skip printing it.
 
 ::
 
-	if(lastc!=' ')
+    if(lastc!=' ')
         putchar(c);
 
 This means that if the last character is not a blank, *only* then print it. We

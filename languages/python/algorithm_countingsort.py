@@ -14,4 +14,4 @@ def counting_sort(array, maxval):
             i += 1
     return array
 
-print counting_sort( [1, 4, 7, 2, 1, 3, 2, 1, 4, 2, 3, 2, 1], 7 )
+print(counting_sort( [1, 4, 7, 2, 1, 3, 2, 1, 4, 2, 3, 2, 1], 7 ))

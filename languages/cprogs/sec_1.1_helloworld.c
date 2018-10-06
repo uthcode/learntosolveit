@@ -1,7 +1,7 @@
 /* First Program in KandR, the hello,world */
 
 #include<stdio.h>
-int main(void)
+void main()
 {
 	printf("hello,world\n");
 }

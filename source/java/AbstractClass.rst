@@ -5,7 +5,7 @@ Abstract Class
 Question
 ========
 
-ADDQUESTION
+Show an example of using AbstractClass in Java.
 
 Solution
 ========
@@ -20,8 +20,6 @@ Solution
 
 Explanation
 ===========
-
-
 
 
 

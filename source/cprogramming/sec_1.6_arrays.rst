@@ -9,7 +9,7 @@ Program
 .. literalinclude:: ../../languages/cprogs/sec_1.6_arrays.c
    :language: c
    :tab-width: 4
- 
+
 .. runcode:: ../../languages/cprogs/sec_1.6_arrays.c
    :language: c
    :codesite: ideone
@@ -27,7 +27,6 @@ and '9', we take it and substract '0' from it so that we can get the value and
 we increment array index at that value.
 
 In the end, we print the values stored in the array.
-
 
 
 .. seealso::

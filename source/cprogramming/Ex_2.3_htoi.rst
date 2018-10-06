@@ -34,7 +34,7 @@ by the htoi function::
         if(s[i] == 'x' || s[i] == 'X')
             ++i;
     }
-    
+
     n = 0;
     inhex = YES;
 
@@ -48,13 +48,13 @@ by the htoi function::
             hexdigit= s[i] -'A' + 10;
         else
             inhex = NO;
-        
+
         if(inhex == YES)
             n = 16 * n + hexdigit;
     }
     return n;
     }
-    
+
 In the above fragment of the program we declare some variables such as hexdigit
 for storing each digit in hexadecimal ,i as a counter,inhex as flag to see if we
 are still looking a hexadecimal and finally n where we store our converted
@@ -74,12 +74,12 @@ we mutiply by 16 and add hexdigit.
 
         if(inhex == YES)
             n = 16 * n + hexdigit;
-            
+
 For example to convert **0XAF**.
 
 1. We strip off 0X.
 2. For A, we get the value hexdigit = 10
-3. n = 16 * 0 + 10 
+3. n = 16 * 0 + 10
      = 10
 4. We gather F, we store hexdigit = 'F' - 'A' + 10;
                                   =  70 - 65  + 10; (70 is ascii value for F, 65 is ascii value for A)
@@ -90,7 +90,6 @@ For example to convert **0XAF**.
      = 175
 
 **175**
-
 
 
 .. seealso::

@@ -1,5 +1,8 @@
 /*
- * Write a private version of scanf analogous to minprintf from the previous section.
+ *
+ * Write a private version of scanf analogous to minprintf from the
+ * previous section.
+ *
  */
 
 #include<stdarg.h>

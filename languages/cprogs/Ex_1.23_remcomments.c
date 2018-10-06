@@ -1,6 +1,11 @@
-/* Program to remove comments from a C Program.
-   Program should echo quotes and character constants properly
-   C Comments do not nest */
+/*  Exercise 1.23
+ *
+ * Program to remove comments from a C Program.
+ *
+ * Program should echo quotes and character constants properly
+ * C comments do not nest
+ *
+ */
 
 #include<stdio.h>
 
@@ -23,6 +28,7 @@ int main(void)
 void rcomment(int c)
 {
 	int d;
+
 	if( c == '/')
 	{
 		if((d=getchar())=='*')
@@ -42,6 +48,7 @@ void rcomment(int c)
 		echo_quote(c);
 	else
 		putchar(c);
+
 }
 
 void incomment()
@@ -68,9 +75,8 @@ void echo_quote(int c)
 	{
 		putchar(d);
 		
-		if(d = '\\')
+		if(d == '\\')
 			putchar(getchar());
 	}
 	putchar(d);
 }
-	

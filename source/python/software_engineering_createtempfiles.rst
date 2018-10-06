@@ -5,7 +5,9 @@ Createtempfiles
 Question
 --------
 
-ADDQUESTION
+Example program that creates temporary files with content in them.  This serves as
+useful utility if you want to fill a directory full of temporary files with
+some content.  The content is Zen of Python.
 
 Solution
 --------
