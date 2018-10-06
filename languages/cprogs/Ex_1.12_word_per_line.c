@@ -5,21 +5,23 @@
  * */
 
 #include <stdio.h>
+#define IN 1
+#define OUT 0
 
-int main() {
-    int _char;
+/* This program counts the number of lines, characters and words */
+int main (int argc, char *argv[]) {
+	int c,state;
+	state = IN;
+	while((c=getchar()) != EOF) {
+		if(c==' ' || c == '\t')
+			state=OUT;
+		else if (state == OUT) {
+			state=IN;
+			putchar('\n');
+			putchar(c);
 
-    _char = getchar();
-
-    while (_char != EOF) {
-
-        if (_char == ' ') {
-            putchar('\n');
-        }
-        else {
-            putchar(_char);
-        }
-
-        _char = getchar();
-    }
+		}
+		else
+			putchar(c);
+	}
 }
