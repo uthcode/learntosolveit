@@ -91,13 +91,13 @@ void search(int c)
 		--brace;
 	else if ( c == '}')
 		++brace;
-	else if( c == '(')
-		--brack;
-	else if( c == ')')
-		++brack;
 	else if( c == '[')
-		--paren;
+		--brack;
 	else if( c == ']')
+		++brack;
+	else if( c == '(')
+		--paren;
+	else if( c == ')')
 		++paren;
 }
 
