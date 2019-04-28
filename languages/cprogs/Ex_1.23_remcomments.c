@@ -9,74 +9,48 @@
 
 #include<stdio.h>
 
-void rcomment(int c);
-void incomment(void);
-void echo_quote(int c);
-
-int main(void)
+int main()
 {
-	int c,d;
+    int c;
 
-	printf(" To Check /* Quoted String */ \n");
-
-	while((c=getchar())!=EOF)
-		rcomment(c);
-
-	return 0;
-}
-
-void rcomment(int c)
-{
-	int d;
-
-	if( c == '/')
-	{
-		if((d=getchar())=='*')
-		 incomment();
-		else if( d == '/')
-		{
-			putchar(c);
-			rcomment(d);
-		}
-		else 
-		{
-			putchar(c);
-			putchar(d);
-		}
-	}
-	else if( c == '\''|| c == '"')
-		echo_quote(c);
-	else
-		putchar(c);
-
-}
-
-void incomment()
-{
-	int c,d;
-	 
-	c = getchar();
-	d = getchar();
-
-	while(c!='*' || d !='/')
-	{
-		c =d;
-		d = getchar();
-	}
-}
-
-void echo_quote(int c)
-{
-	int d;
-
-	putchar(c);
-	
-	while((d=getchar())!=c)
-	{
-		putchar(d);
-		
-		if(d == '\\')
-			putchar(getchar());
-	}
-	putchar(d);
+    while((c=getchar()) != EOF)
+    {
+        if(c=='"')
+        {
+            putchar(c);
+            c = getchar();
+            while(c != '"')
+            {
+                putchar(c);
+                c = getchar();
+            }
+            if(c == '"')
+            {
+                putchar(c);
+            }
+        }
+        else if(c == '/')
+        {
+            c = getchar();
+            if(c == '/')
+            {
+                while(c != '\n')
+                    c = getchar();
+                putchar('\n');
+            }
+            else if(c == '*')
+            {
+                while(c != '/')
+                    c = getchar();
+                if(c == '/')
+                    c = getchar();
+                    putchar(c);
+            }
+        }
+        else
+        {
+            putchar(c);
+        }
+    }
+    return 0;
 }
