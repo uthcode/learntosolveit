@@ -1,5 +1,5 @@
-learntosolveit
-==============
+https://www.learntosolveit.com
+==============================
 
 This is the main site with all the source code snippets and documentation.
 
