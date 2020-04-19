@@ -66,11 +66,3 @@ Java Programming Language
    :maxdepth: 3
 
    java/index
-
-Scala Programming Language
-==========================
-
-.. toctree::
-   :maxdepth: 3
-
-   scala/index
