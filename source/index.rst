@@ -1,20 +1,17 @@
 Learn, Understand and Solve Problems
 ====================================
 
-This website contains example snippets and explainations. The idea is learn,
-understand and solve problems. These small pieces are often the building blocks
-for larger solutions.
+This website contains example of snippets and explainations. The idea is to
+learn, understand and solve problems. These small pieces are often the building
+blocks of larger solutions. 
 
-The problems are taken from well known sources, exercises in books.
+The problems are taken from well known sources, exercises in books.  The
+copyright of those problems belongs to author of the books.
 
-The copyright of those problems belongs to author of the books.
-
-The solutions are either written by me or copied from other places. If they are
-copied, I attribute the reference. If it is missing, I apologize, and I will
-remove it.  The explaination are written by contributors.
-
-The general idea is to explore, play with concepts as I learn something new.
-
+The solutions are either written by me, contributors or copied from other
+places. If they are copied, I attribute with reference. If it is missing, I
+apologize, and I will correct it. The explaination are written by me and other
+contributors.
 
 Programming Languages
 ---------------------
