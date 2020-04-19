@@ -1,19 +1,19 @@
-Tools to Learn, Understand and Solve Problems
-=============================================
+Learn, Understand and Solve Problems
+====================================
 
-The idea behind learn to solve it  website is to present content that will help you to learn programming languages,
-technical content and tools that that will help you learn the subject that you wish to learn.
+This website contains example snippets and explainations. The idea is learn,
+understand and solve problems. These small pieces are often the building blocks
+for larger solutions.
 
-This has mostly computer science technical content as of now. It has example snippets from programming languages to
-play with, has solutions to interesting problems presented books that can be helpful to understand the concepts. It
-has explainations for difficult algorithms, has common interview problems.
+The problems are taken from well known sources, exercises in books.
 
-It has notes from various massive online courses in the web. It has notes for Georgia tech's OMSCS program. It has
-notes from various papers. It is a repository for the content that Senthil wrote mosty for himself and for others.
+The copyright of those problems belongs to author of the books.
 
-The general idea is to explore, play with concepts as we learn something new.
+The solutions are either written by me or copied from other places. If they are
+copied, I attribute the reference. If it is missing, I apologize, and I will
+remove it.  The explaination are written by contributors.
 
-There are countless websites like this in the web. Those will be referenced here.
+The general idea is to explore, play with concepts as I learn something new.
 
 
 Programming Languages
