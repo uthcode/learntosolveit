@@ -13,13 +13,7 @@ places. If they are copied, I attribute with reference. If it is missing, I
 apologize, and I will correct it. The explaination are written by me and other
 contributors.
 
-Programming Languages
----------------------
-
-`Learn To Solve It`_ helps you learn Computer Science and Programing in a straight forward way.
-
-Collection of good problems and solutions from various high quality reference materials. The programs can be run
-directly on `ideone`_ sandbox. Improvements to website can be submitted via `Github`_ pull requests.
+Improvements to website can be submitted via `Github`_ pull requests.
 
 **Reference Books**
 
