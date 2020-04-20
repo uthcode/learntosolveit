@@ -233,4 +233,3 @@ html_show_sphinx = True
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'uthcodedoc'
-
