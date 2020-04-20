@@ -2,30 +2,13 @@
 
 {% block content %}
 {{ super() }}
-    <div class="documentwrapper">
-    <div class="bodywrapper">
-    <div class="body">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'uthcode';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">Comments by <span class="logo-disqus">Disqus</span></a>
-    </div>
-    </div>
-    </div>
 {% endblock %}
 
 {%- block footer %}
   {{ super() }}
   <div class="footer">
     &copy; Copyright {{ copyright }}.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>, <a href="http://www.github.com">GitHub</a> and <a href="http://www.ideone.com">Ideone</a>.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>, and <a href="http://www.github.com">GitHub</a>.
 
     <script type="text/javascript">
 
