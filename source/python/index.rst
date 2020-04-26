@@ -255,3 +255,5 @@ These deal with websites, webapplications and work on top of networking layer.
 
    files_import_zip_with_py
 
+   min_cost_path
+
