@@ -10,4 +10,4 @@ def opened(filename, mode="r"):
 
 with opened("toss_coins.py") as f:
     for line in f:
-        print line.strip()
+        print(line.strip())

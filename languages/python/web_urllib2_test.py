@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 
 class FixedPasswordMgr:
@@ -10,16 +10,16 @@ class FixedPasswordMgr:
         pass
 
     def find_user_password(self, realm, authuri):
-        print 'auth: ' + authuri + ' ' + self.user
+        print('auth: ' + authuri + ' ' + self.user)
         return self.user, self.password
 
 
-authhandler = urllib2.HTTPDigestAuthHandler(FixedPasswordMgr('phoe6', 'xxxxx'))
+authhandler = urllib.request.HTTPDigestAuthHandler(FixedPasswordMgr('phoe6', 'xxxxx'))
 
-opener = urllib2.build_opener(authhandler)
-urllib2.install_opener(opener)
+opener = urllib.request.build_opener(authhandler)
+urllib.request.install_opener(opener)
 
 for user in ['shortcipher', 'numberland', 'adrian2084', 'rocketjon', 'si1entdave', 'nightshade37']:
     url = 'http://' + user + '.livejournal.com/data/atom?auth=digest'
-    pagehandle = urllib2.urlopen(url)
-    print 'ok ' + user
+    pagehandle = urllib.request.urlopen(url)
+    print('ok ' + user)

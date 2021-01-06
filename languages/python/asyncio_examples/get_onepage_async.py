@@ -57,7 +57,7 @@ def get_multiple_pages(host, port, waits, show_time=True):
     sum_waits = sum(waits)
     if show_time:
         msg = "It took {:4.2f} seconds for a total waiting time of {:4.2f}."
-        print(msg.format(duration, sum_waits))
+        print((msg.format(duration, sum_waits)))
 
     return pages
 
@@ -78,7 +78,7 @@ def get_multiple_pages2(host, port, waits, show_time=True):
 
     if show_time:
         msg = "It took {:4.2f} seconds for a total waiting time of {:4.2f}."
-        print(msg.format(duration, sum_waits))
+        print((msg.format(duration, sum_waits)))
 
     return pages
 

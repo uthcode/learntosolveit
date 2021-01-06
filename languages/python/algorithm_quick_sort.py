@@ -20,6 +20,6 @@ def quick_sort(sortlist):
 	solution.append(right_sorted)
 	return solution
 		
-list_to_sort = random.sample(range(1,100),10)
+list_to_sort = random.sample(list(range(1,100)),10)
 
-print quick_sort(list_to_sort)
+print(quick_sort(list_to_sort))

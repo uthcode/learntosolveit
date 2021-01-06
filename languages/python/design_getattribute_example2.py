@@ -13,5 +13,5 @@ class D(object):
             return object.__getattribute__(self, name)
 
 obj1 = D()
-print obj1.test
-print obj1.test2
+print(obj1.test)
+print(obj1.test2)

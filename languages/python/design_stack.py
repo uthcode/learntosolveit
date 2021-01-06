@@ -21,9 +21,9 @@ class Stack:
 
 if __name__ == '__main__':
     stk = Stack(1,2,3,4)
-    print stk
-    print stk.top()
+    print(stk)
+    print(stk.top())
     stk.push(10)
-    print stk
-    print stk.pop()
-    print stk
+    print(stk)
+    print(stk.pop())
+    print(stk)

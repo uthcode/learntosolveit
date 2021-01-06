@@ -42,4 +42,4 @@ def all_interfaces():
     namestr = names.tostring()
     return [namestr[i:i+32].split('\0', 1)[0] for i in range(0, outbytes, 32)]
 
-print all_interfaces()
+print(all_interfaces())

@@ -6,7 +6,7 @@ import sys
 if sys.version.startswith('3'):
     from html.parser import HTMLParser
 else:
-    from HTMLParser import HTMLParser
+    from html.parser import HTMLParser
 
 class HTMLFormatter(HTMLParser):
     """Formats HTML"""
@@ -94,6 +94,6 @@ if __name__ == "__main__":
             f.write(n.render())
             f.close()
         except IOError:
-            print("Failed opening or writing to files '{0}', '{1}'".format(sys.argv[1], sys.argv[2]))
+            print(("Failed opening or writing to files '{0}', '{1}'".format(sys.argv[1], sys.argv[2])))
     else:
         print("Wrong number of arguments")

@@ -1,11 +1,11 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
-proxy = urllib2.ProxyHandler({'http': 'http:// username:password@proxyurl:proxyport',
+proxy = urllib.request.ProxyHandler({'http': 'http:// username:password@proxyurl:proxyport',
                               'https': 'https://username:password@proxyurl:proxyport'}
                              )
-auth = urllib2.HTTPBasicAuthHandler()
-opener = urllib2.build_opener(proxy, auth, urllib2.HTTPHandler)
-urllib2.install_opener(opener)
+auth = urllib.request.HTTPBasicAuthHandler()
+opener = urllib.request.build_opener(proxy, auth, urllib.request.HTTPHandler)
+urllib.request.install_opener(opener)
 
-conn = urllib2.urlopen('http://python.org')
+conn = urllib.request.urlopen('http://python.org')
 return_str = conn.read()

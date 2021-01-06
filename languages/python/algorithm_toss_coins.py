@@ -12,9 +12,9 @@ while choice.lower() != 'q':
             heads = heads + 1
     else:
             tails = tails + 1
-    print choice
-    choice = raw_input("Press any key to continue or q to quit")
+    print(choice)
+    choice = input("Press any key to continue or q to quit")
 
-print 'Total :', count
-print 'Heads :', str(heads), ' Percentage ', ((heads * 1.0)/count) * 100
-print 'Tails :', str(tails), ' Percentage ', ((tails * 1.0)/count) * 100
+print('Total :', count)
+print('Heads :', str(heads), ' Percentage ', ((heads * 1.0)/count) * 100)
+print('Tails :', str(tails), ' Percentage ', ((tails * 1.0)/count) * 100)

@@ -10,32 +10,32 @@ n3 = Node(3,n1,n2)
 n4 = Node(4)
 n5 = Node(5,n4,n3)
 
-print 'Inorder'
+print('Inorder')
 def inorder(n):
     if n == None:
         return
     inorder(n.left)
-    print n.value
+    print(n.value)
     inorder(n.right)
 
 inorder(n5)
 
-print 'Preorder'
+print('Preorder')
 def preorder(n):
     if n == None:
         return
-    print n.value
+    print(n.value)
     preorder(n.left)
     preorder(n.right)
 
 preorder(n5)
 
-print 'Postorder'
+print('Postorder')
 def postorder(n):
     if n == None:
         return
     postorder(n.left)
     postorder(n.right)
-    print n.value
+    print(n.value)
 
 postorder(n5)

@@ -43,7 +43,7 @@ class MaximumHistogram:
 if __name__ == "__main__":
     _input = [2,2,2,6,1,5,4,2,2,2,2]
     mh = MaximumHistogram()
-    print(mh.maxHistogram(_input))
+    print((mh.maxHistogram(_input)))
     assert mh.maxHistogram(_input) == 12, "Algorithm did not specify the correct result."
 
 

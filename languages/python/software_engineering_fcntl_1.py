@@ -17,5 +17,5 @@ for i in range(20):
     file.seek(0)
     file.write(str(counter))
     file.close()
-    print os.getpid(), '=>' , counter
+    print(os.getpid(), '=>' , counter)
     time.sleep(0.1)

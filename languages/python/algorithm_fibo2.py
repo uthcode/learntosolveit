@@ -6,7 +6,7 @@ def fibo(n):
         f.append(f[i-1] + f[i-2])
     return f[n]
 
-print fibo(37)
+print(fibo(37))
 """
 print fibo(1)
 print fibo(2)

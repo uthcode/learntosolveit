@@ -6,4 +6,4 @@ def fibonacci():
 
 
 for number in fibonacci():
-    print number
+    print(number)

@@ -1,10 +1,10 @@
-import Tkinter
+import tkinter
 import time
 
 class App():
     def __init__(self,target):
-        self.root = Tkinter.Tk()
-        self.label = Tkinter.Label(text="")
+        self.root = tkinter.Tk()
+        self.label = tkinter.Label(text="")
         self.label.pack()
         self.update_clock()
         self.root.mainloop()

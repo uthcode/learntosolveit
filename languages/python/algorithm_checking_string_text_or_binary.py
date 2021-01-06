@@ -2,9 +2,9 @@
 This  program checks if a string is a text or binary.
 This snippet is from Python Cookbook.
 """
-from __future__ import division # ensure / does not truncate
+ # ensure / does not truncate
 import string
-text_characters = "".join(map(chr, range(32, 127))) + "\n\r\t\b"
+text_characters = "".join(map(chr, list(range(32, 127)))) + "\n\r\t\b"
 _null_trans = string.maketrans("","")
 
 def istext(s, text_characters=text_characters, threshold=0.30):
@@ -19,5 +19,5 @@ def istext(s, text_characters=text_characters, threshold=0.30):
     # s is 'text' if less than 30% of its characters are non-text ones:
     return len(t)/len(s) <=threshold
 
-print "Hello, World ", istext("Hello, World")
-print "\xc3\xa4", istext("\xc3\xa4")
+print("Hello, World ", istext("Hello, World"))
+print("\xc3\xa4", istext("\xc3\xa4"))

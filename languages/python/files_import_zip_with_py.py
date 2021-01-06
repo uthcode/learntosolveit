@@ -10,7 +10,7 @@ def create_importable_zip(filename):
 
 def import_and_run_module():
     import hello
-    print hello.f()
+    print(hello.f())
 
 def main():
     fhandle, filename = tempfile.mkstemp('.zip')

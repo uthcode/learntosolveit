@@ -6,7 +6,7 @@ def test():
     hello
       world
     '''
-    print s
-    print repr(s)          # prints '    hello\n      world\n    '
-    print repr(dedent(s))  # prints 'hello\n  world\n'
+    print(s)
+    print(repr(s))          # prints '    hello\n      world\n    '
+    print(repr(dedent(s)))  # prints 'hello\n  world\n'
 test()

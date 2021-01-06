@@ -1,20 +1,20 @@
 def fun1(arg):
-    print arg
+    print(arg)
 
 def fun2(arg,arg2):
-    print arg, arg2
+    print(arg, arg2)
 
 def fun3(arg, *arg2):
-    print arg, arg2
+    print(arg, arg2)
 
 def fun4(*arg):
-    print arg
+    print(arg)
 
 def fun5(**kw):
-    print kw
+    print(kw)
 
 def fun6(*arg, **kw):
-    print arg
+    print(arg)
 
 
 fun1(10)

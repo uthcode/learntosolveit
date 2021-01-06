@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-import cStringIO as StringIO
+import io as StringIO
 
 from twisted.internet import reactor
 from twisted.web.client import getPage

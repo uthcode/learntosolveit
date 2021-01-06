@@ -6,15 +6,15 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Bind the socket to the port
 server_address = ('localhost', 10000)
-print >> sys.stderr, 'starting up on %s port %s' % server_address
+print('starting up on %s port %s' % server_address, file=sys.stderr)
 sock.bind(server_address)
 while True:
-    print >> sys.stderr, '\nwaiting to receive message'
+    print('\nwaiting to receive message', file=sys.stderr)
     data, address = sock.recvfrom(4096)
 
-    print >> sys.stderr, 'received %s bytes from %s' % (len(data), address)
-    print >> sys.stderr, data
+    print('received %s bytes from %s' % (len(data), address), file=sys.stderr)
+    print(data, file=sys.stderr)
 
     if data:
         sent = sock.sendto(data, address)
-        print >> sys.stderr, 'sent %s bytes back to %s' % (sent, address)
+        print('sent %s bytes back to %s' % (sent, address), file=sys.stderr)

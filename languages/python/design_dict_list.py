@@ -1,9 +1,9 @@
 def fun(a, *b, **c):
-    print a
+    print(a)
     for item in b:
-        print item
+        print(item)
     for k,v in c:
-        print k,v
+        print(k,v)
 
 a = 42
 b = [1,2,3]

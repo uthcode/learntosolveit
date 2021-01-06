@@ -139,10 +139,10 @@ class Dict(collections.MutableMapping):
         return list(self.valuelist)
 
     def iteritems(self):
-        return itertools.izip(self.keylist, self.valuelist)
+        return zip(self.keylist, self.valuelist)
 
     def items(self):
-        return zip(self.keylist, self.valuelist)
+        return list(zip(self.keylist, self.valuelist))
 
     def __contains__(self, key):
         index, i = self._lookup(key, hash(key))
@@ -161,16 +161,16 @@ class Dict(collections.MutableMapping):
         return key, value
 
     def __repr__(self):
-        return 'Dict(%r)' % self.items()
+        return 'Dict(%r)' % list(self.items())
 
     def show_structure(self):
         'Diagnostic method.  Not part of the API.'
-        print '=' * 50
-        print self
-        print 'Indices:', self.indices
+        print('=' * 50)
+        print(self)
+        print('Indices:', self.indices)
         for i, row in enumerate(zip(self.hashlist, self.keylist, self.valuelist)):
-            print i, row
-        print '-' * 50
+            print(i, row)
+        print('-' * 50)
 
 
 if __name__ == '__main__':

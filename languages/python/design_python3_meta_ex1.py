@@ -1,8 +1,8 @@
 class mymeta(type):
     def __new__(cls, name, bases, dict):
-        print("Creating name:", name)
-        print("Base Classes:", bases)
-        print("Class Body:", dict)
+        print(("Creating name:", name))
+        print(("Base Classes:", bases))
+        print(("Class Body:", dict))
         # create the actual class object
         return type.__new__(cls, name, bases, dict)
 

@@ -1,16 +1,16 @@
-import cookielib, urllib2
+import http.cookiejar, urllib.request, urllib.error, urllib.parse
 
-cj = cookielib.CookieJar()
-opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+cj = http.cookiejar.CookieJar()
+opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
 
-req = urllib2.Request('https://www.idcourts.us/repository/start.do')
+req = urllib.request.Request('https://www.idcourts.us/repository/start.do')
 res = opener.open(req)
-print cj
+print(cj)
 for c in cj:
     cookie_str = "%s = %s" % (c.name, c.value)
-print cookie_str
+print(cookie_str)
 
-req = urllib2.Request('https://www.idcourts.us/repository/partySearch.do')
+req = urllib.request.Request('https://www.idcourts.us/repository/partySearch.do')
 req.add_header("Cookie",cookie_str)
 opener.open(req)
-print cj
+print(cj)

@@ -28,7 +28,7 @@ if __name__ == '__main__':
     q.enqueue(20)
     q.enqueue(30)
     q.enqueue(40)
-    print q
-    print q.peek()
+    print(q)
+    print(q.peek())
     q.dequeue()
-    print q
+    print(q)

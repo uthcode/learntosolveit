@@ -9,7 +9,7 @@ async def echo(msg):
         stdout=asyncio.subprocess.PIPE)
     # Write a message
 
-    print('Writing {!r}...'.format(msg))
+    print(('Writing {!r}...'.format(msg)))
     process.stdin.write(msg.encode() + b'\n')
 
     # Read reply
@@ -17,14 +17,14 @@ async def echo(msg):
     data = await process.stdout.readline()
     reply = data.decode().strip()
 
-    print("Received {!r}".format(reply))
+    print(("Received {!r}".format(reply)))
 
     # Stop the subprocess
 
     process.terminate()
     code = await process.wait()
 
-    print("Terminated with code {}".format(code))
+    print(("Terminated with code {}".format(code)))
 
 
 loop = asyncio.get_event_loop()

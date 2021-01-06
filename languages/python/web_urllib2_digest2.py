@@ -1,12 +1,12 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import getpass
 
 URL = 'http://livejournal.com/users/phoe6/data/rss?auth=digest' 
 
-ah = urllib2.HTTPDigestAuthHandler()
+ah = urllib.request.HTTPDigestAuthHandler()
 password = getpass.getpass()
 ah.add_password('lj','http://phoe6.livejournal.com/','phoe6',password)
-urllib2.install_opener(urllib2.build_opener(ah))
-r = urllib2.Request(URL)
-obj = urllib2.urlopen(r)
-print obj.read()
+urllib.request.install_opener(urllib.request.build_opener(ah))
+r = urllib.request.Request(URL)
+obj = urllib.request.urlopen(r)
+print(obj.read())

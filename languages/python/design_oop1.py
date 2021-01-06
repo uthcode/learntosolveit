@@ -13,7 +13,7 @@ class B(C,A):
         A.__init__(self)
 
     def meth(self):
-        print self.b, self.a, self.c
+        print(self.b, self.a, self.c)
     def meth1(self,v):
         self.a = v
 

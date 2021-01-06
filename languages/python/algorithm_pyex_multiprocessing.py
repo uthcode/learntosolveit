@@ -8,7 +8,7 @@ def factorial(queue, N):
         time.sleep(0.05 * N/4)
 
     # Calculate the result
-    fact = 1L
+    fact = 1
     for i in range(1, N+1):
         fact = fact * i
 
@@ -26,4 +26,4 @@ if __name__ == '__main__':
 
     result = queue.get()
 
-    print 'Factorial', N, '=', result
+    print('Factorial', N, '=', result)

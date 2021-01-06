@@ -124,9 +124,9 @@ def query():
 def query2():
     c = db.execute("select * from links where submitter_id = 62443 and votes > 1000")
     link = Link(*c.fetchone())
-    print link.id
+    print(link.id)
     for link_tuple in c:
         link = Link(*link_tuple)
-        print link.id
+        print(link.id)
 
 query2()

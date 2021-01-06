@@ -6,7 +6,7 @@ from itertools import permutations
 
 
 def eight_queens():
-    queens = range(8)
+    queens = list(range(8))
     for pos in permutations(queens):
         # how many times is the if statement below evaluated?
         # How does subtracting and addition the position work?

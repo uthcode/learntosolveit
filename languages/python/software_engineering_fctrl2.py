@@ -10,7 +10,7 @@ def fact(n):
         memo[n] = ans
         return ans
 
-t = int(raw_input())
+t = int(input())
 for i in range(t):
-    n = int(raw_input())
-    print fact(n)
+    n = int(input())
+    print(fact(n))

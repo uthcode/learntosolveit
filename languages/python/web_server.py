@@ -8,7 +8,7 @@ def main():
     ls.listen(1)
     (conn, addr) = ls.accept()
     while 1:
-        l = raw_input()
+        l = input()
         conn.send(1)
 
 

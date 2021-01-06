@@ -14,44 +14,31 @@ This is an implementation of a well known CS algorithm.
 
    algorithm_binary_representation
    algorithm_binary_search
-   algorithm_binary_to_octal
    algorithm_cellauto
    algorithm_checking_string_text_or_binary
-   algorithm_countingsort
-   algorithm_depth_first_search
    algorithm_eratosthenes
-   algorithm_euclid
-   algorithm_fact_with_memo
    algorithm_fact2
    algorithm_fibo
    algorithm_fibo2
-   algorithm_fri_13
    algorithm_graph
    algorithm_hanoi
-   algorithm_hexlify
    algorithm_hist
    algorithm_insertion
    algorithm_int_to_roman
-   algorithm_lexical_analyzer_1
    algorithm_locate
    algorithm_maxsort
    algorithm_mergesort
    algorithm_npuzzle
    algorithm_number_sets
-   algorithm_prime_1
    algorithm_pyex_multiprocessing
    algorithm_pyex2_multiprocessing
-   algorithm_quick_select
    algorithm_quicksort
    algorithm_scrmable
-   algorithm_sorting_ex1
    algorithm_spelling
    algorithm_splitter
-   algorithm_subtract_hexadecimals
    algorithm_syllablecount
    algorithm_toss_coins
    algorithm_traversal
-   algorithm_tree
    algorithm_tree2
 
 Design
@@ -68,7 +55,6 @@ demonstrates how it is done.
    design_ast_example1
    design_atexit_1
    design_caseinsensitivedict
-   design_class_same_object
    design_closure_example1
    design_closure1
    design_context_2
@@ -108,7 +94,6 @@ demonstrates how it is done.
    design_struct_example
    design_total_ordering
    design_traceit
-   design_try_except
 
 
 Networking
@@ -220,7 +205,6 @@ These deal with websites, webapplications and work on top of networking layer.
    :maxdepth: 1
 
    web_cgi_ex
-   web_codepad_post
    web_crawl
    web_crawl2
    web_http_auth_header_code

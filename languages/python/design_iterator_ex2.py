@@ -5,8 +5,8 @@ sequence= dict1
 it = iter(sequence)
 while True:
     try:
-        value = it.next()
+        value = next(it)
     except StopIteration:
         break
-    print value
+    print(value)
 

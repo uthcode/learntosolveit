@@ -39,4 +39,4 @@ if __name__ == '__main__':
         [1, 5, 1],
         [4, 2, 1]
     ]
-    print(s.minPathSum(mat))
+    print((s.minPathSum(mat)))

@@ -1,2 +1,3 @@
 import operator
-print reduce(operator.mul, xrange(1,10))
+from functools import reduce
+print(reduce(operator.mul, range(1,10)))

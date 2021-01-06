@@ -41,4 +41,4 @@ def get_ip_address(ifname):
 
 for each in all_interfaces():
     if each:
-        print get_ip_address(each)
+        print(get_ip_address(each))

@@ -23,7 +23,7 @@ numremain = len(theline) - struct.calcsize(baseformat)
 # complete the format with the appropriate 's' field, then unpack
 format = '%s %ds' % (baseformat, numremain)
 l, s1, s2, t = struct.unpack(format, theline)
-print l
-print s1
-print s2
-print t
+print(l)
+print(s1)
+print(s2)
+print(t)

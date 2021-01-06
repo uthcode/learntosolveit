@@ -25,5 +25,5 @@ uname, date = loop.run_until_complete(commands)
 
 # Print a report
 
-print('uname: {}, date: {}'.format(uname, date))
+print(('uname: {}, date: {}'.format(uname, date)))
 loop.close()

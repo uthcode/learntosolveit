@@ -28,6 +28,6 @@ student1 = Student("Bond","James")
 student2 = Student("Haddock","Captain")
 
 # Where are these coming from?
-print(student2 > student1)  # True
-print(student2 >= student2) # True
-print(student2 != student1) # True
+print((student2 > student1))  # True
+print((student2 >= student2)) # True
+print((student2 != student1)) # True

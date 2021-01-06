@@ -1,5 +1,5 @@
 import random
-list_to_sort = random.sample(range(10),8)
+list_to_sort = random.sample(list(range(10)),8)
 
 def insertion_sort(listtosort):
     for i in range(1,len(listtosort)):
@@ -11,6 +11,6 @@ def insertion_sort(listtosort):
         listtosort[j] = key
     return listtosort
 
-print list_to_sort
-print insertion_sort(list_to_sort)
+print(list_to_sort)
+print(insertion_sort(list_to_sort))
 

@@ -14,6 +14,6 @@ def find_in_sorted(arr, x):
     return binsearch(0, len(arr))
 
 
-ar = sorted(random.sample(range(10),9))
+ar = sorted(random.sample(list(range(10)),9))
 r = random.randint(0,10)
-print(find_in_sorted(ar,r))
+print((find_in_sorted(ar,r)))

@@ -15,4 +15,4 @@ node = ast.Expression(ast.BinOp(
 fixed = ast.fix_missing_locations(node)
 
 codeobj = compile(fixed, '<string>', 'eval')
-print eval(codeobj)
+print(eval(codeobj))

@@ -18,4 +18,4 @@ for i in range(20):
 files = glob.glob("%s.*" % FILENAME)
 
 for f in files:
-    print f
+    print(f)

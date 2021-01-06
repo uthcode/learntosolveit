@@ -1,7 +1,7 @@
-a = u'\U0001ff00'
+a = '\U0001ff00'
 
-print "Length: ", len(a)
+print("Length: ", len(a))
 
-print "Chars: "
+print("Chars: ")
 for c in a:
-    print repr(c)
+    print(repr(c))

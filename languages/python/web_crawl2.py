@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-import cStringIO as StringIO
+import io as StringIO
 
 from twisted.internet import reactor
 from twisted.web.client import getPage
@@ -12,7 +12,7 @@ def parseHtml(html):
     return tree
 
 def extractTitle(tree):
-    titleText = unicode(tree.xpath("//title/text()")[0])
+    titleText = str(tree.xpath("//title/text()")[0])
     return titleText
 
 d = getPage('http://www.google.com')

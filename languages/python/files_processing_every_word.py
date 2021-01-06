@@ -3,7 +3,7 @@ import re
 WORD_REGEX = re.compile(r"[\w'-]+")
 
 def do_something_with_word(word):
-    print word
+    print(word)
 
 def words_in_file(file_name):
     with open(file_name) as fh:

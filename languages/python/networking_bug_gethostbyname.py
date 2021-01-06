@@ -9,21 +9,21 @@ from socket import *
 import sys
 
 def test(name):
-    print "enter test, gethostbyname(%r)" % name
-    print "You can press CTRL-C"
+    print("enter test, gethostbyname(%r)" % name)
+    print("You can press CTRL-C")
     try:
         try:
             gethostbyname(name)
         except:
-            print "inner try"
+            print("inner try")
             E = sys.exc_info()[0]
-            print type(E), repr(E), E is KeyboardInterrupt
+            print(type(E), repr(E), E is KeyboardInterrupt)
             raise
     except:
-        print "outer try"
+        print("outer try")
         E = sys.exc_info()[0]
-        print type(E), repr(E), E is KeyboardInterrupt
-    print "exit test"
+        print(type(E), repr(E), E is KeyboardInterrupt)
+    print("exit test")
 
 import random
 letters = list("typingsomeuselessword")

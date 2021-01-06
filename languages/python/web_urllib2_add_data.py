@@ -1,14 +1,14 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 URL = 'http://localhost/allowed.html'
 
-ah = urllib2.HTTPDigestAuthHandler()
+ah = urllib.request.HTTPDigestAuthHandler()
 ah.add_password('Realm','http://localhost/','senthil','kumaran')
-urllib2.install_opener(urllib2.build_opener(ah))
-r = urllib2.Request(URL)
+urllib.request.install_opener(urllib.request.build_opener(ah))
+r = urllib.request.Request(URL)
 r.add_data("1")
-obj = urllib2.urlopen(r)
-print obj.read()
+obj = urllib.request.urlopen(r)
+print(obj.read())
 r.add_data("10")
-obj = urllib2.urlopen(r)
-print obj.read()
+obj = urllib.request.urlopen(r)
+print(obj.read())

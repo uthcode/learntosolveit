@@ -13,8 +13,8 @@ class Foo(object):
         self.x, self.y, self.z = x, y, z
 
 f1 = Foo(1, 2, 3)
-print f1.x, f1.y, f1.z
+print(f1.x, f1.y, f1.z)
 
 f2 = RestrictingWrapper(f1, "z")
-print f2.x, f2.y
-print f2.z
+print(f2.x, f2.y)
+print(f2.z)

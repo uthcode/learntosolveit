@@ -1,25 +1,25 @@
 def normfunc():
-    iterable = range(10)
+    iterable = list(range(10))
     for item in iterable:
         return item * item
 
 afuncreturn = normfunc()
 
-print afuncreturn
-print type(afuncreturn)
+print(afuncreturn)
+print(type(afuncreturn))
 
 def genfunc():
-    iterable = range(10)
+    iterable = list(range(10))
     for item in iterable:
         yield item * item
 
 agenerator = genfunc()
 
-print agenerator
-print type(agenerator)
+print(agenerator)
+print(type(agenerator))
 
 for item in agenerator:
-    print item
+    print(item)
 
 
 explain = """

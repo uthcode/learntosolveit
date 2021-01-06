@@ -21,18 +21,18 @@ class State:
 
         self.nsize = nsize
         self.tsize = pow(self.nsize, 2)
-        self.goal = range(1, self.tsize)
+        self.goal = list(range(1, self.tsize))
         self.goal.append(0)
 
     def printst(self, st):
         """Print the list in a Matrix Format."""
 
         for (index, value) in enumerate(st):
-            print ' %s ' % value, 
+            print(' %s ' % value, end=' ') 
             if index in [x for x in range(self.nsize - 1, self.tsize, 
                          self.nsize)]:
-                print 
-        print 
+                print() 
+        print() 
 
     def getvalues(self, key):
         """Utility function to gather the Free Motions at various key positions in the Matrix."""
@@ -123,15 +123,15 @@ If more than one path have same manhattan distance, then a random choice of one 
 
 
 if __name__ == '__main__':
-    print 'N-Puzzle Solver!'
-    print 10 * '-'
+    print('N-Puzzle Solver!')
+    print(10 * '-')
     state = State(3)
-    print 'The Starting State is:'
+    print('The Starting State is:')
     start = state.start_state(5)
     state.printst(start)
-    print 'The Goal State should be:'
+    print('The Goal State should be:')
     state.printst(state.goal)
-    print 'Here it Goes:'
+    print('Here it Goes:')
     state.printst(start)
     state.solve_it(start)
 

@@ -48,7 +48,7 @@ def get_roman(n):
             if rnos.count(factor) > 3:
                 for n in rnos[:]:
                     rnos.remove(n)
-                indices = roman_dict.keys()
+                indices = list(roman_dict.keys())
                 indices.sort()
                 prev_base = base
                 base_index = indices.index(base) + 1
@@ -66,7 +66,7 @@ def get_roman(n):
             if rnos.count(factor) > 3:
                 for n in rnos[:]:
                     rnos.remove(n)
-                indices = roman_dict.keys()
+                indices = list(roman_dict.keys())
                 indices.sort()
                 prev_base_index = indices.index(base) - 1
                 prev_base = indices[prev_base_index]
@@ -85,7 +85,7 @@ def get_roman(n):
             if rnos.count(factor) > 3:
                 for n in rnos[:]:
                     rnos.remove(n)
-                indices = roman_dict.keys()
+                indices = list(roman_dict.keys())
                 indices.sort()
                 prev_base = base
                 base_index = indices.index(base) + 1
@@ -103,7 +103,7 @@ def get_roman(n):
             if rnos.count(factor) > 3:
                 for n in rnos[:]:
                     rnos.remove(n)
-                indices = roman_dict.keys()
+                indices = list(roman_dict.keys())
                 indices.sort()
                 prev_base_index = indices.index(base) - 1
                 prev_base = indices[prev_base_index]
@@ -122,7 +122,7 @@ def get_roman(n):
             if rnos.count(factor) > 3:
                 for n in rnos[:]:
                     rnos.remove(n)
-                indices = roman_dict.keys()
+                indices = list(roman_dict.keys())
                 indices.sort()
                 prev_base = base
                 base_index = indices.index(base) + 1
@@ -140,7 +140,7 @@ def get_roman(n):
             if rnos.count(factor) > 3:
                 for n in rnos[:]:
                     rnos.remove(n)
-                indices = roman_dict.keys()
+                indices = list(roman_dict.keys())
                 indices.sort()
                 prev_base_index = indices.index(base) - 1
                 prev_base = indices[prev_base_index]
@@ -152,12 +152,12 @@ def get_roman(n):
 
 
 def main():
-    number = int(raw_input("Enter the Integer: "))
+    number = int(input("Enter the Integer: "))
     if number > 1000:
-        print 'Sorry, I know uptil 1000 only.'
+        print('Sorry, I know uptil 1000 only.')
         exit()
     if number in roman_dict:
-        print "Roman: ",roman_dict[number]
+        print("Roman: ",roman_dict[number])
     else:
         romans = []
         res = sep_num(number)
@@ -165,7 +165,7 @@ def main():
             rvalues = get_roman(each)
             for value in rvalues:
                 romans.append(roman_dict[value])
-        print "Roman: ",''.join(romans)
+        print("Roman: ",''.join(romans))
 
 if __name__ == '__main__':
     main()

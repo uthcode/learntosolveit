@@ -1,4 +1,4 @@
-import httplib
+import http.client
 
 USER_AGENT = "httplib-example-1.py"
 
@@ -19,7 +19,7 @@ class Server:
     def __init__(self, host):
         self.host = host
     def fetch(self, path):
-        http = httplib.HTTP(self.host)
+        http = http.client.HTTP(self.host)
 
         # Write header
         http.putheader("GET",path)
@@ -39,4 +39,4 @@ class Server:
 
 if __name__ == '__main__':
     server = Server("www.pythonware.com")
-    print server.fetch("/index.htm")
+    print(server.fetch("/index.htm"))

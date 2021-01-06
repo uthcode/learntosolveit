@@ -11,4 +11,4 @@ def follow(thefile):
 
 logfile = open('/var/log/apache2/access.log')
 for line in follow(logfile):
-    print line,
+    print(line, end=' ')

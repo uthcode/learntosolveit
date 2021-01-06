@@ -32,7 +32,7 @@ async def multiply(x):
 
 async def steps(x):
     result = await multiply(x)
-    print("result: %s" % result)
+    print(("result: %s" % result))
 
 
 loop = asyncio.get_event_loop()

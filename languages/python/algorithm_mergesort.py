@@ -35,6 +35,6 @@ def mergesort(m):
         result = left + right
     return result
 
-p = random.sample(range(10),8)
-print p
-print mergesort(p)
+p = random.sample(list(range(10)),8)
+print(p)
+print(mergesort(p))

@@ -7,10 +7,10 @@ def seek_and_read(file_name, buf_size, byte_number):
 def main():
     buf_size = 48
     byte_number = 6
-    print seek_and_read(
+    print(seek_and_read(
         './files_random_access_input_output.py',
         buf_size,
-        byte_number)
+        byte_number))
 
 if __name__ == '__main__':
     main()

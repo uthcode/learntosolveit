@@ -10,4 +10,4 @@ from subprocess import Popen, PIPE
 find_process = Popen(['find', '-iname', '*.py'], stdout=PIPE)
 grep_process = Popen(['xargs', 'grep', 'class'], stdin=find_process.stdout, stdout=PIPE)
 out, err = grep_process.communicate()
-print out
+print(out)

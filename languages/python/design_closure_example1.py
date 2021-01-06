@@ -5,4 +5,4 @@ class Constant():
     def __call__(self):
         return self._value
 y = Constant(5)
-print(y())
+print((y()))

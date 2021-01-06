@@ -1,12 +1,12 @@
-import cPickle
+import pickle
 import sys
 
-obj = range(10000)
+obj = list(range(10000))
 
 def GetMemoryUsage(ob):
-    s = cPickle.dumps(ob)
+    s = pickle.dumps(ob)
     memUsed = sys.getpymemalloced()
-    ob2 = cPickle.loads(s)
+    ob2 = pickle.loads(s)
     return sys.getpymemalloced() - memUsed
 
-print GetMemoryUsage(obj)
+print(GetMemoryUsage(obj))

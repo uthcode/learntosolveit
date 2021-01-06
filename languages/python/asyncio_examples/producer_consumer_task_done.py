@@ -8,7 +8,7 @@ import random
 async def produce(queue, n):
     for x in range(n):
         # produce an item
-        print('producing {}/{}'.format(x, n))
+        print(('producing {}/{}'.format(x, n)))
         # simulate i/o operation using sleep
         await asyncio.sleep(random.random())
         item = str(x)
@@ -22,7 +22,7 @@ async def consume(queue):
         item = await queue.get()
 
         # process the item
-        print("consuming {}...".format(item))
+        print(("consuming {}...".format(item)))
         # simulate i/o operation using sleep
         await asyncio.sleep(random.random())
 

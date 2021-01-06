@@ -1,4 +1,4 @@
-from SimpleXMLRPCServer import SimpleXMLRPCServer
+from xmlrpc.server import SimpleXMLRPCServer
 import logging
 import os
 
@@ -34,8 +34,8 @@ def my_func(a, b):
 server.register_function(my_func,'my func') 
 
 try:
-    print 'Use Control-C to exit'
+    print('Use Control-C to exit')
     server.serve_forever()
 except KeyboardInterrupt:
-    print 'Exiting!'
+    print('Exiting!')
 

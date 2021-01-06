@@ -6,8 +6,8 @@ def calculate(value):
 
 if __name__ == '__main__':
     pool = multiprocessing.Pool(None)
-    tasks = range(10000)
+    tasks = list(range(10000))
     results = []
     r = pool.map_async(calculate, tasks, callback=results.append)
     r.wait() # Wait on the results
-    print results
+    print(results)

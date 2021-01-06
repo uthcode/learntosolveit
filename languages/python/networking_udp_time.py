@@ -11,16 +11,16 @@ s = socket(AF_INET, SOCK_DGRAM)
 s.settimeout(5.0)
 
 for server in argv:
-   print server, ":",
+   print(server, ":", end=' ')
    try:
        s.sendto('', 0, (server, 37))
-       t = long(unpack('!L', s.recv(16)[:4])[0])
+       t = int(unpack('!L', s.recv(16)[:4])[0])
        # Convert from 1900/01/01 epoch to 1970/01/01 epoch
        t -= 2208988800
-       print ctime(t)
+       print(ctime(t))
    except timeout:
-       print "TIMEOUT"
+       print("TIMEOUT")
    except:
-       print "ERROR"
+       print("ERROR")
 
 s.close()

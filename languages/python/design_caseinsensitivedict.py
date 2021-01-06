@@ -11,7 +11,7 @@ class CaseInsensitiveDict(dict):
     def __init__(self, *args, **kwargs):
         self._keystore = {}
         d = dict(*args, **kwargs)
-        for k in d.keys():
+        for k in list(d.keys()):
             self._keystore[self._get_lower(k)] = k
         return super(CaseInsensitiveDict,self).__init__(*args,**kwargs)
 
@@ -31,18 +31,18 @@ class CaseInsensitiveDict(dict):
 
 def test():
     obj = CaseInsensitiveDict([('name','senthil')])
-    print obj
+    print(obj)
     obj['Sname']='kumaran'
     obj['spam'] ='eggs'
     obj['SPAM']='ham'
-    print obj.items()
+    print(list(obj.items()))
     obj1 = dict(fname='FIRST')
     obj.update(obj1)
-    print obj
-    print obj.keys()
-    print obj.items()
-    print obj['NAME']
-    print obj['SNAME']
+    print(obj)
+    print(list(obj.keys()))
+    print(list(obj.items()))
+    print(obj['NAME'])
+    print(obj['SNAME'])
 
 if __name__ == '__main__':
     test()

@@ -10,11 +10,11 @@ def encode_for_xml(unicode_data, encoding='ascii'):
 # need to define and register a customized encoding error handler.
 
 import codecs
-from htmlentitydefs import codepoint2name
+from html.entities import codepoint2name
 
 def html_replace(exc):
     if isinstance(exc, (UnicodeEncodeError, UnicodeTranslateError)):
-        s = [ u'&%s;' % codepoint2name[ord(c)] for c in
+        s = [ '&%s;' % codepoint2name[ord(c)] for c in
         exc.object[exc.start:exc.end]]
         return ''.join(s),exc.end
     else:
@@ -29,7 +29,7 @@ def encode_for_html(unicode_data, encoding='ascii'):
 
 if __name__ == '__main__':
     # demo
-    data = u'''\
+    data = '''\
             <html>
             <head>
             <title>Encoding Test</title>
@@ -50,4 +50,4 @@ if __name__ == '__main__':
             </html>
             '''
     #print encode_for_xml(data)
-    print encode_for_html(data)
+    print(encode_for_html(data))

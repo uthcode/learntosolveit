@@ -9,7 +9,7 @@ def add_warning(func, oldname):
     return _wrapped
 
 def test(a=2, b=4):
-    print a + b
+    print(a + b)
 
 old_test = add_warning(test, 'old_test')
 

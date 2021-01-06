@@ -21,18 +21,18 @@ for bits in [16,32,64]:
 
     # Integer Addition
 
-    print 'Integer Addition between %d bit numbers' % (bits)
+    print('Integer Addition between %d bit numbers' % (bits))
     num2 = num1 + 2
     stmt = "%d +%d" % (num2, num1)
     t = timeit.Timer(stmt)
     m = (100000 * t.timeit(100000) / 100000)
-    print '%f usecs/loop' % (m)
+    print('%f usecs/loop' % (m))
 
     # Integer Division now.
 
-    print 'Integer Division between %d bit numbers' % (bits)
+    print('Integer Division between %d bit numbers' % (bits))
     num2 = 2 * num1
     stmt = "%d/%d" % (num2, num1)
     t = timeit.Timer(stmt)
     m = (100000 * t.timeit(100000) / 100000)
-    print '%f usecs/loop' % (m)
+    print('%f usecs/loop' % (m))

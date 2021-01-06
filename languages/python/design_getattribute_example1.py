@@ -17,6 +17,6 @@ class D(object):
 # Look at getattribute_example2.py for correct solution.
 
 obj1 = D()
-print obj1.test
-print obj1.test2
+print(obj1.test)
+print(obj1.test2)
 

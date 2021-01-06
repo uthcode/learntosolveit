@@ -10,8 +10,8 @@ def retry(ExceptionToCheck, tries=4, delay=3, backoff=2):
             while (mtries > 1):
                 try:
                     return fn(*args, **kwargs)
-                except ExceptionToCheck, e:
-                    print "retrying %d times." % mtries
+                except ExceptionToCheck as e:
+                    print("retrying %d times." % mtries)
                     mtries -=1
                     mdelay *= backoff
                     time.sleep(mdelay)
@@ -24,7 +24,7 @@ def retry(ExceptionToCheck, tries=4, delay=3, backoff=2):
 
 @retry(Exception)
 def test_function(a, b):
-    print a, b
+    print(a, b)
     raise Exception
 
 

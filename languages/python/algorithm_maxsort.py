@@ -9,4 +9,4 @@ def maxsort(A):
 
 A = [5,4,3,2,1]
 maxsort(A)
-print A
+print(A)

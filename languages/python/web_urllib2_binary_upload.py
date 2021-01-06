@@ -1,9 +1,9 @@
 import itertools
 import mimetools
 import mimetypes
-from cStringIO import StringIO
-import urllib
-import urllib2
+from io import StringIO
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 
 class MultiPartForm(object):
     """Accumulate the data to be used when posting a form."""
@@ -77,17 +77,17 @@ if __name__ == '__main__':
                   fileHandle=StringIO('Python developer and blogger.'))
 
     # Build the request
-    request = urllib2.Request('http://localhost:8080/')
+    request = urllib.request.Request('http://localhost:8080/')
     request.add_header('User-agent', 'PyMOTW (http://www.doughellmann.com/PyMOTW/)')
     body = str(form)
     request.add_header('Content-type', form.get_content_type())
     request.add_header('Content-length', len(body))
     request.add_data(body)
 
-    print
-    print 'OUTGOING DATA:'
-    print request.get_data()
+    print()
+    print('OUTGOING DATA:')
+    print(request.get_data())
 
-    print
-    print 'SERVER RESPONSE:'
-    print urllib2.urlopen(request).read()
+    print()
+    print('SERVER RESPONSE:')
+    print(urllib.request.urlopen(request).read())

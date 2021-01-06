@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 import optparse
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 RFC_BASE = 'http://www.ietf.org/rfc/rfc'
 
@@ -15,5 +15,5 @@ RFC_NAME = options.rfc_name + '.txt'
 
 RFC = RFC_BASE + RFC_NAME
 
-urllib.urlretrieve(RFC,filename=RFC_NAME)
-print 'Here you have:', RFC_NAME
+urllib.request.urlretrieve(RFC,filename=RFC_NAME)
+print('Here you have:', RFC_NAME)

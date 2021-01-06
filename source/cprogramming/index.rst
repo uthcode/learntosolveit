@@ -191,7 +191,6 @@ Interesting Uncategorized Programs
 
    dcl
    getline_woandr
-   mined1
    mygetchar
    numlinesort
    pgechov1

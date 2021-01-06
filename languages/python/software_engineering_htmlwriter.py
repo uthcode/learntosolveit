@@ -19,7 +19,7 @@ class TreeNode(list):
 
     def _render_attrs(self):
         if self._attrs:
-            return ' ' + ' '.join('%s="%s"' % attr for attr in self._attrs.iteritems())
+            return ' ' + ' '.join('%s="%s"' % attr for attr in self._attrs.items())
         else:
             return ''
 
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     t.append(HeadingRow(["Col1", "Col2", "Col3"]))
     t.append(Row(["Column1", "Column2", "Column3"]))
     doc.append(t)
-    print doc
+    print(doc)
 ##    f=open('file.html', 'w')
 ##    f.write(doc)
 ##    f.close()

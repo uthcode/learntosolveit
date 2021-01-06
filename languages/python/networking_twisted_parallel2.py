@@ -12,7 +12,7 @@ def parallel(count=None):
     coop = task.Cooperator()
     work = (getProcessValue(executable) for i in range(10))
     if count:
-        return defer.DeferredList([coop.coiterate(work) for i in xrange(count)])
+        return defer.DeferredList([coop.coiterate(work) for i in range(count)])
     else:
         return coop.coiterate(work)
 

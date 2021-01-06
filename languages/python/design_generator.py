@@ -6,7 +6,7 @@ def mygen():
     if f is not None: a = f  #store the new value
 
 g = mygen()
-print g.next()
-print g.next()
+print(next(g))
+print(next(g))
 g.send(7)
-print g.next()
+print(next(g))

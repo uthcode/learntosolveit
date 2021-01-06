@@ -44,4 +44,4 @@ if __name__ == '__main__':
              'F': ['C']}
 
     for node in bfs(graph,'A'):
-        print node
+        print(node)

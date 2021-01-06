@@ -10,4 +10,4 @@ def constant(value):
         return value
     return _inner
 x = constant(5)
-print(x())
+print((x()))

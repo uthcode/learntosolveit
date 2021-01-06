@@ -21,45 +21,45 @@ import random
 import sys
 
 
-def mxiup(ecahWrod):
-	if len(ecahWrod) <= 2:
-		return ecahWrod
-	else:
-		nwewrod = ecahWrod[0]
-		if ecahWrod[-1] in ['.', ',', ':', ';', '-', '?', '!']:
-			inbet = ecahWrod[1:-2]
-			for each in random.sample(list(inbet), len(inbet)):
-				nwewrod += each
-			nwewrod += ecahWrod[-2]
-		else:
-			inbet = ecahWrod[1:-1]
-			for each in random.sample(list(inbet), len(inbet)):
-				nwewrod += each
-		nwewrod += ecahWrod[-1]
-	return nwewrod
+def mxiup(ecah_wrod):
+    if len(ecah_wrod) <= 2:
+        return ecah_wrod
+    else:
+        nwewrod = ecah_wrod[0]
+        if ecah_wrod[-1] in ['.', ',', ':', ';', '-', '?', '!']:
+            inbet = ecah_wrod[1:-2]
+            for each in random.sample(list(inbet), len(inbet)):
+                nwewrod += each
+            nwewrod += ecah_wrod[-2]
+        else:
+            inbet = ecah_wrod[1:-1]
+            for each in random.sample(list(inbet), len(inbet)):
+                nwewrod += each
+        nwewrod += ecah_wrod[-1]
+    return nwewrod
 
 
 def srcambel(line):
-	mixedwrods = []
-	wrods = line.split()
-	for ecahWrod in wrods:
-		mixedwrods.append(mxiup(ecahWrod))
-	for w, m in zip(wrods, mixedwrods):
-		line = line.replace(w, m)
-	print line,
+    mixedwrods = []
+    wrods = line.split()
+    for ecah_wrod in wrods:
+        mixedwrods.append(mxiup(ecah_wrod))
+    for w, m in zip(wrods, mixedwrods):
+        line = line.replace(w, m)
+    print(line, end='')
 
 
-def getPara():
-	line = sys.stdin.read()
-	return line
+def getgraparaph():
+    line = sys.stdin.read()
+    return line
 
 
 def mian():
-	try:
-		line = getPara()
-		srcambel(line)
-	except  (EOFError, KeyboardInterrupt):
-		sys.exit(0)
+    try:
+        line = getgraparaph()
+        srcambel(line)
+    except (EOFError, KeyboardInterrupt):
+        sys.exit(0)
 
 
 mian()

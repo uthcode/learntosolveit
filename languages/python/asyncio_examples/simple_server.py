@@ -45,7 +45,7 @@ def run(server_class=ThreadingHTTPServer,
     """Run the simple server on a given port."""
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    print("Serving from port {}...".format(port))
+    print(("Serving from port {}...".format(port)))
     httpd.serve_forever()
 
 

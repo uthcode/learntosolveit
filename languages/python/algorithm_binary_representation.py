@@ -13,13 +13,13 @@ def convert_to_binary(n):
 
 
 for i in range(20, 30):
-    print(i, convert_to_binary(i))
+    print((i, convert_to_binary(i)))
 
 hexa_values = ['0', '1', 'A', 'FF', 'DEADBEEF', 'CAFEBABE']
 
 for each in hexa_values:
     dec = int(each, 16)
-    print(each, convert_to_binary(dec))
+    print((each, convert_to_binary(dec)))
 
 """
 Find out if the machine is storing it in the one's complement or two's
@@ -37,10 +37,10 @@ else:
     print('ones complement')
 
 for i in range(200, 255):
-    print(hex(i))
+    print((hex(i)))
 
 for i in range(0, 256):
-    print(chr(i), i, hex(i))
+    print((chr(i), i, hex(i)))
 
 """
 Binary Addition and Subtraction
@@ -110,8 +110,8 @@ def sub_bin(a, b):
     return result[::-1]
 
 
-print('a', a, a_bin)
-print('b', b, b_bin)
+print(('a', a, a_bin))
+print(('b', b, b_bin))
 
-print('a+b ', sum_bin(a_bin, b_bin))
-print('a-b ', sub_bin(a_bin, b_bin))
+print(('a+b ', sum_bin(a_bin, b_bin)))
+print(('a-b ', sub_bin(a_bin, b_bin)))

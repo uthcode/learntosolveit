@@ -5,6 +5,6 @@ def withtimestamp():
 	return datetime.datetime.now().strftime(format=format)
 
 if __name__ == "__main__":
-	print withtimestamp()
+	print(withtimestamp())
 
 

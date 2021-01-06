@@ -8,11 +8,11 @@ def get_constants(prefix):
                  )
 
 families = get_constants('AF_')
-print families
+print(families)
 types = get_constants('SOCK_')
-print types
+print(types)
 protocols = get_constants('IPPROTO_')
-print protocols
+print(protocols)
 
 for response in socket.getaddrinfo('endhiroid.blogspot.com', 'http',
                                    socket.AF_INET,      # family
@@ -23,9 +23,9 @@ for response in socket.getaddrinfo('endhiroid.blogspot.com', 'http',
     # Unpack the response tuple
     family, socktype, proto, canonname, sockaddr = response
 
-    print 'Family        :', families[family]
-    print 'Type          :', types[socktype]
-    print 'Protocol      :', protocols[proto]
-    print 'Canonical name:', canonname
-    print 'Socket address:', sockaddr
-    print
+    print('Family        :', families[family])
+    print('Type          :', types[socktype])
+    print('Protocol      :', protocols[proto])
+    print('Canonical name:', canonname)
+    print('Socket address:', sockaddr)
+    print()

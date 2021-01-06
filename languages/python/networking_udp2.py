@@ -11,15 +11,15 @@ message = 'This is the message.  It will be repeated.'
 try:
 
     # Send data
-    print >>sys.stderr, 'sending "%s"' % message
+    print('sending "%s"' % message, file=sys.stderr)
     sent = sock.sendto(message, server_address)
-    print sock.getsockname()[1]
+    print(sock.getsockname()[1])
 
     # Receive response
-    print >>sys.stderr, 'waiting to receive'
+    print('waiting to receive', file=sys.stderr)
     data, server = sock.recvfrom(4096)
-    print >>sys.stderr, 'received "%s"' % data
+    print('received "%s"' % data, file=sys.stderr)
 
 finally:
-    print >>sys.stderr, 'closing socket'
+    print('closing socket', file=sys.stderr)
     sock.close()

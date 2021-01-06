@@ -13,7 +13,7 @@ def count_lines(file_path):
     return count
 
 def main():
-    print(count_lines('./files_count_lines_large_file.py'))
+    print((count_lines('./files_count_lines_large_file.py')))
 
 if __name__ == '__main__':
     main()

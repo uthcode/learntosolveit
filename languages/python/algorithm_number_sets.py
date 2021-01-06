@@ -18,9 +18,9 @@ def get_prime_factor(a,b):
                 primes.append(num)
         return primes
 
-C = input()
+C = eval(input())
 for tcs in range(C):
-    A,B,P = (int(x) for x in raw_input().split())
+    A,B,P = (int(x) for x in input().split())
     list_of_primes = get_primes(P,B)
     set = 0
     for i in range(A,B):
@@ -30,4 +30,4 @@ for tcs in range(C):
                 for num in prime_factors:
                     if num in list_of_primes:
                         set = set + 1
-    print 'Case #%d: %d' % (tcs+1,set)
+    print('Case #%d: %d' % (tcs+1,set))

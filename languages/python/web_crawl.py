@@ -1,6 +1,6 @@
-import urllib2
-import urllib
-import urlparse
+import urllib.request, urllib.error, urllib.parse
+import urllib.request, urllib.parse, urllib.error
+import urllib.parse
 import sys
 import re
 import optparse
@@ -8,31 +8,31 @@ import optparse
 try:
     from BeautifulSoup import BeautifulSoup
 except ImportError:
-    print "Pre-requsite not met - BeautifulSoup library"
+    print("Pre-requsite not met - BeautifulSoup library")
     sys.exit(-1)
 
 try:
     import Image
 except ImportError:
-    print "Pre-requisite not met - Python Imaging library"
+    print("Pre-requisite not met - Python Imaging library")
     sys.exit(-1)
 
 URL = 'http://www.indochino.com/'
 
-parsed_url = urlparse.urlparse(URL) # for default
+parsed_url = urllib.parse.urlparse(URL) # for default
 global_url = []
 visited_url = []
 
 def getimages(page):
     images = []
     try:
-        soup = BeautifulSoup(urllib2.urlopen(page))
+        soup = BeautifulSoup(urllib.request.urlopen(page))
         for image in soup.findAll("img"):
             img = image["src"]
             if img.split('.')[-1] in ('jpg','png','jpeg','gif'):
-                parsed_img = urlparse.urlparse(img)
+                parsed_img = urllib.parse.urlparse(img)
                 if not parsed_img.scheme:
-                    img = urlparse.urljoin(URL,parsed_img.path)
+                    img = urllib.parse.urljoin(URL,parsed_img.path)
                 images.append(img)
     except (IOError, KeyError, IndexError):
         pass
@@ -40,7 +40,7 @@ def getimages(page):
 
 def guess_product_page(page):
     try:
-        soup = BeautifulSoup(urllib2.urlopen(page))
+        soup = BeautifulSoup(urllib.request.urlopen(page))
     except (IOError,KeyError):
         return False
     american_currency = soup.findAll(text=re.compile('\$\d+(\.\d{2})?'))
@@ -56,12 +56,12 @@ def childrenfun(node):
     else:
         links = []
         try:
-            soup = BeautifulSoup(urllib2.urlopen(node))
+            soup = BeautifulSoup(urllib.request.urlopen(node))
             for l in soup.findAll("a"):
                 l = l["href"]
-                parsed = urlparse.urlparse(l)
+                parsed = urllib.parse.urlparse(l)
                 if (parsed.scheme and (parsed.scheme in ('http','https')) and (parsed.netloc in parsed_url.netloc)):
-                    link = urlparse.urlunparse((parsed.scheme,parsed.netloc,parsed.path,'','',''))
+                    link = urllib.parse.urlunparse((parsed.scheme,parsed.netloc,parsed.path,'','',''))
                     if not link in global_url:
                         global_url.append(link)
                         links.append(link)
@@ -97,27 +97,27 @@ if __name__ == '__main__':
     else:
         node = args[0]
         try:
-            parsed_url = urlparse.urlparse(node)
+            parsed_url = urllib.parse.urlparse(node)
         except ValueError:
-            print 'Invalid URL', node
+            print('Invalid URL', node)
             sys.exit(-1)
 
     for n in breadth_first(node):
         if n not in visited_url:
             visited_url.append(n)
-            print 'URL %s' % n,
+            print('URL %s' % n, end=' ')
             if options.guess:
                 product_page = guess_product_page(n)
                 if product_page:
-                    print 'is a Product Page'
+                    print('is a Product Page')
                 else:
-                    print 'is not a Product Page'
+                    print('is not a Product Page')
             for img in getimages(n):
-                tmp_loc, hdrs = urllib.urlretrieve(img)
+                tmp_loc, hdrs = urllib.request.urlretrieve(img)
                 try:
                     im  = Image.open(tmp_loc)
                     width, height = im.size
                     if width >= options.height and height >= options.width:
-                        print '%d %d %s' % (width, height, img)
+                        print('%d %d %s' % (width, height, img))
                 except Exception as exc:
-                    print 'Did not check size: %s' % img
+                    print('Did not check size: %s' % img)

@@ -14,7 +14,7 @@ def main():
     s.connect((host, port))
     flo = s.makefile('r',0)
     for l in flo:
-        print l
+        print(l)
 
 if __name__ == '__main__':
     main()

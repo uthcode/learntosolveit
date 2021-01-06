@@ -1,7 +1,7 @@
 import atexit
 
 def foo():
-    print "foo"
+    print("foo")
 
 class SomeClass(object):
 
@@ -11,5 +11,5 @@ class SomeClass(object):
         atexit.register(foo)
 
 obj = SomeClass()
-print obj.a
-print obj.b
+print(obj.a)
+print(obj.b)
