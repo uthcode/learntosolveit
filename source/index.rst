@@ -41,11 +41,3 @@ Python Programming Language
    :maxdepth: 3
 
    python/index
-
-Java Programming Language
-=========================
-
-.. toctree::
-   :maxdepth: 3
-
-   java/index
