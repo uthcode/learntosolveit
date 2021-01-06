@@ -19,10 +19,8 @@ Improvements to website can be submitted via `Github`_ pull requests.
 
 * C Programming Language by Kernighan and Ritchie.
 * Python Cookbook by Alex Martelli, Anna Martelli Ravenscroft, and David Ascher.
-* Java Precisely by Peter Sestoft.
 
 .. _Learn To Solve It: http://www.learntosolveit.com
-.. _ideone: http://www.ideone.com
 .. _Github: https://github.com/uthcode/learntosolveit
 
 
