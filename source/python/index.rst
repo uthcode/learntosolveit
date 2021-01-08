@@ -17,22 +17,18 @@ This is an implementation of a well known CS algorithm.
    algorithm_cellauto
    algorithm_checking_string_text_or_binary
    algorithm_eratosthenes
-   algorithm_fact2
    algorithm_fibo
    algorithm_fibo2
    algorithm_graph
    algorithm_hanoi
-   algorithm_hist
    algorithm_insertion
    algorithm_int_to_roman
    algorithm_locate
    algorithm_maxsort
    algorithm_mergesort
    algorithm_npuzzle
-   algorithm_number_sets
    algorithm_pyex_multiprocessing
    algorithm_pyex2_multiprocessing
-   algorithm_quicksort
    algorithm_scrmable
    algorithm_spelling
    algorithm_splitter
@@ -61,35 +57,21 @@ demonstrates how it is done.
    design_contextmanager
    design_contextmanager_ex
    design_decorator3
-   design_dict_list
    design_ex_iterable27
    design_func_args
-   design_gen1
-   design_gen2
    design_generator
-   design_generator_countdown
-   design_generator_countdown2
-   design_generator_example1
-   design_generator_execution
-   design_generator_follow
    design_getattribute_example1
    design_getattribute_example2
    design_hextobin
    design_inheritance
-   design_iterator_ex1
    design_iterator_ex2
    design_object_size
-   design_oop1
-   design_optimization2
    design_python_objects_type
    design_python3_meta_ex1
    design_restricter_class
    design_simple_closure
    design_slice_ellipses
    design_sorted_loop
-   design_sorted_loop2
-   design_space_efficient_dict
-   design_stack
    design_stackinspection
    design_struct_example
    design_total_ordering
@@ -113,7 +95,6 @@ servers and clients.
    networking_email2
    networking_email3
    networking_fetchrfc
-   networking_googlesearch
    networking_socket_client
    networking_socket_example1
    networking_socket_example2
@@ -236,8 +217,5 @@ These deal with websites, webapplications and work on top of networking layer.
    files_processing_every_word
    files_random_access_input_output
    files_reading_zipfile
-
-   files_import_zip_with_py
-
    min_cost_path
 
