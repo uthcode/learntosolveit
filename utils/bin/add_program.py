@@ -99,7 +99,7 @@ def get_index_file(language):
 
 def exit_if_not_exists(path):
     if not os.path.exists(path):
-        print "{0} does not exists".format(path)
+        print("{0} does not exists".format(path))
         sys.exit(-1)
 
 def main(args):
@@ -115,7 +115,7 @@ def main(args):
     exit_if_not_exists(path)
     program_file = os.path.abspath(os.path.join(path, program))
     create_program(program_file)
-    print 'Created {0}'.format(program_file)
+    print('Created {0}'.format(program_file))
 
     path = get_source_dir(language)
     exit_if_not_exists(path)
@@ -125,12 +125,12 @@ def main(args):
         source_file,
         _program_name(program))
 
-    print 'Created {0}'.format(source_file)
+    print('Created {0}'.format(source_file))
 
     filename = get_index_file(language)
     exit_if_not_exists(filename)
     update_index_file(filename, _program_name(program))
-    print 'Updated {0}'.format(filename)
+    print('Updated {0}'.format(filename))
 
 if __name__ == '__main__':
     main(sys.argv[1:])

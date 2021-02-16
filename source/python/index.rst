@@ -36,6 +36,7 @@ This is an implementation of a well known CS algorithm.
    algorithm_toss_coins
    algorithm_traversal
    algorithm_tree2
+   trie
 
 Design
 ======
@@ -218,4 +219,3 @@ These deal with websites, webapplications and work on top of networking layer.
    files_random_access_input_output
    files_reading_zipfile
    min_cost_path
-
