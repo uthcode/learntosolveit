@@ -1,63 +1,100 @@
 /**
  * Exercise 1.16
  *
- * Write a Program to print the longest line input
- *
+ * Write a program to print the length of an arbitrarily long input line 
+ * and as much text as possible
+ * 
  **/
 
-#include<stdio.h>
 
-#define MAXLINE 1000
+#include <stdio.h>
 
-int mgetline(char line[],int lim);
+/* The size of the output that we would like */
+#define MAX 1000
 
-void copy(char to[],char from[]);
+/* define our functions*/
+int getNewLine(char line[], int max);
+void copy(char to[], char from[]);
 
+int main(){
 
-int main(void)
-{
-	int len,max;
-	char line[MAXLINE], maxline[MAXLINE];
+  int len, max;
+  char line[MAX];
+  char longest[MAX];
 
-	max =0;
+  max = 0;
+  while((len = getNewLine(line, MAX)) > 0){
 
-	while((len = mgetline(line, MAXLINE)) > 0)
-	{
-		if(len > max)
-		{
-			max = len;
-			copy(maxline,line);
-		}
-	}
+    if(len > max){
 
-	if(max>0)
-		printf("%s",maxline);
-}
-	
+      max = len;
+      copy(longest, line);
 
-int mgetline(char s[],int lim)
-{
-	int i,c;
+    }
+    
+  }
+  
+  if (max > 0){
 
-	for(i=0;i<lim-1 && (c=getchar())!=EOF && c !='\n';++i)
-		s[i] = c;
+    printf("length = %i, string=%s", max, longest);
+    
+  }
 
-	if(c == '\n')
-	{
-	s[i] = c;
-	++i;
-	}
+  return 0;
 
-	s[i] = '\0';
-	return i;
 }
 
-void copy(char to[],char from[])
-{
-	int i;
-	i=0;
+/* get a line in a character array */
+int getNewLine(char arr[], int lim){
 
-	while((to[i]=from[i]) != '\0')
-	++i;
+  int c, i;
+
+  for(i=0; i < lim -1 && (c=getchar()) != EOF && c != '\n'; ++i){
+   
+    arr[i] = c;
+
+  }
+  if(c == '\n'){
+
+    arr[i] = c;
+    ++i;
+    
+  }
+ 
+  else{
+
+    /* Continue to count the length even if it is longer than the max */
+    while((c=getchar()!=EOF) && c != '\n'){
+      
+      ++i;
+      
+    }
+
+    if(c == '\n'){
+
+      arr[i] = c;
+      ++i;
+    
+    }
+
+  }
+
+  arr[i] = '\0';
+  return i;
+
 }
-		
+
+/* copy one character array to another */
+void copy(char to[], char from[]){
+
+  int i;
+
+  i = 0;
+
+  while((to[i] = from[i]) != '\0'){ 
+
+    ++i;
+    
+  }
+
+}
