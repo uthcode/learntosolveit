@@ -6,7 +6,12 @@ int main(void)
 {
 	char *a="Hello,World";
 	minprintf("%s",a);
-	
+	int i = 10; 
+    	minprintf("%d\n", i); 
+    	int b = 011;
+    	minprintf("b in octal: %o, and in decimal: %d\n", b, b); 
+    	int h = 10; 
+    	minprintf("h in hex: %x, and in decimal: %d\n", h, h);
 	return 0;
 }
 
@@ -39,8 +44,16 @@ void minprintf(char *fmt,...)
 				break;
 			case 's':
 				for(sval = va_arg(ap,char *);*sval;sval++)
-					putchar(*sval);
+				putchar(*sval);
 				break;
+			case 'o':
+                		ival = va_arg(ap,int);
+                		printf("%o", ival);
+               			 break;
+            		case 'x':
+                		ival =va_arg(ap,int);
+                		printf("%x", ival);
+               			break;
 			default:
 				putchar(*p);
 				break;
