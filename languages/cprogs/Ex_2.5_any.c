@@ -45,11 +45,10 @@ int mgetline(char s[],int lim)
 	s[i]='\0';
 }
 
+
 int any(char s1[],char s2[])
 {
-	int i,j,n;
-
-	n=-1;
+	int i,j;
 
 	for(i=0;s1[i]!='\0';++i) 
 	{
@@ -57,12 +56,10 @@ int any(char s1[],char s2[])
 		for(j=0;(s1[i]!=s2[j]) && s2[j]!='\0';++j) 
 			; // continue
 
-		if(s2[j]!='\0' && s2[j] != '\n') {
-			n=i;
-			break;
+		if(s2[j]!='\0' && s2[j] != '\n') { // check that s2 [j]! = '\n', since s1 and s2 both have the character '\n' in the penultimate position of the string.
+			return i;
 		}
-		
 	}
 
-	return n;
+	return -1;
 }
