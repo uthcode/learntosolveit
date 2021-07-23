@@ -47,26 +47,22 @@ int mgetline(char s[],int lim)
 
 int any(char s1[],char s2[])
 {
-	int i,j,check_next_char;
+	int i,j,n;
 
-	check_next_char=1;
+	n=-1;
 
-	for(i=0;s1[i]!='\0'&& (check_next_char);) 
+	for(i=0;s1[i]!='\0';++i) 
 	{
 		// iterate through s2 while trying to find matching character from s1
-		for(j=0;s2[j]!='\0'&& (s1[i]!=s2[j]);++j) 
+		for(j=0;(s1[i]!=s2[j]) && s2[j]!='\0';++j) 
 			; // continue
 
-		if(s2[j]=='\0') {
-			check_next_char=1;
-			i++; // go for the next char in s1
+		if(s2[j]!='\0' && s2[j] != '\n') {
+			n=i;
+			break;
 		}
-		else
-			check_next_char=0; // match found
+		
 	}
 
-	if(s1[i]=='\0')
-		return -1;
-	else
-		return i;
+	return n;
 }
