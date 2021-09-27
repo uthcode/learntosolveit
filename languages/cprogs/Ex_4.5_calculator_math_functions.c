@@ -151,7 +151,11 @@ int getop(char s[])
 		if(strlen(s)>1)
 			return NAME;
 		else
-			return c;
+			/*return c; this line was bad since when s < 1, the array s only has one character s[0], therofore, this character must
+			be retorned in order to see if it is d,?,s etc. The character c instead contain whatever non-lower value wich always will result
+			in a command uknown*/
+			
+			return s[0];
 	}
 		
 	if(!isdigit(c) && c!='.' && c!='-')
