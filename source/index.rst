@@ -1,17 +1,28 @@
 Learn, Understand and Solve Problems
 ====================================
 
-This website contains example of snippets and explainations. The idea is to
-learn, understand and solve problems. These small pieces are often the building
-blocks of larger solutions. 
+This website will help you learn programming languages such as **C** and **Python**.
+It will help you become familiar with small programs, which are often the
+building blocks of large solutions.
 
-The problems are taken from well known sources, exercises in books.  The
+The problems are from well known sources, exercises in popular books.  The
 copyright of those problems belongs to author of the books.
 
-The solutions are either written by me, contributors or copied from other
-places. If they are copied, I attribute with reference. If it is missing, I
-apologize, and I will correct it. The explaination are written by me and other
-contributors.
+The explainations are written by me or by other contributors.
+
+Philosophy
+---------
+
+* Small but complete.
+* Practice is the key.
+
+Small but complete solutions help in learning with problem solving approach. If
+a solution is shared as a building block of larger solution, a small, but
+complete solution is shared.
+
+Practice is key to solving problems. Links to practice the problem online is
+shared so that students can practice their skills and **learn to solve it**.
+
 
 Improvements to website can be submitted via `Github`_ pull requests.
 
