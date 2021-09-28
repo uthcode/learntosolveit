@@ -11,18 +11,14 @@ copyright of those problems belongs to author of the books.
 The explainations are written by me or by other contributors.
 
 Philosophy
----------
+----------
 
 * Small but complete.
 * Practice is the key.
 
-Small but complete solutions help in learning with problem solving approach. If
-a solution is shared as a building block of larger solution, a small, but
-complete solution is shared.
-
+Small but complete solutions help in learning with problem solving approach.
 Practice is key to solving problems. Links to practice the problem online is
 shared so that students can practice their skills and **learn to solve it**.
-
 
 Improvements to website can be submitted via `Github`_ pull requests.
 

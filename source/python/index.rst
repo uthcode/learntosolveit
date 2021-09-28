@@ -18,7 +18,7 @@ This is an implementation of a well known CS algorithm.
    algorithm_checking_string_text_or_binary
    algorithm_eratosthenes
    algorithm_fibo
-   algorithm_fibo2
+   algorithm_fact2
    algorithm_graph
    algorithm_hanoi
    algorithm_insertion
@@ -198,7 +198,6 @@ These deal with websites, webapplications and work on top of networking layer.
    web_server
    web_simple_http_processor
    web_urllib1
-   web_urllib2_1
    web_urllib2_add_data
    web_urllib2_auth_ex1
    web_urllib2_basic_digest1
