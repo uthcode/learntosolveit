@@ -1,8 +1,7 @@
-https://www.learntosolveit.com
-==============================
+https://exercism.org
+====================
 
-This is the main site with all the source code snippets and documentation.
-
+Please visit https://exercism.org to "Learn To Solve It" using your favorite programming language.
 
 .. image:: https://readthedocs.org/projects/learntosolveit/badge/?version=latest
    :target: https://www.learntosolveit.com/?badge=latest
