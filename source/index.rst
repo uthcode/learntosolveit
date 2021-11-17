@@ -1,3 +1,12 @@
+Head To Exercism
+================
+
+I am recommending https://exercism.org as the platform to go "Learn to Solve
+It" in  your favorite programming language.
+
+Let us all head over to there.
+
+
 Learn, Understand and Solve Problems
 ====================================
 
