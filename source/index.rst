@@ -1,14 +1,17 @@
-Head To Exercism
-================
+Head To Exercism.org
+====================
 
-I am recommending https://exercism.org as the platform to go "Learn to Solve
-It" in  your favorite programming language.
+I am recommending https://exercism.org as the platform to learn Programming.
 
-Let us all head over to there.
+* It has everything that learn to solve it tried to do.
+
+* I use it myself and I find the project philososphy and approach excellent to learn Programming.
+
+In coming days, https://www.LearnToSolveit.com will start redirecting to exercism.org
 
 
 Learn, Understand and Solve Problems
-====================================
+------------------------------------
 
 This website will help you learn programming languages such as **C** and **Python**.
 It will help you become familiar with small programs, which are often the
