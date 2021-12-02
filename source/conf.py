@@ -25,10 +25,7 @@ html_theme_options = {
         'navbar_sidebarrel' : True,
         'navbar_pagenav': False,
         'bootswatch_theme': "united",
-        'navbar_site_name': "Navigator",
-        'navbar_links': [
-            ("Online Tutor", "https://goo.gl/forms/I3NahMbRcAct2TRy2", True),
-        ],
+        'navbar_site_name': "Navigator"
 }
 
 # If extensions (or modules to document with autodoc) are in another directory,

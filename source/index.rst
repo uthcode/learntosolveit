@@ -1,14 +1,10 @@
-Head To Exercism.org
-====================
-
-I am recommending https://exercism.org as the platform to learn Programming.
-
-* It has everything that learn to solve it tried to do.
-
-* I use it myself and I find the project philososphy and approach excellent to learn Programming.
+I recommend https://exercism.org as the platform to learn Programming. It has
+everything that learn to solve it intended.
 
 In coming days, https://www.LearnToSolveit.com will start redirecting to exercism.org
 
+* It was better for me to focus on better bigger project, while giving up on my project.
+* It was better to redirect students to a project that will be useful to them.
 
 Learn, Understand and Solve Problems
 ------------------------------------
@@ -17,13 +13,7 @@ This website will help you learn programming languages such as **C** and **Pytho
 It will help you become familiar with small programs, which are often the
 building blocks of large solutions.
 
-The problems are from well known sources, exercises in popular books.  The
-copyright of those problems belongs to author of the books.
-
-The explainations are written by me or by other contributors.
-
-Philosophy
-----------
+The key philosophy behind this project was.
 
 * Small but complete.
 * Practice is the key.
@@ -32,7 +22,8 @@ Small but complete solutions help in learning with problem solving approach.
 Practice is key to solving problems. Links to practice the problem online is
 shared so that students can practice their skills and **learn to solve it**.
 
-Improvements to website can be submitted via `Github`_ pull requests.
+I recommend https://exercism.org as the platform to learn Programming. It has
+everything that learn to solve intended.
 
 **Reference Books**
 
