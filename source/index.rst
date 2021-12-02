@@ -18,10 +18,6 @@ The key philosophy behind this project was.
 * Small but complete.
 * Practice is the key.
 
-Small but complete solutions help in learning with problem solving approach.
-Practice is key to solving problems. Links to practice the problem online is
-shared so that students can practice their skills and **learn to solve it**.
-
 I recommend https://exercism.org as the platform to learn Programming. It has
 everything that learn to solve intended.
 
