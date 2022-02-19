@@ -34,28 +34,36 @@ int mgetline(char s[],int lim)
 	s[i]='\0';
 }
 
-void reverse(char s[])
-{
-	void reverser(char s[],int i,int len);
+void reverse(char s[]){
 
-	reverser(s,0,strlen(s));
+    static int i = 0;
+    static int len;
+
+    int j;
+    char c;
+
+    if (i ==0){
+        len= strlen(s);
+    }
+    
+    j= len - (i+1);
+
+    if (i<j){
+        c=s[i];
+        s[i]=s[j];
+        s[j]=c;
+        i++;
+        reverse(s);
+    }
+
+    // the algorithm has finished so we have to set i=0 again
+    else{
+        i=0;
+    }  
 }
 
-/* reverser: reverse string s in place; recursive */
 
-void reverser(char s[],int i,int len)
-{
-	int c,j;
 
-	j = len - (i + 1);
-	
-	if( i < j )
-	{
-		c = s[i];
-		s[i] = s[j];
-		s[j] = c;
 
-		reverser(s,++i,len);
-	}
-}
+
 
