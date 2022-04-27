@@ -47,36 +47,22 @@ int main(){
 /* get a line in a character array */
 int getNewLine(char arr[], int lim){
 
-  int c, i;
+  int c, i, stop;
 
-  for(i=0; i < lim -1 && (c=getchar()) != EOF && c != '\n'; ++i){
-   
-    arr[i] = c;
-
-  }
-  if(c == '\n'){
-
-    arr[i] = c;
-    ++i;
+  for (i = 0; (c = getchar()) != EOF && c != '\n'; ++i){
     
-  }
- 
-  else{
-
-    /* Continue to count the length even if it is longer than the max */
-    while((c=getchar()!=EOF) && c != '\n'){
+    if (i < lim - 1){
       
-      ++i;
-      
-    }
-
-    if(c == '\n'){
-
       arr[i] = c;
-      ++i;
-    
+      
     }
-
+  
+    else if (i == lim - 1){
+      
+      stop = i;
+      
+    }
+    
   }
 
   arr[i] = '\0';
