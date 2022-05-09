@@ -1,11 +1,3 @@
-I recommend https://exercism.org as the platform to learn Programming. It has
-everything that learn to solve it intended.
-
-In coming days, https://www.LearnToSolveit.com will start redirecting to exercism.org
-
-* It was better for me to focus on better bigger project, while giving up on my project.
-* It was better to redirect students to a project that will be useful to them.
-
 Learn, Understand and Solve Problems
 ------------------------------------
 
@@ -18,8 +10,7 @@ The key philosophy behind this project was.
 * Small but complete.
 * Practice is the key.
 
-I recommend https://exercism.org as the platform to learn Programming. It has
-everything that learn to solve intended.
+I recommend https://exercism.org as the platform to learn Programming and practice with a dedicated community.
 
 **Reference Books**
 
@@ -30,16 +21,16 @@ everything that learn to solve intended.
 .. _Github: https://github.com/uthcode/learntosolveit
 
 
-C Programming Language
-======================
+C Programming
+=============
 
 .. toctree::
    :maxdepth: 3
 
    cprogramming/index
 
-Python Programming Language
-===========================
+Python Programming
+==================
 
 .. toctree::
    :maxdepth: 3

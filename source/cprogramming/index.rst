@@ -1,6 +1,6 @@
-======================
-C Programming Language
-======================
+=============
+C Programming
+=============
 
 This is the C programming language section. Our intention is to present the programs of Kernighan and Ritchie here with explanation.
 If you like that book or like to learn C, you may find this interesting.

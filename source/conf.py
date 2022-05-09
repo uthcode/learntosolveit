@@ -18,7 +18,7 @@ import sphinx_bootstrap_theme
 # ...
 
 # Activate the theme.
-html_theme = 'bootstrap'
+html_theme = 'pydata_sphinx_theme'
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 html_theme_options = {
@@ -58,14 +58,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Learn To Solve It'
-copyright = u'2020, Senthil Kumaran'
+copyright = u'2022, Senthil Kumaran'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '2020-01-06'
+version = '2022-01-06'
 # The full version, including alpha/beta/rc tags.
 release = ''
 
