@@ -164,6 +164,12 @@ make money, you will need to take care of these aspects.
    software_engineering_twitter_phidget
    software_engineering_xmlrpcclient
    software_engineering_xmlrpcserver
+   files_read_specific_line
+   files_count_lines_large_file
+   files_processing_every_word
+   files_random_access_input_output
+   files_reading_zipfile
+   min_cost_path
 
 Text Manipulation
 =================
@@ -176,45 +182,3 @@ category.
    :maxdepth: 1
 
    text_manipulation_argparse1
-
-
-Web
-===
-
-These deal with websites, webapplications and work on top of networking layer.
-
-.. toctree::
-   :maxdepth: 1
-
-   web_cgi_ex
-   web_crawl
-   web_crawl2
-   web_http_auth_header_code
-   web_httplib_example_1
-   web_httplib_example_2
-   web_httplib_example_3
-   web_httplib_head
-   web_scan_web
-   web_server
-   web_simple_http_processor
-   web_urllib1
-   web_urllib2_add_data
-   web_urllib2_auth_ex1
-   web_urllib2_basic_digest1
-   web_urllib2_basic1
-   web_urllib2_basic2
-   web_urllib2_basic3
-   web_urllib2_binary_upload
-   web_urllib2_debug_headers
-   web_urllib2_digest
-   web_urllib2_digest2
-   web_urllib2_headers_ex1
-   web_urllib2_proxy_auth
-   web_urllib2_test
-   web_urllib2_1
-   files_read_specific_line
-   files_count_lines_large_file
-   files_processing_every_word
-   files_random_access_input_output
-   files_reading_zipfile
-   min_cost_path
