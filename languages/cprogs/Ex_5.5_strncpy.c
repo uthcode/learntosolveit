@@ -18,7 +18,7 @@ void mystrncpy(char *, char *, int);
 void mystrncat(char *, char *, char *, int);
 int mystrncmp(char *, char *, int);
 
-int mystrlen(char *s);
+int mystrnlen(char *s);
 
 int main(int argc, char *argv[])
 {
@@ -77,7 +77,7 @@ void mystrncpy(char *dest,char *source,int n)
     int extra = mystrnlen(dest) - n;
 
     while (extra-- > 0) {
-    	*dest++;
+    	dest++;
     }
 
     *dest = '\0';
