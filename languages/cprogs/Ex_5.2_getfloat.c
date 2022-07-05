@@ -16,10 +16,10 @@ int main(void)
 	float array[SIZE];
 
 	for(n=0;n<SIZE && getfloat(&array[n]) !=EOF;n++)
-		;
-	for(;n>=0;n--)
-		printf("%f",array[n]);
-
+	{
+	 for(;n>=0;n--)
+	 	printf("%f\n",array[n]);
+	}
 	return 0;
 }
 
