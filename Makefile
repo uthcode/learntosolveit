@@ -34,7 +34,7 @@ clean:
 
 deploy:
 	python3 -m venv --copies deploy
-	source deploy/bin/activate
+	. deploy/bin/activate
 	pip install -r source/requirements.txt
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
