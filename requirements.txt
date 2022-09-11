@@ -1,0 +1,2 @@
+pydata-sphinx-theme
+sphinx_bootstrap_theme
