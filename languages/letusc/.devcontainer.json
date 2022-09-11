@@ -1,0 +1,125 @@
+{
+    "extensions": [
+        "/opt/cs50/extensions/cs50-0.0.1.vsix",
+        "/opt/cs50/extensions/phpliteadmin-0.0.1.vsix",
+        "/opt/cs50/extensions/workspace-layout-0.0.7.vsix",
+        "cs50.ddb50",
+        "cs50.extension-uninstaller",
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "ms-vscode.hexeditor",
+        "ms-vsliveshare.vsliveshare-pack",
+        "tomoki1207.pdf",
+        "vsls-contrib.gitdoc"
+    ],
+    "image": "ghcr.io/cs50/codespace",
+    "postCreateCommand": "/opt/cs50/bin/postCreateCommand",
+    "settings": {
+        "breadcrumbs.enabled": false,
+        "C_Cpp.autocomplete": "Disabled",
+        "C_Cpp.codeFolding": "Disabled",
+        "C_Cpp.dimInactiveRegions": false,
+        "C_Cpp.enhancedColorization": "Enabled",
+        "C_Cpp.errorSquiggles": "Disabled",
+        "editor.autoClosingQuotes": "never",
+        "editor.colorDecorators": false,
+        "editor.emptySelectionClipboard": false,
+        "editor.folding": false,
+        "editor.foldingHighlight": false,
+        "editor.hover.enabled": false,
+        "editor.lightbulb.enabled": false,
+        "editor.matchBrackets": "near",
+        "editor.minimap.enabled": false,
+        "editor.occurrencesHighlight": false,
+        "editor.parameterHints.enabled": false,
+        "editor.quickSuggestions": false,
+        "editor.renderIndentGuides": false,
+        "editor.renderWhitespace": "selection",
+        "editor.selectionHighlight": false,
+        "editor.semanticTokenColorCustomizations": {
+            "[Default Dark+]": {
+                "enabled": true,
+                "rules": {
+                    "type": "#569CD6"
+                }
+            },
+            "[Default Light+]": {
+                "enabled": true,
+                "rules": {
+                    "type": "#0000FF"
+                }
+            }
+        },
+        "editor.suggestOnTriggerCharacters": false,
+        "extensions.ignoreRecommendations": true,
+        "extension-uninstaller.uninstall": [
+            "github.copilot",
+            "github.copilot-nightly",
+            "tabnine.tabnine-vscode"
+        ],
+        "files.autoSave": "afterDelay",
+        "files.exclude": {
+            "**/.*": true
+        },
+        "files.trimTrailingWhitespace": true,
+        "files.watcherExclude": {
+            "**/.git/objects/**": true,
+            "**/.git/subtree-cache/**": true,
+            "**/node_modules/*/**": true
+        },
+        "git.autofetch": true, /* Disable "Would you like Code to periodically run 'git fetch'?" toast */
+        "git.decorations.enabled": false,
+        "gitdoc.autoPull": "off",
+        "gitdoc.enabled": true,
+        "gitdoc.commitMessageFormat": "ddd, MMM D, YYYY, h:mm A Z",
+        "gitdoc.commitValidationLevel": "none",
+        "gitdoc.pullOnOpen": false,
+        "html.suggest.html5": false,
+        "javascript.suggest.enabled": false,
+        "javascript.validate.enable": false, /* Disable red squiggles */
+        "problems.decorations.enabled": false,
+        "remote.otherPortsAttributes": {
+            "onAutoForward": "silent"
+        },
+        "scm.countBadge": "off",
+        "terminal.integrated.commandsToSkipShell": [
+            "workbench.action.toggleSidebarVisibility"
+        ],
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "args": [
+                    "-l"
+                ],
+                "path": "bash"
+            },
+            "JavaScript Debug Terminal": null
+        },
+        "terminal.integrated.persistentSessionReviveProcess": "never",
+        "terminal.integrated.sendKeybindingsToShell": true,
+        "terminal.integrated.tabs.description": "${task}${separator}${local}", /* Remove cwdFolder from description */
+        "terminal.integrated.tabs.showActiveTerminal": "never",
+        "window.autoDetectColorScheme": true,
+        "workbench.colorCustomizations": {
+            "editor.lineHighlightBorder": "#0000", /* Disable gray border-{bottom,top} on active line */
+            "editorError.foreground": "#0000", /* Disable red squiggles */
+            "editorWarning.foreground": "#0000", /* Disable yellow squiggles */
+            "editorGutter.addedBackground": "#0000",
+            "editorGutter.deletedBackground": "#0000",
+            "editorGutter.modifiedBackground": "#0000", /* Disable yellow bars to left of lines modified since last commit */
+            "[GitHub Light Default]": {
+                "terminal.foreground": "#000000" /* Change terminal font color to #000 for GitHub Light Default theme */
+            }
+        },
+        "workbench.editor.closeOnFileDelete": true,
+        "workbench.editor.untitled.hint": "hidden",
+        "workbench.enableExperiments": false,
+        "workbench.iconTheme": "vs-minimal", /* Simplify icons */
+        "workbench.preferredDarkColorTheme": "Default Dark+",
+        "workbench.preferredLightColorTheme": "Default Light+",
+        "workbench.startupEditor": "none",
+        "workbench.statusBar.visible": false,
+        "workbench.tips.enabled": false,
+        "workbench.welcomePage.walkthroughs.openOnInstall": false
+    }
+}

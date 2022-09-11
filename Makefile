@@ -32,6 +32,14 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 
+deploy:
+	python3 -m venv --copies deploy
+	source deploy/bin/activate
+	pip install -r source/requirements.txt
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo

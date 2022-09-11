@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: learntosolveit
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: learntosolveit
+  name: deployment-learntosolveit
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app-learntosolveit
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app-learntosolveit
+    spec:
+      containers:
+        - image: skumaran/learntosolveit:latest
+          imagePullPolicy: Always
+          name: app-learntosolveit
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: learntosolveit
+  name: service-learntosolveit
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: app-learntosolveit
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: learntosolveit
+  name: ingress-learntosolveit
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-learntosolveit
+                port:
+                  number: 80
