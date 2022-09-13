@@ -13,6 +13,7 @@
 
 import sys
 import os
+from datetime import date
 
 # At the top.
 import sphinx_bootstrap_theme
@@ -59,7 +60,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Learn To Solve It'
-copyright = u'2022, Senthil Kumaran'
+copyright = f'{date.today().year} Senthil Kumaran'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
