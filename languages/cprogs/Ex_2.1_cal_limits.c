@@ -14,15 +14,15 @@
 * (<type>) casting it the required type again
 */
 
-#include<stdio.h>
-#include<limits.h>
-#include<float.h>
+#include <stdio.h>
+#include <limits.h>
+#include <float.h>
 
-int main(void)
+int main()
 {
 	/* ranges of various floating-point types through calculation */
 	printf("Ranges of various floating-point types through calculation:\n");
-	
+
 	printf("Minimum Signed Char %d\n",-(char)((unsigned char) ~0 >> 1) - 1);
 	printf("Maximum Signed Char %d\n",(char) ((unsigned char) ~0 >> 1));
 
@@ -41,28 +41,27 @@ int main(void)
 	printf("Maximum Unsigned Short %d\n",(unsigned short)~0);
 	printf("Maximum Unsigned Int %u\n",(unsigned int)~0);
 	printf("Maximum Unsigned Long %lu\n\n",(unsigned long)~0);
-	
+
 	/* ranges of various floating-point types from standard headers */
 	printf("Ranges of various floating-point types from standard headers:\n");
-	
 	printf("Minimum Signed Char %d\n", SCHAR_MIN);
-    	printf("Maximum Signed Char %d\n", SCHAR_MAX);
-    
-    	printf("Minimum Signed Short %d\n", SHRT_MIN);
-    	printf("Maximum Signed Short %d\n", SHRT_MAX);
-    
-    	printf("Minimum Signed Int %d\n", INT_MIN);
-    	printf("Maximum Signed Int %d\n", INT_MAX);
-    
-    	printf("Minimum Signed Long %ld\n", LONG_MIN);
-    	printf("Maximum signed Long %ld\n", LONG_MAX);
-    
-    	/* Unsigned Maximum Values */
-    
-    	printf("Maximum Unsigned Char %d\n", UCHAR_MAX);
-    	printf("Maximum Unsigned Short %d\n", USHRT_MAX);
-    	printf("Maximum Unsigned Int %u\n", UINT_MAX);
-    	printf("Maximum Unsigned Long %lu\n", ULONG_MAX);
-    	
+    printf("Maximum Signed Char %d\n", SCHAR_MAX);
+
+    printf("Minimum Signed Short %d\n", SHRT_MIN);
+    printf("Maximum Signed Short %d\n", SHRT_MAX);
+
+    printf("Minimum Signed Int %d\n", INT_MIN);
+    printf("Maximum Signed Int %d\n", INT_MAX);
+
+    printf("Minimum Signed Long %ld\n", LONG_MIN);
+    printf("Maximum signed Long %ld\n", LONG_MAX);
+
+    /* Unsigned Maximum Values */
+
+    printf("Maximum Unsigned Char %d\n", UCHAR_MAX);
+    printf("Maximum Unsigned Short %d\n", USHRT_MAX);
+    printf("Maximum Unsigned Int %u\n", UINT_MAX);
+    printf("Maximum Unsigned Long %lu\n", ULONG_MAX);
+
 	return 0;
 }

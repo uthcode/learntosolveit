@@ -4,26 +4,25 @@
  *
  **/
 
-#include<stdio.h>
-
-int main() {
-
-    int char_count, num_lines, num_tabs, num_spaces;
+#include <stdio.h>
 
 
-    num_lines = 0;
-    num_tabs = 0;
-    num_spaces = 0;
+int main()
+{
+    int c, blanks, tabs, newlines;
 
-    while ((char_count = getchar()) != EOF) {
-        if (char_count == '\n')
-            ++num_lines;
-        if (char_count == '\t')
-            ++num_tabs;
-        if (char_count == ' ')
-            ++num_spaces;
+    blanks = tabs = newlines = 0;
+
+    while ((c = getchar()) != EOF) {
+        if (c == ' ')
+            ++blanks;
+        if (c == '\t')
+            ++tabs;
+        if (c == '\n')
+            ++newlines;
     }
 
-    printf("Blanks: %d\nTabs: %d\nNewlines: %d\n", num_spaces, num_tabs, num_lines);
-
+    printf("Blanks: %d\n", blanks);
+    printf("Tabs: %d\n", tabs);
+    printf("Newlines: %d\n", newlines);
 }
