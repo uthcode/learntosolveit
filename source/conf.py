@@ -11,18 +11,21 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+import sys
+import os
+
 # At the top.
 import sphinx_bootstrap_theme
 
 # ...
 
 # Activate the theme.
+
 html_theme = 'pydata_sphinx_theme'
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 html_theme_options = {
-        'navbar_sidebarrel' : True,
+        'navbar_sidebarrel': True,
         'navbar_pagenav': False,
         'bootswatch_theme': "united",
         'navbar_site_name': "Navigator"
@@ -51,7 +54,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+# source_encoding = 'utf-8-sig'
 
 # The master toctree document.
 master_doc = 'index'
@@ -87,6 +90,7 @@ today_fmt = '%d %b of %y'
 exclude_trees = []
 
 # The reST default role (used for this markup: `text`) to use for all documents.
+
 #default_role = None
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
