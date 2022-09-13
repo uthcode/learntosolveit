@@ -16,12 +16,6 @@ Solution
    :tab-width: 4
 
 
-.. runcode:: ../../languages/cprogs/Ex_1.2_exp_printf_c.c
-   :language: c
-   :codesite: ideone
-   
-
-
 Explanation
 ===========
 
@@ -51,7 +45,6 @@ References
 
 .. _Discussion on U Codepoint: http://stackoverflow.com/questions/21241224/unicode-codepoint-of-the-format-unnnnnnnn/
 .. _Valid escape characters: http://en.cppreference.com/w/cpp/language/escape
-
 
 
 .. seealso::
