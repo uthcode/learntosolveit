@@ -16,19 +16,12 @@ Solution
    :tab-width: 2
 
 
-.. runcode:: ../../languages/cprogs/Ex_1.12_word_per_line.c
-   :language: c
-   :codesite: ideone
-
-
-
 Explanation
 ===========
 
 In this program, we read the one character at a time and check if the character
 is a space ' ', we print newline character, '\n' thus going to next line in the
 output, otherwise we simply print the character c.
-
 
 
 .. seealso::

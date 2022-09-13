@@ -25,10 +25,8 @@ html_theme = 'pydata_sphinx_theme'
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 html_theme_options = {
-        'navbar_sidebarrel': True,
-        'navbar_pagenav': False,
-        'bootswatch_theme': "united",
-        'navbar_site_name': "Navigator"
+        "page_sidebar_items": [],
+        "show_prev_next": True
 }
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -197,6 +195,13 @@ html_short_title = 'Learn To Solve It'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+
+html_css_files = [
+    'css/custom.css',
+]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
