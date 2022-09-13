@@ -1,8 +1,8 @@
-/* First Program in KandR, the hello,world */
+/* First Program in K&R. print hello,world */
 
-#include<stdio.h>
-void main()
+#include <stdio.h>
+
+int main()
 {
-	printf("hello,world\n");
+    printf("hello, world\n");
 }
-
