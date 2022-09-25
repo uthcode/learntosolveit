@@ -22,13 +22,17 @@ import sphinx_bootstrap_theme
 
 # Activate the theme.
 
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'piccolo_theme'
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 html_theme_options = {
-        "page_sidebar_items": [],
         "show_prev_next": True
 }
+
+html_theme_options = {
+    "source_url": 'https://github.com/uthcode/learntosolveit'
+}
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -116,48 +120,24 @@ pygments_style = 'friendly'
 # :python-suggest-improve:`name.py`
 # :python-better-explain:`name.rst`
 
-extlinks = {'c-suggest-improve':
-    ('https://github.com/uthcode/learntosolveit/edit/master/languages/cprogs/%s',
-    "Suggest a Code Improvement: "),
-            'c-better-explain':
-    ('https://github.com/uthcode/learntosolveit/edit/master/source/cprogramming/%s',
-    "Suggest a better explanation for "),
-            'python-suggest-improve':
-    ("https://github.com/uthcode/learntosolveit/edit/master/languages/python/%s",
-        "Suggest a Code Improvement:"),
-             'python-better-explain':
-    ("https://github.com/uthcode/learntosolveit/edit/master/source/python/%s",
-        "Suggest a better explanation for "),
-            'ruby-suggest-improve':
-    ("https://github.com/uthcode/learntosolveit/edit/master/languages/ruby/%s",
-        "Suggest a Code Improvement:"),
-             'ruby-better-explain':
-    ("https://github.com/uthcode/learntosolveit/edit/master/source/ruby/%s",
-        "Suggest a better explanation for "),
-            'java-suggest-improve':
-    ("https://github.com/uthcode/learntosolveit/edit/master/languages/java/%s",
-        "Suggest a Code Improvement:"),
-             'java-better-explain':
-    ("https://github.com/uthcode/learntosolveit/edit/master/source/java/%s",
-        "Suggest a better explanation for "),
-            'scala-suggest-improve':
-    ("https://github.com/uthcode/learntosolveit/edit/master/languages/scala/%s",
-        "Suggest a Code Improvement:"),
-             'scala-better-explain':
-    ("https://github.com/uthcode/learntsolveit/edit/master/source/scala/%s",
-        "Suggest a better explanation for "),
-            'go-suggest-improve':
-    ("https://github.com/uthcode/learntosolveit/edit/master/languages/go/%s",
-        "Suggest a Code Improvement:"),
-             'go-better-explain':
-    ("https://github.com/uthcode/learntosolveit/edit/master/source/go/%s",
-        "Suggest a better explanation for "),
-              'use-local-compiler':
-    ('http://www.seas.upenn.edu/cets/answers/%s.html',
-              'Please use a local c compiler to run this program.'),
+extlinks = {
+        'c-suggest-improve': (
+            'https://github.com/uthcode/learntosolveit/'
+            'edit/master/languages/cprogs/%s',
+            "Suggest a Code Improvement: "),
+        'c-better-explain': (
+            'https://github.com/uthcode/learntosolveit/'
+            'edit/master/source/cprogramming/%s',
+            "Suggest a better explanation for "),
+        'python-suggest-improve': (
+            "https://github.com/uthcode/learntosolveit/"
+            "edit/master/languages/python/%s",
+            "Suggest a Code Improvement:"),
+        'python-better-explain': (
+            "https://github.com/uthcode/learntosolveit/"
+            "edit/master/source/python/%s",
+            "Suggest a better explanation for "),
 }
-
-
 
 
 # -- Options for HTML output ---------------------------------------------------

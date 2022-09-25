@@ -79,39 +79,6 @@ demonstrates how it is done.
    design_traceit
 
 
-Networking
-==========
-
-This program demonstrates networking and socket calls. Anything to do with
-servers and clients.
-
-
-.. toctree::
-   :maxdepth: 1
-
-   networking_allifaces
-   networking_allipaddress
-   networking_bug_gethostbyname
-   networking_email1
-   networking_email2
-   networking_email3
-   networking_fetchrfc
-   networking_socket_client
-   networking_socket_example1
-   networking_socket_example2
-   networking_socket_example3
-   networking_socket_example4
-   networking_twisted_parallel1
-   networking_twisted_parallel2
-   networking_twisted1
-   networking_twisted2
-   networking_twisted3
-   networking_twisted4
-   networking_twisted5
-   networking_udp_time
-   networking_udp1
-   networking_udp2
-
 Software_engineering
 ====================
 
