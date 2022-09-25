@@ -27,4 +27,4 @@ C Programming
 .. toctree::
    :maxdepth: 3
 
-   cprogramming/index
+   ./cprogramming/index.rst

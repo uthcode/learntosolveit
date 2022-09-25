@@ -196,7 +196,7 @@ html_last_updated_fmt = '%d %b, %y'
 #html_sidebars = {'index': ['indexsidebar.html', 'searchbox.html']}
 #html_additional_pages = {'index': 'index.html', 'foo' : 'foo.html', 'bar': 'bar.html'}
 
-html_sidebars = {'**': ['logo.html','localtoc.html']}
+html_sidebars = {'**': ['logo.html', 'globaltoc.html']}
 
 
 # Additional templates that should be rendered to pages, maps page names to
