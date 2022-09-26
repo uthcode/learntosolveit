@@ -8,17 +8,6 @@ Please visit https://exercism.org to "Learn To Solve It" using your favorite pro
    :alt: Documentation Status
 
 
-directives used
----------------
-
-For the Run This link.
-
-::
-
-    .. runcode:: /path/to/code
-       :language: c, python, java, scala, ruby, go
-       :codesite: ideone
-
 For the suggest-improve and better-explain C programming contents
 
 ::
@@ -31,11 +20,9 @@ Dependencies
 ------------
 
 * https://github.com/sphinx-doc/sphinx/
-* https://github.com/uthcode/sphinxcontrib-runcode/
-* https://github.com/ryan-roemer/sphinx-bootstrap-theme
+
 
 Contact
 -------
 
-* Senthil Kumaran
-Email address.
+* <a href="mailto:senthil@uthcode.com">Senthil Kumaran</a>
