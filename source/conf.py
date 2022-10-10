@@ -22,17 +22,21 @@ import sphinx_bootstrap_theme
 
 # Activate the theme.
 
-html_theme = 'piccolo_theme'
-html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+import sphinx_pdj_theme
+html_theme = 'sphinx_pdj_theme'
+html_theme_path = [sphinx_pdj_theme.get_html_theme_path()]
 
-html_theme_options = {
-        "show_prev_next": True
-}
 
-html_theme_options = {
-    "source_url": 'https://github.com/uthcode/learntosolveit'
-}
+#html_theme = 'piccolo_theme'
+#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
+#html_theme_options = {
+#        "show_prev_next": True
+#}
+
+#html_theme_options = {
+#    "source_url": 'https://github.com/uthcode/learntosolveit'
+#}
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
