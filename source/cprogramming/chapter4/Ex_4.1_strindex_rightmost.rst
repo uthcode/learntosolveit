@@ -2,8 +2,8 @@
 Exercise 4.1- strindex which returns rightmost occurance
 ========================================================
 
-Question
-========
+Code
+====
 
 Write the function strindex(s,t) which returns the position of the rightmost
 occurrence of t in s, or -1 if there is none.
@@ -44,7 +44,7 @@ Visualize It
 
 .. raw:: html
 
-   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20mstrindex%28char%20s%5B%5D,%20char%20t%5B%5D%29%3B%0A%0Aint%20main%28int%20argc,%20char%20*argv%5B%5D%29%20%7B%0A%20%20%20%20char%20line%5B%5D%20%3D%20%22abcdedfabcde%22%3B%0A%20%20%20%20char%20pattern%5B%5D%20%3D%20%22abc%22%3B%0A%0A%20%20%20%20int%20found%3B%0A%0A%20%20%20%20found%20%3D%20mstrindex%28line,%20pattern%29%3B%0A%20%20%20%20printf%28%22Found%3A%20%25d%5Cn%22,%20found%29%3B%0A%7D%0A%0Aint%20mstrindex%28char%20s%5B%5D,%20char%20t%5B%5D%29%20%7B%0A%20%20%20%20int%20i,%20j,%20k,%20result%3B%0A%0A%20%20%20%20result%20%3D%20-1%3B%0A%0A%20%20%20%20for%20%28i%20%3D%200%3B%20s%5Bi%5D%20!%3D%20'%5C0'%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28j%20%3D%20i,%20k%20%3D%200%3B%20t%5Bk%5D%20!%3D%20'%5C0'%20%26%26%20s%5Bj%5D%20%3D%3D%20t%5Bk%5D%3B%20j%2B%2B,%20k%2B%2B%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%3B%0A%20%20%20%20%20%20%20%20if%20%28k%20%3E%200%20%26%26%20t%5Bk%5D%20%3D%3D%20'%5C0'%29%0A%20%20%20%20%20%20%20%20%20%20%20%20result%20%3D%20i%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%20result%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=true"> </iframe>
+   <iframe width="100%" height="800" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20mstrindex%28char%20s%5B%5D,%20char%20t%5B%5D%29%3B%0A%0Aint%20main%28int%20argc,%20char%20*argv%5B%5D%29%20%7B%0A%20%20%20%20char%20line%5B%5D%20%3D%20%22abcdedfabcde%22%3B%0A%20%20%20%20char%20pattern%5B%5D%20%3D%20%22abc%22%3B%0A%0A%20%20%20%20int%20found%3B%0A%0A%20%20%20%20found%20%3D%20mstrindex%28line,%20pattern%29%3B%0A%20%20%20%20printf%28%22Found%3A%20%25d%5Cn%22,%20found%29%3B%0A%7D%0A%0Aint%20mstrindex%28char%20s%5B%5D,%20char%20t%5B%5D%29%20%7B%0A%20%20%20%20int%20i,%20j,%20k,%20result%3B%0A%0A%20%20%20%20result%20%3D%20-1%3B%0A%0A%20%20%20%20for%20%28i%20%3D%200%3B%20s%5Bi%5D%20!%3D%20'%5C0'%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28j%20%3D%20i,%20k%20%3D%200%3B%20t%5Bk%5D%20!%3D%20'%5C0'%20%26%26%20s%5Bj%5D%20%3D%3D%20t%5Bk%5D%3B%20j%2B%2B,%20k%2B%2B%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%3B%0A%20%20%20%20%20%20%20%20if%20%28k%20%3E%200%20%26%26%20t%5Bk%5D%20%3D%3D%20'%5C0'%29%0A%20%20%20%20%20%20%20%20%20%20%20%20result%20%3D%20i%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%20result%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=true"> </iframe>
 
 
 Try It
@@ -53,4 +53,4 @@ Try It
 
 .. raw:: html
 
-   <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@learntosolveit/Exercise41#main.c"></iframe>
+   <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@learntosolveit/Exercise41#main.c?embed=true"></iframe>
