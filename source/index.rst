@@ -18,3 +18,11 @@ C Programming
    :maxdepth: 3
 
    ./cprogramming/index.rst
+
+Revision
+========
+
+.. toctree::
+   :maxdepth: 3
+
+   ./cprogramming/chapter4/index.rst
