@@ -1,14 +1,8 @@
-Learn, Understand and Solve Problems
-------------------------------------
+Learn To Solve It
+=================
 
-This website will help you learn programming languages such as **C** and
-**Python**. It will help you become familiar with small programs, which are
-often the building blocks of large solutions.
-
-The key philosophy behind this project was.
-
-* Small but complete.
-* Practice is the key.
+This is a companinon website to learn C programming using K&R book.
+It uses modern tools, and is designed to be used along with the book.
 
 I recommend https://exercism.org as the platform to learn Programming and
 practice with a dedicated community.
@@ -16,10 +10,6 @@ practice with a dedicated community.
 **Reference Books**
 
 * C Programming Language by Kernighan and Ritchie.
-
-.. _Learn To Solve It: http://www.learntosolveit.com
-.. _Github: https://github.com/uthcode/learntosolveit
-
 
 C Programming
 =============
