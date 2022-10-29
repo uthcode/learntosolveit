@@ -7,7 +7,7 @@ Question
 
 Define a macro swap(t,x,y) that interchanges two arguments of type t.
 
-.. literalinclude:: cprogs/Ex_4.14_swap_t_x_y.c
+.. literalinclude:: cprogs/ex_4.14_swap_t_x_y.c
    :language: c
 
 Explanation
@@ -23,7 +23,7 @@ We do this by defining macro::
                          _z = x;\
                          x = y;\
                          y = _z; }
-                         
+
 In the macro, we send type `t` as an argument and two variables `x` and `y` to
 swap. We create a temperorary variable called `_z` of type `t` and use it to
 swap `x` and `y`.

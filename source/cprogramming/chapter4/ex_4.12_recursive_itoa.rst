@@ -8,7 +8,7 @@ Question
 Adapt the ideas of printd to write a recursive version of itoa; that is, convert
 an integer into a string by calling a recursive routine.
 
-.. literalinclude:: cprogs/Ex_4.12_recursive_itoa.c
+.. literalinclude:: cprogs/ex_4.12_recursive_itoa.c
    :language: c
    :tab-width: 4
 

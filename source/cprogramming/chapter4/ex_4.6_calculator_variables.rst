@@ -8,7 +8,7 @@ Question
 Add commands for handling variables. (It's easy to provide twenty-six variables
 with single-letter names.) Add a variable for the most recently printed value.
 
-.. literalinclude:: cprogs/Ex_4.6_calculator_variables.c
+.. literalinclude:: cprogs/ex_4.6_calculator_variables.c
    :language: c
 
 

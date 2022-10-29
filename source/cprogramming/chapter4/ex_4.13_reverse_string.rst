@@ -8,7 +8,7 @@ Question
 Write a recursive version of the function reverse(s), which reverses the string
 s in place.
 
-.. literalinclude:: cprogs/Ex_4.13_reverse_string.c
+.. literalinclude:: cprogs/ex_4.13_reverse_string.c
    :language: c
 
 

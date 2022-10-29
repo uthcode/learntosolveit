@@ -9,7 +9,7 @@ Add the commands to print the top elements of the stack without popping, to
 duplicate it, and to swap the top two elements. Add a command to clear the
 stack.
 
-.. literalinclude:: cprogs/Ex_4.4_rpn_top_two_elements.c
+.. literalinclude:: cprogs/ex_4.4_rpn_top_two_elements.c
    :language: c
 
 Explanation
