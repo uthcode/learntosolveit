@@ -10,7 +10,7 @@ where a floating-point number may be followed by e or E and an optionally
 signed exponent.
 
 
-.. literalinclude:: Ex_4.2_atof_scientific.c
+.. literalinclude:: cprogs/ex_4.2_atof_scientific.c
    :language: c
 
 Explanation

@@ -7,13 +7,9 @@ Question
 
 Add access to library functions like sin, exp, and pow.
 
-.. literalinclude:: ../../languages/cprogs/Ex_4.5_calculator_math_functions.c
+.. literalinclude:: cprogs/ex_4.5_calculator_math_functions.c
    :language: c
-   :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.5_calculator_math_functions.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -33,7 +29,6 @@ The curx of program is in this function.
    void mathfnc(char s[])
    {
        double op2;
-       
        if(strcmp(s,"sin")==0)
            push(sin(pop()));
        else if(strcmp(s,"cos")==0)
@@ -49,11 +44,3 @@ The curx of program is in this function.
            printf("error: %s is not supported\n",s);
    }
 
-
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_4.5_calculator_math_functions.c`
-   * :c-better-explain:`Ex_4.5_calculator_math_functions.rst`

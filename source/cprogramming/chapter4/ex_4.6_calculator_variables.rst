@@ -8,13 +8,9 @@ Question
 Add commands for handling variables. (It's easy to provide twenty-six variables
 with single-letter names.) Add a variable for the most recently printed value.
 
-.. literalinclude:: ../../languages/cprogs/Ex_4.6_calculator_variables.c
+.. literalinclude:: cprogs/Ex_4.6_calculator_variables.c
    :language: c
-   :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.6_calculator_variables.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -27,7 +23,6 @@ This adds variables to our RPN calculator. An example execution goes like this.
         30
     v
         30
-        
 
 The RPN notation for assigning to variables is like this `10 A =`. When an `=`
 sign is encountered the previous value is popped and the value that is stored in
@@ -38,9 +33,3 @@ the above expression.
 Then `A B +` acts as if we are acting on two numbers. A special variable `v` is
 used to assign to the last printed value.
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_4.6_calculator_variables.c`
-   * :c-better-explain:`Ex_4.6_calculator_variables.rst`
