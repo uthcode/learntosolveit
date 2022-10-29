@@ -59,10 +59,16 @@ will now be `2`. We push 3 to the stack and `s` swaps it. Our stack will be `3
 2`. So when we input `?` and enter. We get the top element `2` out. And then
 pressing `?` again will pop next element `3`.
 
+Visualize It
+============
+
+* https://pythontutor.com
 
 
-.. seealso::
+Try It
+======
 
-   * :c-suggest-improve:`Ex_4.4_rpn_top_two_elements.c`
-   * :c-better-explain:`Ex_4.4_rpn_top_two_elements.rst`
-   
+
+.. raw:: html
+
+   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex44rpntoptwoelements?embed=true"></iframe>

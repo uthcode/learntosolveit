@@ -75,3 +75,19 @@ An example execution will look like this.
 	        20
 	10.1 20.2 +
 	        30.3
+
+Visualize It
+============
+
+.. raw:: html
+
+
+* https://pythontutor.com/c.html
+
+Try It
+======
+
+
+.. raw:: html
+
+   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex410calculatorgetline?embed=true"></iframe>

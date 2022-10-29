@@ -33,3 +33,15 @@ the above expression.
 Then `A B +` acts as if we are acting on two numbers. A special variable `v` is
 used to assign to the last printed value.
 
+Visualize It
+============
+
+* https://pythontutor.com/
+
+Try It
+======
+
+
+.. raw:: html
+
+   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex46calculatorvariables?embed=true"></iframe>
