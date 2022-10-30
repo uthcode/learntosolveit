@@ -8,13 +8,9 @@ Question
 Demonstrate buffered and unbuffered getchar using the system read function.
 
 
-.. literalinclude:: ../../languages/cprogs/sec_8.2_getchar.c
+.. literalinclude:: cprogs/sec_8.2_getchar.c
    :language: c
-   :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_8.2_getchar.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -28,32 +24,23 @@ The buffered version of getchar, sets aside a buffer for reading the characters.
 
    static char buf[BUFSIZ];
    static char *bufp = buf;
-   
-And reads each of the characters into the buffer, `read(0, buf, sizeof buf)` and then returns one character at a 
+
+And reads each of the characters into the buffer, `read(0, buf, sizeof buf)` and then returns one character at a
 time from the buffer.
 
 The later would be more efficient than the former one.
 
 To execute this program, give the input in the following manner.
-    
+
 
 ::
 
    stdin
    this is buffered getchar x
    this is unbuffered getchar x
-   
+
    stdout
-   
-   this is buffered getchar 
-   this is unbuffered getchar 
 
-
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_8.2_getchar.c`
-   * :c-better-explain:`sec_8.2_getchar.rst`
+   this is buffered getchar
+   this is unbuffered getchar
 

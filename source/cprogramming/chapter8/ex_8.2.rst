@@ -10,20 +10,10 @@ Compare code size and execution speed.
 
 **inprogress**
 
-.. literalinclude:: ../../languages/cprogs/Ex_8.2.c
+.. literalinclude:: cprogs/ex_8.2.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_8.2.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
 
 
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_8.2.c`
-   * :c-better-explain:`Ex_8.2.rst`
