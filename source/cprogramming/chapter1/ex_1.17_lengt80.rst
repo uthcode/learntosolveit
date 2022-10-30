@@ -11,14 +11,8 @@ Write a program to print all input lines that are longer than 80 characters.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.17_lengt80.c
+.. literalinclude:: cprogs/ex_1.17_lengt80.c
    :language: c
-   :tab-width: 2
-
-.. runcode:: ../../languages/cprogs/Ex_1.17_lengt80.c
-   :language: c
-   :codesite: ideone
-
 
 Explanation
 ===========
@@ -33,10 +27,3 @@ changes the function makes will be available to the main program.
 
 ``getline`` returns the length of the line and in our main program, if the length
 is greater than 80 characters we print it.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.17_lengt80.c`
-   * :c-better-explain:`Ex_1.17_lengt80.rst`

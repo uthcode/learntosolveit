@@ -7,14 +7,10 @@ Program
 -------
 
 
-.. literalinclude:: ../../languages/cprogs/sec_1.5.2_Character_Counting2.c
+.. literalinclude:: cprogs/sec_1.5.2_character_counting2.c
    :language: c
-   :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_1.5.2_Character_Counting2.c
-   :language: c
-   :codesite: ideone
-    
+
 Explanation
 -----------
 
@@ -24,12 +20,6 @@ program enters for loop condition (nc = 0; getchar() != EOF; ++nc).  When nc
 hits end of the document it prints the number of characters in the file.
 
 
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.5.2_Character_Counting2.c`
-   * :c-better-explain:`sec_1.5.2_Character_Counting2.rst`
-   
----- 
+----
 
 This document was updated on |today|

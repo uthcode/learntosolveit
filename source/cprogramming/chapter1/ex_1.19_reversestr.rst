@@ -12,14 +12,9 @@ write a program that reverses its input a line at a time.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.19_reversestr.c
+.. literalinclude:: cprogs/ex_1.19_reversestr.c
    :language: c
-   :tab-width: 2
 
-
-.. runcode:: ../../languages/cprogs/Ex_1.19_reversestr.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -32,7 +27,7 @@ length of the line minus `\0` and `\n` if that is present. This determines the
 ultimate printable characters in the line from where we have to reverse.
 
 We have to two incides, j=0 and i the last printable character and run through
-the program of swapping those characters till  `j < i`. 
+the program of swapping those characters till  `j < i`.
 This reverses the contents of our string.
 
 The crux of the program is this::
@@ -47,11 +42,4 @@ The crux of the program is this::
         --i;
         ++j;
       }
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.19_reversestr.c`
-   * :c-better-explain:`Ex_1.19_reversestr.rst`
 

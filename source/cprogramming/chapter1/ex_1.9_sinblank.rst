@@ -12,13 +12,8 @@ more blanks by a single blank.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.9_SinBlank.c
+.. literalinclude:: cprogs/ex_1.9_sinblank.c
    :language: c
-   :tab-width: 2
-
-.. runcode:: ../../languages/cprogs/Ex_1.9_SinBlank.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -34,11 +29,4 @@ character that we encoutered is a blank, then we skip printing it.
 This means that if the last character is not a blank, *only* then print it. We
 store the last character in the lastc variable in the line `lastc = c`. For rest
 of the characters we simplying print it by `putchar (c)`.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.9_SinBlank.c`
-   * :c-better-explain:`Ex_1.9_SinBlank.rst`
 

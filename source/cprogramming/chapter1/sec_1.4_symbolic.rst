@@ -5,13 +5,8 @@ Section 1.4 Symbolic Constants
 Program
 =======
 
-.. literalinclude:: ../../languages/cprogs/sec_1.4_symbolic.c
+.. literalinclude:: cprogs/sec_1.4_symbolic.c
    :language: c
-   :tab-width: 4
-   
-.. runcode:: ../../languages/cprogs/sec_1.4_symbolic.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -27,13 +22,6 @@ fahr <= UPPER, and the increments fahr using STEP in each iteration.
 *symbolic constants* are substituted inline in the program during pre-processing
 phase of compilation.
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.4_symbolic.c`
-   * :c-better-explain:`sec_1.4_symbolic.rst`
-   
----- 
+----
 
 This document was updated on |today|

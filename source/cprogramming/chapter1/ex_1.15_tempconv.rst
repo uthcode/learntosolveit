@@ -12,13 +12,8 @@ conversion.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.15_tempconv.c
+.. literalinclude:: cprogs/ex_1.15_tempconv.c
    :language: c
-   :tab-width: 2
-
-.. runcode:: ../../languages/cprogs/Ex_1.15_tempconv.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -31,12 +26,4 @@ This program contains functions such as fahrtocelsius and celsiustofhar. The
 functions fahrtocelsius and celsiustofhar are used to make the program more
 dynamic by giving choices to the users for conversion between 1 - Fahrenheit to
 Celsius Conversion 2 - Celsius to Fahrenheit Converion.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.15_tempconv.c`
-   * :c-better-explain:`Ex_1.15_tempconv.rst`
-
 

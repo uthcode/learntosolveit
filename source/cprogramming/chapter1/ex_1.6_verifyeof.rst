@@ -10,13 +10,8 @@ Verify the expression `getchar() !=EOF` is 0 or 1.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.6_verifyeof.c
+.. literalinclude:: cprogs/ex_1.6_verifyeof.c
    :language: c
-   :tab-width: 2
-
-.. runcode:: ../../languages/cprogs/Ex_1.6_verifyeof.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -44,15 +39,3 @@ input, it prints the value of the expression getchar() != EOF.
 
 4. We see that when char is not EOF, it is printing 1 and when it is EOF, 0 is
 printed.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.6_verifyeof.c`
-   * :c-better-explain:`Ex_1.6_verifyeof.rst`
-   
-
-
-
-

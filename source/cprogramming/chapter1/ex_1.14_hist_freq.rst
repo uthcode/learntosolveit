@@ -13,13 +13,8 @@ in its input.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.14_Hist_Freq.c
+.. literalinclude:: cprogs/ex_1.14_hist_freq.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_1.14_Hist_Freq.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -32,11 +27,3 @@ input, we increment it's count in the character array.
 We print the histogram at the end, by looping through the characters of the
 array, printing the character and then printing `*` for number of times that
 character had occurred.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.14_Hist_Freq.c`
-   * :c-better-explain:`Ex_1.14_Hist_Freq.rst`
-

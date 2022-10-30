@@ -6,14 +6,8 @@ Section 1.9 Character Arrays
 Program
 =======
 
-.. literalinclude:: ../../languages/cprogs/sec_1.9_character_arrays.c
+.. literalinclude:: cprogs/sec_1.9_character_arrays.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/sec_1.9_character_arrays.c
-   :language: c
-   :codesite: ideone
-   
 
 Explanation
 ===========
@@ -27,9 +21,3 @@ reference the `to` array further from the main program itself. This is
 demonstrated by copying line to the longest and then printing the longest in the
 main program.
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.9_character_arrays.c`
-   * :c-better-explain:`sec_1.9_character_arrays.rst`

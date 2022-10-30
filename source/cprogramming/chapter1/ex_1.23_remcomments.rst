@@ -13,13 +13,8 @@ quoted strings and character constants properly. C comments don't nest.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.23_remcomments.c
+.. literalinclude:: cprogs/ex_1.23_remcomments.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_1.23_remcomments.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -34,10 +29,3 @@ special character, then we try to read them literally as two characters and
 print them.
 
 If / is followed by any other character, we simply print them.
-
-
-
-..  seealso::
-
-   * :c-suggest-improve:`Ex_1.23_remcomments.c`
-   * :c-better-explain:`Ex_1.23_remcomments.rst`

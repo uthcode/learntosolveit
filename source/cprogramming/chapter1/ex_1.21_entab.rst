@@ -14,15 +14,8 @@ which should be given preference?
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.21_entab.c
+.. literalinclude:: cprogs/ex_1.21_entab.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_1.21_entab.c
-   :language: c
-   :codesite: ideone
-
-:use-local-compiler:`gcc`
 
 Explanation
 ===========
@@ -46,11 +39,3 @@ tabs, then remaining spaces, then print the character. And We reset the position
 accordingly. If it is a newline, we reset the pos, if it is a tab character, we
 reset it to previous tab character - 1. This step replaces the spaces with
 minimum tabs and spaces.
-
-
-   
-.. seealso::
-
-  * :c-suggest-improve:`Ex_1.21_entab.c`
-  * :c-better-explain:`Ex_1.21_entab.rst`
-

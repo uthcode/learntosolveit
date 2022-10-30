@@ -13,9 +13,8 @@ temperatures and  their centigrade or Celsius equivalents.
 Program
 =======
 
-.. literalinclude:: ../../languages/cprogs/sec_1.2_fahr2cel.c
+.. literalinclude:: cprogs/sec_1.2_fahr2cel.c
    :language: c
-   :tab-width: 4
 
 
 Explanation
@@ -44,11 +43,4 @@ Understand
 
 ----
 
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.2_fahr2cel.c`
-   * :c-better-explain:`sec_1.2_fahr2cel.rst`
-   
----- 
-
-This document was updated on |today|
+ Last Updated |today|

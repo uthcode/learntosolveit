@@ -12,14 +12,8 @@ that is, from 300 degrees to 0.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.5_reverse.c
+.. literalinclude:: cprogs/ex_1.5_reverse.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_1.5_reverse.c
-   :language: c
-   :codesite: ideone
-
 
 Explanation
 ===========
@@ -33,12 +27,3 @@ variable lower is assigned the value 0 similarly upper to 300, step to 20, and
 Celsius to lower. So when the program enters the while loop it checks whether
 celsius <= upper is true if it is true then it assigns the variable fahr
 (9.0/5.0) * celsius + 32.0 and then it prints out put.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.5_reverse.c`
-   * :c-better-explain:`Ex_1.5_reverse.rst`
-
-

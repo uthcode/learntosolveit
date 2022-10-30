@@ -12,14 +12,9 @@ the length of arbitrary long input lines, and as much as possible of the text.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.16_LongLine.c
+.. literalinclude:: cprogs/ex_1.16_longline.c
    :language: c
-   :tab-width: 4
 
-
-.. runcode:: ../../languages/cprogs/Ex_1.16_LongLine.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -34,11 +29,4 @@ length of the line is greater than `max`, then we copy that line into the
 
 At the end of the program, whichever was the longest line that was copied in
 maxline array, we just print that.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.16_LongLine.c`
-   * :c-better-explain:`Ex_1.16_LongLine.rst`
 

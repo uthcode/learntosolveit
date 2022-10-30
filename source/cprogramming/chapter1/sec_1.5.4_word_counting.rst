@@ -6,14 +6,9 @@ Section 1.5.4 Word Counting
 Program
 =======
 
-.. literalinclude:: ../../languages/cprogs/sec_1.5.4_word_counting.c
+.. literalinclude:: cprogs/sec_1.5.4_word_counting.c
    :language: c
-   :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_1.5.4_word_counting.c
-   :language: c
-   :codesite: ideone
-   
 Explanation
 ===========
 
@@ -30,9 +25,3 @@ we saw a new word) and we increment `nw`. For every character we read, we
 increment `nc` and for every `\n` we read, we increment `nl`.  The program in
 the end prints, the *nl*, *nw* and *nc*.
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.5.4_word_counting.c`
-   * :c-better-explain:`sec_1.5.4_word_counting.rst`

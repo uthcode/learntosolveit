@@ -10,13 +10,8 @@ Write a program to count blanks, tabs, and newlines.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.8_count_blanks_etc.c
+.. literalinclude:: cprogs/ex_1.8_count_blanks_etc.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_1.8_count_blanks_etc.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -32,11 +27,4 @@ And the out put shall be:
 Blanks: 4
 Tabs: 0
 Newlines: 1
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.8_count_blanks_etc.c`
-   * :c-better-explain:`Ex_1.8_count_blanks_etc.rst`
 

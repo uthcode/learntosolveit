@@ -12,13 +12,8 @@ easy to draw the histogram with the bars horizontal.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.13_His_Horizontal.c
+.. literalinclude:: cprogs/ex_1.13_his_horizontal.c
    :language: c
-   :tab-width: 2
-
-.. runcode:: ../../languages/cprogs/Ex_1.13_His_Horizontal.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -37,11 +32,3 @@ The output should be.::
 The way it is accomplished in the above program, read each character using
 getchar, if it is special character like a space, tab or newline,  go to next
 line by printing `\n` otherwise print a `*` character.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.13_His_Horizontal.c`
-   * :c-better-explain:`Ex_1.13_His_Horizontal.rst`
-

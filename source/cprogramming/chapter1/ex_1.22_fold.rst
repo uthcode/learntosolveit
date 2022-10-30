@@ -15,13 +15,8 @@ there are no blanks or tabs before the specified column.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.22_fold.c
+.. literalinclude:: cprogs/ex_1.22_fold.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_1.22_fold.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -63,11 +58,3 @@ and after placing the folded contents we return the new value of ``i``, which is
 our updated ``pos``.
 
 With our new position we continue with the rest of the program.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.22_fold.c`
-   * :c-better-explain:`Ex_1.22_fold.rst`
-

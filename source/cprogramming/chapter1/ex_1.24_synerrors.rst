@@ -15,15 +15,8 @@ do it in full generality.)
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.24_synerrors.c
+.. literalinclude:: cprogs/ex_1.24_synerrors.c
    :language: c
-   :tab-width: 4
-
-
-.. runcode:: ../../languages/cprogs/Ex_1.24_synerrors.c
-   :language: c
-   :codesite: ideone
-
 
 Explanation
 ===========
@@ -43,10 +36,3 @@ For the rest of the program, when we first match a brace, bracket or
 parenthesis, we mark it as -1 and when we find it's match, we negate it back to
 0. If these values end up being anythign other than 0, we say that we found a
 mismatch.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.24_synerrors.c`
-   * :c-better-explain:`Ex_1.24_synerrors.rst`

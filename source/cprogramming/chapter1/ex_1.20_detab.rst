@@ -13,16 +13,8 @@ n columns. Should n be a variable or a symbolic parameter?
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.20_detab.c
+.. literalinclude:: cprogs/ex_1.20_detab.c
    :language: c
-   :tab-width: 2
-
-.. runcode:: ../../languages/cprogs/Ex_1.20_detab.c
-   :language: c
-   :codesite: ideone
-
-
-:use-local-compiler:`gcc`
 
 Explanation
 ===========
@@ -40,8 +32,8 @@ need to replace the \t with.
 For e.g.::
 
 	hello   | I press a tab and reach |
-	hello###| It should be substibuted with 3 #, 
-		  	 
+	hello###| It should be substibuted with 3 #,
+
 The way 3 # is calculated by `TABINC - length of ('hello')`
 that is 8 - 5 = 3.
 
@@ -73,11 +65,3 @@ We track the pos till **s**, we encounter the tab position at be 19.
 
 Once we determine the nb, we simply print # character to denote a visible space
 and increment the position each character.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.20_detab.c`
-   * :c-better-explain:`Ex_1.20_detab.rst`
-

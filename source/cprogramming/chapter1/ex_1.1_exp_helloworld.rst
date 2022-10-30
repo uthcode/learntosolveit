@@ -8,13 +8,8 @@ Question
 Run the `hello, world` program on your system. Experiment with leaving out
 parts of the program, to see what error messages you get.
 
-.. literalinclude:: ../../languages/cprogs/sec_1.1_helloworld.c
+.. literalinclude:: cprogs/sec_1.1_helloworld.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -51,10 +46,4 @@ error.
 ::
 
     error: expected `;` before the '}' token
-
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.1_helloworld.c`
-   * :c-better-explain:`Ex_1.1_exp_helloworld.rst`
 

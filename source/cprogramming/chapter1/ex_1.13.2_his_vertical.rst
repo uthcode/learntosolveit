@@ -12,14 +12,9 @@ the histogram with the bars vertical.
 Solution
 --------
 
-.. literalinclude:: ../../languages/cprogs/Ex_1.13.2_His_vertical.c
+.. literalinclude:: cprogs/ex_1.13.2_His_vertical.c
    :language: c
-   :tab-width: 2
 
-
-.. runcode:: ../../languages/cprogs/Ex_1.13.2_His_vertical.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -94,11 +89,3 @@ we will have hit the bottom of the histogram::
     '*''*''*''*'
 
 Combing them all, we would have drawn the horizontal histogram like above.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_1.13.2_His_vertical.c`
-   * :c-better-explain:`Ex_1.13.2_His_vertical.rst`
-

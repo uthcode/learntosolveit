@@ -5,15 +5,8 @@ Section 1.10 External Variables and Scope
 Program
 =======
 
-.. literalinclude:: ../../languages/cprogs/sec_1.10_external_variables.c
+.. literalinclude:: cprogs/sec_1.10_external_variables.c
    :language: c
-   :tab-width: 4
-   
-.. runcode:: ../../languages/cprogs/sec_1.10_external_variables.c
-   :language: c
-   :codesite: ideone
-   
-
 
 Explanation
 ===========
@@ -29,9 +22,3 @@ line and the longest as arguments to getline and copy, and neither we have to
 return the length from getline, because sharing of those is accomplished by
 sharing of the variable themselves.
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`sec_1.10_external_variables.c`
-   * :c-better-explain:`sec_1.10_external_variables.rst`
