@@ -8,8 +8,7 @@
 
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
     float fahr, celsius;
     int lower, upper, step;
 
@@ -20,9 +19,8 @@ int main(void)
     printf("C     F\n\n");
     celsius = upper;
 
-    while(celsius >= lower)
-    {
-        fahr = (float) ((9.0 / 5.0) * celsius + 32.0);
+    while (celsius >= lower) {
+        fahr = (float)((9.0 / 5.0) * celsius + 32.0);
         printf("%3.0f %6.1f\n", celsius, fahr);
         celsius = celsius - step;
     }

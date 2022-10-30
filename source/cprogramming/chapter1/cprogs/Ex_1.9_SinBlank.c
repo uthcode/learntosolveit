@@ -4,26 +4,22 @@
  *
  * */
 
-#include<stdio.h>
+#include <stdio.h>
 
 #define NONBLANK '-'
 
-int main(void)
-{
-	int c, lastc;
+int main(void) {
+    int c, lastc;
 
-	lastc = NONBLANK;
+    lastc = NONBLANK;
 
-	while((c = getchar()) != EOF)
-	{
-		if(c == ' ')
-		{
-			if(lastc != ' ')
-				putchar(c);
-		}
-		else
-			putchar(c);
-		lastc=c;
-	}
-	return 0;
+    while ((c = getchar()) != EOF) {
+        if (c == ' ') {
+            if (lastc != ' ')
+                putchar(c);
+        } else
+            putchar(c);
+        lastc = c;
+    }
+    return 0;
 }

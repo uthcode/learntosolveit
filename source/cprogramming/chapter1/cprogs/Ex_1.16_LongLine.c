@@ -1,11 +1,10 @@
 /**
  * Exercise 1.16
  *
- * Write a program to print the length of an arbitrarily long input line 
+ * Write a program to print the length of an arbitrarily long input line
  * and as much text as possible
- * 
+ *
  **/
-
 
 #include <stdio.h>
 
@@ -16,85 +15,74 @@
 int getNewLine(char line[], int max);
 void copy(char to[], char from[]);
 
-int main(){
+int main() {
 
-  int len, max;
-  char line[MAX];
-  char longest[MAX];
+    int len, max;
+    char line[MAX];
+    char longest[MAX];
 
-  max = 0;
-  while((len = getNewLine(line, MAX)) > 0){
+    max = 0;
+    while ((len = getNewLine(line, MAX)) > 0) {
 
-    if(len > max){
+        if (len > max) {
 
-      max = len;
-      copy(longest, line);
-
+            max = len;
+            copy(longest, line);
+        }
     }
-    
-  }
-  
-  if (max > 0){
 
-    printf("length = %i, string=%s", max, longest);
-    
-  }
+    if (max > 0) {
 
-  return 0;
+        printf("length = %i, string=%s", max, longest);
+    }
 
+    return 0;
 }
 
 /* get a line in a character array */
-int getNewLine(char arr[], int lim){
+int getNewLine(char arr[], int lim) {
 
-  int c, i;
+    int c, i;
 
-  for(i=0; i < lim -1 && (c=getchar()) != EOF && c != '\n'; ++i){
-   
-    arr[i] = c;
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
 
-  }
-  if(c == '\n'){
+        arr[i] = c;
+    }
+    if (c == '\n') {
 
-    arr[i] = c;
-    ++i;
-    
-  }
- 
-  else{
+        arr[i] = c;
+        ++i;
 
-    /* Continue to count the length even if it is longer than the max */
-    while((c=getchar()!=EOF) && c != '\n'){
-      
-      ++i;
-      
     }
 
-    if(c == '\n'){
+    else {
 
-      arr[i] = c;
-      ++i;
-    
+        /* Continue to count the length even if it is longer than the max */
+        while ((c = getchar() != EOF) && c != '\n') {
+
+            ++i;
+        }
+
+        if (c == '\n') {
+
+            arr[i] = c;
+            ++i;
+        }
     }
 
-  }
-
-  arr[i] = '\0';
-  return i;
-
+    arr[i] = '\0';
+    return i;
 }
 
 /* copy one character array to another */
-void copy(char to[], char from[]){
+void copy(char to[], char from[]) {
 
-  int i;
+    int i;
 
-  i = 0;
+    i = 0;
 
-  while((to[i] = from[i]) != '\0'){ 
+    while ((to[i] = from[i]) != '\0') {
 
-    ++i;
-    
-  }
-
+        ++i;
+    }
 }

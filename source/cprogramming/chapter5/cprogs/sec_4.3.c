@@ -1,42 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
-#define MAXOP 100 /* max size of operand or operator */
-#define NUMBER '0' /* signal that a number was found */
-int getop(char []);
+#define MAXOP 100   /* max size of operand or operator */
+#define NUMBER '0'  /* signal that a number was found */
+int getop(char[]);
 void push(double);
 double pop(void);
 /* reverse Polish calculator */
-main()
-{
+main() {
     int type;
     double op2;
     char s[MAXOP];
     while ((type = getop(s)) != EOF) {
         switch (type) {
-            case NUMBER:
+        case NUMBER:
             push(atof(s));
             break;
-            case '+':
+        case '+':
             push(pop() + pop());
             break;
-            case '*':
+        case '*':
             push(pop() * pop());
             break;
-            case '-':
+        case '-':
             op2 = pop();
             push(pop() - op2);
-            break; 
-            case '/':
+            break;
+        case '/':
             op2 = pop();
             if (op2 != 0.0)
                 push(pop() / op2);
             else
                 printf("error: zero divisor\n");
             break;
-            case '\n':
+        case '\n':
             printf("\t%.8g\n", pop());
             break;
-            default:
+        default:
             printf("error: unknown command %s\n", s);
             break;
         }
@@ -48,62 +47,57 @@ main()
 int sp = 0;
 double val[MAXVAL];
 
-void push(double f)
-{
-    if(sp < MAXVAL)
-        val[sp++]=f;
+void push(double f) {
+    if (sp < MAXVAL)
+        val[sp++] = f;
     else
-        printf("error:stack full, cant push %g\n",f);
+        printf("error:stack full, cant push %g\n", f);
 }
 
-double pop(void)
-{
-    if(sp>0)
+double pop(void) {
+    if (sp > 0)
         return val[--sp];
-    else
-    {
+    else {
         printf("error: stack empty\n");
         return 0.0;
     }
 }
 
-#include<ctype.h>
+#include <ctype.h>
 
 int getch(void);
 void ungetch(int);
 
-int getop(char s[])
-{
-    int i,c;
+int getop(char s[]) {
+    int i, c;
 
-    while((s[0] = c = getch()) == ' ' || c =='\t')
+    while ((s[0] = c = getch()) == ' ' || c == '\t')
         ;
     s[1] = '\0';
-    
+
     i = 0;
-    if(!isdigit(c) && c!='.' && c!='-')
+    if (!isdigit(c) && c != '.' && c != '-')
         return c;
 
-    if(c=='-')
-        if(isdigit(c=getch()) || c == '.')
-            s[++i]=c;
-        else
-        {
-            if(c!=EOF)
+    if (c == '-')
+        if (isdigit(c = getch()) || c == '.')
+            s[++i] = c;
+        else {
+            if (c != EOF)
                 ungetch(c);
             return '-';
         }
-    
-    if(isdigit(c))
-        while(isdigit(s[++i] =c =getch()))
+
+    if (isdigit(c))
+        while (isdigit(s[++i] = c = getch()))
             ;
 
-    if(c=='.')
-        while(isdigit(s[++i] = c=getch()))
+    if (c == '.')
+        while (isdigit(s[++i] = c = getch()))
             ;
-    
+
     s[i] = '\0';
-    if(c!=EOF)
+    if (c != EOF)
         ungetch(c);
     return NUMBER;
 }
@@ -113,16 +107,11 @@ int getop(char s[])
 char buf[BUFSIZE];
 int bufp = 0;
 
-int getch(void)
-{
-    return (bufp > 0) ? buf[--bufp] : getchar();
-}
+int getch(void) { return (bufp > 0) ? buf[--bufp] : getchar(); }
 
-void ungetch(int c)
-{
-    if(bufp >= BUFSIZE)
+void ungetch(int c) {
+    if (bufp >= BUFSIZE)
         printf("ungetch: too many characters\n");
     else
         buf[bufp++] = c;
 }
-

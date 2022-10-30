@@ -1,7 +1,9 @@
 /**
- * Exercise 4.13 of The C Programming Language by Brian Kernighan and Dennis Ritchie
+ * Exercise 4.13 of The C Programming Language by Brian Kernighan and Dennis
+ * Ritchie
  *
- * Write a recursive version of the function reverse(s), which reverses the string s in place.
+ * Write a recursive version of the function reverse(s), which reverses the
+ * string s in place.
  */
 
 #include <stdio.h>
@@ -11,8 +13,7 @@
 
 void reverse(char s[], int i, int j);
 
-int main(void)
-{
+int main(void) {
     char s[MAXLINE];
     int i, j;
 
@@ -25,8 +26,7 @@ int main(void)
     return 0;
 }
 
-void reverse(char s[], int i, int j)
-{
+void reverse(char s[], int i, int j) {
     int c;
 
     if (i < j) {
@@ -36,5 +36,3 @@ void reverse(char s[], int i, int j)
         reverse(s, ++i, --j);
     }
 }
-
-

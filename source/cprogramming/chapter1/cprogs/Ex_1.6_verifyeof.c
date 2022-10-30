@@ -3,7 +3,7 @@
  *
  **/
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main(int argc, char *argv[]) {
     int c;
@@ -14,5 +14,4 @@ int main(int argc, char *argv[]) {
     }
 
     printf("\n%d\n", c != EOF);
-
 }

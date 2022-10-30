@@ -6,9 +6,7 @@
 
 #include <stdio.h>
 
-
-int main()
-{
+int main() {
     int c, blanks, tabs, newlines;
 
     blanks = tabs = newlines = 0;

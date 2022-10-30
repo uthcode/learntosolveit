@@ -4,16 +4,15 @@
  * an optionally signed exponent.
  */
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 #define MAXLINE 100
 
 double atof(char s[]);
 int mgetline(char s[], int lim);
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     char str[MAXLINE];
     double val;
 
@@ -26,8 +25,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-double atof(char s[])
-{
+double atof(char s[]) {
     double val, pow;
     int sign, i, esign, exp;
 
@@ -73,8 +71,7 @@ double atof(char s[])
     return sign * val;
 }
 
-int mgetline(char s[], int lim)
-{
+int mgetline(char s[], int lim) {
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
@@ -90,8 +87,7 @@ int mgetline(char s[], int lim)
     return i;
 }
 
-int power(int base, int exp)
-{
+int power(int base, int exp) {
     int i, p;
 
     p = 1;

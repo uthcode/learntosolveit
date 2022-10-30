@@ -6,7 +6,6 @@
  *
  **/
 
-
 #include < stdio.h >
 
 #define LOWER 0

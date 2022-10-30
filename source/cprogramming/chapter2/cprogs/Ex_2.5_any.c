@@ -8,58 +8,56 @@
  *
  **/
 
-#include<stdio.h>
+#include <stdio.h>
 #define MAXLINE 1000
 
-int mgetline(char line[],int maxline);
-int any(char s1[],char s2[]);
+int mgetline(char line[], int maxline);
+int any(char s1[], char s2[]);
 
-int main(void)
-{
-	char s1[MAXLINE],s2[MAXLINE];
-	int val;
-	
-	/* Give the first string s1 */
-	
-	mgetline(s1,MAXLINE);
-	
-	/* Give the second string s2 */
+int main(void) {
+    char s1[MAXLINE], s2[MAXLINE];
+    int val;
 
-	mgetline(s2,MAXLINE);
+    /* Give the first string s1 */
 
-	val = any(s1,s2);
+    mgetline(s1, MAXLINE);
 
-	printf("%d",val);
+    /* Give the second string s2 */
 
-	return 0;
+    mgetline(s2, MAXLINE);
+
+    val = any(s1, s2);
+
+    printf("%d", val);
+
+    return 0;
 }
 
-int mgetline(char s[],int lim)
-{
-	int i,c;
-	for(i=0;i<lim-1 && (c=getchar())!=EOF && c!='\n';++i)
-		s[i]=c;
+int mgetline(char s[], int lim) {
+    int i, c;
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        s[i] = c;
 
-	if(c=='\n')
-		s[i++]=c;
-	s[i]='\0';
+    if (c == '\n')
+        s[i++] = c;
+    s[i] = '\0';
 }
 
+int any(char s1[], char s2[]) {
+    int i, j;
 
-int any(char s1[],char s2[])
-{
-	int i,j;
+    for (i = 0; s1[i] != '\0'; ++i) {
+        // iterate through s2 while trying to find matching character from s1
+        for (j = 0; (s1[i] != s2[j]) && s2[j] != '\0'; ++j)
+            ; // continue
 
-	for(i=0;s1[i]!='\0';++i) 
-	{
-		// iterate through s2 while trying to find matching character from s1
-		for(j=0;(s1[i]!=s2[j]) && s2[j]!='\0';++j) 
-			; // continue
+        if (s2[j] != '\0' &&
+            s2[j] != '\n') { // check that s2 [j]! = '\n', since s1 and s2 both
+                             // have the character '\n' in the penultimate
+                             // position of the string.
+            return i;
+        }
+    }
 
-		if(s2[j]!='\0' && s2[j] != '\n') { // check that s2 [j]! = '\n', since s1 and s2 both have the character '\n' in the penultimate position of the string.
-			return i;
-		}
-	}
-
-	return -1;
+    return -1;
 }
