@@ -26,4 +26,5 @@ Revision
    :maxdepth: 3
 
    ./cprogramming/chapter1/index.rst
+   ./cprogramming/chapter2/index.rst
    ./cprogramming/chapter4/index.rst
