@@ -9,13 +9,8 @@ Write a function invert(x,p,n) that returns x with the n bits that begin at
 position p inverted (i.e., 1 changed into 0 and vice versa), leaving the others
 unchanged.
 
-.. literalinclude:: ../../languages/cprogs/Ex_2.7_invert.c
+.. literalinclude:: cprogs/ex_2.7_invert.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.7_invert.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -31,7 +26,7 @@ Let's take n as 3::
  This sets the last n bits to 1 and rest to 0
 
  The given position p  0 indexed and the number of bits, n is 1 indexed.
- So in order to change the bits starting at position, p, we need to shift our 
+ So in order to change the bits starting at position, p, we need to shift our
  streams 1s to position p and we accomplish that by left shifting the stream of 1s to position (p+1-n)
 
  For the position 3
@@ -51,10 +46,3 @@ position onwards by::
 	x ^ (~(~0 << n) << (p + 1 - n)) = 0000 1000 ^ 0000 1111
 									= 0000 1111
 									= 15
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.7_invert.c`
-   * :c-better-explain:`Ex_2.7_invert.rst`

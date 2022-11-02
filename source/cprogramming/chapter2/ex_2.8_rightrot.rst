@@ -8,13 +8,8 @@ Question
 Write a function rightrot(x,n) that returns the value of the integer x rotated
 to the right by n positions.
 
-.. literalinclude:: ../../languages/cprogs/Ex_2.8_rightrot.c
+.. literalinclude:: cprogs/ex_2.8_rightrot.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.8_rightrot.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -41,7 +36,7 @@ step.
 
     n is between 0 - wordlength()
 
-    condition 1.when  (n == 0) or (n == wordlength()) 
+    condition 1.when  (n == 0) or (n == wordlength())
 
                 rightrot(x, 0) == x
 
@@ -79,10 +74,3 @@ The result should be correct too!
 
 The result will mirror the function,the rightrot(x,n) function will move the left most n(n > 0)bits to the right
 side ，the function should called leftrot(x,n).
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.8_rightrot.c`
-   * :c-better-explain:`Ex_2.8_rightrot.rst`

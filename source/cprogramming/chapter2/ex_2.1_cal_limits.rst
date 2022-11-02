@@ -11,13 +11,8 @@ and by direct computation.  Harder if you compute them: determine the ranges of
 the various floating-point types.
 
 
-.. literalinclude:: ../../languages/cprogs/Ex_2.1_cal_limits.c
+.. literalinclude:: cprogs/ex_2.1_cal_limits.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.1_cal_limits.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -37,7 +32,6 @@ The execution of the above program will give::
    Maximum Unsigned Short 65535
    Maximum Unsigned Int 4294967295
    Maximum Unsigned Long 4294967295
-   
 
 In order explain how we calculate the maximum values, we will have to do some
 bit arthimetic. Let's start by calculating the maximum unsigned char.
@@ -87,7 +81,7 @@ In our compiler, a short is 2 bytes
 Logical right shift, is we are eliminating the sign bit, which is the left most
 bit in the sequence.
 
-(unsigned short)~0 >> 1) 
+(unsigned short)~0 >> 1)
 
 Take this portion ``1111 1111 1111 111`` 1  and place it as **1111 1111 1111 111**
 And then add 0 to the left **0** 1111 1111 1111 111
@@ -97,10 +91,10 @@ What is value of 0111 1111 1111 1111 ?
 
 Similar to above::
 
-    =   0 * 2^15 + 1 * 2^14 + 1 * 2^13 + 1 * 2^12 
-        + 1 * 2^11 + 1* 2^10 + 1 * 2^9 + 1 * 2^8 
-        + 1*2^7 + 1 * 2^6 + 1*2^5 + 1*2^4 
-        + 1* 2^3 + 1*2^2 + 1* 2^1 +1*2^0 
+    =   0 * 2^15 + 1 * 2^14 + 1 * 2^13 + 1 * 2^12
+        + 1 * 2^11 + 1* 2^10 + 1 * 2^9 + 1 * 2^8
+        + 1*2^7 + 1 * 2^6 + 1*2^5 + 1*2^4
+        + 1* 2^3 + 1*2^2 + 1* 2^1 +1*2^0
 
         = 16384 + 8192 + 4096 + 2048 + 1024 + 512 + 256 + 128 + 64 + 32 + 16 + 8 + 4 + 2
         = + 1 32767
@@ -126,10 +120,3 @@ can be represented as (unsigned char) ~0 = 1111 1111
     = 1 * 2^7 + 1 * 2^ 6 + 1 * 2^5 + 1 * 2^4 + 1 * 2^3 + 1 *2^2 + 1 * 2^1 + 1 * 2^0
     = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1
     = 255
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.1_cal_limits.c`
-   * :c-better-explain:`Ex_2.1_cal_limits.rst`

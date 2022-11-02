@@ -8,13 +8,8 @@ Question
 Write a function setbits(x,p,n,y) that returns x with the n bits that begin at
 position p set to the rightmost n bits of y, leaving the other bits unchanged.
 
-.. literalinclude:: ../../languages/cprogs/Ex_2.6_setbits.c
+.. literalinclude:: cprogs/ex_2.6_setbits.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.6_setbits.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -29,7 +24,7 @@ digits at position p we want. We do p+1 because our position is 0 indexed while
 count of digits n is 1 indexed. For e.g. in a number `1111 1111`, the **4**
 digits starting the position **3** is **1111**
 
-Let's refactor the program to understandable portions. 
+Let's refactor the program to understandable portions.
 
 RIGHT_MOST_N_1S = ~(~0 << n)
 GET_N_DIGITS = (p + 1 -n)
@@ -60,7 +55,6 @@ Suppose we want two bits from position 4, we we need to our bit patterns to be
 like this::
 
 	0001 1000
-	   
 	7654 3210
 
 In the above, from position 4, we have 2 bits set 1 and rest 0.
@@ -76,7 +70,7 @@ And then we shift it by position 4 using the expression p+1-n::
 	0000 0011 << (5-2)
 	0000 0011 << 3
 	0 0011 000
-	0001 1000	
+	0001 1000
 
 So we determined our expected bits and we can follow the rest for the program.
 
@@ -113,13 +107,13 @@ Let's follow how the program determines it. We take the LHS of `|` ::
 
 	~(~0 << n)
           = ~(1111 0000)
-          = 0000 1111 
+          = 0000 1111
 
 	(~(~0 << n) << (p+1-n))
           = 0000 1111 << 0
           = 0000 1111
 
-	~(~(~0 << n) << (p+1-n))         
+	~(~(~0 << n) << (p+1-n))
 		  = ~ (0000 1111)
 		  = 1111 0000
 
@@ -135,12 +129,11 @@ Now we take the RHS of `|` ::
 
 	~(~0 << n)  = 0000 1111
 
-	( y & ~(~0<<n)) 
+	( y & ~(~0<<n))
             = 0000 0000 & 0000 1111
             = 0000 0000
 
-	(( y & ~(~0<<n)) << (p+1-n))           
-			
+	(( y & ~(~0<<n)) << (p+1-n))
 			= 0000 0000 << 4
 			= 0000 0000
 
@@ -151,10 +144,3 @@ We write the entire expression::
 		    = 1111 0000
 
 Converting 1111 0000 to decimal gives us 240 and that is answer.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.6_setbits.c`
-   * :c-better-explain:`Ex_2.6_setbits.rst`

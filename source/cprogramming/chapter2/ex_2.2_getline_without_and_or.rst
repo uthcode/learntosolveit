@@ -15,13 +15,8 @@ wrote in Chapter 1::
 Write a loop equivalent to the for loop above without using && or ||.
 
 
-.. literalinclude:: ../../languages/cprogs/Ex_2.2_getline_without_and_or.c
+.. literalinclude:: cprogs/ex_2.2_getline_without_and_or.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.2_getline_without_and_or.c
-   :language: c
-   :codesite: ideone
 
 
 Explanation
@@ -50,11 +45,3 @@ undesirable condition, we simply break out of the for loop.
 
 This is equivalent to the for loop above in the question which uses && condition
 to check.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.2_getline_without_and_or.c`
-   * :c-better-explain:`Ex_2.2_getline_without_and_or.rst`
-

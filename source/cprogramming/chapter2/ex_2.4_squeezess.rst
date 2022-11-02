@@ -10,11 +10,6 @@ that matches any character in the string s2.
 
 .. literalinclude:: ../../languages/cprogs/Ex_2.4_squeezess.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.4_squeezess.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -22,11 +17,11 @@ Explanation
 Let's take the two inputs strings as:
 
     s1: HelloWorld
-    
+
     s2: ol
-  
+
 Our desired output is::
-    
+
     HeWrd
 
 This has removed the characters `o` and `l` from the first string. The way
@@ -38,15 +33,8 @@ no match found, stores it with a new index `k`. If there is a match found in
             ;
         if(s2[j]=='\0')
             s1[k++] = s1[i];
-            
+
 When the match is found **s1[i] == s2[j]** so our first for loop will **end**.
 The second **if condtion** will fail too as s2 is not iterated till the end, so
 we do not place the character in **s1[k++]** and we have successfully skipped
 it.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.4_squeezess.c`
-   * :c-better-explain:`Ex_2.4_squeezess.rst`

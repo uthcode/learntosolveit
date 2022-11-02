@@ -12,11 +12,6 @@ returns a pointer to the location.)
 
 .. literalinclude:: ../../languages/cprogs/Ex_2.5_any.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.5_any.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -34,11 +29,3 @@ check_next_char to 0. That is we found a match at **i** and we return that.
 
 If we dont find a match in s2, we increment i and take the next character from
 s1. If dont find a match at all, then we return -1.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.5_any.c`
-   * :c-better-explain:`Ex_2.5_any.rst`
-

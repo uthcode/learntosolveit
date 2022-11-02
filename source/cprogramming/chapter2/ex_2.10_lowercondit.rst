@@ -8,13 +8,8 @@ Question
 Rewrite the function lower, which converts upper case letters to lower case,
 with a conditional expression instead of if-else.
 
-.. literalinclude:: ../../languages/cprogs/Ex_2.10_lowercondit.c
+.. literalinclude:: cprogs/ex_2.10_lowercondit.c
    :language: c
-   :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_2.10_lowercondit.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -34,11 +29,4 @@ character is found, it subtracts 'A' to get relative index, adds it to 'a' to
 return corresponding smaller case character, if a lower case character is found,
 it is simply returned::
 
-  return c>='A' && c<='Z'? c+'a'-'A':c;    	
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_2.10_lowercondit.c`
-   * :c-better-explain:`Ex_2.10_lowercondit.rst`
+  return c>='A' && c<='Z'? c+'a'-'A':c;
