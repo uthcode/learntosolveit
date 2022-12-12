@@ -57,7 +57,7 @@ Chapter 2. Types, Operators and Expressions
 
 .. toctree::
    :maxdepth: 1
-   
+
    Ex_2.1_cal_limits
    Ex_2.2_getline_without_and_or
    Ex_2.3_htoi
