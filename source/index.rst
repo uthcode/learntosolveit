@@ -27,4 +27,5 @@ Revision
 
    ./cprogramming/chapter1/index.rst
    ./cprogramming/chapter2/index.rst
+   ./cprogramming/chapter3/index.rst
    ./cprogramming/chapter4/index.rst

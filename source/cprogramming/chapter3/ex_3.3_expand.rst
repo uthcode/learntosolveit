@@ -10,15 +10,14 @@ string s1 into the equivalent complete list abc...xyz in s2. Allow for letters
 of either case and digits, and be prepared to handle cases like a-b-c and a-z0-9
 and -a-z. Arrange that a leading or trailing -is taken literally.
 
-.. literalinclude:: ../../languages/cprogs/Ex_3.3_expand.c
+.. literalinclude:: cprogs/Ex_3.3_expand.c
    :language: c
    :tab-width: 4
-   
 
-.. runcode:: ../../languages/cprogs/Ex_3.3_expand.c
+.. runcode:: cprogs/Ex_3.3_expand.c
    :language: c
    :codesite: ideone
-   
+
 
 Explanation
 ===========
@@ -35,10 +34,3 @@ To expand the range, we keep incrementing the character in **c**, till it hits
 the end character, storing all the characters in s2.
 
 s2 will now have the expanded string.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_3.3_expand.c`
-   * :c-better-explain:`Ex_3.3_expand.rst`
