@@ -17,8 +17,6 @@ Demonstrate the ``cp`` like program which copies the contents of one file to ano
    :codesite: ideone
 
 
-:use-local-compiler:`gcc`
-
 Explanation
 ===========
 

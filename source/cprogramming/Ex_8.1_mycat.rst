@@ -14,8 +14,6 @@ the relative speeds of the two versions.
    :tab-width: 4
 
 
-:use-local-compiler:`gcc`
-
 Explanation
 ===========
 

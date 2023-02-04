@@ -22,8 +22,6 @@ Solution
    :codesite: ideone
 
 
-:use-local-compiler:`gcc`
-
 Explanation
 ===========
 

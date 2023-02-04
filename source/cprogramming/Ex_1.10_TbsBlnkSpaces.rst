@@ -20,8 +20,6 @@ Solution
    :language: c
    :codesite: ideone
 
-:use-local-compiler:`gcc`
-
 Explanation
 ===========
 
