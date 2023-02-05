@@ -51,7 +51,7 @@ html_theme_path = [sphinx_pdj_theme.get_html_theme_path()]
 #              'sphinx.ext.todo', 'sphinx.ext.coverage',
 #              'sphinx.ext.extlinks', 'sphinx.ext.pngmath',
 
-extensions = ['sphinx.ext.extlinks']
+#extensions = ['sphinx.ext.extlinks']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
