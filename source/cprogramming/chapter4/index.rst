@@ -7,8 +7,6 @@ Chapter 4
 
    ex_4.1_strindex_rightmost
    ex_4.2_atof_scientific
-   ex_4.1_strindex_rightmost
-   ex_4.2_atof_scientific
    ex_4.3_rpn_modulus_negative
    ex_4.4_rpn_top_two_elements
    ex_4.5_calculator_math_functions

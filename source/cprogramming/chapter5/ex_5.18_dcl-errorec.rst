@@ -14,9 +14,3 @@ Make dcl recover from input errors.
 Explanation
 ===========
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_5.18_dcl-errorec.c`
-   * :c-better-explain:`Ex_5.18_dcl-errorec.rst`

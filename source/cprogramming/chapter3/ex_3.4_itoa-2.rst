@@ -29,10 +29,3 @@ Once this process is over. We check if we were converting negative number, by
 checking if the sign is less than 0, if it was, we add a `-` to the string.
 
 And then we do a simple `reverse` of the string to get our `itoa`.
-
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_3.4_itoa-2.c`
-   * :c-better-explain:`Ex_3.4_itoa-2.rst`
