@@ -8,7 +8,6 @@ Chapter 1
    sec_1.1_helloworld
    ex_1.1_exp_helloworld
    sec_1.2_fahr2cel
-   ex_1.2_exp_printf_c
    sec_1.3_for_loop
    ex_1.3_fahr2celheading
    sec_1.4_symbolic
@@ -30,7 +29,6 @@ Chapter 1
    sec_1.10_external_variables
    ex_1.10_tbsblnkspaces
    ex_1.11_test_word_count
-   ex_1.12_word_per_line
    ex_1.13.2_his_vertical
    ex_1.13_his_horizontal
    ex_1.14_hist_freq

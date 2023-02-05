@@ -12,11 +12,6 @@ machine on which it runs.
 
 The previous version of itoa was this
 
-.. literalinclude:: cprogs/ex_3.4_itoa-previous.c
-   :language: c
-   :tab-width: 4
-
-
 .. literalinclude:: cprogs/ex_3.4_itoa-2.c
    :language: c
    :tab-width: 4

@@ -10,7 +10,7 @@ where any character from the string s2 occurs, or -1 if s1 contains no
 characters from s2. (The standard library function strpbrk does the same job but
 returns a pointer to the location.)
 
-.. literalinclude:: ../../languages/cprogs/ex_2.5_any.c
+.. literalinclude:: cprogs/ex_2.5_any.c
    :language: c
 
 Explanation
