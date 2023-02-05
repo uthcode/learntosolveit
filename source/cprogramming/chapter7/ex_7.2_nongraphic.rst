@@ -18,7 +18,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_7.2_nongraphic.c`
-   * :c-better-explain:`Ex_7.2_nongraphic.rst`

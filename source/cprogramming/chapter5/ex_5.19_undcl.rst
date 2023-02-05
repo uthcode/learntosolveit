@@ -17,7 +17,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.19_undcl.c`
-   * :c-better-explain:`Ex_5.19_undcl.rst`

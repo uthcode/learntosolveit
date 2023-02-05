@@ -57,7 +57,4 @@ program.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.2_getfloat.c`
-   * :c-better-explain:`Ex_5.2_getfloat.rst`

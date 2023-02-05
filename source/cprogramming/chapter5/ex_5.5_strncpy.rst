@@ -43,7 +43,4 @@ is smaller than rhs or positive value if lhs is greater than rhs.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.5_strncpy.c`
-   * :c-better-explain:`Ex_5.5_strncpy.rst`

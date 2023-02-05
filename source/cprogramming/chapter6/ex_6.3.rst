@@ -51,7 +51,4 @@ Here is an example execution of this program.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_6.3.c`
-   * :c-better-explain:`Ex_6.3.rst`

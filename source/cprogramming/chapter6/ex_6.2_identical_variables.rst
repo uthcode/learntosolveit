@@ -20,7 +20,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_6.2_identical_variables.c`
-   * :c-better-explain:`Ex_6.2_identical_variables.rst`

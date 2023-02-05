@@ -18,7 +18,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.16_sort_dfnr.c`
-   * :c-better-explain:`Ex_5.16_sort_dfnr.rst`

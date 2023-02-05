@@ -31,7 +31,4 @@ operation.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.10_exprcmd.c`
-   * :c-better-explain:`Ex_5.10_exprcmd.rst`

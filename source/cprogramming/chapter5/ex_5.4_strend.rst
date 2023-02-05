@@ -75,7 +75,4 @@ return 0.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.4_strend.c`
-   * :c-better-explain:`Ex_5.4_strend.rst`

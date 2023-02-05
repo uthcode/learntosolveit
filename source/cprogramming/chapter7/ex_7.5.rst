@@ -17,7 +17,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_7.5.c`
-   * :c-better-explain:`Ex_7.5.rst`

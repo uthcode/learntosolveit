@@ -54,7 +54,4 @@ next space, we can verify it for the new position.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.12_condientab.c`
-   * :c-better-explain:`Ex_5.12_condientab.rst`

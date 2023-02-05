@@ -25,7 +25,4 @@ Example output.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_6.6.c`
-   * :c-better-explain:`Ex_6.6.rst`

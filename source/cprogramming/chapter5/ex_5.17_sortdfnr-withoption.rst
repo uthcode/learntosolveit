@@ -19,7 +19,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.17_sortdfnr-withoption.c`
-   * :c-better-explain:`Ex_5.17_sortdfnr-withoption.rst`

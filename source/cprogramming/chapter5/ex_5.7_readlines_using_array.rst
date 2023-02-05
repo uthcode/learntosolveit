@@ -22,7 +22,4 @@ program.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.7_readlines_using_array.c`
-   * :c-better-explain:`Ex_5.7_readlines_using_array.rst`

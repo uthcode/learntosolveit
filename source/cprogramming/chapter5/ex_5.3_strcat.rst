@@ -46,7 +46,4 @@ The construct `while((*s=*t)!='\0')` assigns the character in `t` to `s` and the
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.3_strcat.c`
-   * :c-better-explain:`Ex_5.3_strcat.rst`

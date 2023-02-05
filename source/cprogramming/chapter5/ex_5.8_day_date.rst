@@ -34,7 +34,4 @@ after conversion.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.8_day_date.c`
-   * :c-better-explain:`Ex_5.8_day_date.rst`

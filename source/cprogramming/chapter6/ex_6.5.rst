@@ -29,7 +29,4 @@ Sample run of this program.
 
 
 	
-.. seealso::
 
-   * :c-suggest-improve:`Ex_6.5.c`
-   * :c-better-explain:`Ex_6.5.rst`

@@ -34,7 +34,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_6.4.c`
-   * :c-better-explain:`Ex_6.4.rst`

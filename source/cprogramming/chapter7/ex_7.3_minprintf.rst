@@ -16,7 +16,4 @@ Explanation
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_7.3_minprintf.c`
-   * :c-better-explain:`Ex_7.3_minprintf.rst`

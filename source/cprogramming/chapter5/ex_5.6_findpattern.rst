@@ -72,7 +72,4 @@ that we found a NUMBER.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.6_findpattern.c`
-   * :c-better-explain:`Ex_5.6_findpattern.rst`

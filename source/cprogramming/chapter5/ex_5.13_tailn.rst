@@ -44,7 +44,4 @@ exists, we print the line, decrementing the count at each step.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.13_tailn.c`
-   * :c-better-explain:`Ex_5.13_tailn.rst`

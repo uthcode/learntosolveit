@@ -106,7 +106,4 @@ program displays the  output as we desire.
 
 
 
-.. seealso::
 
-   * :c-suggest-improve:`Ex_5.14_sortrevnum.c`
-   * :c-better-explain:`Ex_5.14_sortrevnum.rst`
