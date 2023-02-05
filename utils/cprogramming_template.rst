@@ -12,9 +12,7 @@ ADDQUESTION
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/PROGRAMNAME.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========
