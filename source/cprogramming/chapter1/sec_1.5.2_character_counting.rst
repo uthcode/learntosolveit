@@ -7,7 +7,7 @@ Program
 -------
 
 
-.. literalinclude:: cprogs/sec_1.5.2_Character_Counting.c
+.. literalinclude:: cprogs/sec_1.5.2_character_counting.c
    :language: c
 
 Explanation
