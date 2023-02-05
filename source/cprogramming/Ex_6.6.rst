@@ -13,9 +13,7 @@ also find getch and ungetch helpful.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.6.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

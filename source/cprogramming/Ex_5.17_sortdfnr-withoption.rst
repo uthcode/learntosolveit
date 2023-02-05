@@ -14,9 +14,7 @@ numbers.)
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.17_sortdfnr-withoption.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -7,13 +7,9 @@ Question
 
 Make dcl recover from input errors.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.18_dcl-errorec.c
+.. literalinclude:: cprogs/ex_5.18_dcl-errorec.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_5.18_dcl-errorec.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

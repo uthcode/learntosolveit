@@ -16,9 +16,7 @@ Solution
    :language: c
    :tab-width: 2
 
-.. runcode:: ../../languages/cprogs/Ex_1.15_tempconv.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -12,9 +12,7 @@ position p set to the rightmost n bits of y, leaving the other bits unchanged.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.6_setbits.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

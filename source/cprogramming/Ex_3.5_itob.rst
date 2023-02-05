@@ -13,9 +13,7 @@ as a hexadecimal integer in s.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_3.5_itob.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

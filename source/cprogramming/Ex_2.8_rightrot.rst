@@ -12,9 +12,7 @@ to the right by n positions.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.8_rightrot.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

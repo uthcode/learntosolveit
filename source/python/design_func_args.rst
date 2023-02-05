@@ -14,9 +14,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/design_func_args.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

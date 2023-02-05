@@ -18,9 +18,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/algorithm_cellauto.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

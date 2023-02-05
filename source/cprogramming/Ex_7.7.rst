@@ -13,9 +13,7 @@ Should the file name be printed when a matching line is found?
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.7.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

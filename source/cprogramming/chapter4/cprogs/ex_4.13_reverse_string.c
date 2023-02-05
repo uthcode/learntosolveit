@@ -1,38 +1,69 @@
-/**
- * Exercise 4.13 of The C Programming Language by Brian Kernighan and Dennis
- * Ritchie
- *
- * Write a recursive version of the function reverse(s), which reverses the
- * string s in place.
- */
+/* a recursive version of revese(s); the string reverse function */
 
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
 
-#define MAXLINE 1000
+#define MAXLINE 100
 
-void reverse(char s[], int i, int j);
+int mgetline(char line[],int maxline);
+void reverse(char s[]);
 
-int main(void) {
-    char s[MAXLINE];
-    int i, j;
+int main(void)
+{
+	char s[MAXLINE];
 
-    printf("Enter a string: ");
-    fgets(s, MAXLINE, stdin);
-    i = 0;
-    j = strlen(s) - 1;
-    reverse(s, i, j);
-    printf("Reversed string: %s\n", s);
-    return 0;
+	mgetline(s,MAXLINE);
+
+	reverse(s);
+
+	printf("%s",s);
+	
+	return 0;
 }
 
-void reverse(char s[], int i, int j) {
-    int c;
+int mgetline(char s[],int lim)
+{
+	int i,c;
 
-    if (i < j) {
-        c = s[i];
-        s[i] = s[j];
-        s[j] = c;
-        reverse(s, ++i, --j);
+	for(i=0;i<lim-1 && (c=getchar())!=EOF && c!='\n';++i)
+		s[i] = c;
+
+	if(c=='\n')
+		s[i++]='\n';
+
+	s[i]='\0';
+}
+
+void reverse(char s[]){
+
+    static int i = 0;
+    static int len;
+
+    int j;
+    char c;
+
+    if (i ==0){
+        len= strlen(s);
     }
+    
+    j= len - (i+1);
+
+    if (i<j){
+        c=s[i];
+        s[i]=s[j];
+        s[j]=c;
+        i++;
+        reverse(s);
+    }
+
+    // the algorithm has finished so we have to set i=0 again
+    else{
+        i=0;
+    }  
 }
+
+
+
+
+
+

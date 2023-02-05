@@ -12,9 +12,7 @@ comments, or preprocessor control lines. Write a better version.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.1_getword.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

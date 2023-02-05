@@ -15,9 +15,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/files_count_lines_large_file.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

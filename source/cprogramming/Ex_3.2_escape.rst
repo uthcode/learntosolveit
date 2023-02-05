@@ -14,9 +14,7 @@ sequences into the real characters.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_3.2_escape.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

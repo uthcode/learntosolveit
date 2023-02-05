@@ -12,9 +12,7 @@ strcat(s,t) copies the string t to the end of s.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.3_strcat.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

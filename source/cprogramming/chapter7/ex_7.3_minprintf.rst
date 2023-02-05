@@ -7,13 +7,9 @@ Question
 
 Revise minprintf to handle more of the other facilities of printf.
 
-.. literalinclude:: ../../languages/cprogs/Ex_7.3_minprintf.c
+.. literalinclude:: cprogs/ex_7.3_minprintf.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_7.3_minprintf.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

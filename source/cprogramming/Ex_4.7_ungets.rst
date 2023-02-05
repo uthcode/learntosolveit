@@ -12,9 +12,7 @@ Should ungets know about buf and bufp, or should it just use ungetch?
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.7_ungets.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

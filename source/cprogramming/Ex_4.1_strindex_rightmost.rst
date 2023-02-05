@@ -12,9 +12,7 @@ occurrence of t in s, or -1 if there is none.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.1_strindex_rightmost.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

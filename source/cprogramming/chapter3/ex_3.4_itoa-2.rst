@@ -10,19 +10,16 @@ the largest negative number,  that is, the value of n equal to -(2wordsize-1).
 Explain why not. Modify it to print that value correctly,  regardless of the
 machine on which it runs.
 
-The previous version of itoa was this::
+The previous version of itoa was this
 
-.. literalinclude:: ../../languages/cprogs/Ex_3.4_itoa-previous.c
+.. literalinclude:: cprogs/ex_3.4_itoa-previous.c
    :language: c
    :tab-width: 4
 
-.. literalinclude:: ../../languages/cprogs/Ex_3.4_itoa-2.c
+
+.. literalinclude:: cprogs/ex_3.4_itoa-2.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_3.4_itoa-2.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

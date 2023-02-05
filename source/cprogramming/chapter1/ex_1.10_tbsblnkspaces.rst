@@ -12,7 +12,7 @@ visible in an unambiguous way.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.10_TbsBlnkSpaces.c
+.. literalinclude:: cprogs/ex_1.10_tbsblnkspaces.c
    :language: c
 
 Explanation

@@ -12,9 +12,7 @@ with a conditional expression instead of if-else.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.10_lowercondit.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

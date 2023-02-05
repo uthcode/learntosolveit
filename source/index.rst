@@ -17,15 +17,11 @@ C Programming
 .. toctree::
    :maxdepth: 3
 
-   ./cprogramming/index.rst
-
-Revision
-========
-
-.. toctree::
-   :maxdepth: 3
-
    ./cprogramming/chapter1/index.rst
    ./cprogramming/chapter2/index.rst
    ./cprogramming/chapter3/index.rst
    ./cprogramming/chapter4/index.rst
+   ./cprogramming/chapter5/index.rst
+   ./cprogramming/chapter6/index.rst
+   ./cprogramming/chapter7/index.rst
+   ./cprogramming/chapter8/index.rst

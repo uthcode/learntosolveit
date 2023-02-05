@@ -13,9 +13,7 @@ Design and write _flushbuf, fflush, and fclose.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.3.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

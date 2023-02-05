@@ -12,6 +12,4 @@ Program
 Explanation
 -----------
 
-----
-
 This document was updated on |today|

@@ -13,9 +13,7 @@ like ``the, and`` and so on.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.3.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -12,9 +12,7 @@ return as its function value?
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.2_getfloat.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

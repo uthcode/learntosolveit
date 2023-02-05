@@ -8,13 +8,10 @@ Question
 Functions like isupper can be implemented to save space or to save time. Explore
 both possibilities.
 
-.. literalinclude:: ../../languages/cprogs/Ex_7.9.c
+.. literalinclude:: cprogs/ex_7.9.c
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.9.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

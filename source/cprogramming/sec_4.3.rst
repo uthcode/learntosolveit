@@ -9,9 +9,7 @@ Program
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_4.3.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

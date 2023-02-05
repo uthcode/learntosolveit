@@ -13,9 +13,7 @@ stack.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.4_rpn_top_two_elements.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

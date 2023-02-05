@@ -11,9 +11,7 @@ Write a program to compare two files, printing the first line where they differ.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.6.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

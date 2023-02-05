@@ -79,9 +79,6 @@ An example execution will look like this.
 Visualize It
 ============
 
-.. raw:: html
-
-
 * https://pythontutor.com/c.html
 
 Try It

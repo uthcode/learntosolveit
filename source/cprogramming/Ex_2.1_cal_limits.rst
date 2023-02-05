@@ -15,9 +15,7 @@ the various floating-point types.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.1_cal_limits.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

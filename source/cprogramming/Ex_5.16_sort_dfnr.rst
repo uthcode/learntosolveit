@@ -12,9 +12,7 @@ letters, numbers and blanks. Make sure it works in conjunction with -f.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.16_sort_dfnr.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

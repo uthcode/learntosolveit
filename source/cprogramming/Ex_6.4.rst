@@ -12,9 +12,7 @@ decreasing order of frequency of occurrence. Precede each word by its count.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.4.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

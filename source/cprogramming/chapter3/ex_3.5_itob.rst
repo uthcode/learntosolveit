@@ -9,10 +9,7 @@ Write the function itob(n,s,b) that converts the integer n into a base b
 character representation in the string s. In particular, itob(n,s,16) formats s
 as a hexadecimal integer in s.
 
-.. literalinclude:: cprogs/Ex_3.5_itob.c
-   :language: c
-
-.. runcode:: cprogs/Ex_3.5_itob.c
+.. literalinclude:: cprogs/ex_3.5_itob.c
    :language: c
 
 Explanation

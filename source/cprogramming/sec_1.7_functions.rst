@@ -10,9 +10,7 @@ Program
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_1.7_functions.c
    :language: c
-   :codesite: ideone
    
 Explanation
 ===========

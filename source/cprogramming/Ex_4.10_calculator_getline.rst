@@ -12,9 +12,7 @@ getch and ungetch unnecessary. Revise the calculator to use this approach.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.10_calculator_getline.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

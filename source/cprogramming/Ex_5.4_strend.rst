@@ -12,9 +12,7 @@ end of the string s, and zero otherwise.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.4_strend.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

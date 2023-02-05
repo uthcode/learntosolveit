@@ -12,9 +12,7 @@ Modify the sort program to handle a -r flag, which indicates sorting in reverse
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.14_sortrevnum.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

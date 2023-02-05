@@ -17,9 +17,7 @@ Solution
    :tab-width: 2
 
 
-.. runcode:: ../../languages/cprogs/Ex_1.19_reversestr.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

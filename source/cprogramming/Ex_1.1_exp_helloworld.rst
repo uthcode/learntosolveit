@@ -12,9 +12,7 @@ parts of the program, to see what error messages you get.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_1.1_helloworld.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -13,9 +13,7 @@ calling alloc to maintain storage. How much faster is the program?
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.7_readlines_using_array.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

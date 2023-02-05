@@ -13,9 +13,7 @@ local custom, and break long text lines.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.2_nongraphic.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

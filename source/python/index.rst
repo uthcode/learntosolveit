@@ -98,7 +98,6 @@ make money, you will need to take care of these aspects.
    software_engineering_fortune_card
    software_engineering_htmlformatter
    software_engineering_htmlwriter
-   software_engineering_ideone_post
    software_engineering_logging1
    software_engineering_logging2
    software_engineering_logging3

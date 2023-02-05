@@ -14,9 +14,7 @@ Solution
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_1.8_count_blanks_etc.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

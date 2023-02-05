@@ -13,9 +13,7 @@ unchanged.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.7_invert.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

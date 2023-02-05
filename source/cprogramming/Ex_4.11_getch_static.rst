@@ -12,9 +12,7 @@ static variable.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.11_getch_static.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

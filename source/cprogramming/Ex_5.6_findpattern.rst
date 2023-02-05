@@ -14,9 +14,7 @@ and strindex and getop (Chapter 4).
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.6_findpattern.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

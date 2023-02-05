@@ -18,9 +18,7 @@ Solution
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_1.21_entab.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

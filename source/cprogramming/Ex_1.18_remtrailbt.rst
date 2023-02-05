@@ -17,9 +17,7 @@ Solution
    :tab-width: 2
 
 
-.. runcode:: ../../languages/cprogs/Ex_1.18_remtrailbt.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

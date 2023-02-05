@@ -19,9 +19,7 @@ Write a loop equivalent to the for loop above without using && or ||.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.2_getline_without_and_or.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

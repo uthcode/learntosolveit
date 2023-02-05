@@ -12,9 +12,7 @@ command line, where each operator or operand is a separate argument.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.10_exprcmd.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

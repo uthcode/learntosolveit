@@ -9,13 +9,9 @@ Modify the program entab and detab (written as exercises in Chapter 1) to accept
 a list of tab stops as arguments. Use the default tab settings if there are no
 arguments.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.11_conddetab.c
+.. literalinclude:: cprogs/ex_5.11_conddetab.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_5.11_conddetab.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========
@@ -39,9 +35,3 @@ when a sentence is read with detab, the function consults `tabpos` function to
 see if it s tab. If it is tab, then till it meets the next tab, it will output
 space ' ', thus converting the tabs to spaces.
 
-
-
-.. seealso::
-
-   * :c-suggest-improve:`Ex_5.11_conddetab.c`
-   * :c-better-explain:`Ex_5.11_conddetab.rst`

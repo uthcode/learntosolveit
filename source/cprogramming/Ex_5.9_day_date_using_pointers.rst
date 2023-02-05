@@ -12,10 +12,6 @@ indexing.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.9_day_date_using_pointers.c
-   :language: c
-   :codesite: ideone
-
 Explanation
 ===========
 

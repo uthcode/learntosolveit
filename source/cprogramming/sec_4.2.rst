@@ -11,9 +11,7 @@ Program
    :tab-width: 4
    
 
-.. runcode:: ../../languages/cprogs/sec_4.2.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

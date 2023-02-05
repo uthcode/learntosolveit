@@ -7,13 +7,10 @@ Question
 
 Write the program tail, which prints the last n lines of its input.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.13_tailn.c
+.. literalinclude:: cprogs/ex_5.13_tailn.c
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.13_tailn.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -8,13 +8,9 @@ Question
 Modify the sort program to handle a -r flag, which indicates sorting in reverse
 (decreasing) order. Be sure that -r works with -n.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.14_sortrevnum.c
+.. literalinclude:: cprogs/ex_5.14_sortrevnum.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_5.14_sortrevnum.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

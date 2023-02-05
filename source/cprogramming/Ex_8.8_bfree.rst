@@ -13,9 +13,7 @@ a static or external array to the free list at any time.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.8_bfree.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

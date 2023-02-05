@@ -20,9 +20,7 @@ The previous version of itoa was this::
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_3.4_itoa-2.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

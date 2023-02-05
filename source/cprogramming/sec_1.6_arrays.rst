@@ -10,9 +10,7 @@ Program
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_1.6_arrays.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

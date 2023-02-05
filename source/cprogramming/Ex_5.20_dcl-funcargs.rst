@@ -12,9 +12,7 @@ const, and so on.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.20_dcl-funcargs.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

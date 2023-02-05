@@ -8,13 +8,9 @@ Question
 Rewrite the postfix calculator of Chapter 4 to use scanf and/or sscanf to do the
 input and number conversion.
 
-.. literalinclude:: ../../languages/cprogs/Ex_7.5.c
+.. literalinclude:: cprogs/ex_7.5.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_7.5.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

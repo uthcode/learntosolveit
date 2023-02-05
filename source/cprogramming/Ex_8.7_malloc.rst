@@ -13,9 +13,7 @@ routines so they make more pains with error checking.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.7_malloc.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -9,9 +9,7 @@ Program
    :language: c
    :tab-width: 4
    
-.. runcode:: ../../languages/cprogs/sec_1.10_external_variables.c
    :language: c
-   :codesite: ideone
    
 
 

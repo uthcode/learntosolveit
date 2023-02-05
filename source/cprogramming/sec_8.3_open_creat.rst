@@ -12,9 +12,7 @@ Demonstrate the ``cp`` like program which copies the contents of one file to ano
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_8.3_open_creat.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

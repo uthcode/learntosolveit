@@ -11,9 +11,7 @@ Write the program tail, which prints the last n lines of its input.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.13_tailn.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

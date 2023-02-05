@@ -8,13 +8,9 @@ Question
 Write the function strend(s,t), which returns 1 if the string t occurs at the
 end of the string s, and zero otherwise.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.4_strend.c
+.. literalinclude:: cprogs/ex_5.4_strend.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_5.4_strend.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

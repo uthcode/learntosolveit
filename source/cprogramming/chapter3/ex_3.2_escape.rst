@@ -10,13 +10,9 @@ visible escape sequences like \n and \t as it copies the string t to s. Use a
 switch. Write a function for the other direction as well, converting escape
 sequences into the real characters.
 
-.. literalinclude:: cprogs/Ex_3.2_escape.c
+.. literalinclude:: cprogs/ex_3.2_escape.c
    :language: c
    :tab-width: 4
-
-.. runcode:: cprogs/Ex_3.2_escape.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

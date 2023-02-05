@@ -7,13 +7,10 @@ Question
 
 Extend entab and detab to accept the shorthand.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.12_condientab.c
+.. literalinclude:: ../../languages/cprogs/ex_5.12_condientab.c
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.12_condientab.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

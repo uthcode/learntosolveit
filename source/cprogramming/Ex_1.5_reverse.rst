@@ -16,9 +16,7 @@ Solution
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_1.5_reverse.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

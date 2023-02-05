@@ -11,9 +11,7 @@ Define a macro swap(t,x,y) that interchanges two arguments of type t.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.14_swap_t_x_y.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

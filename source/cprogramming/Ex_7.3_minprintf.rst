@@ -11,9 +11,7 @@ Revise minprintf to handle more of the other facilities of printf.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.3_minprintf.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -14,9 +14,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/software_engineering_tkintertimer.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

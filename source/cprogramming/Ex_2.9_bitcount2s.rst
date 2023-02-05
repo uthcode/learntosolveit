@@ -12,9 +12,7 @@ x. Explain why. Use this observation to write a faster version of bitcount.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.9_bitcount2s.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

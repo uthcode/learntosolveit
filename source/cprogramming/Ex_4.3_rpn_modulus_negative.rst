@@ -12,9 +12,7 @@ the modulus (%) operator and provisions for negative numbers.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.3_rpn_modulus_negative.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

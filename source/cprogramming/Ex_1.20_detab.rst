@@ -17,9 +17,7 @@ Solution
    :language: c
    :tab-width: 2
 
-.. runcode:: ../../languages/cprogs/Ex_1.20_detab.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

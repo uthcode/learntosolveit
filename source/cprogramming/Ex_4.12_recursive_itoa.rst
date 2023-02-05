@@ -12,9 +12,7 @@ an integer into a string by calling a recursive routine.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.12_recursive_itoa.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

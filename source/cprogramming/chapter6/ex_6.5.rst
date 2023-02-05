@@ -8,13 +8,9 @@ Question
 Write a function undef that will remove a name and definition from the table
 maintained by lookup and install.
 
-.. literalinclude:: ../../languages/cprogs/Ex_6.5.c
+.. literalinclude:: cprogs/ex_6.5.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_6.5.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

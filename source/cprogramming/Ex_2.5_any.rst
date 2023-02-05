@@ -14,9 +14,7 @@ returns a pointer to the location.)
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.5_any.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -9,9 +9,7 @@ Program
    :language: c
    :tab-width: 4
    
-.. runcode:: ../../languages/cprogs/sec_1.5_inp2ou.c
    :language: c
-   :codesite: ideone
 
 Explanation
 -----------

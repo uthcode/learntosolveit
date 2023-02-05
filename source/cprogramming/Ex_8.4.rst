@@ -16,9 +16,7 @@ The standard library function:
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.4.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -12,9 +12,7 @@ distinctions are not made during sorting; for example, a and A compare equal.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.15_sortfnr.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

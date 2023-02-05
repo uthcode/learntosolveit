@@ -13,9 +13,7 @@ exponent.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.2_atof_scientific.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

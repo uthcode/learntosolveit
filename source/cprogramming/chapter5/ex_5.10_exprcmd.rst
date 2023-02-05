@@ -8,13 +8,9 @@ Question
 Write the program expr, which evaluates a reverse Polish expression from the
 command line, where each operator or operand is a separate argument.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.10_exprcmd.c
+.. literalinclude:: cprogs/ex_5.10_exprcmd.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_5.10_exprcmd.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

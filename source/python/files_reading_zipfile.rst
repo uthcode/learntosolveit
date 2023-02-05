@@ -15,9 +15,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/files_reading_zipfile.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

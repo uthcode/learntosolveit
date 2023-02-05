@@ -13,9 +13,7 @@ design.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.9_getch_ungetch_eof.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

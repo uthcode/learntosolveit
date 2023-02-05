@@ -12,9 +12,7 @@ with single-letter names.) Add a variable for the most recently printed value.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.6_calculator_variables.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

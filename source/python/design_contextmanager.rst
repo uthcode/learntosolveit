@@ -15,9 +15,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/design_contextmanager.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

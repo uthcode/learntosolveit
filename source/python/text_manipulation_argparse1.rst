@@ -9,9 +9,7 @@ Question
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/text_manipulation_argparse1.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ============

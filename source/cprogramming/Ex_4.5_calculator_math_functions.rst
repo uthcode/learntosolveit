@@ -11,9 +11,7 @@ Add access to library functions like sin, exp, and pow.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.5_calculator_math_functions.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

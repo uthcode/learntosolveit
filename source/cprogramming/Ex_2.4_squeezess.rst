@@ -12,9 +12,7 @@ that matches any character in the string s2.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.4_squeezess.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -12,9 +12,7 @@ depending on the name it is invoked with, as found in argv[0]
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.1_lower-upper.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

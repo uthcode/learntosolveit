@@ -12,9 +12,7 @@ Copy input to output by using read and write system calls.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_8_2_read_write.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

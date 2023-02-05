@@ -13,9 +13,7 @@ or by modifying it.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.6_calloc.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

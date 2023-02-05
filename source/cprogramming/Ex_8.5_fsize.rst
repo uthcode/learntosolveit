@@ -13,9 +13,7 @@ entry.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.5_fsize.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

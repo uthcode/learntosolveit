@@ -11,9 +11,7 @@ There is no error checking in day_of_year or month_day. Remedy this defect.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.8_day_date.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -15,9 +15,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/algorithm_checking_string_text_or_binary.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

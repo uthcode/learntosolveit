@@ -1,66 +1,74 @@
 /**
- * Exercise 4.7 of The C Programming Language by Brian Kernighan and Dennis
- * Ritchie
  *
- * Write a routine ungets(s) that will push back an entire string onto the
- * input. Should ungets know about buf and bufp, or should it just use ungetch?
+ * Write a routine ungets(s) that will push back an entire string onto
+ * the input. Should ungets(s) know about buf and bufp or
+ * should it handle it to ungetch()
  *
- */
+ **/
 
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
 
-#define BUFSIZE 100
-#define MAXLINE 1000
+#define MAXBUF 100
+#define MAXLINE 100
 
-char buf[BUFSIZE];
-int bufp = 0;
+int bufp=0;
+int buf[MAXBUF];
 
-int getch(void);
-void ungetch(int);
+int getch(void); 
+void ungetch(int c);
 void ungets(char s[]);
-int mgetline(char s[], int lim);
+int mgetline(char line[],int maxline);
 
-int main(int argc, char *argv[]) {
-    char line[MAXLINE];
-    int len;
 
-    while ((len = mgetline(line, MAXLINE)) > 0) {
-        ungets(line);
-        while ((len = mgetline(line, MAXLINE)) > 0) {
-            printf("%s", line);
-        }
-    }
-    return 0;
+int main(void)
+{
+	char line[MAXLINE];
+	int c;
+
+	mgetline(line,MAXLINE);
+
+	ungets(line);
+
+	while((c=getch()) != EOF)
+		putchar(c);
+	
+	return 0;
 }
 
-int mgetline(char s[], int lim) {
-    int c, i;
+int mgetline(char s[],int lim)
+{
+	int i,c;
+	
+	for(i=0;i<lim-1 && (c=getchar())!=EOF && c!='\n';++i)
+		s[i]=c;
 
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
-        s[i] = c;
-    }
-    if (c == '\n') {
-        s[i] = c;
-        ++i;
-    }
-    s[i] = '\0';
-    return i;
+	if(c=='\n')
+		s[i++]=c;
+
+	s[i]='\0';
 }
 
-int getch(void) { return (bufp > 0) ? buf[--bufp] : getchar(); }
+void ungets(char s[])
+{
+	int i;
+	
+	i = strlen(s);
 
-void ungetch(int c) {
-    if (bufp >= BUFSIZE) {
-        printf("ungetch: too many characters\n");
-    } else {
-        buf[bufp++] = c;
-    }
+
+	while(i>0)
+		ungetch(s[--i]);
 }
 
-void ungets(char s[]) {
-    int len = strlen(s);
-    while (len > 0) {
-        ungetch(s[--len]);
-    }
+void ungetch(int c)
+{
+	if(bufp >= MAXBUF)
+		printf("ungetch: too many characters\n");
+	else
+		buf[bufp++]=c;
+}
+
+int getch(void)
+{
+	return (bufp > 0)?buf[--bufp]:getchar();
 }

@@ -13,9 +13,7 @@ with a title and a running page count for each file.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.8.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

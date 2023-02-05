@@ -14,9 +14,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/design_restricter_class.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

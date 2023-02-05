@@ -10,9 +10,7 @@ Program
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_6.3_getword.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

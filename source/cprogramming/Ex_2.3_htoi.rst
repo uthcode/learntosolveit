@@ -13,9 +13,7 @@ allowable digits are 0 through 9, a through f,and A through F.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_2.3_htoi.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

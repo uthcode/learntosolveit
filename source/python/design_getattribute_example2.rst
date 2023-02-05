@@ -16,9 +16,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/design_getattribute_example2.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

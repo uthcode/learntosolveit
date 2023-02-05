@@ -12,9 +12,7 @@ operate on at most the first n characters of their argument strings.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.5_strncpy.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -12,9 +12,7 @@ representation of zero. Fix it to push such a character back on the input.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.1_getint.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

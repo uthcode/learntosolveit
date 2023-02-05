@@ -11,9 +11,7 @@ Make dcl recover from input errors.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.18_dcl-errorec.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

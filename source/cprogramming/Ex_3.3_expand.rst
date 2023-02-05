@@ -15,9 +15,7 @@ and -a-z. Arrange that a leading or trailing -is taken literally.
    :tab-width: 4
    
 
-.. runcode:: ../../languages/cprogs/Ex_3.3_expand.c
    :language: c
-   :codesite: ideone
    
 
 Explanation

@@ -18,9 +18,7 @@ Program
    :tab-width: 4
 
 
-.. runcode:: ../../languages/cprogs/sec_1.3_for_loop.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

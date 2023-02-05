@@ -17,9 +17,7 @@ Solution
    :tab-width: 4
 
 
-.. runcode:: ../../languages/cprogs/Ex_1.16_LongLine.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -14,9 +14,7 @@ Compare code size and execution speed.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_8.2.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

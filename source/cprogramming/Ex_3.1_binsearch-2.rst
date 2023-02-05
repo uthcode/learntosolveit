@@ -13,9 +13,7 @@ loop and measure the difference in runtime.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_3.1_binsearch-2.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

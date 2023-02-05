@@ -7,13 +7,10 @@ Question
 
 Modify undcl so that it does not add redundant parentheses to declarations.
 
-.. literalinclude:: ../../languages/cprogs/Ex_5.19_undcl.c
+.. literalinclude:: cprogs/ex_5.19_undcl.c
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.19_undcl.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

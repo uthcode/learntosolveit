@@ -17,9 +17,7 @@ Solution
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_1.23_remcomments.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

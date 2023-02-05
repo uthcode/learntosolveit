@@ -14,9 +14,7 @@ Solution
    :language: c
    :tab-width: 2
 
-.. runcode:: ../../languages/cprogs/Ex_1.6_verifyeof.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

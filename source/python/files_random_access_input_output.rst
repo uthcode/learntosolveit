@@ -15,9 +15,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/files_random_access_input_output.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

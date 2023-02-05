@@ -14,9 +14,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/design_slice_ellipses.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

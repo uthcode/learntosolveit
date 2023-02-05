@@ -14,9 +14,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/software_engineering_subprocess4.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========

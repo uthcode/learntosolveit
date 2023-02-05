@@ -50,7 +50,6 @@ html_theme_path = [sphinx_pdj_theme.get_html_theme_path()]
 #extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
 #              'sphinx.ext.todo', 'sphinx.ext.coverage',
 #              'sphinx.ext.extlinks', 'sphinx.ext.pngmath',
-#              'sphinxcontrib.runcode']
 
 extensions = ['sphinx.ext.extlinks']
 

@@ -12,9 +12,7 @@ s in place.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_4.13_reverse_string.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

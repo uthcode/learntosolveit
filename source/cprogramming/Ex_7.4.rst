@@ -13,9 +13,7 @@ section.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_7.4.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

@@ -12,9 +12,7 @@ Demonstrate buffered and unbuffered getchar using the system read function.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/sec_8.2_getchar.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

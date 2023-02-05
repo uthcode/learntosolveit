@@ -19,9 +19,7 @@ Solution
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_1.22_fold.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

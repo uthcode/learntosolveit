@@ -20,9 +20,7 @@ Solution
    :tab-width: 4
 
 
-.. runcode:: ../../languages/cprogs/Ex_1.24_synerrors.c
    :language: c
-   :codesite: ideone
 
 
 Explanation

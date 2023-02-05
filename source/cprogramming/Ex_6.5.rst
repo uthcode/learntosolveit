@@ -12,9 +12,7 @@ maintained by lookup and install.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.5.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

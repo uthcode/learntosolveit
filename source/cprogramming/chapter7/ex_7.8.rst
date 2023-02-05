@@ -9,13 +9,9 @@ Write a program to print a set of files, starting each new one on a new page,
 with a title and a running page count for each file.
 
 
-.. literalinclude:: ../../languages/cprogs/Ex_7.8.c
+.. literalinclude:: cprogs/ex_7.8.c
    :language: c
    :tab-width: 4
-
-.. runcode:: ../../languages/cprogs/Ex_7.8.c
-   :language: c
-   :codesite: ideone
 
 Explanation
 ===========

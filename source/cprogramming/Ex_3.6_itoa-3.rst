@@ -13,9 +13,7 @@ blanks on the left if necessary to make it wide enough.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_3.6_itoa-3.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

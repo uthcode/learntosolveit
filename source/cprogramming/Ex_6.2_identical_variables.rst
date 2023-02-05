@@ -15,9 +15,7 @@ Make 6 a parameter that can be set from the command line.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_6.2_identical_variables.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

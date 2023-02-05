@@ -13,9 +13,7 @@ arguments.
    :language: c
    :tab-width: 4
 
-.. runcode:: ../../languages/cprogs/Ex_5.11_conddetab.c
    :language: c
-   :codesite: ideone
 
 Explanation
 ===========

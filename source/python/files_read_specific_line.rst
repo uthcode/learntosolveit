@@ -14,9 +14,7 @@ Solution
    :language: python
    :tab-width: 4
 
-.. runcode:: ../../languages/python/files_read_specific_line.py
    :language: python
-   :codesite: ideone
 
 Explanation
 ===========
