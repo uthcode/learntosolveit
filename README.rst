@@ -11,4 +11,6 @@ Please visit https://exercism.org to "Learn To Solve It" using your favorite pro
 Contact
 -------
 
-* [Senthil Kumaran](https://senthil.learntosolveit.com)
+* `Senthil Kumaran`_
+
+.. _Senthil Kumaran: https://senthil.learntosolveit.com
