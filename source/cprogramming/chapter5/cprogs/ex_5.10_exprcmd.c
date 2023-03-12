@@ -1,23 +1,34 @@
-/* Write a program exprcmd, which evaluates a reverse polish expression,
-   from the command line,where each operator or operand is a seperate argument.
-	
-	For eg:
-		expr  2 3 4 + *
-	        evaluates to 
-			2 * ( 3 + 4)
-*/
+/**
+ *
+ * Write a program exprcmd, which evaluates a reverse polish expression, from
+ * the command line,where each operator or operand is a seperate argument. For
+ * eg: expr  2 3 4 + * evaluates to 2 * ( 3 + 4)
+ *
+ **/
 
-#include<stdio.h>
-#include<math.h>  /* for atof() */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>  /* for atof() */
+#include <ctype.h>
 
 #define MAXOP 100	/* maximum size of operand or operator */
 #define NUMBER '0'	/* signal that a number was found */
+#define BUFSIZE 100
+#define MAXVAL 100 /* maximum depth of value of stack */
+
+int sp = 0;	/* next free stack position */
+double val[MAXVAL]; 	/* value stack */
+char buf[BUFSIZE];	/* buffer for ungetch */
+int bufp = 0;		/* next free position in buf */
+
 
 int getop(char []);
 void ungets(char []);
 void push(double);
 double pop(void);
-
+int getch(void);
+void ungetch(int);
 
 /* reverse polish calculator, uses command line */
 
@@ -30,7 +41,7 @@ int main(int argc,char *argv[])
 	{
 		ungets(" "); /* push end of argument */
 		ungets(*++argv);
-	
+
 		switch(getop(s))
 		{
 			case NUMBER:
@@ -64,17 +75,12 @@ int main(int argc,char *argv[])
 	return 0;
 }
 
-#include<ctype.h>
-
-int getch(void);
-void ungetch(int);
-
 /* getop: get next operator or numeric operand */
 
 int getop(char s[])
 {
 	int i,c;
-		
+
 	while((s[0] = c = getch()) == ' ' || c == '\t')
 		;
 
@@ -92,15 +98,11 @@ int getop(char s[])
 		while(isdigit(s[++i] = c = getch()))
 			;
 	s[i] = '\0';
-	
+
 	if(c != EOF)
 		ungetch(c);
 	return NUMBER;
 }
-
-#define BUFSIZE 100
-char buf[BUFSIZE];	/* buffer for ungetch */
-int bufp = 0;		/* next free position in buf */
 
 int getch(void)	/* get a (possibly pushed back) character */
 {
@@ -115,11 +117,6 @@ void ungetch(int c)	/* push character back on input */
 		buf[bufp++] = c;
 }
 
-#define MAXVAL 100 /* maximum depth of value of stack */
-
-int sp = 0;	/* next free stack position */
-double val[MAXVAL]; 	/* value stack */
-
 /* push : push f onto value stack */
 void push(double f)
 {
@@ -130,7 +127,6 @@ void push(double f)
 }
 
 /* pop: pop and return top value from the stack */
-
 double pop(void)
 {
 	if ( sp > 0)
@@ -142,9 +138,7 @@ double pop(void)
 	}
 }
 
-#include<string.h>
 /* ungets: push string back onto the input */
-
 void ungets(char s[])
 {
 	int len=strlen(s);
@@ -153,4 +147,3 @@ void ungets(char s[])
 	while(len > 0)
 		ungetch(s[--len]);
 }
-
