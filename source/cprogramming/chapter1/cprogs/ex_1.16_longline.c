@@ -12,8 +12,9 @@
 #define MAX 1000
 
 /* define our functions*/
-int getNewLine(char line[], int max);
-void copy(char to[], char from[]);
+int get_line(char arr[], int lim);
+
+void copy(char to[], const char from[]);
 
 int main() {
 
@@ -22,7 +23,7 @@ int main() {
     char longest[MAX];
 
     max = 0;
-    while ((len = getNewLine(line, MAX)) > 0) {
+    while ((len = get_line(line, MAX)) > 0) {
 
         if (len > max) {
 
@@ -40,7 +41,7 @@ int main() {
 }
 
 /* get a line in a character array */
-int getNewLine(char arr[], int lim) {
+int get_line(char arr[], int lim) {
 
     int c, i;
 
@@ -53,9 +54,7 @@ int getNewLine(char arr[], int lim) {
         arr[i] = c;
         ++i;
 
-    }
-
-    else {
+    } else {
 
         /* Continue to count the length even if it is longer than the max */
         while ((c = getchar() != EOF) && c != '\n') {
@@ -75,7 +74,7 @@ int getNewLine(char arr[], int lim) {
 }
 
 /* copy one character array to another */
-void copy(char to[], char from[]) {
+void copy(char to[], const char from[]) {
 
     int i;
 
