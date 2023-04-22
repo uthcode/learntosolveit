@@ -14,7 +14,7 @@ getch and ungetch unnecessary. Revise the calculator to use this approach.
 Explanation
 ===========
 
-This program uses `mgetline` to get the characters and operands from the input
+This program uses `_getline` to get the characters and operands from the input
 and and proceeds with the RPN calculator logic.
 
 This is the main part of the program.
