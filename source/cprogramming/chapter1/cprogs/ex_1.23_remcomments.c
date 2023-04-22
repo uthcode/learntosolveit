@@ -10,7 +10,9 @@
 #include <stdio.h>
 
 void rcomment(int c);
+
 void incomment(void);
+
 void echo_quote(int c);
 
 int main(void) {
