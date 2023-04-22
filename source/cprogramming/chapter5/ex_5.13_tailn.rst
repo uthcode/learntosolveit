@@ -25,7 +25,7 @@ be printed, the default value being 100.
     char *lineptr[LINES];   /* pointer to lines read */
 
 The program works by first allocating enough memory for the last n lines in a
-buffer. Gets each line using `mgetline(line, MAXLEN)` and then copies each line
+buffer. Gets each line using `_getline(line, MAXLEN)` and then copies each line
 to an index entry in the lineptr array.
 
 ::
