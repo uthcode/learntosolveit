@@ -4,13 +4,15 @@
  */
 
 #include <stdio.h>
+
 #define MAXLINE 100
 
 #define YES 1
 #define NO 0
 
-int mgetline(char line[], int maxline);
-int htoi(char s[]);
+int mgetline(char line[], int lim);
+
+int htoi(const char s[]);
 
 int main(void) {
     char line[MAXLINE];
@@ -24,22 +26,22 @@ int main(void) {
     return 0;
 }
 
-int mgetline(char s[], int lim) {
+int mgetline(char line[], int lim) {
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        s[i] = c;
+        line[i] = c;
 
     if (c == '\n') {
-        s[i] = c;
+        line[i] = c;
         ++i;
     }
-    s[i] = '\0';
+    line[i] = '\0';
 
     return i;
 }
 
-int htoi(char s[]) {
+int htoi(const char s[]) {
     int hexdigit, i, inhex, n;
     i = 0;
     if (s[i] == '0') {

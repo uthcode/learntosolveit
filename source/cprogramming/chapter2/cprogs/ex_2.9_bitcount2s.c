@@ -6,7 +6,7 @@
 
 int bitcount(unsigned x);
 
-int main(void) { printf("%d", bitcount((unsigned)12)); }
+int main(void) { printf("%d", bitcount((unsigned) 12)); }
 
 int bitcount(unsigned x) {
     int b;
