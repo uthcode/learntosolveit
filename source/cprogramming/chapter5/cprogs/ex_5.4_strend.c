@@ -1,72 +1,67 @@
 #include<stdio.h>
+
 #define MAXLINE 1000
 
-int mgetline(char s[],int max);
-int strend(char *s,char *t);
+int mgetline(char s[], int lim);
+
+int strend(char *s, char *t);
+
 int mystrlen(char *t);
 
-int main(void)
-{
-    char s[MAXLINE],t[MAXLINE];
+int main(void) {
+    char s[MAXLINE], t[MAXLINE];
     int ret;
-    mgetline(s,MAXLINE);
-    mgetline(t,MAXLINE);
-    ret = strend(s,t);
-    printf("%d",ret);
+    mgetline(s, MAXLINE);
+    mgetline(t, MAXLINE);
+    ret = strend(s, t);
+    printf("%d", ret);
     return 0;
 }
 
-int mgetline(char s[],int lim)
-{
-    int c,i;
-    
-    for(i=0;i<lim-1 && ((c=getchar())!=EOF) && c!='\n';++i)
-        s[i]=c;
+int mgetline(char s[], int lim) {
+    int c, i;
 
-    if(c=='\n')
-    {
-        s[i]=c;
+    for (i = 0; i < lim - 1 && ((c = getchar()) != EOF) && c != '\n'; ++i)
+        s[i] = c;
+
+    if (c == '\n') {
+        s[i] = c;
         ++i;
     }
-    s[i]='\0';
+    s[i] = '\0';
 
     return i;
 }
 
-int strend(char *s,char *t)
-{
+int strend(char *s, char *t) {
     int len;
-    len=mystrlen(t);
-    while(*s!='\0')
+    len = mystrlen(t);
+    while (*s != '\0')
         ++s;
     --s;
 
-    while(*t!='\0')
+    while (*t != '\0')
         ++t;
-            
+
     --t;
-    while(len > 0)
-    {
-        if(*t==*s)
-        {
+    while (len > 0) {
+        if (*t == *s) {
             --t;
             --s;
             --len;
-        }
-        else
+        } else
             return 0;
     }
-    if( len == 0)
+    if (len == 0)
         return 1;
 }
 
-int mystrlen(char *t)
-{
+int mystrlen(char *t) {
     char *p;
-    p=t;
+    p = t;
 
-    while(*p!='\0')
+    while (*p != '\0')
         ++p;
 
-    return p-t;
+    return p - t;
 }

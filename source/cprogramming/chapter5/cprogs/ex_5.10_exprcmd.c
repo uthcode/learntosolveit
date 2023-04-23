@@ -22,10 +22,15 @@ char buf[BUFSIZE];  /* buffer for ungetch */
 int bufp = 0;       /* next free position in buf */
 
 int getop(char[]);
+
 void ungets(char[]);
+
 void push(double);
+
 double pop(void);
+
 int getch(void);
+
 void ungetch(int);
 
 /* reverse polish calculator, uses command line */
@@ -39,30 +44,30 @@ int main(int argc, char *argv[]) {
         ungets(*++argv);
 
         switch (getop(s)) {
-        case NUMBER:
-            push(atof(s));
-            break;
-        case '+':
-            push(pop() + pop());
-            break;
-        case '*':
-            push(pop() * pop());
-            break;
-        case '-':
-            op2 = pop();
-            push(pop() - op2);
-            break;
-        case '/':
-            op2 = pop();
-            if (op2 != 0.0)
-                push(pop() / op2);
-            else
-                printf("error: zero divisor \n");
-            break;
-        default:
-            printf("error: unknown command %s \n", s);
-            argc = 1;
-            break;
+            case NUMBER:
+                push(atof(s));
+                break;
+            case '+':
+                push(pop() + pop());
+                break;
+            case '*':
+                push(pop() * pop());
+                break;
+            case '-':
+                op2 = pop();
+                push(pop() - op2);
+                break;
+            case '/':
+                op2 = pop();
+                if (op2 != 0.0)
+                    push(pop() / op2);
+                else
+                    printf("error: zero divisor \n");
+                break;
+            default:
+                printf("error: unknown command %s \n", s);
+                argc = 1;
+                break;
         }
     }
     printf("\t %8g\n", pop());
@@ -75,8 +80,7 @@ int main(int argc, char *argv[]) {
 int getop(char s[]) {
     int i, c;
 
-    while ((s[0] = c = getch()) == ' ' || c == '\t')
-        ;
+    while ((s[0] = c = getch()) == ' ' || c == '\t');
 
     s[1] = '\0';
 
@@ -86,11 +90,9 @@ int getop(char s[]) {
     i = 0;
 
     if (isdigit(c)) /* collect integer part */
-        while (isdigit(s[++i] = c = getch()))
-            ;
+        while (isdigit(s[++i] = c = getch()));
     if (c == '.') /* collect from fraction part */
-        while (isdigit(s[++i] = c = getch()))
-            ;
+        while (isdigit(s[++i] = c = getch()));
     s[i] = '\0';
 
     if (c != EOF)
