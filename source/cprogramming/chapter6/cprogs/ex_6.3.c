@@ -61,9 +61,13 @@ struct simword {
 };
 
 struct tnode *addtree(struct tnode *, char *, int);
+
 void treeprint(const struct tnode *);
+
 int mgetword(char *, int, int *);
+
 struct linenumber *lnumberalloc(void);
+
 struct linenumber *addlinenumber(struct linenumber *, int);
 
 int main(int argc, char *argv[]) {
@@ -95,6 +99,7 @@ int main(int argc, char *argv[]) {
 } /* end of main() */
 
 struct tnode *talloc(void);
+
 char *mstrdup(char *);
 
 /* mgetword from Ex6.1 */
@@ -242,7 +247,7 @@ struct linenumber *addlinenumber(struct linenumber *p, int linenumber) {
 }
 
 struct linenumber *lnumberalloc(void) {
-    return (struct linenumber *)malloc(sizeof(struct linenumber));
+    return (struct linenumber *) malloc(sizeof(struct linenumber));
 }
 
 /* treeprint: From K&R2 page 142. Prints tree p in-order. */
@@ -264,13 +269,13 @@ void printnumbers(const struct linenumber *p) {
 
 /* talloc: From K&R2 page 142. Makes a tnode. */
 struct tnode *talloc(void) {
-    return (struct tnode *)malloc(sizeof(struct tnode));
+    return (struct tnode *) malloc(sizeof(struct tnode));
 }
 
 /* strdup: From K&R2 page 143. Makes a duplicate of s. */
 char *mstrdup(char *s) {
     char *p;
-    p = (char *)malloc(strlen(s) + 1);
+    p = (char *) malloc(strlen(s) + 1);
     if (p != NULL)
         strcpy(p, s);
     return p;

@@ -8,14 +8,15 @@ struct key {
     char *word;
     int count;
 } keytab[] = {
-    "auto",     0, "break",   0, "case",     0, "char", 0, "const",    0,
-    "continue", 0, "default", 0, "unsigned", 0, "void", 0, "volatile", 0,
-    "while",    0, "printf",  0, /* Figure out why printf is a special case */
+        "auto", 0, "break", 0, "case", 0, "char", 0, "const", 0,
+        "continue", 0, "default", 0, "unsigned", 0, "void", 0, "volatile", 0,
+        "while", 0, "printf", 0, /* Figure out why printf is a special case */
 };
 
 #define NKEYS (sizeof keytab / sizeof(struct key))
 
 int mgetword(char *, int);
+
 int binsearch(char *, struct key *, int);
 
 /* count C keywords */
@@ -56,8 +57,7 @@ int mgetword(char *word, int lim) {
     int c, getch(void);
     void ungetch(int);
     char *w = word;
-    while (isspace(c = getch()))
-        ;
+    while (isspace(c = getch()));
     if (c != EOF)
         *w++ = c;
     if (!isalpha(c)) {

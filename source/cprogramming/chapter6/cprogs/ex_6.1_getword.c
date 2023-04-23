@@ -5,16 +5,17 @@
 struct key {
     char *word;
     int count;
-} keytab[] = {"auto",     0, "break",    0, "case",     0, "char",   0,
-              "const",    0, "continue", 0, "default",  0, "do",     0,
-              "double",   0, "else",     0, "enum",     0, "extern", 0,
-              "float",    0, "for",      0, "goto",     0, "if",     0,
-              "int",      0, "long",     0, "register", 0, "return", 0,
-              "short",    0, "signed",   0, "sizeof",   0, "static", 0,
-              "struct",   0, "switch",   0, "typedef",  0, "union",  0,
-              "unsigned", 0, "void",     0, "volatite", 0, "while",  0};
+} keytab[] = {"auto", 0, "break", 0, "case", 0, "char", 0,
+              "const", 0, "continue", 0, "default", 0, "do", 0,
+              "double", 0, "else", 0, "enum", 0, "extern", 0,
+              "float", 0, "for", 0, "goto", 0, "if", 0,
+              "int", 0, "long", 0, "register", 0, "return", 0,
+              "short", 0, "signed", 0, "sizeof", 0, "static", 0,
+              "struct", 0, "switch", 0, "typedef", 0, "union", 0,
+              "unsigned", 0, "void", 0, "volatite", 0, "while", 0};
 
 int mygetword(char *, int);
+
 int binsearch(char *, struct key *, int);
 
 #define NKEYS (sizeof(keytab) / sizeof(keytab[0]))
@@ -33,7 +34,7 @@ int main(int argc, char *argv[]) {
             printf("%4d %s\n", keytab[n].count, keytab[n].word);
 }
 
-int binsearch(char *word, struct key keytab[], int n) {
+int binsearch(char *word, struct key lkeytab[], int n) {
     int cond;
     int low, high, mid;
 
@@ -41,7 +42,7 @@ int binsearch(char *word, struct key keytab[], int n) {
     high = n - 1;
     while (low <= high) {
         mid = (low + high) / 2;
-        if ((cond = strcmp(word, keytab[mid].word)) < 0)
+        if ((cond = strcmp(word, lkeytab[mid].word)) < 0)
             high = mid - 1;
         else if (cond > 0)
             low = mid + 1;
@@ -57,21 +58,17 @@ int mygetword(char *word, int lim) {
     char *w = word;
     int t;
 
-    while (isspace(c = getch()))
-        ;
+    while (isspace(c = getch()));
     if (c != EOF)
         *w++ = c;
     if (!isalpha(c)) {
         if (c == '\"') { /*string constant*/
-            for (c = getch(); c != '\"'; c = getch())
-                ;
+            for (c = getch(); c != '\"'; c = getch());
         } else if (c == '#') { /*preprocessor*/
-            for (c = getch(); c != '\n'; c = getch())
-                ;
+            for (c = getch(); c != '\n'; c = getch());
         } else if (c == '/')            /*comment*/
             if ((c = getch()) == '/') { /*single comment*/
-                for (c = getch(); c != '\n'; c = getch())
-                    ;
+                for (c = getch(); c != '\n'; c = getch());
             } else if (c == '*') { /*mutiline comment*/
                 for (c = getch(), t = getch(); c != '*' && t != '/';
                      c = getch(), t = getch())
@@ -79,8 +76,7 @@ int mygetword(char *word, int lim) {
             } else
                 ungetch(c);
         else /*underscore*/
-            for (; !isspace(c) && c != EOF; c = getch())
-                ;
+            for (; !isspace(c) && c != EOF; c = getch());
         if (c != '\"' && c != '\n' && c != '/')
             ungetch(c);
         *w = '\0';
