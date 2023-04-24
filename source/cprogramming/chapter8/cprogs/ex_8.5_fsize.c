@@ -25,6 +25,7 @@ Dirent *myreaddir(MYDIR *dfd);
 void myclosedir(MYDIR *dfd);
 
 void fsize(char *);
+
 void dirwalk(char *, void (*fcn)(char *));
 
 /* stat from sys.stat.h has the following structure and these fields can be
@@ -118,7 +119,7 @@ MYDIR *myopendir(char *dirname) {
 
     if ((fd = open(dirname, O_RDONLY, 0)) == -1 || fstat(fd, &stbuf) == -1 ||
         (stbuf.st_mode & S_IFMT) != S_IFDIR ||
-        (dp = (MYDIR *)malloc(sizeof(MYDIR))) == NULL)
+        (dp = (MYDIR *) malloc(sizeof(MYDIR))) == NULL)
         return NULL;
     dp->fd = fd;
     return dp;
@@ -139,7 +140,7 @@ Dirent *myreaddir(MYDIR *dp) {
     struct direct dirbuf;
     static Dirent d;
 
-    while (read(dp->fd, (char *)&dirbuf, sizeof(dirbuf)) == sizeof(dirbuf)) {
+    while (read(dp->fd, (char *) &dirbuf, sizeof(dirbuf)) == sizeof(dirbuf)) {
         if (dirbuf.d_ino == 0)
             continue;
         d.ino = dirbuf.d_ino;

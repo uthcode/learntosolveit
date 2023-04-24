@@ -29,7 +29,7 @@ int main() {
 int ugetchar(void) {
     char c;
 
-    return (read(0, &c, 1) == 1) ? (unsigned char)c : EOF;
+    return (read(0, &c, 1) == 1) ? (unsigned char) c : EOF;
 }
 
 int bgetchar(void) {
@@ -43,5 +43,5 @@ int bgetchar(void) {
         bufp = buf;
     }
 
-    return (--n >= 0) ? (unsigned char)*bufp++ : EOF;
+    return (--n >= 0) ? (unsigned char) *bufp++ : EOF;
 }
