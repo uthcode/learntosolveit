@@ -1,6 +1,8 @@
-/* Write a Program that will print arbitrary input in a sensible way.As a
-/* minimum,it should prrint non-graphic character in octal or hexadecimal
-/* according to the local customer and break long text lines */
+/**
+ * Write a program that will print arbitrary input in a sensible way. As a
+ * minimum, it should print non-graphic characters in octal or hexadecimal
+ * according to local custom, and break long text lines.
+ */
 
 #include <ctype.h>
 #include <stdio.h>
@@ -8,11 +10,19 @@
 #define MAXLINE 100 /* maximum number of chars in one line */
 #define OCTLEN 6    /* length of an octal value */
 
-/* print arbitrary input in a sensible way */
+/* inc : increment position counter for output */
+int inc(int pos, int n) {
+    if (pos + n < MAXLINE)
+        return pos + n;
+    else {
+        putchar('\n');
+        return n;
+    }
+}
 
+/* print arbitrary input in a sensible way */
 int main(void) {
     int c, pos;
-    int inc(int pos, int n);
 
     pos = 0; /* position in the line */
 
@@ -31,14 +41,4 @@ int main(void) {
             putchar(c);
         }
     return 0;
-}
-
-/* inc : increment position counter for output */
-int inc(int pos, int n) {
-    if (pos + n < MAXLINE)
-        return pos + n;
-    else {
-        putchar('\n');
-        return n;
-    }
 }
