@@ -27,10 +27,15 @@ char buf[BUFSIZE];
 int bufp = 0;
 
 int getch(void);
+
 void ungetch(int);
+
 int getop(char[]);
+
 void push(double);
+
 double pop(void);
+
 void mathfnc(char[]);
 
 /* reverse polish calculator */
@@ -43,61 +48,61 @@ int main(void) {
 
     while ((type = getop(s)) != EOF) {
         switch (type) {
-        case NUMBER:
-            push(atof(s));
-            break;
-        case NAME:
-            mathfnc(s);
-            break;
-        case '+':
-            push(pop() + pop());
-            break;
-        case '*':
-            push(pop() * pop());
-            break;
-        case '-':
-            op2 = pop();
-            push(pop() - op2);
-            break;
-        case '/':
-            op2 = pop();
-            if (op2 != 0.0)
-                push(pop() / op2);
-            else
-                printf("error:zero divisor\n");
-            break;
-        case '%':
-            op2 = pop();
-            if (op2 != 0.0)
-                push(fmod(pop(), op2));
-            else
-                printf("erro:zero divisor\n");
-            break;
-        case '?':
-            op2 = pop();
-            printf("\t%.8g\n", op2);
-            push(op2);
-            break;
-        case 'c':
-            clearsp();
-            break;
-        case 'd':
-            op2 = pop();
-            push(op2);
-            push(op2);
-            break;
-        case 's':
-            op1 = pop();
-            op2 = pop();
-            push(op1);
-            push(op2);
-            break;
-        case '\n':
-            printf("\t%.8g\n", pop());
-            break;
-        default:
-            printf("error: unknown command %s\n", s);
-            break;
+            case NUMBER:
+                push(atof(s));
+                break;
+            case NAME:
+                mathfnc(s);
+                break;
+            case '+':
+                push(pop() + pop());
+                break;
+            case '*':
+                push(pop() * pop());
+                break;
+            case '-':
+                op2 = pop();
+                push(pop() - op2);
+                break;
+            case '/':
+                op2 = pop();
+                if (op2 != 0.0)
+                    push(pop() / op2);
+                else
+                    printf("error:zero divisor\n");
+                break;
+            case '%':
+                op2 = pop();
+                if (op2 != 0.0)
+                    push(fmod(pop(), op2));
+                else
+                    printf("erro:zero divisor\n");
+                break;
+            case '?':
+                op2 = pop();
+                printf("\t%.8g\n", op2);
+                push(op2);
+                break;
+            case 'c':
+                clearsp();
+                break;
+            case 'd':
+                op2 = pop();
+                push(op2);
+                push(op2);
+                break;
+            case 's':
+                op1 = pop();
+                op2 = pop();
+                push(op1);
+                push(op2);
+                break;
+            case '\n':
+                printf("\t%.8g\n", pop());
+                break;
+            default:
+                printf("error: unknown command %s\n", s);
+                break;
         }
     }
     return 0;
@@ -124,15 +129,12 @@ void clearsp(void) { sp = 0; }
 int getop(char s[]) {
     int i, c;
 
-    while ((s[0] = c = getch()) == ' ' || c == '\t')
-        ;
+    while ((s[0] = c = getch()) == ' ' || c == '\t');
     s[1] = '\0';
 
     i = 0;
     if (islower(c)) {
-        while (islower(s[++i] = c = getch()))
-            ;
-        ;
+        while (islower(s[++i] = c = getch()));;
         s[i] = '\0';
         if (c != EOF)
             ungetch(c);
@@ -161,12 +163,10 @@ int getop(char s[]) {
         }
 
     if (isdigit(c))
-        while (isdigit(s[++i] = c = getch()))
-            ;
+        while (isdigit(s[++i] = c = getch()));
 
     if (c == '.')
-        while (isdigit(s[++i] = c = getch()))
-            ;
+        while (isdigit(s[++i] = c = getch()));
 
     s[i] = '\0';
     if (c != EOF)

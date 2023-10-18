@@ -17,12 +17,12 @@ and strindex and getop (Chapter 4).
 Explanation
 ===========
 
-mgetline takes a string ``(char *)`` and MAXLINE, the maximum length of the line. It
+_getline takes a string ``(char *)`` and MAXLINE, the maximum length of the line. It
 gets one character at a time using getchar() and as long as we are under limit
 (less than MAXLINE) and it is not \n character. It stores the charaacters in the
 line, advancing the pointer for each character.
 
-When it hits \n, it adds \n and closes the line with \0. mgetline returns the
+When it hits \n, it adds \n and closes the line with \0. _getline returns the
 length of the line, subtracting the last address with initial address.
 
 

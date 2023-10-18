@@ -37,24 +37,29 @@ struct words {
 };
 
 struct tnode *addtree(struct tnode *p, char *w);
+
 struct bynumbernode *addnumtree(struct bynumbernode *, int, char *);
+
 struct words *addwordtolist(struct words *, char *);
+
 void printwords(const struct words *, const int);
 
 struct bynumbernode *traverse(const struct tnode *, struct bynumbernode *);
+
 void treeprint(const struct bynumbernode *);
+
 int mgetword(char *, int);
 
 struct tnode *talloc(void) {
-    return (struct tnode *)malloc(sizeof(struct tnode));
+    return (struct tnode *) malloc(sizeof(struct tnode));
 };
 
 struct bynumbernode *bynumbernodealloc(void) {
-    return (struct bynumbernode *)malloc(sizeof(struct bynumbernode));
+    return (struct bynumbernode *) malloc(sizeof(struct bynumbernode));
 };
 
 struct words *wordsalloc(void) {
-    return (struct words *)malloc(sizeof(struct words));
+    return (struct words *) malloc(sizeof(struct words));
 };
 
 #define BUFSIZE 100
@@ -63,6 +68,7 @@ char buf[BUFSIZE];
 int bufp = 0;
 
 int getch(void) { return (bufp > 0) ? buf[--bufp] : getchar(); }
+
 void ungetch(int c) {
     if (bufp >= BUFSIZE) {
         printf("ungetch: too many characters\n");
@@ -73,7 +79,7 @@ void ungetch(int c) {
 
 char *mstrdup(char *s) {
     char *p;
-    p = (char *)malloc(strlen(s) + 1);
+    p = (char *) malloc(strlen(s) + 1);
     if (p != NULL) {
         strcpy(p, s);
     }
@@ -86,8 +92,7 @@ int getword(char *word, int lim) {
     char *w = word;
 
     while (isspace(c = getch()) || c == '_' || c == '/' || c == '#' ||
-           c == '*' || c == '"')
-        ;
+           c == '*' || c == '"');
 
     if (c != EOF) {
         *w++ = c;
@@ -105,6 +110,7 @@ int getword(char *word, int lim) {
     *w = '\0';
     return word[0];
 }
+
 /* addtree : add a node with w at or below p */
 struct tnode *addtree(struct tnode *p, char *w) {
     int cond;
@@ -123,6 +129,7 @@ struct tnode *addtree(struct tnode *p, char *w) {
     }
     return p;
 }
+
 // treeprint: in-order print of tree p
 void treeprint(const struct bynumbernode *p) {
     if (p != NULL) {

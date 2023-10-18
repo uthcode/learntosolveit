@@ -43,6 +43,7 @@ struct nlist *lookup(char *s) {
 }
 
 struct nlist *lookup(char *);
+
 char *strdup(char *);
 
 /* install: put (name, defn) in hashtab */
@@ -51,7 +52,7 @@ struct nlist *install(char *name, char *defn) {
     unsigned hashval;
 
     if ((np = lookup(name)) == NULL) { /* not found */
-        np = (struct nlist *)malloc(sizeof(*np));
+        np = (struct nlist *) malloc(sizeof(*np));
 
         if (np == NULL || (np->name = strdup(name)) == NULL)
             return NULL;
@@ -59,7 +60,7 @@ struct nlist *install(char *name, char *defn) {
         np->next = hashtab[hashval];
         hashtab[hashval] = np;
     } else                      /* already there */
-        free((void *)np->defn); /* free the previous defn */
+        free((void *) np->defn); /* free the previous defn */
 
     if ((np->defn = strdup(defn)) == NULL)
         return NULL;
@@ -80,7 +81,7 @@ struct nlist *undef(char *name) {
             found = found->next;
         } else {
             hashtab[hash(name)] = NULL;
-            free((void *)found);
+            free((void *) found);
         }
     }
     return found;
@@ -88,8 +89,8 @@ struct nlist *undef(char *name) {
 
 int main(int argc, char *argv[]) {
     struct nlist *table[4] = {
-        (install("key", "value")), (install("key1", "value1")),
-        (install("key2", "value2")), (install("key3", "value3"))};
+            (install("key", "value")), (install("key1", "value1")),
+            (install("key2", "value2")), (install("key3", "value3"))};
 
     int i;
 

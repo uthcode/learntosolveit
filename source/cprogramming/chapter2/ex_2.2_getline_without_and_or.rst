@@ -22,7 +22,7 @@ Write a loop equivalent to the for loop above without using && or ||.
 Explanation
 ===========
 
-We use mgetline instead of getline, so that our compiler does not get confused
+We use _getline instead of getline, so that our compiler does not get confused
 with the builtin getline function.
 
 The crux of the program is this.

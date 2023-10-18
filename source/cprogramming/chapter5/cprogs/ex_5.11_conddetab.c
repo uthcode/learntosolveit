@@ -13,6 +13,7 @@
 #define NO 0
 
 void esettab(int argc, char *argv[], char *tab);
+
 void detab(char *tab);
 
 /* replace tabs with blanks */

@@ -47,11 +47,17 @@ struct simword {
 };
 
 struct tnode *addtree(struct tnode *, char *);
+
 void treeprint(const struct tnode *);
+
 int mgetword(char *, int);
+
 struct simroot *addroot(struct simroot *, struct tnode *, int);
+
 struct simroot *parse(struct tnode *, int);
+
 void printlist(struct simroot *, int);
+
 void printwords(struct simword *);
 
 int main(int argc, char *argv[]) {
@@ -154,8 +160,11 @@ void printwords(struct simword *p) {
 }
 
 struct tnode *talloc(void);
+
 char *mstrdup(char *);
+
 struct simword *walloc(struct simword *, struct tnode *);
+
 void addword(struct simword *, struct tnode *);
 
 /*
@@ -168,14 +177,14 @@ void addword(struct simword *, struct tnode *);
 struct simroot *addroot(struct simroot *p, struct tnode *n, int len) {
     /* end of list, create a new root */
     if (p == NULL) {
-        p = (struct simroot *)malloc(sizeof(struct simroot));
+        p = (struct simroot *) malloc(sizeof(struct simroot));
         p->nextroot = NULL;
         p->firstword = walloc(p->firstword, n);
     }
-    /* word belongs to this list, add it */
+        /* word belongs to this list, add it */
     else if (strncmp(p->firstword->word, n->word, len) == 0)
         addword(p->firstword, n);
-    /* haven't found the right root or end yet */
+        /* haven't found the right root or end yet */
     else
         p->nextroot = addroot(p->nextroot, n, len);
     return p;
@@ -193,14 +202,14 @@ void addword(struct simword *p, struct tnode *n) {
     /* end of list. create a new node */
     if (p->nextword == NULL)
         p->nextword = walloc(p->nextword, n);
-    /* haven't reached the end yet */
+        /* haven't reached the end yet */
     else
         addword(p->nextword, n);
 }
 
 /* walloc: Creates a new simword node. */
 struct simword *walloc(struct simword *p, struct tnode *n) {
-    p = (struct simword *)malloc(sizeof(struct simword));
+    p = (struct simword *) malloc(sizeof(struct simword));
     if (p != NULL) {
         p->word = n->word;
         p->count = n->count;
@@ -221,8 +230,7 @@ int mgetword(char *word, int lim) {
 
     comment = string = directive = OUT;
 
-    while (isspace(c = getch()))
-        ;
+    while (isspace(c = getch()));
 
     /* Check if inside a comment */
 
@@ -345,13 +353,13 @@ void treeprint(const struct tnode *p) {
 
 /* talloc: From K&R2 page 142. Makes a tnode. */
 struct tnode *talloc(void) {
-    return (struct tnode *)malloc(sizeof(struct tnode));
+    return (struct tnode *) malloc(sizeof(struct tnode));
 }
 
 /* strdup: From K&R2 page 143. Makes a duplicate of s. */
 char *mstrdup(char *s) {
     char *p;
-    p = (char *)malloc(strlen(s) + 1);
+    p = (char *) malloc(strlen(s) + 1);
     if (p != NULL)
         strcpy(p, s);
     return p;

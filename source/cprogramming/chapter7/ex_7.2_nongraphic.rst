@@ -16,6 +16,9 @@ local custom, and break long text lines.
 Explanation
 ===========
 
-
+We use the standard library function `iscntrl` declared in `ctype.h` to determine if a character is a control character.
+We keep track of the position to print the output in the `inc` function and print the output in the `putchar` function.
+If there is special character, we allocate 6 characters to it and print the character in octal along with the special
+character.
 
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
+
 /* count digits, white space, others */
-main() {
+int main() {
     int c, i, nwhite, nother;
     int ndigit[10];
     nwhite = nother = 0;

@@ -16,8 +16,11 @@ int bufp = 0;
 int buf[MAXBUF];
 
 int getch(void);
+
 void ungetch(int c);
+
 void ungets(char s[]);
+
 int mgetline(char line[], int maxline);
 
 int main(void) {

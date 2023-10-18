@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 // compare two files, printing the first line where they differ
 int main(int argc, char *argv[]) {
     FILE *fp1, *fp2;
@@ -28,9 +29,9 @@ void filecmp(FILE *f1, FILE *f2) {
     char *string1;
 
     while (!feof(f1) && !feof(f2)) {
-        string = (char *)malloc(size);
+        string = (char *) malloc(size);
         getline(&string, &size, f1);
-        string1 = (char *)malloc(size);
+        string1 = (char *) malloc(size);
         getline(&string1, &size, f2);
         if (strcmp(string, string1) != 0) {
             printf("%s", string);

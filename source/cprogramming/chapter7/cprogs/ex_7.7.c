@@ -13,6 +13,8 @@
 
 int mgetline(char *line, int max);
 
+int strindex(char *s, char *t);
+
 char pattern[] = "ould"; /* pattern to search for */
 
 /* find all the matching patterns */
@@ -55,8 +57,7 @@ int strindex(char *s, char *t) {
     char *p, *r;
 
     for (; *s != '\0'; s++) {
-        for (p = s, r = t; *r != '\0' && *p == *r; p++, r++)
-            ;
+        for (p = s, r = t; *r != '\0' && *p == *r; p++, r++);
 
         if (r > t && *r == '\0')
             return s - b;

@@ -14,7 +14,7 @@ getch and ungetch unnecessary. Revise the calculator to use this approach.
 Explanation
 ===========
 
-This program uses `mgetline` to get the characters and operands from the input
+This program uses `_getline` to get the characters and operands from the input
 and and proceeds with the RPN calculator logic.
 
 This is the main part of the program.
@@ -29,7 +29,7 @@ This is the main part of the program.
 		int c,i;
 
 		if(line[li] == '\0')
-			if(mgetline(line,MAXLINE) == 0)
+			if(_getline(line,MAXLINE) == 0)
 				return EOF;
 			else
 				li =0;
@@ -59,7 +59,7 @@ This is the main part of the program.
 	}
 
 
-From the mgetline function, it takes the input in the line character array, and
+From the _getline function, it takes the input in the line character array, and
 if if the line is `\0` only, then we define that as EOF and return `EOF`. Then
 we assign to `c` the value present at `line` and look for various conditions
 like, if line is a space or tab character, we simply skip it. If we encouter c

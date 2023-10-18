@@ -17,10 +17,10 @@ void error(char *fmt, ...) {
     va_list args;
     va_start(args, fmt);
 
-    fprintf((FILE *)STDERR, "error: ");
+    fprintf((FILE *) STDERR, "error: ");
 
-    vfprintf((FILE *)STDERR, fmt, args);
-    fprintf((FILE *)STDERR, "\n");
+    vfprintf((FILE *) STDERR, fmt, args);
+    fprintf((FILE *) STDERR, "\n");
     va_end(args);
     exit(1);
 }

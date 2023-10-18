@@ -6,59 +6,54 @@
 #define SIZE 1000
 
 int getch(void);
+
 void ungetch(int);
 
 int getfloat(float *);
 
-int main(void)
-{
-	int n;
-	float array[SIZE];
+int main(void) {
+    int n;
+    float array[SIZE];
 
-	for(n=0;n<SIZE && getfloat(&array[n]) !=EOF;n++)
-		;
-	for(;n>=0;n--)
-		printf("%f",array[n]);
+    for (n = 0; n < SIZE && getfloat(&array[n]) != EOF; n++);
+    for (; n >= 0; n--)
+        printf("%f", array[n]);
 
-	return 0;
+    return 0;
 }
 
-int getfloat(float *pn)
-{
-	int c,sign;
-	float power;
+int getfloat(float *pn) {
+    int c, sign;
+    float power;
 
-	while(isspace(c=getch()))
-		;
+    while (isspace(c = getch()));
 
-	if( !isdigit(c) && c!=EOF && c!= '+' && c != '-' && c != '.')
-	{
-		ungetch(c);
-		return 0;
-	}
-	
-	sign = ( c == '-') ? -1: 1;
+    if (!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.') {
+        ungetch(c);
+        return 0;
+    }
 
-	if( c == '+' || c == '-')
-		c = getch();
+    sign = (c == '-') ? -1 : 1;
 
-	for(*pn = 0.0 ; isdigit(c);c=getch())
-		*pn = 10.0 * *pn + (c - '0');
-	if( c == '.')
-		c = getch();
+    if (c == '+' || c == '-')
+        c = getch();
 
-	for(power=1.0;isdigit(c);c=getch())
-	{
-		*pn = 10.0 * *pn + (c - '0');	/* fractional part */
-		power *= 10.0;
-	}
+    for (*pn = 0.0; isdigit(c); c = getch())
+        *pn = 10.0 * *pn + (c - '0');
+    if (c == '.')
+        c = getch();
 
-	*pn  *= sign / power;
+    for (power = 1.0; isdigit(c); c = getch()) {
+        *pn = 10.0 * *pn + (c - '0');    /* fractional part */
+        power *= 10.0;
+    }
 
-	if( c != EOF)
-		ungetch(c);
-	
-	return c;
+    *pn *= sign / power;
+
+    if (c != EOF)
+        ungetch(c);
+
+    return c;
 }
 
 #define BUFSIZE 100
@@ -66,16 +61,14 @@ int getfloat(float *pn)
 char buf[BUFSIZE];
 int bufp = 0;
 
-int getch(void) 
-{
-	return (bufp > 0) ? buf[--bufp] : getchar();
+int getch(void) {
+    return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-void ungetch(int c)
-{
-	if(bufp >= BUFSIZE)
-		printf("ungetch: too many characters\n");
-	else
-		buf[bufp++]=c;
+void ungetch(int c) {
+    if (bufp >= BUFSIZE)
+        printf("ungetch: too many characters\n");
+    else
+        buf[bufp++] = c;
 }
 

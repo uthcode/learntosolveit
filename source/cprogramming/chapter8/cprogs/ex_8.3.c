@@ -38,6 +38,7 @@ enum _flags {
 };
 
 int _fillbuf(FILE *);
+
 int _flushbuf(int, FILE *);
 
 #define feof(p) (((p)->flag & _EOF) != 0)
@@ -99,7 +100,7 @@ int _fillbuf(FILE *fp) {
     bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZ;
 
     if (fp->base == NULL) /* no buffer yet */
-        if ((fp->base = (char *)malloc(bufsize)) == NULL)
+        if ((fp->base = (char *) malloc(bufsize)) == NULL)
             return EOF; /* can't get buffer */
 
     fp->ptr = fp->base;
@@ -114,7 +115,7 @@ int _fillbuf(FILE *fp) {
         return EOF;
     }
 
-    return (unsigned char)*fp->ptr++;
+    return (unsigned char) *fp->ptr++;
 }
 
 /* _flushbuf: flush a buffer */
@@ -154,7 +155,7 @@ int _flushbuf(int c, FILE *f) {
         /*if ( c!= EOF) {
                 f->ptr = uc;
         } */
-        bufsize = (int)(f->ptr - f->base);
+        bufsize = (int) (f->ptr - f->base);
         num_written = write(f->fd, f->base, bufsize);
         f->ptr = f->base;
         f->cnt = BUFSIZ - 1;
@@ -169,9 +170,9 @@ int _flushbuf(int c, FILE *f) {
 }
 
 FILE _iob[OPEN_MAX] = {/* stdin, stdout, stderr */
-                       {0, (char *)0, (char *)0, _READ, 0},
-                       {0, (char *)0, (char *)0, _WRITE, 1},
-                       {0, (char *)0, (char *)0, _WRITE | _UNBUF, 2}};
+        {0, (char *) 0, (char *) 0, _READ,           0},
+        {0, (char *) 0, (char *) 0, _WRITE,          1},
+        {0, (char *) 0, (char *) 0, _WRITE | _UNBUF, 2}};
 
 /* fflush */
 int fflush(FILE *f) {

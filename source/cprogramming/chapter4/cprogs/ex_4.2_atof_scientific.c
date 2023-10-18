@@ -7,10 +7,12 @@
 
 #include <ctype.h>
 #include <stdio.h>
+
 #define MAXLINE 100
 
 double myatof(char s[]);
-int mgetline(char line[], int maxline);
+
+int mgetline(char line[], int lim);
 
 int main(void) {
     char str[MAXLINE];
@@ -28,8 +30,7 @@ double myatof(char s[]) {
     int sign, i, esign, exp;
     int power(int base, int exp);
 
-    for (i = 0; isspace(s[i]); i++)
-        ;
+    for (i = 0; isspace(s[i]); i++);
 
     sign = (s[i] == '-') ? -1 : 1;
 
@@ -64,16 +65,16 @@ double myatof(char s[]) {
         return sign * (val / pow) * power(10, exp);
 }
 
-int mgetline(char s[], int lim) {
+int mgetline(char line[], int lim) {
     int i, c;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        s[i] = c;
+        line[i] = c;
 
     if (c == '\n')
-        s[i++] = c;
+        line[i++] = c;
 
-    s[i] = '\0';
+    line[i] = '\0';
 }
 
 int power(int base, int exp) {
