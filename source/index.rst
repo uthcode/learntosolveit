@@ -1,7 +1,7 @@
 Learn To Solve It
 =================
 
-This is a companinon website to learn C programming using K&R book.
+This is a companion website to learn C programming using K&R book.
 It uses modern tools, and is designed to be used along with the book.
 
 I recommend https://exercism.org as the platform to learn Programming and
