@@ -1,17 +1,29 @@
-/***
- *
+/**
  * Exercise 2.1
  *
- * Program to print maximum, minimum limits of char, int, long using
- * calculation
+ * Write a program to print maximum, minimum limits of char, int, long using
+ * calculation.
  *
- ***/
+ */
 
-/* The logic used is
+/**
+ * Priminary Information:
+ *
  * ~0 will give bits in 1s.
- * (unsigned <type>) will cast it unsigned.
- * >> 1 right shifts 1 bit to remove the sign bit.
- * (<type>) casting it the required type again
+ * >> 1 right shift by 1 bit to remove the sign bit.
+ * -1 is added to the maximum limit to get the minimum limit.
+ *
+ * The maximum and minimum limits of various integer types can be calculated
+ * using the following logic:
+ *
+ * 1. The maximum limit of a signed integer type can be calculated by
+ *   (unsigned <type>) ~0 >> 1
+ *
+ * 2. The minimum limit of a signed integer type can be calculated by
+ *  ((unsigned <type>) ~0 >> 1) - 1
+ *   *
+ * 3. We cast it back to the required type with sign to print the value.
+ *
  */
 
 #include <float.h>
@@ -22,24 +34,24 @@ int main() {
     /* ranges of various floating-point types through calculation */
     printf("Ranges of various floating-point types through calculation:\n");
 
-    printf("Minimum Signed Char %d\n", -(char) ((unsigned char) ~0 >> 1) - 1);
-    printf("Maximum Signed Char %d\n", (char) ((unsigned char) ~0 >> 1));
+    printf("Minimum Signed Char %d\n", -(char)((unsigned char)~0 >> 1) - 1);
+    printf("Maximum Signed Char %d\n", (char)((unsigned char)~0 >> 1));
 
-    printf("Minimum Signed Short %d\n", -(short) ((unsigned short) ~0 >> 1) - 1);
-    printf("Maximum Signed Short %d\n", (short) ((unsigned short) ~0 >> 1));
+    printf("Minimum Signed Short %d\n", -(short)((unsigned short)~0 >> 1) - 1);
+    printf("Maximum Signed Short %d\n", (short)((unsigned short)~0 >> 1));
 
-    printf("Minimum Signed Int %d\n", -(int) ((unsigned int) ~0 >> 1) - 1);
-    printf("Maximum Signed Int %d\n", (int) ((unsigned int) ~0 >> 1));
+    printf("Minimum Signed Int %d\n", -(int)((unsigned int)~0 >> 1) - 1);
+    printf("Maximum Signed Int %d\n", (int)((unsigned int)~0 >> 1));
 
-    printf("Minimum Signed Long %ld\n", -(long) ((unsigned long) ~0 >> 1) - 1);
-    printf("Maximum signed Long %ld\n", (long) ((unsigned long) ~0 >> 1));
+    printf("Minimum Signed Long %ld\n", -(long)((unsigned long)~0 >> 1) - 1);
+    printf("Maximum signed Long %ld\n", (long)((unsigned long)~0 >> 1));
 
     /* Unsigned Maximum Values */
 
-    printf("Maximum Unsigned Char %d\n", (unsigned char) ~0);
-    printf("Maximum Unsigned Short %d\n", (unsigned short) ~0);
-    printf("Maximum Unsigned Int %u\n", (unsigned int) ~0);
-    printf("Maximum Unsigned Long %lu\n\n", (unsigned long) ~0);
+    printf("Maximum Unsigned Char %d\n", (unsigned char)~0);
+    printf("Maximum Unsigned Short %d\n", (unsigned short)~0);
+    printf("Maximum Unsigned Int %u\n", (unsigned int)~0);
+    printf("Maximum Unsigned Long %lu\n\n", (unsigned long)~0);
 
     /* ranges of various floating-point types from standard headers */
     printf("Ranges of various floating-point types from standard headers:\n");
