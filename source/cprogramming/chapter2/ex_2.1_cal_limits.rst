@@ -20,18 +20,34 @@ Explanation
 
 The execution of the above program will give::
 
-   Minimum Signed Char -128
-   Maximum Signed Char 127
-   Minimum Signed Short -32768
-   Maximum Signed Short 32767
-   Minimum Signed Int -2147483648
-   Maximum Signed Int 2147483647
-   Minimum Signed Long -2147483648
-   Maximum signed Long 2147483647
-   Maximum Unsigned Char 255
-   Maximum Unsigned Short 65535
-   Maximum Unsigned Int 4294967295
-   Maximum Unsigned Long 4294967295
+    Ranges of various floating-point types through calculation:
+    Minimum Signed Char -128
+    Maximum Signed Char 127
+    Minimum Signed Short -32768
+    Maximum Signed Short 32767
+    Minimum Signed Int -2147483648
+    Maximum Signed Int 2147483647
+    Minimum Signed Long -9223372036854775808
+    Maximum signed Long 9223372036854775807
+    Maximum Unsigned Char 255
+    Maximum Unsigned Short 65535
+    Maximum Unsigned Int 4294967295
+    Maximum Unsigned Long 18446744073709551615
+
+    Ranges of various floating-point types from standard headers:
+    Minimum Signed Char -128
+    Maximum Signed Char 127
+    Minimum Signed Short -32768
+    Maximum Signed Short 32767
+    Minimum Signed Int -2147483648
+    Maximum Signed Int 2147483647
+    Minimum Signed Long -9223372036854775808
+    Maximum signed Long 9223372036854775807
+    Maximum Unsigned Char 255
+    Maximum Unsigned Short 65535
+    Maximum Unsigned Int 4294967295
+    Maximum Unsigned Long 18446744073709551615
+
 
 In order explain how we calculate the maximum values, we will have to do some
 bit arthimetic. Let's start by calculating the maximum unsigned char.
