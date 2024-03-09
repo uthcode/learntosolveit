@@ -24,7 +24,8 @@ motivated developers.
 [![Documentation Status](https://readthedocs.org/projects/learntosolveit/badge/?version=latest)](http://www.learntosolveit.com/?badge=latest)
 
 
-## Contact
+## Author
 
+* Senthil Kumaran
 * Email: [senthil@uthcode.com](mailto:senthil@uthcode.com)
 * Blog: [https://senthil.learntosolveit.com](https://senthil.learntosolveit.com)
