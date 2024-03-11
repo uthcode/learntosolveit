@@ -34,7 +34,7 @@ The execution of the above program will give::
     Maximum Unsigned Int 4294967295
     Maximum Unsigned Long 18446744073709551615
 
-    Ranges of various floating-point types from standard headers:
+    Ranges of various integer and floating-point types from standard headers:
     Minimum Signed Char -128
     Maximum Signed Char 127
     Minimum Signed Short -32768
@@ -43,10 +43,19 @@ The execution of the above program will give::
     Maximum Signed Int 2147483647
     Minimum Signed Long -9223372036854775808
     Maximum signed Long 9223372036854775807
+    Minimum Signed Long Long -9223372036854775808
+    Maximum signed Long Long 9223372036854775807
+    Minimum Float 1.175494E-38
+    Maximum Float 3.402823E+38
+    Minimum Double 2.225074E-308
+    Maximum Double 1.797693E+308
+    Minimum Long Double 3.362103E-4932
+    Maximum Long Double 1.189731E+4932
     Maximum Unsigned Char 255
     Maximum Unsigned Short 65535
     Maximum Unsigned Int 4294967295
     Maximum Unsigned Long 18446744073709551615
+    Maximum Unsigned Long Long 18446744073709551615
 
 
 In order explain how we calculate the maximum values, we will have to do some
