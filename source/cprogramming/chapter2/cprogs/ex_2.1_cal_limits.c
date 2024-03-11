@@ -32,13 +32,13 @@
 
 int main() {
     /* ranges of various integer types through calculation */
-    printf("Ranges of various floating-point types through calculation:\n");
+    printf("Ranges of various integer types through calculation:\n");
 
-    printf("Minimum Signed Char %d\n", -(char)((unsigned char)~0 >> 1) - 1);
-    printf("Maximum Signed Char %d\n", (char)((unsigned char)~0 >> 1));
+    printf("Minimum Signed Char %d\n", -(int)((unsigned char)~0 >> 1) - 1);
+    printf("Maximum Signed Char %d\n", (int)((unsigned char)~0 >> 1));
 
-    printf("Minimum Signed Short %d\n", -(short)((unsigned short)~0 >> 1) - 1);
-    printf("Maximum Signed Short %d\n", (short)((unsigned short)~0 >> 1));
+    printf("Minimum Signed Short %d\n", -(int)((unsigned short)~0 >> 1) - 1);
+    printf("Maximum Signed Short %d\n", (int)((unsigned short)~0 >> 1));
 
     printf("Minimum Signed Int %d\n", -(int)((unsigned int)~0 >> 1) - 1);
     printf("Maximum Signed Int %d\n", (int)((unsigned int)~0 >> 1));
@@ -51,7 +51,7 @@ int main() {
     printf("Maximum Unsigned Char %d\n", (unsigned char)~0);
     printf("Maximum Unsigned Short %d\n", (unsigned short)~0);
     printf("Maximum Unsigned Int %u\n", (unsigned int)~0);
-    printf("Maximum Unsigned Long %lu\n\n", (unsigned long)~0);
+    printf("Maximum Unsigned Long %lu\n\n", (unsigned long)~0UL);
 
     /* Calculating max values of float types can be tricky, we can use the standard headers */
 
@@ -70,7 +70,7 @@ int main() {
     printf("Maximum signed Long %ld\n", LONG_MAX);
 
     printf("Minimum Signed Long Long %lld\n", LLONG_MIN);
-    printf("Maximum signed Long Long %lld\n", LLONG_MAX);
+    printf("Maximum Signed Long Long %lld\n", LLONG_MAX);
 
     printf("Minimum Float %E\n", FLT_MIN);
     printf("Maximum Float %E\n", FLT_MAX);
