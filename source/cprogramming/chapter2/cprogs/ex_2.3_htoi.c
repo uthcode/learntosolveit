@@ -6,22 +6,21 @@
 #include <stdio.h>
 
 #define MAXLINE 100
-
-#define YES 1
-#define NO 0
+#define BASE 16
 
 int mgetline(char line[], int lim);
 
-int htoi(const char s[]);
+unsigned int htoi(const char s[], int len);
 
 int main(void) {
     char line[MAXLINE];
-    int value;
+    int len;
+    unsigned int value;
 
-    mgetline(line, MAXLINE);
-    value = htoi(line);
+    len = mgetline(line, MAXLINE);
+    value = htoi(line, len);
 
-    printf("The value of %s is %d", line, value);
+    printf("The value of %s is %u \n", (char *) line, value);
 
     return 0;
 }
@@ -30,41 +29,34 @@ int mgetline(char line[], int lim) {
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        line[i] = c;
+        line[i] = (char) c;
 
-    if (c == '\n') {
-        line[i] = c;
-        ++i;
-    }
     line[i] = '\0';
 
     return i;
 }
 
-int htoi(const char s[]) {
-    int hexdigit, i, inhex, n;
-    i = 0;
-    if (s[i] == '0') {
-        ++i;
-        if (s[i] == 'x' || s[i] == 'X')
-            ++i;
+unsigned int htoi(const char s[], int len) {
+    int digit;
+    int power = 1;
+    unsigned int result = 0;
+    int end_index = 0;
+
+    if (s[0] == '0' && (s[1] == 'x' || s[1] == 'X')) {
+        end_index = 2;
     }
 
-    n = 0;
-    inhex = YES;
-
-    for (; inhex == YES; ++i) {
-        if (s[i] >= '0' && s[i] <= '9')
-            hexdigit = s[i] - '0';
-        else if (s[i] >= 'a' && s[i] <= 'f')
-            hexdigit = s[i] - 'a' + 10;
-        else if (s[i] >= 'A' && s[i] <= 'F')
-            hexdigit = s[i] - 'A' + 10;
-        else
-            inhex = NO;
-
-        if (inhex == YES)
-            n = 16 * n + hexdigit;
+    for(int i=len-1; i>=end_index; i--) {
+        if (s[i] >= '0' && s[i] <= '9') {
+            digit = (s[i] - '0');
+        } else if (s[i] >= 'a' && s[i] <= 'f') {
+            digit = (s[i] - 'a') + 10;
+        } else if (s[i] >= 'A' && s[i] <= 'F') {
+            digit = (s[i] - 'A') + 10;
+        }
+        result += digit * power;
+        power *= BASE;
     }
-    return n;
+
+    return result;
 }
