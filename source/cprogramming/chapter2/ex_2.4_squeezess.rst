@@ -21,16 +21,16 @@ Let's take the two inputs strings as:
     HelloWorld
     ol
 
-Our desired output is::
+Our desired output is
 
 .. code-block:: bash
 
-    HeWrd
+   HeWrd
 
 This has removed the characters `o` and `l` from the first string. The way
 squeeze works is, it take each character from the first string and if there is
 no match found, stores it with a new index `k`. If there is a match found in
-**s2**, it simply skips it.  The way it skips is realized by the following::
+**s2**, it simply skips it.  The way it skips is realized by the following
 
 .. code-block:: c
 
