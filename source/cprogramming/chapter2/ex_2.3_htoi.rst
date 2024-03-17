@@ -74,7 +74,7 @@ we mutiply by 16 and add hexdigit.
 
 For example to convert **0XAF**.
 
-.. raw::
+.. code::
 
     1. We strip off 0X.
     2. For A, we get the value hexdigit = 10
