@@ -67,24 +67,28 @@ find a character between a to f, we store char - `a` + 10, becase hexadecimal
 Then we take each hex digit and for it's position or previous value stored in n,
 we mutiply by 16 and add hexdigit.
 
+.. code-block:: c
+
         if(inhex == YES)
             n = 16 * n + hexdigit;
 
 For example to convert **0XAF**.
 
-1. We strip off 0X.
-2. For A, we get the value hexdigit = 10
-3. n = 16 * 0 + 10
-     = 10
-4. We gather F, we store hexdigit = 'F' - 'A' + 10;
-                                  =  70 - 65  + 10; (70 is ascii value for F, 65 is ascii value for A)
-                                  = 15
-5. n = 16 * n + hexdigit
-     = 16 * 10 + 15
-     = 160 + 15
-     = 175
+.. raw::
 
-**175**
+    1. We strip off 0X.
+    2. For A, we get the value hexdigit = 10
+    3. n = 16 * 0 + 10
+         = 10
+    4. We gather F, we store hexdigit = 'F' - 'A' + 10;
+                                      =  70 - 65  + 10; (70 is ascii value for F, 65 is ascii value for A)
+                                      = 15
+    5. n = 16 * n + hexdigit
+         = 16 * 10 + 15
+         = 160 + 15
+         = 175
+
+    175
 
 Visualization
 =============
