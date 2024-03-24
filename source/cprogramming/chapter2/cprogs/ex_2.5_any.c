@@ -38,19 +38,18 @@ int mgetline(char line[], int lim) {
     if (c == '\n')
         line[i++] = c;
     line[i] = '\0';
+
+    return i;
 }
 
 int any(char s1[], const char s2[]) {
     int i, j;
 
     for (i = 0; s1[i] != '\0'; ++i) {
-        // iterate through s2 while trying to find matching character from s1
-        for (j = 0; (s1[i] != s2[j]) && s2[j] != '\0'; ++j)
-            ; // continue
-
-        if (s2[j] != '\0' && s2[j] != '\n') {
-            // Due to custom getline function, we need to check for newline
-            return i;
+        for (j = 0; s2[j] != '\0'; ++j) {
+            if (s1[i] == s2[j]) {
+                return i;
+            }
         }
     }
 
