@@ -46,4 +46,3 @@ error.
 ::
 
     error: expected `;` before the '}' token
-
