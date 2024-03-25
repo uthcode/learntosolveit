@@ -78,3 +78,10 @@ see "n" as condition 2. The result should be correct too!
 The result will mirror the function,the rightrot(x,n) function will move the
 left most n(n > 0)bits to the right side ，the function should called
 leftrot(x,n).
+
+Visualization
+=============
+
+.. raw:: html
+
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aunsigned%20rightrot%28unsigned%20x,%20int%20n%29%3B%0A%0Aint%20main%28void%29%20%7B%0A%20%20%20%20printf%28%22%25u%22,%20%28unsigned%29rightrot%28%28unsigned%298,%20%28int%291%29%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A%0A/*%20rightrot%3A%20rotate%20x%20to%20right%20by%20n%20bit%20positions%20*/%0A%0Aunsigned%20rightrot%28unsigned%20x,%20int%20n%29%20%7B%0A%20%20%20%20int%20wordlength%28void%29%3B%0A%20%20%20%20unsigned%20rbit%3B%20/*%20rightmost%20bit%20*/%0A%0A%20%20%20%20rbit%20%3D%20x%20%3C%3C%20%28wordlength%28%29%20-%20n%29%3B%0A%20%20%20%20x%20%3D%20x%20%3E%3E%20n%3B%0A%20%20%20%20x%20%3D%20x%20%7C%20rbit%3B%0A%0A%20%20%20%20return%20x%3B%0A%7D%0A%0Aint%20wordlength%28void%29%20%7B%0A%20%20%20%20int%20i%3B%0A%20%20%20%20unsigned%20v%20%3D%20%28unsigned%29~0%3B%0A%0A%20%20%20%20for%20%28i%20%3D%201%3B%20%28v%20%3D%20v%20%3E%3E%201%29%20%3E%200%3B%20i%2B%2B%29%0A%20%20%20%20%20%20%20%20%3B%0A%20%20%20%20return%20i%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
