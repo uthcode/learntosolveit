@@ -21,7 +21,3 @@ fahr <= UPPER, and the increments fahr using STEP in each iteration.
 
 *symbolic constants* are substituted inline in the program during pre-processing
 phase of compilation.
-
-----
-
-This document was updated on |today|

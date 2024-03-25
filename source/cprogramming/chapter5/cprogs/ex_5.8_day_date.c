@@ -1,6 +1,7 @@
 /*
  * Error check in day_of_year and month_day
  */
+
 #include<stdio.h>
 
 static char daytab[2][13] = {
@@ -35,7 +36,7 @@ int main(void) {
 int day_of_year(int year, int month, int day) {
     int i, leap;
 
-    leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 
     if (year < 1 || month < 1 || month > 12 || day < 1 || day > daytab[leap][month])
         return -1;
@@ -51,7 +52,7 @@ int day_of_year(int year, int month, int day) {
 void month_day(int year, int yearday, int *month, int *day) {
     int i, leap;
 
-    leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 
     if (year < 1 || yearday < 1 || yearday > (leap ? 366 : 365)) {
         *month = -1;

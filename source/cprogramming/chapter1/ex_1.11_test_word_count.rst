@@ -30,4 +30,3 @@ consisting of \n, or a file entirely consisting of \t character or a empty file.
 For invalid Inputs, an unclosed file which does not have EOF, which is tricky to
 provide can be given to this program. A unicode character file can be given and
 see if getchar() handles it properly. We tested it and it works.
-
