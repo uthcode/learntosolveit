@@ -144,3 +144,12 @@ We write the entire expression::
 		    = 1111 0000
 
 Converting 1111 0000 to decimal gives us 240 and that is answer.
+
+
+Visualization
+=============
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aunsigned%20setbits%28unsigned%20x,%20int%20p,%20int%20n,%20unsigned%20y%29%3B%0A%0Aint%20main%28void%29%20%7B%20printf%28%22%25u%22,%20setbits%28%28unsigned%2912,%203,%202,%20%28unsigned%2957%29%29%3B%20%7D%0A%0Aunsigned%20setbits%28unsigned%20x,%20int%20p,%20int%20n,%20unsigned%20y%29%20%7B%0A%20%20%20%20return%20%28x%20%26%20~%28~%28~0%20%3C%3C%20n%29%20%3C%3C%20%28p%20%2B%201%20-%20n%29%29%29%20%7C%0A%20%20%20%20%20%20%20%20%20%20%20%28y%20%26%20%28~%28~0%20%3C%3C%20n%29%29%20%3C%3C%20%28p%20%2B%201%20-%20n%29%29%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+

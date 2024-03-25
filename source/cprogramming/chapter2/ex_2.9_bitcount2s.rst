@@ -132,12 +132,9 @@ This gives the number of 1 bits in our program. **AND** operation is faster than
 shifting, because all bits of the number are **not** moved and thereby makes our
 program more efficient.
 
+Visualization
+=============
 
-References
-==========
+.. raw:: html
 
-* `Ones complement`_
-* `Twos complement`_
-
-.. _Ones complement: http://foldoc.org/ones+complement
-.. _Twos complement: http://foldoc.org/twos+complement
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20bitcount%28unsigned%20x%29%3B%0A%0Aint%20main%28void%29%20%7B%20printf%28%22%25d%22,%20bitcount%28%28unsigned%29%2012%29%29%3B%20%7D%0A%0Aint%20bitcount%28unsigned%20x%29%20%7B%0A%20%20%20%20int%20b%3B%0A%0A%20%20%20%20for%20%28b%20%3D%200%3B%20x%20!%3D%200%3B%20x%20%26%3D%20x%20-%201%29%0A%20%20%20%20%20%20%20%20%2B%2Bb%3B%0A%0A%20%20%20%20return%20b%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
