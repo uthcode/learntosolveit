@@ -1,4 +1,4 @@
-/* write a function rightrot(x,n) that returns the value of the integer x
+/* Write a function rightrot(x,n) that returns the value of the integer x
  * rotated to rightby n bit positions */
 
 #include <stdio.h>
@@ -18,6 +18,7 @@ unsigned rightrot(unsigned x, int n) {
     unsigned rbit; /* rightmost bit */
 
     rbit = x << (wordlength() - n);
+
     x = x >> n;
     x = x | rbit;
 
@@ -26,9 +27,11 @@ unsigned rightrot(unsigned x, int n) {
 
 int wordlength(void) {
     int i;
+
     unsigned v = (unsigned)~0;
 
     for (i = 1; (v = v >> 1) > 0; i++)
         ;
+
     return i;
 }

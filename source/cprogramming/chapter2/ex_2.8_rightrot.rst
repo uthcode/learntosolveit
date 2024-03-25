@@ -19,18 +19,19 @@ We need to get the right most bit of the number provided.
 First we get the right n bits at one time.
 
 ::
+
     rbit = x << (wordlength() - n);
 
-Once we get the right n bits, in order to rotate the value of x, we right
-shift x for n bits and then OR the result of x with the rbit determined in the previous
-step.
+Once we get the right n bits, in order to rotate the value of x, we right shift
+x for n bits and then OR the result of x with the rbit determined in the
+previous step.
 
 ::
 
         x = x >> n;
         x = x | rbit;
 
- For the same example.
+For the same example.
 
 ::
 
@@ -50,7 +51,8 @@ step.
                 = 0001 1001 << 5
                 = 0010 0000
 
-So we have got the right most n bits set.Now we right x by 1 and OR the rbit with x.
+So we have got the right most n bits set.Now we right x by 1 and OR the rbit
+with x.
 
 ::
 
@@ -66,11 +68,13 @@ Which is our expected result.
 
     condition 3. when (n > wordlength())	like n = 12
 
-The Compiler will auto transfer "n" to "n % wordlength()", n will be 3, then see "n" as condition 2.
-The result should be correct too!
+The Compiler will auto transfer "n" to "n % wordlength()", n will be 3, then
+see "n" as condition 2. The result should be correct too!
 
 ::
+
     condition 4.    when n < 0	(which is not Often use)
 
-The result will mirror the function,the rightrot(x,n) function will move the left most n(n > 0)bits to the right
-side ，the function should called leftrot(x,n).
+The result will mirror the function,the rightrot(x,n) function will move the
+left most n(n > 0)bits to the right side ，the function should called
+leftrot(x,n).
