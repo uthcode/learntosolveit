@@ -48,7 +48,7 @@ int main(int argc,char *argv[])
 			if(option & NUMERIC)
 				myqsort((void **)lineptr,0,nlines -1,(int (*)(void *,void *))numcmp);
 			else
-				myqsort((void **)lineptr,0,nlines -1,(int (*)(void *,void *))numcmp);
+				myqsort((void **)lineptr,0,nlines -1,(int (*)(void *,void *))strcmp);
 			writelines(lineptr,nlines,option & DECR);
 		}
 		else
