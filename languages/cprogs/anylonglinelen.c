@@ -8,17 +8,19 @@
 
 #define MAXLINE 1000
 
-int getline(char line[], int lim);
+int mgetline(char line[], int lim);
 void copy(char to[], char from[]);
+
+const char* current_input = "First line of text\nSecond longer line of text\nShort line\nVery very very long line that should demonstrate the behavior of the program with a lengthy input sequence\n";
 
 int main(void) {
     int len, max;
     char line[MAXLINE], maxline[MAXLINE];
 
     max = 0;
+    maxline[0] = '\0';  // Initialize maxline
 
-    while ((len = getline(line, MAXLINE)) > 0) {
-        printf("%d\t%s", len, line);
+    while ((len = mgetline(line, MAXLINE)) > 0) {
         if (len > max) {
             max = len;
             copy(maxline, line);
@@ -29,10 +31,18 @@ int main(void) {
     return 0;
 }
 
-int getline(char s[], int lim) {
+// Custom getchar replacement that reads from our simulated input
+int custom_getchar(void) {
+    if (current_input && *current_input) {
+        return *current_input++;
+    }
+    return EOF;
+}
+
+int mgetline(char s[], int lim) {
     int i, j, c;
 
-    for (i = 0, j = 0; (c = getchar()) != EOF && c != '\n'; ++i)
+    for (i = 0, j = 0; (c = custom_getchar()) != EOF && c != '\n'; ++i)
         if (i < lim - 2) {
             s[i] = c;
             ++j;

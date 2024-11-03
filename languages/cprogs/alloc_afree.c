@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #define ALLOCSIZE 1000              /* size of available space */
 
 static char allocbuf[ALLOCSIZE];    /* storage for alloc */
