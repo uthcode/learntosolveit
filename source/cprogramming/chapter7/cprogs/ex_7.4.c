@@ -1,5 +1,6 @@
 /* minscanf: minimalistic scanf function */
 #include <stdarg.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 void minscanf(char *fmt, ...);
@@ -10,7 +11,7 @@ int main(void) {
     minscanf("%d", &i);
     printf("minscanf input: %d\n", i);
 
-    char *a = NULL;
+    char *a = malloc(100); // Allocate 100 bytes, enough for "test char"
     minscanf("%s", a);
     printf("minscanf input: %s\n", a);
 

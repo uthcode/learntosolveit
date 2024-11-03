@@ -16,6 +16,36 @@ section.
 Explanation
 ===========
 
+The Headers
+
+`#include <stdarg.h>`
+
+This header provides functionality for functions with variable arguments (variadic functions)
+It defines va_list, va_start, va_arg, and va_end macros which are used to handle variable arguments
+Essential for implementing functions like scanf/printf that can take varying numbers of arguments
+
+
+`#include <stdio.h>`
+
+This is the standard input/output header
+Provides functions like printf, sscanf, putchar used in the program
+Necessary for basic input/output operations
+
+This program implements a functionality similar to scanf, by taking a variable number of args and prints them to output.
+
+`#include <stdlib.h>` for the malloc macro.
+
+The key components are
+
+::
+
+    va_list ap;  // Declares a variable to hold the argument list
+    va_start(ap, fmt);  // Initializes ap to point to first unnamed argument
+    va_arg(ap, type);   // Returns next argument of specified type
+    va_end(ap);         // Cleanup of argument list
+
+
+
 Visualize
 =========
 
