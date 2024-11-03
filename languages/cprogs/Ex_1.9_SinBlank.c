@@ -6,6 +6,19 @@
 
 #include<stdio.h>
 
+const char *input = "This  line   has   many    blanks to       be replaced by single   blank";
+int input_index = 0;
+
+int custom_getchar(void) {
+    if (input[input_index] == '\0') {
+        return EOF;
+    } else {
+        return input[input_index++];
+    }
+}
+
+
+
 #define NONBLANK '-'
 
 int main(void)
@@ -14,7 +27,7 @@ int main(void)
 
 	lastc = NONBLANK;
 
-	while((c = getchar()) != EOF)
+	while((c = custom_getchar()) != EOF)
 	{
 		if(c == ' ')
 		{

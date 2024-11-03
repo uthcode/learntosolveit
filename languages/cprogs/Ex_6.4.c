@@ -198,7 +198,7 @@ struct bynumbernode *traverse(const struct tnode *p, struct bynumbernode *q){
     return q;
 }
 
-void main(){
+int main(){
     struct tnode *root;
     char word[MAXWORD];
     
@@ -218,7 +218,7 @@ void main(){
     printf("Words by frequency:\n");
     
     treeprint(nroot);
-    return;
+    return 0;
 }
 
 
