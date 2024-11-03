@@ -8,8 +8,8 @@
 
 #define MAXLINE 1000
 
-int mgetline(char line[], int lim);
-void copy(char to[], char from[]);
+int mgetline(char s[], int lim);
+void copy(char to[], const char from[]);
 
 const char* current_input = "First line of text\nSecond longer line of text\nShort line\nVery very very long line that should demonstrate the behavior of the program with a lengthy input sequence\n";
 
@@ -18,7 +18,6 @@ int main(void) {
     char line[MAXLINE], maxline[MAXLINE];
 
     max = 0;
-    maxline[0] = '\0';  // Initialize maxline
 
     while ((len = mgetline(line, MAXLINE)) > 0) {
         if (len > max) {
@@ -57,7 +56,7 @@ int mgetline(char s[], int lim) {
     return i;
 }
 
-void copy(char to[], char from[]) {
+void copy(char to[], const char from[]) {
     int i;
 
     i = 0;
