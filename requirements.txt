@@ -1,7 +1,7 @@
 sphinx
+sphinx-wagtail-theme
 pydata-sphinx-theme
 sphinx_bootstrap_theme
 sphinx-autobuild
 breathe
-piccolo_theme
 sphinx-pdj-theme

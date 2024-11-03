@@ -6,6 +6,16 @@
 
 #include <stdio.h>
 
+const char *input = "This\tis\ta\ttest\\string\bwith\ttabs\\and\\backspaces.\n\nnewline";
+int input_index = 0;
+
+int custom_getchar(void) {
+    if (input[input_index] == '\0') {
+        return EOF;
+    } else {
+        return input[input_index++];
+    }
+}
 
 int main()
 {
@@ -13,7 +23,7 @@ int main()
 
     blanks = tabs = newlines = 0;
 
-    while ((c = getchar()) != EOF) {
+    while ((c = custom_getchar()) != EOF) {
         if (c == ' ')
             ++blanks;
         if (c == '\t')

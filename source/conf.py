@@ -22,9 +22,11 @@ import sphinx_bootstrap_theme
 
 # Activate the theme.
 
-import sphinx_pdj_theme
-html_theme = 'sphinx_pdj_theme'
-html_theme_path = [sphinx_pdj_theme.get_html_theme_path()]
+#import sphinx_pdj_theme
+# html_theme = 'sphinx_pdj_theme'
+#html_theme_path = [sphinx_pdj_theme.get_html_theme_path()]
+#extensions.append("sphinx_wagtail_theme")
+#html_theme = 'sphinx_wagtail_theme'
 
 
 #html_theme = 'piccolo_theme'
@@ -223,3 +225,11 @@ html_show_sphinx = True
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'uthcodedoc'
+
+try:
+    extensions
+except NameError:
+    extensions = []
+
+extensions.append('sphinx_wagtail_theme')
+html_theme = 'sphinx_wagtail_theme'
