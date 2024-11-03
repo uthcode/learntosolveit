@@ -1,4 +1,0 @@
-In a language familiar to you, if you keep the first and the last character of
-each word in the sentence, your can easily read the sentence.
-
-This is one of my earliest program that seems to have survived and still gives joy!
