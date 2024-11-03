@@ -10,6 +10,18 @@
 #define MAXLINE 100 /* maximum number of chars in one line */
 #define OCTLEN 6    /* length of an octal value */
 
+const char *input = "This\tis\ta\ttest.   With a   very   long line.";
+int input_index = 0;
+
+int _getchar(void) {
+    if (input[input_index] == '\0') {
+        return EOF;
+    } else {
+        return input[input_index++];
+    }
+}
+
+
 /* inc : increment position counter for output */
 int inc(int pos, int n) {
     if (pos + n < MAXLINE)
@@ -26,7 +38,7 @@ int main(void) {
 
     pos = 0; /* position in the line */
 
-    while ((c = getchar()) != EOF)
+    while ((c = _getchar()) != EOF)
         if (iscntrl(c) || c == ' ') {
             /* non-graphic or blank character */
             pos = inc(pos, OCTLEN);
