@@ -238,5 +238,7 @@ project = ""
 # These are options specifically for the Wagtail Theme.
 html_theme_options = dict(
     project_name ="Learn To Solve It",
+    logo = "_static/learntosolveit2.png",
+    logo_alt = "",
     github_url = "https://github.com/uthcode/learntosolveit/blob/master/source/"
 )
