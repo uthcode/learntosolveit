@@ -10,7 +10,7 @@ int main(void) {
     minscanf("%d", &i);
     printf("minscanf input: %d\n", i);
 
-    char *a;
+    char *a = NULL;
     minscanf("%s", a);
     printf("minscanf input: %s\n", a);
 

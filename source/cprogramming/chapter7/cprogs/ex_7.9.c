@@ -8,10 +8,22 @@
 
 int myisupper(int);
 
+const char *input = "AbCdEfx";
+int input_index = 0;
+
+int _getchar(void) {
+    if (input[input_index] == '\0') {
+        return EOF;
+    } else {
+        return input[input_index++];
+    }
+}
+
+
 int main(void) {
     int c;
 
-    while ((c = getchar()) != 'x') {
+    while ((c = _getchar()) != 'x') {
         if (c == '\n')
             continue;
 
