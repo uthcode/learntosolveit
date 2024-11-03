@@ -15,6 +15,16 @@ depending on the name it is invoked with, as found in argv[0]
 Explanation
 ===========
 
+This program converts the input string to either lower case or upper case depending on the program.
+This takes help of the various header files like.
+
+::
+
+    #include <ctype.h>   // Provides character handling functions like tolower() and toupper()
+    #include <stdio.h>   // Provides input/output functions like putchar()
+    #include <string.h>  // Provides string handling functions like strcmp()
+
+
 
 Visualize
 =========
