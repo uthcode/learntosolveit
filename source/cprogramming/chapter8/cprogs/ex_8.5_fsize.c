@@ -5,6 +5,7 @@
 #include <sys/fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 #define NAME_MAX 14
 

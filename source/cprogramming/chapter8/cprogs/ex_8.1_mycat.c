@@ -6,6 +6,7 @@ the relative speeds of the two versions */
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define STDIN 0
 #define STDOUT 1
