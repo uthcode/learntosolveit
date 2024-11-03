@@ -234,7 +234,7 @@ except NameError:
 extensions.append('sphinx_wagtail_theme')
 html_theme = 'sphinx_wagtail_theme'
 
-project = ""
+project = "//"
 # These are options specifically for the Wagtail Theme.
 html_theme_options = dict(
     project_name ="Learn To Solve It",
