@@ -14,6 +14,7 @@ int main(void) {
     char *a = malloc(100); // Allocate 100 bytes, enough for "test char"
     minscanf("%s", a);
     printf("minscanf input: %s\n", a);
+    free(a); // free the allocated memory
 
     float f;
     minscanf("%f", &f);
