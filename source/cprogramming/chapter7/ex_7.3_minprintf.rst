@@ -14,6 +14,9 @@ Revise minprintf to handle more of the other facilities of printf.
 Explanation
 ===========
 
+The header `#include <stdarg.h>` provides functionality for functions with variable arguments (variadic functions) It defines va_list, va_start, va_arg, and va_end macros which are used to handle variable arguments.
+Essential for implementing functions like scanf/printf that can take varying numbers of arguments
+
 
 Visualize
 =========

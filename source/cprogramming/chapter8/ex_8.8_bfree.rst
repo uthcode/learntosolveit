@@ -16,3 +16,5 @@ a static or external array to the free list at any time.
 Explanation
 ===========
 
+This program manages the memory blocks, takes care of the alignment, and for the smaller memory blocks it maintains a wtbfree method
+that helps align smaller memory blocks.
