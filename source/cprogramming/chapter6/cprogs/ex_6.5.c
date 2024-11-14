@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*undef will be if it is just hashtable. Remove it.
  * If it is in linked list, delete from linked list.
@@ -44,7 +45,7 @@ struct nlist *lookup(char *s) {
 
 struct nlist *lookup(char *);
 
-char *strdup(char *);
+// char *strdup(char *);
 
 /* install: put (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn) {
