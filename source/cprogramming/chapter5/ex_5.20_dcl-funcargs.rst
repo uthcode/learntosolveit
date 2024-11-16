@@ -16,6 +16,8 @@ const, and so on.
 Explanation
 ===========
 
+This program is a simple parser that reads a C declaration, breaks down the C declaration into constituent parts and provides
+a human readable representation of the declaration. It handles basic declaration syntax including pointers, functions, arrays and parameter declarations.
 
 
 

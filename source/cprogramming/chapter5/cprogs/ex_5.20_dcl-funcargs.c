@@ -4,8 +4,8 @@
 #include<string.h>
 #include<ctype.h>
 
-enum { NAME,PARENS,BRACKETS};
-enum { NO,YES };
+enum { NAME, PARENS, BRACKETS};
+enum { NO, YES };
 
 void dcl(void);
 void dirdcl(void);
@@ -26,7 +26,7 @@ void dcl(void)
 {
 	int ns;
 	
-	for(ns = 0; gettoken() = '*'; )	/* count *'s */
+	for(ns = 0; gettoken() == '*'; )	/* count *'s */
 		ns++;
 	dirdcl();
 	while(ns-- > 0)
@@ -87,14 +87,9 @@ void errmsg(char *msg)
 
 #define MAXTOKEN 100
 
-enum { NAME,PARENS,BRACKETS};
-enum { NO, YES};
-
 void dcl(void);
 void errmsg(char *);
 void dclspec(void);
-void typespec(void);
-void typequal(void);
 int compare(char **,char **);
 int gettoken(void);
 extern int tokentype;	/* type of last token */
@@ -115,6 +110,52 @@ void parmdcl(void)
 	
 	if(tokentype != ')')
 		errmsg("missing ) in parameter declaration \n");
+}
+
+/* compare: compare two strings for bsearch */
+
+int compare(char **s,char **t)
+{
+    return strcmp(*s,*t);
+}
+
+
+
+/* typequal: return YES if token is a type-qualifier */
+int typequal(void)
+{
+    static char *typeq[] =
+            {
+                    "const",
+                    "volatile"
+            };
+
+    char *pt = token;
+
+    if(bsearch(&pt,typeq,sizeof(typeq)/sizeof(char *),sizeof(char *),(int *) compare) == NULL)
+        return NO;
+    else
+        return YES;
+}
+
+
+
+/* typespec: return YES if token is a type-specifier	*/
+int typespec(void)
+{
+    static char *types[] =
+            {
+                    "char",
+                    "int",
+                    "void"
+            };
+
+    char *pt = token;
+
+    if(bsearch(&pt,types,sizeof(types)/sizeof(char *),sizeof(char *), (int *) compare) == NULL)
+    return NO;
+    else
+    return YES;
 }
 
 
@@ -156,46 +197,3 @@ void dclspec(void)
 }
 
 
-
-/* typespec: return YES if token is a type-specifier	*/
-int typespec(void)
-{
-	static char *type[] =
-	{
-		"char",
-		"int",
-		"void"
-	};
-
-	char *pt = token;
-
-	if(bsearch(&pt,types,sizeof(types)/sizeof(char *),sizeof(char *)compare) == NULL)
-		return NO;
-	else
-		return YES;
-}
-
-/* typequal: return YES if token is a type-qualifier */
-int typequal(void)
-{
-	static char *typeq[] =
-	{
-		"const",
-		"volatile"
-	};
-
-	char *pt = token;
-	
-	if(bsearch(&pt,typeq,sizeof(typeq)/sizeof(char *),sizeof(char *),compare) == NULL)
-		return NO;
-	else
-		return YES;
-}
-
-/* compare: compare two strings for bsearch */
-
-int compare(char **s,char **t)
-{
-	return strcmp(*s,*t);
-}
-	
