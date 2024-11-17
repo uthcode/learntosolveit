@@ -15,5 +15,15 @@ Explanation
 ===========
 
 
+This program reads two files using two file pointers, get one character at a time from each file and compares them,
+and if they are not same, prints their differences.
+
+::
+
+        if (f1 != f2) {
+            putchar(f1);
+            putchar(f2);
+            break;
+        }
 
 

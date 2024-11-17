@@ -16,6 +16,9 @@ Should the file name be printed when a matching line is found?
 Explanation
 ===========
 
+This program searches for a pattern `char pattern[] = "ould";`` in the given input line.
+The idea of this program is to take the input from a file.
+
 
 
 

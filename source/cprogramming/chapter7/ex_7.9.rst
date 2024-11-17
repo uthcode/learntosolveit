@@ -16,6 +16,17 @@ both possibilities.
 Explanation
 ===========
 
+This is custom implementation of isupper function instead of the standard library one.
+
+::
+
+    int myisupper(int c) {
+        if (c >= 'A' && c <= 'Z')
+            return 1;
+        else
+            return 0;
+    }
+
 
 Visualize
 =========
