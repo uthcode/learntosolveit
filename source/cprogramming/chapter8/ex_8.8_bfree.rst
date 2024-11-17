@@ -18,3 +18,6 @@ Explanation
 
 This program manages the memory blocks, takes care of the alignment, and for the smaller memory blocks it maintains a wtbfree method
 that helps align smaller memory blocks.
+
+This memory allocation program is simliar how to parking lot orchestrator can allocate park spots for regular sized cars
+and smaller vehicles like bikes, and it will squeeze the spots together to make room for bigger car or additional small sized bikes.

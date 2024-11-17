@@ -15,3 +15,12 @@ routines so they make more pains with error checking.
 Explanation
 ===========
 
+This is an error checking implementation of malloc. If it cannot allocate more bytes, it will throw an error
+
+::
+
+    if (nbytes > MAXBYTES) {
+        fprintf(stderr, "alloc: can't allocate more than %u bytes\n", MAXBYTES);
+        return NULL;
+    }
+

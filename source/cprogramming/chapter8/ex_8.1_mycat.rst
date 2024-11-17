@@ -16,4 +16,7 @@ the relative speeds of the two versions.
 Explanation
 ===========
 
+This is custom implementation of `cat` program using read/write/open/close function calls instead of the standard library ones.
+
+
 

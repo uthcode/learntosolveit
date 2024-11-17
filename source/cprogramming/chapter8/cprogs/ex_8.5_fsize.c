@@ -1,162 +1,80 @@
-#include <dirent.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
+/*
+   Modify the fsize program to print the other information contained in the inode entry.
 
-#define NAME_MAX 14
-
-typedef struct {
-    long ino;
-    char name[NAME_MAX + 1];
-} Dirent;
-
-typedef struct {
-    int fd;
-    Dirent d;
-} MYDIR;
-
-MYDIR *myopendir(char *dirname);
-
-Dirent *myreaddir(MYDIR *dfd);
-
-void myclosedir(MYDIR *dfd);
-
-void fsize(char *);
-
-void dirwalk(char *, void (*fcn)(char *));
-
-/* stat from sys.stat.h has the following structure and these fields can be
-accessed.
- *
-struct stat {
-        dev_t	 	st_dev;		 [XSI] ID of device containing file
-        ino_t	  	st_ino;		 [XSI] File serial number
-        mode_t	 	st_mode;	 [XSI] Mode of file (see below)
-        nlink_t		st_nlink;	 [XSI] Number of hard links
-        uid_t		st_uid;		 [XSI] User ID of the file
-        gid_t		st_gid;		 [XSI] Group ID of the file
-        dev_t		st_rdev;	 [XSI] Device ID
-#if !defined(_POSIX_C_SOURCE) || defined(_DARWIN_C_SOURCE)
-        struct	timespec st_atimespec;	 time of last access
-        struct	timespec st_mtimespec;	 time of last data modification
-        struct	timespec st_ctimespec;	 time of last status change
-#else
-        time_t		st_atime;	 [XSI] Time of last access
-        long		st_atimensec;	 nsec of last access
-        time_t		st_mtime;	 [XSI] Last data modification time
-        long		st_mtimensec;	 last data modification nsec
-        time_t		st_ctime;	 [XSI] Time of last status change
-        long		st_ctimensec;	 nsec of last status change
-#endif
-        off_t		st_size;	 [XSI] file size, in bytes
-        blkcnt_t	st_blocks;	 [XSI] blocks allocated for file
-        blksize_t	st_blksize;	 [XSI] optimal blocksize for I/O
-        __uint32_t	st_flags;	 user defined flags for file
-        __uint32_t	st_gen;		 file generation number
-        __int32_t	st_lspare;	 RESERVED: DO NOT USE!
-        __int64_t	st_qspare[2];	 RESERVED: DO NOT USE!
-};
+   Solution by Akil Adeshwar
+   https://clc-wiki.net/wiki/K%26R2_solutions:Chapter_8:Exercise_5
 */
 
-/*fsize: print size of file "name" */
-void fsize(char *name) {
-    struct stat stbuf;
+#include <stdio.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <dirent.h>
+#include <pwd.h>
 
-    if (stat(name, &stbuf) == -1) {
-        fprintf(stderr, "fsize: can't access %s\n", name);
-        return;
-    }
-
-    if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
-        dirwalk(name, fsize);
-
-    printf("%8ld - %8ld - %8ld - %8ld - %8ld - %8ld %s\n", stbuf.st_size,
-           stbuf.st_blocks, stbuf.st_blksize, stbuf.st_flags, stbuf.st_gen,
-           stbuf.st_nlink, name);
-}
 
 #define MAX_PATH 1024
 
-void dirwalk(char *dir, void (*fcn)(char *)) {
-    char name[MAX_PATH];
-    Dirent *dp;
-    MYDIR *dfd;
+#ifndef DIRSIZ
+#define DIRSIZ 14
+#endif
 
-    if ((dfd = myopendir(dir)) == NULL) {
-        fprintf(stderr, "dirwalk: cant open %s\n", dir);
+
+void dirwalk( char *dir,void (*fcn)(char *)){
+
+    char name[MAX_PATH];
+    struct dirent *dp;
+    DIR *dfd;
+
+    if((dfd = opendir(dir))==NULL){
+        puts("Error: Cannot open Directory");
         return;
     }
-
-    while ((dp = myreaddir(dfd)) != NULL) {
-        if (strcmp(dp->name, ".") == 0 || strcmp(dp->name, "..") == 0)
+    puts(dir);
+    // Get each dir entry
+    while((dp=readdir(dfd)) != NULL){
+        // Skip . and .. is redundant.
+        if(strcmp(dp->d_name,".") == 0
+           || strcmp(dp->d_name,"..") ==0 )
             continue;
-        if (strlen(dir) + strlen(dp->name) + 2 > sizeof(name))
-            fprintf(stderr, "dirwalk: name %s/%s too long\n", dir, dp->name);
-        else {
-            sprintf(name, "%s/%s", dir, dp->name);
+        if(strlen(dir)+strlen(dp->d_name)+2 > sizeof(name))
+            puts("Error: Name too long!");
+        else{
+            sprintf(name,"%s/%s",dir,dp->d_name);
+            // Call fsize
             (*fcn)(name);
         }
     }
-    myclosedir(dfd);
+    closedir(dfd);
 }
 
-#ifndef DIRSIZ
-#define DIRSIZE 14
-#endif
-
-struct direct { /* directory entry */
-    ino_t d_ino;
-    char d_name[DIRSIZE];
-};
-
-MYDIR *myopendir(char *dirname) {
-    int fd;
+void fsize(char *name){
     struct stat stbuf;
-    MYDIR *dp;
 
-    if ((fd = open(dirname, O_RDONLY, 0)) == -1 || fstat(fd, &stbuf) == -1 ||
-        (stbuf.st_mode & S_IFMT) != S_IFDIR ||
-        (dp = (MYDIR *) malloc(sizeof(MYDIR))) == NULL)
-        return NULL;
-    dp->fd = fd;
-    return dp;
-}
-
-void myclosedir(MYDIR *dp) {
-    if (dp) {
-        close(dp->fd);
-        free(dp);
+    if(stat(name,&stbuf) == -1){
+        puts("Error: Cannot get file stats!");
+        return;
     }
-}
 
-#include <sys/dir.h>
-
-#define DIRSIZE 14
-
-Dirent *myreaddir(MYDIR *dp) {
-    struct direct dirbuf;
-    static Dirent d;
-
-    while (read(dp->fd, (char *) &dirbuf, sizeof(dirbuf)) == sizeof(dirbuf)) {
-        if (dirbuf.d_ino == 0)
-            continue;
-        d.ino = dirbuf.d_ino;
-        strncpy(d.name, dirbuf.d_name, DIRSIZE);
-        d.name[DIRSIZE] = '\0';
-        return &d;
+    if((stbuf.st_mode & S_IFMT) == S_IFDIR){
+        dirwalk(name,fsize);
     }
-    return NULL;
+    struct passwd *pwd = getpwuid(stbuf.st_uid);
+    //print file name,size and owner
+    printf("%81d %s Owner: %s\n",(int)stbuf.st_size,name,pwd->pw_name);
 }
 
-int main(int argc, char *argv[]) {
-    if (argc == 1)
+
+
+
+int main(int argc,char *argv[]){
+
+    if(argc==1)
         fsize(".");
     else
-        while (--argc > 0)
+        while(--argc>0)
             fsize(*++argv);
     return 0;
 }

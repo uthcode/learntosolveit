@@ -16,3 +16,8 @@ or by modifying it.
 Explanation
 ===========
 
+This is a custom implmentation of calloc. The standard library function calloc(n,size) returns a pointer to n objects
+of `size`, with the storage intialized to zero.
+
+This program writes calloc,by utilizing malloc.
+

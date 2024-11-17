@@ -16,4 +16,8 @@ Compare code size and execution speed.
 Explanation
 ===========
 
+This is a low level implementation of fopen and _fillbuf with enums and fields.
+
+
+
 

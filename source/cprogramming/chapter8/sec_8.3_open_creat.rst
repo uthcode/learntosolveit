@@ -15,4 +15,10 @@ Demonstrate the ``cp`` like program which copies the contents of one file to ano
 Explanation
 ===========
 
+::
 
+    while ((n = read(f1, buf, BUFSIZ)) > 0)
+        if (write(f2, buf, n) != n)
+
+Reads up to BUFSIZ bytes from source file into buffer. Writes the same number of bytes to destination file. continues
+until entire file is copied

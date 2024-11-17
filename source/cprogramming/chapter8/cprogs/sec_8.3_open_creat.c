@@ -1,9 +1,12 @@
-#include <fcntl.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <sys/syscall.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include <fcntl.h>      // For file control options like O_RDONLY
+#include <stdarg.h>     // For variable argument functions
+#include <stdio.h>      // For standard I/O
+#include <sys/syscall.h> // For system calls
+#include <unistd.h>     // For UNIX standard functions like read/write
+#include <stdlib.h>     // For exit()
+
+#define PERMS 0666     // File permissions: read/write for all users
+#define BUFSIZ 1024    // Buffer size for reading/writing
 
 #define PERMS 0666 /* RW for owner, group and others */
 
@@ -30,12 +33,17 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+/**
+fmt is the format string parameter
+... (ellipsis) indicates variable number of arguments can follow
+
+*/
 void merror(char *fmt, ...) {
-    va_list args;
-    va_start(args, fmt);
+    va_list args;  // Declares a variable to hold the argument list
+    va_start(args, fmt);  // Initialize 'args' to start after 'fmt'
     fprintf(stderr, "error: ");
-    vfprintf(stderr, fmt, args);
+    vfprintf(stderr, fmt, args); // Print formatted output using args list
     fprintf(stderr, "\n");
-    va_end(args);
+    va_end(args); // cleans up variable arguments.
     exit(1);
 }
