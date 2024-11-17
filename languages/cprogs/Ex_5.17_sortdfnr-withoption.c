@@ -3,6 +3,7 @@
 
 #include<stdio.h>
 #include<ctype.h>
+#include<stdlib.h>
 
 #define NUMERIC  1	/* numeric sort */
 #define DECR	2	/* sort in decreasing order */
@@ -15,7 +16,7 @@ void error(char *);
 int numcmp(char *,char *);
 void readargs(int argc,char *argv[]);
 int readlines(char *lineptr[],int maxlines);
-void mqsort(void *v[],int left,int right,int (*comp)(void *,void *));
+void myqsort(void *v[],int left,int right,int (*comp)(void *,void *));
 void writelines(char *lineptr[],int nlines,int order);
 
 int option = 0;
@@ -57,7 +58,6 @@ int main(int argc,char *argv[])
 void readargs(int argc,char *argv[])
 {
 	int c;
-	int atoi(char *);
 	
 	while(--argc > 0 && (c=(*++argv)[0])=='-' || c == '+')
 	{
@@ -177,7 +177,7 @@ void error(char *);
 
 /* substr: get a substring of S and put in str */
 
-void substr(char *s,char *str)
+void substr(char *s,char *str, int maxstr)
 {
 	int i,j,len;
 	extern int pos1,pos2;
@@ -258,7 +258,7 @@ int readlines(char *lineptr[],int maxlines)
 }
 
 /* writelines: write output lines */
-void writelines(char *lineptr[],int nlines)
+void writelines(char *lineptr[],int nlines, int order)
 {
 	int i;
 	
@@ -296,7 +296,7 @@ int mgetline(char s[],int lim)
 {
 	int c,i;
 
-	for(i=0;i<lim-1 && (c=getchar())!=EOF c!='\n';++i)
+	for(i=0;i<lim-1 && (c=getchar())!=EOF && c!='\n';++i)
 		s[i] = c;
 	if(c == '\n')
 	{
