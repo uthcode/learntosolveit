@@ -11,14 +11,16 @@ void ungetch(int);
 
 int getfloat(float *);
 
-int main(void) {
+int main(void)
+{
     int n;
     float array[SIZE];
 
-    for (n = 0; n < SIZE && getfloat(&array[n]) != EOF; n++);
-    for (; n >= 0; n--)
-        printf("%f", array[n]);
-
+    for(n=0;n<SIZE && getfloat(&array[n]) !=EOF;n++)
+    {
+        for(;n>=0;n--)
+            printf("%f\n",array[n]);
+    }
     return 0;
 }
 
