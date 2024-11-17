@@ -36,6 +36,21 @@ const char *noiseWords[N_OF_NOISEWORDS]={"a", "about", "after", "all",
 
 #define MAXWORD 500
 
+ struct tnode{
+     char *word;
+     unsigned int count;
+     struct ocurLine *lineOfOccurence;
+
+     struct tnode *left;
+     struct tnode *right;
+ };
+
+
+ struct ocurLine{
+     unsigned int line;
+     struct ocurLine *next;
+ };
+
 int binarySearch(const char *arr[], int l, int r, char *x);
 
 void treeprint(const struct tnode *p);
@@ -55,21 +70,6 @@ void printline(const struct ocurLine *p);
 
 struct ocurLine *linealloc(void);
 struct ocurLine *addLine(struct ocurLine *p, unsigned int l);
-
-struct tnode{
-	char *word;
-	unsigned int count;
-    struct ocurLine *lineOfOccurence;
-
-	struct tnode *left;
-	struct tnode *right;
-};
-
-struct ocurLine{
-    unsigned int line;
-    struct ocurLine *next;
-};
-
 
 int main()
 {
