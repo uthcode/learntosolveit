@@ -18,6 +18,7 @@ Explanation
 The book provides this undcl implementation
 
 ::
+
     /* undcl:  convert word descriptions to declarations */
     main() {
       int type;
