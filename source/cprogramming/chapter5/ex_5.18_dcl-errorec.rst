@@ -14,3 +14,6 @@ Make dcl recover from input errors.
 Explanation
 ===========
 
+The program has an errmsg function that is called whenever an error is detected during parsing.
+The dcl and dirdcl functions, which are responsible for parsing the declarator, continue parsing even if an error is encountered.
+
