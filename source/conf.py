@@ -200,6 +200,7 @@ html_last_updated_fmt = '%d %b, %y'
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {'index': ['indexsidebar.html', 'searchbox.html']}
 #html_additional_pages = {'index': 'index.html', 'foo' : 'foo.html', 'bar': 'bar.html'}
+html_additional_pages = {"Courses": "https://courses.learntosolveit.com/"}
 
 html_sidebars = {'**': ['logo.html', 'globaltoc.html']}
 
