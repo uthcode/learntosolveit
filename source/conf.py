@@ -233,6 +233,14 @@ except NameError:
 extensions.append('sphinx_wagtail_theme')
 html_theme = 'sphinx_wagtail_theme'
 
+
+html_theme_options = dict(
+    header_links = "Computer Science Courses|https://courses.learntosolveit.com/",
+    footer_links = ",".join([
+        "Senthil Kumaran|https://senthil.learntosolveit.com/",
+    ]),
+)
+
 project = ""
 # These are options specifically for the Wagtail Theme.
 html_theme_options = dict(
