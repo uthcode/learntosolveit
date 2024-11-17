@@ -250,6 +250,14 @@ struct linenumber *lnumberalloc(void) {
     return (struct linenumber *) malloc(sizeof(struct linenumber));
 }
 
+void printnumbers(const struct linenumber *p) {
+    if (p != NULL) {
+        printf("%d,", p->number);
+        printnumbers(p->nextnumber);
+    }
+}
+
+
 /* treeprint: From K&R2 page 142. Prints tree p in-order. */
 void treeprint(const struct tnode *p) {
     if (p != NULL) {
@@ -260,12 +268,6 @@ void treeprint(const struct tnode *p) {
     }
 }
 
-void printnumbers(const struct linenumber *p) {
-    if (p != NULL) {
-        printf("%d,", p->number);
-        printnumbers(p->nextnumber);
-    }
-}
 
 /* talloc: From K&R2 page 142. Makes a tnode. */
 struct tnode *talloc(void) {
