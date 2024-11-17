@@ -15,6 +15,26 @@ input and number conversion.
 Explanation
 ===========
 
+In this Reverse Polish Notation Calculator, we use scanf in the getch function. Instead of getchar this uses the function
+scanf from the input output library introduced in this chapter.
+
+
+::
+
+    #define BUFSIZE 100
+    char buf[BUFSIZE];
+    int bufp = 0;
+
+    int getch(void) {
+        char c;
+        if (bufp > 0) {
+            return buf[--bufp];
+        } else {
+            scanf("%c", &c);
+            return c;
+        }
+    }
+
 
 
 
