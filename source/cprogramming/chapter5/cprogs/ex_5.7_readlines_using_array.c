@@ -35,25 +35,35 @@ int mgetline(char *, int);
 char *alloc(int);
 
 /* readlines: read input lines */
-int readlines(char *lineptr[], char *linestor, int maxlines) {
-    int len, nlines;
+int readlines(char *lineptr[],char *linestor,int maxlines)
+{
+    int len,nlines;
     char line[MAXLEN];
     char *p = linestor;
     char *linestop = linestor + MAXSTOR;
+    char c;
 
-    nlines = 0;
-
-    while ((len = mgetline(line, MAXLEN)) > 0)
-        if (nlines >= maxlines || p + len > linestop)
+    nlines=0;
+    loop:
+    while((len=mgetline(line,MAXLEN)) > 0)
+        if(nlines >= maxlines || p+len > linestop)
             return -1;
-        else {
-            line[len - 1] = '\0';
-            strcpy(p, line);
-            lineptr[nlines++] = p;
-            p += len;
+        else
+        {
+            line[len-1] = '\0';
+            strcpy(p,line);
+            lineptr[nlines++]=p;
+            p+=len;
+            printf("get a newline? 0 for no, ENTER to input next line.");
+            c = getchar();
+            if(c != '0')
+                goto loop;
+            else if(c == '0')
+                return nlines;
         }
-    return nlines;
+    return 0;
 }
+
 
 /* writelines: write output lines */
 void writelines(char *lineptr[], int nlines) {
