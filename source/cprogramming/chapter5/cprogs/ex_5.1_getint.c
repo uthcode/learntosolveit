@@ -52,19 +52,18 @@ int getint(int *pn) {
     return c;
 }
 
-int main(void) {
-    int n, s, array[SIZE], getint(int *);
+int main(void)
+{
+    int n,s,array[SIZE];
 
-    for (n = 0; n < SIZE && getint(&array[n]) != EOF) {
-        /* For debug purposes */
-        /* ( (res!=0) ? n++:0 ) will add only valid values to the array */
+    for(n=0;n<SIZE && getint(&array[n]) !=EOF; n++){
         printf("storing in n = %d, getint %d\n", n, array[n]);
     }
 
     printf("storing in n = %d, getint %d\n", n, array[n]);
 
-    for (s = 0; s <= n; s++)
-        printf("%d", array[s]);
+    for(s=0;s<=n; s++)
+        printf("%d",array[s]);
 
     return 0;
 }
