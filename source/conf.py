@@ -233,14 +233,6 @@ except NameError:
 extensions.append('sphinx_wagtail_theme')
 html_theme = 'sphinx_wagtail_theme'
 
-
-html_theme_options = dict(
-    header_links = "Computer Science Courses|https://courses.learntosolveit.com/", "Projects|https://projects.learntosolveit.com/", "Just Do Beaver|https://www.justdobeaver.com/",
-    footer_links = ",".join([
-        "Senthil Kumaran|https://senthil.learntosolveit.com/",
-    ]),
-)
-
 project = ""
 # These are options specifically for the Wagtail Theme.
 html_theme_options = dict(
@@ -251,7 +243,7 @@ html_theme_options = dict(
     logo_height = 59,
     logo_url = "/",
     logo_width = 45,
-    header_links = "Computer Science Courses|https://courses.learntosolveit.com/",
+    header_links = "Computer Science Courses|https://courses.learntosolveit.com/", "Projects|https://projects.learntosolveit.com/", "Just Do Beaver|https://www.justdobeaver.com/",
     footer_links = ",".join([
         "Senthil Kumaran|https://senthil.learntosolveit.com/",
     ]),
