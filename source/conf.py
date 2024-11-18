@@ -243,7 +243,7 @@ html_theme_options = dict(
     logo_height = 59,
     logo_url = "/",
     logo_width = 45,
-    header_links = "Computer Science Courses|https://courses.learntosolveit.com/", "Projects|https://projects.learntosolveit.com/", "Just Do Beaver|https://www.justdobeaver.com/",
+    header_links = "Computer Science Courses|https://courses.learntosolveit.com/, Projects|https://projects.learntosolveit.com/, Just Do Beaver|https://www.justdobeaver.com/",
     footer_links = ",".join([
         "Senthil Kumaran|https://senthil.learntosolveit.com/",
     ]),
