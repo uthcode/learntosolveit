@@ -15,11 +15,6 @@ import sys
 import os
 from datetime import date
 
-# At the top.
-import sphinx_bootstrap_theme
-
-# ...
-
 # Activate the theme.
 
 #import sphinx_pdj_theme
