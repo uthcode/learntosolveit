@@ -1,9 +1,4 @@
-#include <fcntl.h>
-#include <stdarg.h>
-// The functions available from stdio.h are implemented here.
-//#include <stdio.h>
 #include <stdlib.h>
-#include <sys/syscall.h>
 #include <unistd.h>
 
 #ifdef NULL
@@ -12,7 +7,7 @@
 
 #define NULL 0
 #define EOF (-1)
-#define BUFSIZ 1024
+#define BUFSIZE 1024
 #define OPEN_MAX 20 /* max # files open at once */
 
 typedef struct _iobuf {
@@ -46,55 +41,10 @@ int _fillbuf(FILE *);
 
 int _flushbuf(int, FILE *);
 
-#define feof(p) (((p)->flag & _EOF) != 0)
-#define ferror(p) (((p)->flag & _ERR) != 0)
-#define fileno(p) ((p)->fd)
-
 #define getc(p) (--(p)->cnt >= 0 ? (unsigned char)*(p)->ptr++ : _fillbuf(p))
-
 #define putc(x, p) (--(p)->cnt >= 0 ? *(p)->ptr++ = (x) : _flushbuf((x), p))
-
 #define getchar() getc(stdin)
 #define putchar(x) putc((x), stdout)
-
-#define PERMS 0666 /* RW for owner, group and others */
-
-/* fopen: open file, return file ptr */
-
-FILE *fopen(char *name, char *mode) {
-    int fd;
-    FILE *fp;
-
-    if (*mode != 'r' && *mode != 'w' && *mode != 'a')
-        return NULL;
-
-    /* Bit operation */
-
-    for (fp = _iob; fp < _iob + OPEN_MAX; fp++)
-        if ((fp->flag & (_READ | _WRITE)) == 0)
-            break; /* found free slot */
-
-    if (fp >= _iob + OPEN_MAX) /* no free slots */
-        return NULL;
-
-    if (*mode == 'w')
-        fd = creat(name, PERMS);
-    else if (*mode == 'a') {
-        if ((fd = open(name, O_WRONLY, 0)) == -1)
-            fd = creat(name, PERMS);
-        lseek(fd, 0L, 2);
-    } else
-        fd = open(name, O_RDONLY, 0);
-
-    if (fd == -1) /* couldn't access name */
-        return NULL;
-
-    fp->fd = fd;
-    fp->cnt = 0;
-    fp->base = NULL;
-    fp->flag = (*mode == 'r') ? _READ : _WRITE;
-    return fp;
-}
 
 /* _fillbuf: allocate and fill input buffer */
 
@@ -108,7 +58,7 @@ int _fillbuf(FILE *fp) {
 
     /* this is a bit operation */
 
-    bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZ;
+    bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZE;
 
     if (fp->base == NULL) /* no buffer yet */
         if ((fp->base = (char *) malloc(bufsize)) == NULL)
@@ -144,12 +94,12 @@ int _flushbuf(int c, FILE *f) {
 
     if (f->base == NULL && ((f->flag & _UNBUF) == 0)) {
         /* no buffer yet */
-        if ((f->base = malloc(BUFSIZ)) == NULL)
+        if ((f->base = malloc(BUFSIZE)) == NULL)
             /* could not allocate a buffer, so try unbuffered */
             f->flag |= _UNBUF;
         else {
             f->ptr = f->base;
-            f->cnt = BUFSIZ - 1;
+            f->cnt = BUFSIZE - 1;
         }
     }
 
@@ -170,7 +120,7 @@ int _flushbuf(int c, FILE *f) {
         bufsize = (int) (f->ptr - f->base);
         num_written = write(f->fd, f->base, bufsize);
         f->ptr = f->base;
-        f->cnt = BUFSIZ - 1;
+        f->cnt = BUFSIZE - 1;
     }
 
     if (num_written == bufsize)

@@ -22,7 +22,7 @@ The buffered version of getchar, sets aside a buffer for reading the characters.
 
 ::
 
-   static char buf[BUFSIZ];
+   static char buf[BUFSIZE];
    static char *bufp = buf;
 
 And reads each of the characters into the buffer, `read(0, buf, sizeof buf)` and then returns one character at a

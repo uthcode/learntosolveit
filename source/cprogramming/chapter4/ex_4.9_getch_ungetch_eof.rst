@@ -15,7 +15,7 @@ design.
 Explanation
 ===========
 
-The previous `getch` and `ungetch` functions declared buf as `char buf[BUFSIZ]`.
+The previous `getch` and `ungetch` functions declared buf as `char buf[BUFSIZE]`.
 This has a limitation wherein the when an `EOF` character is encountered, it
 wont be stored in the buffer. The EOF character is an integer type. This problem
 can be solved by declaring our buf to be of integer type, like `int
