@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <sys/syscall.h>
+#include <stdlib.h>
 
 #define PERMS 0666 /* RW for owner, group and others */
 

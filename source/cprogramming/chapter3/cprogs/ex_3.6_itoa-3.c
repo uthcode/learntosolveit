@@ -1,27 +1,13 @@
-/* a function of itoa, which accepts the third argument as the width of the
-number. the string representation is padded with blanks in the left to get the
-required width */
-
 #include <stdio.h>
 #include <string.h>
 
 #define MAXLIMIT 100
 
-void itoa(int n, char s[], int w);
-void reverse(char s[]);
+void reverse(char s[]) {
+    int i, j, c;
 
-int main(void) {
-    int number, width;
-    char str[MAXLIMIT];
-
-    number = -343565;
-    width = 10;
-
-    itoa(number, str, width);
-
-    printf("%s", str);
-
-    return 0;
+    for (i = 0, j = strlen(s) - 1; i < j; i++, j--)
+        c = s[i], s[i] = s[j], s[j] = c;
 }
 
 void itoa(int n, char s[], int w) {
@@ -47,9 +33,16 @@ void itoa(int n, char s[], int w) {
     reverse(s);
 }
 
-void reverse(char s[]) {
-    int i, j, c;
+int main(void) {
+    int number, width;
+    char str[MAXLIMIT];
 
-    for (i = 0, j = strlen(s) - 1; i < j; i++, j--)
-        c = s[i], s[i] = s[j], s[j] = c;
+    number = -343565;
+    width = 10;
+
+    itoa(number, str, width);
+
+    printf("%s", str);
+
+    return 0;
 }

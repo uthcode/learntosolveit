@@ -1,8 +1,6 @@
 /*copy input to output */
 
 #include <unistd.h>
-#include <sys/syscall.h>
-
 #define BUFSIZ 1024
 
 int main() /* copy input to output */

@@ -7,7 +7,7 @@
  */
 
 /**
- * Priminary Information:
+ * Preliminary Information:
  *
  * ~0 will give bits in 1s.
  * >> 1 right shift by 1 bit to remove the sign bit.

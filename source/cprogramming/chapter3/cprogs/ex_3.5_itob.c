@@ -1,26 +1,13 @@
-/* function itob(n,s,b), that converts the integer n into a base b character
-  representation in the string s.
-*/
 #include <stdio.h>
 #include <string.h>
 
 #define MAXLINE 100
 
-void itob(int n, char s[], int b);
-void reverse(char s[]);
+void reverse(char s[]) {
+    int i, j, c;
 
-int main(void) {
-    int number, base;
-    char str[MAXLINE];
-
-    number = 42425;
-    base = 16;
-
-    itob(number, str, base);
-
-    printf("%s", str);
-
-    return 0;
+    for (i = 0, j = strlen(s) - 1; i < j; i++, j--)
+        c = s[i], s[i] = s[j], s[j] = c;
 }
 
 void itob(int n, char s[], int b) {
@@ -45,9 +32,16 @@ void itob(int n, char s[], int b) {
     reverse(s);
 }
 
-void reverse(char s[]) {
-    int i, j, c;
+int main(void) {
+    int number, base;
+    char str[MAXLINE];
 
-    for (i = 0, j = strlen(s) - 1; i < j; i++, j--)
-        c = s[i], s[i] = s[j], s[j] = c;
+    number = 42425;
+    base = 16;
+
+    itob(number, str, base);
+
+    printf("%s", str);
+
+    return 0;
 }
