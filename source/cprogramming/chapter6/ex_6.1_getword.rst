@@ -21,4 +21,12 @@ This is program from Section 6.3  implementing getword.
 Explanation
 ===========
 
+This program identifies the keywords in the given input.
+
+::
+
+    $ ./ex_6.1_getword
+    this is a short sentence.
+       1 short
+
 

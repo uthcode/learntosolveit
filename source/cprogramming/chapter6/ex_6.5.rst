@@ -15,6 +15,18 @@ maintained by lookup and install.
 Explanation
 ===========
 
+This program demonstrates implementing a hash table for inserting key -> value.
+When there is a collision to inserting values against a key, it will create a linked list of values.
+
+So, it implements
+
+* install - installs the word in the hash table. Creates a linked list for the new value.
+* lookup - looks up the word in the hash table.
+* undef - removes the word in the hash table.
+
+For each of these operations, it takes word, calculates the hash value.
+If there is a collision, it will add the word to the linked list in the hashtable key.
+
 Sample run of this program.
 
 ::

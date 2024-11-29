@@ -18,6 +18,8 @@ Make 6 a parameter that can be set from the command line.
 Explanation
 ===========
 
-
+This program reads a C program and groups similar list of variable names as similar words list.
+It parses the C program and stores the variables names in a binary tree, then constructs a similar word list which have
+a common prefix length.
 
 

@@ -16,6 +16,14 @@ like ``the, and`` and so on.
 Explanation
 ===========
 
+This program is a cross-referencer that prints a list of all words in a document.
+
+1. Create a binary tree that will contain words and structure with lines on which words occur.
+2. Check if the word is noisy with binary search.
+3. Print the words and lines.
+
+
+
 Here is an example execution of this program.
 
 ::

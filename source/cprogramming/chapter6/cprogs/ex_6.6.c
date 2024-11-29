@@ -1,35 +1,39 @@
-/* Implement a simple version of the #define processor (i.e, no arguments)
- * suitable for use with  C programs, based on the routines of this section.
- * You may also find getch and ungetch helpful.
- */
-
-/*
- * Use getword for #define, key and value
- * and use install routines to install it.
- *
- */
-
 #include <ctype.h>
-#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#define BUFSIZE 100
 #define MAXWORD 1000
+#define IN 1
+#define OUT 0
+#define HASHSIZE 101
 
-int mgetword(char *, int, int *);
 
-/* nlist from K&R Page 144 */
+char buf[BUFSIZE]; /* buffer for ungetch() */
+int bufp = 0;      /* next free position in buf */
 
+static struct nlist *hashtab[HASHSIZE]; /* pointer table */
+
+/* linked list. nlist from K&R Page 144 */
 struct nlist {          /* table entry: */
     struct nlist *next; /* next entry in chain */
     char *name;         /* defined name */
     char *defn;         /* replacement text */
 };
 
-#define HASHSIZE 101
 
-static struct nlist *hashtab[HASHSIZE]; /* pointer table */
+int getch(void) { /* get a (possibly pushed back) character */
+    return (bufp > 0) ? buf[--bufp] : getchar();
+}
+
+void ungetch(int c) { /* push character back on input */
+    if (bufp >= BUFSIZE)
+        printf("ungetch: too many characters\n");
+    else
+        buf[bufp++] = c;
+    return;
+}
 
 /* hash: form hash value for string s */
 unsigned hash(char *s) {
@@ -42,7 +46,6 @@ unsigned hash(char *s) {
 }
 
 /* lookup: look for s in hashtab */
-
 struct nlist *lookup(char *s) {
     struct nlist *np;
 
@@ -51,9 +54,6 @@ struct nlist *lookup(char *s) {
             return np; /* found */
     return NULL;       /* not found */
 }
-
-struct nlist *lookup(char *);
-// char *strdup(char *);
 
 /* install: put (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn) {
@@ -96,35 +96,6 @@ struct nlist *undef(char *name) {
     return found;
 }
 
-int main(void) {
-
-    int lineno = 0;
-    char word[MAXWORD];
-
-    char key[MAXWORD], value[MAXWORD];
-
-    struct nlist *result;
-
-    while (mgetword(word, MAXWORD, &lineno) != 'x') {
-        /* TODO: Strip the spaces */
-        if (strcmp(word, "#define ") == 0) {
-            mgetword(key, MAXWORD, &lineno);
-            mgetword(value, MAXWORD, &lineno);
-            install(key, value);
-            result = lookup(key);
-            printf("%s->%s", result->name, result->defn);
-        }
-    }
-
-    return 0;
-}
-
-;
-    /* mgetword from Ex6.1 */
-
-#define IN 1
-#define OUT 0
-
 int mgetword(char *word, int lim, int *lineno_addr) {
     int c, d, getch(void), comment, string, directive;
     void ungetch(int);
@@ -138,9 +109,7 @@ int mgetword(char *word, int lim, int *lineno_addr) {
             *lineno_addr = *lineno_addr + 1;
         }
     }
-
     /* Check if inside a comment */
-
     if (c == '/') {
         if ((d = getch()) == '*') {
             comment = IN;
@@ -151,13 +120,11 @@ int mgetword(char *word, int lim, int *lineno_addr) {
     }
 
     /* Check if inside a quote */
-
     if (c == '\"') {
         string = IN;
     }
 
     /* Check if inside a directive */
-
     if (c == '#') {
         directive = IN;
     }
@@ -225,22 +192,24 @@ int mgetword(char *word, int lim, int *lineno_addr) {
     return c;
 }
 
-/*
- * getch and ungetch are from K&R2, page 79
- */
-#define BUFSIZE 100
+int main(void) {
 
-char buf[BUFSIZE]; /* buffer for ungetch() */
-int bufp = 0;      /* next free position in buf */
+    int lineno = 0;
+    char word[MAXWORD];
 
-int getch(void) { /* get a (possibly pushed back) character */
-    return (bufp > 0) ? buf[--bufp] : getchar();
-}
+    char key[MAXWORD], value[MAXWORD];
 
-void ungetch(int c) { /* push character back on input */
-    if (bufp >= BUFSIZE)
-        printf("ungetch: too many characters\n");
-    else
-        buf[bufp++] = c;
-    return;
+    struct nlist *result;
+
+    while (mgetword(word, MAXWORD, &lineno) != 'x') {
+        if (strcmp(word, "#define ") == 0) {
+            mgetword(key, MAXWORD, &lineno);
+            mgetword(value, MAXWORD, &lineno);
+            install(key, value);
+            result = lookup(key);
+            printf("%s->%s", result->name, result->defn);
+        }
+    }
+
+    return 0;
 }

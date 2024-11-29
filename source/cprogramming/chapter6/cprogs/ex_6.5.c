@@ -6,21 +6,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*undef will be if it is just hashtable. Remove it.
- * If it is in linked list, delete from linked list.
- */
+#define HASHSIZE 101
 
-/* nlist from K&R Page 144 */
+static struct nlist *hashtab[HASHSIZE]; /* pointer table */
 
+/* linked List of words. nlist from K&R Page 144 */
 struct nlist {          /* table entry: */
     struct nlist *next; /* next entry in chain */
     char *name;         /* defined name */
     char *defn;         /* replacement text */
 };
-
-#define HASHSIZE 101
-
-static struct nlist *hashtab[HASHSIZE]; /* pointer table */
 
 /* hash: form hash value for string s */
 unsigned hash(char *s) {
@@ -33,7 +28,6 @@ unsigned hash(char *s) {
 }
 
 /* lookup: look for s in hashtab */
-
 struct nlist *lookup(char *s) {
     struct nlist *np;
 
@@ -42,10 +36,6 @@ struct nlist *lookup(char *s) {
             return np; /* found */
     return NULL;       /* not found */
 }
-
-struct nlist *lookup(char *);
-
-// char *strdup(char *);
 
 /* install: put (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn) {
@@ -69,6 +59,10 @@ struct nlist *install(char *name, char *defn) {
     return np;
 }
 
+/**
+ * undef will be if it is just hashtable. Remove it.
+ * If it is in linked list, delete from linked list.
+ **/
 struct nlist *undef(char *name) {
     struct nlist *found;
 
@@ -90,8 +84,10 @@ struct nlist *undef(char *name) {
 
 int main(int argc, char *argv[]) {
     struct nlist *table[4] = {
-            (install("key", "value")), (install("key1", "value1")),
-            (install("key2", "value2")), (install("key3", "value3"))};
+            (install("key", "value")),
+            (install("key1", "value1")),
+            (install("key2", "value2")),
+            (install("key3", "value3"))};
 
     int i;
 

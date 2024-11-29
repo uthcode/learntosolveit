@@ -16,6 +16,11 @@ also find getch and ungetch helpful.
 Explanation
 ===========
 
+This implements a simple version of `#define` pre-processor used in C programs.
+In the program program it identifies `#define key value` in the given text, and then using the previously taught
+concepts of install, lookup and undef to create a hash table, to keep track of the identified key value pairs in
+a hash table.
+
 Example output.
 
 ::
