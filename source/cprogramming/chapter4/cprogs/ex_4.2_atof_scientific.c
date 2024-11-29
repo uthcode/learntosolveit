@@ -10,19 +10,13 @@
 
 #define MAXLINE 100
 
-double myatof(char s[]);
+int power(int base, int exp) {
+    int power;
+    power = 1;
+    while (exp-- > 0)
+        power *= base;
 
-int mgetline(char line[], int lim);
-
-int main(void) {
-    char str[MAXLINE];
-    double num;
-    mgetline(str, MAXLINE);
-
-    num = myatof(str);
-    printf("%f", num);
-
-    return 0;
+    return power;
 }
 
 double myatof(char s[]) {
@@ -77,11 +71,13 @@ int mgetline(char line[], int lim) {
     line[i] = '\0';
 }
 
-int power(int base, int exp) {
-    int power;
-    power = 1;
-    while (exp-- > 0)
-        power *= base;
+int main(void) {
+    char str[MAXLINE];
+    double num;
+    mgetline(str, MAXLINE);
 
-    return power;
+    num = myatof(str);
+    printf("%f", num);
+
+    return 0;
 }

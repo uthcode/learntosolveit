@@ -23,7 +23,6 @@ extern FILE _iob[OPEN_MAX];
 
 #define stdin (&_iob[0])
 #define stdout (&_iob[1])
-#define stderr (&_iob[2])
 
 enum _flags {
     _READ = 01,  /* file open for reading */
@@ -36,10 +35,6 @@ enum _flags {
 int _fillbuf(FILE *);
 
 int _flushbuf(int, FILE *);
-
-#define feof(p) (((p)->flag & _EOF) != 0)
-#define ferror(p) (((p)->flag & _ERR) != 0)
-#define fileno(p) ((p)->fd)
 
 #define getc(p) (--(p)->cnt >= 0 ? (unsigned char)*(p)->ptr++ : _fillbuf(p))
 

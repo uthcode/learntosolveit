@@ -36,7 +36,6 @@ void filecopy(int ifd, int ofd) {
 }
 
 /* cat: concatenate files - read/write/open/close */
-
 int main(int argc, char *argv[]) {
     int fd;
 

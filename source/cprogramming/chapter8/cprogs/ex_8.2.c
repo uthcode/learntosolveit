@@ -22,19 +22,13 @@ extern FILE _iob[OPEN_MAX];
 
 #define stdin (&_iob[0])
 #define stdout (&_iob[1])
-#define stderr (&_iob[2])
 
 enum _flags {
-    _READ = 01,
-    /* file open for reading */ /* binary 1 */
-    _WRITE = 02,
-    /* file open for writing */ /* binary 10 */
-    _UNBUF = 03,
-    /* file is unbuffered */ /* binary 11 */
-    _EOF = 010,
-    /* EOF has occurred on this file */ /* binary 1000 */
-    _ERR = 020,
-    /* error occurred on this file */ /* binary 10000*/
+    _READ = 01, /* file open for reading */ /* binary 1 */
+    _WRITE = 02, /* file open for writing */ /* binary 10 */
+    _UNBUF = 03, /* file is unbuffered */ /* binary 11 */
+    _EOF = 010, /* EOF has occurred on this file */ /* binary 1000 */
+    _ERR = 020, /* error occurred on this file */ /* binary 10000*/
 };
 
 int _fillbuf(FILE *);
