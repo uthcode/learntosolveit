@@ -4,10 +4,6 @@
 
 #include <stdio.h>
 
-int bitcount(unsigned x);
-
-int main(void) { printf("%d", bitcount((unsigned) 12)); }
-
 int bitcount(unsigned x) {
     int b;
 
@@ -15,4 +11,8 @@ int bitcount(unsigned x) {
         ++b;
 
     return b;
+}
+
+int main(void) {
+    printf("%d", bitcount((unsigned) 12));
 }

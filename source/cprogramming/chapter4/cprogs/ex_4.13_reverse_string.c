@@ -1,40 +1,10 @@
-/* a recursive version of revese(s); the string reverse function */
-
+/* a recursive version of reverse(s); the string reverse function */
 #include<stdio.h>
 #include<string.h>
 
 #define MAXLINE 100
 
-int mgetline(char line[], int lim);
-
-void reverse(char s[]);
-
-int main(void) {
-    char s[MAXLINE];
-
-    mgetline(s, MAXLINE);
-
-    reverse(s);
-
-    printf("%s", s);
-
-    return 0;
-}
-
-int mgetline(char line[], int lim) {
-    int i, c;
-
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        line[i] = c;
-
-    if (c == '\n')
-        line[i++] = '\n';
-
-    line[i] = '\0';
-}
-
 void reverse(char s[]) {
-
     static int i = 0;
     static int len;
 
@@ -53,13 +23,39 @@ void reverse(char s[]) {
         s[j] = c;
         i++;
         reverse(s);
-    }
-
+    } else {
         // the algorithm has finished so we have to set i=0 again
-    else {
         i = 0;
     }
 }
+
+int mgetline(char line[], int lim) {
+    int i, c;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        line[i] = c;
+
+    if (c == '\n')
+        line[i++] = '\n';
+
+    line[i] = '\0';
+}
+
+int main(void) {
+    char s[MAXLINE];
+
+    mgetline(s, MAXLINE);
+
+    reverse(s);
+
+    printf("%s", s);
+
+    return 0;
+}
+
+
+
+
 
 
 
