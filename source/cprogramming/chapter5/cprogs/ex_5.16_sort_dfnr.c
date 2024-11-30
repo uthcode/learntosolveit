@@ -14,10 +14,10 @@
 #define MDIR    8    /* directory order */
 #define LINES    100    /* maximum number of lines to be sorted */
 #define MAXLEN    1000    /* max length of any input line */
+#define ALLOCSIZE 10000    /* size of available space */
 
-int mgetline(char *, int);
-char *alloc(int);
-
+static char allocbuf[ALLOCSIZE];    /* storage for alloc */
+static char *allocp = allocbuf;        /* next free position */
 static char option = 0;
 
 void swap(void *v[], int i, int j) {
@@ -26,6 +26,102 @@ void swap(void *v[], int i, int j) {
     temp = v[i];
     v[i] = v[j];
     v[j] = temp;
+}
+
+/* mgetline: read a line s, return length */
+int mgetline(char s[], int lim) {
+    int c, i;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        s[i] = c;
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+
+    s[i] = '\0';
+    return i;
+}
+
+char *alloc(int n)        /* return pointer to n characters */
+{
+    if (allocbuf + ALLOCSIZE - allocp >= n) {
+        allocp += n;
+        return allocp - n;
+    } else
+        return 0;
+}
+
+void afree(char *p)    /* free storage pointed to by p */
+{
+    if (p >= allocbuf && p < allocbuf + ALLOCSIZE)
+        allocp = p;
+}
+
+/* myqsort: sort v[left] ... v[right] into increasing order */
+void myqsort(void *v[], int left, int right, int (*comp)(void *, void *)) {
+    int i, last;
+    void swap(void *v[], int, int);
+
+    if (left >= right)    /* do nothing if array contains */
+        return;        /* fewer than two elements */
+
+    swap(v, left, (left + right) / 2);
+    last = left;
+
+    for (i = left + 1; i <= right; i++)
+        if ((*comp)(v[i], v[left]) < 0)
+            swap(v, ++last, i);
+
+    swap(v, left, last);
+
+    myqsort(v, left, last - 1, comp);
+    myqsort(v, last + 1, right, comp);
+}
+
+/* readlines: read input lines */
+int readlines(char *lineptr[], int maxlines) {
+    int len, nlines;
+    char *p, line[MAXLEN];
+
+    nlines = 0;
+
+    while ((len = mgetline(line, MAXLEN)) > 0)
+        if (nlines >= maxlines || (p = alloc(len)) == NULL)
+            return -1;
+        else {
+            line[len - 1] = '\0';
+            strcpy(p, line);
+            lineptr[nlines++] = p;
+        }
+    return nlines;
+}
+
+/* writelines: write output lines */
+void writelines(char *lineptr[], int nlines, int order) {
+    int i;
+
+    if (order)
+        for (i = nlines - 1; i >= 0; i--)
+            printf("%s\n", lineptr[i]);
+    else
+        for (i = 0; i < nlines; i++)
+            printf("%s\n", lineptr[i]);
+}
+
+/* numcmp: compare s1 and s2 numerically */
+int numcmp(char *s1, char *s2) {
+    double v1, v2;
+
+    v1 = atof(s1);
+    v2 = atof(s2);
+
+    if (v1 < v2)
+        return -1;
+    else if (v1 > v2)
+        return 1;
+    else
+        return 0;
 }
 
 /* charcmp: return <0 if s < t, 0 if s ==t, >0 if s > t */
@@ -53,115 +149,6 @@ int charcmp(char *s, char *t) {
     return a - b;
 }
 
-/* numcmp: compare s1 and s2 numerically */
-int numcmp(char *s1, char *s2) {
-    double v1, v2;
-
-    v1 = atof(s1);
-    v2 = atof(s2);
-
-    if (v1 < v2)
-        return -1;
-    else if (v1 > v2)
-        return 1;
-    else
-        return 0;
-}
-
-
-/* myqsort: sort v[left] ... v[right] into increasing order */
-void myqsort(void *v[], int left, int right, int (*comp)(void *, void *)) {
-    int i, last;
-    void swap(void *v[], int, int);
-
-    if (left >= right)    /* do nothing if array contains */
-        return;        /* fewer than two elements */
-
-    swap(v, left, (left + right) / 2);
-    last = left;
-
-    for (i = left + 1; i <= right; i++)
-        if ((*comp)(v[i], v[left]) < 0)
-            swap(v, ++last, i);
-
-    swap(v, left, last);
-
-    myqsort(v, left, last - 1, comp);
-    myqsort(v, last + 1, right, comp);
-}
-
-
-
-
-/* readlines: read input lines */
-int readlines(char *lineptr[], int maxlines) {
-    int len, nlines;
-    char *p, line[MAXLEN];
-
-    nlines = 0;
-
-    while ((len = mgetline(line, MAXLEN)) > 0)
-        if (nlines >= maxlines || (p = alloc(len)) == NULL)
-            return -1;
-        else {
-            line[len - 1] = '\0';
-            strcpy(p, line);
-            lineptr[nlines++] = p;
-        }
-    return nlines;
-}
-
-
-/* writelines: write output lines */
-void writelines(char *lineptr[], int nlines, int order) {
-    int i;
-
-    if (order)
-        for (i = nlines - 1; i >= 0; i--)
-            printf("%s\n", lineptr[i]);
-    else
-        for (i = 0; i < nlines; i++)
-            printf("%s\n", lineptr[i]);
-}
-
-
-#define ALLOCSIZE 10000    /* size of available space */
-static char allocbuf[ALLOCSIZE];    /* storage for alloc */
-static char *allocp = allocbuf;        /* next free position */
-
-char *alloc(int n)        /* return pointer to n characters */
-{
-    if (allocbuf + ALLOCSIZE - allocp >= n) {
-        allocp += n;
-        return allocp - n;
-    } else
-        return 0;
-}
-
-
-void afree(char *p)    /* free storage pointed to by p */
-{
-    if (p >= allocbuf && p < allocbuf + ALLOCSIZE)
-        allocp = p;
-}
-
-
-/* mgetline: read a line s, return length */
-
-int mgetline(char s[], int lim) {
-    int c, i;
-
-    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        s[i] = c;
-    if (c == '\n') {
-        s[i] = c;
-        ++i;
-    }
-
-
-    s[i] = '\0';
-    return i;
-}
 
 /* sort input lines */
 int main(int argc, char *argv[]) {
