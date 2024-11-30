@@ -1,5 +1,7 @@
-/* Add the -d ("Directory option") which makes comparision only on letters, numbers and blanks.
-   Make sure it works in conjunction with -f */
+/**
+ * Add the -d ("Directory option") which makes comparison only on letters, numbers and blanks.
+ * Make sure it works in conjunction with -f
+ **/
 
 #include<stdio.h>
 #include<ctype.h>
@@ -222,4 +224,3 @@ int mgetline(char s[], int lim) {
     s[i] = '\0';
     return i;
 }
-

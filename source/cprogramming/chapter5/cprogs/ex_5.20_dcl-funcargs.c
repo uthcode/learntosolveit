@@ -1,4 +1,6 @@
-/* Expand dcl to handle declarations with function argument types,qualifiers like const and so on */
+/**
+ * Expand dcl to handle declarations with function argument types,qualifiers like const and so on
+ **/
 
 #include<stdio.h>
 #include<string.h>

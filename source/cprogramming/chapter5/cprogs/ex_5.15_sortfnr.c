@@ -1,6 +1,7 @@
-/* Add the option -f to fold upper and lower cases together, so that case
+/**
+ * Add the option -f to fold upper and lower cases together, so that case
  * distinctions are not made clearly during sorting;For eg:a and A compare equal
- * */
+ **/
 
 #include<stdio.h>
 #include<string.h>

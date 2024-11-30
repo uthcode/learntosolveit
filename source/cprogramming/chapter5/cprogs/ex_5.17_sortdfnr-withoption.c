@@ -1,5 +1,8 @@
-/* Add a field handling capablity, so sorting may be done on the fields within lines, 
-	each field sorted according to an independent set of options. ( The index for the KnR Book was sorted with -df for the index category and -n for page number */
+/**
+ * Add a field handling capability, so sorting may be done on the fields within lines,
+ * each field sorted according to an independent set of options.
+ * The index for the KnR Book was sorted with -df for the index category and -n for page number
+ **/
 
 #include<stdio.h>
 #include<ctype.h>

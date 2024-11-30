@@ -1,5 +1,7 @@
-/* Write a Program tail, which prints the last n lines of its input. By default n is 10. let us say; but it can be changed
-by an optional argument so that tail -n */
+/**
+ * Write a Program tail, which prints the last n lines of its input. By default n is 10. let us say;
+ * but it can be changed by an optional argument so that tail -n.
+ **/
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -95,4 +97,3 @@ int mgetline(char s[], int lim) {
     s[i] = '\0';
     return i;
 }
-

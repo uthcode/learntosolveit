@@ -1,6 +1,8 @@
-/* Extend entab and detab to accept the shorthand entab -m +n
-	to mean tab stops every n columns; starting at column m.
-choose convenient size for the default behaviour */
+/**
+ * Extend entab and detab to accept the shorthand entab -m +n
+ * to mean tab stops every n columns; starting at column m.
+ * choose convenient size for the default behaviour
+ **/
 
 #include<stdio.h>
 
