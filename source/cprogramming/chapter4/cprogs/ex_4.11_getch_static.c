@@ -1,4 +1,6 @@
-/* modify getop so that it does not need to use ungetch: Hint: static int lastc */
+/**
+ * modify getop so that it does not need to use ungetch: Hint: static int lastc
+ **/
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -122,4 +124,3 @@ int bufp;
 int getch(void) {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
-

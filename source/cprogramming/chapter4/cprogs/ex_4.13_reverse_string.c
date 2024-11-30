@@ -1,4 +1,7 @@
-/* a recursive version of reverse(s); the string reverse function */
+/**
+ * a recursive version of reverse(s); the string reverse function
+ **/
+
 #include<stdio.h>
 #include<string.h>
 
@@ -52,13 +55,3 @@ int main(void) {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,3 @@
-/* Exercise 1-22: Write a program to "fold" long input lines into two or more
-                  shorter lines after the last non-blank character that occurs
-                  before the n-th column of input. */
-
 #include <stdio.h>
 
 #define MAXCOL 35                           /* folded line length */
@@ -9,7 +5,18 @@
 #define CURTAB(c) (TABVAL - ((c) % TABVAL)) /* current tab size */
 #define NO_BLANK -1                         /* signifies no blank found */
 
-int lastblank(const char arr[], int len);
+/* finds the last whitespace character in an array
+   and returns the position */
+int lastblank(const char arr[], int len) {
+    int i, lbc;
+
+    lbc = -1;
+    for (i = 0; i < len; ++i)
+        if (arr[i] == ' ' || arr[i] == '\t' || arr[i] == '\n')
+            lbc = i;
+
+    return lbc;
+}
 
 /* folds long input lines into two or more shorter lines */
 int main(void) {
@@ -55,17 +62,4 @@ int main(void) {
     }
 
     return 0;
-}
-
-/* finds the last whitespace character in an array
-   and returns the position */
-int lastblank(const char arr[], int len) {
-    int i, lbc;
-
-    lbc = -1;
-    for (i = 0; i < len; ++i)
-        if (arr[i] == ' ' || arr[i] == '\t' || arr[i] == '\n')
-            lbc = i;
-
-    return lbc;
 }

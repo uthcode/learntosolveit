@@ -1,7 +1,9 @@
-/* getch and ungetch to handle EOF Character In all the ungetch and getch
+/**
+ * getch and ungetch to handle EOF Character. In all the ungetch and getch
  * functions written so far, the buf is declared as char buf[BUFSIZ].
  * Changing this to int buf[BUFSIZ] enable it to handle EOF.  As EOF is an
- * integer declared in stdio.h having the value -1 */
+ * integer declared in stdio.h having the value -1
+ **/
 
 #include<stdio.h>
 

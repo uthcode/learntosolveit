@@ -1,4 +1,6 @@
-/* Revise the Calculator program to use the getline instead of getch and ungetch */
+/**
+ * Revise the Calculator program to use the getline instead of getch and ungetch
+ **/
 
 #include<stdio.h>
 #include<stdlib.h> /* for atof() */

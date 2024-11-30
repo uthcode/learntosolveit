@@ -1,9 +1,3 @@
-/* Add commands to
-  - print top element of the stack,without poping
-  - duplicate it
-  - swap the top two elements
-  - Clear the stack  */
-
 #include <ctype.h>
 #include <math.h>
 #include <stdio.h>

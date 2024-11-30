@@ -1,13 +1,6 @@
-/* Include Mathematical Functions */
-/* Add commands to
-  - print top element of the stack,without poping
-  - duplicate it
-  - swap the top two elements
-  - Clear the stack  */
-
-/* IMPORTANT: compile with -lm flag(the static math library)
-   For eg: gcc -lm rpn-3.c
-*/
+/**
+ *  compile with -lm flag(the static math library)
+ **/
 
 #include <ctype.h>
 #include <math.h>
@@ -39,7 +32,6 @@ double pop(void);
 void mathfnc(char[]);
 
 /* reverse polish calculator */
-
 int main(void) {
     int type;
     double op2, op1;
@@ -184,7 +176,6 @@ void ungetch(int c) {
 }
 
 /* mathfnc: check the string s for supported math function */
-
 void mathfnc(char s[]) {
     double op2;
 

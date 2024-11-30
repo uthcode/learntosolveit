@@ -1,9 +1,7 @@
 /**
- *
  * Write a routine ungets(s) that will push back an entire string onto
  * the input. Should ungets(s) know about buf and bufp or
  * should it handle it to ungetch()
- *
  **/
 
 #include <stdio.h>
