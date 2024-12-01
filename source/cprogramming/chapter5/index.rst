@@ -25,4 +25,5 @@ Chapter 5
    ex_5.17_sortdfnr-withoption
    ex_5.18_dcl-errorec
    ex_5.19_undcl
+   ex_5.20_dcl-funcargs
 
