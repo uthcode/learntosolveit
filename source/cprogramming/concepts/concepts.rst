@@ -1,18 +1,33 @@
 C Programming Building Blocks
 =============================
 
-1. Integer and float data types.
-2. Character Datatype.
-3. Character Array and String.
-4. Pointers.
-5. Structures.
-6. Pointer to Structures.
-7. TypeDefs
-8. DEFS and IFDEFS Macros
-9. Union and Pointer to Unions
-10. Bitwise manipulation
-11. Using extern
-12. Using enums
-13. Important C headers.
-14. Program Structure
-15. malloc and calloc
+These are simple C programs that provide an intuitive understanding of the entire
+language. These are building blocks of programs that can help you understand any
+complex program. This even this entire Learn To Solve It can be approached if the reader
+has the intuitive understanding of these building block C Programs.
+
+Integer and float data types
+----------------------------
+
+.. literalinclude:: cprogs/p1_integer_float_data_types.c
+   :language: c
+
+Character Datatype
+------------------
+
+.. literalinclude:: cprogs/p2_character_datatype.c
+   :language: c
+
+Character Array and String
+Pointers
+Structures
+Pointer to Structures
+TypeDefs
+DEFS and IFDEFS Macros
+Union and Pointer to Unions
+Bitwise manipulation
+Using extern
+Using enums
+Important C headers
+Program Structure
+malloc and calloc
