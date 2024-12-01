@@ -25,4 +25,4 @@ C Programming
    ./cprogramming/chapter6/index.rst
    ./cprogramming/chapter7/index.rst
    ./cprogramming/chapter8/index.rst
-   ./concepts/concepts.rst
+   ./cprogramming/concepts/concepts.rst
