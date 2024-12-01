@@ -50,6 +50,8 @@ html_short_title = 'Learn To Solve It'
 
 html_static_path = ['_static']
 
+html_extra_path = ["Ads.txt"]
+
 # These paths are either relative to html_static_path
 # or fully qualified paths (eg. https://...)
 
