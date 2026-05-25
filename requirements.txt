@@ -1,4 +1,4 @@
 sphinx
 piccolo_theme
 sphinx-autobuild
-sphinxcontrib-coderun
+sphinxcontrib-coderun==0.1.1
