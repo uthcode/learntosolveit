@@ -6,6 +6,7 @@
 
 #include<stdio.h>
 #include<ctype.h>
+#include<stdlib.h>
 
 #define NUMERIC  1    /* numeric sort */
 #define DECR    2    /* sort in decreasing order */
@@ -61,7 +62,6 @@ int main(int argc, char *argv[]) {
 
 void readargs(int argc, char *argv[]) {
     int c;
-    int atoi(char *);
 
     while (--argc > 0 && (c = (*++argv)[0]) == '-' || c == '+') {
         if (c == '-' && !isdigit(*(argv[0] + 1)))

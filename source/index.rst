@@ -15,7 +15,7 @@ C Programming
 =============
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    ./cprogramming/chapter1/index.rst
    ./cprogramming/chapter2/index.rst
