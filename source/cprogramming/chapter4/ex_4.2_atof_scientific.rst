@@ -33,3 +33,10 @@ Visualize It
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20convert%20string%20to%20double%2C%20including%20decimal%20point%20%2A%2F%0A%23include%20%3Cctype.h%3E%0A%23include%20%3Cstdio.h%3E%0Adouble%20myatof%28char%20s%5B%5D%29%20%7B%0A%20%20%20%20double%20val%20%3D%200.0%2C%20pow%20%3D%201.0%3B%0A%20%20%20%20int%20i%20%3D%200%2C%20sign%20%3D%201%3B%0A%20%20%20%20if%20%28s%5Bi%5D%20%3D%3D%20%27-%27%29%20%7B%20sign%20%3D%20-1%3B%20i%2B%2B%3B%20%7D%0A%20%20%20%20for%20%28%3B%20isdigit%28s%5Bi%5D%29%3B%20i%2B%2B%29%20val%20%3D%2010.0%20%2A%20val%20%2B%20%28s%5Bi%5D%20-%20%270%27%29%3B%0A%20%20%20%20if%20%28s%5Bi%5D%20%3D%3D%20%27.%27%29%20i%2B%2B%3B%0A%20%20%20%20for%20%28%3B%20isdigit%28s%5Bi%5D%29%3B%20i%2B%2B%29%20%7B%20val%20%3D%2010.0%20%2A%20val%20%2B%20%28s%5Bi%5D%20-%20%270%27%29%3B%20pow%20%2A%3D%2010.0%3B%20%7D%0A%20%20%20%20return%20sign%20%2A%20val%20%2F%20pow%3B%0A%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20printf%28%22%25f%5Cn%22%2C%20myatof%28%223.14%22%29%29%3B%0A%20%20%20%20printf%28%22%25f%5Cn%22%2C%20myatof%28%22-2.5%22%29%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

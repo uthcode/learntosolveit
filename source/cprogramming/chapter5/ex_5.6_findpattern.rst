@@ -73,3 +73,10 @@ that we found a NUMBER.
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20strindex%20scans%20s%20for%20first%20match%20of%20pattern%20t%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20strindex%28char%20s%5B%5D%2C%20char%20t%5B%5D%29%20%7B%0A%20%20%20%20int%20i%2C%20j%2C%20k%3B%0A%20%20%20%20for%20%28i%20%3D%200%3B%20s%5Bi%5D%20%21%3D%20%27%5C0%27%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28j%3Di%2C%20k%3D0%3B%20t%5Bk%5D%21%3D%27%5C0%27%20%26%26%20s%5Bj%5D%3D%3Dt%5Bk%5D%3B%20j%2B%2B%2C%20k%2B%2B%29%3B%0A%20%20%20%20%20%20%20%20if%20%28k%20%3E%200%20%26%26%20t%5Bk%5D%20%3D%3D%20%27%5C0%27%29%20return%20i%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%20-1%3B%0A%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20strindex%28%22hello%22%2C%20%22ell%22%29%29%3B%20%2F%2A%201%20%2A%2F%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20strindex%28%22hello%22%2C%20%22xyz%22%29%29%3B%20%2F%2A%20-1%20%2A%2F%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

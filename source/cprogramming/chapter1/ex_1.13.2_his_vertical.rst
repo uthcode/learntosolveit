@@ -89,3 +89,9 @@ we will have hit the bottom of the histogram::
     '*''*''*''*'
 
 Combing them all, we would have drawn the horizontal histogram like above.
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20vertical%20histogram%20of%20word%20lengths%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20main%28void%29%20%7B%0A%20%20%20%20int%20word%5B2%5D%20%3D%20%7B0%7D%3B%0A%20%20%20%20char%20s%5B%5D%20%3D%20%22ab%20cd%5Cn%22%3B%0A%20%20%20%20int%20nc%20%3D%200%2C%20nw%20%3D%200%2C%20i%2C%20j%3B%0A%20%20%20%20for%20%28i%20%3D%200%3B%20s%5Bi%5D%3B%20%2B%2Bi%29%20%7B%0A%20%20%20%20%20%20%20%20%2B%2Bnc%3B%0A%20%20%20%20%20%20%20%20if%20%28s%5Bi%5D%20%3D%3D%20%27%20%27%20%7C%7C%20s%5Bi%5D%20%3D%3D%20%27%5Cn%27%29%20%7B%20word%5Bnw%2B%2B%5D%20%3D%20nc-1%3B%20nc%20%3D%200%3B%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20for%20%28i%20%3D%202%3B%20i%20%3E%3D%201%3B%20--i%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28j%20%3D%200%3B%20j%20%3C%20nw%3B%20%2B%2Bj%29%20putchar%28i%20%3C%3D%20word%5Bj%5D%20%3F%20%27%2A%27%20%3A%20%27%20%27%29%3B%0A%20%20%20%20%20%20%20%20putchar%28%27%5Cn%27%29%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

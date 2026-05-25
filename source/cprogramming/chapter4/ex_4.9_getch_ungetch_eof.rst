@@ -31,3 +31,10 @@ Visualize It
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20int%20buffer%20for%20ungetch%2Fgetch%20so%20EOF%20%28-1%29%20can%20be%20pushed%20back%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0A%23define%20BUFSIZE%204%0Aint%20buf%5BBUFSIZE%5D%3B%0Aint%20bufp%20%3D%200%3B%0Aint%20getch%28void%29%20%7B%20return%20bufp%20%3E%200%20%3F%20buf%5B--bufp%5D%20%3A%20EOF%3B%20%7D%0Avoid%20ungetch%28int%20c%29%20%7B%20if%20%28bufp%20%3C%20BUFSIZE%29%20buf%5Bbufp%2B%2B%5D%20%3D%20c%3B%20%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20ungetch%28%27%2A%27%29%3B%0A%20%20%20%20ungetch%28%27H%27%29%3B%0A%20%20%20%20int%20c%3B%0A%20%20%20%20while%20%28%28c%20%3D%20getch%28%29%29%20%21%3D%20EOF%29%20putchar%28c%29%3B%0A%20%20%20%20putchar%28%27%5Cn%27%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

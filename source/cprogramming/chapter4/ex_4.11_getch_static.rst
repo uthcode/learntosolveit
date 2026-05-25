@@ -76,3 +76,10 @@ The program execution looks like this.
 	201 305 + 20 *
 	        10120
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20static%20local%20variable%20retains%20value%20between%20function%20calls%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20counter%28void%29%20%7B%0A%20%20%20%20static%20int%20count%20%3D%200%3B%0A%20%20%20%20return%20%2B%2Bcount%3B%0A%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20counter%28%29%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20counter%28%29%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20counter%28%29%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

@@ -36,3 +36,10 @@ Try It
 .. raw:: html
 
    <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex48getchungetchpushback?embed=true"></iframe>
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20single%20global%20%27saved%27%20holds%20at%20most%20one%20pushed-back%20char%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Astatic%20int%20saved%20%3D%20-1%3B%0Avoid%20ungetch%28int%20c%29%20%7B%20saved%20%3D%20c%3B%20%7D%0Aint%20%20getch%28void%29%20%20%20%20%7B%20int%20c%20%3D%20saved%3B%20saved%20%3D%20-1%3B%20return%20c%3B%20%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20ungetch%28%27A%27%29%3B%0A%20%20%20%20printf%28%22getch%3D%25c%5Cn%22%2C%20getch%28%29%29%3B%20%20%20%20%20%20%20%2F%2A%20A%20%2A%2F%0A%20%20%20%20printf%28%22getch%3D%25d%20%28empty%29%5Cn%22%2C%20getch%28%29%29%3B%20%2F%2A%20-1%20%2A%2F%0A%20%20%20%20ungetch%28%27B%27%29%3B%0A%20%20%20%20ungetch%28%27C%27%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2A%20overwrites%20B%20%2A%2F%0A%20%20%20%20printf%28%22getch%3D%25c%5Cn%22%2C%20getch%28%29%29%3B%20%20%20%20%20%20%20%2F%2A%20C%20%2A%2F%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

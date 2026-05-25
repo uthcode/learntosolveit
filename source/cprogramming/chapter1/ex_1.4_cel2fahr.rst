@@ -29,3 +29,10 @@ enters the while loop it checks whether celsius <= upper is true if it is true
 then it assigns the variable fahr (9.0/5.0) * celsius + 32.0 and then it prints
 out put.
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20celsius%20to%20fahrenheit%20conversion%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20main%28void%29%20%7B%0A%20%20%20%20float%20celsius%3B%0A%20%20%20%20printf%28%22C%20%20%20%20%20F%5Cn%5Cn%22%29%3B%0A%20%20%20%20for%20%28celsius%20%3D%200%3B%20celsius%20%3C%3D%2040%3B%20celsius%20%2B%3D%2020%29%0A%20%20%20%20%20%20%20%20printf%28%22%253.0f%20%256.1f%5Cn%22%2C%20celsius%2C%20%289.0%2F5.0%29%2Acelsius%20%2B%2032.0%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

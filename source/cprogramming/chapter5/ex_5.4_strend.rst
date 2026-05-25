@@ -76,3 +76,10 @@ return 0.
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20walk%20both%20pointers%20to%20ends%2C%20then%20compare%20backwards%20for%20suffix%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20strend%28char%20%2As%2C%20char%20%2At%29%20%7B%0A%20%20%20%20char%20%2Aps%20%3D%20s%2C%20%2Apt%20%3D%20t%3B%0A%20%20%20%20while%20%28%2Aps%29%20ps%2B%2B%3B%0A%20%20%20%20while%20%28%2Apt%29%20pt%2B%2B%3B%0A%20%20%20%20while%20%28pt%20%3E%20t%20%26%26%20ps%20%3E%20s%20%26%26%20%2A--pt%20%3D%3D%20%2A--ps%29%3B%0A%20%20%20%20return%20%2Apt%20%3D%3D%20%2Aps%3B%0A%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20strend%28%22hello%22%2C%20%22lo%22%29%29%3B%20%2F%2A%201%20%2A%2F%0A%20%20%20%20printf%28%22%25d%5Cn%22%2C%20strend%28%22hello%22%2C%20%22hi%22%29%29%3B%20%2F%2A%200%20%2A%2F%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

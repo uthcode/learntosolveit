@@ -43,3 +43,10 @@ The crux of the program is this::
         ++j;
       }
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20reverse%20a%20string%20in-place%20using%20two%20pointers%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20main%28void%29%20%7B%0A%20%20%20%20char%20s%5B%5D%20%3D%20%22hello%22%3B%0A%20%20%20%20int%20i%20%3D%200%2C%20j%2C%20len%3B%0A%20%20%20%20char%20temp%3B%0A%20%20%20%20while%20%28s%5Bi%5D%29%20i%2B%2B%3B%0A%20%20%20%20len%20%3D%20i%3B%0A%20%20%20%20for%20%28i%20%3D%200%2C%20j%20%3D%20len-1%3B%20i%20%3C%20j%3B%20i%2B%2B%2C%20j--%29%20%7B%0A%20%20%20%20%20%20%20%20temp%20%3D%20s%5Bi%5D%3B%20s%5Bi%5D%20%3D%20s%5Bj%5D%3B%20s%5Bj%5D%20%3D%20temp%3B%0A%20%20%20%20%7D%0A%20%20%20%20printf%28%22%25s%5Cn%22%2C%20s%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

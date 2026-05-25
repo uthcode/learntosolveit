@@ -44,3 +44,10 @@ is smaller than rhs or positive value if lhs is greater than rhs.
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20strncpy%20copies%20at%20most%20n%20chars%2C%20zero-pads%20if%20source%20is%20shorter%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Avoid%20mystrncpy%28char%20%2At%2C%20char%20%2As%2C%20int%20n%29%20%7B%0A%20%20%20%20for%20%28%3B%20n%20%3E%200%20%26%26%20%28%2At%20%3D%20%2As%29%20%21%3D%20%27%5C0%27%3B%20t%2B%2B%2C%20s%2B%2B%2C%20n--%29%3B%0A%20%20%20%20while%20%28n--%20%3E%200%29%20%2At%2B%2B%20%3D%20%27%5C0%27%3B%0A%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20char%20dst%5B10%5D%3B%0A%20%20%20%20mystrncpy%28dst%2C%20%22hello%22%2C%203%29%3B%0A%20%20%20%20dst%5B3%5D%20%3D%20%27%5C0%27%3B%0A%20%20%20%20printf%28%22%25s%5Cn%22%2C%20dst%29%3B%20%20%2F%2A%20hel%20%2A%2F%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

@@ -145,3 +145,10 @@ can be represented as (unsigned char) ~0 = 1111 1111
     = 1 * 2^7 + 1 * 2^ 6 + 1 * 2^5 + 1 * 2^4 + 1 * 2^3 + 1 *2^2 + 1 * 2^1 + 1 * 2^0
     = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1
     = 255
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20compute%20integer%20limits%20using%20bit%20tricks%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20main%28%29%20%7B%0A%20%20%20%20printf%28%22Max%20Signed%20Char%3A%20%25d%5Cn%22%2C%20%28int%29%28%28unsigned%20char%29~0%20%3E%3E%201%29%29%3B%0A%20%20%20%20printf%28%22Min%20Signed%20Char%3A%20%25d%5Cn%22%2C%20-%28int%29%28%28unsigned%20char%29~0%20%3E%3E%201%29%20-%201%29%3B%0A%20%20%20%20printf%28%22Max%20Signed%20Int%3A%20%25d%5Cn%22%2C%20%28int%29%28%28unsigned%20int%29~0%20%3E%3E%201%29%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

@@ -69,3 +69,10 @@ This takes a file as argument, and prints the file into number of pages, with Pa
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20line%20and%20page%20counters%20control%20file%20pagination%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0A%23define%20LINESPERPAGE%203%0Aint%20main%28void%29%20%7B%0A%20%20%20%20char%20%2Alines%5B%5D%20%3D%20%7B%22line1%22%2C%22line2%22%2C%22line3%22%2C%22line4%22%2C%22line5%22%7D%3B%0A%20%20%20%20int%20i%2C%20line%20%3D%200%2C%20pg%20%3D%201%3B%0A%20%20%20%20for%20%28i%20%3D%200%3B%20i%20%3C%205%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20printf%28%22%25s%5Cn%22%2C%20lines%5Bi%5D%29%3B%0A%20%20%20%20%20%20%20%20if%20%28%2B%2Bline%20%3D%3D%20LINESPERPAGE%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20printf%28%22---%20Page%20%25d%20end%20---%5Cn%22%2C%20pg%2B%2B%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20line%20%3D%200%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>

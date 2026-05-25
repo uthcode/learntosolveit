@@ -78,3 +78,10 @@ array.
 
 
 
+
+Visualize the Concept
+---------------------
+
+.. raw:: html
+
+   <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%2F%2A%20Concept%3A%20getint%20reads%20an%20integer%20via%20a%20pointer%20argument%20%2A%2F%0A%23include%20%3Cstdio.h%3E%0Aint%20getint%28int%20%2Apn%29%20%7B%0A%20%20%20%20char%20s%5B%5D%20%3D%20%2242%22%3B%0A%20%20%20%20int%20i%20%3D%200%3B%0A%20%20%20%20%2Apn%20%3D%200%3B%0A%20%20%20%20while%20%28s%5Bi%5D%20%3E%3D%20%270%27%20%26%26%20s%5Bi%5D%20%3C%3D%20%279%27%29%20%7B%20%2Apn%20%3D%20%2Apn%20%2A%2010%20%2B%20%28s%5Bi%5D%20-%20%270%27%29%3B%20i%2B%2B%3B%20%7D%0A%20%20%20%20return%20i%20%3E%200%20%3F%201%20%3A%200%3B%0A%7D%0Aint%20main%28void%29%20%7B%0A%20%20%20%20int%20n%3B%0A%20%20%20%20if%20%28getint%28%26n%29%20%3E%200%29%20printf%28%22%25d%5Cn%22%2C%20n%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0"> </iframe>
