@@ -4,6 +4,9 @@
  */
 
 #include <stdio.h>
+static const char *_input = "0xff\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXLINE 100
 #define BASE 16

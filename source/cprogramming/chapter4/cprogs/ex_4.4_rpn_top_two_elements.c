@@ -2,6 +2,9 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+static const char *_input = "3 4 +\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXOP 100
 #define NUMBER '0'

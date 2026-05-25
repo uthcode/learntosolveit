@@ -5,7 +5,7 @@ Section 1.10 External Variables and Scope
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.10_external_variables.c
+.. coderun:: cprogs/sec_1.10_external_variables.c
    :language: c
 
 Explanation

@@ -13,7 +13,7 @@ n columns. Should n be a variable or a symbolic parameter?
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.20_detab.c
+.. coderun:: cprogs/ex_1.20_detab.c
    :language: c
 
 Explanation

@@ -11,7 +11,7 @@ Write a program to print all input lines that are longer than 80 characters.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.17_lengt80.c
+.. coderun:: cprogs/ex_1.17_lengt80.c
    :language: c
 
 Explanation

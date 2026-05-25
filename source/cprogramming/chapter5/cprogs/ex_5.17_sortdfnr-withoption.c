@@ -172,6 +172,9 @@ int charcmp(char *s, char *t) {
 /* The source file substr.c */
 
 #include<string.h>
+static const char *_input = "banana\napple\ncherry\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 void error(char *);
 

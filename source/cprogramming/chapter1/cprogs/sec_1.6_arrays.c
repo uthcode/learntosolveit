@@ -1,4 +1,7 @@
 #include <stdio.h>
+static const char *_input = "hello world 123\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 /* count digits, white space, others */
 int main() {

@@ -11,6 +11,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+static const char *_input = "int x; int y; x = 1; y = x + 1;\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXWORD 1000       /* longest word that can be read by getword */
 #define DEFAULT_COMP_LEN 6 /* default length to compare */

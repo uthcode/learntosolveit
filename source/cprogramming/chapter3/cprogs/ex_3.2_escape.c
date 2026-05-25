@@ -1,4 +1,7 @@
 #include <stdio.h>
+static const char *_input = "tab:\there\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 #define MAXLINE 1000
 
 void escape(char s[], char t[]) {

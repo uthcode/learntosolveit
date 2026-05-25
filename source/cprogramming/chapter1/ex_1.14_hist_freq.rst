@@ -13,7 +13,7 @@ in its input.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.14_hist_freq.c
+.. coderun:: cprogs/ex_1.14_hist_freq.c
    :language: c
 
 Explanation

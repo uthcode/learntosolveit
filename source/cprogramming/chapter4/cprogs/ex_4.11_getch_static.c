@@ -79,6 +79,9 @@ double pop(void) {
 }
 
 #include<ctype.h>
+static const char *_input = "2 3 +\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 int getch(void);
 

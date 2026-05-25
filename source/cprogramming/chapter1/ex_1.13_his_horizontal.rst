@@ -12,7 +12,7 @@ easy to draw the histogram with the bars horizontal.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.13_his_horizontal.c
+.. coderun:: cprogs/ex_1.13_his_horizontal.c
    :language: c
 
 Explanation

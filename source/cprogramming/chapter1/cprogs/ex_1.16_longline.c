@@ -7,6 +7,9 @@
  **/
 
 #include <stdio.h>
+static const char *_input = "short\nthis is a much longer line to test the output\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 /* The size of the output that we would like */
 #define MAX 1000

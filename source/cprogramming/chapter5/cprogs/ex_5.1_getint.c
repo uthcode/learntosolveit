@@ -3,6 +3,9 @@
 
 #include<stdio.h>
 #include<ctype.h>
+static const char *_input = "42 100 -5\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define SIZE 1000
 #define BUFSIZE 100

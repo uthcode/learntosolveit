@@ -6,6 +6,9 @@
  **/
 
 #include <stdio.h>
+static const char *_input = "col1\tcol2\tcol3\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define TABINC 8
 

@@ -5,7 +5,7 @@ Section 1.5.3 Line Counting
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.5.3_line_counting.c
+.. coderun:: cprogs/sec_1.5.3_line_counting.c
    :language: c
 
 Explanation

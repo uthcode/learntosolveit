@@ -12,7 +12,7 @@ to delete entirely blank lines.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.18_remtrailbt.c
+.. coderun:: cprogs/ex_1.18_remtrailbt.c
    :language: c
 
 Explanation

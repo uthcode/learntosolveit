@@ -12,7 +12,7 @@ conversion.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.15_tempconv.c
+.. coderun:: cprogs/ex_1.15_tempconv.c
    :language: c
 
 Explanation

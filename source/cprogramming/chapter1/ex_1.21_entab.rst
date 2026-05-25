@@ -14,7 +14,7 @@ which should be given preference?
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.21_entab.c
+.. coderun:: cprogs/ex_1.21_entab.c
    :language: c
 
 Explanation

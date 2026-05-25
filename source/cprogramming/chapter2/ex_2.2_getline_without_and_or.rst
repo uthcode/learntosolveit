@@ -15,7 +15,7 @@ wrote in Chapter 1::
 Write a loop equivalent to the for loop above without using && or ||.
 
 
-.. literalinclude:: cprogs/ex_2.2_getline_without_and_or.c
+.. coderun:: cprogs/ex_2.2_getline_without_and_or.c
    :language: c
 
 

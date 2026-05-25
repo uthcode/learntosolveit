@@ -5,7 +5,7 @@ Section 1.5 Character Input and Output
 Program
 -------
 
-.. literalinclude:: cprogs/sec_1.5_inp2ou.c
+.. coderun:: cprogs/sec_1.5_inp2ou.c
    :language: c
 
 

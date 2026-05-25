@@ -6,7 +6,7 @@ Section 1.6 Arrays
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.6_arrays.c
+.. coderun:: cprogs/sec_1.6_arrays.c
    :language: c
 
 Explanation

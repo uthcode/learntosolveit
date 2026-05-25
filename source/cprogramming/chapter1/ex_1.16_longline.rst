@@ -12,7 +12,7 @@ the length of arbitrary long input lines, and as much as possible of the text.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.16_longline.c
+.. coderun:: cprogs/ex_1.16_longline.c
    :language: c
 
 

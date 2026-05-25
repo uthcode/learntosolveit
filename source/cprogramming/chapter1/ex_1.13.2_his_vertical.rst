@@ -12,7 +12,7 @@ the histogram with the bars vertical.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.13.2_his_vertical.c
+.. coderun:: cprogs/ex_1.13.2_his_vertical.c
    :language: c
 
 

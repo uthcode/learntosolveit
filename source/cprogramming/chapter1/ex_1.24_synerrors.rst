@@ -15,7 +15,7 @@ do it in full generality.)
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.24_synerrors.c
+.. coderun:: cprogs/ex_1.24_synerrors.c
    :language: c
 
 Explanation

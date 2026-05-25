@@ -1,4 +1,7 @@
 #include <stdio.h>
+static const char *_input = "The quick brown fox jumps over the lazy dog and keeps running far away\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXCOL 35                           /* folded line length */
 #define TABVAL 8                            /* standard tab length */

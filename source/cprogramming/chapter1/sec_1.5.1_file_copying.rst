@@ -6,5 +6,5 @@ Program
 -------
 
 
-.. literalinclude:: cprogs/sec_1.5.1_file_copying.c
+.. coderun:: cprogs/sec_1.5.1_file_copying.c
    :language: c

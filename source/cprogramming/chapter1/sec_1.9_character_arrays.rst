@@ -6,7 +6,7 @@ Section 1.9 Character Arrays
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.9_character_arrays.c
+.. coderun:: cprogs/sec_1.9_character_arrays.c
    :language: c
 
 Explanation

@@ -1,6 +1,9 @@
 /* Function lower(c) using conditional expression */
 
 #include <stdio.h>
+static const char *_input = "Hello World\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 int lower(int c);
 

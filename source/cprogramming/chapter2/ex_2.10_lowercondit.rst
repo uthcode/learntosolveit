@@ -8,7 +8,7 @@ Question
 Rewrite the function lower, which converts upper case letters to lower case,
 with a conditional expression instead of if-else.
 
-.. literalinclude:: cprogs/ex_2.10_lowercondit.c
+.. coderun:: cprogs/ex_2.10_lowercondit.c
    :language: c
 
 Explanation

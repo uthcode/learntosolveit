@@ -1,4 +1,7 @@
 #include <stdio.h>
+static const char *_input = "a-z A-Z 0-9\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 #define MAXLINE 100
 
 void expand(char s1[], char s2[]) {

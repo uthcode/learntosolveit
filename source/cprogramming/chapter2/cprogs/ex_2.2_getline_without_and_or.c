@@ -7,6 +7,9 @@
  **/
 
 #include <stdio.h>
+static const char *_input = "hello world\nthis is a longer line\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXLINE 1000
 

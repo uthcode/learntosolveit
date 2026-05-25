@@ -70,6 +70,9 @@ void writelines(char *lineptr[], int nlines, int decr) {
 }
 
 #include<stdlib.h>
+static const char *_input = "3\n1\n4\n1\n5\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 /* numcmp: compare s1 and s2 numerically */
 int numcmp(char *s1, char *s2) {

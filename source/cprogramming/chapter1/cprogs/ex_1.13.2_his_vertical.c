@@ -5,6 +5,9 @@
  **/
 
 #include <stdio.h>
+static const char *_input = "aabbccddee\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXWL 20 /* Maximum length of a word */
 #define MAXNO 25 /* Maximum No of words in a sentence */

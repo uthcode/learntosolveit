@@ -6,6 +6,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+static const char *_input = "line1\nline2\nline3\nline4\nline5\nline6\nline7\nline8\nline9\nline10\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define DEFLINES 10 /* default # of lines to print */
 #define LINES    100    /* maximum # of lines to print */

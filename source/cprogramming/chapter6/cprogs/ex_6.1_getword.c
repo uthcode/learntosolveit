@@ -1,6 +1,9 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+static const char *_input = "if (x > 0) { return x; } else { for (int i=0; i<n; i++) x++; }\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 struct key {
     char *word;

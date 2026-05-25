@@ -10,7 +10,7 @@ string s1 into the equivalent complete list abc...xyz in s2. Allow for letters
 of either case and digits, and be prepared to handle cases like a-b-c and a-z0-9
 and -a-z. Arrange that a leading or trailing -is taken literally.
 
-.. literalinclude:: cprogs/ex_3.3_expand.c
+.. coderun:: cprogs/ex_3.3_expand.c
    :language: c
    :tab-width: 4
 

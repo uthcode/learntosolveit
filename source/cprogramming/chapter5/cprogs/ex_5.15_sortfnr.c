@@ -7,6 +7,9 @@
 #include<string.h>
 #include<ctype.h>
 #include<stdlib.h>
+static const char *_input = "banana\napple\ncherry\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define NUMERIC 1    /* numeric sort */
 #define DECR    2    /* sort in decreasing order */

@@ -1,4 +1,7 @@
 #include <stdio.h>
+static const char *_input = "one two three\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define IN 1  /* inside a word */
 #define OUT 0 /* outside a word */

@@ -7,7 +7,7 @@ Question
 
 Write the program tail, which prints the last n lines of its input.
 
-.. literalinclude:: cprogs/ex_5.13_tailn.c
+.. coderun:: cprogs/ex_5.13_tailn.c
    :language: c
    :tab-width: 4
 

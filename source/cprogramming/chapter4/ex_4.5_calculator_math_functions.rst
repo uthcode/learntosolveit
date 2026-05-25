@@ -7,7 +7,7 @@ Question
 
 Add access to library functions like sin, exp, and pow.
 
-.. literalinclude:: cprogs/ex_4.5_calculator_math_functions.c
+.. coderun:: cprogs/ex_4.5_calculator_math_functions.c
    :language: c
 
 

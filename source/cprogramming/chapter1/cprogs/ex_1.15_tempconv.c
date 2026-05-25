@@ -7,6 +7,9 @@
  **/
 
 #include <stdio.h>
+static const char *_input = "1\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define LOWER 0
 #define UPPER 300

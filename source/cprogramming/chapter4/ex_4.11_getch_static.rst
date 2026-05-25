@@ -8,7 +8,7 @@ Question
 Modify getop so that it doesn't need to use ungetch. Hint: use an internal
 static variable.
 
-.. literalinclude:: cprogs/ex_4.11_getch_static.c
+.. coderun:: cprogs/ex_4.11_getch_static.c
    :language: c
 
 Explanation

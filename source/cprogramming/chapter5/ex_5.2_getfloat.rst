@@ -8,7 +8,7 @@ Question
 Write getfloat, the floating-point analog of getint. What type does getfloat
 return as its function value?
 
-.. literalinclude:: cprogs/ex_5.2_getfloat.c
+.. coderun:: cprogs/ex_5.2_getfloat.c
    :language: c
    :tab-width: 4
 

@@ -8,7 +8,7 @@ Question
 Given the basic framework, it's straightforward to extend the calculator. Add
 the modulus (%) operator and provisions for negative numbers.
 
-.. literalinclude:: cprogs/ex_4.3_rpn_modulus_negative.c
+.. coderun:: cprogs/ex_4.3_rpn_modulus_negative.c
    :language: c
 
 Explanation

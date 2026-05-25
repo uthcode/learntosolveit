@@ -33,6 +33,9 @@ const char *noiseWords[N_OF_NOISEWORDS]={"a", "about", "after", "all",
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+static const char *_input = "int main() { int x = 1; return x; }\n";
+static int _pos = 0;
+#define getchar() (_input[_pos] ? (int)(unsigned char)_input[_pos++] : EOF)
 
 #define MAXWORD 500
 

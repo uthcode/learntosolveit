@@ -12,7 +12,7 @@ write a program that reverses its input a line at a time.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.19_reversestr.c
+.. coderun:: cprogs/ex_1.19_reversestr.c
    :language: c
 
 

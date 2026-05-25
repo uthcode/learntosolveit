@@ -15,7 +15,7 @@ there are no blanks or tabs before the specified column.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.22_fold.c
+.. coderun:: cprogs/ex_1.22_fold.c
    :language: c
 
 Explanation

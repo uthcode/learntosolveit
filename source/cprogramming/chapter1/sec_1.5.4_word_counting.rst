@@ -6,7 +6,7 @@ Section 1.5.4 Word Counting
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.5.4_word_counting.c
+.. coderun:: cprogs/sec_1.5.4_word_counting.c
    :language: c
 
 Explanation
