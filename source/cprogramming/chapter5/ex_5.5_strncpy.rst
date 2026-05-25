@@ -8,7 +8,7 @@ Question
 Write versions of the library functions strncpy, strncat, and strncmp, which
 operate on at most the first n characters of their argument strings.
 
-.. literalinclude:: cprogs/ex_5.5_strncpy.c
+.. coderun:: cprogs/ex_5.5_strncpy.c
    :language: c
    :tab-width: 4
 

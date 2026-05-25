@@ -8,7 +8,7 @@ Question
 Copy input to output by using read and write system calls.
 
 
-.. literalinclude:: cprogs/sec_8_2_read_write.c
+.. coderun:: cprogs/sec_8_2_read_write.c
    :language: c
    :tab-width: 4
 

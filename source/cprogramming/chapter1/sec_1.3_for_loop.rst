@@ -13,7 +13,7 @@ Let's try a variation on the temperature converter using for loop.
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.3_for_loop.c
+.. coderun:: cprogs/sec_1.3_for_loop.c
    :language: c
 
 Explanation

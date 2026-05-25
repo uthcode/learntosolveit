@@ -11,7 +11,7 @@ and by direct computation.  Harder if you compute them: determine the ranges of
 the various floating-point types.
 
 
-.. literalinclude:: cprogs/ex_2.1_cal_limits.c
+.. coderun:: cprogs/ex_2.1_cal_limits.c
    :language: c
 
 Explanation

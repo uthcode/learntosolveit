@@ -13,7 +13,7 @@ temperatures and  their centigrade or Celsius equivalents.
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.2_fahr2cel.c
+.. coderun:: cprogs/sec_1.2_fahr2cel.c
    :language: c
 
 

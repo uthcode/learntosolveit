@@ -10,7 +10,7 @@ const, and so on.
 
 The implementation of this program is from https://clc-wiki.net/wiki/K%26R2_solutions:Chapter_5:Exercise_20
 
-.. literalinclude:: cprogs/ex_5.20_dcl-funcargs.c
+.. coderun:: cprogs/ex_5.20_dcl-funcargs.c
    :language: c
    :tab-width: 4
 

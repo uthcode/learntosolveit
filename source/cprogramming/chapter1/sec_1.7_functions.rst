@@ -6,7 +6,7 @@ Section 1.7 Functions
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.7_functions.c
+.. coderun:: cprogs/sec_1.7_functions.c
    :language: c
 
 Explanation

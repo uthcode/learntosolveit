@@ -12,7 +12,7 @@ that is, from 300 degrees to 0.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.5_reverse.c
+.. coderun:: cprogs/ex_1.5_reverse.c
    :language: c
 
 Explanation

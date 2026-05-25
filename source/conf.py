@@ -84,21 +84,13 @@ try:
 except NameError:
     extensions = []
 
-extensions.append('sphinx_wagtail_theme')
-html_theme = 'sphinx_wagtail_theme'
+extensions.append('sphinxcontrib.coderun')
+html_theme = 'piccolo_theme'
 
-project = ""
-# These are options specifically for the Wagtail Theme.
-html_theme_options = dict(
-    project_name ="Learn To Solve It",
-    logo = "uthcode.png",
-    logo_alt = "",
-    github_url = "https://github.com/uthcode/learntosolveit/blob/master/source/",
-    logo_height = 59,
-    logo_url = "/",
-    logo_width = 45,
-    header_links = "Computer Science Courses|https://courses.learntosolveit.com/, Anki| https://ankiweb.net/decks, Projects|https://projects.learntosolveit.com/, Just Do Beaver|https://beaver.learntosolveit.com/",
-    footer_links = ",".join([
-        "Senthil Kumaran|https://senthil.learntosolveit.com/",
-    ]),
-)
+coderun_url = 'https://codapi.learntosolveit.com'
+coderun_sandbox = 'gcc'
+
+project = "Learn To Solve It"
+html_theme_options = {
+    "source_url": "https://github.com/uthcode/learntosolveit/blob/master/source/"
+}

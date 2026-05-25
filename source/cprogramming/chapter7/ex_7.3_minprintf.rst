@@ -7,7 +7,7 @@ Question
 
 Revise minprintf to handle more of the other facilities of printf.
 
-.. literalinclude:: cprogs/ex_7.3_minprintf.c
+.. coderun:: cprogs/ex_7.3_minprintf.c
    :language: c
    :tab-width: 4
 

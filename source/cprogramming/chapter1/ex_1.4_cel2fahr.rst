@@ -12,7 +12,7 @@ Write a program to print the corresponding Celsius to Fahrenheit table.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.4_cel2fahr.c
+.. coderun:: cprogs/ex_1.4_cel2fahr.c
    :language: c
 
 Explanation

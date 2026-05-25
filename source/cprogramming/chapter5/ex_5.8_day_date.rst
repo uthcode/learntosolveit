@@ -7,7 +7,7 @@ Question
 
 There is no error checking in day_of_year or month_day. Remedy this defect.
 
-.. literalinclude:: cprogs/ex_5.8_day_date.c
+.. coderun:: cprogs/ex_5.8_day_date.c
    :language: c
    :tab-width: 4
 

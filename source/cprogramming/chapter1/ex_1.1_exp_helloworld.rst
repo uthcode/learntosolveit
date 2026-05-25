@@ -8,7 +8,7 @@ Question
 Run the `hello, world` program on your system. Experiment with leaving out
 parts of the program, to see what error messages you get.
 
-.. literalinclude:: cprogs/sec_1.1_helloworld.c
+.. coderun:: cprogs/sec_1.1_helloworld.c
    :language: c
 
 Explanation

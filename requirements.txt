@@ -1,4 +1,4 @@
 sphinx
-sphinx-wagtail-theme
+piccolo_theme
 sphinx-autobuild
-breathe
+sphinxcontrib-coderun

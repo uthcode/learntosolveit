@@ -17,7 +17,7 @@ Print the words
 Solution
 ========
 
-.. literalinclude:: cprogs/sec_1.1_helloworld.c
+.. coderun:: cprogs/sec_1.1_helloworld.c
    :language: c
 
 Extras

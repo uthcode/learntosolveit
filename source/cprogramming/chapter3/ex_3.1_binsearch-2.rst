@@ -9,7 +9,7 @@ Our binary search makes two tests inside the loop, when one would suffice (at
 the price of more tests outside.) Write a version with only one test inside the
 loop and measure the difference in runtime.
 
-.. literalinclude:: cprogs/ex_3.1_binsearch-2.c
+.. coderun:: cprogs/ex_3.1_binsearch-2.c
    :language: c
    :tab-width: 4
 

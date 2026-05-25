@@ -11,7 +11,7 @@ Modify the temperature conversion program to print a heading above the table.
 Solution
 --------
 
-.. literalinclude:: cprogs/ex_1.3_fahr2celheading.c
+.. coderun:: cprogs/ex_1.3_fahr2celheading.c
    :language: c
 
 Explanation

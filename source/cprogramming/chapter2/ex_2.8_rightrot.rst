@@ -8,7 +8,7 @@ Question
 Write a function rightrot(x,n) that returns the value of the integer x rotated
 to the right by n positions.
 
-.. literalinclude:: cprogs/ex_2.8_rightrot.c
+.. coderun:: cprogs/ex_2.8_rightrot.c
    :language: c
 
 Explanation

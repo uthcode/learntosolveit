@@ -5,7 +5,7 @@ Section 1.4 Symbolic Constants
 Program
 =======
 
-.. literalinclude:: cprogs/sec_1.4_symbolic.c
+.. coderun:: cprogs/sec_1.4_symbolic.c
    :language: c
 
 Explanation

@@ -7,7 +7,7 @@ Question
 
 Define a macro swap(t,x,y) that interchanges two arguments of type t.
 
-.. literalinclude:: cprogs/ex_4.14_swap_t_x_y.c
+.. coderun:: cprogs/ex_4.14_swap_t_x_y.c
    :language: c
 
 Explanation
