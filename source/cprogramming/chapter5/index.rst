@@ -1,13 +1,12 @@
-=========
-Chapter 5
-=========
+===================
+Pointers and Arrays
+===================
 
 .. toctree::
    :maxdepth: 1
 
 
    ex_5.1_getint
-   ex_5.20_dcl-funcargs
    ex_5.2_getfloat
    ex_5.3_strcat
    ex_5.4_strend

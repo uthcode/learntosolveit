@@ -2,3 +2,8 @@
   flex-grow: 3;
   max-width: 100%;
 }
+
+#right_sidebar,
+#show_right_sidebar {
+    display: none !important;
+}

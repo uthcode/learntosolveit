@@ -1,6 +1,6 @@
-======================================================================
-Exercise 2.5 - return the first location in the string s1 comparing s2
-======================================================================
+===========================================================
+2.5 return the first location in the string s1 comparing s2
+===========================================================
 
 Question
 ========
@@ -38,9 +38,3 @@ Visualization
 
    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0A%23define%20MAXLINE%201000%0A%0Aint%20any%28char%20s1%5B%5D,%20const%20char%20s2%5B%5D%29%3B%0A%0Aint%20main%28void%29%20%7B%0A%20%20%20%20char%20s1%5B%5D%20%3D%20%7B'X',%20'Y',%20'L',%20'O',%20'%5C0'%7D%3B%0A%20%20%20%20char%20s2%5B%5D%20%3D%20%7B'O',%20'z',%20'%5C0'%7D%3B%0A%0A%20%20%20%20int%20val%3B%0A%0A%20%20%20%20val%20%3D%20any%28s1,%20s2%29%3B%0A%0A%20%20%20%20printf%28%22%25d%22,%20val%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A%0Aint%20any%28char%20s1%5B%5D,%20const%20char%20s2%5B%5D%29%20%7B%0A%20%20%20%20int%20i,%20j%3B%0A%0A%20%20%20%20for%20%28i%20%3D%200%3B%20s1%5Bi%5D%20!%3D%20'%5C0'%3B%20%2B%2Bi%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28j%20%3D%200%3B%20s2%5Bj%5D%20!%3D%20'%5C0'%3B%20%2B%2Bj%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20%28s1%5Bi%5D%20%3D%3D%20s2%5Bj%5D%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20i%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%0A%20%20%20%20return%20-1%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
-Try It Out
-==========
-
-.. raw:: html
-
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex25any?embed=true"></iframe>

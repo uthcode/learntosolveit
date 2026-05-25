@@ -1,6 +1,6 @@
-=========
-Chapter 3
-=========
+============
+Control Flow
+============
 
 .. toctree::
    :maxdepth: 1

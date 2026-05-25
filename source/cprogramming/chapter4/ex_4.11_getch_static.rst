@@ -1,6 +1,6 @@
-====================================
-Exercise 4.11 - getline using static
-====================================
+=========================
+4.11 getline using static
+=========================
 
 Question
 ========
@@ -76,15 +76,3 @@ The program execution looks like this.
 	201 305 + 20 *
 	        10120
 
-Visualize It
-============
-
-* https://pythontutor.com/c.html
-
-Try It
-======
-
-
-.. raw:: html
-
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex411getchstatic?embed=true"></iframe>

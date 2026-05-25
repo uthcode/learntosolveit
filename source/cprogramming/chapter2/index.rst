@@ -1,6 +1,6 @@
-=========
-Chapter 2
-=========
+================================
+Types, Operators and Expressions
+================================
 
 .. toctree::
    :maxdepth: 1

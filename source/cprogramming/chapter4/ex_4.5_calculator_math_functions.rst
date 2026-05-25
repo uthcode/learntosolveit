@@ -1,6 +1,6 @@
-=========================================================
-Exercise 4.5 - RPN Calculator with mathematical functions
-=========================================================
+==============================================
+4.5 RPN Calculator with mathematical functions
+==============================================
 
 Question
 ========
@@ -44,15 +44,4 @@ The curx of program is in this function.
            printf("error: %s is not supported\n",s);
    }
 
-Visualize It
-============
 
-* https://pythontutor.com
-
-Try It
-======
-
-
-.. raw:: html
-
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex45calculatormathfunctions?embed=true"></iframe>

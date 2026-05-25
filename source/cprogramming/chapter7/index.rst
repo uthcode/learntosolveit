@@ -1,6 +1,6 @@
-=========
-Chapter 7
-=========
+================
+Input and Output
+================
 
 .. toctree::
    :maxdepth: 1

@@ -1,6 +1,6 @@
-===================================================================================
-Exercise 4.4 - RPN Calculator - print two top elements of the stack without popping
-===================================================================================
+========================================================================
+4.4 RPN Calculator - print two top elements of the stack without popping
+========================================================================
 
 Question
 ========
@@ -64,11 +64,3 @@ Visualize It
 
 * https://pythontutor.com
 
-
-Try It
-======
-
-
-.. raw:: html
-
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex44rpntoptwoelements?embed=true"></iframe>

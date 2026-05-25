@@ -1,6 +1,6 @@
-=========
-Chapter 6
-=========
+==========
+Structures
+==========
 
 .. toctree::
    :maxdepth: 1

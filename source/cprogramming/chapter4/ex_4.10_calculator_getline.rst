@@ -1,6 +1,6 @@
-========================================
-Exercise 4.10 - Calculator using getline
-========================================
+=============================
+4.10 Calculator using getline
+=============================
 
 Question
 ========
@@ -81,10 +81,3 @@ Visualize It
 
 * https://pythontutor.com/c.html
 
-Try It
-======
-
-
-.. raw:: html
-
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex410calculatorgetline?embed=true"></iframe>

@@ -1,6 +1,6 @@
-=========
-Chapter 4
-=========
+===============================
+Functions and Program Structure
+===============================
 
 .. toctree::
    :maxdepth: 1

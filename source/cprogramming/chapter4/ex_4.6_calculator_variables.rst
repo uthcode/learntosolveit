@@ -1,6 +1,6 @@
-============================================
-Exercise 4.6 - RPN Calculator with variables
-============================================
+=================================
+4.6 RPN Calculator with variables
+=================================
 
 Question
 ========
@@ -38,10 +38,3 @@ Visualize It
 
 * https://pythontutor.com/
 
-Try It
-======
-
-
-.. raw:: html
-
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex46calculatorvariables?embed=true"></iframe>
