@@ -38,6 +38,7 @@ This uses the read and write system calls to copy input to output.
     # Test 3: Binary data (create a file with some null bytes)
 
     dd if=/dev/zero bs=1024 count=1 2>/dev/null | ./copy > /dev/null
+
 Visualize the Concept
 ---------------------
 

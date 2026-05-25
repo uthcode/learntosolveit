@@ -76,8 +76,8 @@ An example execution will look like this.
 	10.1 20.2 +
 	        30.3
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 * https://pythontutor.com/c.html
 

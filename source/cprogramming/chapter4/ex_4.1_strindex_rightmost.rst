@@ -2,8 +2,8 @@
 4.1 strindex which returns rightmost occurance
 ==============================================
 
-Code
-====
+Question
+========
 
 Write the function strindex(s,t) which returns the position of the rightmost
 occurrence of t in s, or -1 if there is none.
@@ -39,8 +39,8 @@ further. Thus our right most match is noted. If no search is found, then the
 result, `-1` is returned.
 
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 

@@ -26,3 +26,4 @@ C Programming
    ./cprogramming/chapter7/index.rst
    ./cprogramming/chapter8/index.rst
    ./cprogramming/concepts/concepts.rst
+   ./cprogramming/concepts/cvisual.rst

@@ -33,6 +33,7 @@ a stat on the file.
                                      902 source/_templates/layout.html Owner: ec2-user
                                      275 source/_templates/logo.html Owner: ec2-user
                                      60 source/_templates Owner: ec2-user
+
 Visualize the Concept
 ---------------------
 

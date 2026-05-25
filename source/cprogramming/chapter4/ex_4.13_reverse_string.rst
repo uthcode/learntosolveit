@@ -44,8 +44,8 @@ swapped with j`. And then reverser is called again with the next value of i,
 i.e, `++i`. This whole operation is done till i (from left hand side of the
 string)  is less than j (from the right end), i.e, `i < j`.
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 

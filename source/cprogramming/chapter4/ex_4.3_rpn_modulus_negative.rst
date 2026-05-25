@@ -49,8 +49,8 @@ Thus our operation of the RPN calculator for few inputs look like this.
    -10 -10 +
 	   -20
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 

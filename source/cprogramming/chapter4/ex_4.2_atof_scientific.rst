@@ -24,8 +24,8 @@ We might get the output::
 
    1410065408.000000
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 

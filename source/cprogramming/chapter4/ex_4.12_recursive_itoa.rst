@@ -50,8 +50,8 @@ stored from the previous iteration and in the last call of the recursion, the
 number the complete number is transformed from integer to string. `s` will look
 like `['1','7','2','8','\0']`  and this will be printed in the main program.
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 

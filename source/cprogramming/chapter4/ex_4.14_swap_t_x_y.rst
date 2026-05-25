@@ -28,8 +28,8 @@ In the macro, we send type `t` as an argument and two variables `x` and `y` to
 swap. We create a temperorary variable called `_z` of type `t` and use it to
 swap `x` and `y`.
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 

@@ -22,8 +22,8 @@ character in the input and `getch()`, if it finds the character in the buf,
 returns it or it calls `getchar` to get character from the user.
 
 
-Visualize It
-============
+Visualize the Full Solution
+---------------------------
 
 .. raw:: html
 
