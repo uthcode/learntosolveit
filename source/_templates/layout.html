@@ -1,6 +1,14 @@
 {% extends "!layout.html" %}
 
 {% block extrahead %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6G9RJ7HZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6G9RJ7HZR');
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8197049942123554"
         crossorigin="anonymous"></script>
 {% endblock %}
@@ -14,22 +22,6 @@
 {%- block footer %}
   {{ super() }}
   <div class="footer">
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-20558395-2']);
-      _gaq.push(['_setDomainName', 'github.com']);
-      _gaq.push(['_setAllowLinker', true]);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-
     <script async src="https://analytics.eu.umami.is/script.js" data-website-id="2df1f153-8058-48a6-bd46-c623df582814"></script>
 
   </div>
