@@ -35,7 +35,7 @@ Try It
 
 .. raw:: html
 
-   <iframe frameborder="0" width="100%" height="800px" src="https://replit.com/@learntosolveit/ex48getchungetchpushback?embed=true"></iframe>
+   <figure style="margin:0;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden"><iframe src="https://coddy.tech/embed-editor?lang=c&theme=light&layout=stacked&code=I2luY2x1ZGUgPHN0ZGlvLmg-CgpjaGFyIGJ1ZiA9IDA7CgovKiBnZXRjaDogZ2V0IGEgKHBvc3NpYmx5KSBwdXNoZWQgYmFjayBjaGFyYWN0ZXIgKi8KaW50IGdldGNoKHZvaWQpCnsKICAgIGludCBjOwoKICAgIGlmKGJ1ZiAhPSAwKQogICAgICAgIGMgPSBidWY7CiAgICBlbHNlCiAgICAgICAgYyA9IGdldGNoYXIoKTsKCiAgICBidWYgPSAwOwogICAgcmV0dXJuIGM7Cn0KCi8qIHVuZ2V0Y2g6IHB1c2ggYSBjaGFyYWN0ZXIgYmFjayBpbnRvIGlucHV0ICovCnZvaWQgdW5nZXRjaChpbnQgYykKewogICAgaWYoYnVmICE9IDApCiAgICAgICAgcHJpbnRmKCJ1bmdldGNoOiB0b28gbWFueSBjaGFyYWN0ZXJzXG4iKTsKICAgIGVsc2UKICAgICAgICBidWYgPSBjOwp9CgppbnQgbWFpbih2b2lkKQp7CiAgICBpbnQgYzsKCiAgICBjID0gJyonOwoKICAgIHVuZ2V0Y2goYyk7CgogICAgd2hpbGUoKGM9Z2V0Y2goKSkgIT0gRU9GKQogICAgICAgIHB1dGNoYXIoYyk7CgogICAgcmV0dXJuIDA7Cn0&credit=0" width="100%" height="500" style="display:block;border:0;width:100%" title="C code editor by Coddy" loading="lazy"></iframe><figcaption style="box-sizing:border-box;padding:5px 12px;font:11px/1.4 system-ui,-apple-system,sans-serif;color:#64748b;background:#f1f5f9;border-top:1px solid #e2e8f0;text-align:right" dir="ltr">Powered by <a href="https://coddy.tech/embed" target="_blank" rel="noopener" style="color:#0077ff;font-weight:600;text-decoration:none;">Coddy</a></figcaption></figure>
 
 Visualize the Concept
 ---------------------
